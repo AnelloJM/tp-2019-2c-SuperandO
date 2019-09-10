@@ -11,6 +11,8 @@
 #include <sys/wait.h>
 #include <signal.h>
 #include <stdbool.h>
+#include <commons/log.h>
+#include <commons/config.h>
 
 //Variables
 char* listen_IP;
@@ -18,6 +20,7 @@ int listen_port;
 int memory_size;
 int page_size;
 int swap_size;
+t_log logger;
 
 //Funciones
 void sigchld_handler(int s);

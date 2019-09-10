@@ -1,4 +1,4 @@
-#include <"MUSE.h">
+#include "MUSE.h"
 
 void sigchld_handler(int s) {
 	while (wait(NULL) > 0);
@@ -63,8 +63,8 @@ void levantarServidor() {
 }
 
 void crearLogger(char* file, char *program_name, bool is_active_console, t_log_level level){
-	logger = log_create(char* file, char *program_name, bool is_active_console, t_log_level level);
-	free(logPath);
+	logger = log_create(file,program_name,is_active_console,level);
+	free(file);
 }
 
 void leerConfig(char* configPath, t_log* logger){
