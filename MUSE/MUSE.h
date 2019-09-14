@@ -23,8 +23,6 @@ int swap_size;
 t_log logger;
 
 //Funciones
-void sigchld_handler(int s);
-void levantarServidor();
 void crearLogger(char* file, char *program_name, bool is_active_console, t_log_level level);
 void leerConfig(char* configPath, t_log* logger);
 void leerArchivoConfiguracion(char* configPath, t_log* logger);
