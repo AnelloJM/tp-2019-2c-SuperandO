@@ -1,5 +1,6 @@
 #include "lista.h"
 
+//Dada una lista y un elemento, si ese elemento esta en la lista, retorna su indice
 int list_get_index(t_list* self,void* elemento,bool (*comparator)(void *,void *)){
 	int longitud_de_lista = list_size(self);
 	int i;
@@ -14,7 +15,7 @@ int list_get_index(t_list* self,void* elemento,bool (*comparator)(void *,void *)
 	return cont;
 }
 
-
+// Dice que existen elementos repetidos en una lista
 bool list_element_repeats(t_list* self, bool (*comparator)(void *,void *)){
 	int longitud_de_lista = list_size(self);
 	int i,j;
