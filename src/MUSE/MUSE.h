@@ -1,6 +1,6 @@
-#include <ComunParaTodos/conexiones.h>
-#include <ComunParaTodos/configs.h>
-#include <ComunParaTodos/logs.h>
+//#include <ComunParaTodos/conexiones.h>
+#include <ComunParaTodos/config.h>
+#include <ComunParaTodos/log.h>
 #include <stdbool.h>
 
 #ifndef MUSE_MUSE_H_
