@@ -3,6 +3,7 @@
 	<name>tp-2019-2c-SuperandO</name>
 	<comment></comment>
 	<projects>
+		<project>ComunParaTodos</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
