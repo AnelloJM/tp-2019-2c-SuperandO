@@ -3,8 +3,8 @@
 #include <ComunParaTodos/log.h>
 #include <stdbool.h>
 
-#ifndef MUSE_MUSE_H_
-#define MUSE_MUSE_H
+//#ifndef MUSE_MUSE_H_
+//#define MUSE_MUSE_H
 
 /*FUNCIONES*/
 
@@ -20,8 +20,8 @@ int swap_size;
 
 int socket_servidor;
 int socket_cliente;
+t_log * logger;
 
 
 
-
-#endif /* MUSE_MUSE_H_ */
+//#endif /* MUSE_MUSE_H_ */
