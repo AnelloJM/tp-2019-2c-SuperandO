@@ -1,4 +1,4 @@
-#include "Conecciones.h"
+#include "Conexiones.h"
 
 
 int conectarse_a_un_servidor(char *ip, char* puerto,t_log* log){
