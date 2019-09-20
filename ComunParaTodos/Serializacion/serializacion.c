@@ -88,7 +88,7 @@ int RecibirPaqueteServidor(int socketFD, proceso quienRecibe, Paquete* paquete) 
 	return resul;
 }
 
-int RecibirPaqueteCliente(int socketFD, proceso quienEnvia, Paquete* paquete) {
+int RecibirPaqueteCliente(int socketFD, Paquete* paquete) {
 	paquete->mensaje = NULL;
 	int resul = RecibirDatos(&(paquete->header), socketFD, sizeof(Header));
 	if (resul > 0 && paquete->header.tipoMensaje != t_HANDSHAKE && paquete->header.tamanioMensaje > 0) { //si no hubo error ni es un t_HANDSHAKE
