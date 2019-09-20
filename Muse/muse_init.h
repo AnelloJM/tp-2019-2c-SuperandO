@@ -7,7 +7,7 @@
 
 #include <readline/readline.h>
 #include "conexion_test.h"
-#include "conexion_test.c"
+#include "conexion_test.c" //esto es medio ilegal, pero si no lo agrego no me reconoce las funciones
 #include <commons/log.h>
 #include <commons/string.h>
 #include <commons/config.h>

@@ -1,4 +1,6 @@
-
+/*
+libreria de prueba porque bno me deja incluir a la otra
+**/
 
 #ifndef CONEXION_TEST_H_
 #define CONEXION_TEST_H_

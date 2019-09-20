@@ -1,5 +1,8 @@
 #include "conexion_test.h"
 
+/*
+conexion de prueba porque no me deja importar libreria comun
+*/
 
 int iniciar_servidor(char* ip, int puerto){
 
