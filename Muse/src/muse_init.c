@@ -1,5 +1,4 @@
 #include "muse_init.h"
-
 /**
      * Inicializa la biblioteca de MUSE.
      * @param id El Process (o Thread) ID para identificar el caller en MUSE.
@@ -10,19 +9,9 @@
      * @note Debido a la naturaleza centralizada de MUSE, esta función deberá definir
      *  el ID del proceso/hilo según "IP-ID".
      */
+int main(int argc, char const *argv[]){
 
-
-
-
-int main(int argc, char const *argv[]) {
-
-  int id,puerto;
-  char* ip;
-
-
-
-  if(argc < 2)
-  {
+  if(argc < 2){
     printf("Faltan parámetros ..\n");
     printf("Indique el archivo de configuracion para\n");
     printf("leer los valores\n" );
@@ -30,13 +19,9 @@ int main(int argc, char const *argv[]) {
     exit(1);
   }
 
-  else
-  {
-    g_config = config_create(argv[1]);
-    id = leer_id(g_config);
-    ip = leer_ip(g_config);
-    puerto = leer_puerto(g_config);
-
+  else{
+	  crearLogger();
+	  leerArchivoDeConfiguracion();
   }
 
   printf("\n [+]La configuracion es la siguiente \n");
@@ -47,46 +32,35 @@ int main(int argc, char const *argv[]) {
 
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
-  muse_init(id,ip,puerto);
+  iniciar_servidor(ip,puerto,logger);
 
   return 0;
 }
 
+void leerArchivoDeConfiguracion(){
+	char* configPath = strdup("/home/utnso/workspace/tp-2019-2c-SuperandO/Muse/src/MUSE.cfg");
+	archivoConfig = config_create(configPath);
+	if (archivoConfig == NULL){
+		perror("ERROR: Archivo de configuracion no encontrado");
+		//loggearlo
+	}
+	setearValores(archivoConfig);
+	config_destroy(archivoConfig);
+}
 
-int leer_id(void *archivo)
-{
-  int id;
-  id = config_get_int_value(archivo,"ID");
-
-  //falta loggear los valores
-
-  return id;
+void setearValores(t_config* archivoConfig){
+	id = config_get_int_value(archivoConfig,"ID");
+	ip = config_get_string_value(archivoConfig,"IP");
+	puerto = config_get_int_value(archivoConfig,"PUERTO");
 
 }
 
-char* leer_ip(void *archivo)
-{
-  char *ip;
-  ip = config_get_string_value(archivo,"IP");
-
-    //falta loggear los valores
-
-  return ip;
-}
-
-int leer_puerto(void *archivo)
-{
-  int puerto;
-  puerto = config_get_int_value(archivo,"PUERTO");
-
-  //falta loggear los valores
-  return puerto;
+void crearLogger(){
+	char* logPath = strdup("/home/utnso/workspace/tp-2019-2c-SuperandO/Muse/src/MUSE.log");
+	char* nombreArch = "MUSE";
+	bool consolaActiva = true;
+	logger = log_create(logPath, nombreArch, consolaActiva, LOG_LEVEL_INFO);
+	free(logPath);
 }
 
 
-int muse_init(int id, char* ip, int puerto)
-{
-    iniciar_servidor(ip,puerto);
-
-    return 0;
-}
