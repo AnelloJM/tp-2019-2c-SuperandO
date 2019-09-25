@@ -17,6 +17,7 @@ t_config* archivoConfig;
 int id;
 int puerto;
 char* ip;
+int socketMuse;
 
 
 /* FUNCIONES */

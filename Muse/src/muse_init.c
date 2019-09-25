@@ -9,30 +9,19 @@
      * @note Debido a la naturaleza centralizada de MUSE, esta función deberá definir
      *  el ID del proceso/hilo según "IP-ID".
      */
-int main(int argc, char const *argv[]){
+int main(){
+  crearLogger();
+  leerArchivoDeConfiguracion();
 
-  if(argc < 2){
-    printf("Faltan parámetros ..\n");
-    printf("Indique el archivo de configuracion para\n");
-    printf("leer los valores\n" );
-    printf("USO: <programa> <archivo_de_configuracion.config>\n");
-    exit(1);
-  }
-
-  else{
-	  crearLogger();
-	  leerArchivoDeConfiguracion();
-  }
-
-  printf("\n [+]La configuracion es la siguiente \n");
-  printf("ID ->  %d\n",id );
-  printf("IP ->  %s\n",ip );
-  printf("Puerto ->  %d\n",puerto );
-  printf("--------------\n");
+  log_info(logger,"\n [+]La configuracion es la siguiente \n");
+  log_info(logger,"ID ->  %d\n",id );
+  log_info(logger,"IP ->  %s\n",ip );
+  log_info(logger,"Puerto ->  %d\n",puerto );
+  log_info(logger,"--------------\n");
 
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
-  iniciar_servidor(ip,puerto,logger);
+  socketMuse= iniciar_servidor(ip,puerto,logger);
 
   return 0;
 }
