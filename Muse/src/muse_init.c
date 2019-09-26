@@ -9,7 +9,8 @@
      * @note Debido a la naturaleza centralizada de MUSE, esta función deberá definir
      *  el ID del proceso/hilo según "IP-ID".
      */
-int main(){
+int main()
+{
   crearLogger();
   leerArchivoDeConfiguracion();
 
@@ -22,11 +23,14 @@ int main(){
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
   socketMuse= iniciar_servidor(ip,puerto,logger);
+  socket_cliente = esperar_cliente_con_accept(socketMuse,logger);
+  enviar_mensaje(socket_cliente,logger);
 
   return 0;
 }
 
-void leerArchivoDeConfiguracion(){
+void leerArchivoDeConfiguracion()
+{
 	char* configPath = "MUSE.cfg";
 	archivoConfig = config_create(configPath);
 	if (archivoConfig == NULL){
@@ -37,14 +41,16 @@ void leerArchivoDeConfiguracion(){
 	config_destroy(archivoConfig);
 }
 
-void setearValores(t_config* archivoConfig){
+void setearValores(t_config* archivoConfig)
+{
 	id = 14;//config_get_int_value(archivoConfig,"ID");
 	ip = "192.168.1.3";//config_get_string_value(archivoConfig,"IP");
 	puerto ="8080";//config_get_string_value(archivoConfig,"PUERTO");
 
 }
 
-void crearLogger(){
+void crearLogger()
+{
 	char* logPath = "MUSE.log";
 	char* nombreArch = "MUSE";
 	bool consolaActiva = true;

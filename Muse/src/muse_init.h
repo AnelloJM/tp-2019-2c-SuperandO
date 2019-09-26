@@ -18,6 +18,7 @@ int id;
 char *puerto;
 char* ip;
 int socketMuse;
+int socket_cliente;
 
 
 /* FUNCIONES */
