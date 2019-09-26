@@ -16,7 +16,7 @@ int main(){
   log_info(logger,"\n [+]La configuracion es la siguiente \n");
   log_info(logger,"ID ->  %d\n",id );
   log_info(logger,"IP ->  %s\n",ip );
-  log_info(logger,"Puerto ->  %d\n",puerto );
+  log_info(logger,"Puerto ->  %s\n",puerto );
   log_info(logger,"--------------\n");
 
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
@@ -27,7 +27,7 @@ int main(){
 }
 
 void leerArchivoDeConfiguracion(){
-	char* configPath = strdup("/home/utnso/workspace/tp-2019-2c-SuperandO/Muse/src/MUSE.cfg");
+	char* configPath = "MUSE.cfg";
 	archivoConfig = config_create(configPath);
 	if (archivoConfig == NULL){
 		perror("ERROR: Archivo de configuracion no encontrado");
@@ -38,18 +38,16 @@ void leerArchivoDeConfiguracion(){
 }
 
 void setearValores(t_config* archivoConfig){
-	id = config_get_int_value(archivoConfig,"ID");
-	ip = config_get_string_value(archivoConfig,"IP");
-	puerto = config_get_int_value(archivoConfig,"PUERTO");
+	id = 14;//config_get_int_value(archivoConfig,"ID");
+	ip = "192.168.1.3";//config_get_string_value(archivoConfig,"IP");
+	puerto =" 8080";//config_get_string_value(archivoConfig,"PUERTO");
 
 }
 
 void crearLogger(){
-	char* logPath = strdup("/home/utnso/workspace/tp-2019-2c-SuperandO/Muse/src/MUSE.log");
+	char* logPath = "MUSE.log";
 	char* nombreArch = "MUSE";
 	bool consolaActiva = true;
 	logger = log_create(logPath, nombreArch, consolaActiva, LOG_LEVEL_INFO);
-	free(logPath);
+//	free(logPath);
 }
-
-
