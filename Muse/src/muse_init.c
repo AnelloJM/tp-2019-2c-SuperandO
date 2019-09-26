@@ -40,7 +40,7 @@ void leerArchivoDeConfiguracion(){
 void setearValores(t_config* archivoConfig){
 	id = 14;//config_get_int_value(archivoConfig,"ID");
 	ip = "192.168.1.3";//config_get_string_value(archivoConfig,"IP");
-	puerto =" 8080";//config_get_string_value(archivoConfig,"PUERTO");
+	puerto ="8080";//config_get_string_value(archivoConfig,"PUERTO");
 
 }
 
