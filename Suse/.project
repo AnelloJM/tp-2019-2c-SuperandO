@@ -3,6 +3,7 @@
 	<name>Suse</name>
 	<comment></comment>
 	<projects>
+		<project>ComunParaTodos</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
