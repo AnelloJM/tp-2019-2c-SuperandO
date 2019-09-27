@@ -37,7 +37,6 @@ int iniciar_servidor(char* ip, char* puerto,t_log* logger){
     hints.ai_flags = AI_PASSIVE;
 
     getaddrinfo(ip, puerto, &hints, &servinfo);
-
     for (p=servinfo; p != NULL; p = p->ai_next)
     {
         if ((socket_servidor = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1)
@@ -79,5 +78,7 @@ int enviar_mensaje(int socket_cliente,t_log* logger)
 	char mensaje[40] = "Memoria se desayuna en dos panes a FL";
 	write(socket_cliente,mensaje,sizeof(mensaje));
 	log_info(logger, "Se envió el mensaje al cliente");
+
+	return 0;
 
 }
