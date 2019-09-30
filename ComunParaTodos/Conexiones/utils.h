@@ -23,7 +23,7 @@ t_log* logger;
 
 void* recibir_buffer(int*, int);
 
-int iniciar_servidor(char * PUERTO);
+int iniciar_servidor_utils(char * PUERTO);
 int esperar_cliente(int);
 t_list* recibir_paquete(int);
 void recibir_mensaje(int);

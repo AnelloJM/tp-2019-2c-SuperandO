@@ -26,7 +26,7 @@ endif
 all: Sac-Server
 
 dependents:
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) all
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) clean all
 
 # Tool invocations
 Sac-Server: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so
