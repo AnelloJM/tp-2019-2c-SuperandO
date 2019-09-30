@@ -5,7 +5,7 @@
 #include <string.h>
 #include <readline/readline.h>
 #include "../../ComunParaTodos/Conexiones/Conexiones.h" //esta libreria se define asi porque está en nuestro workspace
-#include "../../ComunParaTodos/Conexiones/Conexiones.c" // esta la sigo poniendo por mi editor, ignorenla
+//#include "../../ComunParaTodos/Conexiones/Conexiones.c" // esta la sigo poniendo por mi editor, ignorenla
 #include <commons/log.h>
 #include <commons/string.h>
 #include <commons/config.h>
@@ -20,7 +20,7 @@ t_config* archivoConfig;
 int socket_Suse;
 int socket_cliente;
 
-//Colas
+//Colas comunes para todos los programas
 t_queue * new;
 t_queue * blocked;
 t_queue * exit;
@@ -29,6 +29,7 @@ t_queue * exit;
 
 char* listen_port;
 int metrics_timer;
+int gMultiprogramacion;
 //Sems_ids[array]
 //sem_init[array]
 //sem_max[array]

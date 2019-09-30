@@ -56,6 +56,7 @@ void setearValores(t_config* archivoConfig)
 {
 	listen_port = strdup(config_get_string_value(archivoConfig,"LISTEN_PORT"));
 	metrics_timer = config_get_int_value(archivoConfig,"METRICS_TIMER");
+	gMultiprogramacion = cofig_get_int_value(archivoConfig,"MAX_MULTIPROG");
 }
 
 
@@ -69,8 +70,28 @@ void suse_create(void(*fmain)(Paquete)){
 	char * arg;
 	int estado;
 
-	estado = pthread_create(&hilo, NULL, fmain,)
+	estado = pthread_create(&hilo, NULL, fmain,(void*) arg);
+	pthread_join(hilo,NULL);
 
-
-
+	puts("El hilo devolvió: %d", estado);
 }
+
+//Obtiene el proximo hilo a ejecutar
+//Parametro: Cola de procesos READY en SUSE
+void suse_schedule_next(){}
+
+void suse_wait(int sem){
+	sem--;
+}
+
+void suse_signal(int sem){
+	sem++;
+}
+
+//hace lo mismo que pthread_join. TIene como parametro un hilo (y un PID?)
+void suse_join(){}
+
+
+
+//Funcion que crea las colas ready segun el grado de multiprogramacion
+
