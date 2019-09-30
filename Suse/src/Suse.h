@@ -9,6 +9,8 @@
 #include <commons/log.h>
 #include <commons/string.h>
 #include <commons/config.h>
+#include <commons/queue.h>
+//#include "../../ComunParaTodos/Serealizacion/serealizacion.h"
 
 t_log* logger;
 t_config* archivoConfig;
@@ -18,6 +20,12 @@ t_config* archivoConfig;
 int socket_Suse;
 int socket_cliente;
 
+//Colas
+t_queue * new;
+t_queue * blocked;
+t_queue * exit;
+
+//cómo implemento los estados
 
 char* listen_port;
 int metrics_timer;

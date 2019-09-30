@@ -57,3 +57,20 @@ void setearValores(t_config* archivoConfig)
 	listen_port = strdup(config_get_string_value(archivoConfig,"LISTEN_PORT"));
 	metrics_timer = config_get_int_value(archivoConfig,"METRICS_TIMER");
 }
+
+
+void suse_init(){}
+
+//Crear nuevo hilo -> pasar funcion por parametro que sera el main del hilo -> el hilo finaliza cuando termina funcion.
+//Cambiar pthread por hilolay
+void suse_create(void(*fmain)(Paquete)){
+
+	pthread_t hilo;
+	char * arg;
+	int estado;
+
+	estado = pthread_create(&hilo, NULL, fmain,)
+
+
+
+}
