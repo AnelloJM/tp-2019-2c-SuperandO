@@ -24,4 +24,11 @@ src/%.o: ../src/%.c
 	@echo 'Finished building: $<'
 	@echo ' '
 
+src/muse_init.o: ../src/muse_init.c
+	@echo 'Building file: $<'
+	@echo 'Invoking: GCC C Compiler'
+	gcc -I"/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"$(@:%.o=%.d)" -MT"src/muse_init.d" -o "$@" "$<"
+	@echo 'Finished building: $<'
+	@echo ' '
+
 

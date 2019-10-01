@@ -3,6 +3,7 @@
 	<name>ComunParaTodos</name>
 	<comment></comment>
 	<projects>
+		<project>Muse</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
