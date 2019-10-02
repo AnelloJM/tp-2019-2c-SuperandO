@@ -1,5 +1,3052 @@
-[INFO] 21:21:16:222 Sac-Server/(11144:11144): Dentro de iniciar servidor
-[INFO] 21:21:16:222 Sac-Server/(11144:11144): Listo para escuchar a mi cliente
-[INFO] 21:21:37:664 Sac-Server/(11144:11144): Se conecto un cliente!
-[INFO] 19:57:18:471 Sac-Server/(5453:5453): Dentro de iniciar servidor
-[INFO] 19:57:18:476 Sac-Server/(5453:5453): Listo para escuchar a mi cliente
+[INFO] 17:37:50:50 Sac-Server/(7785:7785): Se ha creado un nuevo logger
+
+[INFO] 17:37:50:64 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:65 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:65 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:65 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:66 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:66 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:66 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:67 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:67 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:68 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:68 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:69 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:69 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:69 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:69 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:69 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:69 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:70 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:70 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:70 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:70 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:70 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:70 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:70 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:70 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:70 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:70 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:71 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:71 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:71 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:71 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:71 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:71 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:71 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:71 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:72 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:72 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:72 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:72 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:72 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:72 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:72 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:73 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:73 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:73 Sac-Server/(7785:7793): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:73 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:73 Sac-Server/(7785:7793): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:73 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:73 Sac-Server/(7785:7793): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:77 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:77 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:37:50:81 Sac-Server/(7785:7793): Se llamo a fusesito_readdir
+
+[INFO] 17:37:50:84 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:37:56:950 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:03:734 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:105 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:114 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:114 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:115 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:115 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:115 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:115 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:116 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:120 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:120 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:120 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:120 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:120 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:120 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:120 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:120 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:121 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:121 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:121 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:121 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:121 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:121 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:121 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:121 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:122 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:122 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:122 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:122 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:122 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:122 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:122 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:122 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:123 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:124 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:125 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:125 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:125 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:125 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:125 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:125 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:125 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:125 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:125 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:125 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:125 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:126 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:127 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:127 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:127 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:127 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:127 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:127 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:127 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:127 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:127 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:127 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:127 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:128 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:129 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:130 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:130 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:130 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:130 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:130 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:11:130 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:410 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:410 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:410 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:410 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:410 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:410 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:411 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:411 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:411 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:411 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:411 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:411 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:411 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:411 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:411 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:411 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:411 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:412 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:413 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:413 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:413 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:413 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:413 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:413 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:413 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:413 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:413 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:413 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:414 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:415 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:416 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:416 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:416 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:416 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:416 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:416 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:416 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:416 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:416 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:416 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:417 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:417 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:417 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:417 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:417 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:417 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:417 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:418 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:15:418 Sac-Server/(7785:7794): Se llamo a fusesito_readdir
+
+[INFO] 17:38:15:418 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:22:644 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:22:646 Sac-Server/(7785:7794): Se llamo a fusesito_readdir
+
+[INFO] 17:38:22:646 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:22:649 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:22:649 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:23:726 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:23:726 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:23:726 Sac-Server/(7785:7793): Se llamo a fusesito_open
+
+[INFO] 17:38:23:726 Sac-Server/(7785:7813): Se llamo a fusesito_read
+
+[INFO] 17:38:32:524 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:32:529 Sac-Server/(7785:7794): Se llamo a fusesito_readdir
+
+[INFO] 17:38:32:531 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:32:531 Sac-Server/(7785:7792): Se llamo a fusesito_readdir
+
+[INFO] 17:38:32:543 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:32:544 Sac-Server/(7785:7793): Se llamo a fusesito_readdir
+
+[INFO] 17:38:32:545 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:32:545 Sac-Server/(7785:7813): Se llamo a fusesito_readdir
+
+[INFO] 17:38:32:547 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:32:547 Sac-Server/(7785:7794): Se llamo a fusesito_readdir
+
+[INFO] 17:38:32:548 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:32:548 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:32:548 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:32:548 Sac-Server/(7785:7813): Se llamo a fusesito_readdir
+
+[INFO] 17:38:32:549 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:614 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:619 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:619 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:619 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:620 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:621 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:621 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:621 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:621 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:621 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:621 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:621 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:621 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:621 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:621 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:622 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:622 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:622 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:622 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:622 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:622 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:622 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:622 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:622 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:622 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:622 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:623 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:624 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:624 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:624 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:624 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:624 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:624 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:624 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:624 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:624 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:624 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:624 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:625 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:625 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:625 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:625 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:625 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:625 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:625 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:625 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:625 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:625 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:625 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:626 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:626 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:629 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:629 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:629 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:629 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:629 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:629 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:629 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:629 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:38:44:629 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:103 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:104 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:107 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:107 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:107 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:107 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:107 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:107 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:108 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:108 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:108 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:108 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:108 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:108 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:108 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:108 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:108 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:108 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:108 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:109 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:109 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:109 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:109 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:109 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:109 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:109 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:109 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:109 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:109 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:109 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:110 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:111 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:112 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:113 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:114 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:114 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:114 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:40:23:117 Sac-Server/(7785:7794): Se llamo a fusesito_readdir
+
+[INFO] 17:40:23:117 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:40:55:846 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:41:50:712 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:04:967 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:483 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:483 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:483 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:484 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:484 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:484 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:485 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:488 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:488 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:488 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:488 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:488 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:488 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:488 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:488 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:488 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:488 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:488 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:489 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:489 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:489 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:489 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:489 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:490 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:492 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:492 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:492 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:492 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:492 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:492 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:492 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:492 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:493 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:493 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:493 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:493 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:493 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:493 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:493 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:493 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:493 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:493 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:493 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:494 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:494 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:494 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:494 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:494 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:494 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:494 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:494 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:494 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:494 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:494 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:495 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:495 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:495 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:495 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:495 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:495 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:495 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:495 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:495 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:495 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:495 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:496 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:497 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:498 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:499 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:500 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:500 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:500 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:500 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:500 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:05:500 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:534 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:534 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:534 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:534 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:534 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:534 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:534 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:534 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:534 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:535 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:535 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:535 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:535 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:535 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:535 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:535 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:535 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:535 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:535 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:536 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:537 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:537 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:537 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:537 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:537 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:537 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:537 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:537 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:537 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:537 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:537 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:538 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:538 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:538 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:538 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:538 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:538 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:538 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:538 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:538 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:538 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:538 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:539 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:540 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:540 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:540 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:540 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:540 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:540 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:540 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:540 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:540 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:540 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:540 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:541 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:541 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:541 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:541 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:541 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:42:25:541 Sac-Server/(7785:7793): Se llamo a fusesito_readdir
+
+[INFO] 17:42:25:542 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:51:934 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:42:51:934 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:42:51:934 Sac-Server/(7785:7794): Se llamo a fusesito_open
+
+[INFO] 17:42:51:934 Sac-Server/(7785:7792): Se llamo a fusesito_read
+
+[INFO] 17:43:34:569 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:570 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:570 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:570 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:570 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:570 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:570 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:570 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:570 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:570 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:571 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:571 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:571 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:571 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:571 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:571 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:571 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:571 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:571 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:571 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:571 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:572 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:572 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:572 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:572 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:572 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:572 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:572 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:572 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:572 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:572 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:572 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:573 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:574 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:575 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7794): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7792): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:576 Sac-Server/(7785:7793): Se llamo a fusesito_getattr
+
+[INFO] 17:43:34:577 Sac-Server/(7785:7813): Se llamo a fusesito_getattr
+
+[INFO] 18:14:39:64 Sac-Server/(8379:8379): Se ha creado un nuevo logger
+
+[INFO] 18:14:57:15 Sac-Server/(8380:8380): Se ha creado un nuevo logger
+
+[INFO] 18:15:09:767 Sac-Server/(8381:8381): Se ha creado un nuevo logger
+
+[INFO] 18:15:22:664 Sac-Server/(8390:8390): Se ha creado un nuevo logger
+
+[INFO] 18:17:31:954 Sac-Server/(8468:8468): Se ha creado un nuevo logger
+
+[INFO] 18:17:31:965 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:966 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:984 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:985 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:988 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:988 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:988 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:988 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:988 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:989 Sac-Server/(8468:8471): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:989 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:989 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:990 Sac-Server/(8468:8471): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:990 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:990 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:990 Sac-Server/(8468:8471): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:990 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:990 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:991 Sac-Server/(8468:8471): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:991 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:991 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:991 Sac-Server/(8468:8471): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:991 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:991 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:991 Sac-Server/(8468:8471): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:991 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:992 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:992 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:992 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:992 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:992 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:992 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:992 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:992 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:993 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:993 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:993 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:993 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:993 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:993 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:993 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:993 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:993 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:994 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:994 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:994 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:994 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:994 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:994 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:995 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:995 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:995 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:995 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:995 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:995 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:995 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:995 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:995 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:995 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:996 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:996 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:996 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:996 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:997 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:997 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:997 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:997 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:31:997 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:997 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:31:997 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:17:32:15 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:32:17 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:32:18 Sac-Server/(8468:8471): Se llamo a fusesito_readdir
+
+[INFO] 18:17:32:18 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:32:18 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:17:32:21 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:17:32:50 Sac-Server/(8468:8471): Se llamo a fusesito_readdir
+
+[INFO] 18:17:32:50 Sac-Server/(8468:8470): Se llamo a fusesito_open
+
+[INFO] 18:17:32:50 Sac-Server/(8468:8471): Se llamo a fusesito_read
+
+[INFO] 18:17:32:50 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:18:08:736 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:18:08:736 Sac-Server/(8468:8470): Se llamo a fusesito_open
+
+[INFO] 18:18:08:736 Sac-Server/(8468:8471): Se llamo a fusesito_read
+
+[INFO] 18:18:09:138 Sac-Server/(8468:8471): Se llamo a fusesito_open
+
+[INFO] 18:18:09:138 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:18:09:138 Sac-Server/(8468:8471): Se llamo a fusesito_read
+
+[INFO] 18:18:09:139 Sac-Server/(8468:8471): Se llamo a fusesito_open
+
+[INFO] 18:18:49:651 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:18:52:9 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:18:55:235 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:789 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:796 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:796 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:796 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:796 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:796 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:796 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:798 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:806 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:807 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:807 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:807 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:807 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:807 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:807 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:807 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:807 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:807 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:807 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:807 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:808 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:808 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:808 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:808 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:808 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:808 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:808 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:808 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:808 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:809 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:809 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:809 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:809 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:809 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:809 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:809 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:809 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:809 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:809 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:809 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:815 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:815 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:815 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:815 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:815 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:815 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:815 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:815 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:817 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:817 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:817 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:817 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:817 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:817 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:817 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:818 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:818 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:818 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:04:818 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:809 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:809 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:809 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:809 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:810 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:811 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:812 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:813 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:813 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:813 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:813 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:813 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:813 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:814 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:815 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:816 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:816 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:816 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:816 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:816 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:821 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:821 Sac-Server/(8468:8471): Se llamo a fusesito_readdir
+
+[INFO] 18:19:06:821 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:06:821 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:13:948 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:13:948 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:19:13:948 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:13:948 Sac-Server/(8468:8471): Se llamo a fusesito_readdir
+
+[INFO] 18:19:13:951 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:13:951 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:19:13:951 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:13:953 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:13:953 Sac-Server/(8468:8470): Se llamo a fusesito_readdir
+
+[INFO] 18:19:13:953 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:752 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:752 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:752 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:752 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:752 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:752 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:752 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:752 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:753 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:753 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:753 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:753 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:753 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:753 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:753 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:753 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:754 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:755 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:756 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:757 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:758 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:758 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:758 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:758 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:758 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:758 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:758 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:758 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:758 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:758 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:816 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:817 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:818 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:818 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:818 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:818 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:818 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:818 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:818 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:818 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:818 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:818 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:818 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:819 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:820 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:821 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:822 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:822 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:822 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:822 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:822 Sac-Server/(8468:8470): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:823 Sac-Server/(8468:8471): Se llamo a fusesito_open
+
+[INFO] 18:19:14:823 Sac-Server/(8468:8470): Se llamo a fusesito_read
+
+[INFO] 18:19:14:823 Sac-Server/(8468:8471): Se llamo a fusesito_getattr
+
+[INFO] 18:19:14:823 Sac-Server/(8468:8471): Se llamo a fusesito_open
+
+[INFO] 18:21:52:424 Sac-Server/(8579:8579): Se ha creado un nuevo logger
+
+[INFO] 18:21:52:439 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:439 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:440 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:440 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:440 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:441 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:441 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:442 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:443 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:443 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:444 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:444 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:444 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:444 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:445 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:445 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:445 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:445 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:445 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:445 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:446 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:446 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:446 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:446 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:446 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:446 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:446 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:446 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:446 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:447 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:447 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:447 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:447 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:447 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:447 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:448 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:448 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:448 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:448 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:448 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:449 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:454 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:456 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:456 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:457 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:457 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:457 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:457 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:457 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:457 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:457 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:457 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:457 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:458 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:458 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:458 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:458 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:458 Sac-Server/(8579:8586): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:458 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:458 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:458 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:461 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:461 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:461 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:461 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:461 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:461 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:462 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:462 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:464 Sac-Server/(8579:8586): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:464 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:469 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:469 Sac-Server/(8579:8586): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:470 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:470 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:470 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:470 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:21:52:474 Sac-Server/(8579:8585): Se llamo a fusesito_readdir
+
+[INFO] 18:21:52:474 Sac-Server/(8579:8586): Se llamo a fusesito_open
+
+[INFO] 18:21:52:474 Sac-Server/(8579:8588): Se llamo a fusesito_read
+
+[INFO] 18:21:52:474 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:22:00:62 Sac-Server/(8579:8588): Se llamo a fusesito_getattr
+
+[INFO] 18:22:01:109 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:22:01:110 Sac-Server/(8579:8586): Se llamo a fusesito_readdir
+
+[INFO] 18:22:01:110 Sac-Server/(8579:8588): Se llamo a fusesito_getattr
+
+[INFO] 18:22:01:110 Sac-Server/(8579:8585): Se llamo a fusesito_open
+
+[INFO] 18:22:01:110 Sac-Server/(8579:8586): Se llamo a fusesito_read
+
+[INFO] 18:22:01:110 Sac-Server/(8579:8588): Se llamo a fusesito_getattr
+
+[INFO] 18:22:01:111 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:22:01:696 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:22:01:696 Sac-Server/(8579:8588): Se llamo a fusesito_open
+
+[INFO] 18:22:01:696 Sac-Server/(8579:8586): Se llamo a fusesito_read
+
+[INFO] 18:22:01:795 Sac-Server/(8579:8588): Se llamo a fusesito_open
+
+[INFO] 18:22:01:795 Sac-Server/(8579:8586): Se llamo a fusesito_getattr
+
+[INFO] 18:22:01:795 Sac-Server/(8579:8585): Se llamo a fusesito_read
+
+[INFO] 18:22:01:795 Sac-Server/(8579:8586): Se llamo a fusesito_open
+
+[INFO] 18:22:38:982 Sac-Server/(8579:8585): Se llamo a fusesito_getattr
+
+[INFO] 18:22:38:983 Sac-Server/(8579:8588): Se llamo a fusesito_open
+
+[INFO] 18:22:38:984 Sac-Server/(8579:8585): Se llamo a fusesito_read
+
+[INFO] 18:23:22:21 Sac-Server/(8649:8649): Se ha creado un nuevo logger
+
+[INFO] 18:23:22:34 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:34 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:34 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:35 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:35 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:35 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:36 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:36 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:37 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:37 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:38 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:38 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:38 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:38 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:38 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:38 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:39 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:39 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:39 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:39 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:39 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:39 Sac-Server/(8649:8656): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:39 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:39 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:39 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8656): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8656): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:40 Sac-Server/(8649:8656): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8656): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:41 Sac-Server/(8649:8656): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8656): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:42 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:43 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:43 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:43 Sac-Server/(8649:8656): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:43 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:49 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:49 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:49 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:49 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:49 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:49 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:55 Sac-Server/(8649:8655): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:55 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:57 Sac-Server/(8649:8655): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:58 Sac-Server/(8649:8655): Se llamo a fusesito_open
+
+[INFO] 18:23:22:58 Sac-Server/(8649:8656): Se llamo a fusesito_readdir
+
+[INFO] 18:23:22:61 Sac-Server/(8649:8655): Se llamo a fusesito_read
+
+[INFO] 18:23:22:61 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:61 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:23:22:62 Sac-Server/(8649:8656): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:210 Sac-Server/(8686:8686): Se ha creado un nuevo logger
+
+[INFO] 18:24:02:223 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:223 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:223 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:224 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:224 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:224 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:225 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:225 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:226 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:226 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:226 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:227 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:227 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:227 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:227 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:227 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:227 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:227 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:227 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:228 Sac-Server/(8686:8692): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:229 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:229 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:229 Sac-Server/(8686:8692): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:229 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:229 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:229 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:229 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:229 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:229 Sac-Server/(8686:8692): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:229 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8692): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8692): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8692): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:230 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8692): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8692): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:231 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:239 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:239 Sac-Server/(8686:8692): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:239 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:240 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:240 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:240 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:245 Sac-Server/(8686:8691): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:245 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:245 Sac-Server/(8686:8691): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:245 Sac-Server/(8686:8691): Se llamo a fusesito_open
+
+[INFO] 18:24:02:245 Sac-Server/(8686:8692): Se llamo a fusesito_readdir
+
+[INFO] 18:24:02:245 Sac-Server/(8686:8691): Se llamo a fusesito_read
+
+[INFO] 18:24:02:245 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:246 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:02:246 Sac-Server/(8686:8692): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:417 Sac-Server/(8714:8714): Se ha creado un nuevo logger
+
+[INFO] 18:24:20:430 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:430 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:430 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:430 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:431 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:431 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:431 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:432 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:432 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:433 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:433 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:434 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:434 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:434 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:434 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:434 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:434 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:434 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:434 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:435 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:435 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:435 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:435 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:435 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:435 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:435 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:435 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:435 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:435 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8720): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8720): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:436 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:437 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:437 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:437 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:437 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:437 Sac-Server/(8714:8720): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:437 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:437 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:437 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:437 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:437 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:437 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8720): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8720): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:438 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:446 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:446 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:446 Sac-Server/(8714:8720): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:446 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:447 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:447 Sac-Server/(8714:8719): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:447 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:454 Sac-Server/(8714:8720): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:454 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:454 Sac-Server/(8714:8720): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:454 Sac-Server/(8714:8720): Se llamo a fusesito_open
+
+[INFO] 18:24:20:454 Sac-Server/(8714:8720): Se llamo a fusesito_read
+
+[INFO] 18:24:20:454 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:455 Sac-Server/(8714:8720): Se llamo a fusesito_readdir
+
+[INFO] 18:24:20:455 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:455 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
+[INFO] 18:24:20:455 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
+
