@@ -1,4 +1,4 @@
-#include "muse_init.h"
+#include "muse.h"
 /**
      * Inicializa la biblioteca de MUSE.
      * @param id El Process (o Thread) ID para identificar el caller en MUSE.

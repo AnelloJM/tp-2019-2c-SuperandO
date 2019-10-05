@@ -19,7 +19,16 @@
 
     #include <stdint.h>
     #include <stddef.h>
-
+	#include <commons/log.h>
+	#include <stdio.h>
+	#include <stdlib.h>
+	#include <arpa/inet.h>
+	#include <sys/socket.h>
+	#include <netdb.h>
+	#include <readline/readline.h>
+	#include <unistd.h>
+	#include <commons/collections/list.h>
+	#include <string.h>
     /**
      * Inicializa la biblioteca de MUSE.
      * @param id El Process (o Thread) ID para identificar el caller en MUSE.

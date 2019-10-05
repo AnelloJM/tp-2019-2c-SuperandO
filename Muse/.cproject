@@ -75,14 +75,6 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.exe.debug.849077827.235048902" name="muse_init.c" rcbsApplicability="disable" resourcePath="src/muse_init.c" toolsToInvoke="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1752779181.1417556173">
-						<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1752779181.1417556173" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1752779181">
-							<option id="gnu.c.compiler.option.include.paths.1910457805" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-								<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ComunParaTodos}&quot;"/>
-							</option>
-							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1554134705" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
-						</tool>
-					</fileInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>

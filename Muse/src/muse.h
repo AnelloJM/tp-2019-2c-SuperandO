@@ -1,5 +1,5 @@
-#ifndef MUSE_INIT_H
-#define MUSE_INIT_H
+#ifndef MUSE_H
+#define MUSE_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
