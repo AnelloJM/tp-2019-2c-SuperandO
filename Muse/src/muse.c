@@ -64,4 +64,99 @@ void setearValores(t_config* archivoConfig)
 	swap_size = config_get_int_value(archivoConfig,"SWAP_SIZE");
 }
 
+int inicializarTablas(){
+	bloqueMemoria = malloc(sizeof(t_memoria));
+	bloqueMemoria->tamanioPagina = page_size;
+	bloqueMemoria->bytesMemoria = malloc(memory_size);
+
+	//bitarray para saber los marcos ocupados
+	bloqueMemoria->cantidadFrames = memory_size / page_size;
+	bloqueMemoria->bitData = malloc(bloqueMemoria->cantidadFrames/8 + 1);
+	bloqueMemoria->framesBita = bitarray_create_with_mode(bloqueMemoria->bitData, bloqueMemoria->cantidadFrames/8+1, LSB_FIRST);
+
+	//seteo marcos como libres
+	for(int i=0; i < bitarray_get_max_bit(bloqueMemoria->framesBita);i++){
+		bitarray_clean_bit(bloqueMemoria->framesBita,i);
+	}
+
+	log_info(logger,"Se ha inicializado el bloque de memoria. Tamaño: %d. Cantidad de Paginas: %d-%d. Tamaño de Pagina: %d",memory_size,
+			bloqueMemoria->cantidadFrames,bitarray_get_max_bit(bloqueMemoria->framesBita),page_size);
+
+	return 0;
+}
+/*SEGMENTOS*/
+
+Segmento *agregarSegmento(){
+	Segmento *segmento = malloc(sizeof(Segmento));
+	segmento->numero = contadorSegmentos;
+	contadorSegmentos++;
+	list_add(tablaSegmentos, (Segmento*)segmento);
+	return segmento;
+}
+
+Segmento *leerSegmento(int numero){
+	Segmento *seg = NULL;
+
+	bool finder(void* seg){
+		return ((Segmento*) seg)-> numero == numero;
+	}
+	Segmento *seg = list_find(tablaSegmentos,&finder);
+
+	return seg;
+}
+
+/*PAGINAS*/
+
+int obtenerMarcoLibre(){
+	int indice= -1;
+
+	for(int i=0; i< bitarray_get_max_bit(bloqueMemoria->framesBita); i++){
+		if(i==bloqueMemoria->cantidadFrames){
+			break;
+		}
+		if(!bitarray_test_bit(bloqueMemoria->framesBita,i)){
+			indice = i;
+			break;
+		}
+	}
+	return indice;
+}
+
+int escribirPagina(Pagina *pagina, int indice, bool modificado, bool uso){
+	int resultado = reemplazarPagina(pagina,indice,modificado,uso);
+
+	if(resultado !=-1){
+		list_add(tablaPaginas,pagina);
+	}
+	return resultado;
+}
+
+//Pensar bien como leer paginas
+
+
+//Algoritmo de reemplazo
+int reemplazarPagina(Pagina *pagina, int indice, bool modificado, bool uso){
+	return 1;
+}
+
+int obtenerIndiceDeReemplazo(){
+	int indice;
+
+	return indice;
+}
+
+//Falta agregar las funciones para liberar cosas
+
+
+//Tengo que saber bien el formato de los registros para poder pasarlos a bytes y poder operar
+
+
+
+
+
+
+
+
+
+
 

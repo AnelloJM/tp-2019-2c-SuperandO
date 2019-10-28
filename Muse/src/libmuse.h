@@ -53,6 +53,8 @@
      */
     uint32_t muse_alloc(uint32_t tam);
 
+    /*BUSCO UN MARCO LIBRE, SI NO HAY SUFICIENTE ESPACIO CREO UN SEGMENTO NUEVO, ESCRIBO O REEMPLAZO LA/S PAGINA/S, Y MARCO LOS MARCOS COMO OCUPADOS*/
+
     /**
      * Libera una porción de memoria reservada.
      * @param dir La dirección de la memoria a reservar.
