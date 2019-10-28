@@ -18,6 +18,8 @@
 #include <Conexiones/Conexiones.h>
 #include <Serializacion/serializacion.h>
 #include <commons/log.h>
+#include <Comun-FileSystem/Serializacion-FileSystem/Serializacion-FileSystem.h>
+
 
 /* Este es el contenido por defecto que va a contener
  * el unico archivo que se encuentre presente en el FS.

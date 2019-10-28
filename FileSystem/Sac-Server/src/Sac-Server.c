@@ -18,6 +18,7 @@
 #include <Conexiones/Conexiones.h>
 #include <Serializacion/serializacion.h>
 #include <commons/log.h>
+#include <Comun-FileSystem/Serializacion-FileSystem/Serializacion-FileSystem.h>
 
 t_log *logger;
 
