@@ -3,7 +3,6 @@
 	<name>Comun-FileSystem</name>
 	<comment></comment>
 	<projects>
-		<project>Comun-FileSystem</project>
 		<project>ComunParaTodos</project>
 	</projects>
 	<buildSpec>
