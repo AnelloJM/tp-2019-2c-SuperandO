@@ -3050,3 +3050,254 @@
 
 [INFO] 18:24:20:455 Sac-Server/(8714:8719): Se llamo a fusesito_getattr
 
+[INFO] 19:23:20:451 Sac-Server/(26900:26900): Se ha creado un nuevo logger
+
+[INFO] 19:23:20:451 Sac-Server/(26900:26900): Dentro de iniciar servidor
+[INFO] 19:23:20:451 Sac-Server/(26900:26900): Listo para escuchar a mi cliente
+[INFO] 19:23:36:381 Sac-Server/(26900:26900): Se conecto un cliente!
+[INFO] 20:52:37:595 Sac-Server/(28370:28370): Se ha creado un nuevo logger
+
+[INFO] 20:52:37:595 Sac-Server/(28370:28370): Dentro de iniciar servidor
+[INFO] 20:52:37:595 Sac-Server/(28370:28370): Listo para escuchar a mi cliente
+[INFO] 20:52:47:445 Sac-Server/(28370:28370): Se conecto un cliente!
+[INFO] 20:53:05:198 Sac-Server/(28481:28481): Se ha creado un nuevo logger
+
+[INFO] 20:53:05:198 Sac-Server/(28481:28481): Dentro de iniciar servidor
+[INFO] 20:53:05:198 Sac-Server/(28481:28481): Listo para escuchar a mi cliente
+[INFO] 20:53:05:198 Sac-Server/(28481:28481): Se conecto un cliente!
+[INFO] 20:53:15:84 Sac-Server/(28485:28485): Se ha creado un nuevo logger
+
+[INFO] 20:53:15:85 Sac-Server/(28485:28485): Dentro de iniciar servidor
+[INFO] 20:53:15:85 Sac-Server/(28485:28485): Listo para escuchar a mi cliente
+[INFO] 20:53:15:85 Sac-Server/(28485:28485): Se conecto un cliente!
+[INFO] 20:53:16:986 Sac-Server/(28487:28487): Se ha creado un nuevo logger
+
+[INFO] 20:53:16:986 Sac-Server/(28487:28487): Dentro de iniciar servidor
+[INFO] 20:53:16:987 Sac-Server/(28487:28487): Listo para escuchar a mi cliente
+[INFO] 20:53:16:987 Sac-Server/(28487:28487): Se conecto un cliente!
+[INFO] 20:53:18:39 Sac-Server/(28489:28489): Se ha creado un nuevo logger
+
+[INFO] 20:53:18:39 Sac-Server/(28489:28489): Dentro de iniciar servidor
+[INFO] 20:53:18:39 Sac-Server/(28489:28489): Listo para escuchar a mi cliente
+[INFO] 20:53:18:39 Sac-Server/(28489:28489): Se conecto un cliente!
+[INFO] 20:53:39:502 Sac-Server/(28521:28521): Se ha creado un nuevo logger
+
+[INFO] 20:53:39:502 Sac-Server/(28521:28521): Dentro de iniciar servidor
+[INFO] 20:53:39:502 Sac-Server/(28521:28521): Listo para escuchar a mi cliente
+[INFO] 20:53:57:336 Sac-Server/(28521:28521): Se conecto un cliente!
+[INFO] 20:54:11:167 Sac-Server/(28535:28535): Se ha creado un nuevo logger
+
+[INFO] 20:54:11:167 Sac-Server/(28535:28535): Dentro de iniciar servidor
+[INFO] 20:54:11:167 Sac-Server/(28535:28535): Listo para escuchar a mi cliente
+[INFO] 20:54:11:167 Sac-Server/(28535:28535): Se conecto un cliente!
+[INFO] 20:54:13:291 Sac-Server/(28538:28538): Se ha creado un nuevo logger
+
+[INFO] 20:54:13:291 Sac-Server/(28538:28538): Dentro de iniciar servidor
+[INFO] 20:54:13:291 Sac-Server/(28538:28538): Listo para escuchar a mi cliente
+[INFO] 20:54:13:291 Sac-Server/(28538:28538): Se conecto un cliente!
+[INFO] 20:54:14:331 Sac-Server/(28540:28540): Se ha creado un nuevo logger
+
+[INFO] 20:54:14:331 Sac-Server/(28540:28540): Dentro de iniciar servidor
+[INFO] 20:54:14:331 Sac-Server/(28540:28540): Listo para escuchar a mi cliente
+[INFO] 20:54:14:331 Sac-Server/(28540:28540): Se conecto un cliente!
+[INFO] 20:54:15:115 Sac-Server/(28542:28542): Se ha creado un nuevo logger
+
+[INFO] 20:54:15:115 Sac-Server/(28542:28542): Dentro de iniciar servidor
+[INFO] 20:54:15:115 Sac-Server/(28542:28542): Listo para escuchar a mi cliente
+[INFO] 20:54:15:115 Sac-Server/(28542:28542): Se conecto un cliente!
+[INFO] 20:54:17:857 Sac-Server/(28549:28549): Se ha creado un nuevo logger
+
+[INFO] 20:54:17:857 Sac-Server/(28549:28549): Dentro de iniciar servidor
+[INFO] 20:54:17:857 Sac-Server/(28549:28549): Listo para escuchar a mi cliente
+[INFO] 20:54:17:857 Sac-Server/(28549:28549): Se conecto un cliente!
+[INFO] 20:54:18:328 Sac-Server/(28551:28551): Se ha creado un nuevo logger
+
+[INFO] 20:54:18:328 Sac-Server/(28551:28551): Dentro de iniciar servidor
+[INFO] 20:54:18:328 Sac-Server/(28551:28551): Listo para escuchar a mi cliente
+[INFO] 20:54:18:328 Sac-Server/(28551:28551): Se conecto un cliente!
+[INFO] 20:54:18:947 Sac-Server/(28553:28553): Se ha creado un nuevo logger
+
+[INFO] 20:54:18:947 Sac-Server/(28553:28553): Dentro de iniciar servidor
+[INFO] 20:54:18:947 Sac-Server/(28553:28553): Listo para escuchar a mi cliente
+[INFO] 20:54:18:947 Sac-Server/(28553:28553): Se conecto un cliente!
+[INFO] 20:54:19:852 Sac-Server/(28555:28555): Se ha creado un nuevo logger
+
+[INFO] 20:54:19:852 Sac-Server/(28555:28555): Dentro de iniciar servidor
+[INFO] 20:54:19:852 Sac-Server/(28555:28555): Listo para escuchar a mi cliente
+[INFO] 20:54:19:853 Sac-Server/(28555:28555): Se conecto un cliente!
+[INFO] 21:00:58:353 Sac-Server/(28697:28697): Se ha creado un nuevo logger
+
+[INFO] 21:00:58:353 Sac-Server/(28697:28697): Dentro de iniciar servidor
+[INFO] 21:00:58:353 Sac-Server/(28697:28697): Listo para escuchar a mi cliente
+[INFO] 21:01:12:461 Sac-Server/(28697:28697): Se conecto un cliente!
+[INFO] 21:04:08:501 Sac-Server/(28843:28843): Se ha creado un nuevo logger
+
+[INFO] 21:04:08:501 Sac-Server/(28843:28843): Dentro de iniciar servidor
+[INFO] 21:04:08:502 Sac-Server/(28843:28843): Listo para escuchar a mi cliente
+[INFO] 21:04:18:952 Sac-Server/(28843:28843): Se conecto un cliente!
+[INFO] 21:04:46:541 Sac-Server/(28981:28981): Se ha creado un nuevo logger
+
+[INFO] 21:04:46:542 Sac-Server/(28981:28981): Dentro de iniciar servidor
+[INFO] 21:04:46:542 Sac-Server/(28981:28981): Listo para escuchar a mi cliente
+[INFO] 21:04:55:529 Sac-Server/(28981:28981): Se conecto un cliente!
+[INFO] 21:05:27:760 Sac-Server/(29016:29016): Se ha creado un nuevo logger
+
+[INFO] 21:05:27:760 Sac-Server/(29016:29016): Dentro de iniciar servidor
+[INFO] 21:05:27:760 Sac-Server/(29016:29016): Listo para escuchar a mi cliente
+[INFO] 21:05:30:948 Sac-Server/(29016:29016): Se conecto un cliente!
+[INFO] 21:05:56:76 Sac-Server/(29045:29045): Se ha creado un nuevo logger
+
+[INFO] 21:05:56:77 Sac-Server/(29045:29045): Dentro de iniciar servidor
+[INFO] 21:05:56:77 Sac-Server/(29045:29045): Listo para escuchar a mi cliente
+[INFO] 21:06:00:146 Sac-Server/(29045:29045): Se conecto un cliente!
+[INFO] 21:06:45:781 Sac-Server/(29095:29095): Se ha creado un nuevo logger
+
+[INFO] 21:06:45:781 Sac-Server/(29095:29095): Dentro de iniciar servidor
+[INFO] 21:06:45:781 Sac-Server/(29095:29095): Listo para escuchar a mi cliente
+[INFO] 21:06:48:989 Sac-Server/(29095:29095): Se conecto un cliente!
+[INFO] 21:07:12:220 Sac-Server/(29105:29105): Se ha creado un nuevo logger
+
+[INFO] 21:07:12:220 Sac-Server/(29105:29105): Dentro de iniciar servidor
+[INFO] 21:07:12:220 Sac-Server/(29105:29105): Listo para escuchar a mi cliente
+[INFO] 21:07:14:264 Sac-Server/(29105:29105): Se conecto un cliente!
+[INFO] 21:07:25:126 Sac-Server/(29127:29127): Se ha creado un nuevo logger
+
+[INFO] 21:07:25:126 Sac-Server/(29127:29127): Dentro de iniciar servidor
+[INFO] 21:07:25:126 Sac-Server/(29127:29127): Listo para escuchar a mi cliente
+[INFO] 21:07:26:806 Sac-Server/(29127:29127): Se conecto un cliente!
+[INFO] 21:07:46:264 Sac-Server/(29156:29156): Se ha creado un nuevo logger
+
+[INFO] 21:07:46:264 Sac-Server/(29156:29156): Dentro de iniciar servidor
+[INFO] 21:07:46:264 Sac-Server/(29156:29156): Listo para escuchar a mi cliente
+[INFO] 21:07:48:224 Sac-Server/(29156:29156): Se conecto un cliente!
+[INFO] 21:08:35:55 Sac-Server/(29201:29201): Se ha creado un nuevo logger
+
+[INFO] 21:08:35:55 Sac-Server/(29201:29201): Dentro de iniciar servidor
+[INFO] 21:08:35:55 Sac-Server/(29201:29201): Listo para escuchar a mi cliente
+[INFO] 21:08:37:737 Sac-Server/(29201:29201): Se conecto un cliente!
+[INFO] 21:09:20:559 Sac-Server/(29245:29245): Se ha creado un nuevo logger
+
+[INFO] 21:09:20:559 Sac-Server/(29245:29245): Dentro de iniciar servidor
+[INFO] 21:09:20:559 Sac-Server/(29245:29245): Listo para escuchar a mi cliente
+[INFO] 21:09:22:774 Sac-Server/(29245:29245): Se conecto un cliente!
+[INFO] 21:09:36:990 Sac-Server/(29269:29269): Se ha creado un nuevo logger
+
+[INFO] 21:09:36:990 Sac-Server/(29269:29269): Dentro de iniciar servidor
+[INFO] 21:09:36:990 Sac-Server/(29269:29269): Listo para escuchar a mi cliente
+[INFO] 21:09:36:990 Sac-Server/(29269:29269): Se conecto un cliente!
+[INFO] 21:09:41:326 Sac-Server/(29291:29291): Se ha creado un nuevo logger
+
+[INFO] 21:09:41:327 Sac-Server/(29291:29291): Dentro de iniciar servidor
+[INFO] 21:09:41:327 Sac-Server/(29291:29291): Listo para escuchar a mi cliente
+[INFO] 21:09:41:327 Sac-Server/(29291:29291): Se conecto un cliente!
+[INFO] 21:09:45:157 Sac-Server/(29312:29312): Se ha creado un nuevo logger
+
+[INFO] 21:09:45:157 Sac-Server/(29312:29312): Dentro de iniciar servidor
+[INFO] 21:09:45:157 Sac-Server/(29312:29312): Listo para escuchar a mi cliente
+[INFO] 21:09:45:157 Sac-Server/(29312:29312): Se conecto un cliente!
+[INFO] 21:09:51:290 Sac-Server/(29333:29333): Se ha creado un nuevo logger
+
+[INFO] 21:09:51:290 Sac-Server/(29333:29333): Dentro de iniciar servidor
+[INFO] 21:09:51:290 Sac-Server/(29333:29333): Listo para escuchar a mi cliente
+[INFO] 21:09:51:290 Sac-Server/(29333:29333): Se conecto un cliente!
+[INFO] 21:10:02:254 Sac-Server/(29354:29354): Se ha creado un nuevo logger
+
+[INFO] 21:10:02:254 Sac-Server/(29354:29354): Dentro de iniciar servidor
+[INFO] 21:10:02:254 Sac-Server/(29354:29354): Listo para escuchar a mi cliente
+[INFO] 21:10:02:255 Sac-Server/(29354:29354): Se conecto un cliente!
+[INFO] 21:10:11:563 Sac-Server/(29380:29380): Se ha creado un nuevo logger
+
+[INFO] 21:10:11:563 Sac-Server/(29380:29380): Dentro de iniciar servidor
+[INFO] 21:10:11:563 Sac-Server/(29380:29380): Listo para escuchar a mi cliente
+[INFO] 21:10:19:315 Sac-Server/(29380:29380): Se conecto un cliente!
+[INFO] 21:10:49:567 Sac-Server/(29413:29413): Se ha creado un nuevo logger
+
+[INFO] 21:10:49:567 Sac-Server/(29413:29413): Dentro de iniciar servidor
+[INFO] 21:10:49:567 Sac-Server/(29413:29413): Listo para escuchar a mi cliente
+[INFO] 21:10:57:312 Sac-Server/(29413:29413): Se conecto un cliente!
+[INFO] 21:11:27:159 Sac-Server/(29450:29450): Se ha creado un nuevo logger
+
+[INFO] 21:11:27:159 Sac-Server/(29450:29450): Dentro de iniciar servidor
+[INFO] 21:11:27:159 Sac-Server/(29450:29450): Listo para escuchar a mi cliente
+[INFO] 21:11:27:160 Sac-Server/(29450:29450): Se conecto un cliente!
+[INFO] 21:15:02:711 Sac-Server/(29524:29524): Se ha creado un nuevo logger
+
+[INFO] 21:15:02:711 Sac-Server/(29524:29524): Dentro de iniciar servidor
+[INFO] 21:15:02:711 Sac-Server/(29524:29524): Listo para escuchar a mi cliente
+[INFO] 21:15:19:294 Sac-Server/(29524:29524): Se conecto un cliente!
+[INFO] 21:16:34:351 Sac-Server/(29709:29709): Se ha creado un nuevo logger
+
+[INFO] 21:16:34:351 Sac-Server/(29709:29709): Dentro de iniciar servidor
+[INFO] 21:16:34:351 Sac-Server/(29709:29709): Listo para escuchar a mi cliente
+[INFO] 21:16:38:466 Sac-Server/(29709:29709): Se conecto un cliente!
+[INFO] 21:18:52:548 Sac-Server/(29807:29807): Se ha creado un nuevo logger
+
+[INFO] 21:18:52:548 Sac-Server/(29807:29807): Dentro de iniciar servidor
+[INFO] 21:18:52:548 Sac-Server/(29807:29807): Listo para escuchar a mi cliente
+[INFO] 21:18:57:451 Sac-Server/(29807:29807): Se conecto un cliente!
+[INFO] 21:19:27:174 Sac-Server/(29840:29840): Se ha creado un nuevo logger
+
+[INFO] 21:19:27:175 Sac-Server/(29840:29840): Dentro de iniciar servidor
+[INFO] 21:19:27:175 Sac-Server/(29840:29840): Listo para escuchar a mi cliente
+[INFO] 21:19:31:293 Sac-Server/(29840:29840): Se conecto un cliente!
+[INFO] 21:29:49:326 Sac-Server/(30422:30422): Se ha creado un nuevo logger
+
+[INFO] 21:29:49:326 Sac-Server/(30422:30422): Dentro de iniciar servidor
+[INFO] 21:29:49:326 Sac-Server/(30422:30422): Listo para escuchar a mi cliente
+[INFO] 21:30:10:722 Sac-Server/(30422:30422): Se conecto un cliente!
+[INFO] 22:09:48:913 Sac-Server/(31066:31066): Se ha creado un nuevo logger
+
+[INFO] 22:09:48:913 Sac-Server/(31066:31066): Dentro de iniciar servidor
+[INFO] 22:09:48:913 Sac-Server/(31066:31066): Listo para escuchar a mi cliente
+[INFO] 22:10:00:268 Sac-Server/(31066:31066): Se conecto un cliente!
+[WARNING] 22:10:04:72 Sac-Server/(31066:31066): Operacion desconocida. No quieras meter la pata
+[INFO] 22:10:04:73 Sac-Server/(31066:31066): Me llego el mensaje (null)
+[ERROR] 22:10:04:73 Sac-Server/(31066:31066): el cliente se desconecto. Terminando servidor
+[INFO] 22:10:11:961 Sac-Server/(31069:31069): Se ha creado un nuevo logger
+
+[INFO] 22:10:11:961 Sac-Server/(31069:31069): Dentro de iniciar servidor
+[INFO] 22:10:11:961 Sac-Server/(31069:31069): Listo para escuchar a mi cliente
+[INFO] 22:10:30:169 Sac-Server/(31069:31069): Se conecto un cliente!
+[WARNING] 22:10:39:485 Sac-Server/(31069:31069): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:10:39:485 Sac-Server/(31069:31069): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:10:39:485 Sac-Server/(31069:31069): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:10:39:485 Sac-Server/(31069:31069): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:10:39:485 Sac-Server/(31069:31069): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:10:39:485 Sac-Server/(31069:31069): Operacion desconocida. No quieras meter la pata
+[ERROR] 22:10:39:485 Sac-Server/(31069:31069): el cliente se desconecto. Terminando servidor
+[INFO] 22:15:36:425 Sac-Server/(31235:31235): Se ha creado un nuevo logger
+
+[INFO] 22:15:36:425 Sac-Server/(31235:31235): Dentro de iniciar servidor
+[INFO] 22:15:36:425 Sac-Server/(31235:31235): Listo para escuchar a mi cliente
+[INFO] 22:15:48:139 Sac-Server/(31235:31235): Se conecto un cliente!
+[WARNING] 22:15:58:832 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[WARNING] 22:15:58:833 Sac-Server/(31235:31235): Operacion desconocida. No quieras meter la pata
+[ERROR] 22:15:58:833 Sac-Server/(31235:31235): el cliente se desconecto. Terminando servidor
+[INFO] 22:17:35:711 Sac-Server/(31291:31291): Se ha creado un nuevo logger
+
+[INFO] 22:17:35:711 Sac-Server/(31291:31291): Dentro de iniciar servidor
+[INFO] 22:17:35:711 Sac-Server/(31291:31291): Listo para escuchar a mi cliente
+[INFO] 22:17:58:342 Sac-Server/(31291:31291): Se conecto un cliente!
+[INFO] 22:17:58:343 Sac-Server/(31291:31291): Me llego el mensaje Hola, soy un valor
+[ERROR] 22:18:14:118 Sac-Server/(31291:31291): el cliente se desconecto. Terminando servidor
+[INFO] 22:33:46:627 Sac-Server/(31846:31846): Se ha creado un nuevo logger
+
+[INFO] 22:33:46:627 Sac-Server/(31846:31846): Dentro de iniciar servidor
+[INFO] 22:33:46:627 Sac-Server/(31846:31846): Listo para escuchar a mi cliente
+[INFO] 22:34:19:487 Sac-Server/(31846:31846): Se conecto un cliente!
+[INFO] 22:34:47:711 Sac-Server/(31942:31942): Se ha creado un nuevo logger
+
+[INFO] 22:34:47:736 Sac-Server/(31942:31942): Dentro de iniciar servidor
+[INFO] 22:34:47:749 Sac-Server/(31942:31942): Listo para escuchar a mi cliente
+[INFO] 22:35:04:8 Sac-Server/(31942:31942): Se conecto un cliente!
