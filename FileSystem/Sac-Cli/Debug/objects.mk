@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lComunParaTodos -lpthread -lfuse -lcommons
+LIBS := -lComunParaTodos -lComun-FileSystem -lpthread -lfuse -lcommons
 

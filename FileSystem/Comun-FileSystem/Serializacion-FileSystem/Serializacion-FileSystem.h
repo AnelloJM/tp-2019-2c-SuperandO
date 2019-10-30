@@ -40,10 +40,10 @@ typedef enum f_permisos {
 typedef struct {
 	int tamanioMensaje;
 	f_permisos permisos;
-}__attribute__((packed)) Header;
+}__attribute__((packed)) HeaderFuse;
 
 typedef struct {
-	Header header;
+	HeaderFuse headerFuse;
 	void* mensaje;
 }__attribute__((packed)) Paquete;
 
@@ -52,7 +52,7 @@ typedef struct {
 //////////////////////////////////////////
 
 typedef struct {
-	const char *path;
+	char *path;
 	struct stat *stbuf
 }__attribute__((packed)) f_getattr;
 
@@ -89,7 +89,7 @@ bool EnviarPaquete(int socketCliente, Paquete* paquete);
 
 int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir);
 
-int RecibirPaqueteServidor(int socketFD, Paquete* paquete); //Responde al recibir un Handshake
+int RecibirPaqueteServidorFuse(int socketFD, Paquete* paquete); //Responde al recibir un Handshake
 
 int RecibirPaqueteCliente(int socketFD, Paquete* paquete); //No responde los Handshakes
 

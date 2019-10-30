@@ -5,6 +5,7 @@
 	<projects>
 		<project>Comun-FileSystem</project>
 		<project>ComunParaTodos</project>
+		<project>Serializacion-FileSystem</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

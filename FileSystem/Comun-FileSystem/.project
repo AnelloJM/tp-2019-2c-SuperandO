@@ -4,7 +4,6 @@
 	<comment></comment>
 	<projects>
 		<project>Comun-FileSystem</project>
-		<project>ComunParaTodos</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
