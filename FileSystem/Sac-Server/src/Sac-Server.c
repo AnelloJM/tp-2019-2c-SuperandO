@@ -11,15 +11,14 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <fuse.h>
+#include <sys/socket.h>
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <Conexiones/Conexiones.h>
 #include <commons/log.h>
-//#include <Comun-FileSystem/Serializacion-FileSystem/Serializacion-FileSystem.h>
-//#include <Serializacion-FileSystem/Serializacion-FileSystem.h>
-#include <Serializacion/serializacion.h>
+#include <Serializacion-FileSystem/Serializacion-FileSystem.h>
 #include <pthread.h>
 
 t_log *logger;
@@ -66,33 +65,20 @@ t_list* recibir_paquete(int socket_cliente)
 */
 
 void* funcionMagica(int cliente){
-	void iterator(char* value)
-			{
-				printf("%s\n", value);
-			}
-
-		t_list* lista;
-		while(1)
-		{
-			int cod_op = recibir_operacion(cliente);
-			switch(cod_op)
-			{
-			case 0:
-				recibir_mensaje(cliente);
-				break;
-			case 1:
-				lista = recibir_paquete(cliente);
-				printf("Me llegaron los siguientes valores:\n");
-				list_iterate(lista, (void*) iterator);
-				break;
-			case -1:
-				log_error(logger, "el cliente se desconecto. Terminando servidor");
-				return EXIT_FAILURE;
-			default:
-				log_warning(logger, "Operacion desconocida. No quieras meter la pata");
-				break;
-			}
-		}
+	Paquete *paquete = malloc(sizeof(Paquete));
+	paquete = NULL;
+	RecibirPaqueteServidorFuse(cliente, paquete);
+	Paquete buff;
+	//int err=recv(cliente, &buff,sizeof(Paquete),MSG_WAITALL);
+/*	if (err = -1){
+		log_error(logger, "ERROR GATO\n");
+	}
+*/	f_getattr *info = buff.mensaje;
+	puts(&(info->path));
+	log_info(logger, "recibi: %s", &(info->path));
+	//RecibirPaqueteCliente(cliente, paquete);
+	//EnviarHandshake(cliente, 2);
+	free(paquete);
 }
 
 int main(void) {
@@ -100,7 +86,7 @@ int main(void) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 	int conexion, cliente;
-	conexion = iniciar_servidor("127.0.0.1", "4444", logger);
+	conexion = iniciar_servidor("127.0.0.1", "8223", logger);
 	int cantidad,err;
 	pthread_t cody[cantidad];
 	cantidad=0;
@@ -113,6 +99,6 @@ int main(void) {
 		pthread_detach(cody[cantidad]);
 		cantidad+=1;
 	}while(cantidad<10);
-
+	
 	return EXIT_SUCCESS;
 }

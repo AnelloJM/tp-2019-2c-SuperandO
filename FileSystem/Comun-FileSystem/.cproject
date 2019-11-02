@@ -42,6 +42,7 @@
 								</option>
 								<option id="gnu.c.compiler.option.include.paths.980110204" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ComunParaTodos}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Comun-FileSystem}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1372087989" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -67,6 +68,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.assembler.so.debug.1540267486" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.so.debug">
 								<option id="gnu.both.asm.option.include.paths.1715758821" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ComunParaTodos}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Comun-FileSystem}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.2124412097" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -75,6 +77,13 @@
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
+				<externalSettings containerId="Comun-FileSystem;cdt.managedbuild.config.gnu.so.release.1103676829" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/Comun-FileSystem"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/Comun-FileSystem/Release"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="Comun-FileSystem" srcPrefixMapping="" srcRootPath=""/>
+					</externalSetting>
+				</externalSettings>
 				<externalSettings containerId="ComunParaTodos;" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/ComunParaTodos"/>

@@ -16,10 +16,8 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <Conexiones/Conexiones.h>
-#include <Serializacion/serializacion.h>
 #include <commons/log.h>
-#include <Comun-FileSystem/Serializacion-FileSystem/Serializacion-FileSystem.h>
-
+#include <Serializacion-FileSystem/Serializacion-FileSystem.h>
 
 /* Este es el contenido por defecto que va a contener
  * el unico archivo que se encuentre presente en el FS.
@@ -40,11 +38,29 @@
 
 
 t_log *logger;
+int conexion;
 
 static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_info(logger, "Se llamo a fusesito_getattr\n");
-
 	int res = 0;
+	f_getattr *message = malloc(sizeof(f_getattr));
+	message->path = "Co" ;//path;
+	message->stbuf = stbuf;
+	Paquete *pack = malloc(sizeof(Paquete));
+	pack->headerFuse.tamanioMensaje = sizeof(f_getattr);
+	pack->headerFuse.permisos = f_READWRITE;
+	pack->mensaje = message;
+		log_info(logger, "ANTES\n");
+
+	if(EnviarPaquete(conexion, pack)){
+		log_info(logger, "se pudo");
+	}
+	else{
+		log_error(logger, "no se pudo");
+	}
+	log_info(logger, "DESPUES\n");
+
+	//RecibirPaqueteCliente(8080, packRespuesta);
 
 		memset(stbuf, 0, sizeof(struct stat));
 
@@ -60,9 +76,9 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 		} else {
 			res = -ENOENT;
 		}
+		free(pack);
+		free(message);
 		return res;
-
-	return 0;
 }
 
 
@@ -119,6 +135,7 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
+	conexion = conectarse_a_un_servidor("127.0.0.1" , "8457", logger);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
 	// Esta es la funcion principal de FUSE, es la que se encarga

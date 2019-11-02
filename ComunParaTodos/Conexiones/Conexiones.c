@@ -70,6 +70,7 @@ int esperar_cliente_con_accept(int socket_servidor, t_log* logger)
 	return socket_cliente;
 }
 
+
 int enviar_mensaje(int socket_cliente,t_log* logger)
 {
 	/*Solo para pruebas de conexion, en realidad usamos

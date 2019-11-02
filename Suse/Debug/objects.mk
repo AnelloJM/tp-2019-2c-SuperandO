@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lcommons -lComunParaTodos -lComunParaTodos
+LIBS := -lcommons -lcommons -lComunParaTodos
 

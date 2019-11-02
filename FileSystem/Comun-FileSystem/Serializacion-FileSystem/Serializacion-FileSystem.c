@@ -6,40 +6,50 @@
  */
 
 
-#include "../Serializacion-FileSystem/Serializacion-FileSystem.h"
+#include "Serializacion-FileSystem.h"
+
 
 bool EnviarPaquete(int socketCliente, Paquete* paquete) {
-	int cantAEnviar = sizeof(Header) + paquete->header.tamanioMensaje;
+	int cantAEnviar = sizeof(HeaderFuse) + paquete->headerFuse.tamanioMensaje;
 	void* datos = malloc(cantAEnviar);
-	memcpy(datos, &(paquete->header), sizeof(Header));
-	if (paquete->header.tamanioMensaje > 0){ //No sea t_HANDSHAKE
-		memcpy(datos + sizeof(Header), (paquete->mensaje), paquete->header.tamanioMensaje);
-	}
+
+	memcpy(datos, &(paquete->headerFuse), sizeof(HeaderFuse));
+	if (paquete->headerFuse.tamanioMensaje > 0){ //No sea t_HANDSHAKE
+		memcpy(datos + sizeof(HeaderFuse), (paquete->mensaje), paquete->headerFuse.tamanioMensaje);
+	}/*
 	int enviado = 0; //bytes enviados
 	int totalEnviado = 0;
 	bool valor_retorno=true;
 	do {
+		puts("Por enviar");
 		enviado = send(socketCliente, datos + totalEnviado, cantAEnviar - totalEnviado, 0);
+		puts("Enviado perro");
 		totalEnviado += enviado;
 		if(enviado==-1){
 			valor_retorno=false;
 			break;
 		}
-	} while (totalEnviado != cantAEnviar);
+	} while (totalEnviado != cantAEnviar);*/
+	int enviado = 0;
+	bool valor_retorno=true;
+	enviado = send(socketCliente, datos,cantAEnviar, 0);
+	if(enviado==-1){
+		valor_retorno=false;
+	}
 	free(datos);
 	return valor_retorno;
 }
 
 bool EnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_permisos permisos){
 	Paquete* paquete = malloc(sizeof(Paquete));
-	paquete->header.permisos = permisos;
+	paquete->headerFuse.permisos = permisos;
 	uint32_t r = 0;
 	bool valor_retorno;
 	if(tamDatos<=0 || datos==NULL){
-		paquete->header.tamanioMensaje = sizeof(uint32_t);
+		paquete->headerFuse.tamanioMensaje = sizeof(uint32_t);
 		paquete->mensaje = &r;
 	} else {
-		paquete->header.tamanioMensaje = tamDatos;
+		paquete->headerFuse.tamanioMensaje = tamDatos;
 		paquete->mensaje=datos;
 	}
 	valor_retorno=EnviarPaquete(socketFD, paquete);
@@ -48,11 +58,11 @@ bool EnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_permisos permiso
 }
 
 bool EnviarHandshake(int socketFD) {
-	Paquete* paquete = malloc(sizeof(Header));
-	Header header;
+	Paquete* paquete = malloc(sizeof(HeaderFuse));
+	HeaderFuse header;
 	header.permisos = f_HANDSHAKE;
 	header.tamanioMensaje = 0;
-	paquete->header = header;
+	paquete->headerFuse = header;
 	bool resultado = EnviarPaquete(socketFD, paquete);
 	free(paquete);
 	return resultado;
@@ -79,15 +89,14 @@ int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir) {
 	return recibido;
 }
 
-int RecibirPaqueteServidor(int socketFD, Paquete* paquete) {
-	paquete->mensaje = NULL;
-	int resul = RecibirDatos(&(paquete->header), socketFD, sizeof(Header));
+int RecibirPaqueteServidorFuse(int socketFD, Paquete* paquete) {
+	int resul = RecibirDatos(&(paquete->headerFuse), socketFD, sizeof(HeaderFuse));
 	if (resul > 0) { //si no hubo error
-		if (paquete->header.permisos == f_HANDSHAKE) { //vemos si es un f_HANDSHAKE
+		if (paquete->headerFuse.permisos == f_HANDSHAKE) { //vemos si es un f_HANDSHAKE
 			EnviarHandshake(socketFD);
-		} else if (paquete->header.tamanioMensaje > 0){ //recibimos un payload y lo procesamos (por ej, puede mostrarlo)
-			paquete->mensaje = malloc(paquete->header.tamanioMensaje);
-			resul = RecibirDatos(paquete->mensaje, socketFD, paquete->header.tamanioMensaje);
+		} else if (paquete->headerFuse.tamanioMensaje > 0){ //recibimos un payload y lo procesamos (por ej, puede mostrarlo)
+			paquete->mensaje = malloc(paquete->headerFuse.tamanioMensaje);
+			resul = RecibirDatos(paquete->mensaje, socketFD, paquete->headerFuse.tamanioMensaje);
 		}
 	}
 	return resul;
@@ -95,10 +104,10 @@ int RecibirPaqueteServidor(int socketFD, Paquete* paquete) {
 
 int RecibirPaqueteCliente(int socketFD, Paquete* paquete) {
 	paquete->mensaje = NULL;
-	int resul = RecibirDatos(&(paquete->header), socketFD, sizeof(Header));
-	if (resul > 0 && paquete->header.permisos != f_HANDSHAKE && paquete->header.tamanioMensaje > 0) { //si no hubo error ni es un t_HANDSHAKE
-		paquete->mensaje = malloc(paquete->header.tamanioMensaje);
-		resul = RecibirDatos(paquete->mensaje, socketFD, paquete->header.tamanioMensaje);
+	int resul = RecibirDatos(&(paquete->headerFuse), socketFD, sizeof(HeaderFuse));
+	if (resul > 0 && paquete->headerFuse.permisos != f_HANDSHAKE && paquete->headerFuse.tamanioMensaje > 0) { //si no hubo error ni es un t_HANDSHAKE
+		paquete->mensaje = malloc(paquete->headerFuse.tamanioMensaje);
+		resul = RecibirDatos(paquete->mensaje, socketFD, paquete->headerFuse.tamanioMensaje);
 	}
 	return resul;
 }
