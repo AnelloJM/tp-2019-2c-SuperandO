@@ -81,16 +81,16 @@ typedef struct {
 //              Funciones               //
 //////////////////////////////////////////
 
-bool EnviarHandshake(int socketFD);
+bool FuseEnviarHandshake(int socketFD);
 
-bool EnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_permisos permisos);
+bool FuseEnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_permisos permisos);
 
-bool EnviarPaquete(int socketCliente, PaqueteFuse* paquete);
+bool FuseEnviarPaquete(int socketCliente, PaqueteFuse* paquete);
 
-int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir);
+int FuseRecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir);
 
-int RecibirPaqueteServidorFuse(int socketFD, PaqueteFuse* paquete); //Responde al recibir un Handshake
+int FuseRecibirPaqueteServidor(int socketFD, PaqueteFuse* paquete); //Responde al recibir un Handshake
 
-int RecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete); //No responde los Handshakes
+int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete); //No responde los Handshakes
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */

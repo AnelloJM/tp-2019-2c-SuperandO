@@ -66,18 +66,11 @@ t_list* recibir_paquete(int socket_cliente)
 
 void* funcionMagica(int cliente){
 	PaqueteFuse *paquete = malloc(sizeof(PaqueteFuse));
-	paquete = NULL;
-	RecibirPaqueteServidorFuse(cliente, paquete);
-	PaqueteFuse buff;
-	//int err=recv(cliente, &buff,sizeof(Paquete),MSG_WAITALL);
-/*	if (err = -1){
-		log_error(logger, "ERROR GATO\n");
-	}
-*/	f_getattr *info = buff.mensaje;
-	puts(&(info->path));
-	log_info(logger, "recibi: %s", &(info->path));
-	//RecibirPaqueteCliente(cliente, paquete);
-	//EnviarHandshake(cliente, 2);
+	FuseRecibirPaqueteServidor(cliente, paquete);
+	f_getattr *info = malloc(sizeof(f_getattr));
+	memcpy(info, paquete->mensaje, sizeof(f_getattr));
+	log_info(logger, "recibi: %s", info->path);
+	free(info);
 	free(paquete);
 }
 
@@ -92,17 +85,18 @@ int main(void) {
 	pthread_t cody[cantidad];//=malloc(sizeof(pthread_t)*cantidad);
 	pthread_t* sarasa = malloc(sizeof(pthread_t));
 	cantidad=0;
-	do{
+	//do{
 		cliente = esperar_cliente_con_accept(conexion, logger);
 		//err=pthread_create(sarasa,NULL,(void*)funcionMagica,cliente);
 		if(pthread_create(sarasa,NULL,(void*)funcionMagica,cliente)){
 			log_error(logger,strerror(err));
 		}
-		pthread_detach(cody[cantidad]);
+		pthread_detach(sarasa);/*
 		cantidad+=1;
 	}while(cantidad<10);
 	/*for(int i = 0; i<cantidad;i++){
 		free(cody[i]);
 	}*/
+		sleep(200000);
 	return EXIT_SUCCESS;
 }

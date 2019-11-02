@@ -44,7 +44,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_info(logger, "Se llamo a fusesito_getattr\n");
 	int res = 0;
 	f_getattr *message = malloc(sizeof(f_getattr));
-	message->path = "Co" ;//path;
+	message->path = strdup("Co") ;//path;
 	message->stbuf = stbuf;
 	PaqueteFuse *pack = malloc(sizeof(PaqueteFuse));
 	pack->headerFuse.tamanioMensaje = sizeof(f_getattr);
@@ -52,7 +52,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	pack->mensaje = message;
 		log_info(logger, "ANTES\n");
 
-	if(EnviarPaquete(conexion, pack)){
+	if(FuseEnviarPaquete(conexion, pack)){
 		log_info(logger, "se pudo");
 	}
 	else{
