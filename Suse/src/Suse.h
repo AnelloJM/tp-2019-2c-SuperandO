@@ -9,8 +9,9 @@
 #include <commons/log.h>
 #include <commons/string.h>
 #include <commons/config.h>
-#include <commons/queue.h>
+#include <commons/collections/queue.h>
 //#include "../../ComunParaTodos/Serealizacion/serealizacion.h"
+#define PATH_ARCH_CONFIG "/home/utnso/git/tp-2019-2c-SuperandO/Suse/src/SUSE.cfg"
 
 t_log* logger;
 t_config* archivoConfig;
@@ -21,20 +22,23 @@ int socket_Suse;
 int socket_cliente;
 
 //Colas comunes para todos los programas
-t_queue * new;
-t_queue * blocked;
-t_queue * exit;
+t_queue * cola_new;
+t_queue * cola_blocked;
+t_queue * cola_exit;
 
 //cómo implemento los estados
 
+//Arch de Config
 char* listen_port;
 int metrics_timer;
-int gMultiprogramacion;
+int max_multiprog;
 //Sems_ids[array]
 //sem_init[array]
 //sem_max[array]
 //alpha_sjf[numerico]
 
+//PAQUETE//
+Paquete * pack;
 
 
 /* FUNCIONES */
