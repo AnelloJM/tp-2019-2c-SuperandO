@@ -10,8 +10,10 @@
 #include <commons/string.h>
 #include <commons/config.h>
 #include <commons/collections/queue.h>
-//#include "../../ComunParaTodos/Serealizacion/serealizacion.h"
+#include <hilolay/hilolay.h>
+#include "../../ComunParaTodos/Serializacion/serializacion.h"
 #define PATH_ARCH_CONFIG "/home/utnso/git/tp-2019-2c-SuperandO/Suse/src/SUSE.cfg"
+
 
 t_log* logger;
 t_config* archivoConfig;
@@ -38,8 +40,7 @@ int max_multiprog;
 //alpha_sjf[numerico]
 
 //PAQUETE//
-Paquete * pack;
-
+Paquete* pack;
 
 /* FUNCIONES */
 

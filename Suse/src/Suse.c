@@ -13,6 +13,7 @@
 int main()
 {
 
+	/*INicializando Servidor Suse*/
 	crearLogger();
 	leerArchivoDeConfiguracion();
 
@@ -26,9 +27,25 @@ int main()
 
 	socket_Suse = iniciar_servidor("127.0.0.1",listen_port,logger);
 	socket_cliente = esperar_cliente_con_accept(socket_Suse,logger);
-	recibir_mensaje()
 	enviar_mensaje(socket_cliente,logger);
+
+	/*Inicializo biblioteca Hilolay*/
+	   /* hilolay_init();
+	    hilolay_t th1;
+	    hilolay_t th2;
+
+		hilolay_create(&th1, NULL, &test1, NULL);
+		hilolay_create(&th2, NULL, &test2, NULL);
+
+		hilolay_join(&th2);
+		hilolay_join(&th1);
+	    return hilolay_return(0);
+
+	*/
+
 	return 0;
+
+
 }
 
 void crearLogger()
