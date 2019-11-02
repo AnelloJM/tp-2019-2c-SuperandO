@@ -9,7 +9,7 @@
 #include "Serializacion-FileSystem.h"
 
 
-bool EnviarPaquete(int socketCliente, Paquete* paquete) {
+bool EnviarPaquete(int socketCliente, PaqueteFuse* paquete) {
 	int cantAEnviar = sizeof(HeaderFuse) + paquete->headerFuse.tamanioMensaje;
 	void* datos = malloc(cantAEnviar);
 
@@ -41,7 +41,7 @@ bool EnviarPaquete(int socketCliente, Paquete* paquete) {
 }
 
 bool EnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_permisos permisos){
-	Paquete* paquete = malloc(sizeof(Paquete));
+	PaqueteFuse* paquete = malloc(sizeof(PaqueteFuse));
 	paquete->headerFuse.permisos = permisos;
 	uint32_t r = 0;
 	bool valor_retorno;
@@ -58,7 +58,7 @@ bool EnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_permisos permiso
 }
 
 bool EnviarHandshake(int socketFD) {
-	Paquete* paquete = malloc(sizeof(HeaderFuse));
+	PaqueteFuse* paquete = malloc(sizeof(PaqueteFuse));
 	HeaderFuse header;
 	header.permisos = f_HANDSHAKE;
 	header.tamanioMensaje = 0;
@@ -89,7 +89,7 @@ int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir) {
 	return recibido;
 }
 
-int RecibirPaqueteServidorFuse(int socketFD, Paquete* paquete) {
+int RecibirPaqueteServidorFuse(int socketFD, PaqueteFuse* paquete) {
 	int resul = RecibirDatos(&(paquete->headerFuse), socketFD, sizeof(HeaderFuse));
 	if (resul > 0) { //si no hubo error
 		if (paquete->headerFuse.permisos == f_HANDSHAKE) { //vemos si es un f_HANDSHAKE
@@ -102,7 +102,7 @@ int RecibirPaqueteServidorFuse(int socketFD, Paquete* paquete) {
 	return resul;
 }
 
-int RecibirPaqueteCliente(int socketFD, Paquete* paquete) {
+int RecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete) {
 	paquete->mensaje = NULL;
 	int resul = RecibirDatos(&(paquete->headerFuse), socketFD, sizeof(HeaderFuse));
 	if (resul > 0 && paquete->headerFuse.permisos != f_HANDSHAKE && paquete->headerFuse.tamanioMensaje > 0) { //si no hubo error ni es un t_HANDSHAKE

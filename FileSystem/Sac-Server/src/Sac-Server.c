@@ -65,10 +65,10 @@ t_list* recibir_paquete(int socket_cliente)
 */
 
 void* funcionMagica(int cliente){
-	Paquete *paquete = malloc(sizeof(Paquete));
+	PaqueteFuse *paquete = malloc(sizeof(PaqueteFuse));
 	paquete = NULL;
 	RecibirPaqueteServidorFuse(cliente, paquete);
-	Paquete buff;
+	PaqueteFuse buff;
 	//int err=recv(cliente, &buff,sizeof(Paquete),MSG_WAITALL);
 /*	if (err = -1){
 		log_error(logger, "ERROR GATO\n");
@@ -86,19 +86,23 @@ int main(void) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 	int conexion, cliente;
-	conexion = iniciar_servidor("127.0.0.1", "8223", logger);
-	int cantidad,err;
-	pthread_t cody[cantidad];
+	conexion = iniciar_servidor("127.0.0.1", "9090", logger);
+	int cantidad = 10;
+	int err;
+	pthread_t cody[cantidad];//=malloc(sizeof(pthread_t)*cantidad);
+	pthread_t* sarasa = malloc(sizeof(pthread_t));
 	cantidad=0;
 	do{
 		cliente = esperar_cliente_con_accept(conexion, logger);
-		err=pthread_create(cody[cantidad],NULL,funcionMagica,cliente);
-		if(err){
+		//err=pthread_create(sarasa,NULL,(void*)funcionMagica,cliente);
+		if(pthread_create(sarasa,NULL,(void*)funcionMagica,cliente)){
 			log_error(logger,strerror(err));
 		}
 		pthread_detach(cody[cantidad]);
 		cantidad+=1;
 	}while(cantidad<10);
-	
+	/*for(int i = 0; i<cantidad;i++){
+		free(cody[i]);
+	}*/
 	return EXIT_SUCCESS;
 }

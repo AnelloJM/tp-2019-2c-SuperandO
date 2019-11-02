@@ -45,7 +45,7 @@ typedef struct {
 typedef struct {
 	HeaderFuse headerFuse;
 	void* mensaje;
-}__attribute__((packed)) Paquete;
+}__attribute__((packed)) PaqueteFuse;
 
 //////////////////////////////////////////
 //          Estructuras Utiles          //
@@ -53,7 +53,7 @@ typedef struct {
 
 typedef struct {
 	char *path;
-	struct stat *stbuf
+	struct stat *stbuf;
 }__attribute__((packed)) f_getattr;
 
 typedef struct {
@@ -85,12 +85,12 @@ bool EnviarHandshake(int socketFD);
 
 bool EnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_permisos permisos);
 
-bool EnviarPaquete(int socketCliente, Paquete* paquete);
+bool EnviarPaquete(int socketCliente, PaqueteFuse* paquete);
 
 int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir);
 
-int RecibirPaqueteServidorFuse(int socketFD, Paquete* paquete); //Responde al recibir un Handshake
+int RecibirPaqueteServidorFuse(int socketFD, PaqueteFuse* paquete); //Responde al recibir un Handshake
 
-int RecibirPaqueteCliente(int socketFD, Paquete* paquete); //No responde los Handshakes
+int RecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete); //No responde los Handshakes
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */

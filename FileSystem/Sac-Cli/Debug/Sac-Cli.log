@@ -14659,3 +14659,39 @@
 [INFO] 19:06:20:336 Sac-Cli/(15366:15372): se pudo
 [INFO] 19:06:20:336 Sac-Cli/(15366:15372): DESPUES
 
+[INFO] 15:40:08:506 Sac-Cli/(7541:7541): Se ha iniciado una nueva instancia del logger
+
+[ERROR] 15:40:08:506 Sac-Cli/(7541:7541): Error de conexion
+
+[INFO] 15:41:09:696 Sac-Cli/(7599:7599): Se ha iniciado una nueva instancia del logger
+
+[INFO] 15:41:09:697 Sac-Cli/(7599:7599): Conexion correcta
+
+[INFO] 15:41:09:704 Sac-Cli/(7599:7605): Se llamo a fusesito_getattr
+
+[INFO] 15:41:09:705 Sac-Cli/(7599:7605): ANTES
+
+[INFO] 15:41:21:872 Sac-Cli/(7613:7613): Se ha iniciado una nueva instancia del logger
+
+[INFO] 15:41:21:872 Sac-Cli/(7613:7613): Conexion correcta
+
+[INFO] 15:44:23:241 Sac-Cli/(7842:7842): Se ha iniciado una nueva instancia del logger
+
+[ERROR] 15:44:23:241 Sac-Cli/(7842:7842): Error de conexion
+
+[INFO] 15:45:12:719 Sac-Cli/(7857:7857): Se ha iniciado una nueva instancia del logger
+
+[ERROR] 15:45:12:719 Sac-Cli/(7857:7857): Error de conexion
+
+[INFO] 15:45:28:750 Sac-Cli/(7862:7862): Se ha iniciado una nueva instancia del logger
+
+[INFO] 15:45:28:751 Sac-Cli/(7862:7862): Conexion correcta
+
+[INFO] 16:17:33:390 Sac-Cli/(9295:9295): Se ha iniciado una nueva instancia del logger
+
+[INFO] 16:17:33:395 Sac-Cli/(9295:9295): Conexion correcta
+
+[INFO] 16:17:33:405 Sac-Cli/(9295:9302): Se llamo a fusesito_getattr
+
+[INFO] 16:17:33:405 Sac-Cli/(9295:9302): ANTES
+

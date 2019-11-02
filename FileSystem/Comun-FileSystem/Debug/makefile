@@ -8,7 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include src/subdir.mk
+-include Serializacion-FileSystem/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -23,27 +23,27 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: Sac-Cli
+all: libComun-FileSystem.so
 
 dependents:
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) clean all
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/FileSystem/Comun-FileSystem/Debug && $(MAKE) clean all
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/FileSystem/Comun-FileSystem/Release && $(MAKE) all
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) all
 
 # Tool invocations
-Sac-Cli: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so /home/utnso/workspace/tp-2019-2c-SuperandO/FileSystem/Comun-FileSystem/Debug/libComun-FileSystem.so
+libComun-FileSystem.so: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-SuperandO/FileSystem/Comun-FileSystem/Release/libComun-FileSystem.so /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc -L"/home/utnso/workspace/tp-2019-2c-SuperandO/FileSystem/Comun-FileSystem/Debug" -L"/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug" -o "Sac-Cli" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc -L"/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug" -shared -o "libComun-FileSystem.so" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) Sac-Cli
+	-$(RM) $(LIBRARIES)$(OBJS)$(C_DEPS) libComun-FileSystem.so
 	-@echo ' '
 
 .PHONY: all clean dependents
+/home/utnso/workspace/tp-2019-2c-SuperandO/FileSystem/Comun-FileSystem/Release/libComun-FileSystem.so:
 /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so:
-/home/utnso/workspace/tp-2019-2c-SuperandO/FileSystem/Comun-FileSystem/Debug/libComun-FileSystem.so:
 
 -include ../makefile.targets

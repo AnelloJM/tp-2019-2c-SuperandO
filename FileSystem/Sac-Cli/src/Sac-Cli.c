@@ -46,7 +46,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	f_getattr *message = malloc(sizeof(f_getattr));
 	message->path = "Co" ;//path;
 	message->stbuf = stbuf;
-	Paquete *pack = malloc(sizeof(Paquete));
+	PaqueteFuse *pack = malloc(sizeof(PaqueteFuse));
 	pack->headerFuse.tamanioMensaje = sizeof(f_getattr);
 	pack->headerFuse.permisos = f_READWRITE;
 	pack->mensaje = message;
@@ -135,7 +135,7 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "8457", logger);
+	conexion = conectarse_a_un_servidor("127.0.0.1" , "9090", logger);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
 	// Esta es la funcion principal de FUSE, es la que se encarga

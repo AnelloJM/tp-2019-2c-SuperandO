@@ -63,10 +63,9 @@ int esperar_cliente_con_accept(int socket_servidor, t_log* logger)
 	struct sockaddr_in dir_cliente;
 	int tam_direccion = sizeof(struct sockaddr_in);
 
-	int socket_cliente = accept(socket_servidor, (void*) &dir_cliente, &tam_direccion);
+	int socket_cliente = accept(socket_servidor, &dir_cliente, &tam_direccion);
 
 	log_info(logger, "Se conecto un cliente!");
-
 	return socket_cliente;
 }
 
