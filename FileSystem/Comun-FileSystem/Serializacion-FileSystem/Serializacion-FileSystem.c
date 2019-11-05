@@ -37,9 +37,9 @@ bool FuseEnviarPaquete(int socketCliente, PaqueteFuse* paquete) {
 	return valor_retorno;
 }
 
-bool FuseEnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_permisos permisos){
+bool FuseEnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_operacion operaciones){
 	PaqueteFuse* paquete = malloc(sizeof(PaqueteFuse));
-	paquete->headerFuse.permisos = permisos;
+	paquete->headerFuse.operaciones = operaciones;
 	uint32_t r = 0;
 	bool valor_retorno;
 	if(tamDatos<=0 || datos==NULL){
@@ -57,7 +57,7 @@ bool FuseEnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_permisos per
 bool FuseEnviarHandshake(int socketFD) {
 	PaqueteFuse* paquete = malloc(sizeof(PaqueteFuse));
 	HeaderFuse header;
-	header.permisos = f_HANDSHAKE;
+	header.operaciones = f_HANDSHAKE;
 	header.tamanioMensaje = 0;
 	paquete->headerFuse = header;
 	bool resultado = FuseEnviarPaquete(socketFD, paquete);
@@ -89,7 +89,7 @@ int FuseRecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir) {
 int FuseRecibirPaqueteServidor(int socketFD, PaqueteFuse* paquete) {
 	int resul = FuseRecibirDatos(&(paquete->headerFuse), socketFD, sizeof(HeaderFuse));
 	if (resul > 0) { //si no hubo error
-		if (paquete->headerFuse.permisos == f_HANDSHAKE) { //vemos si es un f_HANDSHAKE
+		if (paquete->headerFuse.operaciones == f_HANDSHAKE) { //vemos si es un f_HANDSHAKE
 			EnviarHandshake(socketFD);
 		} else if (paquete->headerFuse.tamanioMensaje > 0){ //recibimos un payload y lo procesamos (por ej, puede mostrarlo)
 			paquete->mensaje = malloc(paquete->headerFuse.tamanioMensaje);
@@ -102,7 +102,7 @@ int FuseRecibirPaqueteServidor(int socketFD, PaqueteFuse* paquete) {
 int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete) {
 	paquete->mensaje = NULL;
 	int resul = FuseRecibirDatos(&(paquete->headerFuse), socketFD, sizeof(HeaderFuse));
-	if (resul > 0 && paquete->headerFuse.permisos != f_HANDSHAKE && paquete->headerFuse.tamanioMensaje > 0) { //si no hubo error ni es un t_HANDSHAKE
+	if (resul > 0 && paquete->headerFuse.operaciones != f_HANDSHAKE && paquete->headerFuse.tamanioMensaje > 0) { //si no hubo error ni es un t_HANDSHAKE
 		paquete->mensaje = malloc(paquete->headerFuse.tamanioMensaje);
 		resul = FuseRecibirDatos(paquete->mensaje, socketFD, paquete->headerFuse.tamanioMensaje);
 	}

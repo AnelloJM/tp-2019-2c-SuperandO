@@ -48,7 +48,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	message->stbuf = stbuf;
 	PaqueteFuse *pack = malloc(sizeof(PaqueteFuse));
 	pack->headerFuse.tamanioMensaje = sizeof(f_getattr);
-	pack->headerFuse.permisos = f_READWRITE;
+	pack->headerFuse.operaciones = f_GETATTR;
 	pack->mensaje = message;
 		log_info(logger, "ANTES\n");
 

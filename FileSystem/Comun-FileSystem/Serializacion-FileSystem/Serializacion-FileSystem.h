@@ -27,11 +27,12 @@
 //           Tipos de Permisos         //
 //////////////////////////////////////////
 typedef enum f_permisos {
+	f_GETATTR,
+	f_READDIR,
 	f_READ,
-	f_WRITE,
-	f_READWRITE,
+	f_OPEN,
 	f_HANDSHAKE
-} f_permisos;
+} f_operacion;
 
 //////////////////////////////////////////
 //           Comunicacion Base          //
@@ -39,7 +40,7 @@ typedef enum f_permisos {
 
 typedef struct {
 	int tamanioMensaje;
-	f_permisos permisos;
+	f_operacion operaciones;
 }__attribute__((packed)) HeaderFuse;
 
 typedef struct {
@@ -83,7 +84,7 @@ typedef struct {
 
 bool FuseEnviarHandshake(int socketFD);
 
-bool FuseEnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_permisos permisos);
+bool FuseEnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_operacion operaciones);
 
 bool FuseEnviarPaquete(int socketCliente, PaqueteFuse* paquete);
 
