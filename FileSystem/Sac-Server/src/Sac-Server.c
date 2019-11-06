@@ -22,8 +22,6 @@
 #include <pthread.h>
 
 t_log *logger;
-int sizeofgetattr = sizeof(char)+sizeof(struct stat);
-int sizeofpackgetattr = sizeof(char) + sizeof(struct stat) + sizeof(HeaderFuse);
 
 /*int recibir_operacion(int socket_cliente)
 {
@@ -68,10 +66,12 @@ t_list* recibir_paquete(int socket_cliente)
 */
 
 void* funcionMagica(int cliente){
-	PaqueteFuse *paquete = malloc(sizeofpackgetattr);
+	int tamPackGetAttr = DameTamPackGetAttr();
+	int tamGetAttr = DameTamGetAttr();
+	PaqueteFuse *paquete = malloc(tamPackGetAttr);
 	FuseRecibirPaqueteServidor(cliente, paquete);
-	f_getattr *info = malloc(sizeofgetattr);
-	memcpy(info, paquete->mensaje, sizeofgetattr);
+	f_getattr *info = malloc(tamGetAttr);
+	memcpy(info, paquete->mensaje, tamGetAttr);
 	log_info(logger, "recibi: %c", info->path);
 	free(info);
 	free(paquete);

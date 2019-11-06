@@ -39,26 +39,15 @@
 
 t_log *logger;
 int conexion;
-int sizeofgetattr = sizeof(char)+sizeof(struct stat);
-int sizeofpackgetattr = sizeof(char) + sizeof(struct stat) + sizeof(HeaderFuse);
 
-static void serializarGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack) {
-	f_getattr *message = malloc(sizeofgetattr);
-	message->path = strdup("unPath") ;//path;
-	message->stbuf = stbuf;
-	pack->headerFuse.tamanioMensaje = sizeofgetattr;
-	pack->headerFuse.operaciones = f_GETATTR;
-	pack->mensaje = message;
-	free(message);
-
-}
 
 static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_info(logger, "Se llamo a fusesito_getattr\n");
 	int res = 0;
-	PaqueteFuse *pack = malloc(sizeofpackgetattr);
-	serializarGetAttr(path,stbuf,pack);
-
+	int tamPack = DameTamPackGetAttr();
+	int tampStruct = DameTamGetAttr();
+	PaqueteFuse *pack = malloc(tamPack);
+	FuseEmpaquetarPackGetAttr(path,stbuf,pack);
 	if(FuseEnviarPaquete(conexion, pack)){
 		log_info(logger, "se pudo enviar pack");
 	}

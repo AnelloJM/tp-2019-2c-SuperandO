@@ -109,3 +109,19 @@ int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete) {
 	return resul;
 }
 
+int DameTamGetAttr() { return (sizeof(char)+sizeof(struct stat)); }
+
+int DameTamPackGetAttr() { return(sizeof(char) + sizeof(struct stat) + sizeof(HeaderFuse)); }
+
+void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack) {
+	int tam = DameTamGetAttr();
+	f_getattr *message = malloc(tam);
+	message->path = strdup("unPath") ;//path;
+	message->stbuf = stbuf;
+	pack->headerFuse.tamanioMensaje = tam;
+	pack->headerFuse.operaciones = f_GETATTR;
+	pack->mensaje = message;
+	free(message);
+
+}
+

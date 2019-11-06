@@ -92,6 +92,12 @@ int FuseRecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir);
 
 int FuseRecibirPaqueteServidor(int socketFD, PaqueteFuse* paquete); //Responde al recibir un Handshake
 
-int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete); //No responde los Handshakes
+int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete); //No responde los Handshakes}
+
+int DameTamGetAttr();
+
+int DameTamPackGetAttr();
+
+void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack);
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */
