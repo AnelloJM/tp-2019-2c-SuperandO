@@ -46,7 +46,7 @@ static void serializarGetAttr(const char *path, struct stat *stbuf, PaqueteFuse 
 	f_getattr *message = malloc(sizeofgetattr);
 	message->path = strdup("UnPath") ;//path;
 	message->stbuf = stbuf;
-	pack->headerFuse.tamanioMensaje = sizeofpackgetattr;
+	pack->headerFuse.tamanioMensaje = sizeofgetattr;
 	pack->headerFuse.operaciones = f_GETATTR;
 	pack->mensaje = message;
 	free(message);
