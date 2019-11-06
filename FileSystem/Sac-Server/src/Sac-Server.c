@@ -22,6 +22,9 @@
 #include <pthread.h>
 
 t_log *logger;
+int sizeofgetattr = sizeof(char)+sizeof(struct stat);
+int sizeofpackgetattr = sizeof(char) + sizeof(struct stat) + sizeof(HeaderFuse);
+
 /*int recibir_operacion(int socket_cliente)
 {
 	int cod_op;
@@ -65,11 +68,11 @@ t_list* recibir_paquete(int socket_cliente)
 */
 
 void* funcionMagica(int cliente){
-	PaqueteFuse *paquete = malloc(sizeof(PaqueteFuse));
+	PaqueteFuse *paquete = malloc(sizeofpackgetattr);
 	FuseRecibirPaqueteServidor(cliente, paquete);
-	f_getattr *info = malloc(sizeof(f_getattr));
-	memcpy(info, paquete->mensaje, sizeof(f_getattr));
-	log_info(logger, "recibi: %s", info->path);
+	f_getattr *info = malloc(sizeofgetattr);
+	memcpy(info, paquete->mensaje, sizeofgetattr);
+	log_info(logger, "recibi: %c", info->path);
 	free(info);
 	free(paquete);
 }
@@ -79,7 +82,7 @@ int main(void) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 	int conexion, cliente;
-	conexion = iniciar_servidor("127.0.0.1", "9090", logger);
+	conexion = iniciar_servidor("127.0.0.1", "9091", logger);
 	int cantidad = 10;
 	int err;
 	pthread_t cody[cantidad];//=malloc(sizeof(pthread_t)*cantidad);

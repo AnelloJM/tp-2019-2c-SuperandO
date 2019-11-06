@@ -188,3 +188,27 @@
 [INFO] 21:04:05:385 Sac-Server/(6212:6212): Listo para escuchar a mi cliente
 [INFO] 21:05:58:916 Sac-Server/(6212:6212): Se conecto un cliente!
 [INFO] 21:05:59:233 Sac-Server/(6212:6244): recibi: 
+[INFO] 22:00:46:472 Sac-Server/(7935:7935): Se ha creado un nuevo logger
+
+[INFO] 22:00:46:509 Sac-Server/(7935:7935): Dentro de iniciar servidor
+[INFO] 22:00:46:526 Sac-Server/(7935:7935): Listo para escuchar a mi cliente
+[INFO] 22:00:55:2 Sac-Server/(7935:7935): Se conecto un cliente!
+[INFO] 22:00:56:305 Sac-Server/(7935:7937): recibi: 
+[INFO] 22:06:44:762 Sac-Server/(8109:8109): Se ha creado un nuevo logger
+
+[INFO] 22:06:44:804 Sac-Server/(8109:8109): Dentro de iniciar servidor
+[INFO] 22:06:44:821 Sac-Server/(8109:8109): Listo para escuchar a mi cliente
+[INFO] 22:06:47:990 Sac-Server/(8109:8109): Se conecto un cliente!
+[INFO] 22:06:48:320 Sac-Server/(8109:8111): recibi: p
+[INFO] 22:07:35:722 Sac-Server/(8207:8207): Se ha creado un nuevo logger
+
+[INFO] 22:07:35:763 Sac-Server/(8207:8207): Dentro de iniciar servidor
+[INFO] 22:07:35:781 Sac-Server/(8207:8207): Listo para escuchar a mi cliente
+[INFO] 22:07:38:519 Sac-Server/(8207:8207): Se conecto un cliente!
+[INFO] 22:07:38:830 Sac-Server/(8207:8211): recibi: p
+[INFO] 22:11:22:466 Sac-Server/(8364:8364): Se ha creado un nuevo logger
+
+[INFO] 22:11:22:504 Sac-Server/(8364:8364): Dentro de iniciar servidor
+[INFO] 22:11:22:521 Sac-Server/(8364:8364): Listo para escuchar a mi cliente
+[INFO] 22:11:27:25 Sac-Server/(8364:8364): Se conecto un cliente!
+[INFO] 22:11:27:314 Sac-Server/(8364:8366): recibi: à

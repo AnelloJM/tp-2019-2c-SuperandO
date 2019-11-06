@@ -44,7 +44,7 @@ int sizeofpackgetattr = sizeof(char) + sizeof(struct stat) + sizeof(HeaderFuse);
 
 static void serializarGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack) {
 	f_getattr *message = malloc(sizeofgetattr);
-	message->path = strdup("UnPath") ;//path;
+	message->path = strdup("unPath") ;//path;
 	message->stbuf = stbuf;
 	pack->headerFuse.tamanioMensaje = sizeofgetattr;
 	pack->headerFuse.operaciones = f_GETATTR;
@@ -59,15 +59,12 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	PaqueteFuse *pack = malloc(sizeofpackgetattr);
 	serializarGetAttr(path,stbuf,pack);
 
-		log_info(logger, "ANTES\n");
-
 	if(FuseEnviarPaquete(conexion, pack)){
-		log_info(logger, "se pudo");
+		log_info(logger, "se pudo enviar pack");
 	}
 	else{
-		log_error(logger, "no se pudo");
+		log_error(logger, "no se pudo enviar pack");
 	}
-	log_info(logger, "DESPUES\n");
 
 	//Continuo con lo que deberia hacer para que no cuelge, esto es solo para testear
 
@@ -143,7 +140,7 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "9090", logger);
+	conexion = conectarse_a_un_servidor("127.0.0.1" , "9091", logger);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
 	// Esta es la funcion principal de FUSE, es la que se encarga
