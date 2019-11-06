@@ -182,3 +182,9 @@
 [INFO] 17:19:31:182 Sac-Server/(12441:12441): Dentro de iniciar servidor
 [INFO] 17:19:31:191 Sac-Server/(12441:12441): Listo para escuchar a mi cliente
 [INFO] 17:19:32:743 Sac-Server/(12441:12441): Se conecto un cliente!
+[INFO] 21:04:05:331 Sac-Server/(6212:6212): Se ha creado un nuevo logger
+
+[INFO] 21:04:05:369 Sac-Server/(6212:6212): Dentro de iniciar servidor
+[INFO] 21:04:05:385 Sac-Server/(6212:6212): Listo para escuchar a mi cliente
+[INFO] 21:05:58:916 Sac-Server/(6212:6212): Se conecto un cliente!
+[INFO] 21:05:59:233 Sac-Server/(6212:6244): recibi: 

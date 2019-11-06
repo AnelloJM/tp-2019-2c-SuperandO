@@ -39,17 +39,26 @@
 
 t_log *logger;
 int conexion;
+int sizeofgetattr = sizeof(char)+sizeof(struct stat);
+int sizeofpackgetattr = sizeof(char) + sizeof(struct stat) + sizeof(HeaderFuse);
+
+static void serializarGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack) {
+	f_getattr *message = malloc(sizeofgetattr);
+	message->path = strdup("UnPath") ;//path;
+	message->stbuf = stbuf;
+	pack->headerFuse.tamanioMensaje = sizeofpackgetattr;
+	pack->headerFuse.operaciones = f_GETATTR;
+	pack->mensaje = message;
+	free(message);
+
+}
 
 static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_info(logger, "Se llamo a fusesito_getattr\n");
 	int res = 0;
-	f_getattr *message = malloc(sizeof(f_getattr));
-	message->path = strdup("Co") ;//path;
-	message->stbuf = stbuf;
-	PaqueteFuse *pack = malloc(sizeof(PaqueteFuse));
-	pack->headerFuse.tamanioMensaje = sizeof(f_getattr);
-	pack->headerFuse.operaciones = f_GETATTR;
-	pack->mensaje = message;
+	PaqueteFuse *pack = malloc(sizeofpackgetattr);
+	serializarGetAttr(path,stbuf,pack);
+
 		log_info(logger, "ANTES\n");
 
 	if(FuseEnviarPaquete(conexion, pack)){
@@ -60,7 +69,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	}
 	log_info(logger, "DESPUES\n");
 
-	//RecibirPaqueteCliente(8080, packRespuesta);
+	//Continuo con lo que deberia hacer para que no cuelge, esto es solo para testear
 
 		memset(stbuf, 0, sizeof(struct stat));
 
@@ -77,7 +86,6 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 			res = -ENOENT;
 		}
 		free(pack);
-		free(message);
 		return res;
 }
 

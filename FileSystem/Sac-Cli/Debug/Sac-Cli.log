@@ -23220,3 +23220,424 @@
 [INFO] 17:19:32:787 Sac-Cli/(12447:12455): se pudo
 [INFO] 17:19:32:787 Sac-Cli/(12447:12455): DESPUES
 
+[INFO] 21:05:58:865 Sac-Cli/(6243:6243): Se ha iniciado una nueva instancia del logger
+
+[INFO] 21:05:58:920 Sac-Cli/(6243:6243): Conexion correcta
+
+[INFO] 21:05:59:198 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:199 Sac-Cli/(6243:6249): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:201 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:202 Sac-Cli/(6243:6249): ANTES
+
+[INFO] 21:05:59:223 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:224 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:242 Sac-Cli/(6243:6249): se pudo
+[INFO] 21:05:59:242 Sac-Cli/(6243:6249): DESPUES
+
+[INFO] 21:05:59:254 Sac-Cli/(6243:6252): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:254 Sac-Cli/(6243:6252): ANTES
+
+[INFO] 21:05:59:254 Sac-Cli/(6243:6252): se pudo
+[INFO] 21:05:59:255 Sac-Cli/(6243:6252): DESPUES
+
+[INFO] 21:05:59:257 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:257 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:258 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:258 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:265 Sac-Cli/(6243:6252): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:279 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:279 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:282 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:283 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:302 Sac-Cli/(6243:6253): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:302 Sac-Cli/(6243:6253): ANTES
+
+[INFO] 21:05:59:303 Sac-Cli/(6243:6253): se pudo
+[INFO] 21:05:59:303 Sac-Cli/(6243:6253): DESPUES
+
+[INFO] 21:05:59:313 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:314 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:314 Sac-Cli/(6243:6253): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:315 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:315 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:316 Sac-Cli/(6243:6253): ANTES
+
+[INFO] 21:05:59:316 Sac-Cli/(6243:6253): se pudo
+[INFO] 21:05:59:317 Sac-Cli/(6243:6253): DESPUES
+
+[INFO] 21:05:59:318 Sac-Cli/(6243:6253): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:319 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:319 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:319 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:320 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:323 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:323 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:324 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:324 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:325 Sac-Cli/(6243:6252): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:326 Sac-Cli/(6243:6253): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:326 Sac-Cli/(6243:6253): ANTES
+
+[INFO] 21:05:59:327 Sac-Cli/(6243:6253): se pudo
+[INFO] 21:05:59:327 Sac-Cli/(6243:6253): DESPUES
+
+[INFO] 21:05:59:329 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:329 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:330 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:330 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:331 Sac-Cli/(6243:6249): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:332 Sac-Cli/(6243:6249): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:333 Sac-Cli/(6243:6249): ANTES
+
+[INFO] 21:05:59:333 Sac-Cli/(6243:6249): se pudo
+[INFO] 21:05:59:333 Sac-Cli/(6243:6249): DESPUES
+
+[INFO] 21:05:59:335 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:335 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:335 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:336 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:336 Sac-Cli/(6243:6253): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:337 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:337 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:338 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:342 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:344 Sac-Cli/(6243:6253): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:345 Sac-Cli/(6243:6253): ANTES
+
+[INFO] 21:05:59:346 Sac-Cli/(6243:6253): se pudo
+[INFO] 21:05:59:347 Sac-Cli/(6243:6253): DESPUES
+
+[INFO] 21:05:59:347 Sac-Cli/(6243:6249): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:348 Sac-Cli/(6243:6252): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:348 Sac-Cli/(6243:6252): ANTES
+
+[INFO] 21:05:59:349 Sac-Cli/(6243:6252): se pudo
+[INFO] 21:05:59:349 Sac-Cli/(6243:6252): DESPUES
+
+[INFO] 21:05:59:351 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:351 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:352 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:352 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:353 Sac-Cli/(6243:6251): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:354 Sac-Cli/(6243:6249): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:354 Sac-Cli/(6243:6249): ANTES
+
+[INFO] 21:05:59:355 Sac-Cli/(6243:6249): se pudo
+[INFO] 21:05:59:355 Sac-Cli/(6243:6249): DESPUES
+
+[INFO] 21:05:59:356 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:357 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:358 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:358 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:359 Sac-Cli/(6243:6250): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:360 Sac-Cli/(6243:6252): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:360 Sac-Cli/(6243:6252): ANTES
+
+[INFO] 21:05:59:360 Sac-Cli/(6243:6252): se pudo
+[INFO] 21:05:59:361 Sac-Cli/(6243:6252): DESPUES
+
+[INFO] 21:05:59:363 Sac-Cli/(6243:6253): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:363 Sac-Cli/(6243:6253): ANTES
+
+[INFO] 21:05:59:364 Sac-Cli/(6243:6253): se pudo
+[INFO] 21:05:59:364 Sac-Cli/(6243:6253): DESPUES
+
+[INFO] 21:05:59:364 Sac-Cli/(6243:6250): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:365 Sac-Cli/(6243:6252): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:366 Sac-Cli/(6243:6252): ANTES
+
+[INFO] 21:05:59:366 Sac-Cli/(6243:6252): se pudo
+[INFO] 21:05:59:366 Sac-Cli/(6243:6252): DESPUES
+
+[INFO] 21:05:59:368 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:368 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:368 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:373 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:374 Sac-Cli/(6243:6249): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:375 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:375 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:375 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:376 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:377 Sac-Cli/(6243:6253): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:378 Sac-Cli/(6243:6253): ANTES
+
+[INFO] 21:05:59:379 Sac-Cli/(6243:6253): se pudo
+[INFO] 21:05:59:380 Sac-Cli/(6243:6253): DESPUES
+
+[INFO] 21:05:59:381 Sac-Cli/(6243:6252): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:382 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:383 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:383 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:384 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:385 Sac-Cli/(6243:6252): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:385 Sac-Cli/(6243:6252): ANTES
+
+[INFO] 21:05:59:386 Sac-Cli/(6243:6252): se pudo
+[INFO] 21:05:59:386 Sac-Cli/(6243:6252): DESPUES
+
+[INFO] 21:05:59:387 Sac-Cli/(6243:6249): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:388 Sac-Cli/(6243:6249): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:388 Sac-Cli/(6243:6249): ANTES
+
+[INFO] 21:05:59:389 Sac-Cli/(6243:6249): se pudo
+[INFO] 21:05:59:389 Sac-Cli/(6243:6249): DESPUES
+
+[INFO] 21:05:59:391 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:391 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:392 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:392 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:392 Sac-Cli/(6243:6250): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:393 Sac-Cli/(6243:6252): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:393 Sac-Cli/(6243:6252): ANTES
+
+[INFO] 21:05:59:394 Sac-Cli/(6243:6252): se pudo
+[INFO] 21:05:59:394 Sac-Cli/(6243:6252): DESPUES
+
+[INFO] 21:05:59:396 Sac-Cli/(6243:6249): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:396 Sac-Cli/(6243:6249): ANTES
+
+[INFO] 21:05:59:396 Sac-Cli/(6243:6249): se pudo
+[INFO] 21:05:59:397 Sac-Cli/(6243:6249): DESPUES
+
+[INFO] 21:05:59:398 Sac-Cli/(6243:6250): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:399 Sac-Cli/(6243:6253): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:399 Sac-Cli/(6243:6253): ANTES
+
+[INFO] 21:05:59:404 Sac-Cli/(6243:6253): se pudo
+[INFO] 21:05:59:404 Sac-Cli/(6243:6253): DESPUES
+
+[INFO] 21:05:59:405 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:406 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:407 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:407 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:408 Sac-Cli/(6243:6252): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:409 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:409 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:409 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:410 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:411 Sac-Cli/(6243:6253): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:412 Sac-Cli/(6243:6253): ANTES
+
+[INFO] 21:05:59:413 Sac-Cli/(6243:6253): se pudo
+[INFO] 21:05:59:413 Sac-Cli/(6243:6253): DESPUES
+
+[INFO] 21:05:59:414 Sac-Cli/(6243:6250): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:416 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:416 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:416 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:417 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:418 Sac-Cli/(6243:6249): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:419 Sac-Cli/(6243:6249): ANTES
+
+[INFO] 21:05:59:419 Sac-Cli/(6243:6249): se pudo
+[INFO] 21:05:59:420 Sac-Cli/(6243:6249): DESPUES
+
+[INFO] 21:05:59:420 Sac-Cli/(6243:6252): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:421 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:422 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:422 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:422 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:423 Sac-Cli/(6243:6253): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:424 Sac-Cli/(6243:6253): ANTES
+
+[INFO] 21:05:59:425 Sac-Cli/(6243:6253): se pudo
+[INFO] 21:05:59:425 Sac-Cli/(6243:6253): DESPUES
+
+[INFO] 21:05:59:425 Sac-Cli/(6243:6251): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:426 Sac-Cli/(6243:6252): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:426 Sac-Cli/(6243:6252): ANTES
+
+[INFO] 21:05:59:427 Sac-Cli/(6243:6252): se pudo
+[INFO] 21:05:59:427 Sac-Cli/(6243:6252): DESPUES
+
+[INFO] 21:05:59:429 Sac-Cli/(6243:6249): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:429 Sac-Cli/(6243:6249): ANTES
+
+[INFO] 21:05:59:434 Sac-Cli/(6243:6249): se pudo
+[INFO] 21:05:59:435 Sac-Cli/(6243:6249): DESPUES
+
+[INFO] 21:05:59:435 Sac-Cli/(6243:6251): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:436 Sac-Cli/(6243:6252): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:437 Sac-Cli/(6243:6252): ANTES
+
+[INFO] 21:05:59:437 Sac-Cli/(6243:6252): se pudo
+[INFO] 21:05:59:438 Sac-Cli/(6243:6252): DESPUES
+
+[INFO] 21:05:59:439 Sac-Cli/(6243:6253): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:440 Sac-Cli/(6243:6253): ANTES
+
+[INFO] 21:05:59:440 Sac-Cli/(6243:6253): se pudo
+[INFO] 21:05:59:441 Sac-Cli/(6243:6253): DESPUES
+
+[INFO] 21:05:59:441 Sac-Cli/(6243:6250): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:442 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:442 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:443 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:443 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:445 Sac-Cli/(6243:6249): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:446 Sac-Cli/(6243:6249): ANTES
+
+[INFO] 21:05:59:447 Sac-Cli/(6243:6249): se pudo
+[INFO] 21:05:59:447 Sac-Cli/(6243:6249): DESPUES
+
+[INFO] 21:05:59:448 Sac-Cli/(6243:6252): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:449 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:450 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:450 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:450 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:452 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:452 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:453 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:453 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:454 Sac-Cli/(6243:6253): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:455 Sac-Cli/(6243:6252): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:455 Sac-Cli/(6243:6252): ANTES
+
+[INFO] 21:05:59:455 Sac-Cli/(6243:6252): se pudo
+[INFO] 21:05:59:456 Sac-Cli/(6243:6252): DESPUES
+
+[INFO] 21:05:59:458 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:458 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:459 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:459 Sac-Cli/(6243:6250): DESPUES
+
+[INFO] 21:05:59:460 Sac-Cli/(6243:6249): Se llamo a fusesito_readdir
+
+[INFO] 21:05:59:461 Sac-Cli/(6243:6253): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:463 Sac-Cli/(6243:6253): ANTES
+
+[INFO] 21:05:59:467 Sac-Cli/(6243:6253): se pudo
+[INFO] 21:05:59:468 Sac-Cli/(6243:6253): DESPUES
+
+[INFO] 21:05:59:469 Sac-Cli/(6243:6251): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:470 Sac-Cli/(6243:6251): ANTES
+
+[INFO] 21:05:59:470 Sac-Cli/(6243:6251): se pudo
+[INFO] 21:05:59:471 Sac-Cli/(6243:6251): DESPUES
+
+[INFO] 21:05:59:502 Sac-Cli/(6243:6250): Se llamo a fusesito_getattr
+
+[INFO] 21:05:59:502 Sac-Cli/(6243:6250): ANTES
+
+[INFO] 21:05:59:503 Sac-Cli/(6243:6250): se pudo
+[INFO] 21:05:59:503 Sac-Cli/(6243:6250): DESPUES
+
