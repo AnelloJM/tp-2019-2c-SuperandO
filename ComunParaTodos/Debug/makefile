@@ -28,8 +28,11 @@ endif
 # All Target
 all: libComunParaTodos.so
 
+dependents:
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/Muse/Debug && $(MAKE) all
+
 # Tool invocations
-libComunParaTodos.so: $(OBJS) $(USER_OBJS)
+libComunParaTodos.so: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-SuperandO/Muse/Debug/Muse
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
 	gcc -shared -o "libComunParaTodos.so" $(OBJS) $(USER_OBJS) $(LIBS)
@@ -42,5 +45,6 @@ clean:
 	-@echo ' '
 
 .PHONY: all clean dependents
+/home/utnso/workspace/tp-2019-2c-SuperandO/Muse/Debug/Muse:
 
 -include ../makefile.targets
