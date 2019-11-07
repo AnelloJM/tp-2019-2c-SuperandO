@@ -98,6 +98,18 @@ int DameTamGetAttr();
 
 int DameTamPackGetAttr();
 
+int DameTamReadDir();
+
+int DameTamPackReadDir();
+
+int DameTamOpen();
+
+int DameTamPackOpen();
+
+int DameTamRead();
+
+int DameTamPackRead();
+
 void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack);
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */

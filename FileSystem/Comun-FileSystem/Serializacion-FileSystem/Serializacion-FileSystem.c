@@ -109,9 +109,21 @@ int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete) {
 	return resul;
 }
 
-int DameTamGetAttr() { return (sizeof(char)+sizeof(struct stat)); }
+int DameTamGetAttr() { return (sizeof(char *)+sizeof(struct stat *)); }
 
-int DameTamPackGetAttr() { return(sizeof(char) + sizeof(struct stat) + sizeof(HeaderFuse)); }
+int DameTamPackGetAttr() { return(sizeof(char *) + sizeof(struct stat *) + sizeof(HeaderFuse)); }
+
+int DameTamReadDir() { return 0; }
+
+int DameTamPackReadDir() { return 0; }
+
+int DameTamOpen() { return 0; }
+
+int DameTamPackOpen() {return 0; }
+
+int DameTamRead() { return 0; }
+
+int DameTamPackRead() { return 0; }
 
 void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack) {
 	int tam = DameTamGetAttr();

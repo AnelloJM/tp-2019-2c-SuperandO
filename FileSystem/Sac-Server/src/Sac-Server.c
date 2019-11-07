@@ -72,7 +72,7 @@ void* funcionMagica(int cliente){
 	FuseRecibirPaqueteServidor(cliente, paquete);
 	f_getattr *info = malloc(tamGetAttr);
 	memcpy(info, paquete->mensaje, tamGetAttr);
-	log_info(logger, "recibi: %c", info->path);
+	log_info(logger, "recibi: %s", info->path);
 	free(info);
 	free(paquete);
 }
@@ -82,24 +82,20 @@ int main(void) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 	int conexion, cliente;
-	conexion = iniciar_servidor("127.0.0.1", "9091", logger);
+	conexion = iniciar_servidor("127.0.0.1", "9878", logger);
 	int cantidad = 10;
 	int err;
-	pthread_t cody[cantidad];//=malloc(sizeof(pthread_t)*cantidad);
-	pthread_t* sarasa = malloc(sizeof(pthread_t));
+	pthread_t* sarasa = malloc(sizeof(pthread_t*));
 	cantidad=0;
 	//do{
 		cliente = esperar_cliente_con_accept(conexion, logger);
 		//err=pthread_create(sarasa,NULL,(void*)funcionMagica,cliente);
 		if(pthread_create(sarasa,NULL,(void*)funcionMagica,cliente)){
-			log_error(logger,strerror(err));
+			log_error(logger, "CAGAMOS WACHO");
+			//log_error(logger,strerror(err));
 		}
-		pthread_detach(sarasa);/*
-		cantidad+=1;
-	}while(cantidad<10);
-	/*for(int i = 0; i<cantidad;i++){
-		free(cody[i]);
-	}*/
+		pthread_detach(sarasa);
+
 		sleep(200000);
 	return EXIT_SUCCESS;
 }
