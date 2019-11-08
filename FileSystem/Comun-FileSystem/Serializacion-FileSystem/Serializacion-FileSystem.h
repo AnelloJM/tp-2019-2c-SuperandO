@@ -46,7 +46,7 @@ typedef struct {
 typedef struct {
 	HeaderFuse headerFuse;
 	void* mensaje;
-}__attribute__((packed)) PaqueteFuse;
+} PaqueteFuse;
 
 //////////////////////////////////////////
 //          Estructuras Utiles          //
@@ -55,7 +55,7 @@ typedef struct {
 typedef struct {
 	char *path;
 	struct stat *stbuf;
-}__attribute__((packed)) f_getattr;
+} f_getattr;
 
 typedef struct {
 	const char *path;
@@ -63,12 +63,12 @@ typedef struct {
 	fuse_fill_dir_t filler;
 	off_t offset;
 	struct fuse_file_info *fi;
-}__attribute__((packed)) f_readdir;
+} f_readdir;
 
 typedef struct {
 	const char *path;
 	struct fuse_file_info *fi;
-}__attribute__((packed)) f_open;
+} f_open;
 
 typedef struct {
 	const char *path;
@@ -76,7 +76,7 @@ typedef struct {
 	size_t size;
 	off_t offset;
 	struct fuse_file_info *fi;
-}__attribute__((packed)) f_read;
+} f_read;
 
 //////////////////////////////////////////
 //              Funciones               //
