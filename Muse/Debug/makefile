@@ -27,13 +27,13 @@ endif
 all: Muse
 
 dependents:
-	-cd /home/utnso/git/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) all
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) all
 
 # Tool invocations
-Muse: $(OBJS) $(USER_OBJS) /home/utnso/git/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so
+Muse: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc -L"/home/utnso/git/tp-2019-2c-SuperandO/ComunParaTodos/Debug" -o "Muse" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc -L"/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug" -o "Muse" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -43,6 +43,6 @@ clean:
 	-@echo ' '
 
 .PHONY: all clean dependents
-/home/utnso/git/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so:
+/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so:
 
 -include ../makefile.targets

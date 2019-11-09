@@ -1,17 +1,6 @@
-/*
- ============================================================================
- Name        : Suse.c
- Author      :
- Version     :
- Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
- ============================================================================
- */
-
 #include "Suse.h"
 
-int main()
-{
+int main(){
 
 	/*INicializando Servidor Suse*/
 	crearLogger();
@@ -44,13 +33,10 @@ int main()
 	*/
 
 	return 0;
-
-
 }
 
-void crearLogger()
-{
-	char* logPath = "SUSE.log"; //"/home/utnso/workspace/tp-2019-2c-SuperandO/Suse/src/SUSE.log";
+void crearLogger(){
+	char* logPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse/src/SUSE.log";
 	char* nombreArch = "SUSE";
 	bool consolaActiva = true;
 	logger = log_create(logPath, nombreArch, consolaActiva, LOG_LEVEL_INFO);
@@ -58,11 +44,9 @@ void crearLogger()
 //	free(logPath);
 }
 
-
-void leerArchivoDeConfiguracion()
-{
-	//char* configPath = "SUSE.cfg"; // "/home/utnso/git/tp-2019-2c-SuperandO/Suse/src/SUSE.cfg";
-	archivoConfig = config_create(PATH_ARCH_CONFIG);
+void leerArchivoDeConfiguracion(){
+	char* configPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse/src/SUSE.cfg";
+	archivoConfig = config_create(configPath);
 	if (archivoConfig == NULL){
 		perror("ERROR: Archivo de configuracion no encontrado");
 	}
@@ -71,11 +55,14 @@ void leerArchivoDeConfiguracion()
 	config_destroy(archivoConfig);
 }
 
-void setearValores(t_config* archivoConfig)
-{
+void setearValores(t_config* archivoConfig){
 	listen_port = strdup(config_get_string_value(archivoConfig,"LISTEN_PORT"));
 	metrics_timer = config_get_int_value(archivoConfig,"METRICS_TIMER");
 	max_multiprog = config_get_int_value(archivoConfig,"MAX_MULTIPROG");
+	sems_ids = config_get_array_value(archivoConfig, "SEM_IDS");
+	sem_init = config_get_array_value(archivoConfig, "SEM_INIT");
+	sem_max = config_get_array_value(archivoConfig, "SEM_MAX");
+	alpha_sjf = config_get_int_value(archivoConfig, "ALPHA_SJF");
 }
 
 
@@ -83,6 +70,8 @@ void suse_init(){}
 
 //Crear nuevo hilo -> pasar funcion por parametro que sera el main del hilo -> el hilo finaliza cuando termina funcion.
 //Cambiar pthread por hilolay
+
+
 /*void suse_create(void(*fmain)(Paquete)){
 
 	pthread_t hilo;
@@ -95,9 +84,23 @@ void suse_init(){}
 	printf("El hilo devolvió: %d", estado);
 }
 */
+
+
 //Obtiene el proximo hilo a ejecutar
 //Parametro: Cola de procesos READY en SUSE
-void suse_schedule_next(){}
+void suse_schedule_next(){
+	//Aca deberia ser la parte del algoritmo de planificacion
+
+
+}
+
+float calcularEstimacion(){
+	float estimacion;
+
+
+
+	return estimacion;
+}
 
 void suse_wait(int sem){
 	sem--;
@@ -111,6 +114,9 @@ void suse_signal(int sem){
 void suse_join(){}
 
 
-
 //Funcion que crea las colas ready segun el grado de multiprogramacion
 
+void suse_close(){}
+
+
+//Close recibe un int TID, y mandas el thread ese a Exit

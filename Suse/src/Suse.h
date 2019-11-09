@@ -4,15 +4,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <readline/readline.h>
-#include "../../ComunParaTodos/Conexiones/Conexiones.h" //esta libreria se define asi porque está en nuestro workspace
-//#include "../../ComunParaTodos/Conexiones/Conexiones.c" // esta la sigo poniendo por mi editor, ignorenla
+#include "../../ComunParaTodos/Conexiones/Conexiones.h"
 #include <commons/log.h>
 #include <commons/string.h>
 #include <commons/config.h>
 #include <commons/collections/queue.h>
 #include <hilolay/hilolay.h>
 #include "../../ComunParaTodos/Serializacion/serializacion.h"
-#define PATH_ARCH_CONFIG "/home/utnso/git/tp-2019-2c-SuperandO/Suse/src/SUSE.cfg"
 
 
 t_log* logger;
@@ -24,9 +22,11 @@ int socket_Suse;
 int socket_cliente;
 
 //Colas comunes para todos los programas
-t_queue * cola_new;
-t_queue * cola_blocked;
-t_queue * cola_exit;
+t_list * cola_new;
+t_list * cola_blocked;
+t_list * cola_exit;
+
+//Creo que es mejor que usemos listas en vez de colas porque son mucho mas versatiles y tienen muchas mas funciones en las commons que nos pueden servir
 
 //cómo implemento los estados
 
@@ -34,10 +34,10 @@ t_queue * cola_exit;
 char* listen_port;
 int metrics_timer;
 int max_multiprog;
-//Sems_ids[array]
-//sem_init[array]
-//sem_max[array]
-//alpha_sjf[numerico]
+void* sems_ids;
+void* sem_init;
+void* sem_max;
+float alpha_sjf;
 
 //PAQUETE//
 Paquete* pack;
@@ -48,6 +48,7 @@ Paquete* pack;
 void crearLogger();
 void leerArchivoDeConfiguracion();
 void setearValores();
+float calcularEstimacion();
 
 
 #endif
