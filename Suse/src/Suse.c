@@ -72,16 +72,22 @@ void suse_init(){}
 //Cambiar pthread por hilolay
 
 
-/*void suse_create(void(*fmain)(Paquete)){
+void suse_create(hiloNuevo_t paquete){
+/*
+	int resultado = pthread_create(paquete.thread, paquete.attr, NULL,paquete.arg);
+	//Hay que ver bien el tercer argumento que es el que inicia el funcion, pero no lo entiendo como mandarlo
 
-	pthread_t hilo;
-	char * arg;
-	int estado;
+	//Si la creacion falla se informa
+	if (resultado == -1){
+		log_info(logger,"El hilo no pudo ser creado");
+	}
 
-	//estado = pthread_create(&hilo, NULL, fmain,(void*) arg);
-	//pthread_join(hilo,NULL);
+	//pthread_join(hilo,NULL); -> Esto no lo entiendo muy bien asi que lo dejo por ahora
 
-	printf("El hilo devolvió: %d", estado);
+
+	//Cuando crea el hilo, lo agrega a la lista de NEW, entonces sobre la lista de new va a obtener el siguiente hilo a ejecutar
+	log_info(logger,"El hilo fue creado con exito");
+	list_add(,cola_new):
 }
 */
 
@@ -89,7 +95,7 @@ void suse_init(){}
 //Obtiene el proximo hilo a ejecutar
 //Parametro: Cola de procesos READY en SUSE
 void suse_schedule_next(){
-	//Aca deberia ser la parte del algoritmo de planificacion
+	//Aca deberia ser la parte del algoritmo de planificacion que mira la cola de new
 
 
 }
@@ -111,12 +117,15 @@ void suse_signal(int sem){
 }
 
 //hace lo mismo que pthread_join. TIene como parametro un hilo (y un PID?)
-void suse_join(){}
+void suse_join(){
+}
 
 
 //Funcion que crea las colas ready segun el grado de multiprogramacion
 
-void suse_close(){}
+void suse_close(){
+
+}
 
 
 //Close recibe un int TID, y mandas el thread ese a Exit
