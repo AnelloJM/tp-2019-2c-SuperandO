@@ -22363,3 +22363,6 @@
 [INFO] 11:19:41:548 Sac-Server/(474:474): esperando
 [INFO] 11:19:54:239 Sac-Server/(474:505): Operacion: 889861130
 [INFO] 11:19:54:240 Sac-Server/(474:505): tamanio: 875770417
+[INFO] 18:13:59:438 Sac-Server/(4788:4788): Se ha creado un nuevo logger
+
+[INFO] 18:13:59:439 Sac-Server/(4788:4788): Sizeof de un header: 8

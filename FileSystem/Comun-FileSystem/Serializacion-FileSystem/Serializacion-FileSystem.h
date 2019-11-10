@@ -41,7 +41,7 @@ typedef enum f_permisos {
 typedef struct {
 	int tamanioMensaje;
 	f_operacion operaciones;
-}__attribute__((packed)) HeaderFuse;
+}__attribute__((packed)) HeaderFuse; //Esta estructura es de tamaño 8
 
 typedef struct {
 	HeaderFuse headerFuse;
