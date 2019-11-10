@@ -62,6 +62,7 @@ int esperar_cliente_con_accept(int socket_servidor, t_log* logger)
 {
 	struct sockaddr_in dir_cliente;
 	int tam_direccion = sizeof(struct sockaddr_in);
+	log_info(logger, "esperando");
 
 	int socket_cliente = accept(socket_servidor, &dir_cliente, &tam_direccion);
 

@@ -65,6 +65,14 @@ bool FuseEnviarHandshake(int socketFD) {
 	return resultado;
 }
 
+HeaderFuse FuseRecibirHeader(int socketCliente){
+	void* buffer=malloc(sizeof(HeaderFuse));
+	recv(socketCliente, buffer, sizeof(HeaderFuse), MSG_WAITALL);
+	HeaderFuse headerQueRetorna;
+	memcpy(&headerQueRetorna,buffer,sizeof(HeaderFuse));
+	return headerQueRetorna;
+}
+
 int FuseRecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir) {
 	void* datos = malloc(cantARecibir);
 	int recibido = 0;
@@ -83,6 +91,7 @@ int FuseRecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir) {
 		printf("Fin de Conexion en socket %d\n", socketFD);
 		close(socketFD); // ¡Hasta luego!
 	}
+	//Tengo entendido que no tengo que cortar la conexion... ojo, hablo por los close
 	return recibido;
 }
 

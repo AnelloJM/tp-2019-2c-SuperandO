@@ -112,4 +112,6 @@ int DameTamPackRead();
 
 void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack);
 
+HeaderFuse FuseRecibirHeader(int socketCliente);
+
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */

@@ -18,12 +18,13 @@
 #include <fcntl.h>
 #include <Conexiones/Conexiones.h>
 #include <commons/log.h>
+#include <commons/collections/list.h>
 #include <Serializacion-FileSystem/Serializacion-FileSystem.h>
 #include <pthread.h>
 
 t_log *logger;
 
-/*int recibir_operacion(int socket_cliente)
+int recibir_operacion(int socket_cliente)
 {
 	int cod_op;
 	if(recv(socket_cliente, &cod_op, sizeof(int), MSG_WAITALL) != 0)
@@ -63,9 +64,16 @@ t_list* recibir_paquete(int socket_cliente)
 	return valores;
 	return NULL;
 }
-*/
+
 
 void* funcionMagica(int cliente){
+
+	HeaderFuse headerRecibido;
+	headerRecibido = FuseRecibirHeader(cliente);
+	log_info(logger, "Operacion: %i", headerRecibido.operaciones);
+	log_info(logger, "tamanio: %i", headerRecibido.tamanioMensaje);
+
+	/*
 	int tamPackGetAttr = DameTamPackGetAttr();
 	int tamGetAttr = DameTamGetAttr();
 	PaqueteFuse *paquete = malloc(tamPackGetAttr);
@@ -74,7 +82,10 @@ void* funcionMagica(int cliente){
 	memcpy(info, paquete->mensaje, tamGetAttr);
 	log_info(logger, "recibi: %s", info->path);
 	free(info);
-	free(paquete);
+	free(paquete);*/
+
+
+
 }
 
 int main(void) {
@@ -82,20 +93,22 @@ int main(void) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 	int conexion, cliente;
-	conexion = iniciar_servidor("127.0.0.1", "9878", logger);
-	int cantidad = 10;
-	int err;
-	pthread_t* sarasa = malloc(sizeof(pthread_t*));
-	cantidad=0;
-	//do{
-		cliente = esperar_cliente_con_accept(conexion, logger);
-		//err=pthread_create(sarasa,NULL,(void*)funcionMagica,cliente);
-		if(pthread_create(sarasa,NULL,(void*)funcionMagica,cliente)){
-			log_error(logger, "CAGAMOS WACHO");
-			//log_error(logger,strerror(err));
-		}
-		pthread_detach(sarasa);
+	conexion = iniciar_servidor("127.0.0.1", "8080", logger);
 
-		sleep(200000);
+	t_list* hilosClientes = list_create();
+
+	while(1){
+		cliente = esperar_cliente_con_accept(conexion, logger);
+
+		pthread_t* cody = malloc(sizeof(pthread_t));
+		list_add(hilosClientes,cody);
+
+		if(pthread_create(cody,NULL,(void*)funcionMagica,cliente) == 0){
+			pthread_detach(cody);
+			log_info(logger,"Se creo el hilo sin problema, cliente: %i", cliente);
+		}else{
+			log_error(logger,"No se pudo crear el hilo, cliente: %i", cliente);
+		}
+	};
 	return EXIT_SUCCESS;
 }
