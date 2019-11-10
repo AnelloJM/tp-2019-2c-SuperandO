@@ -44,8 +44,7 @@ int conexion;
 static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_info(logger, "Se llamo a fusesito_getattr\n");
 	int res = 0;
-	int tamPack = DameTamPackGetAttr();
-	int tamStruct = DameTamGetAttr();
+	int tamPack = sizeof(HeaderFuse) + sizeof(path) + sizeof(stbuf);
 	PaqueteFuse *pack = malloc(tamPack);
 	FuseEmpaquetarPackGetAttr(path,stbuf,pack);
 	if(FuseEnviarPaquete(conexion, pack)){
