@@ -36,7 +36,8 @@ void* funcionMagica(int cliente){
 	switch(headerRecibido.operaciones){
 		case f_GETATTR:
 			//desempaquetar pack y hacer el codigo
-			FuseGetattr();
+			//f_getattr* FuseGetattr = FuseDesempaquetarPackGetAttr(cliente, headerRecibido.tamanioMensaje);
+
 		case f_READDIR:
 			//desempaquetar pack y hacer el codigo
 		case f_READ:

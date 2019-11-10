@@ -26179,3 +26179,19 @@
 [INFO] 21:15:30:405 Sac-Cli/(3819:3825): Se llamo a fusesito_getattr
 
 [INFO] 21:15:30:405 Sac-Cli/(3819:3825): se pudo enviar pack
+[INFO] 20:23:32:987 Sac-Cli/(10615:10615): Se ha iniciado una nueva instancia del logger
+
+[ERROR] 20:23:32:989 Sac-Cli/(10615:10615): Error de conexion
+
+[INFO] 20:23:33:16 Sac-Cli/(10615:10619): Se llamo a fusesito_getattr
+
+[INFO] 20:23:33:24 Sac-Cli/(10615:10618): Se llamo a fusesito_getattr
+
+[INFO] 20:24:17:197 Sac-Cli/(10721:10721): Se ha iniciado una nueva instancia del logger
+
+[INFO] 20:24:17:199 Sac-Cli/(10721:10721): Conexion correcta
+
+[INFO] 20:26:48:247 Sac-Cli/(10793:10793): Se ha iniciado una nueva instancia del logger
+
+[INFO] 20:26:48:252 Sac-Cli/(10793:10793): Conexion correcta
+

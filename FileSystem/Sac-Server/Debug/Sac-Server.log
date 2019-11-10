@@ -22366,3 +22366,26 @@
 [INFO] 18:13:59:438 Sac-Server/(4788:4788): Se ha creado un nuevo logger
 
 [INFO] 18:13:59:439 Sac-Server/(4788:4788): Sizeof de un header: 8
+[INFO] 20:22:58:76 Sac-Server/(10587:10587): Se ha creado un nuevo logger
+
+[INFO] 20:22:58:77 Sac-Server/(10587:10587): Dentro de iniciar servidor
+[INFO] 20:22:58:78 Sac-Server/(10587:10587): Listo para escuchar a mi cliente
+[INFO] 20:22:58:78 Sac-Server/(10587:10587): esperando
+[INFO] 20:24:17:199 Sac-Server/(10587:10587): Se conecto un cliente!
+[INFO] 20:24:17:200 Sac-Server/(10587:10587): Se creo el hilo sin problema, cliente: 5
+[INFO] 20:24:17:200 Sac-Server/(10587:10587): esperando
+[INFO] 20:24:17:202 Sac-Server/(10587:10722): Codigo de operacion: 0
+[INFO] 20:24:17:202 Sac-Server/(10587:10722): Tamanio: 0
+[ERROR] 20:24:17:203 Sac-Server/(10587:10722): No es un codigo conocido: 0
+[INFO] 20:25:36:540 Sac-Server/(10587:10587): Se conecto un cliente!
+[INFO] 20:25:36:542 Sac-Server/(10587:10587): Se creo el hilo sin problema, cliente: 7
+[INFO] 20:25:36:542 Sac-Server/(10587:10587): esperando
+[INFO] 20:25:47:890 Sac-Server/(10587:10772): Codigo de operacion: 858993459
+[INFO] 20:25:47:890 Sac-Server/(10587:10772): Tamanio: 856306225
+[ERROR] 20:25:47:890 Sac-Server/(10587:10772): No es un codigo conocido: 858993459
+[INFO] 20:26:48:251 Sac-Server/(10587:10587): Se conecto un cliente!
+[INFO] 20:26:48:251 Sac-Server/(10587:10587): Se creo el hilo sin problema, cliente: 8
+[INFO] 20:26:48:251 Sac-Server/(10587:10587): esperando
+[INFO] 20:26:48:254 Sac-Server/(10587:10794): Codigo de operacion: -1229979584
+[INFO] 20:26:48:254 Sac-Server/(10587:10794): Tamanio: -1229979584
+[ERROR] 20:26:48:254 Sac-Server/(10587:10794): No es un codigo conocido: -1229979584

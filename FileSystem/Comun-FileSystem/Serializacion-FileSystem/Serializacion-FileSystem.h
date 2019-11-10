@@ -39,7 +39,7 @@ typedef enum f_permisos {
 //////////////////////////////////////////
 
 typedef struct {
-	int tamanioMensaje;
+	uint32_t tamanioMensaje;
 	f_operacion operaciones;
 }__attribute__((packed)) HeaderFuse; //Esta estructura es de tamaño 8
 
@@ -53,28 +53,38 @@ typedef struct {
 //////////////////////////////////////////
 
 typedef struct {
+	uint32_t tamPath;
 	char *path;
+	uint32_t tamStbuf;
 	struct stat *stbuf;
 } f_getattr;
 
 typedef struct {
+	uint32_t tamPath;
 	const char *path;
+	uint32_t tamBuf;
 	void *buf;
 	fuse_fill_dir_t filler;
 	off_t offset;
+	uint32_t tamFi;
 	struct fuse_file_info *fi;
 } f_readdir;
 
 typedef struct {
+	uint32_t tamPath;
 	const char *path;
+	uint32_t tamFi;
 	struct fuse_file_info *fi;
 } f_open;
 
 typedef struct {
+	uint32_t tamPath;
 	const char *path;
+	uint32_t tamBuf;
 	char *buf;
 	size_t size;
 	off_t offset;
+	uint32_t tamFi;
 	struct fuse_file_info *fi;
 } f_read;
 
@@ -94,24 +104,12 @@ int FuseRecibirPaqueteServidor(int socketFD, PaqueteFuse* paquete); //Responde a
 
 int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete); //No responde los Handshakes}
 
-int DameTamGetAttr();
+// ------------------------------------------------------------------------------------------------------
 
-int DameTamPackGetAttr();
-
-int DameTamReadDir();
-
-int DameTamPackReadDir();
-
-int DameTamOpen();
-
-int DameTamPackOpen();
-
-int DameTamRead();
-
-int DameTamPackRead();
+HeaderFuse FuseRecibirHeader(int socketCliente);
 
 void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack);
 
-HeaderFuse FuseRecibirHeader(int socketCliente);
+f_getattr* FuseDesempaquetarPackGetAttr(int socketCliente, uint32_t tamanio);
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */
