@@ -65,14 +65,6 @@ bool FuseEnviarHandshake(int socketFD) {
 	return resultado;
 }
 
-HeaderFuse FuseRecibirHeader(int socketCliente){
-	void* buffer=malloc(sizeof(HeaderFuse));
-	recv(socketCliente, buffer, sizeof(HeaderFuse), MSG_WAITALL);
-	HeaderFuse headerQueRetorna;
-	memcpy(&headerQueRetorna,buffer,sizeof(HeaderFuse));
-	return headerQueRetorna;
-}
-
 int FuseRecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir) {
 	void* datos = malloc(cantARecibir);
 	int recibido = 0;
@@ -118,31 +110,54 @@ int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete) {
 	return resul;
 }
 
-int DameTamGetAttr() { return (sizeof(char *)+sizeof(struct stat *)); }
-
-int DameTamPackGetAttr() { return(sizeof(char *) + sizeof(struct stat *) + sizeof(HeaderFuse)); }
-
-int DameTamReadDir() { return 0; }
-
-int DameTamPackReadDir() { return 0; }
-
-int DameTamOpen() { return 0; }
-
-int DameTamPackOpen() {return 0; }
-
-int DameTamRead() { return 0; }
-
-int DameTamPackRead() { return 0; }
+HeaderFuse FuseRecibirHeader(int socketCliente){
+	void* buffer=malloc(sizeof(HeaderFuse));
+	recv(socketCliente, buffer, sizeof(HeaderFuse), MSG_WAITALL);
+	HeaderFuse headerQueRetorna;
+	memcpy(&headerQueRetorna,buffer,sizeof(HeaderFuse));
+	return headerQueRetorna;
+}
 
 void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack) {
 	int tam = sizeof(path) + sizeof(stbuf);
 	f_getattr *message = malloc(tam);
-	message->path = strdup("unPath") ;//path;
+	message->tamPath = sizeof(path);
+	message->path = path;
+	message->tamStbuf = sizeof(stbuf);
 	message->stbuf = stbuf;
 	pack->headerFuse.tamanioMensaje = tam;
 	pack->headerFuse.operaciones = f_GETATTR;
 	pack->mensaje = message;
 	free(message);
-
 }
+
+f_getattr* FuseDesempaquetarPackGetAttr(int socketCliente, uint32_t tamanio) {
+	void* buffer = malloc(tamanio);
+	int desplazamiento = 0;
+	uint32_t tamanioPath, tamanioStBuff;
+	recv(socketCliente, buffer, tamanio, MSG_WAITALL);
+	memcpy(&tamanioPath, buffer+desplazamiento, sizeof(uint32_t));
+	desplazamiento+=sizeof(uint32_t);
+	char *path = malloc(tamanioPath);
+	memcpy(&path, buffer+desplazamiento, tamanioPath);
+	desplazamiento+=tamanioPath;
+	memcpy(&tamanioStBuff, buffer+desplazamiento, sizeof(uint32_t));
+	desplazamiento+=sizeof(uint32_t);
+	struct stat *stbuf = malloc(tamanioStBuff);
+	memcpy(&stbuf, buffer+desplazamiento, tamanioStBuff);
+	free(buffer);
+	f_getattr *getattr = malloc(sizeof(path) + sizeof(stbuf) + (2*(sizeof(uint32_t))));
+	getattr->tamPath = tamanioPath;
+	getattr->path = malloc(tamanioPath);
+	getattr->path = path;
+	free(path);
+	getattr->tamStbuf = tamanioStBuff;
+	getattr->stbuf = malloc(tamanioStBuff);
+	getattr->stbuf = stbuf;
+	free(stbuf);
+	return getattr;
+}
+
+
+
 
