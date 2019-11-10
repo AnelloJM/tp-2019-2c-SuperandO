@@ -23,55 +23,31 @@
 #include <pthread.h>
 
 t_log *logger;
+int conexion;
 
-int recibir_operacion(int socket_cliente)
-{
-	int cod_op;
-	if(recv(socket_cliente, &cod_op, sizeof(int), MSG_WAITALL) != 0)
-		return cod_op;
-	else
-	{
-		close(socket_cliente);
-		return -1;
-	}
-}
-void recibir_mensaje(int socket_cliente)
-{
-	int size;
-	char* buffer = recibir_buffer(&size, socket_cliente);
-	log_info(logger, "Me llego el mensaje %s", buffer);
-	free(buffer);
-}
-t_list* recibir_paquete(int socket_cliente)
-{
-	int size;
-	int desplazamiento = 0;
-	void * buffer;
-	t_list* valores = list_create();
-	int tamanio;
-
-	buffer = recibir_buffer(&size, socket_cliente);
-	while(desplazamiento < size)
-	{
-		memcpy(&tamanio, buffer + desplazamiento, sizeof(int));
-		desplazamiento+=sizeof(int);
-		char* valor = malloc(tamanio);
-		memcpy(valor, buffer+desplazamiento, tamanio);
-		desplazamiento+=tamanio;
-		list_add(valores, valor);
-	}
-	free(buffer);
-	return valores;
-	return NULL;
-}
-
+void FuseGetattr(){}
 
 void* funcionMagica(int cliente){
 
 	HeaderFuse headerRecibido;
 	headerRecibido = FuseRecibirHeader(cliente);
-	log_info(logger, "Operacion: %i", headerRecibido.operaciones);
-	log_info(logger, "tamanio: %i", headerRecibido.tamanioMensaje);
+	log_info(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_info(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	switch(headerRecibido.operaciones){
+		case f_GETATTR:
+			//desempaquetar pack y hacer el codigo
+			FuseGetattr();
+		case f_READDIR:
+			//desempaquetar pack y hacer el codigo
+		case f_READ:
+			//desempaquetar pack y hacer el codigo
+		case f_OPEN:
+			//desempaquetar pack y hacer el codigo
+		case f_HANDSHAKE:
+			//desempaquetar pack y hacer el codigo
+		default:
+			log_error(logger, "No es un codigo conocido: %i", headerRecibido.operaciones);
+	}
 
 	/*
 	int tamPackGetAttr = DameTamPackGetAttr();
@@ -92,7 +68,7 @@ int main(void) {
 
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
-	int conexion, cliente;
+	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", "8080", logger);
 
 	t_list* hilosClientes = list_create();
