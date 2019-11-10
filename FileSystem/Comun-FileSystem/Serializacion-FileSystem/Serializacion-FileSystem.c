@@ -135,7 +135,7 @@ int DameTamRead() { return 0; }
 int DameTamPackRead() { return 0; }
 
 void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack) {
-	int tam = DameTamGetAttr();
+	int tam = sizeof(path) + sizeof(stbuf);
 	f_getattr *message = malloc(tam);
 	message->path = strdup("unPath") ;//path;
 	message->stbuf = stbuf;
