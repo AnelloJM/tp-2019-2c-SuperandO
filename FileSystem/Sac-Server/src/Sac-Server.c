@@ -33,21 +33,28 @@ void* funcionMagica(int cliente){
 	headerRecibido = FuseRecibirHeader(cliente);
 	log_info(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
 	log_info(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
 	switch(headerRecibido.operaciones){
-		case f_GETATTR:
+		case f_GETATTR: ;
 			//desempaquetar pack y hacer el codigo
-			//f_getattr* FuseGetattr = FuseDesempaquetarPackGetAttr(cliente, headerRecibido.tamanioMensaje);
-
+			char *path = FuseDesempaquetarPackGetAttr(cliente, tam);
+			log_info(logger, path);
+			break;
 		case f_READDIR:
 			//desempaquetar pack y hacer el codigo
+			break;
 		case f_READ:
 			//desempaquetar pack y hacer el codigo
+			break;
 		case f_OPEN:
 			//desempaquetar pack y hacer el codigo
+			break;
 		case f_HANDSHAKE:
 			//desempaquetar pack y hacer el codigo
+			break;
 		default:
 			log_error(logger, "No es un codigo conocido: %i", headerRecibido.operaciones);
+			break;
 	}
 
 	/*
@@ -70,7 +77,7 @@ int main(void) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "8080", logger);
+	conexion = iniciar_servidor("127.0.0.1", "8083", logger);
 
 	t_list* hilosClientes = list_create();
 
@@ -79,7 +86,6 @@ int main(void) {
 
 		pthread_t* cody = malloc(sizeof(pthread_t));
 		list_add(hilosClientes,cody);
-
 		if(pthread_create(cody,NULL,(void*)funcionMagica,cliente) == 0){
 			pthread_detach(cody);
 			log_info(logger,"Se creo el hilo sin problema, cliente: %i", cliente);

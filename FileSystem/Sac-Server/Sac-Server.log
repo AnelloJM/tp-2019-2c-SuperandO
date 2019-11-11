@@ -1,0 +1,36 @@
+[INFO] 21:05:45:4 Sac-Server/(11400:11400): Se ha creado un nuevo logger
+
+[INFO] 21:06:29:891 Sac-Server/(11400:11400): Dentro de iniciar servidor
+[INFO] 21:06:29:891 Sac-Server/(11400:11400): Listo para escuchar a mi cliente
+[INFO] 21:06:59:411 Sac-Server/(11400:11400): esperando
+[INFO] 21:06:59:411 Sac-Server/(11400:11400): Se conecto un cliente!
+[INFO] 21:07:29:952 Sac-Server/(11400:11464): Codigo de operacion: 0
+[INFO] 21:07:29:952 Sac-Server/(11400:11464): Tamanio: 8
+[INFO] 21:07:29:952 Sac-Server/(11400:11464): 
+[INFO] 21:08:30:885 Sac-Server/(11534:11534): Se ha creado un nuevo logger
+
+[INFO] 21:08:31:533 Sac-Server/(11534:11534): Dentro de iniciar servidor
+[INFO] 21:08:31:533 Sac-Server/(11534:11534): Listo para escuchar a mi cliente
+[INFO] 21:08:35:30 Sac-Server/(11534:11534): esperando
+[INFO] 21:08:44:807 Sac-Server/(11534:11534): Se conecto un cliente!
+[INFO] 21:11:36:870 Sac-Server/(11534:11589): Codigo de operacion: 0
+[INFO] 21:11:36:992 Sac-Server/(11534:11589): Tamanio: 8
+[INFO] 21:11:36:992 Sac-Server/(11534:11589): 
+[INFO] 21:11:53:415 Sac-Server/(11534:11534): Se creo el hilo sin problema, cliente: 5
+[INFO] 21:11:59:726 Sac-Server/(11534:11534): esperando
+[INFO] 21:15:12:177 Sac-Server/(11777:11777): Se ha creado un nuevo logger
+
+[INFO] 21:15:21:239 Sac-Server/(11777:11777): Dentro de iniciar servidor
+[INFO] 21:15:21:239 Sac-Server/(11777:11777): Listo para escuchar a mi cliente
+[INFO] 21:15:31:688 Sac-Server/(11777:11777): esperando
+[INFO] 21:15:31:689 Sac-Server/(11777:11777): Se conecto un cliente!
+[INFO] 21:16:16:446 Sac-Server/(11777:11777): Codigo de operacion: 0
+[INFO] 21:16:21:985 Sac-Server/(11777:11777): Tamanio: 8
+[INFO] 21:26:19:935 Sac-Server/(12337:12337): Se ha creado un nuevo logger
+
+[INFO] 21:26:20:416 Sac-Server/(12337:12337): Dentro de iniciar servidor
+[INFO] 21:26:20:416 Sac-Server/(12337:12337): Listo para escuchar a mi cliente
+[INFO] 21:26:21:627 Sac-Server/(12337:12337): esperando
+[INFO] 21:26:30:637 Sac-Server/(12337:12337): Se conecto un cliente!
+[INFO] 21:26:49:542 Sac-Server/(12337:12337): Codigo de operacion: 0
+[INFO] 21:26:50:48 Sac-Server/(12337:12337): Tamanio: 8

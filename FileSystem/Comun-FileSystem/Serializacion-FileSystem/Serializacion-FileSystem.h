@@ -110,6 +110,6 @@ HeaderFuse FuseRecibirHeader(int socketCliente);
 
 void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack);
 
-f_getattr* FuseDesempaquetarPackGetAttr(int socketCliente, uint32_t tamanio);
+char* FuseDesempaquetarPackGetAttr(int socketCliente, uint32_t tamanio);
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */
