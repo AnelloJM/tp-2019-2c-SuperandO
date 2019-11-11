@@ -45,18 +45,36 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_info(logger, "Se llamo a fusesito_getattr\n");
 	log_info(logger,path);
 	int res = 0;
-	int tamPack = sizeof(HeaderFuse) + sizeof(*path) + sizeof(*stbuf) + (2*(sizeof(uint32_t)));
-	PaqueteFuse *pack = malloc(tamPack);
+	/*log_info(logger,"%i \0", sizeof(HeaderFuse));
+	log_info(logger,"%i \0", sizeof(*path));
+	log_info(logger,"%i \0", sizeof(*stbuf));
+	log_info(logger,"%i \0", (2*(sizeof(uint32_t))));
+	char vector[sizeof(*path)];
+	for(int i = 0; i<sizeof(*path); i++){
+		vector[i]=*(path+i);
+		}
+	for(int i = 0; i<sizeof(*path); i++){
+		log_info(logger,"%c",vector[i]);
+	}*/
+	int tamPack = sizeof(HeaderFuse) + strlen(path) + strlen(stbuf) + (2*(sizeof(uint32_t)));
+	//log_info(logger,"%i \0", tamPack);
+	PaqueteFuse *pack = malloc(sizeof(PaqueteFuse));
 	FuseEmpaquetarPackGetAttr(path,stbuf,pack);
-	log_info(logger, "el mensaje pesa: %i", (sizeof(*pack->mensaje)));
-	log_info(logger, "el path pesa: %i", (sizeof(*path)));
-	log_info(logger, "el stbuf pesa: %i", (sizeof(*stbuf)));
+	log_error(logger, "Codigo de operacion: %i", pack->headerFuse.operaciones);
+	log_error(logger, "Tamanio: %i", pack->headerFuse.tamanioMensaje);
+	char* pruebita = malloc(tamPack);
+	memcpy(pruebita,pack->mensaje,tamPack);
+	log_error(logger, "el mensaje pesa: %i", (strlen(pruebita)));
+	log_error(logger, "el path pesa: %i", (strlen(path)));
+	log_error(logger, "el stbuf pesa: %i", (strlen(stbuf)));
+
 	if(FuseEnviarPaquete(conexion, pack)){
 		log_info(logger, "se pudo enviar pack");
 	}
 	else{
 		log_error(logger, "no se pudo enviar pack");
 	}
+	sleep(60);
 
 	//Continuo con lo que deberia hacer para que no cuelge, esto es solo para testear
 
@@ -82,9 +100,9 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 static int fusesito_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_readdir\n");
 	filler(buf, ".", NULL, 0);
-		filler(buf, "..", NULL, 0);
-		filler(buf, DEFAULT_FILE_NAME , NULL, 0);
-		filler(buf, "LaCosa" , NULL, 0);
+	filler(buf, "..", NULL, 0);
+	filler(buf, DEFAULT_FILE_NAME , NULL, 0);
+	filler(buf, "LaCosa" , NULL, 0);
 	return 0;
 }
 
@@ -132,7 +150,8 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "8083", logger);
+	conexion = conectarse_a_un_servidor("127.0.0.1" , "8080", logger);
+
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
 	// Esta es la funcion principal de FUSE, es la que se encarga
 	// de realizar el montaje, comuniscarse con el kernel, delegar todo

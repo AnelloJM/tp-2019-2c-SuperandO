@@ -36429,3 +36429,1877 @@
 [INFO] 14:25:59:565 Sac-Cli/(6122:6130): el path pesa: 1
 [INFO] 14:25:59:565 Sac-Cli/(6122:6130): el stbuf pesa: 96
 [ERROR] 14:25:59:566 Sac-Cli/(6122:6130): no se pudo enviar pack
+[INFO] 14:56:42:435 Sac-Cli/(4158:4158): Se ha iniciado una nueva instancia del logger
+
+[INFO] 14:56:42:464 Sac-Cli/(4158:4158): Conexion correcta
+
+[INFO] 14:56:42:594 Sac-Cli/(4158:4164): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:596 Sac-Cli/(4158:4164): /.xdg-volume-info
+[INFO] 14:56:42:597 Sac-Cli/(4158:4164): el mensaje pesa: 1
+[INFO] 14:56:42:598 Sac-Cli/(4158:4164): el path pesa: 1
+[INFO] 14:56:42:599 Sac-Cli/(4158:4164): el stbuf pesa: 96
+[INFO] 14:56:42:619 Sac-Cli/(4158:4164): se pudo enviar pack
+[INFO] 14:56:42:623 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:623 Sac-Cli/(4158:4166): /
+[INFO] 14:56:42:623 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:623 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:623 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[INFO] 14:56:42:624 Sac-Cli/(4158:4166): se pudo enviar pack
+[INFO] 14:56:42:633 Sac-Cli/(4158:4165): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:633 Sac-Cli/(4158:4165): /autorun.inf
+[INFO] 14:56:42:634 Sac-Cli/(4158:4165): el mensaje pesa: 1
+[INFO] 14:56:42:634 Sac-Cli/(4158:4165): el path pesa: 1
+[INFO] 14:56:42:634 Sac-Cli/(4158:4165): el stbuf pesa: 96
+[INFO] 14:56:42:637 Sac-Cli/(4158:4165): se pudo enviar pack
+[INFO] 14:56:42:643 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:643 Sac-Cli/(4158:4166): /.Trash
+[INFO] 14:56:42:644 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:644 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:645 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[INFO] 14:56:42:645 Sac-Cli/(4158:4166): se pudo enviar pack
+[INFO] 14:56:42:646 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:647 Sac-Cli/(4158:4167): /.Trash-1000
+[INFO] 14:56:42:647 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:647 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:648 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[INFO] 14:56:42:648 Sac-Cli/(4158:4167): se pudo enviar pack
+[INFO] 14:56:42:652 Sac-Cli/(4158:4165): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:660 Sac-Cli/(4158:4164): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:660 Sac-Cli/(4158:4164): /ElArchivito
+[INFO] 14:56:42:661 Sac-Cli/(4158:4164): el mensaje pesa: 1
+[INFO] 14:56:42:661 Sac-Cli/(4158:4164): el path pesa: 1
+[INFO] 14:56:42:661 Sac-Cli/(4158:4164): el stbuf pesa: 96
+[INFO] 14:56:42:662 Sac-Cli/(4158:4164): se pudo enviar pack
+[INFO] 14:56:42:677 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:677 Sac-Cli/(4158:4166): /LaCosa
+[INFO] 14:56:42:678 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:678 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:678 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[INFO] 14:56:42:679 Sac-Cli/(4158:4166): se pudo enviar pack
+[INFO] 14:56:42:680 Sac-Cli/(4158:4165): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:680 Sac-Cli/(4158:4165): /
+[INFO] 14:56:42:681 Sac-Cli/(4158:4165): el mensaje pesa: 1
+[INFO] 14:56:42:681 Sac-Cli/(4158:4165): el path pesa: 1
+[INFO] 14:56:42:681 Sac-Cli/(4158:4165): el stbuf pesa: 96
+[INFO] 14:56:42:682 Sac-Cli/(4158:4165): se pudo enviar pack
+[INFO] 14:56:42:682 Sac-Cli/(4158:4165): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:686 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:686 Sac-Cli/(4158:4167): /LaCosa
+[INFO] 14:56:42:686 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:687 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:687 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[INFO] 14:56:42:687 Sac-Cli/(4158:4167): se pudo enviar pack
+[INFO] 14:56:42:691 Sac-Cli/(4158:4165): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:692 Sac-Cli/(4158:4165): /
+[INFO] 14:56:42:692 Sac-Cli/(4158:4165): el mensaje pesa: 1
+[INFO] 14:56:42:692 Sac-Cli/(4158:4165): el path pesa: 1
+[INFO] 14:56:42:692 Sac-Cli/(4158:4165): el stbuf pesa: 96
+[ERROR] 14:56:42:694 Sac-Cli/(4158:4165): no se pudo enviar pack
+[INFO] 14:56:42:695 Sac-Cli/(4158:4167): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:697 Sac-Cli/(4158:4164): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:697 Sac-Cli/(4158:4164): /LaCosa
+[INFO] 14:56:42:697 Sac-Cli/(4158:4164): el mensaje pesa: 1
+[INFO] 14:56:42:698 Sac-Cli/(4158:4164): el path pesa: 1
+[INFO] 14:56:42:698 Sac-Cli/(4158:4164): el stbuf pesa: 96
+[ERROR] 14:56:42:701 Sac-Cli/(4158:4164): no se pudo enviar pack
+[INFO] 14:56:42:704 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:706 Sac-Cli/(4158:4167): /
+[INFO] 14:56:42:707 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:707 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:708 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:708 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:709 Sac-Cli/(4158:4166): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:710 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:710 Sac-Cli/(4158:4166): /LaCosa
+[INFO] 14:56:42:710 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:711 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:711 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[ERROR] 14:56:42:711 Sac-Cli/(4158:4166): no se pudo enviar pack
+[INFO] 14:56:42:712 Sac-Cli/(4158:4164): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:713 Sac-Cli/(4158:4164): /
+[INFO] 14:56:42:713 Sac-Cli/(4158:4164): el mensaje pesa: 1
+[INFO] 14:56:42:713 Sac-Cli/(4158:4164): el path pesa: 1
+[INFO] 14:56:42:713 Sac-Cli/(4158:4164): el stbuf pesa: 96
+[ERROR] 14:56:42:714 Sac-Cli/(4158:4164): no se pudo enviar pack
+[INFO] 14:56:42:715 Sac-Cli/(4158:4164): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:716 Sac-Cli/(4158:4165): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:717 Sac-Cli/(4158:4165): /LaCosa
+[INFO] 14:56:42:717 Sac-Cli/(4158:4165): el mensaje pesa: 1
+[INFO] 14:56:42:717 Sac-Cli/(4158:4165): el path pesa: 1
+[INFO] 14:56:42:717 Sac-Cli/(4158:4165): el stbuf pesa: 96
+[ERROR] 14:56:42:717 Sac-Cli/(4158:4165): no se pudo enviar pack
+[INFO] 14:56:42:719 Sac-Cli/(4158:4165): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:720 Sac-Cli/(4158:4165): /
+[INFO] 14:56:42:720 Sac-Cli/(4158:4165): el mensaje pesa: 1
+[INFO] 14:56:42:720 Sac-Cli/(4158:4165): el path pesa: 1
+[INFO] 14:56:42:720 Sac-Cli/(4158:4165): el stbuf pesa: 96
+[ERROR] 14:56:42:721 Sac-Cli/(4158:4165): no se pudo enviar pack
+[INFO] 14:56:42:721 Sac-Cli/(4158:4165): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:723 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:723 Sac-Cli/(4158:4167): /LaCosa
+[INFO] 14:56:42:723 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:723 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:723 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:724 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:726 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:727 Sac-Cli/(4158:4167): /
+[INFO] 14:56:42:727 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:727 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:727 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:728 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:732 Sac-Cli/(4158:4164): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:733 Sac-Cli/(4158:4164): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:733 Sac-Cli/(4158:4164): /LaCosa
+[INFO] 14:56:42:734 Sac-Cli/(4158:4164): el mensaje pesa: 1
+[INFO] 14:56:42:734 Sac-Cli/(4158:4164): el path pesa: 1
+[INFO] 14:56:42:734 Sac-Cli/(4158:4164): el stbuf pesa: 96
+[ERROR] 14:56:42:735 Sac-Cli/(4158:4164): no se pudo enviar pack
+[INFO] 14:56:42:736 Sac-Cli/(4158:4165): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:737 Sac-Cli/(4158:4165): /
+[INFO] 14:56:42:737 Sac-Cli/(4158:4165): el mensaje pesa: 1
+[INFO] 14:56:42:738 Sac-Cli/(4158:4165): el path pesa: 1
+[INFO] 14:56:42:738 Sac-Cli/(4158:4165): el stbuf pesa: 96
+[ERROR] 14:56:42:738 Sac-Cli/(4158:4165): no se pudo enviar pack
+[INFO] 14:56:42:739 Sac-Cli/(4158:4165): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:740 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:741 Sac-Cli/(4158:4166): /LaCosa
+[INFO] 14:56:42:741 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:741 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:741 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[ERROR] 14:56:42:741 Sac-Cli/(4158:4166): no se pudo enviar pack
+[INFO] 14:56:42:743 Sac-Cli/(4158:4164): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:744 Sac-Cli/(4158:4164): /
+[INFO] 14:56:42:744 Sac-Cli/(4158:4164): el mensaje pesa: 1
+[INFO] 14:56:42:745 Sac-Cli/(4158:4164): el path pesa: 1
+[INFO] 14:56:42:745 Sac-Cli/(4158:4164): el stbuf pesa: 96
+[ERROR] 14:56:42:747 Sac-Cli/(4158:4164): no se pudo enviar pack
+[INFO] 14:56:42:748 Sac-Cli/(4158:4164): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:750 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:750 Sac-Cli/(4158:4166): /LaCosa
+[INFO] 14:56:42:750 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:751 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:751 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[ERROR] 14:56:42:751 Sac-Cli/(4158:4166): no se pudo enviar pack
+[INFO] 14:56:42:753 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:753 Sac-Cli/(4158:4166): /
+[INFO] 14:56:42:753 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:753 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:754 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[ERROR] 14:56:42:754 Sac-Cli/(4158:4166): no se pudo enviar pack
+[INFO] 14:56:42:755 Sac-Cli/(4158:4165): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:756 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:756 Sac-Cli/(4158:4167): /LaCosa
+[INFO] 14:56:42:756 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:757 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:757 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:757 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:759 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:759 Sac-Cli/(4158:4167): /
+[INFO] 14:56:42:760 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:760 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:760 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:760 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:762 Sac-Cli/(4158:4167): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:764 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:764 Sac-Cli/(4158:4167): /LaCosa
+[INFO] 14:56:42:765 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:765 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:765 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:765 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:767 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:768 Sac-Cli/(4158:4167): /
+[INFO] 14:56:42:768 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:768 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:768 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:769 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:769 Sac-Cli/(4158:4165): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:770 Sac-Cli/(4158:4165): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:771 Sac-Cli/(4158:4165): /LaCosa
+[INFO] 14:56:42:771 Sac-Cli/(4158:4165): el mensaje pesa: 1
+[INFO] 14:56:42:771 Sac-Cli/(4158:4165): el path pesa: 1
+[INFO] 14:56:42:771 Sac-Cli/(4158:4165): el stbuf pesa: 96
+[ERROR] 14:56:42:772 Sac-Cli/(4158:4165): no se pudo enviar pack
+[INFO] 14:56:42:773 Sac-Cli/(4158:4164): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:773 Sac-Cli/(4158:4164): /
+[INFO] 14:56:42:774 Sac-Cli/(4158:4164): el mensaje pesa: 1
+[INFO] 14:56:42:774 Sac-Cli/(4158:4164): el path pesa: 1
+[INFO] 14:56:42:774 Sac-Cli/(4158:4164): el stbuf pesa: 96
+[ERROR] 14:56:42:775 Sac-Cli/(4158:4164): no se pudo enviar pack
+[INFO] 14:56:42:776 Sac-Cli/(4158:4167): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:777 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:777 Sac-Cli/(4158:4166): /LaCosa
+[INFO] 14:56:42:777 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:778 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:778 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[ERROR] 14:56:42:778 Sac-Cli/(4158:4166): no se pudo enviar pack
+[INFO] 14:56:42:779 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:780 Sac-Cli/(4158:4166): /
+[INFO] 14:56:42:781 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:781 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:781 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[ERROR] 14:56:42:781 Sac-Cli/(4158:4166): no se pudo enviar pack
+[INFO] 14:56:42:782 Sac-Cli/(4158:4164): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:783 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:783 Sac-Cli/(4158:4167): /LaCosa
+[INFO] 14:56:42:784 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:784 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:784 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:785 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:787 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:787 Sac-Cli/(4158:4167): /
+[INFO] 14:56:42:787 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:787 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:788 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:788 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:789 Sac-Cli/(4158:4164): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:795 Sac-Cli/(4158:4164): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:795 Sac-Cli/(4158:4164): /LaCosa
+[INFO] 14:56:42:796 Sac-Cli/(4158:4164): el mensaje pesa: 1
+[INFO] 14:56:42:796 Sac-Cli/(4158:4164): el path pesa: 1
+[INFO] 14:56:42:796 Sac-Cli/(4158:4164): el stbuf pesa: 96
+[ERROR] 14:56:42:797 Sac-Cli/(4158:4164): no se pudo enviar pack
+[INFO] 14:56:42:800 Sac-Cli/(4158:4165): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:801 Sac-Cli/(4158:4165): /
+[INFO] 14:56:42:801 Sac-Cli/(4158:4165): el mensaje pesa: 1
+[INFO] 14:56:42:801 Sac-Cli/(4158:4165): el path pesa: 1
+[INFO] 14:56:42:801 Sac-Cli/(4158:4165): el stbuf pesa: 96
+[ERROR] 14:56:42:802 Sac-Cli/(4158:4165): no se pudo enviar pack
+[INFO] 14:56:42:804 Sac-Cli/(4158:4167): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:806 Sac-Cli/(4158:4164): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:806 Sac-Cli/(4158:4164): /LaCosa
+[INFO] 14:56:42:807 Sac-Cli/(4158:4164): el mensaje pesa: 1
+[INFO] 14:56:42:807 Sac-Cli/(4158:4164): el path pesa: 1
+[INFO] 14:56:42:807 Sac-Cli/(4158:4164): el stbuf pesa: 96
+[ERROR] 14:56:42:807 Sac-Cli/(4158:4164): no se pudo enviar pack
+[INFO] 14:56:42:810 Sac-Cli/(4158:4168): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:810 Sac-Cli/(4158:4168): /
+[INFO] 14:56:42:810 Sac-Cli/(4158:4168): el mensaje pesa: 1
+[INFO] 14:56:42:811 Sac-Cli/(4158:4168): el path pesa: 1
+[INFO] 14:56:42:811 Sac-Cli/(4158:4168): el stbuf pesa: 96
+[ERROR] 14:56:42:811 Sac-Cli/(4158:4168): no se pudo enviar pack
+[INFO] 14:56:42:813 Sac-Cli/(4158:4164): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:814 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:814 Sac-Cli/(4158:4167): /LaCosa
+[INFO] 14:56:42:814 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:815 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:815 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:815 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:817 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:817 Sac-Cli/(4158:4166): /
+[INFO] 14:56:42:818 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:818 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:818 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[ERROR] 14:56:42:818 Sac-Cli/(4158:4166): no se pudo enviar pack
+[INFO] 14:56:42:819 Sac-Cli/(4158:4167): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:820 Sac-Cli/(4158:4165): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:820 Sac-Cli/(4158:4165): /LaCosa
+[INFO] 14:56:42:821 Sac-Cli/(4158:4165): el mensaje pesa: 1
+[INFO] 14:56:42:821 Sac-Cli/(4158:4165): el path pesa: 1
+[INFO] 14:56:42:821 Sac-Cli/(4158:4165): el stbuf pesa: 96
+[ERROR] 14:56:42:821 Sac-Cli/(4158:4165): no se pudo enviar pack
+[INFO] 14:56:42:827 Sac-Cli/(4158:4164): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:827 Sac-Cli/(4158:4164): /
+[INFO] 14:56:42:827 Sac-Cli/(4158:4164): el mensaje pesa: 1
+[INFO] 14:56:42:827 Sac-Cli/(4158:4164): el path pesa: 1
+[INFO] 14:56:42:828 Sac-Cli/(4158:4164): el stbuf pesa: 96
+[ERROR] 14:56:42:828 Sac-Cli/(4158:4164): no se pudo enviar pack
+[INFO] 14:56:42:829 Sac-Cli/(4158:4164): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:830 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:830 Sac-Cli/(4158:4166): /LaCosa
+[INFO] 14:56:42:830 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:831 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:831 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[ERROR] 14:56:42:831 Sac-Cli/(4158:4166): no se pudo enviar pack
+[INFO] 14:56:42:833 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:834 Sac-Cli/(4158:4167): /
+[INFO] 14:56:42:834 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:834 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:834 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:835 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:836 Sac-Cli/(4158:4167): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:837 Sac-Cli/(4158:4168): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:837 Sac-Cli/(4158:4168): /LaCosa
+[INFO] 14:56:42:837 Sac-Cli/(4158:4168): el mensaje pesa: 1
+[INFO] 14:56:42:838 Sac-Cli/(4158:4168): el path pesa: 1
+[INFO] 14:56:42:838 Sac-Cli/(4158:4168): el stbuf pesa: 96
+[ERROR] 14:56:42:838 Sac-Cli/(4158:4168): no se pudo enviar pack
+[INFO] 14:56:42:840 Sac-Cli/(4158:4165): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:840 Sac-Cli/(4158:4165): /
+[INFO] 14:56:42:840 Sac-Cli/(4158:4165): el mensaje pesa: 1
+[INFO] 14:56:42:841 Sac-Cli/(4158:4165): el path pesa: 1
+[INFO] 14:56:42:841 Sac-Cli/(4158:4165): el stbuf pesa: 96
+[ERROR] 14:56:42:841 Sac-Cli/(4158:4165): no se pudo enviar pack
+[INFO] 14:56:42:842 Sac-Cli/(4158:4165): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:843 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:843 Sac-Cli/(4158:4166): /LaCosa
+[INFO] 14:56:42:843 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:844 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:844 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[ERROR] 14:56:42:844 Sac-Cli/(4158:4166): no se pudo enviar pack
+[INFO] 14:56:42:847 Sac-Cli/(4158:4168): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:847 Sac-Cli/(4158:4168): /
+[INFO] 14:56:42:847 Sac-Cli/(4158:4168): el mensaje pesa: 1
+[INFO] 14:56:42:847 Sac-Cli/(4158:4168): el path pesa: 1
+[INFO] 14:56:42:848 Sac-Cli/(4158:4168): el stbuf pesa: 96
+[ERROR] 14:56:42:848 Sac-Cli/(4158:4168): no se pudo enviar pack
+[INFO] 14:56:42:848 Sac-Cli/(4158:4167): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:850 Sac-Cli/(4158:4164): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:850 Sac-Cli/(4158:4164): /LaCosa
+[INFO] 14:56:42:850 Sac-Cli/(4158:4164): el mensaje pesa: 1
+[INFO] 14:56:42:850 Sac-Cli/(4158:4164): el path pesa: 1
+[INFO] 14:56:42:850 Sac-Cli/(4158:4164): el stbuf pesa: 96
+[ERROR] 14:56:42:851 Sac-Cli/(4158:4164): no se pudo enviar pack
+[INFO] 14:56:42:855 Sac-Cli/(4158:4166): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:855 Sac-Cli/(4158:4166): /
+[INFO] 14:56:42:856 Sac-Cli/(4158:4166): el mensaje pesa: 1
+[INFO] 14:56:42:856 Sac-Cli/(4158:4166): el path pesa: 1
+[INFO] 14:56:42:856 Sac-Cli/(4158:4166): el stbuf pesa: 96
+[ERROR] 14:56:42:856 Sac-Cli/(4158:4166): no se pudo enviar pack
+[INFO] 14:56:42:861 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:862 Sac-Cli/(4158:4167): /
+[INFO] 14:56:42:862 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:866 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:867 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:867 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:56:42:871 Sac-Cli/(4158:4164): Se llamo a fusesito_readdir
+
+[INFO] 14:56:42:872 Sac-Cli/(4158:4168): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:872 Sac-Cli/(4158:4168): /LaCosa
+[INFO] 14:56:42:872 Sac-Cli/(4158:4168): el mensaje pesa: 1
+[INFO] 14:56:42:873 Sac-Cli/(4158:4168): el path pesa: 1
+[INFO] 14:56:42:873 Sac-Cli/(4158:4168): el stbuf pesa: 96
+[ERROR] 14:56:42:873 Sac-Cli/(4158:4168): no se pudo enviar pack
+[INFO] 14:56:42:875 Sac-Cli/(4158:4167): Se llamo a fusesito_getattr
+
+[INFO] 14:56:42:875 Sac-Cli/(4158:4167): /autorun.inf
+[INFO] 14:56:42:875 Sac-Cli/(4158:4167): el mensaje pesa: 1
+[INFO] 14:56:42:876 Sac-Cli/(4158:4167): el path pesa: 1
+[INFO] 14:56:42:876 Sac-Cli/(4158:4167): el stbuf pesa: 96
+[ERROR] 14:56:42:876 Sac-Cli/(4158:4167): no se pudo enviar pack
+[INFO] 14:58:03:941 Sac-Cli/(4216:4216): Se ha iniciado una nueva instancia del logger
+
+[INFO] 14:58:03:973 Sac-Cli/(4216:4216): Conexion correcta
+
+[INFO] 14:58:04:172 Sac-Cli/(4216:4222): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:191 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:192 Sac-Cli/(4216:4222): /.xdg-volume-info
+[INFO] 14:58:04:195 Sac-Cli/(4216:4222): el mensaje pesa: 1
+[INFO] 14:58:04:195 Sac-Cli/(4216:4222): el path pesa: 1
+[INFO] 14:58:04:196 Sac-Cli/(4216:4222): el stbuf pesa: 96
+[INFO] 14:58:04:205 Sac-Cli/(4216:4225): /
+[INFO] 14:58:04:205 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:206 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:206 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[INFO] 14:58:04:207 Sac-Cli/(4216:4225): se pudo enviar pack
+[INFO] 14:58:04:213 Sac-Cli/(4216:4222): se pudo enviar pack
+[INFO] 14:58:04:216 Sac-Cli/(4216:4223): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:217 Sac-Cli/(4216:4223): /autorun.inf
+[INFO] 14:58:04:217 Sac-Cli/(4216:4223): el mensaje pesa: 1
+[INFO] 14:58:04:217 Sac-Cli/(4216:4223): el path pesa: 1
+[INFO] 14:58:04:217 Sac-Cli/(4216:4223): el stbuf pesa: 96
+[INFO] 14:58:04:218 Sac-Cli/(4216:4223): se pudo enviar pack
+[INFO] 14:58:04:219 Sac-Cli/(4216:4224): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:219 Sac-Cli/(4216:4224): /.Trash
+[INFO] 14:58:04:219 Sac-Cli/(4216:4224): el mensaje pesa: 1
+[INFO] 14:58:04:220 Sac-Cli/(4216:4224): el path pesa: 1
+[INFO] 14:58:04:220 Sac-Cli/(4216:4224): el stbuf pesa: 96
+[INFO] 14:58:04:220 Sac-Cli/(4216:4224): se pudo enviar pack
+[INFO] 14:58:04:221 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:221 Sac-Cli/(4216:4225): /.Trash-1000
+[INFO] 14:58:04:221 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:222 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:222 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[INFO] 14:58:04:222 Sac-Cli/(4216:4225): se pudo enviar pack
+[INFO] 14:58:04:227 Sac-Cli/(4216:4223): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:245 Sac-Cli/(4216:4224): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:245 Sac-Cli/(4216:4224): /ElArchivito
+[INFO] 14:58:04:246 Sac-Cli/(4216:4224): el mensaje pesa: 1
+[INFO] 14:58:04:246 Sac-Cli/(4216:4224): el path pesa: 1
+[INFO] 14:58:04:246 Sac-Cli/(4216:4224): el stbuf pesa: 96
+[INFO] 14:58:04:247 Sac-Cli/(4216:4224): se pudo enviar pack
+[INFO] 14:58:04:261 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:261 Sac-Cli/(4216:4225): /LaCosa
+[INFO] 14:58:04:261 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:261 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:261 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[INFO] 14:58:04:262 Sac-Cli/(4216:4225): se pudo enviar pack
+[INFO] 14:58:04:275 Sac-Cli/(4216:4224): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:275 Sac-Cli/(4216:4224): /
+[INFO] 14:58:04:276 Sac-Cli/(4216:4224): el mensaje pesa: 1
+[INFO] 14:58:04:276 Sac-Cli/(4216:4224): el path pesa: 1
+[INFO] 14:58:04:276 Sac-Cli/(4216:4224): el stbuf pesa: 96
+[INFO] 14:58:04:277 Sac-Cli/(4216:4224): se pudo enviar pack
+[INFO] 14:58:04:279 Sac-Cli/(4216:4224): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:280 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:280 Sac-Cli/(4216:4225): /LaCosa
+[INFO] 14:58:04:281 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:281 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:281 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[INFO] 14:58:04:282 Sac-Cli/(4216:4225): se pudo enviar pack
+[INFO] 14:58:04:284 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:284 Sac-Cli/(4216:4225): /
+[INFO] 14:58:04:284 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:285 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:285 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[INFO] 14:58:04:285 Sac-Cli/(4216:4225): se pudo enviar pack
+[INFO] 14:58:04:286 Sac-Cli/(4216:4223): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:287 Sac-Cli/(4216:4223): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:287 Sac-Cli/(4216:4223): /LaCosa
+[INFO] 14:58:04:288 Sac-Cli/(4216:4223): el mensaje pesa: 1
+[INFO] 14:58:04:288 Sac-Cli/(4216:4223): el path pesa: 1
+[INFO] 14:58:04:288 Sac-Cli/(4216:4223): el stbuf pesa: 96
+[INFO] 14:58:04:288 Sac-Cli/(4216:4223): se pudo enviar pack
+[INFO] 14:58:04:290 Sac-Cli/(4216:4222): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:290 Sac-Cli/(4216:4222): /
+[INFO] 14:58:04:291 Sac-Cli/(4216:4222): el mensaje pesa: 1
+[INFO] 14:58:04:291 Sac-Cli/(4216:4222): el path pesa: 1
+[INFO] 14:58:04:291 Sac-Cli/(4216:4222): el stbuf pesa: 96
+[INFO] 14:58:04:291 Sac-Cli/(4216:4222): se pudo enviar pack
+[INFO] 14:58:04:292 Sac-Cli/(4216:4222): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:299 Sac-Cli/(4216:4224): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:300 Sac-Cli/(4216:4224): /LaCosa
+[INFO] 14:58:04:300 Sac-Cli/(4216:4224): el mensaje pesa: 1
+[INFO] 14:58:04:300 Sac-Cli/(4216:4224): el path pesa: 1
+[INFO] 14:58:04:301 Sac-Cli/(4216:4224): el stbuf pesa: 96
+[INFO] 14:58:04:301 Sac-Cli/(4216:4224): se pudo enviar pack
+[INFO] 14:58:04:305 Sac-Cli/(4216:4224): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:305 Sac-Cli/(4216:4224): /
+[INFO] 14:58:04:305 Sac-Cli/(4216:4224): el mensaje pesa: 1
+[INFO] 14:58:04:305 Sac-Cli/(4216:4224): el path pesa: 1
+[INFO] 14:58:04:305 Sac-Cli/(4216:4224): el stbuf pesa: 96
+[INFO] 14:58:04:306 Sac-Cli/(4216:4224): se pudo enviar pack
+[INFO] 14:58:04:306 Sac-Cli/(4216:4222): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:308 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:308 Sac-Cli/(4216:4225): /LaCosa
+[INFO] 14:58:04:308 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:308 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:309 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[INFO] 14:58:04:309 Sac-Cli/(4216:4225): se pudo enviar pack
+[INFO] 14:58:04:311 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:311 Sac-Cli/(4216:4225): /
+[INFO] 14:58:04:311 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:311 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:312 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[INFO] 14:58:04:312 Sac-Cli/(4216:4225): se pudo enviar pack
+[INFO] 14:58:04:313 Sac-Cli/(4216:4224): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:314 Sac-Cli/(4216:4222): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:314 Sac-Cli/(4216:4222): /LaCosa
+[INFO] 14:58:04:314 Sac-Cli/(4216:4222): el mensaje pesa: 1
+[INFO] 14:58:04:314 Sac-Cli/(4216:4222): el path pesa: 1
+[INFO] 14:58:04:315 Sac-Cli/(4216:4222): el stbuf pesa: 96
+[INFO] 14:58:04:315 Sac-Cli/(4216:4222): se pudo enviar pack
+[INFO] 14:58:04:317 Sac-Cli/(4216:4222): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:317 Sac-Cli/(4216:4222): /
+[INFO] 14:58:04:317 Sac-Cli/(4216:4222): el mensaje pesa: 1
+[INFO] 14:58:04:317 Sac-Cli/(4216:4222): el path pesa: 1
+[INFO] 14:58:04:318 Sac-Cli/(4216:4222): el stbuf pesa: 96
+[INFO] 14:58:04:318 Sac-Cli/(4216:4222): se pudo enviar pack
+[INFO] 14:58:04:319 Sac-Cli/(4216:4223): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:321 Sac-Cli/(4216:4223): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:321 Sac-Cli/(4216:4223): /LaCosa
+[INFO] 14:58:04:322 Sac-Cli/(4216:4223): el mensaje pesa: 1
+[INFO] 14:58:04:322 Sac-Cli/(4216:4223): el path pesa: 1
+[INFO] 14:58:04:322 Sac-Cli/(4216:4223): el stbuf pesa: 96
+[INFO] 14:58:04:322 Sac-Cli/(4216:4223): se pudo enviar pack
+[INFO] 14:58:04:324 Sac-Cli/(4216:4223): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:324 Sac-Cli/(4216:4223): /
+[INFO] 14:58:04:324 Sac-Cli/(4216:4223): el mensaje pesa: 1
+[INFO] 14:58:04:325 Sac-Cli/(4216:4223): el path pesa: 1
+[INFO] 14:58:04:325 Sac-Cli/(4216:4223): el stbuf pesa: 96
+[INFO] 14:58:04:325 Sac-Cli/(4216:4223): se pudo enviar pack
+[INFO] 14:58:04:326 Sac-Cli/(4216:4222): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:328 Sac-Cli/(4216:4222): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:328 Sac-Cli/(4216:4222): /LaCosa
+[INFO] 14:58:04:328 Sac-Cli/(4216:4222): el mensaje pesa: 1
+[INFO] 14:58:04:329 Sac-Cli/(4216:4222): el path pesa: 1
+[INFO] 14:58:04:329 Sac-Cli/(4216:4222): el stbuf pesa: 96
+[INFO] 14:58:04:334 Sac-Cli/(4216:4222): se pudo enviar pack
+[INFO] 14:58:04:335 Sac-Cli/(4216:4226): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:336 Sac-Cli/(4216:4226): /
+[INFO] 14:58:04:336 Sac-Cli/(4216:4226): el mensaje pesa: 1
+[INFO] 14:58:04:336 Sac-Cli/(4216:4226): el path pesa: 1
+[INFO] 14:58:04:336 Sac-Cli/(4216:4226): el stbuf pesa: 96
+[INFO] 14:58:04:337 Sac-Cli/(4216:4226): se pudo enviar pack
+[INFO] 14:58:04:338 Sac-Cli/(4216:4226): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:339 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:339 Sac-Cli/(4216:4225): /LaCosa
+[INFO] 14:58:04:340 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:340 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:340 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[ERROR] 14:58:04:342 Sac-Cli/(4216:4225): no se pudo enviar pack
+[INFO] 14:58:04:344 Sac-Cli/(4216:4226): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:345 Sac-Cli/(4216:4226): /
+[INFO] 14:58:04:345 Sac-Cli/(4216:4226): el mensaje pesa: 1
+[INFO] 14:58:04:345 Sac-Cli/(4216:4226): el path pesa: 1
+[INFO] 14:58:04:345 Sac-Cli/(4216:4226): el stbuf pesa: 96
+[ERROR] 14:58:04:346 Sac-Cli/(4216:4226): no se pudo enviar pack
+[INFO] 14:58:04:347 Sac-Cli/(4216:4225): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:348 Sac-Cli/(4216:4223): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:348 Sac-Cli/(4216:4223): /LaCosa
+[INFO] 14:58:04:349 Sac-Cli/(4216:4223): el mensaje pesa: 1
+[INFO] 14:58:04:349 Sac-Cli/(4216:4223): el path pesa: 1
+[INFO] 14:58:04:349 Sac-Cli/(4216:4223): el stbuf pesa: 96
+[ERROR] 14:58:04:349 Sac-Cli/(4216:4223): no se pudo enviar pack
+[INFO] 14:58:04:359 Sac-Cli/(4216:4226): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:360 Sac-Cli/(4216:4226): /
+[INFO] 14:58:04:360 Sac-Cli/(4216:4226): el mensaje pesa: 1
+[INFO] 14:58:04:360 Sac-Cli/(4216:4226): el path pesa: 1
+[INFO] 14:58:04:360 Sac-Cli/(4216:4226): el stbuf pesa: 96
+[ERROR] 14:58:04:361 Sac-Cli/(4216:4226): no se pudo enviar pack
+[INFO] 14:58:04:366 Sac-Cli/(4216:4222): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:368 Sac-Cli/(4216:4224): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:368 Sac-Cli/(4216:4224): /LaCosa
+[INFO] 14:58:04:368 Sac-Cli/(4216:4224): el mensaje pesa: 1
+[INFO] 14:58:04:368 Sac-Cli/(4216:4224): el path pesa: 1
+[INFO] 14:58:04:369 Sac-Cli/(4216:4224): el stbuf pesa: 96
+[ERROR] 14:58:04:369 Sac-Cli/(4216:4224): no se pudo enviar pack
+[INFO] 14:58:04:371 Sac-Cli/(4216:4226): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:371 Sac-Cli/(4216:4226): /
+[INFO] 14:58:04:371 Sac-Cli/(4216:4226): el mensaje pesa: 1
+[INFO] 14:58:04:372 Sac-Cli/(4216:4226): el path pesa: 1
+[INFO] 14:58:04:372 Sac-Cli/(4216:4226): el stbuf pesa: 96
+[ERROR] 14:58:04:372 Sac-Cli/(4216:4226): no se pudo enviar pack
+[INFO] 14:58:04:373 Sac-Cli/(4216:4224): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:375 Sac-Cli/(4216:4222): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:375 Sac-Cli/(4216:4222): /LaCosa
+[INFO] 14:58:04:375 Sac-Cli/(4216:4222): el mensaje pesa: 1
+[INFO] 14:58:04:375 Sac-Cli/(4216:4222): el path pesa: 1
+[INFO] 14:58:04:376 Sac-Cli/(4216:4222): el stbuf pesa: 96
+[ERROR] 14:58:04:376 Sac-Cli/(4216:4222): no se pudo enviar pack
+[INFO] 14:58:04:378 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:378 Sac-Cli/(4216:4225): /
+[INFO] 14:58:04:379 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:379 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:379 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[ERROR] 14:58:04:380 Sac-Cli/(4216:4225): no se pudo enviar pack
+[INFO] 14:58:04:381 Sac-Cli/(4216:4224): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:382 Sac-Cli/(4216:4224): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:382 Sac-Cli/(4216:4224): /LaCosa
+[INFO] 14:58:04:382 Sac-Cli/(4216:4224): el mensaje pesa: 1
+[INFO] 14:58:04:382 Sac-Cli/(4216:4224): el path pesa: 1
+[INFO] 14:58:04:383 Sac-Cli/(4216:4224): el stbuf pesa: 96
+[ERROR] 14:58:04:383 Sac-Cli/(4216:4224): no se pudo enviar pack
+[INFO] 14:58:04:384 Sac-Cli/(4216:4223): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:384 Sac-Cli/(4216:4223): /
+[INFO] 14:58:04:385 Sac-Cli/(4216:4223): el mensaje pesa: 1
+[INFO] 14:58:04:385 Sac-Cli/(4216:4223): el path pesa: 1
+[INFO] 14:58:04:385 Sac-Cli/(4216:4223): el stbuf pesa: 96
+[ERROR] 14:58:04:386 Sac-Cli/(4216:4223): no se pudo enviar pack
+[INFO] 14:58:04:386 Sac-Cli/(4216:4223): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:388 Sac-Cli/(4216:4224): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:388 Sac-Cli/(4216:4224): /LaCosa
+[INFO] 14:58:04:388 Sac-Cli/(4216:4224): el mensaje pesa: 1
+[INFO] 14:58:04:388 Sac-Cli/(4216:4224): el path pesa: 1
+[INFO] 14:58:04:388 Sac-Cli/(4216:4224): el stbuf pesa: 96
+[ERROR] 14:58:04:389 Sac-Cli/(4216:4224): no se pudo enviar pack
+[INFO] 14:58:04:390 Sac-Cli/(4216:4222): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:391 Sac-Cli/(4216:4222): /
+[INFO] 14:58:04:392 Sac-Cli/(4216:4222): el mensaje pesa: 1
+[INFO] 14:58:04:392 Sac-Cli/(4216:4222): el path pesa: 1
+[INFO] 14:58:04:392 Sac-Cli/(4216:4222): el stbuf pesa: 96
+[ERROR] 14:58:04:393 Sac-Cli/(4216:4222): no se pudo enviar pack
+[INFO] 14:58:04:393 Sac-Cli/(4216:4223): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:396 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:396 Sac-Cli/(4216:4225): /LaCosa
+[INFO] 14:58:04:396 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:397 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:397 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[ERROR] 14:58:04:397 Sac-Cli/(4216:4225): no se pudo enviar pack
+[INFO] 14:58:04:399 Sac-Cli/(4216:4223): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:399 Sac-Cli/(4216:4223): /
+[INFO] 14:58:04:400 Sac-Cli/(4216:4223): el mensaje pesa: 1
+[INFO] 14:58:04:400 Sac-Cli/(4216:4223): el path pesa: 1
+[INFO] 14:58:04:400 Sac-Cli/(4216:4223): el stbuf pesa: 96
+[ERROR] 14:58:04:400 Sac-Cli/(4216:4223): no se pudo enviar pack
+[INFO] 14:58:04:401 Sac-Cli/(4216:4225): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:402 Sac-Cli/(4216:4226): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:402 Sac-Cli/(4216:4226): /LaCosa
+[INFO] 14:58:04:403 Sac-Cli/(4216:4226): el mensaje pesa: 1
+[INFO] 14:58:04:403 Sac-Cli/(4216:4226): el path pesa: 1
+[INFO] 14:58:04:403 Sac-Cli/(4216:4226): el stbuf pesa: 96
+[ERROR] 14:58:04:403 Sac-Cli/(4216:4226): no se pudo enviar pack
+[INFO] 14:58:04:405 Sac-Cli/(4216:4224): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:406 Sac-Cli/(4216:4224): /
+[INFO] 14:58:04:406 Sac-Cli/(4216:4224): el mensaje pesa: 1
+[INFO] 14:58:04:406 Sac-Cli/(4216:4224): el path pesa: 1
+[INFO] 14:58:04:406 Sac-Cli/(4216:4224): el stbuf pesa: 96
+[ERROR] 14:58:04:406 Sac-Cli/(4216:4224): no se pudo enviar pack
+[INFO] 14:58:04:407 Sac-Cli/(4216:4222): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:408 Sac-Cli/(4216:4226): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:408 Sac-Cli/(4216:4226): /LaCosa
+[INFO] 14:58:04:409 Sac-Cli/(4216:4226): el mensaje pesa: 1
+[INFO] 14:58:04:409 Sac-Cli/(4216:4226): el path pesa: 1
+[INFO] 14:58:04:410 Sac-Cli/(4216:4226): el stbuf pesa: 96
+[ERROR] 14:58:04:411 Sac-Cli/(4216:4226): no se pudo enviar pack
+[INFO] 14:58:04:419 Sac-Cli/(4216:4223): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:419 Sac-Cli/(4216:4223): /
+[INFO] 14:58:04:420 Sac-Cli/(4216:4223): el mensaje pesa: 1
+[INFO] 14:58:04:420 Sac-Cli/(4216:4223): el path pesa: 1
+[INFO] 14:58:04:420 Sac-Cli/(4216:4223): el stbuf pesa: 96
+[ERROR] 14:58:04:421 Sac-Cli/(4216:4223): no se pudo enviar pack
+[INFO] 14:58:04:421 Sac-Cli/(4216:4224): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:423 Sac-Cli/(4216:4222): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:423 Sac-Cli/(4216:4222): /LaCosa
+[INFO] 14:58:04:423 Sac-Cli/(4216:4222): el mensaje pesa: 1
+[INFO] 14:58:04:423 Sac-Cli/(4216:4222): el path pesa: 1
+[INFO] 14:58:04:423 Sac-Cli/(4216:4222): el stbuf pesa: 96
+[ERROR] 14:58:04:424 Sac-Cli/(4216:4222): no se pudo enviar pack
+[INFO] 14:58:04:426 Sac-Cli/(4216:4224): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:427 Sac-Cli/(4216:4224): /
+[INFO] 14:58:04:427 Sac-Cli/(4216:4224): el mensaje pesa: 1
+[INFO] 14:58:04:427 Sac-Cli/(4216:4224): el path pesa: 1
+[INFO] 14:58:04:427 Sac-Cli/(4216:4224): el stbuf pesa: 96
+[ERROR] 14:58:04:428 Sac-Cli/(4216:4224): no se pudo enviar pack
+[INFO] 14:58:04:429 Sac-Cli/(4216:4224): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:430 Sac-Cli/(4216:4223): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:430 Sac-Cli/(4216:4223): /LaCosa
+[INFO] 14:58:04:431 Sac-Cli/(4216:4223): el mensaje pesa: 1
+[INFO] 14:58:04:431 Sac-Cli/(4216:4223): el path pesa: 1
+[INFO] 14:58:04:431 Sac-Cli/(4216:4223): el stbuf pesa: 96
+[ERROR] 14:58:04:432 Sac-Cli/(4216:4223): no se pudo enviar pack
+[INFO] 14:58:04:434 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:434 Sac-Cli/(4216:4225): /
+[INFO] 14:58:04:434 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:434 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:435 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[ERROR] 14:58:04:435 Sac-Cli/(4216:4225): no se pudo enviar pack
+[INFO] 14:58:04:436 Sac-Cli/(4216:4226): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:437 Sac-Cli/(4216:4222): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:437 Sac-Cli/(4216:4222): /LaCosa
+[INFO] 14:58:04:437 Sac-Cli/(4216:4222): el mensaje pesa: 1
+[INFO] 14:58:04:438 Sac-Cli/(4216:4222): el path pesa: 1
+[INFO] 14:58:04:438 Sac-Cli/(4216:4222): el stbuf pesa: 96
+[ERROR] 14:58:04:438 Sac-Cli/(4216:4222): no se pudo enviar pack
+[INFO] 14:58:04:440 Sac-Cli/(4216:4226): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:440 Sac-Cli/(4216:4226): /
+[INFO] 14:58:04:441 Sac-Cli/(4216:4226): el mensaje pesa: 1
+[INFO] 14:58:04:441 Sac-Cli/(4216:4226): el path pesa: 1
+[INFO] 14:58:04:441 Sac-Cli/(4216:4226): el stbuf pesa: 96
+[ERROR] 14:58:04:441 Sac-Cli/(4216:4226): no se pudo enviar pack
+[INFO] 14:58:04:442 Sac-Cli/(4216:4224): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:443 Sac-Cli/(4216:4224): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:444 Sac-Cli/(4216:4224): /LaCosa
+[INFO] 14:58:04:444 Sac-Cli/(4216:4224): el mensaje pesa: 1
+[INFO] 14:58:04:448 Sac-Cli/(4216:4224): el path pesa: 1
+[INFO] 14:58:04:449 Sac-Cli/(4216:4224): el stbuf pesa: 96
+[ERROR] 14:58:04:449 Sac-Cli/(4216:4224): no se pudo enviar pack
+[INFO] 14:58:04:451 Sac-Cli/(4216:4226): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:451 Sac-Cli/(4216:4226): /
+[INFO] 14:58:04:451 Sac-Cli/(4216:4226): el mensaje pesa: 1
+[INFO] 14:58:04:452 Sac-Cli/(4216:4226): el path pesa: 1
+[INFO] 14:58:04:452 Sac-Cli/(4216:4226): el stbuf pesa: 96
+[ERROR] 14:58:04:452 Sac-Cli/(4216:4226): no se pudo enviar pack
+[INFO] 14:58:04:453 Sac-Cli/(4216:4224): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:455 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:455 Sac-Cli/(4216:4225): /LaCosa
+[INFO] 14:58:04:455 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:456 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:456 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[ERROR] 14:58:04:456 Sac-Cli/(4216:4225): no se pudo enviar pack
+[INFO] 14:58:04:458 Sac-Cli/(4216:4223): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:458 Sac-Cli/(4216:4223): /
+[INFO] 14:58:04:458 Sac-Cli/(4216:4223): el mensaje pesa: 1
+[INFO] 14:58:04:459 Sac-Cli/(4216:4223): el path pesa: 1
+[INFO] 14:58:04:459 Sac-Cli/(4216:4223): el stbuf pesa: 96
+[ERROR] 14:58:04:459 Sac-Cli/(4216:4223): no se pudo enviar pack
+[INFO] 14:58:04:460 Sac-Cli/(4216:4222): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:461 Sac-Cli/(4216:4222): /
+[INFO] 14:58:04:461 Sac-Cli/(4216:4222): el mensaje pesa: 1
+[INFO] 14:58:04:461 Sac-Cli/(4216:4222): el path pesa: 1
+[INFO] 14:58:04:462 Sac-Cli/(4216:4222): el stbuf pesa: 96
+[ERROR] 14:58:04:462 Sac-Cli/(4216:4222): no se pudo enviar pack
+[INFO] 14:58:04:467 Sac-Cli/(4216:4224): Se llamo a fusesito_readdir
+
+[INFO] 14:58:04:471 Sac-Cli/(4216:4225): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:471 Sac-Cli/(4216:4225): /LaCosa
+[INFO] 14:58:04:471 Sac-Cli/(4216:4225): el mensaje pesa: 1
+[INFO] 14:58:04:471 Sac-Cli/(4216:4225): el path pesa: 1
+[INFO] 14:58:04:471 Sac-Cli/(4216:4225): el stbuf pesa: 96
+[ERROR] 14:58:04:472 Sac-Cli/(4216:4225): no se pudo enviar pack
+[INFO] 14:58:04:474 Sac-Cli/(4216:4226): Se llamo a fusesito_getattr
+
+[INFO] 14:58:04:475 Sac-Cli/(4216:4226): /autorun.inf
+[INFO] 14:58:04:475 Sac-Cli/(4216:4226): el mensaje pesa: 1
+[INFO] 14:58:04:475 Sac-Cli/(4216:4226): el path pesa: 1
+[INFO] 14:58:04:476 Sac-Cli/(4216:4226): el stbuf pesa: 96
+[ERROR] 14:58:04:476 Sac-Cli/(4216:4226): no se pudo enviar pack
+[INFO] 15:02:10:680 Sac-Cli/(4756:4756): Se ha iniciado una nueva instancia del logger
+
+[INFO] 15:02:10:710 Sac-Cli/(4756:4756): Conexion correcta
+
+[INFO] 15:02:10:840 Sac-Cli/(4756:4762): Se llamo a fusesito_getattr
+
+[INFO] 15:02:10:842 Sac-Cli/(4756:4762): /.xdg-volume-info
+[INFO] 15:02:10:848 Sac-Cli/(4756:4763): Se llamo a fusesito_getattr
+
+[INFO] 15:02:10:852 Sac-Cli/(4756:4762): el mensaje pesa: 1
+[INFO] 15:02:10:862 Sac-Cli/(4756:4762): el path pesa: 1
+[INFO] 15:02:10:864 Sac-Cli/(4756:4762): el stbuf pesa: 96
+[INFO] 15:02:10:865 Sac-Cli/(4756:4763): /
+[INFO] 15:02:10:865 Sac-Cli/(4756:4763): el mensaje pesa: 1
+[INFO] 15:02:10:866 Sac-Cli/(4756:4763): el path pesa: 1
+[INFO] 15:02:10:866 Sac-Cli/(4756:4763): el stbuf pesa: 96
+[INFO] 15:07:11:413 Sac-Cli/(4756:4763): se pudo enviar pack
+[INFO] 15:07:11:422 Sac-Cli/(4756:4762): se pudo enviar pack
+[INFO] 15:08:47:868 Sac-Cli/(5822:5822): Se ha iniciado una nueva instancia del logger
+
+[ERROR] 15:08:47:899 Sac-Cli/(5822:5822): Error de conexion
+
+[INFO] 15:08:48:43 Sac-Cli/(5822:5829): Se llamo a fusesito_getattr
+
+[INFO] 15:08:48:44 Sac-Cli/(5822:5829): /.xdg-volume-info
+[INFO] 15:08:48:45 Sac-Cli/(5822:5829): 8 
+[INFO] 15:08:48:45 Sac-Cli/(5822:5829): 1 
+[INFO] 15:08:48:46 Sac-Cli/(5822:5829): 96 
+[INFO] 15:08:48:46 Sac-Cli/(5822:5829): 8 
+[INFO] 15:08:48:52 Sac-Cli/(5822:5829): /
+[INFO] 15:08:48:57 Sac-Cli/(5822:5827): Se llamo a fusesito_getattr
+
+[INFO] 15:08:48:60 Sac-Cli/(5822:5829): 113 
+[INFO] 15:08:48:60 Sac-Cli/(5822:5827): /
+[INFO] 15:08:48:67 Sac-Cli/(5822:5829): el mensaje pesa: 1
+[INFO] 15:08:48:69 Sac-Cli/(5822:5829): el path pesa: 1
+[INFO] 15:08:48:69 Sac-Cli/(5822:5827): 8 
+[INFO] 15:08:48:71 Sac-Cli/(5822:5829): el stbuf pesa: 96
+[INFO] 15:08:48:73 Sac-Cli/(5822:5827): 1 
+[INFO] 15:08:48:73 Sac-Cli/(5822:5827): 96 
+[INFO] 15:08:48:73 Sac-Cli/(5822:5827): 8 
+[INFO] 15:08:48:74 Sac-Cli/(5822:5827): /
+[INFO] 15:08:48:74 Sac-Cli/(5822:5827): 113 
+[INFO] 15:08:48:74 Sac-Cli/(5822:5827): el mensaje pesa: 1
+[INFO] 15:08:48:74 Sac-Cli/(5822:5827): el path pesa: 1
+[INFO] 15:08:48:75 Sac-Cli/(5822:5827): el stbuf pesa: 96
+[INFO] 15:14:54:145 Sac-Cli/(3176:3176): Se ha iniciado una nueva instancia del logger
+
+[INFO] 15:14:54:179 Sac-Cli/(3176:3176): Conexion correcta
+
+[INFO] 15:15:18:796 Sac-Cli/(3193:3193): Se ha iniciado una nueva instancia del logger
+
+[INFO] 15:15:18:826 Sac-Cli/(3193:3193): Conexion correcta
+
+[INFO] 15:15:18:969 Sac-Cli/(3193:3204): Se llamo a fusesito_getattr
+
+[INFO] 15:15:18:971 Sac-Cli/(3193:3205): Se llamo a fusesito_getattr
+
+[INFO] 15:15:18:973 Sac-Cli/(3193:3204): /.xdg-volume-info
+[INFO] 15:15:18:973 Sac-Cli/(3193:3204): 8 
+[INFO] 15:15:18:974 Sac-Cli/(3193:3204): 1 
+[INFO] 15:15:18:974 Sac-Cli/(3193:3204): 96 
+[INFO] 15:15:18:974 Sac-Cli/(3193:3204): 8 
+[INFO] 15:15:18:975 Sac-Cli/(3193:3204): /
+[INFO] 15:15:18:976 Sac-Cli/(3193:3204): 113 
+[INFO] 15:15:18:977 Sac-Cli/(3193:3204): el mensaje pesa: 1
+[INFO] 15:15:18:978 Sac-Cli/(3193:3204): el path pesa: 1
+[INFO] 15:15:18:978 Sac-Cli/(3193:3204): el stbuf pesa: 96
+[INFO] 15:15:18:980 Sac-Cli/(3193:3205): /
+[INFO] 15:15:18:980 Sac-Cli/(3193:3205): 8 
+[INFO] 15:15:18:980 Sac-Cli/(3193:3205): 1 
+[INFO] 15:15:18:980 Sac-Cli/(3193:3205): 96 
+[INFO] 15:15:18:981 Sac-Cli/(3193:3205): 8 
+[INFO] 15:15:18:981 Sac-Cli/(3193:3205): /
+[INFO] 15:15:18:981 Sac-Cli/(3193:3205): 113 
+[INFO] 15:15:18:981 Sac-Cli/(3193:3205): el mensaje pesa: 1
+[INFO] 15:15:18:982 Sac-Cli/(3193:3205): el path pesa: 1
+[INFO] 15:15:18:982 Sac-Cli/(3193:3205): el stbuf pesa: 96
+[INFO] 15:20:18:0 Sac-Cli/(3193:3205): se pudo enviar pack
+[INFO] 15:20:19:29 Sac-Cli/(3193:3204): se pudo enviar pack
+[INFO] 15:25:24:349 Sac-Cli/(4070:4070): Se ha iniciado una nueva instancia del logger
+
+[INFO] 15:25:24:379 Sac-Cli/(4070:4070): Conexion correcta
+
+[INFO] 15:25:24:578 Sac-Cli/(4070:4076): Se llamo a fusesito_getattr
+
+[INFO] 15:25:24:586 Sac-Cli/(4070:4078): Se llamo a fusesito_getattr
+
+[INFO] 15:25:24:597 Sac-Cli/(4070:4076): /.xdg-volume-info
+[INFO] 15:25:24:598 Sac-Cli/(4070:4076): 8 
+[INFO] 15:25:24:599 Sac-Cli/(4070:4076): 1 
+[INFO] 15:25:24:599 Sac-Cli/(4070:4076): 96 
+[INFO] 15:25:24:600 Sac-Cli/(4070:4076): 8 
+[INFO] 15:25:24:601 Sac-Cli/(4070:4076): /
+[INFO] 15:25:24:602 Sac-Cli/(4070:4076): 113 
+[INFO] 15:25:24:602 Sac-Cli/(4070:4076): el mensaje preserializar pesa: 1
+[INFO] 15:25:24:603 Sac-Cli/(4070:4076): el mensaje pesa: 1
+[INFO] 15:25:24:604 Sac-Cli/(4070:4076): el path pesa: 1
+[INFO] 15:25:24:604 Sac-Cli/(4070:4076): el stbuf pesa: 96
+[INFO] 15:25:24:605 Sac-Cli/(4070:4078): /
+[INFO] 15:25:24:605 Sac-Cli/(4070:4078): 8 
+[INFO] 15:25:24:606 Sac-Cli/(4070:4078): 1 
+[INFO] 15:25:24:606 Sac-Cli/(4070:4078): 96 
+[INFO] 15:25:24:606 Sac-Cli/(4070:4078): 8 
+[INFO] 15:25:24:606 Sac-Cli/(4070:4078): /
+[INFO] 15:25:24:606 Sac-Cli/(4070:4078): 113 
+[INFO] 15:25:24:607 Sac-Cli/(4070:4078): el mensaje preserializar pesa: 1
+[INFO] 15:25:24:607 Sac-Cli/(4070:4078): el mensaje pesa: 1
+[INFO] 15:25:24:607 Sac-Cli/(4070:4078): el path pesa: 1
+[INFO] 15:25:24:607 Sac-Cli/(4070:4078): el stbuf pesa: 96
+[INFO] 15:30:24:784 Sac-Cli/(4070:4078): se pudo enviar pack
+[ERROR] 15:30:24:792 Sac-Cli/(4070:4076): no se pudo enviar pack
+[INFO] 16:39:24:408 Sac-Cli/(9472:9472): Se ha iniciado una nueva instancia del logger
+
+[INFO] 16:39:24:438 Sac-Cli/(9472:9472): Conexion correcta
+
+[INFO] 16:39:24:590 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:591 Sac-Cli/(9472:9479): /.xdg-volume-info
+[INFO] 16:39:24:592 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:592 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:596 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:605 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[INFO] 16:39:24:613 Sac-Cli/(9472:9478): /
+[INFO] 16:39:24:613 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:613 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:613 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[INFO] 16:39:24:620 Sac-Cli/(9472:9478): se pudo enviar pack
+[INFO] 16:39:24:627 Sac-Cli/(9472:9479): se pudo enviar pack
+[INFO] 16:39:24:630 Sac-Cli/(9472:9481): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:630 Sac-Cli/(9472:9481): /autorun.inf
+[INFO] 16:39:24:630 Sac-Cli/(9472:9481): el mensaje pesa: 1
+[INFO] 16:39:24:631 Sac-Cli/(9472:9481): el path pesa: 1
+[INFO] 16:39:24:631 Sac-Cli/(9472:9481): el stbuf pesa: 96
+[INFO] 16:39:24:631 Sac-Cli/(9472:9481): se pudo enviar pack
+[INFO] 16:39:24:633 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:633 Sac-Cli/(9472:9480): /.Trash
+[INFO] 16:39:24:633 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:633 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:634 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[INFO] 16:39:24:634 Sac-Cli/(9472:9480): se pudo enviar pack
+[INFO] 16:39:24:635 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:635 Sac-Cli/(9472:9480): /.Trash-1000
+[INFO] 16:39:24:636 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:636 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:636 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[INFO] 16:39:24:637 Sac-Cli/(9472:9480): se pudo enviar pack
+[INFO] 16:39:24:640 Sac-Cli/(9472:9480): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:650 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:650 Sac-Cli/(9472:9478): /ElArchivito
+[INFO] 16:39:24:651 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:651 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:651 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[INFO] 16:39:24:652 Sac-Cli/(9472:9478): se pudo enviar pack
+[INFO] 16:39:24:664 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:665 Sac-Cli/(9472:9479): /LaCosa
+[INFO] 16:39:24:665 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:665 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:666 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[INFO] 16:39:24:666 Sac-Cli/(9472:9479): se pudo enviar pack
+[INFO] 16:39:24:672 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:672 Sac-Cli/(9472:9478): /
+[INFO] 16:39:24:672 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:673 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:673 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[INFO] 16:39:24:673 Sac-Cli/(9472:9478): se pudo enviar pack
+[INFO] 16:39:24:674 Sac-Cli/(9472:9481): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:675 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:676 Sac-Cli/(9472:9479): /LaCosa
+[INFO] 16:39:24:676 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:677 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:678 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[INFO] 16:39:24:678 Sac-Cli/(9472:9479): se pudo enviar pack
+[INFO] 16:39:24:680 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:680 Sac-Cli/(9472:9479): /
+[INFO] 16:39:24:680 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:680 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:681 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[INFO] 16:39:24:681 Sac-Cli/(9472:9479): se pudo enviar pack
+[INFO] 16:39:24:682 Sac-Cli/(9472:9480): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:684 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:684 Sac-Cli/(9472:9480): /LaCosa
+[INFO] 16:39:24:684 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:684 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:685 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[INFO] 16:39:24:685 Sac-Cli/(9472:9480): se pudo enviar pack
+[INFO] 16:39:24:687 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:687 Sac-Cli/(9472:9478): /
+[INFO] 16:39:24:688 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:688 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:688 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[INFO] 16:39:24:689 Sac-Cli/(9472:9478): se pudo enviar pack
+[INFO] 16:39:24:689 Sac-Cli/(9472:9481): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:691 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:692 Sac-Cli/(9472:9479): /LaCosa
+[INFO] 16:39:24:692 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:693 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:693 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[INFO] 16:39:24:694 Sac-Cli/(9472:9479): se pudo enviar pack
+[INFO] 16:39:24:697 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:697 Sac-Cli/(9472:9478): /
+[INFO] 16:39:24:697 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:698 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:698 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:699 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:700 Sac-Cli/(9472:9480): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:702 Sac-Cli/(9472:9481): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:702 Sac-Cli/(9472:9481): /LaCosa
+[INFO] 16:39:24:702 Sac-Cli/(9472:9481): el mensaje pesa: 1
+[INFO] 16:39:24:703 Sac-Cli/(9472:9481): el path pesa: 1
+[INFO] 16:39:24:703 Sac-Cli/(9472:9481): el stbuf pesa: 96
+[ERROR] 16:39:24:703 Sac-Cli/(9472:9481): no se pudo enviar pack
+[INFO] 16:39:24:705 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:705 Sac-Cli/(9472:9478): /
+[INFO] 16:39:24:705 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:706 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:706 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:706 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:707 Sac-Cli/(9472:9479): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:708 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:708 Sac-Cli/(9472:9480): /LaCosa
+[INFO] 16:39:24:708 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:709 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:710 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[ERROR] 16:39:24:710 Sac-Cli/(9472:9480): no se pudo enviar pack
+[INFO] 16:39:24:712 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:712 Sac-Cli/(9472:9479): /
+[INFO] 16:39:24:712 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:713 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:713 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[ERROR] 16:39:24:713 Sac-Cli/(9472:9479): no se pudo enviar pack
+[INFO] 16:39:24:714 Sac-Cli/(9472:9480): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:715 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:715 Sac-Cli/(9472:9478): /LaCosa
+[INFO] 16:39:24:715 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:715 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:716 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:716 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:717 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:717 Sac-Cli/(9472:9479): /
+[INFO] 16:39:24:718 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:718 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:718 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[ERROR] 16:39:24:719 Sac-Cli/(9472:9479): no se pudo enviar pack
+[INFO] 16:39:24:719 Sac-Cli/(9472:9480): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:721 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:721 Sac-Cli/(9472:9478): /LaCosa
+[INFO] 16:39:24:722 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:722 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:722 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:722 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:723 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:724 Sac-Cli/(9472:9479): /
+[INFO] 16:39:24:724 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:724 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:725 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[ERROR] 16:39:24:725 Sac-Cli/(9472:9479): no se pudo enviar pack
+[INFO] 16:39:24:725 Sac-Cli/(9472:9480): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:727 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:727 Sac-Cli/(9472:9478): /LaCosa
+[INFO] 16:39:24:727 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:728 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:728 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:728 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:730 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:730 Sac-Cli/(9472:9480): /
+[INFO] 16:39:24:731 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:731 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:732 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[ERROR] 16:39:24:732 Sac-Cli/(9472:9480): no se pudo enviar pack
+[INFO] 16:39:24:733 Sac-Cli/(9472:9479): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:734 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:734 Sac-Cli/(9472:9478): /LaCosa
+[INFO] 16:39:24:735 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:735 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:735 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:736 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:738 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:739 Sac-Cli/(9472:9479): /
+[INFO] 16:39:24:739 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:739 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:739 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[ERROR] 16:39:24:740 Sac-Cli/(9472:9479): no se pudo enviar pack
+[INFO] 16:39:24:740 Sac-Cli/(9472:9479): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:743 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:743 Sac-Cli/(9472:9479): /LaCosa
+[INFO] 16:39:24:744 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:744 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:744 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[ERROR] 16:39:24:745 Sac-Cli/(9472:9479): no se pudo enviar pack
+[INFO] 16:39:24:747 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:747 Sac-Cli/(9472:9479): /
+[INFO] 16:39:24:748 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:748 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:748 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[ERROR] 16:39:24:749 Sac-Cli/(9472:9479): no se pudo enviar pack
+[INFO] 16:39:24:750 Sac-Cli/(9472:9481): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:751 Sac-Cli/(9472:9481): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:751 Sac-Cli/(9472:9481): /LaCosa
+[INFO] 16:39:24:751 Sac-Cli/(9472:9481): el mensaje pesa: 1
+[INFO] 16:39:24:751 Sac-Cli/(9472:9481): el path pesa: 1
+[INFO] 16:39:24:751 Sac-Cli/(9472:9481): el stbuf pesa: 96
+[ERROR] 16:39:24:752 Sac-Cli/(9472:9481): no se pudo enviar pack
+[INFO] 16:39:24:754 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:754 Sac-Cli/(9472:9480): /
+[INFO] 16:39:24:754 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:754 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:754 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[ERROR] 16:39:24:755 Sac-Cli/(9472:9480): no se pudo enviar pack
+[INFO] 16:39:24:756 Sac-Cli/(9472:9479): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:757 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:757 Sac-Cli/(9472:9480): /LaCosa
+[INFO] 16:39:24:757 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:757 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:758 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[ERROR] 16:39:24:758 Sac-Cli/(9472:9480): no se pudo enviar pack
+[INFO] 16:39:24:760 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:760 Sac-Cli/(9472:9478): /
+[INFO] 16:39:24:760 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:760 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:761 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:761 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:761 Sac-Cli/(9472:9478): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:763 Sac-Cli/(9472:9481): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:763 Sac-Cli/(9472:9481): /LaCosa
+[INFO] 16:39:24:763 Sac-Cli/(9472:9481): el mensaje pesa: 1
+[INFO] 16:39:24:763 Sac-Cli/(9472:9481): el path pesa: 1
+[INFO] 16:39:24:764 Sac-Cli/(9472:9481): el stbuf pesa: 96
+[ERROR] 16:39:24:764 Sac-Cli/(9472:9481): no se pudo enviar pack
+[INFO] 16:39:24:765 Sac-Cli/(9472:9481): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:766 Sac-Cli/(9472:9481): /
+[INFO] 16:39:24:766 Sac-Cli/(9472:9481): el mensaje pesa: 1
+[INFO] 16:39:24:766 Sac-Cli/(9472:9481): el path pesa: 1
+[INFO] 16:39:24:767 Sac-Cli/(9472:9481): el stbuf pesa: 96
+[ERROR] 16:39:24:767 Sac-Cli/(9472:9481): no se pudo enviar pack
+[INFO] 16:39:24:768 Sac-Cli/(9472:9478): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:769 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:769 Sac-Cli/(9472:9478): /LaCosa
+[INFO] 16:39:24:773 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:773 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:774 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:774 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:776 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:776 Sac-Cli/(9472:9480): /
+[INFO] 16:39:24:777 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:777 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:777 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[ERROR] 16:39:24:777 Sac-Cli/(9472:9480): no se pudo enviar pack
+[INFO] 16:39:24:778 Sac-Cli/(9472:9479): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:779 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:780 Sac-Cli/(9472:9478): /LaCosa
+[INFO] 16:39:24:780 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:780 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:781 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:781 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:783 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:783 Sac-Cli/(9472:9479): /
+[INFO] 16:39:24:784 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:784 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:784 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[ERROR] 16:39:24:785 Sac-Cli/(9472:9479): no se pudo enviar pack
+[INFO] 16:39:24:785 Sac-Cli/(9472:9478): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:786 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:787 Sac-Cli/(9472:9480): /LaCosa
+[INFO] 16:39:24:787 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:787 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:787 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[ERROR] 16:39:24:787 Sac-Cli/(9472:9480): no se pudo enviar pack
+[INFO] 16:39:24:789 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:790 Sac-Cli/(9472:9479): /
+[INFO] 16:39:24:790 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:790 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:790 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[ERROR] 16:39:24:790 Sac-Cli/(9472:9479): no se pudo enviar pack
+[INFO] 16:39:24:791 Sac-Cli/(9472:9478): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:792 Sac-Cli/(9472:9481): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:792 Sac-Cli/(9472:9481): /LaCosa
+[INFO] 16:39:24:793 Sac-Cli/(9472:9481): el mensaje pesa: 1
+[INFO] 16:39:24:793 Sac-Cli/(9472:9481): el path pesa: 1
+[INFO] 16:39:24:793 Sac-Cli/(9472:9481): el stbuf pesa: 96
+[ERROR] 16:39:24:793 Sac-Cli/(9472:9481): no se pudo enviar pack
+[INFO] 16:39:24:795 Sac-Cli/(9472:9481): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:795 Sac-Cli/(9472:9481): /
+[INFO] 16:39:24:796 Sac-Cli/(9472:9481): el mensaje pesa: 1
+[INFO] 16:39:24:796 Sac-Cli/(9472:9481): el path pesa: 1
+[INFO] 16:39:24:796 Sac-Cli/(9472:9481): el stbuf pesa: 96
+[ERROR] 16:39:24:796 Sac-Cli/(9472:9481): no se pudo enviar pack
+[INFO] 16:39:24:797 Sac-Cli/(9472:9479): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:798 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:800 Sac-Cli/(9472:9478): /LaCosa
+[INFO] 16:39:24:800 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:800 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:800 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:801 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:802 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:802 Sac-Cli/(9472:9478): /
+[INFO] 16:39:24:803 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:803 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:803 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:803 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:804 Sac-Cli/(9472:9478): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:805 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:805 Sac-Cli/(9472:9480): /LaCosa
+[INFO] 16:39:24:805 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:806 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:806 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[ERROR] 16:39:24:806 Sac-Cli/(9472:9480): no se pudo enviar pack
+[INFO] 16:39:24:808 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:808 Sac-Cli/(9472:9480): /
+[INFO] 16:39:24:808 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:809 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:809 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[ERROR] 16:39:24:810 Sac-Cli/(9472:9480): no se pudo enviar pack
+[INFO] 16:39:24:810 Sac-Cli/(9472:9479): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:811 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:812 Sac-Cli/(9472:9478): /LaCosa
+[INFO] 16:39:24:812 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:812 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:813 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:813 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:815 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:815 Sac-Cli/(9472:9479): /
+[INFO] 16:39:24:815 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:816 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:816 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[ERROR] 16:39:24:816 Sac-Cli/(9472:9479): no se pudo enviar pack
+[INFO] 16:39:24:817 Sac-Cli/(9472:9479): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:818 Sac-Cli/(9472:9481): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:818 Sac-Cli/(9472:9481): /LaCosa
+[INFO] 16:39:24:818 Sac-Cli/(9472:9481): el mensaje pesa: 1
+[INFO] 16:39:24:818 Sac-Cli/(9472:9481): el path pesa: 1
+[INFO] 16:39:24:819 Sac-Cli/(9472:9481): el stbuf pesa: 96
+[ERROR] 16:39:24:819 Sac-Cli/(9472:9481): no se pudo enviar pack
+[INFO] 16:39:24:823 Sac-Cli/(9472:9480): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:824 Sac-Cli/(9472:9480): /
+[INFO] 16:39:24:825 Sac-Cli/(9472:9480): el mensaje pesa: 1
+[INFO] 16:39:24:826 Sac-Cli/(9472:9480): el path pesa: 1
+[INFO] 16:39:24:827 Sac-Cli/(9472:9480): el stbuf pesa: 96
+[ERROR] 16:39:24:828 Sac-Cli/(9472:9480): no se pudo enviar pack
+[INFO] 16:39:24:829 Sac-Cli/(9472:9481): Se llamo a fusesito_readdir
+
+[INFO] 16:39:24:833 Sac-Cli/(9472:9478): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:834 Sac-Cli/(9472:9478): /
+[INFO] 16:39:24:834 Sac-Cli/(9472:9478): el mensaje pesa: 1
+[INFO] 16:39:24:834 Sac-Cli/(9472:9478): el path pesa: 1
+[INFO] 16:39:24:834 Sac-Cli/(9472:9478): el stbuf pesa: 96
+[ERROR] 16:39:24:835 Sac-Cli/(9472:9478): no se pudo enviar pack
+[INFO] 16:39:24:836 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:836 Sac-Cli/(9472:9479): /LaCosa
+[INFO] 16:39:24:836 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:837 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:840 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[ERROR] 16:39:24:840 Sac-Cli/(9472:9479): no se pudo enviar pack
+[INFO] 16:39:24:843 Sac-Cli/(9472:9479): Se llamo a fusesito_getattr
+
+[INFO] 16:39:24:843 Sac-Cli/(9472:9479): /autorun.inf
+[INFO] 16:39:24:843 Sac-Cli/(9472:9479): el mensaje pesa: 1
+[INFO] 16:39:24:844 Sac-Cli/(9472:9479): el path pesa: 1
+[INFO] 16:39:24:844 Sac-Cli/(9472:9479): el stbuf pesa: 96
+[ERROR] 16:39:24:844 Sac-Cli/(9472:9479): no se pudo enviar pack
+[INFO] 16:43:30:949 Sac-Cli/(9814:9814): Se ha iniciado una nueva instancia del logger
+
+[INFO] 16:43:30:980 Sac-Cli/(9814:9814): Conexion correcta
+
+[INFO] 16:43:31:126 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:143 Sac-Cli/(9814:9820): /.xdg-volume-info
+[INFO] 16:43:31:159 Sac-Cli/(9814:9822): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:159 Sac-Cli/(9814:9822): /
+[INFO] 16:43:31:162 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:165 Sac-Cli/(9814:9822): se pudo enviar pack
+[INFO] 16:43:31:173 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:174 Sac-Cli/(9814:9823): /autorun.inf
+[INFO] 16:43:31:175 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:177 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:178 Sac-Cli/(9814:9823): /.Trash
+[INFO] 16:43:31:180 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:190 Sac-Cli/(9814:9820): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:200 Sac-Cli/(9814:9821): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:201 Sac-Cli/(9814:9821): /ElArchivito
+[INFO] 16:43:31:201 Sac-Cli/(9814:9821): se pudo enviar pack
+[INFO] 16:43:31:217 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:217 Sac-Cli/(9814:9823): /LaCosa
+[INFO] 16:43:31:218 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:218 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:219 Sac-Cli/(9814:9820): /.Trash-1000
+[INFO] 16:43:31:219 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:225 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:225 Sac-Cli/(9814:9823): /
+[INFO] 16:43:31:226 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:227 Sac-Cli/(9814:9822): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:228 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:229 Sac-Cli/(9814:9820): /LaCosa
+[INFO] 16:43:31:229 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:231 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:232 Sac-Cli/(9814:9820): /
+[INFO] 16:43:31:232 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:236 Sac-Cli/(9814:9822): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:238 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:239 Sac-Cli/(9814:9823): /LaCosa
+[INFO] 16:43:31:239 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:241 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:241 Sac-Cli/(9814:9823): /
+[INFO] 16:43:31:242 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:243 Sac-Cli/(9814:9823): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:248 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:248 Sac-Cli/(9814:9820): /LaCosa
+[INFO] 16:43:31:249 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:252 Sac-Cli/(9814:9821): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:252 Sac-Cli/(9814:9821): /
+[INFO] 16:43:31:253 Sac-Cli/(9814:9821): se pudo enviar pack
+[INFO] 16:43:31:253 Sac-Cli/(9814:9821): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:254 Sac-Cli/(9814:9821): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:255 Sac-Cli/(9814:9821): /LaCosa
+[INFO] 16:43:31:255 Sac-Cli/(9814:9821): se pudo enviar pack
+[INFO] 16:43:31:257 Sac-Cli/(9814:9822): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:257 Sac-Cli/(9814:9822): /
+[INFO] 16:43:31:258 Sac-Cli/(9814:9822): se pudo enviar pack
+[INFO] 16:43:31:259 Sac-Cli/(9814:9822): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:260 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:260 Sac-Cli/(9814:9823): /LaCosa
+[INFO] 16:43:31:261 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:262 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:263 Sac-Cli/(9814:9820): /
+[INFO] 16:43:31:263 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:264 Sac-Cli/(9814:9820): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:264 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:265 Sac-Cli/(9814:9820): /LaCosa
+[INFO] 16:43:31:265 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:269 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:269 Sac-Cli/(9814:9823): /
+[INFO] 16:43:31:269 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:270 Sac-Cli/(9814:9821): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:271 Sac-Cli/(9814:9821): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:271 Sac-Cli/(9814:9821): /LaCosa
+[INFO] 16:43:31:272 Sac-Cli/(9814:9821): se pudo enviar pack
+[INFO] 16:43:31:273 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:273 Sac-Cli/(9814:9823): /
+[INFO] 16:43:31:274 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:274 Sac-Cli/(9814:9822): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:275 Sac-Cli/(9814:9821): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:276 Sac-Cli/(9814:9821): /LaCosa
+[INFO] 16:43:31:276 Sac-Cli/(9814:9821): se pudo enviar pack
+[INFO] 16:43:31:278 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:278 Sac-Cli/(9814:9820): /
+[INFO] 16:43:31:279 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:279 Sac-Cli/(9814:9823): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:281 Sac-Cli/(9814:9821): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:281 Sac-Cli/(9814:9821): /LaCosa
+[INFO] 16:43:31:282 Sac-Cli/(9814:9821): se pudo enviar pack
+[INFO] 16:43:31:283 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:284 Sac-Cli/(9814:9823): /
+[INFO] 16:43:31:284 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:285 Sac-Cli/(9814:9820): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:286 Sac-Cli/(9814:9822): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:287 Sac-Cli/(9814:9822): /LaCosa
+[INFO] 16:43:31:287 Sac-Cli/(9814:9822): se pudo enviar pack
+[INFO] 16:43:31:289 Sac-Cli/(9814:9822): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:289 Sac-Cli/(9814:9822): /
+[INFO] 16:43:31:289 Sac-Cli/(9814:9822): se pudo enviar pack
+[INFO] 16:43:31:290 Sac-Cli/(9814:9821): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:291 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:291 Sac-Cli/(9814:9823): /LaCosa
+[INFO] 16:43:31:291 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:293 Sac-Cli/(9814:9821): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:293 Sac-Cli/(9814:9821): /
+[INFO] 16:43:31:294 Sac-Cli/(9814:9821): se pudo enviar pack
+[INFO] 16:43:31:295 Sac-Cli/(9814:9822): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:295 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:296 Sac-Cli/(9814:9820): /LaCosa
+[INFO] 16:43:31:296 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:298 Sac-Cli/(9814:9822): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:298 Sac-Cli/(9814:9822): /
+[INFO] 16:43:31:299 Sac-Cli/(9814:9822): se pudo enviar pack
+[INFO] 16:43:31:299 Sac-Cli/(9814:9820): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:301 Sac-Cli/(9814:9822): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:301 Sac-Cli/(9814:9822): /LaCosa
+[INFO] 16:43:31:301 Sac-Cli/(9814:9822): se pudo enviar pack
+[INFO] 16:43:31:305 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:306 Sac-Cli/(9814:9820): /
+[INFO] 16:43:31:306 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:307 Sac-Cli/(9814:9820): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:308 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:308 Sac-Cli/(9814:9823): /LaCosa
+[INFO] 16:43:31:309 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:311 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:311 Sac-Cli/(9814:9823): /
+[INFO] 16:43:31:312 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:313 Sac-Cli/(9814:9821): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:314 Sac-Cli/(9814:9821): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:314 Sac-Cli/(9814:9821): /LaCosa
+[INFO] 16:43:31:314 Sac-Cli/(9814:9821): se pudo enviar pack
+[INFO] 16:43:31:316 Sac-Cli/(9814:9821): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:317 Sac-Cli/(9814:9821): /
+[INFO] 16:43:31:318 Sac-Cli/(9814:9821): se pudo enviar pack
+[INFO] 16:43:31:319 Sac-Cli/(9814:9821): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:320 Sac-Cli/(9814:9822): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:320 Sac-Cli/(9814:9822): /LaCosa
+[INFO] 16:43:31:321 Sac-Cli/(9814:9822): se pudo enviar pack
+[INFO] 16:43:31:322 Sac-Cli/(9814:9822): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:323 Sac-Cli/(9814:9822): /
+[INFO] 16:43:31:323 Sac-Cli/(9814:9822): se pudo enviar pack
+[INFO] 16:43:31:323 Sac-Cli/(9814:9823): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:325 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:325 Sac-Cli/(9814:9820): /LaCosa
+[INFO] 16:43:31:325 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:326 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:327 Sac-Cli/(9814:9820): /
+[INFO] 16:43:31:327 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:328 Sac-Cli/(9814:9820): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:329 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:329 Sac-Cli/(9814:9823): /LaCosa
+[INFO] 16:43:31:330 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:331 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:331 Sac-Cli/(9814:9823): /
+[INFO] 16:43:31:332 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:333 Sac-Cli/(9814:9822): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:335 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:335 Sac-Cli/(9814:9820): /LaCosa
+[INFO] 16:43:31:335 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:340 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:341 Sac-Cli/(9814:9823): /
+[INFO] 16:43:31:342 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:342 Sac-Cli/(9814:9821): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:343 Sac-Cli/(9814:9821): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:343 Sac-Cli/(9814:9821): /LaCosa
+[INFO] 16:43:31:344 Sac-Cli/(9814:9821): se pudo enviar pack
+[INFO] 16:43:31:346 Sac-Cli/(9814:9822): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:347 Sac-Cli/(9814:9822): /
+[INFO] 16:43:31:347 Sac-Cli/(9814:9822): se pudo enviar pack
+[INFO] 16:43:31:348 Sac-Cli/(9814:9821): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:349 Sac-Cli/(9814:9820): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:349 Sac-Cli/(9814:9820): /LaCosa
+[INFO] 16:43:31:350 Sac-Cli/(9814:9820): se pudo enviar pack
+[INFO] 16:43:31:352 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:352 Sac-Cli/(9814:9823): /
+[INFO] 16:43:31:352 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:354 Sac-Cli/(9814:9821): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:359 Sac-Cli/(9814:9821): /
+[INFO] 16:43:31:360 Sac-Cli/(9814:9821): se pudo enviar pack
+[INFO] 16:43:31:360 Sac-Cli/(9814:9822): Se llamo a fusesito_readdir
+
+[INFO] 16:43:31:365 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:366 Sac-Cli/(9814:9823): /LaCosa
+[INFO] 16:43:31:366 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:43:31:370 Sac-Cli/(9814:9823): Se llamo a fusesito_getattr
+
+[INFO] 16:43:31:370 Sac-Cli/(9814:9823): /autorun.inf
+[INFO] 16:43:31:370 Sac-Cli/(9814:9823): se pudo enviar pack
+[INFO] 16:49:32:411 Sac-Cli/(10180:10180): Se ha iniciado una nueva instancia del logger
+
+[INFO] 16:49:32:441 Sac-Cli/(10180:10180): Conexion correcta
+
+[INFO] 16:49:32:591 Sac-Cli/(10180:10186): Se llamo a fusesito_getattr
+
+[INFO] 16:49:32:591 Sac-Cli/(10180:10186): /.xdg-volume-info
+[INFO] 16:49:32:593 Sac-Cli/(10180:10188): Se llamo a fusesito_getattr
+
+[INFO] 16:49:32:595 Sac-Cli/(10180:10186): el mensaje pesa: 1
+[INFO] 16:49:32:596 Sac-Cli/(10180:10186): el path pesa: 1
+[INFO] 16:49:32:596 Sac-Cli/(10180:10186): el stbuf pesa: 96
+[INFO] 16:49:32:603 Sac-Cli/(10180:10188): /
+[INFO] 16:49:32:603 Sac-Cli/(10180:10188): el mensaje pesa: 1
+[INFO] 16:49:32:603 Sac-Cli/(10180:10188): el path pesa: 1
+[INFO] 16:49:32:603 Sac-Cli/(10180:10188): el stbuf pesa: 96
+[INFO] 16:49:32:604 Sac-Cli/(10180:10188): se pudo enviar pack
+[INFO] 16:49:32:610 Sac-Cli/(10180:10186): se pudo enviar pack
+[INFO] 16:52:15:613 Sac-Cli/(10361:10361): Se ha iniciado una nueva instancia del logger
+
+[INFO] 16:52:15:643 Sac-Cli/(10361:10361): Conexion correcta
+
+[INFO] 16:52:15:809 Sac-Cli/(10361:10368): Se llamo a fusesito_getattr
+
+[INFO] 16:52:15:810 Sac-Cli/(10361:10368): /.xdg-volume-info
+[INFO] 16:52:15:828 Sac-Cli/(10361:10368): el mensaje pesa: 1
+[INFO] 16:52:15:828 Sac-Cli/(10361:10367): Se llamo a fusesito_getattr
+
+[INFO] 16:52:15:829 Sac-Cli/(10361:10368): el path pesa: 17
+[INFO] 16:52:15:830 Sac-Cli/(10361:10368): el stbuf pesa: 0
+[INFO] 16:52:15:835 Sac-Cli/(10361:10367): /
+[INFO] 16:52:15:836 Sac-Cli/(10361:10367): el mensaje pesa: 1
+[INFO] 16:52:15:836 Sac-Cli/(10361:10367): el path pesa: 1
+[INFO] 16:52:15:837 Sac-Cli/(10361:10367): el stbuf pesa: 0
+[INFO] 16:52:15:839 Sac-Cli/(10361:10367): se pudo enviar pack
+[INFO] 16:52:15:841 Sac-Cli/(10361:10368): se pudo enviar pack
+[INFO] 16:53:15:878 Sac-Cli/(10361:10369): Se llamo a fusesito_getattr
+
+[INFO] 16:53:15:879 Sac-Cli/(10361:10369): /autorun.inf
+[INFO] 16:53:15:882 Sac-Cli/(10361:10369): el mensaje pesa: 1
+[INFO] 16:53:15:883 Sac-Cli/(10361:10369): el path pesa: 12
+[INFO] 16:53:15:883 Sac-Cli/(10361:10369): el stbuf pesa: 0
+[INFO] 16:53:15:884 Sac-Cli/(10361:10369): se pudo enviar pack
+[INFO] 16:54:38:872 Sac-Cli/(10421:10421): Se ha iniciado una nueva instancia del logger
+
+[INFO] 16:54:38:873 Sac-Cli/(10421:10421): Conexion correcta
+
+[INFO] 16:54:38:883 Sac-Cli/(10421:10425): Se llamo a fusesito_getattr
+
+[INFO] 16:54:38:883 Sac-Cli/(10421:10425): /
+[INFO] 16:54:38:883 Sac-Cli/(10421:10425): el mensaje pesa: 0
+[INFO] 16:54:38:883 Sac-Cli/(10421:10425): el path pesa: 1
+[INFO] 16:54:38:883 Sac-Cli/(10421:10425): el stbuf pesa: 0
+[INFO] 16:54:38:884 Sac-Cli/(10421:10425): se pudo enviar pack
+[INFO] 16:54:38:884 Sac-Cli/(10421:10428): Se llamo a fusesito_getattr
+
+[INFO] 16:54:38:884 Sac-Cli/(10421:10428): /.xdg-volume-info
+[INFO] 16:54:38:884 Sac-Cli/(10421:10428): el mensaje pesa: 0
+[INFO] 16:54:38:884 Sac-Cli/(10421:10428): el path pesa: 17
+[INFO] 16:54:38:885 Sac-Cli/(10421:10428): el stbuf pesa: 0
+[INFO] 16:54:38:885 Sac-Cli/(10421:10428): se pudo enviar pack
+[INFO] 17:00:21:209 Sac-Cli/(10835:10835): Se ha iniciado una nueva instancia del logger
+
+[INFO] 17:00:21:211 Sac-Cli/(10835:10835): Conexion correcta
+
+[INFO] 17:00:21:242 Sac-Cli/(10835:10839): Se llamo a fusesito_getattr
+
+[INFO] 17:00:21:242 Sac-Cli/(10835:10839): /.Trash
+[INFO] 17:00:21:242 Sac-Cli/(10835:10839): Codigo de operacion: 0
+[INFO] 17:00:21:242 Sac-Cli/(10835:10839): Tamanio: 15
+[INFO] 17:00:21:242 Sac-Cli/(10835:10839): el mensaje pesa: 0
+[INFO] 17:00:21:242 Sac-Cli/(10835:10839): el path pesa: 7
+[INFO] 17:00:21:243 Sac-Cli/(10835:10839): el stbuf pesa: 0
+[INFO] 17:00:21:243 Sac-Cli/(10835:10839): se pudo enviar pack
+[INFO] 17:00:21:254 Sac-Cli/(10835:10840): Se llamo a fusesito_getattr
+
+[INFO] 17:00:21:254 Sac-Cli/(10835:10840): /
+[INFO] 17:00:21:255 Sac-Cli/(10835:10840): Codigo de operacion: 0
+[INFO] 17:00:21:255 Sac-Cli/(10835:10840): Tamanio: 9
+[INFO] 17:00:21:255 Sac-Cli/(10835:10840): el mensaje pesa: 0
+[INFO] 17:00:21:255 Sac-Cli/(10835:10840): el path pesa: 1
+[INFO] 17:00:21:255 Sac-Cli/(10835:10840): el stbuf pesa: 0
+[INFO] 17:00:21:255 Sac-Cli/(10835:10840): se pudo enviar pack
+[INFO] 17:09:09:50 Sac-Cli/(11298:11298): Se ha iniciado una nueva instancia del logger
+
+[INFO] 17:09:09:51 Sac-Cli/(11298:11298): Conexion correcta
+
+[INFO] 17:09:09:68 Sac-Cli/(11298:11302): Se llamo a fusesito_getattr
+
+[INFO] 17:09:09:68 Sac-Cli/(11298:11302): /.Trash
+[INFO] 17:09:09:68 Sac-Cli/(11298:11302): Codigo de operacion: 0
+[INFO] 17:09:09:68 Sac-Cli/(11298:11303): Se llamo a fusesito_getattr
+
+[INFO] 17:09:09:68 Sac-Cli/(11298:11302): Tamanio: 15
+[INFO] 17:09:09:68 Sac-Cli/(11298:11303): /
+[INFO] 17:09:09:68 Sac-Cli/(11298:11302): el mensaje pesa: 0
+[INFO] 17:09:09:68 Sac-Cli/(11298:11303): Codigo de operacion: 0
+[INFO] 17:09:09:68 Sac-Cli/(11298:11302): el path pesa: 7
+[INFO] 17:09:09:69 Sac-Cli/(11298:11303): Tamanio: 9
+[INFO] 17:09:09:69 Sac-Cli/(11298:11302): el stbuf pesa: 0
+[INFO] 17:09:09:69 Sac-Cli/(11298:11303): el mensaje pesa: 0
+[INFO] 17:09:09:69 Sac-Cli/(11298:11303): el path pesa: 1
+[INFO] 17:09:09:69 Sac-Cli/(11298:11303): el stbuf pesa: 0
+[INFO] 17:09:09:69 Sac-Cli/(11298:11302): se pudo enviar pack
+[INFO] 17:09:09:69 Sac-Cli/(11298:11303): se pudo enviar pack
+[INFO] 17:10:25:944 Sac-Cli/(11328:11328): Se ha iniciado una nueva instancia del logger
+
+[INFO] 17:10:25:945 Sac-Cli/(11328:11328): Conexion correcta
+
+[INFO] 17:10:25:955 Sac-Cli/(11328:11335): Se llamo a fusesito_getattr
+
+[INFO] 17:10:25:955 Sac-Cli/(11328:11335): /.xdg-volume-info
+[INFO] 17:10:25:955 Sac-Cli/(11328:11335): Codigo de operacion: 0
+[INFO] 17:10:25:956 Sac-Cli/(11328:11335): Tamanio: 25
+[INFO] 17:10:25:956 Sac-Cli/(11328:11335): el mensaje pesa: 11
+[INFO] 17:10:25:956 Sac-Cli/(11328:11335): el path pesa: 17
+[INFO] 17:10:25:956 Sac-Cli/(11328:11335): el stbuf pesa: 0
+[INFO] 17:10:25:956 Sac-Cli/(11328:11335): se pudo enviar pack
+[INFO] 17:10:25:958 Sac-Cli/(11328:11336): Se llamo a fusesito_getattr
+
+[INFO] 17:10:25:958 Sac-Cli/(11328:11336): /
+[INFO] 17:10:25:958 Sac-Cli/(11328:11336): Codigo de operacion: 0
+[INFO] 17:10:25:958 Sac-Cli/(11328:11336): Tamanio: 9
+[INFO] 17:10:25:958 Sac-Cli/(11328:11336): el mensaje pesa: 0
+[INFO] 17:10:25:959 Sac-Cli/(11328:11336): el path pesa: 1
+[INFO] 17:10:25:959 Sac-Cli/(11328:11336): el stbuf pesa: 0
+[INFO] 17:10:25:959 Sac-Cli/(11328:11336): se pudo enviar pack
+[INFO] 17:12:06:837 Sac-Cli/(11371:11371): Se ha iniciado una nueva instancia del logger
+
+[INFO] 17:12:06:867 Sac-Cli/(11371:11371): Conexion correcta
+
+[INFO] 17:12:06:2 Sac-Cli/(11371:11379): Se llamo a fusesito_getattr
+
+[INFO] 17:12:07:8 Sac-Cli/(11371:11379): /.xdg-volume-info
+[INFO] 17:12:07:10 Sac-Cli/(11371:11379): Codigo de operacion: 0
+[INFO] 17:12:07:10 Sac-Cli/(11371:11380): Se llamo a fusesito_getattr
+
+[INFO] 17:12:07:11 Sac-Cli/(11371:11379): Tamanio: 25
+[INFO] 17:12:07:16 Sac-Cli/(11371:11379): el mensaje pesa: 1
+[INFO] 17:12:07:16 Sac-Cli/(11371:11380): /
+[INFO] 17:12:07:17 Sac-Cli/(11371:11380): Codigo de operacion: 0
+[INFO] 17:12:07:17 Sac-Cli/(11371:11380): Tamanio: 9
+[INFO] 17:12:07:18 Sac-Cli/(11371:11380): el mensaje pesa: 1
+[INFO] 17:12:07:19 Sac-Cli/(11371:11380): el path pesa: 1
+[INFO] 17:12:07:19 Sac-Cli/(11371:11380): el stbuf pesa: 0
+[INFO] 17:12:07:23 Sac-Cli/(11371:11380): se pudo enviar pack
+[INFO] 17:12:07:25 Sac-Cli/(11371:11379): el path pesa: 17
+[INFO] 17:12:07:25 Sac-Cli/(11371:11379): el stbuf pesa: 0
+[INFO] 17:12:07:25 Sac-Cli/(11371:11379): se pudo enviar pack
+[INFO] 17:13:55:616 Sac-Cli/(11417:11417): Se ha iniciado una nueva instancia del logger
+
+[INFO] 17:13:55:646 Sac-Cli/(11417:11417): Conexion correcta
+
+[INFO] 17:13:55:789 Sac-Cli/(11417:11425): Se llamo a fusesito_getattr
+
+[INFO] 17:13:55:790 Sac-Cli/(11417:11425): /.xdg-volume-info
+[INFO] 17:13:55:796 Sac-Cli/(11417:11426): Se llamo a fusesito_getattr
+
+[INFO] 17:13:55:798 Sac-Cli/(11417:11425): Codigo de operacion: 0
+[INFO] 17:13:55:799 Sac-Cli/(11417:11425): Tamanio: 25
+[INFO] 17:13:55:810 Sac-Cli/(11417:11425): el mensaje pesa: 1
+[INFO] 17:13:55:810 Sac-Cli/(11417:11425): el path pesa: 17
+[INFO] 17:13:55:811 Sac-Cli/(11417:11425): el stbuf pesa: 0
+[INFO] 17:13:55:815 Sac-Cli/(11417:11426): /
+[INFO] 17:13:55:815 Sac-Cli/(11417:11426): Codigo de operacion: 0
+[INFO] 17:13:55:816 Sac-Cli/(11417:11426): Tamanio: 9
+[INFO] 17:13:55:817 Sac-Cli/(11417:11426): el mensaje pesa: 1
+[INFO] 17:13:55:817 Sac-Cli/(11417:11426): el path pesa: 1
+[INFO] 17:13:55:817 Sac-Cli/(11417:11426): el stbuf pesa: 0
+[INFO] 17:13:55:818 Sac-Cli/(11417:11426): se pudo enviar pack
+[INFO] 17:13:55:819 Sac-Cli/(11417:11425): se pudo enviar pack
+[INFO] 17:15:39:962 Sac-Cli/(11491:11491): Se ha iniciado una nueva instancia del logger
+
+[INFO] 17:15:39:994 Sac-Cli/(11491:11491): Conexion correcta
+
+[INFO] 17:15:40:150 Sac-Cli/(11491:11498): Se llamo a fusesito_getattr
+
+[INFO] 17:15:40:152 Sac-Cli/(11491:11498): /.xdg-volume-info
+[INFO] 17:15:40:154 Sac-Cli/(11491:11498): Codigo de operacion: 0
+[INFO] 17:15:40:154 Sac-Cli/(11491:11497): Se llamo a fusesito_getattr
+
+[INFO] 17:15:40:155 Sac-Cli/(11491:11498): Tamanio: 25
+[INFO] 17:15:40:160 Sac-Cli/(11491:11498): el mensaje pesa: 1
+[INFO] 17:15:40:160 Sac-Cli/(11491:11498): el path pesa: 17
+[INFO] 17:15:40:161 Sac-Cli/(11491:11498): el stbuf pesa: 0
+[INFO] 17:15:40:165 Sac-Cli/(11491:11497): /
+[INFO] 17:15:40:166 Sac-Cli/(11491:11497): Codigo de operacion: 0
+[INFO] 17:15:40:166 Sac-Cli/(11491:11497): Tamanio: 9
+[INFO] 17:15:40:175 Sac-Cli/(11491:11497): el mensaje pesa: 1
+[INFO] 17:15:40:176 Sac-Cli/(11491:11497): el path pesa: 1
+[INFO] 17:15:40:176 Sac-Cli/(11491:11497): el stbuf pesa: 0
+[INFO] 17:15:40:180 Sac-Cli/(11491:11498): se pudo enviar pack
+[INFO] 17:15:40:182 Sac-Cli/(11491:11497): se pudo enviar pack
+[INFO] 17:20:14:0 Sac-Cli/(11855:11855): Se ha iniciado una nueva instancia del logger
+
+[INFO] 17:20:15:29 Sac-Cli/(11855:11855): Conexion correcta
+
+[INFO] 17:20:15:180 Sac-Cli/(11855:11864): Se llamo a fusesito_getattr
+
+[INFO] 17:20:15:186 Sac-Cli/(11855:11865): Se llamo a fusesito_getattr
+
+[INFO] 17:20:15:187 Sac-Cli/(11855:11865): /
+[INFO] 17:20:15:189 Sac-Cli/(11855:11865): Codigo de operacion: 0
+[INFO] 17:20:15:189 Sac-Cli/(11855:11865): Tamanio: 9
+[INFO] 17:20:15:194 Sac-Cli/(11855:11865): el mensaje pesa: 1
+[INFO] 17:20:15:194 Sac-Cli/(11855:11864): /.xdg-volume-info
+[INFO] 17:20:15:195 Sac-Cli/(11855:11864): Codigo de operacion: 0
+[INFO] 17:20:15:195 Sac-Cli/(11855:11864): Tamanio: 25
+[INFO] 17:20:15:196 Sac-Cli/(11855:11864): el mensaje pesa: 1
+[INFO] 17:20:15:197 Sac-Cli/(11855:11864): el path pesa: 17
+[INFO] 17:20:15:197 Sac-Cli/(11855:11864): el stbuf pesa: 0
+[INFO] 17:20:15:336 Sac-Cli/(11855:11865): el path pesa: 1
+[INFO] 17:20:15:336 Sac-Cli/(11855:11865): el stbuf pesa: 0
+[INFO] 17:20:15:343 Sac-Cli/(11855:11865): se pudo enviar pack
+[INFO] 17:20:15:345 Sac-Cli/(11855:11864): se pudo enviar pack
+[INFO] 17:22:56:295 Sac-Cli/(12034:12034): Se ha iniciado una nueva instancia del logger
+
+[INFO] 17:22:56:328 Sac-Cli/(12034:12034): Conexion correcta
+
+[INFO] 17:22:56:472 Sac-Cli/(12034:12041): Se llamo a fusesito_getattr
+
+[INFO] 17:22:56:473 Sac-Cli/(12034:12041): /.xdg-volume-info
+[ERROR] 17:22:56:476 Sac-Cli/(12034:12041): Codigo de operacion: 0
+[ERROR] 17:22:56:479 Sac-Cli/(12034:12041): Tamanio: 25
+[ERROR] 17:22:56:482 Sac-Cli/(12034:12041): el mensaje pesa: 1
+[ERROR] 17:22:56:488 Sac-Cli/(12034:12041): el path pesa: 17
+[ERROR] 17:22:56:493 Sac-Cli/(12034:12041): el stbuf pesa: 0
+[INFO] 17:22:56:495 Sac-Cli/(12034:12043): Se llamo a fusesito_getattr
+
+[INFO] 17:22:56:503 Sac-Cli/(12034:12043): /
+[ERROR] 17:22:56:503 Sac-Cli/(12034:12043): Codigo de operacion: 0
+[ERROR] 17:22:56:503 Sac-Cli/(12034:12043): Tamanio: 9
+[ERROR] 17:22:56:505 Sac-Cli/(12034:12043): el mensaje pesa: 1
+[INFO] 17:22:56:506 Sac-Cli/(12034:12041): se pudo enviar pack
+[ERROR] 17:22:56:507 Sac-Cli/(12034:12043): el path pesa: 1
+[ERROR] 17:22:56:508 Sac-Cli/(12034:12043): el stbuf pesa: 0
+[INFO] 17:22:56:508 Sac-Cli/(12034:12043): se pudo enviar pack
