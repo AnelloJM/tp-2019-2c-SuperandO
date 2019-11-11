@@ -119,11 +119,11 @@ HeaderFuse FuseRecibirHeader(int socketCliente){
 }
 
 void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack) {
-	int tam = sizeof(path) + sizeof(stbuf);
+	int tam = sizeof(*path) + sizeof(*stbuf) + (2*(sizeof(uint32_t)));
 	f_getattr *message = malloc(tam);
-	message->tamPath = (sizeof(strdup("hola")));//sizeof(path);
-	message->path = strdup("hola");//path;
-	message->tamStbuf = sizeof(stbuf);
+	message->tamPath = sizeof(*path);
+	message->path = path;
+	message->tamStbuf = sizeof(*stbuf);
 	message->stbuf = stbuf;
 	pack->headerFuse.tamanioMensaje = tam;
 	pack->headerFuse.operaciones = f_GETATTR;

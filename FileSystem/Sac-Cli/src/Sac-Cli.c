@@ -43,10 +43,14 @@ int conexion;
 
 static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_info(logger, "Se llamo a fusesito_getattr\n");
+	log_info(logger,path);
 	int res = 0;
-	int tamPack = sizeof(HeaderFuse) + sizeof(path) + sizeof(stbuf);
+	int tamPack = sizeof(HeaderFuse) + sizeof(*path) + sizeof(*stbuf) + (2*(sizeof(uint32_t)));
 	PaqueteFuse *pack = malloc(tamPack);
 	FuseEmpaquetarPackGetAttr(path,stbuf,pack);
+	log_info(logger, "el mensaje pesa: %i", (sizeof(*pack->mensaje)));
+	log_info(logger, "el path pesa: %i", (sizeof(*path)));
+	log_info(logger, "el stbuf pesa: %i", (sizeof(*stbuf)));
 	if(FuseEnviarPaquete(conexion, pack)){
 		log_info(logger, "se pudo enviar pack");
 	}

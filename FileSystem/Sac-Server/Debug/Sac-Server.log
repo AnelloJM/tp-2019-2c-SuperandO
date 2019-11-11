@@ -59710,3 +59710,191 @@
 [INFO] 21:42:45:348 Sac-Server/(13656:13658): Codigo de operacion: 0
 [INFO] 21:42:45:348 Sac-Server/(13656:13658): Tamanio: 8
 [INFO] 21:42:45:348 Sac-Server/(13656:13658): 
+[INFO] 13:53:11:576 Sac-Server/(3322:3322): Se ha creado un nuevo logger
+
+[INFO] 13:53:11:576 Sac-Server/(3322:3322): Dentro de iniciar servidor
+[INFO] 13:53:11:576 Sac-Server/(3322:3322): Listo para escuchar a mi cliente
+[INFO] 13:53:11:577 Sac-Server/(3322:3322): esperando
+[INFO] 13:53:23:165 Sac-Server/(3322:3322): Se conecto un cliente!
+[INFO] 13:53:23:165 Sac-Server/(3322:3322): Se creo el hilo sin problema, cliente: 5
+[INFO] 13:53:23:165 Sac-Server/(3322:3322): esperando
+[INFO] 13:53:23:428 Sac-Server/(3322:3332): Codigo de operacion: 0
+[INFO] 13:53:23:428 Sac-Server/(3322:3332): Tamanio: 8
+[INFO] 13:53:23:429 Sac-Server/(3322:3332): 
+[INFO] 13:54:54:685 Sac-Server/(3482:3482): Se ha creado un nuevo logger
+
+[INFO] 13:54:54:686 Sac-Server/(3482:3482): Dentro de iniciar servidor
+[INFO] 13:54:54:686 Sac-Server/(3482:3482): Listo para escuchar a mi cliente
+[INFO] 13:54:54:686 Sac-Server/(3482:3482): esperando
+[INFO] 13:54:57:320 Sac-Server/(3482:3482): Se conecto un cliente!
+[INFO] 13:54:57:321 Sac-Server/(3482:3482): Se creo el hilo sin problema, cliente: 5
+[INFO] 13:54:57:321 Sac-Server/(3482:3482): esperando
+[INFO] 13:54:57:900 Sac-Server/(3482:3484): Codigo de operacion: 0
+[INFO] 13:54:57:900 Sac-Server/(3482:3484): Tamanio: 0
+[INFO] 13:55:43:313 Sac-Server/(3617:3617): Se ha creado un nuevo logger
+
+[INFO] 13:55:43:313 Sac-Server/(3617:3617): Dentro de iniciar servidor
+[INFO] 13:55:43:313 Sac-Server/(3617:3617): Listo para escuchar a mi cliente
+[INFO] 13:55:43:313 Sac-Server/(3617:3617): esperando
+[INFO] 13:55:45:990 Sac-Server/(3617:3617): Se conecto un cliente!
+[INFO] 13:55:45:990 Sac-Server/(3617:3617): Se creo el hilo sin problema, cliente: 5
+[INFO] 13:55:45:990 Sac-Server/(3617:3617): esperando
+[INFO] 13:55:46:86 Sac-Server/(3617:3619): Codigo de operacion: 0
+[INFO] 13:55:46:86 Sac-Server/(3617:3619): Tamanio: 0
+[INFO] 13:56:49:180 Sac-Server/(4065:4065): Se ha creado un nuevo logger
+
+[INFO] 13:56:49:180 Sac-Server/(4065:4065): Dentro de iniciar servidor
+[INFO] 13:56:49:180 Sac-Server/(4065:4065): Listo para escuchar a mi cliente
+[INFO] 13:56:49:180 Sac-Server/(4065:4065): esperando
+[INFO] 13:56:51:640 Sac-Server/(4065:4065): Se conecto un cliente!
+[INFO] 13:56:51:640 Sac-Server/(4065:4065): Se creo el hilo sin problema, cliente: 5
+[INFO] 13:56:51:640 Sac-Server/(4065:4065): esperando
+[INFO] 13:56:52:216 Sac-Server/(4065:4067): Codigo de operacion: 0
+[INFO] 13:56:52:216 Sac-Server/(4065:4067): Tamanio: 0
+[INFO] 13:58:59:617 Sac-Server/(4289:4289): Se ha creado un nuevo logger
+
+[INFO] 13:58:59:617 Sac-Server/(4289:4289): Dentro de iniciar servidor
+[INFO] 13:58:59:617 Sac-Server/(4289:4289): Listo para escuchar a mi cliente
+[INFO] 13:58:59:617 Sac-Server/(4289:4289): esperando
+[INFO] 13:59:02:305 Sac-Server/(4289:4289): Se conecto un cliente!
+[INFO] 13:59:02:305 Sac-Server/(4289:4289): Se creo el hilo sin problema, cliente: 5
+[INFO] 13:59:02:305 Sac-Server/(4289:4289): esperando
+[INFO] 13:59:02:573 Sac-Server/(4289:4291): Codigo de operacion: 0
+[INFO] 13:59:02:573 Sac-Server/(4289:4291): Tamanio: 8
+[INFO] 13:59:02:573 Sac-Server/(4289:4291): 
+[INFO] 14:00:56:120 Sac-Server/(4395:4395): Se ha creado un nuevo logger
+
+[INFO] 14:00:56:120 Sac-Server/(4395:4395): Dentro de iniciar servidor
+[INFO] 14:00:56:121 Sac-Server/(4395:4395): Listo para escuchar a mi cliente
+[INFO] 14:00:56:121 Sac-Server/(4395:4395): esperando
+[INFO] 14:00:59:129 Sac-Server/(4395:4395): Se conecto un cliente!
+[INFO] 14:00:59:130 Sac-Server/(4395:4395): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:00:59:130 Sac-Server/(4395:4395): esperando
+[INFO] 14:00:59:374 Sac-Server/(4395:4397): Codigo de operacion: 0
+[INFO] 14:00:59:376 Sac-Server/(4395:4397): Tamanio: 8
+[INFO] 14:00:59:376 Sac-Server/(4395:4397): 
+[INFO] 14:01:35:581 Sac-Server/(4486:4486): Se ha creado un nuevo logger
+
+[INFO] 14:01:35:581 Sac-Server/(4486:4486): Dentro de iniciar servidor
+[INFO] 14:01:35:581 Sac-Server/(4486:4486): Listo para escuchar a mi cliente
+[INFO] 14:01:35:581 Sac-Server/(4486:4486): esperando
+[INFO] 14:01:37:748 Sac-Server/(4486:4486): Se conecto un cliente!
+[INFO] 14:01:37:748 Sac-Server/(4486:4486): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:01:37:748 Sac-Server/(4486:4486): esperando
+[INFO] 14:01:38:30 Sac-Server/(4486:4488): Codigo de operacion: 0
+[INFO] 14:01:38:31 Sac-Server/(4486:4488): Tamanio: 8
+[INFO] 14:01:38:31 Sac-Server/(4486:4488): 
+[INFO] 14:01:58:952 Sac-Server/(4574:4574): Se ha creado un nuevo logger
+
+[INFO] 14:01:58:953 Sac-Server/(4574:4574): Dentro de iniciar servidor
+[INFO] 14:01:58:953 Sac-Server/(4574:4574): Listo para escuchar a mi cliente
+[INFO] 14:01:58:953 Sac-Server/(4574:4574): esperando
+[INFO] 14:02:01:515 Sac-Server/(4574:4574): Se conecto un cliente!
+[INFO] 14:02:01:515 Sac-Server/(4574:4574): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:02:01:515 Sac-Server/(4574:4574): esperando
+[INFO] 14:02:01:831 Sac-Server/(4574:4576): Codigo de operacion: 0
+[INFO] 14:02:01:831 Sac-Server/(4574:4576): Tamanio: 8
+[INFO] 14:02:01:831 Sac-Server/(4574:4576): 
+[INFO] 14:03:52:637 Sac-Server/(4728:4728): Se ha creado un nuevo logger
+
+[INFO] 14:03:52:637 Sac-Server/(4728:4728): Dentro de iniciar servidor
+[INFO] 14:03:52:637 Sac-Server/(4728:4728): Listo para escuchar a mi cliente
+[INFO] 14:03:52:637 Sac-Server/(4728:4728): esperando
+[INFO] 14:03:54:917 Sac-Server/(4728:4728): Se conecto un cliente!
+[INFO] 14:03:54:918 Sac-Server/(4728:4728): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:03:54:918 Sac-Server/(4728:4728): esperando
+[INFO] 14:03:55:178 Sac-Server/(4728:4730): Codigo de operacion: 0
+[INFO] 14:03:55:178 Sac-Server/(4728:4730): Tamanio: 8
+[INFO] 14:03:55:178 Sac-Server/(4728:4730): 
+[INFO] 14:07:12:725 Sac-Server/(4945:4945): Se ha creado un nuevo logger
+
+[INFO] 14:07:12:725 Sac-Server/(4945:4945): Dentro de iniciar servidor
+[INFO] 14:07:12:725 Sac-Server/(4945:4945): Listo para escuchar a mi cliente
+[INFO] 14:07:12:725 Sac-Server/(4945:4945): esperando
+[INFO] 14:07:15:253 Sac-Server/(4945:4945): Se conecto un cliente!
+[INFO] 14:07:15:253 Sac-Server/(4945:4945): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:07:15:253 Sac-Server/(4945:4945): esperando
+[INFO] 14:07:15:526 Sac-Server/(4945:4947): Codigo de operacion: 0
+[INFO] 14:07:15:526 Sac-Server/(4945:4947): Tamanio: 8
+[INFO] 14:07:15:526 Sac-Server/(4945:4947): 
+[INFO] 14:10:02:604 Sac-Server/(5069:5069): Se ha creado un nuevo logger
+
+[INFO] 14:10:02:604 Sac-Server/(5069:5069): Dentro de iniciar servidor
+[INFO] 14:10:02:604 Sac-Server/(5069:5069): Listo para escuchar a mi cliente
+[INFO] 14:10:02:605 Sac-Server/(5069:5069): esperando
+[INFO] 14:10:05:60 Sac-Server/(5069:5069): Se conecto un cliente!
+[INFO] 14:10:05:60 Sac-Server/(5069:5069): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:10:05:60 Sac-Server/(5069:5069): esperando
+[INFO] 14:10:05:315 Sac-Server/(5069:5071): Codigo de operacion: 0
+[INFO] 14:10:05:315 Sac-Server/(5069:5071): Tamanio: 16
+[INFO] 14:10:05:315 Sac-Server/(5069:5071): 
+[INFO] 14:12:19:910 Sac-Server/(5211:5211): Se ha creado un nuevo logger
+
+[INFO] 14:12:19:910 Sac-Server/(5211:5211): Dentro de iniciar servidor
+[INFO] 14:12:19:910 Sac-Server/(5211:5211): Listo para escuchar a mi cliente
+[INFO] 14:12:19:910 Sac-Server/(5211:5211): esperando
+[INFO] 14:12:22:526 Sac-Server/(5211:5211): Se conecto un cliente!
+[INFO] 14:12:22:526 Sac-Server/(5211:5211): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:12:22:526 Sac-Server/(5211:5211): esperando
+[INFO] 14:12:22:786 Sac-Server/(5211:5213): Codigo de operacion: 0
+[INFO] 14:12:22:786 Sac-Server/(5211:5213): Tamanio: 105
+[INFO] 14:15:18:262 Sac-Server/(5510:5510): Se ha creado un nuevo logger
+
+[INFO] 14:15:18:262 Sac-Server/(5510:5510): Dentro de iniciar servidor
+[INFO] 14:15:18:262 Sac-Server/(5510:5510): Listo para escuchar a mi cliente
+[INFO] 14:15:18:262 Sac-Server/(5510:5510): esperando
+[INFO] 14:15:20:717 Sac-Server/(5510:5510): Se conecto un cliente!
+[INFO] 14:15:20:717 Sac-Server/(5510:5510): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:15:20:717 Sac-Server/(5510:5510): esperando
+[INFO] 14:15:20:976 Sac-Server/(5510:5512): Codigo de operacion: 0
+[INFO] 14:15:20:976 Sac-Server/(5510:5512): Tamanio: 105
+[INFO] 14:16:52:638 Sac-Server/(5635:5635): Se ha creado un nuevo logger
+
+[INFO] 14:16:52:638 Sac-Server/(5635:5635): Dentro de iniciar servidor
+[INFO] 14:16:52:638 Sac-Server/(5635:5635): Listo para escuchar a mi cliente
+[INFO] 14:16:52:638 Sac-Server/(5635:5635): esperando
+[INFO] 14:16:55:110 Sac-Server/(5635:5635): Se conecto un cliente!
+[INFO] 14:16:55:110 Sac-Server/(5635:5635): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:16:55:110 Sac-Server/(5635:5635): esperando
+[INFO] 14:16:55:369 Sac-Server/(5635:5637): Codigo de operacion: 0
+[INFO] 14:16:55:369 Sac-Server/(5635:5637): Tamanio: 105
+[INFO] 14:20:36:151 Sac-Server/(5794:5794): Se ha creado un nuevo logger
+
+[INFO] 14:20:36:152 Sac-Server/(5794:5794): Dentro de iniciar servidor
+[INFO] 14:20:36:152 Sac-Server/(5794:5794): Listo para escuchar a mi cliente
+[INFO] 14:20:36:152 Sac-Server/(5794:5794): esperando
+[INFO] 14:20:38:962 Sac-Server/(5794:5794): Se conecto un cliente!
+[INFO] 14:20:38:962 Sac-Server/(5794:5794): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:20:38:962 Sac-Server/(5794:5794): esperando
+[INFO] 14:20:39:197 Sac-Server/(5794:5796): Codigo de operacion: 0
+[INFO] 14:20:39:197 Sac-Server/(5794:5796): Tamanio: 105
+[INFO] 14:23:53:940 Sac-Server/(6006:6006): Se ha creado un nuevo logger
+
+[INFO] 14:23:53:940 Sac-Server/(6006:6006): Dentro de iniciar servidor
+[INFO] 14:23:53:940 Sac-Server/(6006:6006): Listo para escuchar a mi cliente
+[INFO] 14:23:53:940 Sac-Server/(6006:6006): esperando
+[INFO] 14:23:58:200 Sac-Server/(6006:6006): Se conecto un cliente!
+[INFO] 14:23:58:200 Sac-Server/(6006:6006): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:23:58:200 Sac-Server/(6006:6006): esperando
+[INFO] 14:23:58:708 Sac-Server/(6006:6010): Codigo de operacion: 0
+[INFO] 14:23:58:709 Sac-Server/(6006:6010): Tamanio: 0
+[INFO] 14:25:33:199 Sac-Server/(6113:6113): Se ha creado un nuevo logger
+
+[INFO] 14:25:33:199 Sac-Server/(6113:6113): Dentro de iniciar servidor
+[INFO] 14:25:33:199 Sac-Server/(6113:6113): Listo para escuchar a mi cliente
+[INFO] 14:25:33:199 Sac-Server/(6113:6113): esperando
+[INFO] 14:25:35:409 Sac-Server/(6113:6113): Se conecto un cliente!
+[INFO] 14:25:35:409 Sac-Server/(6113:6113): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:25:35:409 Sac-Server/(6113:6113): esperando
+[INFO] 14:25:35:499 Sac-Server/(6113:6115): Codigo de operacion: 0
+[INFO] 14:25:35:499 Sac-Server/(6113:6115): Tamanio: 0
+[INFO] 14:25:56:149 Sac-Server/(6121:6121): Se ha creado un nuevo logger
+
+[INFO] 14:25:56:153 Sac-Server/(6121:6121): Dentro de iniciar servidor
+[INFO] 14:25:56:153 Sac-Server/(6121:6121): Listo para escuchar a mi cliente
+[INFO] 14:25:56:153 Sac-Server/(6121:6121): esperando
+[INFO] 14:25:58:809 Sac-Server/(6121:6121): Se conecto un cliente!
+[INFO] 14:25:58:809 Sac-Server/(6121:6121): Se creo el hilo sin problema, cliente: 5
+[INFO] 14:25:58:809 Sac-Server/(6121:6121): esperando
+[INFO] 14:25:59:64 Sac-Server/(6121:6123): Codigo de operacion: 0
+[INFO] 14:25:59:64 Sac-Server/(6121:6123): Tamanio: 105
