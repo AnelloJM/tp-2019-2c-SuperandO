@@ -48,7 +48,7 @@ void leerArchivoDeConfiguracion(){
 	char* configPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse/src/SUSE.cfg";
 	archivoConfig = config_create(configPath);
 	if (archivoConfig == NULL){
-		perror("ERROR: Archivo de configuracion no encontrado");
+		log_error(logger,"ERROR: Archivo de configuracion no encontrado");
 	}
 	setearValores(archivoConfig);
 	log_info(logger,"La configuracion fue cargada exitosamente");
@@ -66,11 +66,26 @@ void setearValores(t_config* archivoConfig){
 }
 
 
-void suse_init(){}
+void suse_init(){
+	cargarSemaforos();
+}
 
 //Crear nuevo hilo -> pasar funcion por parametro que sera el main del hilo -> el hilo finaliza cuando termina funcion.
 //Cambiar pthread por hilolay
 
+void cargarSemaforos(){
+	int i;
+	//Para todos los ID de semaforos, voy creando un semaforo nuevo y lo guardo en la lista de semaforos
+	for(i=0; i<= list_size(sems_ids); i++){
+		semaforo_t* semaforo;
+		strcpy(semaforo->semID,list_get(sems_ids,i));
+		semaforo->semInit = list_get(sem_init,i);
+		semaforo->semActual = semaforo->semInit;
+		semaforo->semMax =	list_get(sem_max,i);
+		list_add(semaforos, semaforo);
+	}
+	log_info(logger,"Se han inicializado todos los semaforos con exito");
+}
 
 void suse_create(hilo_t* hilo){
 	hilo_t* hiloNuevo = hilo;
@@ -127,14 +142,40 @@ int list_get_index(t_list* self, void* elemento, bool(*comparador (void*, void*)
 	return contador;
 }
 
+void suse_wait(semaforo_t* sem){
+	semaforo_t* semaforo = sem;
 
+	//Faltaria verificar que exista el semaforo que se está buscando en la lista de semaforos
+	//el list_get_index() no verifica que exista
 
-void suse_wait(int sem){
-	sem--;
+	int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
+	semaforo_t* semAUsar = list_get(semaforos,indice);
+	if (semAUsar->semActual == semAUsar->semInit){
+		semAUsar->semActual--;
+		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
+		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
+		log_info(logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
+	}
+	semaforo->semActual--;
+	log_info(logger, "%d","Contador actual:", semaforo->semActual);
 }
 
-void suse_signal(int sem){
-	sem++;
+bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem){
+	return unSem.semID == otroSem.semID;
+}
+
+void suse_signal(semaforo_t* sem){
+	semaforo_t* semaforo = sem;
+	int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
+	semaforo_t* semAUsar = list_get(semaforos,indice);
+	if (semAUsar->semActual == semAUsar->semMax){
+		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
+		log_error(logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
+	}
+	semAUsar->semActual++;
+	log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
+	log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
+	log_info(logger,"%d","Contador actual:", semAUsar->semActual);
 }
 
 //hace lo mismo que pthread_join. TIene como parametro un hilo (y un PID?)
@@ -143,10 +184,7 @@ void suse_join(){
 
 
 //Funcion que crea las colas ready segun el grado de multiprogramacion
-
 void suse_close(){
 
 }
-
-
 //Close recibe un int TID, y mandas el thread ese a Exit
