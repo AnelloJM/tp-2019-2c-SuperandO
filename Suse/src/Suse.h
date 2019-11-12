@@ -26,7 +26,7 @@ int socket_cliente;
 t_list * cola_new;
 t_list * cola_blocked;
 t_list * cola_exit;
-t_list * lista_planificados;
+t_list * semaforos;
 
 //Creo que es mejor que usemos listas en vez de colas porque son mucho mas versatiles y tienen muchas mas funciones en las commons que nos pueden servir
 
@@ -53,19 +53,29 @@ typedef struct {
 	float rafagasEstimadas;
 }hilo_t;
 
+typedef struct {
+	char* semID;
+	int semInit;
+	int semActual;
+	int semMax;
+	t_list* procesos;
+}semaforo_t;
 
 /* FUNCIONES */
 void crearLogger();
 void leerArchivoDeConfiguracion();
 void setearValores();
-void suse_create(hilo_t* paquete);
+void suse_init();
+void cargarSemaforos();
+void suse_create(hilo_t* hilo);
 void* suse_schedule_next();
 hilo_t calcularEstimacion();
 bool comparador(hilo_t* unHilo, hilo_t* otroHilo);
 bool comparadorDeRafagas();
 int list_get_index(t_list* self, void* elemento, bool(*comparador (void*, void*)));
-void suse_wait(int sem);
-void suse_signal(int sem);
+void suse_wait(semaforo_t* sem);
+bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem);
+void suse_signal(semaforo_t* sem);
 void suse_join();
 void suse_close();
 
