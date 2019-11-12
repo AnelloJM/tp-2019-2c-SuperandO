@@ -72,41 +72,62 @@ void suse_init(){}
 //Cambiar pthread por hilolay
 
 
-void suse_create(hiloNuevo_t paquete){
-/*
-	int resultado = pthread_create(paquete.thread, paquete.attr, NULL,paquete.arg);
-	//Hay que ver bien el tercer argumento que es el que inicia el funcion, pero no lo entiendo como mandarlo
+void suse_create(hilo_t* hilo){
+	hilo_t* hiloNuevo = hilo;
+	list_add(cola_new, hiloNuevo);
+	log_info(logger,"Se ha agregado un hilo nuevo a la cola de new");
+}
 
-	//Si la creacion falla se informa
-	if (resultado == -1){
-		log_info(logger,"El hilo no pudo ser creado");
+void* suse_schedule_next(){
+	if (!list_is_empty(cola_new)){
+		log_info(logger, "Se comenzará a planificar");
+
+		//Creo una lista auxiliar con los hilos con la estimacion calculada
+		t_list* aux;
+		aux = list_map(cola_new,(void*)calcularEstimacion);
+
+		//Ordeno los hilos segun su estimacion
+		list_sort(aux, (void*)comparadorDeRafagas);
+
+		//Tomo el primer elemento de esa lista ordenada
+		hilo_t* hiloAux = (hilo_t*) list_remove(aux,0);
+
+		bool comparador(hilo_t* unHilo, hilo_t* otroHilo){
+			return (unHilo->tid == otroHilo->tid);
+		}
+		//Busco el indice en la cola de new comparando los TID, si lo encuentro, lo elimino de la cola de new y lo devuelvo
+		int indice = list_get_index(cola_new,hiloAux,(void*)comparador);
+		hilo_t* hiloAEjecutar = list_remove(cola_new,indice);
+
+		return hiloAEjecutar;
 	}
-
-	//pthread_join(hilo,NULL); -> Esto no lo entiendo muy bien asi que lo dejo por ahora
-
-
-	//Cuando crea el hilo, lo agrega a la lista de NEW, entonces sobre la lista de new va a obtener el siguiente hilo a ejecutar
-	log_info(logger,"El hilo fue creado con exito");
-	list_add(,cola_new):
-}
-*/
-
-
-//Obtiene el proximo hilo a ejecutar
-//Parametro: Cola de procesos READY en SUSE
-void suse_schedule_next(){
-	//Aca deberia ser la parte del algoritmo de planificacion que mira la cola de new
-
-
+	log_info(logger, "La cola de new está vacia");
+	return 0;
 }
 
-float calcularEstimacion(){
-	float estimacion;
-
-
-
-	return estimacion;
+hilo_t calcularEstimacion(hilo_t unHilo){
+	unHilo.rafagasEstimadas = (alpha_sjf * unHilo.estimacionAnterior + ((1 - alpha_sjf)*unHilo.rafagasEjecutadas));
+	return unHilo;
 }
+bool comparadorDeRafagas(hilo_t unHilo, hilo_t otroHilo){
+	return unHilo.rafagasEstimadas <= otroHilo.rafagasEstimadas;
+}
+
+int list_get_index(t_list* self, void* elemento, bool(*comparador (void*, void*))){
+	int longLista = list_size(self);
+	int i;
+	int contador = 0;
+	for(i=0 ; i<longLista; i++){
+		if(!comparador(list_get(self,i),elemento)){
+			contador++;
+		}else{
+			break;
+		}
+	}
+	return contador;
+}
+
+
 
 void suse_wait(int sem){
 	sem--;

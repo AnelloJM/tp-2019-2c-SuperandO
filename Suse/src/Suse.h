@@ -3,14 +3,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include <readline/readline.h>
 #include "../../ComunParaTodos/Conexiones/Conexiones.h"
 #include <commons/log.h>
 #include <commons/string.h>
 #include <commons/config.h>
-#include <commons/collections/queue.h>
+#include <commons/collections/list.h>
 #include <hilolay/hilolay.h>
-#include <pthread.h>
 #include "../../ComunParaTodos/Serializacion/serializacion.h"
 
 
@@ -46,17 +46,24 @@ typedef struct {
 	hilolay_t *thread;
 	hilolay_attr_t *attr;
 	void *arg;
-}hiloNuevo_t;
-hiloNuevo_t* hiloNuevo;
+	int pid;
+	int tid;
+	int estimacionAnterior;
+	float rafagasEjecutadas;
+	float rafagasEstimadas;
+}hilo_t;
 
 
 /* FUNCIONES */
 void crearLogger();
 void leerArchivoDeConfiguracion();
 void setearValores();
-void suse_create(hiloNuevo_t paquete);
-void suse_schedule_next();
-float calcularEstimacion();
+void suse_create(hilo_t* paquete);
+void* suse_schedule_next();
+hilo_t calcularEstimacion();
+bool comparador(hilo_t* unHilo, hilo_t* otroHilo);
+bool comparadorDeRafagas();
+int list_get_index(t_list* self, void* elemento, bool(*comparador (void*, void*)));
 void suse_wait(int sem);
 void suse_signal(int sem);
 void suse_join();
