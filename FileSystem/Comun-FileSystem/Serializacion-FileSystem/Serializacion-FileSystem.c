@@ -110,14 +110,6 @@ int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete) {
 	return resul;
 }
 
-HeaderFuse FuseRecibirHeader(int socketCliente){
-	void* buffer=malloc(sizeof(HeaderFuse));
-	recv(socketCliente, buffer, sizeof(HeaderFuse), MSG_WAITALL);
-	HeaderFuse headerQueRetorna;
-	memcpy(&headerQueRetorna,buffer,sizeof(HeaderFuse));
-	return headerQueRetorna;
-}
-
 void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack) {
 	//int tam = sizeof(*path) + sizeof(*stbuf) + (2*(sizeof(uint32_t)));
 	f_getattr *message = malloc(sizeof(f_getattr));
@@ -160,6 +152,42 @@ f_getattr* FuseDesempaquetarPackGetAttr(int socketCliente, uint32_t tamanio) {
 	return getattr;
 }
 
+HeaderFuse Fuse_RecieveHeader(int socketCliente){
+	void* buffer=malloc(sizeof(f_operacion) + sizeof(uint32_t));
+	recv(socketCliente, buffer, (sizeof(f_operacion) + sizeof(uint32_t)), MSG_WAITALL);
+	uint32_t tamanioMensaje = 0;
+	f_operacion operacion;
+	memcpy(&operacion,buffer,sizeof(f_operacion));
+	memcpy(&tamanioMensaje, buffer+(sizeof(f_operacion)), (sizeof(uint32_t)));
+	free(buffer);
+	HeaderFuse headerQueRetorna;
+	headerQueRetorna.operaciones = operacion;
+	headerQueRetorna.tamanioMensaje = tamanioMensaje;
+	return headerQueRetorna;
+}
 
+bool Fuse_PackAndSend_Path(int socketCliente, const char *path, f_operacion operacion) {
+
+	uint32_t tamMessage = sizeof(*path) + sizeof(f_operacion) + sizeof(uint32_t);
+	void* buffer = malloc( tamMessage );
+	int desplazamiento = 0;
+	uint32_t tamPath = strlen(path) +1 ;
+	memcpy(buffer, &operacion ,sizeof(f_operacion));
+	desplazamiento += sizeof(f_operacion);
+	memcpy(buffer+desplazamiento, &tamPath , sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+	memcpy(buffer+desplazamiento, path, tamPath);
+	int resultado = send(socketCliente, buffer, tamMessage, 0);
+	free(buffer);
+	return resultado;
+}
+
+char* Fuse_ReceiveAndUnpack_Path(int socketCliente, uint32_t tamanioChar) {
+	void* retorno = malloc(tamanioChar);
+	char* charRetornado;
+	recv(socketCliente, retorno, tamanioChar, MSG_WAITALL);
+	charRetornado = retorno;
+	return charRetornado;
+}
 
 

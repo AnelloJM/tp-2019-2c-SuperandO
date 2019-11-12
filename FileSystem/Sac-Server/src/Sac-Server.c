@@ -30,15 +30,16 @@ void FuseGetattr(){}
 void* funcionMagica(int cliente){
 	while(1){
 		HeaderFuse headerRecibido;
-		headerRecibido = FuseRecibirHeader(cliente);
+		headerRecibido = Fuse_RecieveHeader(cliente);
 		log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
 		log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
 		uint32_t tam = headerRecibido.tamanioMensaje;
 		switch(headerRecibido.operaciones){
 			case f_GETATTR: ;
 				//desempaquetar pack y hacer el codigo
-				f_getattr *getattr= FuseDesempaquetarPackGetAttr(cliente, tam);
-				log_error(logger,"tamanio del path que recive: %i \0", strlen(getattr->path));
+				char *path= Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(path));
+				log_error(logger, path);
 				break;
 			case f_READDIR:
 				//desempaquetar pack y hacer el codigo
@@ -77,7 +78,7 @@ int main(void) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "8080", logger);
+	conexion = iniciar_servidor("127.0.0.1", "8083", logger);
 
 
 
