@@ -40693,3 +40693,3151 @@
 
 [INFO] 18:49:22:629 Sac-Cli/(6556:6567): /
 [INFO] 18:49:22:633 Sac-Cli/(6556:6567): se pudo enviar pack
+[INFO] 19:58:46:85 Sac-Cli/(8357:8357): Se ha iniciado una nueva instancia del logger
+
+[INFO] 19:58:46:141 Sac-Cli/(8357:8357): Conexion correcta
+
+[INFO] 19:58:46:437 Sac-Cli/(8357:8367): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:439 Sac-Cli/(8357:8367): /
+[INFO] 19:58:46:439 Sac-Cli/(8357:8365): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:445 Sac-Cli/(8357:8365): /.xdg-volume-info
+[INFO] 19:58:46:450 Sac-Cli/(8357:8365): se pudo enviar pack
+[INFO] 19:58:46:455 Sac-Cli/(8357:8367): se pudo enviar pack
+[INFO] 19:58:46:468 Sac-Cli/(8357:8364): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:469 Sac-Cli/(8357:8364): /autorun.inf
+[INFO] 19:58:46:477 Sac-Cli/(8357:8364): se pudo enviar pack
+[INFO] 19:58:46:478 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:479 Sac-Cli/(8357:8366): /.Trash
+[INFO] 19:58:46:479 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 19:58:46:480 Sac-Cli/(8357:8365): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:480 Sac-Cli/(8357:8365): /.Trash-1000
+[INFO] 19:58:46:481 Sac-Cli/(8357:8365): se pudo enviar pack
+[INFO] 19:58:46:490 Sac-Cli/(8357:8366): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:508 Sac-Cli/(8357:8364): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:509 Sac-Cli/(8357:8364): /ElArchivito
+[INFO] 19:58:46:509 Sac-Cli/(8357:8364): se pudo enviar pack
+[INFO] 19:58:46:531 Sac-Cli/(8357:8368): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:532 Sac-Cli/(8357:8368): /LaCosa
+[INFO] 19:58:46:532 Sac-Cli/(8357:8368): se pudo enviar pack
+[INFO] 19:58:46:538 Sac-Cli/(8357:8367): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:538 Sac-Cli/(8357:8367): /
+[INFO] 19:58:46:539 Sac-Cli/(8357:8367): se pudo enviar pack
+[INFO] 19:58:46:540 Sac-Cli/(8357:8368): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:541 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:541 Sac-Cli/(8357:8366): /LaCosa
+[INFO] 19:58:46:541 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 19:58:46:544 Sac-Cli/(8357:8368): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:545 Sac-Cli/(8357:8368): /
+[INFO] 19:58:46:545 Sac-Cli/(8357:8368): se pudo enviar pack
+[INFO] 19:58:46:545 Sac-Cli/(8357:8367): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:547 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:547 Sac-Cli/(8357:8366): /LaCosa
+[INFO] 19:58:46:548 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 19:58:46:550 Sac-Cli/(8357:8368): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:550 Sac-Cli/(8357:8368): /
+[INFO] 19:58:46:551 Sac-Cli/(8357:8368): se pudo enviar pack
+[INFO] 19:58:46:553 Sac-Cli/(8357:8367): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:554 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:554 Sac-Cli/(8357:8366): /LaCosa
+[INFO] 19:58:46:554 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 19:58:46:556 Sac-Cli/(8357:8364): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:556 Sac-Cli/(8357:8364): /
+[INFO] 19:58:46:557 Sac-Cli/(8357:8364): se pudo enviar pack
+[INFO] 19:58:46:557 Sac-Cli/(8357:8365): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:558 Sac-Cli/(8357:8367): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:559 Sac-Cli/(8357:8367): /LaCosa
+[INFO] 19:58:46:561 Sac-Cli/(8357:8367): se pudo enviar pack
+[INFO] 19:58:46:563 Sac-Cli/(8357:8368): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:563 Sac-Cli/(8357:8368): /
+[INFO] 19:58:46:564 Sac-Cli/(8357:8368): se pudo enviar pack
+[INFO] 19:58:46:565 Sac-Cli/(8357:8366): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:566 Sac-Cli/(8357:8365): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:566 Sac-Cli/(8357:8365): /LaCosa
+[INFO] 19:58:46:567 Sac-Cli/(8357:8365): se pudo enviar pack
+[INFO] 19:58:46:568 Sac-Cli/(8357:8364): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:568 Sac-Cli/(8357:8364): /
+[INFO] 19:58:46:569 Sac-Cli/(8357:8364): se pudo enviar pack
+[INFO] 19:58:46:569 Sac-Cli/(8357:8367): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:571 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:571 Sac-Cli/(8357:8366): /LaCosa
+[INFO] 19:58:46:571 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 19:58:46:573 Sac-Cli/(8357:8364): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:573 Sac-Cli/(8357:8364): /
+[INFO] 19:58:46:573 Sac-Cli/(8357:8364): se pudo enviar pack
+[INFO] 19:58:46:574 Sac-Cli/(8357:8367): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:575 Sac-Cli/(8357:8368): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:575 Sac-Cli/(8357:8368): /LaCosa
+[INFO] 19:58:46:575 Sac-Cli/(8357:8368): se pudo enviar pack
+[INFO] 19:58:46:577 Sac-Cli/(8357:8365): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:577 Sac-Cli/(8357:8365): /
+[INFO] 19:58:46:578 Sac-Cli/(8357:8365): se pudo enviar pack
+[INFO] 19:58:46:578 Sac-Cli/(8357:8367): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:579 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:579 Sac-Cli/(8357:8366): /LaCosa
+[INFO] 19:58:46:580 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 19:58:46:581 Sac-Cli/(8357:8367): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:582 Sac-Cli/(8357:8367): /
+[INFO] 19:58:46:582 Sac-Cli/(8357:8367): se pudo enviar pack
+[INFO] 19:58:46:583 Sac-Cli/(8357:8364): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:584 Sac-Cli/(8357:8368): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:585 Sac-Cli/(8357:8368): /LaCosa
+[INFO] 19:58:46:589 Sac-Cli/(8357:8368): se pudo enviar pack
+[INFO] 19:58:46:591 Sac-Cli/(8357:8365): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:591 Sac-Cli/(8357:8365): /
+[INFO] 19:58:46:591 Sac-Cli/(8357:8365): se pudo enviar pack
+[INFO] 19:58:46:592 Sac-Cli/(8357:8366): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:593 Sac-Cli/(8357:8364): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:594 Sac-Cli/(8357:8364): /LaCosa
+[INFO] 19:58:46:595 Sac-Cli/(8357:8364): se pudo enviar pack
+[INFO] 19:58:46:596 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:597 Sac-Cli/(8357:8366): /
+[INFO] 19:58:46:597 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 19:58:46:598 Sac-Cli/(8357:8368): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:599 Sac-Cli/(8357:8367): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:599 Sac-Cli/(8357:8367): /LaCosa
+[INFO] 19:58:46:599 Sac-Cli/(8357:8367): se pudo enviar pack
+[INFO] 19:58:46:601 Sac-Cli/(8357:8365): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:602 Sac-Cli/(8357:8365): /
+[INFO] 19:58:46:602 Sac-Cli/(8357:8365): se pudo enviar pack
+[INFO] 19:58:46:603 Sac-Cli/(8357:8364): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:604 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:604 Sac-Cli/(8357:8366): /LaCosa
+[INFO] 19:58:46:605 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 19:58:46:606 Sac-Cli/(8357:8367): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:606 Sac-Cli/(8357:8367): /
+[INFO] 19:58:46:606 Sac-Cli/(8357:8367): se pudo enviar pack
+[INFO] 19:58:46:607 Sac-Cli/(8357:8368): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:608 Sac-Cli/(8357:8365): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:608 Sac-Cli/(8357:8365): /LaCosa
+[INFO] 19:58:46:608 Sac-Cli/(8357:8365): se pudo enviar pack
+[INFO] 19:58:46:609 Sac-Cli/(8357:8368): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:610 Sac-Cli/(8357:8368): /
+[INFO] 19:58:46:611 Sac-Cli/(8357:8368): se pudo enviar pack
+[INFO] 19:58:46:611 Sac-Cli/(8357:8366): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:612 Sac-Cli/(8357:8364): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:612 Sac-Cli/(8357:8364): /LaCosa
+[INFO] 19:58:46:613 Sac-Cli/(8357:8364): se pudo enviar pack
+[INFO] 19:58:46:618 Sac-Cli/(8357:8365): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:620 Sac-Cli/(8357:8365): /
+[INFO] 19:58:46:620 Sac-Cli/(8357:8365): se pudo enviar pack
+[INFO] 19:58:46:621 Sac-Cli/(8357:8366): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:622 Sac-Cli/(8357:8368): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:622 Sac-Cli/(8357:8368): /LaCosa
+[INFO] 19:58:46:622 Sac-Cli/(8357:8368): se pudo enviar pack
+[INFO] 19:58:46:624 Sac-Cli/(8357:8367): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:624 Sac-Cli/(8357:8367): /
+[INFO] 19:58:46:625 Sac-Cli/(8357:8367): se pudo enviar pack
+[INFO] 19:58:46:625 Sac-Cli/(8357:8364): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:626 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:627 Sac-Cli/(8357:8366): /LaCosa
+[INFO] 19:58:46:627 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 19:58:46:629 Sac-Cli/(8357:8364): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:629 Sac-Cli/(8357:8364): /
+[INFO] 19:58:46:630 Sac-Cli/(8357:8364): se pudo enviar pack
+[INFO] 19:58:46:630 Sac-Cli/(8357:8368): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:631 Sac-Cli/(8357:8365): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:632 Sac-Cli/(8357:8365): /LaCosa
+[INFO] 19:58:46:632 Sac-Cli/(8357:8365): se pudo enviar pack
+[INFO] 19:58:46:634 Sac-Cli/(8357:8367): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:634 Sac-Cli/(8357:8367): /
+[INFO] 19:58:46:635 Sac-Cli/(8357:8367): se pudo enviar pack
+[INFO] 19:58:46:635 Sac-Cli/(8357:8365): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:636 Sac-Cli/(8357:8368): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:636 Sac-Cli/(8357:8368): /LaCosa
+[INFO] 19:58:46:637 Sac-Cli/(8357:8368): se pudo enviar pack
+[INFO] 19:58:46:638 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:638 Sac-Cli/(8357:8366): /
+[INFO] 19:58:46:639 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 19:58:46:639 Sac-Cli/(8357:8364): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:640 Sac-Cli/(8357:8365): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:640 Sac-Cli/(8357:8365): /LaCosa
+[INFO] 19:58:46:641 Sac-Cli/(8357:8365): se pudo enviar pack
+[INFO] 19:58:46:642 Sac-Cli/(8357:8367): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:642 Sac-Cli/(8357:8367): /
+[INFO] 19:58:46:643 Sac-Cli/(8357:8367): se pudo enviar pack
+[INFO] 19:58:46:643 Sac-Cli/(8357:8364): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:649 Sac-Cli/(8357:8368): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:650 Sac-Cli/(8357:8368): /LaCosa
+[INFO] 19:58:46:650 Sac-Cli/(8357:8368): se pudo enviar pack
+[INFO] 19:58:46:652 Sac-Cli/(8357:8364): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:652 Sac-Cli/(8357:8364): /
+[INFO] 19:58:46:653 Sac-Cli/(8357:8364): se pudo enviar pack
+[INFO] 19:58:46:653 Sac-Cli/(8357:8365): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:654 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:655 Sac-Cli/(8357:8366): /LaCosa
+[INFO] 19:58:46:655 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 19:58:46:658 Sac-Cli/(8357:8367): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:659 Sac-Cli/(8357:8367): /
+[INFO] 19:58:46:659 Sac-Cli/(8357:8367): se pudo enviar pack
+[INFO] 19:58:46:660 Sac-Cli/(8357:8365): Se llamo a fusesito_readdir
+
+[INFO] 19:58:46:662 Sac-Cli/(8357:8364): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:663 Sac-Cli/(8357:8364): /LaCosa
+[INFO] 19:58:46:663 Sac-Cli/(8357:8364): se pudo enviar pack
+[INFO] 19:58:46:666 Sac-Cli/(8357:8367): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:666 Sac-Cli/(8357:8367): /autorun.inf
+[INFO] 19:58:46:666 Sac-Cli/(8357:8367): se pudo enviar pack
+[INFO] 19:58:46:698 Sac-Cli/(8357:8366): Se llamo a fusesito_getattr
+
+[INFO] 19:58:46:698 Sac-Cli/(8357:8366): /
+[INFO] 19:58:46:699 Sac-Cli/(8357:8366): se pudo enviar pack
+[INFO] 20:00:57:383 Sac-Cli/(8462:8462): Se ha iniciado una nueva instancia del logger
+
+[INFO] 20:00:57:454 Sac-Cli/(8462:8462): Conexion correcta
+
+[INFO] 20:00:58:131 Sac-Cli/(8462:8472): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:134 Sac-Cli/(8462:8472): /
+[INFO] 20:00:58:135 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:151 Sac-Cli/(8462:8468): /.xdg-volume-info
+[INFO] 20:00:58:153 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:00:58:159 Sac-Cli/(8462:8472): se pudo enviar pack
+[INFO] 20:00:58:181 Sac-Cli/(8462:8469): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:182 Sac-Cli/(8462:8469): /autorun.inf
+[INFO] 20:00:58:184 Sac-Cli/(8462:8469): se pudo enviar pack
+[INFO] 20:00:58:185 Sac-Cli/(8462:8471): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:185 Sac-Cli/(8462:8471): /.Trash
+[INFO] 20:00:58:186 Sac-Cli/(8462:8471): se pudo enviar pack
+[INFO] 20:00:58:187 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:187 Sac-Cli/(8462:8468): /.Trash-1000
+[INFO] 20:00:58:188 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:00:58:208 Sac-Cli/(8462:8471): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:248 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:248 Sac-Cli/(8462:8468): /ElArchivito
+[INFO] 20:00:58:248 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:00:58:306 Sac-Cli/(8462:8473): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:306 Sac-Cli/(8462:8473): /LaCosa
+[INFO] 20:00:58:307 Sac-Cli/(8462:8473): se pudo enviar pack
+[INFO] 20:00:58:314 Sac-Cli/(8462:8472): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:315 Sac-Cli/(8462:8472): /
+[INFO] 20:00:58:315 Sac-Cli/(8462:8472): se pudo enviar pack
+[INFO] 20:00:58:316 Sac-Cli/(8462:8473): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:318 Sac-Cli/(8462:8471): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:318 Sac-Cli/(8462:8471): /LaCosa
+[INFO] 20:00:58:319 Sac-Cli/(8462:8471): se pudo enviar pack
+[INFO] 20:00:58:321 Sac-Cli/(8462:8473): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:322 Sac-Cli/(8462:8473): /
+[INFO] 20:00:58:322 Sac-Cli/(8462:8473): se pudo enviar pack
+[INFO] 20:00:58:323 Sac-Cli/(8462:8472): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:324 Sac-Cli/(8462:8471): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:324 Sac-Cli/(8462:8471): /LaCosa
+[INFO] 20:00:58:325 Sac-Cli/(8462:8471): se pudo enviar pack
+[INFO] 20:00:58:327 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:328 Sac-Cli/(8462:8468): /
+[INFO] 20:00:58:329 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:00:58:334 Sac-Cli/(8462:8472): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:335 Sac-Cli/(8462:8473): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:336 Sac-Cli/(8462:8473): /LaCosa
+[INFO] 20:00:58:336 Sac-Cli/(8462:8473): se pudo enviar pack
+[INFO] 20:00:58:338 Sac-Cli/(8462:8471): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:339 Sac-Cli/(8462:8471): /
+[INFO] 20:00:58:339 Sac-Cli/(8462:8471): se pudo enviar pack
+[INFO] 20:00:58:340 Sac-Cli/(8462:8469): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:341 Sac-Cli/(8462:8472): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:341 Sac-Cli/(8462:8472): /LaCosa
+[INFO] 20:00:58:342 Sac-Cli/(8462:8472): se pudo enviar pack
+[INFO] 20:00:58:344 Sac-Cli/(8462:8473): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:344 Sac-Cli/(8462:8473): /
+[INFO] 20:00:58:345 Sac-Cli/(8462:8473): se pudo enviar pack
+[INFO] 20:00:58:347 Sac-Cli/(8462:8469): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:349 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:349 Sac-Cli/(8462:8468): /LaCosa
+[INFO] 20:00:58:349 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:00:58:353 Sac-Cli/(8462:8469): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:354 Sac-Cli/(8462:8469): /
+[INFO] 20:00:58:354 Sac-Cli/(8462:8469): se pudo enviar pack
+[INFO] 20:00:58:357 Sac-Cli/(8462:8472): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:358 Sac-Cli/(8462:8471): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:358 Sac-Cli/(8462:8471): /LaCosa
+[INFO] 20:00:58:358 Sac-Cli/(8462:8471): se pudo enviar pack
+[INFO] 20:00:58:359 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:360 Sac-Cli/(8462:8468): /
+[INFO] 20:00:58:360 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:00:58:361 Sac-Cli/(8462:8473): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:362 Sac-Cli/(8462:8472): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:362 Sac-Cli/(8462:8472): /LaCosa
+[INFO] 20:00:58:365 Sac-Cli/(8462:8472): se pudo enviar pack
+[INFO] 20:00:58:367 Sac-Cli/(8462:8471): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:367 Sac-Cli/(8462:8471): /
+[INFO] 20:00:58:367 Sac-Cli/(8462:8471): se pudo enviar pack
+[INFO] 20:00:58:368 Sac-Cli/(8462:8469): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:373 Sac-Cli/(8462:8474): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:374 Sac-Cli/(8462:8474): /LaCosa
+[INFO] 20:00:58:374 Sac-Cli/(8462:8474): se pudo enviar pack
+[INFO] 20:00:58:376 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:380 Sac-Cli/(8462:8468): /
+[INFO] 20:00:58:382 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:00:58:383 Sac-Cli/(8462:8473): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:384 Sac-Cli/(8462:8472): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:384 Sac-Cli/(8462:8472): /LaCosa
+[INFO] 20:00:58:385 Sac-Cli/(8462:8472): se pudo enviar pack
+[INFO] 20:00:58:386 Sac-Cli/(8462:8469): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:386 Sac-Cli/(8462:8469): /
+[INFO] 20:00:58:387 Sac-Cli/(8462:8469): se pudo enviar pack
+[INFO] 20:00:58:388 Sac-Cli/(8462:8474): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:389 Sac-Cli/(8462:8473): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:389 Sac-Cli/(8462:8473): /LaCosa
+[INFO] 20:00:58:389 Sac-Cli/(8462:8473): se pudo enviar pack
+[INFO] 20:00:58:391 Sac-Cli/(8462:8471): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:391 Sac-Cli/(8462:8471): /
+[INFO] 20:00:58:393 Sac-Cli/(8462:8471): se pudo enviar pack
+[INFO] 20:00:58:394 Sac-Cli/(8462:8474): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:395 Sac-Cli/(8462:8472): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:395 Sac-Cli/(8462:8472): /LaCosa
+[INFO] 20:00:58:396 Sac-Cli/(8462:8472): se pudo enviar pack
+[INFO] 20:00:58:397 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:398 Sac-Cli/(8462:8468): /
+[INFO] 20:00:58:398 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:00:58:398 Sac-Cli/(8462:8471): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:400 Sac-Cli/(8462:8474): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:400 Sac-Cli/(8462:8474): /LaCosa
+[INFO] 20:00:58:401 Sac-Cli/(8462:8474): se pudo enviar pack
+[INFO] 20:00:58:403 Sac-Cli/(8462:8469): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:404 Sac-Cli/(8462:8469): /
+[INFO] 20:00:58:405 Sac-Cli/(8462:8469): se pudo enviar pack
+[INFO] 20:00:58:406 Sac-Cli/(8462:8473): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:407 Sac-Cli/(8462:8472): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:407 Sac-Cli/(8462:8472): /LaCosa
+[INFO] 20:00:58:407 Sac-Cli/(8462:8472): se pudo enviar pack
+[INFO] 20:00:58:409 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:409 Sac-Cli/(8462:8468): /
+[INFO] 20:00:58:409 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:00:58:410 Sac-Cli/(8462:8474): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:411 Sac-Cli/(8462:8473): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:411 Sac-Cli/(8462:8473): /LaCosa
+[INFO] 20:00:58:412 Sac-Cli/(8462:8473): se pudo enviar pack
+[INFO] 20:00:58:419 Sac-Cli/(8462:8472): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:425 Sac-Cli/(8462:8472): /
+[INFO] 20:00:58:425 Sac-Cli/(8462:8472): se pudo enviar pack
+[INFO] 20:00:58:429 Sac-Cli/(8462:8469): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:430 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:430 Sac-Cli/(8462:8468): /LaCosa
+[INFO] 20:00:58:430 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:00:58:432 Sac-Cli/(8462:8474): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:432 Sac-Cli/(8462:8474): /
+[INFO] 20:00:58:432 Sac-Cli/(8462:8474): se pudo enviar pack
+[INFO] 20:00:58:433 Sac-Cli/(8462:8469): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:434 Sac-Cli/(8462:8471): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:434 Sac-Cli/(8462:8471): /LaCosa
+[INFO] 20:00:58:434 Sac-Cli/(8462:8471): se pudo enviar pack
+[INFO] 20:00:58:441 Sac-Cli/(8462:8473): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:442 Sac-Cli/(8462:8473): /
+[INFO] 20:00:58:443 Sac-Cli/(8462:8473): se pudo enviar pack
+[INFO] 20:00:58:445 Sac-Cli/(8462:8471): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:446 Sac-Cli/(8462:8469): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:446 Sac-Cli/(8462:8469): /LaCosa
+[INFO] 20:00:58:446 Sac-Cli/(8462:8469): se pudo enviar pack
+[INFO] 20:00:58:448 Sac-Cli/(8462:8472): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:448 Sac-Cli/(8462:8472): /
+[INFO] 20:00:58:448 Sac-Cli/(8462:8472): se pudo enviar pack
+[INFO] 20:00:58:449 Sac-Cli/(8462:8474): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:450 Sac-Cli/(8462:8471): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:451 Sac-Cli/(8462:8471): /LaCosa
+[INFO] 20:00:58:451 Sac-Cli/(8462:8471): se pudo enviar pack
+[INFO] 20:00:58:452 Sac-Cli/(8462:8474): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:453 Sac-Cli/(8462:8474): /
+[INFO] 20:00:58:453 Sac-Cli/(8462:8474): se pudo enviar pack
+[INFO] 20:00:58:454 Sac-Cli/(8462:8468): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:455 Sac-Cli/(8462:8472): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:456 Sac-Cli/(8462:8472): /LaCosa
+[INFO] 20:00:58:457 Sac-Cli/(8462:8472): se pudo enviar pack
+[INFO] 20:00:58:458 Sac-Cli/(8462:8469): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:459 Sac-Cli/(8462:8469): /
+[INFO] 20:00:58:461 Sac-Cli/(8462:8469): se pudo enviar pack
+[INFO] 20:00:58:462 Sac-Cli/(8462:8474): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:463 Sac-Cli/(8462:8473): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:464 Sac-Cli/(8462:8473): /LaCosa
+[INFO] 20:00:58:464 Sac-Cli/(8462:8473): se pudo enviar pack
+[INFO] 20:00:58:465 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:466 Sac-Cli/(8462:8468): /
+[INFO] 20:00:58:466 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:00:58:466 Sac-Cli/(8462:8473): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:468 Sac-Cli/(8462:8471): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:468 Sac-Cli/(8462:8471): /LaCosa
+[INFO] 20:00:58:468 Sac-Cli/(8462:8471): se pudo enviar pack
+[INFO] 20:00:58:476 Sac-Cli/(8462:8472): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:477 Sac-Cli/(8462:8472): /
+[INFO] 20:00:58:478 Sac-Cli/(8462:8472): se pudo enviar pack
+[INFO] 20:00:58:484 Sac-Cli/(8462:8468): Se llamo a fusesito_readdir
+
+[INFO] 20:00:58:485 Sac-Cli/(8462:8469): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:485 Sac-Cli/(8462:8469): /LaCosa
+[INFO] 20:00:58:486 Sac-Cli/(8462:8469): se pudo enviar pack
+[INFO] 20:00:58:488 Sac-Cli/(8462:8473): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:488 Sac-Cli/(8462:8473): /autorun.inf
+[INFO] 20:00:58:489 Sac-Cli/(8462:8473): se pudo enviar pack
+[INFO] 20:00:58:490 Sac-Cli/(8462:8468): Se llamo a fusesito_getattr
+
+[INFO] 20:00:58:491 Sac-Cli/(8462:8468): /
+[INFO] 20:00:58:491 Sac-Cli/(8462:8468): se pudo enviar pack
+[INFO] 20:02:18:737 Sac-Cli/(8574:8574): Se ha iniciado una nueva instancia del logger
+
+[INFO] 20:02:18:795 Sac-Cli/(8574:8574): Conexion correcta
+
+[INFO] 20:02:19:414 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:417 Sac-Cli/(8574:8583): /
+[INFO] 20:02:19:418 Sac-Cli/(8574:8580): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:433 Sac-Cli/(8574:8580): /.xdg-volume-info
+[INFO] 20:02:19:435 Sac-Cli/(8574:8580): se pudo enviar pack
+[INFO] 20:02:19:441 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:474 Sac-Cli/(8574:8581): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:474 Sac-Cli/(8574:8581): /autorun.inf
+[INFO] 20:02:19:476 Sac-Cli/(8574:8581): se pudo enviar pack
+[INFO] 20:02:19:478 Sac-Cli/(8574:8582): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:478 Sac-Cli/(8574:8582): /.Trash
+[INFO] 20:02:19:478 Sac-Cli/(8574:8582): se pudo enviar pack
+[INFO] 20:02:19:480 Sac-Cli/(8574:8580): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:480 Sac-Cli/(8574:8580): /.Trash-1000
+[INFO] 20:02:19:481 Sac-Cli/(8574:8580): se pudo enviar pack
+[INFO] 20:02:19:497 Sac-Cli/(8574:8582): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:534 Sac-Cli/(8574:8580): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:535 Sac-Cli/(8574:8580): /ElArchivito
+[INFO] 20:02:19:535 Sac-Cli/(8574:8580): se pudo enviar pack
+[INFO] 20:02:19:586 Sac-Cli/(8574:8584): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:586 Sac-Cli/(8574:8584): /LaCosa
+[INFO] 20:02:19:587 Sac-Cli/(8574:8584): se pudo enviar pack
+[INFO] 20:02:19:599 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:600 Sac-Cli/(8574:8583): /
+[INFO] 20:02:19:600 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:601 Sac-Cli/(8574:8584): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:602 Sac-Cli/(8574:8582): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:602 Sac-Cli/(8574:8582): /LaCosa
+[INFO] 20:02:19:602 Sac-Cli/(8574:8582): se pudo enviar pack
+[INFO] 20:02:19:605 Sac-Cli/(8574:8582): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:605 Sac-Cli/(8574:8582): /
+[INFO] 20:02:19:606 Sac-Cli/(8574:8582): se pudo enviar pack
+[INFO] 20:02:19:606 Sac-Cli/(8574:8583): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:608 Sac-Cli/(8574:8584): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:608 Sac-Cli/(8574:8584): /LaCosa
+[INFO] 20:02:19:609 Sac-Cli/(8574:8584): se pudo enviar pack
+[INFO] 20:02:19:612 Sac-Cli/(8574:8580): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:613 Sac-Cli/(8574:8580): /
+[INFO] 20:02:19:613 Sac-Cli/(8574:8580): se pudo enviar pack
+[INFO] 20:02:19:617 Sac-Cli/(8574:8583): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:618 Sac-Cli/(8574:8582): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:619 Sac-Cli/(8574:8582): /LaCosa
+[INFO] 20:02:19:619 Sac-Cli/(8574:8582): se pudo enviar pack
+[INFO] 20:02:19:621 Sac-Cli/(8574:8581): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:621 Sac-Cli/(8574:8581): /
+[INFO] 20:02:19:622 Sac-Cli/(8574:8581): se pudo enviar pack
+[INFO] 20:02:19:626 Sac-Cli/(8574:8583): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:627 Sac-Cli/(8574:8584): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:627 Sac-Cli/(8574:8584): /LaCosa
+[INFO] 20:02:19:628 Sac-Cli/(8574:8584): se pudo enviar pack
+[INFO] 20:02:19:629 Sac-Cli/(8574:8582): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:629 Sac-Cli/(8574:8582): /
+[INFO] 20:02:19:630 Sac-Cli/(8574:8582): se pudo enviar pack
+[INFO] 20:02:19:631 Sac-Cli/(8574:8580): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:632 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:632 Sac-Cli/(8574:8583): /LaCosa
+[INFO] 20:02:19:632 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:634 Sac-Cli/(8574:8580): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:635 Sac-Cli/(8574:8580): /
+[INFO] 20:02:19:635 Sac-Cli/(8574:8580): se pudo enviar pack
+[INFO] 20:02:19:637 Sac-Cli/(8574:8584): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:638 Sac-Cli/(8574:8582): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:638 Sac-Cli/(8574:8582): /LaCosa
+[INFO] 20:02:19:639 Sac-Cli/(8574:8582): se pudo enviar pack
+[INFO] 20:02:19:641 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:642 Sac-Cli/(8574:8583): /
+[INFO] 20:02:19:642 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:645 Sac-Cli/(8574:8581): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:646 Sac-Cli/(8574:8581): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:646 Sac-Cli/(8574:8581): /LaCosa
+[INFO] 20:02:19:646 Sac-Cli/(8574:8581): se pudo enviar pack
+[INFO] 20:02:19:648 Sac-Cli/(8574:8580): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:648 Sac-Cli/(8574:8580): /
+[INFO] 20:02:19:649 Sac-Cli/(8574:8580): se pudo enviar pack
+[INFO] 20:02:19:649 Sac-Cli/(8574:8582): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:650 Sac-Cli/(8574:8584): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:650 Sac-Cli/(8574:8584): /LaCosa
+[INFO] 20:02:19:651 Sac-Cli/(8574:8584): se pudo enviar pack
+[INFO] 20:02:19:652 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:653 Sac-Cli/(8574:8583): /
+[INFO] 20:02:19:653 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:658 Sac-Cli/(8574:8580): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:659 Sac-Cli/(8574:8582): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:659 Sac-Cli/(8574:8582): /LaCosa
+[INFO] 20:02:19:659 Sac-Cli/(8574:8582): se pudo enviar pack
+[INFO] 20:02:19:661 Sac-Cli/(8574:8581): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:661 Sac-Cli/(8574:8581): /
+[INFO] 20:02:19:662 Sac-Cli/(8574:8581): se pudo enviar pack
+[INFO] 20:02:19:665 Sac-Cli/(8574:8584): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:666 Sac-Cli/(8574:8580): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:666 Sac-Cli/(8574:8580): /LaCosa
+[INFO] 20:02:19:666 Sac-Cli/(8574:8580): se pudo enviar pack
+[INFO] 20:02:19:671 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:671 Sac-Cli/(8574:8583): /
+[INFO] 20:02:19:672 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:672 Sac-Cli/(8574:8582): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:673 Sac-Cli/(8574:8584): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:674 Sac-Cli/(8574:8584): /LaCosa
+[INFO] 20:02:19:674 Sac-Cli/(8574:8584): se pudo enviar pack
+[INFO] 20:02:19:675 Sac-Cli/(8574:8581): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:676 Sac-Cli/(8574:8581): /
+[INFO] 20:02:19:676 Sac-Cli/(8574:8581): se pudo enviar pack
+[INFO] 20:02:19:681 Sac-Cli/(8574:8582): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:682 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:682 Sac-Cli/(8574:8583): /LaCosa
+[INFO] 20:02:19:683 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:685 Sac-Cli/(8574:8582): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:689 Sac-Cli/(8574:8582): /
+[INFO] 20:02:19:690 Sac-Cli/(8574:8582): se pudo enviar pack
+[INFO] 20:02:19:691 Sac-Cli/(8574:8584): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:692 Sac-Cli/(8574:8580): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:692 Sac-Cli/(8574:8580): /LaCosa
+[INFO] 20:02:19:692 Sac-Cli/(8574:8580): se pudo enviar pack
+[INFO] 20:02:19:694 Sac-Cli/(8574:8581): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:694 Sac-Cli/(8574:8581): /
+[INFO] 20:02:19:695 Sac-Cli/(8574:8581): se pudo enviar pack
+[INFO] 20:02:19:695 Sac-Cli/(8574:8580): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:696 Sac-Cli/(8574:8584): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:697 Sac-Cli/(8574:8584): /LaCosa
+[INFO] 20:02:19:697 Sac-Cli/(8574:8584): se pudo enviar pack
+[INFO] 20:02:19:699 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:699 Sac-Cli/(8574:8583): /
+[INFO] 20:02:19:699 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:700 Sac-Cli/(8574:8580): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:701 Sac-Cli/(8574:8581): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:702 Sac-Cli/(8574:8581): /LaCosa
+[INFO] 20:02:19:702 Sac-Cli/(8574:8581): se pudo enviar pack
+[INFO] 20:02:19:704 Sac-Cli/(8574:8582): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:704 Sac-Cli/(8574:8582): /
+[INFO] 20:02:19:704 Sac-Cli/(8574:8582): se pudo enviar pack
+[INFO] 20:02:19:709 Sac-Cli/(8574:8584): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:710 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:710 Sac-Cli/(8574:8583): /LaCosa
+[INFO] 20:02:19:710 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:712 Sac-Cli/(8574:8580): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:712 Sac-Cli/(8574:8580): /
+[INFO] 20:02:19:717 Sac-Cli/(8574:8580): se pudo enviar pack
+[INFO] 20:02:19:718 Sac-Cli/(8574:8584): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:719 Sac-Cli/(8574:8582): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:719 Sac-Cli/(8574:8582): /LaCosa
+[INFO] 20:02:19:720 Sac-Cli/(8574:8582): se pudo enviar pack
+[INFO] 20:02:19:721 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:722 Sac-Cli/(8574:8583): /
+[INFO] 20:02:19:722 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:723 Sac-Cli/(8574:8584): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:724 Sac-Cli/(8574:8581): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:724 Sac-Cli/(8574:8581): /LaCosa
+[INFO] 20:02:19:724 Sac-Cli/(8574:8581): se pudo enviar pack
+[INFO] 20:02:19:726 Sac-Cli/(8574:8584): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:727 Sac-Cli/(8574:8584): /
+[INFO] 20:02:19:727 Sac-Cli/(8574:8584): se pudo enviar pack
+[INFO] 20:02:19:728 Sac-Cli/(8574:8582): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:730 Sac-Cli/(8574:8580): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:731 Sac-Cli/(8574:8580): /LaCosa
+[INFO] 20:02:19:731 Sac-Cli/(8574:8580): se pudo enviar pack
+[INFO] 20:02:19:732 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:735 Sac-Cli/(8574:8583): /
+[INFO] 20:02:19:736 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:736 Sac-Cli/(8574:8582): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:737 Sac-Cli/(8574:8584): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:738 Sac-Cli/(8574:8584): /LaCosa
+[INFO] 20:02:19:738 Sac-Cli/(8574:8584): se pudo enviar pack
+[INFO] 20:02:19:742 Sac-Cli/(8574:8580): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:742 Sac-Cli/(8574:8580): /
+[INFO] 20:02:19:743 Sac-Cli/(8574:8580): se pudo enviar pack
+[INFO] 20:02:19:745 Sac-Cli/(8574:8582): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:746 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:746 Sac-Cli/(8574:8583): /LaCosa
+[INFO] 20:02:19:746 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:02:19:750 Sac-Cli/(8574:8581): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:750 Sac-Cli/(8574:8581): /
+[INFO] 20:02:19:750 Sac-Cli/(8574:8581): se pudo enviar pack
+[INFO] 20:02:19:751 Sac-Cli/(8574:8584): Se llamo a fusesito_readdir
+
+[INFO] 20:02:19:752 Sac-Cli/(8574:8582): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:753 Sac-Cli/(8574:8582): /LaCosa
+[INFO] 20:02:19:753 Sac-Cli/(8574:8582): se pudo enviar pack
+[INFO] 20:02:19:755 Sac-Cli/(8574:8584): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:755 Sac-Cli/(8574:8584): /autorun.inf
+[INFO] 20:02:19:755 Sac-Cli/(8574:8584): se pudo enviar pack
+[INFO] 20:02:19:761 Sac-Cli/(8574:8583): Se llamo a fusesito_getattr
+
+[INFO] 20:02:19:761 Sac-Cli/(8574:8583): /
+[INFO] 20:02:19:761 Sac-Cli/(8574:8583): se pudo enviar pack
+[INFO] 20:04:36:34 Sac-Cli/(8722:8722): Se ha iniciado una nueva instancia del logger
+
+[INFO] 20:04:37:90 Sac-Cli/(8722:8722): Conexion correcta
+
+[INFO] 20:04:37:357 Sac-Cli/(8722:8731): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:359 Sac-Cli/(8722:8729): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:359 Sac-Cli/(8722:8731): /
+[INFO] 20:04:37:367 Sac-Cli/(8722:8729): /.xdg-volume-info
+[INFO] 20:04:37:369 Sac-Cli/(8722:8729): se pudo enviar pack
+[INFO] 20:04:37:377 Sac-Cli/(8722:8731): se pudo enviar pack
+[INFO] 20:04:37:394 Sac-Cli/(8722:8728): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:395 Sac-Cli/(8722:8728): /autorun.inf
+[INFO] 20:04:37:395 Sac-Cli/(8722:8728): se pudo enviar pack
+[INFO] 20:04:37:397 Sac-Cli/(8722:8730): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:397 Sac-Cli/(8722:8730): /.Trash
+[INFO] 20:04:37:398 Sac-Cli/(8722:8730): se pudo enviar pack
+[INFO] 20:04:37:399 Sac-Cli/(8722:8729): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:399 Sac-Cli/(8722:8729): /.Trash-1000
+[INFO] 20:04:37:400 Sac-Cli/(8722:8729): se pudo enviar pack
+[INFO] 20:04:37:407 Sac-Cli/(8722:8730): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:421 Sac-Cli/(8722:8729): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:421 Sac-Cli/(8722:8729): /ElArchivito
+[INFO] 20:04:37:421 Sac-Cli/(8722:8729): se pudo enviar pack
+[INFO] 20:04:37:440 Sac-Cli/(8722:8731): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:440 Sac-Cli/(8722:8731): /LaCosa
+[INFO] 20:04:37:441 Sac-Cli/(8722:8731): se pudo enviar pack
+[INFO] 20:04:37:450 Sac-Cli/(8722:8732): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:451 Sac-Cli/(8722:8732): /
+[INFO] 20:04:37:451 Sac-Cli/(8722:8732): se pudo enviar pack
+[INFO] 20:04:37:452 Sac-Cli/(8722:8731): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:453 Sac-Cli/(8722:8730): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:453 Sac-Cli/(8722:8730): /LaCosa
+[INFO] 20:04:37:454 Sac-Cli/(8722:8730): se pudo enviar pack
+[INFO] 20:04:37:456 Sac-Cli/(8722:8732): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:456 Sac-Cli/(8722:8732): /
+[INFO] 20:04:37:457 Sac-Cli/(8722:8732): se pudo enviar pack
+[INFO] 20:04:37:458 Sac-Cli/(8722:8731): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:459 Sac-Cli/(8722:8730): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:459 Sac-Cli/(8722:8730): /LaCosa
+[INFO] 20:04:37:460 Sac-Cli/(8722:8730): se pudo enviar pack
+[INFO] 20:04:37:462 Sac-Cli/(8722:8732): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:463 Sac-Cli/(8722:8732): /
+[INFO] 20:04:37:463 Sac-Cli/(8722:8732): se pudo enviar pack
+[INFO] 20:04:37:464 Sac-Cli/(8722:8728): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:465 Sac-Cli/(8722:8731): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:465 Sac-Cli/(8722:8731): /LaCosa
+[INFO] 20:04:37:465 Sac-Cli/(8722:8731): se pudo enviar pack
+[INFO] 20:04:37:467 Sac-Cli/(8722:8729): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:467 Sac-Cli/(8722:8729): /
+[INFO] 20:04:37:468 Sac-Cli/(8722:8729): se pudo enviar pack
+[INFO] 20:04:37:468 Sac-Cli/(8722:8728): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:469 Sac-Cli/(8722:8730): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:470 Sac-Cli/(8722:8730): /LaCosa
+[INFO] 20:04:37:470 Sac-Cli/(8722:8730): se pudo enviar pack
+[INFO] 20:04:37:471 Sac-Cli/(8722:8728): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:476 Sac-Cli/(8722:8728): /
+[INFO] 20:04:37:476 Sac-Cli/(8722:8728): se pudo enviar pack
+[INFO] 20:04:37:477 Sac-Cli/(8722:8732): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:478 Sac-Cli/(8722:8729): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:478 Sac-Cli/(8722:8729): /LaCosa
+[INFO] 20:04:37:479 Sac-Cli/(8722:8729): se pudo enviar pack
+[INFO] 20:04:37:480 Sac-Cli/(8722:8731): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:481 Sac-Cli/(8722:8731): /
+[INFO] 20:04:37:481 Sac-Cli/(8722:8731): se pudo enviar pack
+[INFO] 20:04:37:482 Sac-Cli/(8722:8730): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:483 Sac-Cli/(8722:8732): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:483 Sac-Cli/(8722:8732): /LaCosa
+[INFO] 20:04:37:483 Sac-Cli/(8722:8732): se pudo enviar pack
+[INFO] 20:04:37:485 Sac-Cli/(8722:8728): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:486 Sac-Cli/(8722:8728): /
+[INFO] 20:04:37:486 Sac-Cli/(8722:8728): se pudo enviar pack
+[INFO] 20:04:37:487 Sac-Cli/(8722:8731): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:488 Sac-Cli/(8722:8732): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:488 Sac-Cli/(8722:8732): /LaCosa
+[INFO] 20:04:37:489 Sac-Cli/(8722:8732): se pudo enviar pack
+[INFO] 20:04:37:490 Sac-Cli/(8722:8730): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:491 Sac-Cli/(8722:8730): /
+[INFO] 20:04:37:491 Sac-Cli/(8722:8730): se pudo enviar pack
+[INFO] 20:04:37:492 Sac-Cli/(8722:8729): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:493 Sac-Cli/(8722:8731): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:493 Sac-Cli/(8722:8731): /LaCosa
+[INFO] 20:04:37:493 Sac-Cli/(8722:8731): se pudo enviar pack
+[INFO] 20:04:37:495 Sac-Cli/(8722:8728): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:495 Sac-Cli/(8722:8728): /
+[INFO] 20:04:37:495 Sac-Cli/(8722:8728): se pudo enviar pack
+[INFO] 20:04:37:496 Sac-Cli/(8722:8730): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:497 Sac-Cli/(8722:8729): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:497 Sac-Cli/(8722:8729): /LaCosa
+[INFO] 20:04:37:498 Sac-Cli/(8722:8729): se pudo enviar pack
+[INFO] 20:04:37:499 Sac-Cli/(8722:8732): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:499 Sac-Cli/(8722:8732): /
+[INFO] 20:04:37:500 Sac-Cli/(8722:8732): se pudo enviar pack
+[INFO] 20:04:37:500 Sac-Cli/(8722:8731): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:501 Sac-Cli/(8722:8728): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:501 Sac-Cli/(8722:8728): /LaCosa
+[INFO] 20:04:37:502 Sac-Cli/(8722:8728): se pudo enviar pack
+[INFO] 20:04:37:507 Sac-Cli/(8722:8730): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:509 Sac-Cli/(8722:8730): /
+[INFO] 20:04:37:509 Sac-Cli/(8722:8730): se pudo enviar pack
+[INFO] 20:04:37:509 Sac-Cli/(8722:8729): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:510 Sac-Cli/(8722:8732): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:511 Sac-Cli/(8722:8732): /LaCosa
+[INFO] 20:04:37:511 Sac-Cli/(8722:8732): se pudo enviar pack
+[INFO] 20:04:37:513 Sac-Cli/(8722:8731): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:514 Sac-Cli/(8722:8731): /
+[INFO] 20:04:37:514 Sac-Cli/(8722:8731): se pudo enviar pack
+[INFO] 20:04:37:514 Sac-Cli/(8722:8729): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:516 Sac-Cli/(8722:8728): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:516 Sac-Cli/(8722:8728): /LaCosa
+[INFO] 20:04:37:517 Sac-Cli/(8722:8728): se pudo enviar pack
+[INFO] 20:04:37:518 Sac-Cli/(8722:8730): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:519 Sac-Cli/(8722:8730): /
+[INFO] 20:04:37:519 Sac-Cli/(8722:8730): se pudo enviar pack
+[INFO] 20:04:37:520 Sac-Cli/(8722:8732): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:521 Sac-Cli/(8722:8729): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:522 Sac-Cli/(8722:8729): /LaCosa
+[INFO] 20:04:37:522 Sac-Cli/(8722:8729): se pudo enviar pack
+[INFO] 20:04:37:523 Sac-Cli/(8722:8732): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:524 Sac-Cli/(8722:8732): /
+[INFO] 20:04:37:525 Sac-Cli/(8722:8732): se pudo enviar pack
+[INFO] 20:04:37:525 Sac-Cli/(8722:8730): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:526 Sac-Cli/(8722:8731): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:526 Sac-Cli/(8722:8731): /LaCosa
+[INFO] 20:04:37:526 Sac-Cli/(8722:8731): se pudo enviar pack
+[INFO] 20:04:37:529 Sac-Cli/(8722:8730): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:529 Sac-Cli/(8722:8730): /
+[INFO] 20:04:37:529 Sac-Cli/(8722:8730): se pudo enviar pack
+[INFO] 20:04:37:530 Sac-Cli/(8722:8729): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:531 Sac-Cli/(8722:8731): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:531 Sac-Cli/(8722:8731): /LaCosa
+[INFO] 20:04:37:531 Sac-Cli/(8722:8731): se pudo enviar pack
+[INFO] 20:04:37:532 Sac-Cli/(8722:8728): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:533 Sac-Cli/(8722:8728): /
+[INFO] 20:04:37:533 Sac-Cli/(8722:8728): se pudo enviar pack
+[INFO] 20:04:37:538 Sac-Cli/(8722:8729): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:539 Sac-Cli/(8722:8731): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:540 Sac-Cli/(8722:8731): /LaCosa
+[INFO] 20:04:37:541 Sac-Cli/(8722:8731): se pudo enviar pack
+[INFO] 20:04:37:542 Sac-Cli/(8722:8733): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:543 Sac-Cli/(8722:8733): /
+[INFO] 20:04:37:543 Sac-Cli/(8722:8733): se pudo enviar pack
+[INFO] 20:04:37:544 Sac-Cli/(8722:8730): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:545 Sac-Cli/(8722:8732): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:545 Sac-Cli/(8722:8732): /LaCosa
+[INFO] 20:04:37:545 Sac-Cli/(8722:8732): se pudo enviar pack
+[INFO] 20:04:37:547 Sac-Cli/(8722:8729): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:547 Sac-Cli/(8722:8729): /
+[INFO] 20:04:37:548 Sac-Cli/(8722:8729): se pudo enviar pack
+[INFO] 20:04:37:548 Sac-Cli/(8722:8733): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:550 Sac-Cli/(8722:8730): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:550 Sac-Cli/(8722:8730): /LaCosa
+[INFO] 20:04:37:551 Sac-Cli/(8722:8730): se pudo enviar pack
+[INFO] 20:04:37:552 Sac-Cli/(8722:8729): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:553 Sac-Cli/(8722:8729): /
+[INFO] 20:04:37:553 Sac-Cli/(8722:8729): se pudo enviar pack
+[INFO] 20:04:37:554 Sac-Cli/(8722:8728): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:555 Sac-Cli/(8722:8732): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:555 Sac-Cli/(8722:8732): /LaCosa
+[INFO] 20:04:37:555 Sac-Cli/(8722:8732): se pudo enviar pack
+[INFO] 20:04:37:557 Sac-Cli/(8722:8731): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:557 Sac-Cli/(8722:8731): /
+[INFO] 20:04:37:557 Sac-Cli/(8722:8731): se pudo enviar pack
+[INFO] 20:04:37:558 Sac-Cli/(8722:8731): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:559 Sac-Cli/(8722:8730): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:559 Sac-Cli/(8722:8730): /LaCosa
+[INFO] 20:04:37:559 Sac-Cli/(8722:8730): se pudo enviar pack
+[INFO] 20:04:37:561 Sac-Cli/(8722:8733): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:561 Sac-Cli/(8722:8733): /
+[INFO] 20:04:37:561 Sac-Cli/(8722:8733): se pudo enviar pack
+[INFO] 20:04:37:562 Sac-Cli/(8722:8729): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:563 Sac-Cli/(8722:8732): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:564 Sac-Cli/(8722:8732): /LaCosa
+[INFO] 20:04:37:564 Sac-Cli/(8722:8732): se pudo enviar pack
+[INFO] 20:04:37:572 Sac-Cli/(8722:8728): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:572 Sac-Cli/(8722:8728): /
+[INFO] 20:04:37:572 Sac-Cli/(8722:8728): se pudo enviar pack
+[INFO] 20:04:37:573 Sac-Cli/(8722:8733): Se llamo a fusesito_readdir
+
+[INFO] 20:04:37:574 Sac-Cli/(8722:8731): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:574 Sac-Cli/(8722:8731): /LaCosa
+[INFO] 20:04:37:575 Sac-Cli/(8722:8731): se pudo enviar pack
+[INFO] 20:04:37:576 Sac-Cli/(8722:8729): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:576 Sac-Cli/(8722:8729): /
+[INFO] 20:04:37:577 Sac-Cli/(8722:8733): Se llamo a fusesito_getattr
+
+[INFO] 20:04:37:577 Sac-Cli/(8722:8729): se pudo enviar pack
+[INFO] 20:04:37:578 Sac-Cli/(8722:8733): /autorun.inf
+[INFO] 20:04:37:578 Sac-Cli/(8722:8733): se pudo enviar pack
+[INFO] 20:50:47:590 Sac-Cli/(10054:10054): Se ha iniciado una nueva instancia del logger
+
+[INFO] 20:50:47:656 Sac-Cli/(10054:10054): Conexion correcta
+
+[INFO] 20:50:48:73 Sac-Cli/(10054:10064): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:75 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:76 Sac-Cli/(10054:10063): /.xdg-volume-info
+[INFO] 20:50:48:91 Sac-Cli/(10054:10064): /
+[INFO] 20:50:48:93 Sac-Cli/(10054:10064): se pudo enviar pack
+[INFO] 20:50:48:126 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:131 Sac-Cli/(10054:10062): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:139 Sac-Cli/(10054:10062): /autorun.inf
+[INFO] 20:50:48:140 Sac-Cli/(10054:10062): se pudo enviar pack
+[INFO] 20:50:48:141 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:142 Sac-Cli/(10054:10061): /.Trash
+[INFO] 20:50:48:142 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:143 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:143 Sac-Cli/(10054:10063): /.Trash-1000
+[INFO] 20:50:48:143 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:157 Sac-Cli/(10054:10064): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:172 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:172 Sac-Cli/(10054:10061): /ElArchivito
+[INFO] 20:50:48:172 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:198 Sac-Cli/(10054:10062): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:199 Sac-Cli/(10054:10062): /LaCosa
+[INFO] 20:50:48:199 Sac-Cli/(10054:10062): se pudo enviar pack
+[INFO] 20:50:48:207 Sac-Cli/(10054:10062): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:208 Sac-Cli/(10054:10062): /
+[INFO] 20:50:48:208 Sac-Cli/(10054:10062): se pudo enviar pack
+[INFO] 20:50:48:209 Sac-Cli/(10054:10062): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:210 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:214 Sac-Cli/(10054:10063): /LaCosa
+[INFO] 20:50:48:215 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:218 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:219 Sac-Cli/(10054:10061): /
+[INFO] 20:50:48:219 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:235 Sac-Cli/(10054:10062): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:237 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:237 Sac-Cli/(10054:10063): /LaCosa
+[INFO] 20:50:48:237 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:239 Sac-Cli/(10054:10064): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:239 Sac-Cli/(10054:10064): /
+[INFO] 20:50:48:239 Sac-Cli/(10054:10064): se pudo enviar pack
+[INFO] 20:50:48:241 Sac-Cli/(10054:10061): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:242 Sac-Cli/(10054:10065): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:243 Sac-Cli/(10054:10065): /LaCosa
+[INFO] 20:50:48:243 Sac-Cli/(10054:10065): se pudo enviar pack
+[INFO] 20:50:48:245 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:246 Sac-Cli/(10054:10063): /
+[INFO] 20:50:48:246 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:247 Sac-Cli/(10054:10064): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:251 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:253 Sac-Cli/(10054:10061): /LaCosa
+[INFO] 20:50:48:253 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:255 Sac-Cli/(10054:10065): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:255 Sac-Cli/(10054:10065): /
+[INFO] 20:50:48:255 Sac-Cli/(10054:10065): se pudo enviar pack
+[INFO] 20:50:48:256 Sac-Cli/(10054:10062): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:257 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:257 Sac-Cli/(10054:10063): /LaCosa
+[INFO] 20:50:48:258 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:259 Sac-Cli/(10054:10064): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:260 Sac-Cli/(10054:10064): /
+[INFO] 20:50:48:260 Sac-Cli/(10054:10064): se pudo enviar pack
+[INFO] 20:50:48:261 Sac-Cli/(10054:10062): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:262 Sac-Cli/(10054:10065): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:262 Sac-Cli/(10054:10065): /LaCosa
+[INFO] 20:50:48:262 Sac-Cli/(10054:10065): se pudo enviar pack
+[INFO] 20:50:48:275 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:275 Sac-Cli/(10054:10061): /
+[INFO] 20:50:48:275 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:276 Sac-Cli/(10054:10065): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:277 Sac-Cli/(10054:10064): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:277 Sac-Cli/(10054:10064): /LaCosa
+[INFO] 20:50:48:277 Sac-Cli/(10054:10064): se pudo enviar pack
+[INFO] 20:50:48:279 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:279 Sac-Cli/(10054:10063): /
+[INFO] 20:50:48:280 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:280 Sac-Cli/(10054:10065): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:281 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:281 Sac-Cli/(10054:10061): /LaCosa
+[INFO] 20:50:48:282 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:288 Sac-Cli/(10054:10062): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:288 Sac-Cli/(10054:10062): /
+[INFO] 20:50:48:288 Sac-Cli/(10054:10062): se pudo enviar pack
+[INFO] 20:50:48:289 Sac-Cli/(10054:10061): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:290 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:290 Sac-Cli/(10054:10063): /LaCosa
+[INFO] 20:50:48:291 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:293 Sac-Cli/(10054:10065): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:293 Sac-Cli/(10054:10065): /
+[INFO] 20:50:48:293 Sac-Cli/(10054:10065): se pudo enviar pack
+[INFO] 20:50:48:295 Sac-Cli/(10054:10061): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:296 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:296 Sac-Cli/(10054:10063): /LaCosa
+[INFO] 20:50:48:297 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:306 Sac-Cli/(10054:10062): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:306 Sac-Cli/(10054:10062): /
+[INFO] 20:50:48:307 Sac-Cli/(10054:10062): se pudo enviar pack
+[INFO] 20:50:48:307 Sac-Cli/(10054:10065): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:308 Sac-Cli/(10054:10062): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:309 Sac-Cli/(10054:10062): /LaCosa
+[INFO] 20:50:48:309 Sac-Cli/(10054:10062): se pudo enviar pack
+[INFO] 20:50:48:310 Sac-Cli/(10054:10065): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:311 Sac-Cli/(10054:10065): /
+[INFO] 20:50:48:311 Sac-Cli/(10054:10065): se pudo enviar pack
+[INFO] 20:50:48:311 Sac-Cli/(10054:10063): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:312 Sac-Cli/(10054:10064): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:313 Sac-Cli/(10054:10064): /LaCosa
+[INFO] 20:50:48:313 Sac-Cli/(10054:10064): se pudo enviar pack
+[INFO] 20:50:48:315 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:319 Sac-Cli/(10054:10063): /
+[INFO] 20:50:48:322 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:326 Sac-Cli/(10054:10065): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:327 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:327 Sac-Cli/(10054:10061): /LaCosa
+[INFO] 20:50:48:327 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:329 Sac-Cli/(10054:10064): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:329 Sac-Cli/(10054:10064): /
+[INFO] 20:50:48:329 Sac-Cli/(10054:10064): se pudo enviar pack
+[INFO] 20:50:48:330 Sac-Cli/(10054:10061): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:331 Sac-Cli/(10054:10066): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:331 Sac-Cli/(10054:10066): /LaCosa
+[INFO] 20:50:48:336 Sac-Cli/(10054:10066): se pudo enviar pack
+[INFO] 20:50:48:338 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:338 Sac-Cli/(10054:10061): /
+[INFO] 20:50:48:339 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:339 Sac-Cli/(10054:10063): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:341 Sac-Cli/(10054:10064): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:341 Sac-Cli/(10054:10064): /LaCosa
+[INFO] 20:50:48:341 Sac-Cli/(10054:10064): se pudo enviar pack
+[INFO] 20:50:48:343 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:344 Sac-Cli/(10054:10061): /
+[INFO] 20:50:48:344 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:344 Sac-Cli/(10054:10062): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:345 Sac-Cli/(10054:10064): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:346 Sac-Cli/(10054:10064): /LaCosa
+[INFO] 20:50:48:346 Sac-Cli/(10054:10064): se pudo enviar pack
+[INFO] 20:50:48:347 Sac-Cli/(10054:10065): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:358 Sac-Cli/(10054:10065): /
+[INFO] 20:50:48:358 Sac-Cli/(10054:10065): se pudo enviar pack
+[INFO] 20:50:48:359 Sac-Cli/(10054:10063): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:360 Sac-Cli/(10054:10066): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:360 Sac-Cli/(10054:10066): /LaCosa
+[INFO] 20:50:48:361 Sac-Cli/(10054:10066): se pudo enviar pack
+[INFO] 20:50:48:363 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:363 Sac-Cli/(10054:10061): /
+[INFO] 20:50:48:363 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:369 Sac-Cli/(10054:10064): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:370 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:371 Sac-Cli/(10054:10063): /LaCosa
+[INFO] 20:50:48:371 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:373 Sac-Cli/(10054:10062): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:373 Sac-Cli/(10054:10062): /
+[INFO] 20:50:48:374 Sac-Cli/(10054:10062): se pudo enviar pack
+[INFO] 20:50:48:374 Sac-Cli/(10054:10066): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:376 Sac-Cli/(10054:10063): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:376 Sac-Cli/(10054:10063): /LaCosa
+[INFO] 20:50:48:377 Sac-Cli/(10054:10063): se pudo enviar pack
+[INFO] 20:50:48:379 Sac-Cli/(10054:10066): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:379 Sac-Cli/(10054:10066): /
+[INFO] 20:50:48:379 Sac-Cli/(10054:10066): se pudo enviar pack
+[INFO] 20:50:48:380 Sac-Cli/(10054:10064): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:381 Sac-Cli/(10054:10062): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:381 Sac-Cli/(10054:10062): /LaCosa
+[INFO] 20:50:48:382 Sac-Cli/(10054:10062): se pudo enviar pack
+[INFO] 20:50:48:392 Sac-Cli/(10054:10065): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:392 Sac-Cli/(10054:10065): /
+[INFO] 20:50:48:392 Sac-Cli/(10054:10065): se pudo enviar pack
+[INFO] 20:50:48:393 Sac-Cli/(10054:10062): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:394 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:394 Sac-Cli/(10054:10061): /LaCosa
+[INFO] 20:50:48:395 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:403 Sac-Cli/(10054:10066): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:403 Sac-Cli/(10054:10066): /
+[INFO] 20:50:48:404 Sac-Cli/(10054:10066): se pudo enviar pack
+[INFO] 20:50:48:406 Sac-Cli/(10054:10064): Se llamo a fusesito_readdir
+
+[INFO] 20:50:48:407 Sac-Cli/(10054:10061): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:408 Sac-Cli/(10054:10061): /LaCosa
+[INFO] 20:50:48:408 Sac-Cli/(10054:10061): se pudo enviar pack
+[INFO] 20:50:48:410 Sac-Cli/(10054:10066): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:411 Sac-Cli/(10054:10066): /autorun.inf
+[INFO] 20:50:48:411 Sac-Cli/(10054:10066): se pudo enviar pack
+[INFO] 20:50:48:464 Sac-Cli/(10054:10064): Se llamo a fusesito_getattr
+
+[INFO] 20:50:48:464 Sac-Cli/(10054:10064): /
+[INFO] 20:50:48:465 Sac-Cli/(10054:10064): se pudo enviar pack
+[INFO] 20:51:57:589 Sac-Cli/(10168:10168): Se ha iniciado una nueva instancia del logger
+
+[INFO] 20:51:57:647 Sac-Cli/(10168:10168): Conexion correcta
+
+[INFO] 20:51:57:972 Sac-Cli/(10168:10176): Se llamo a fusesito_getattr
+
+[INFO] 20:51:57:974 Sac-Cli/(10168:10176): /
+[INFO] 20:51:57:974 Sac-Cli/(10168:10178): Se llamo a fusesito_getattr
+
+[ERROR] 20:51:57:976 Sac-Cli/(10168:10176): no se pudo enviar pack
+[INFO] 20:51:57:976 Sac-Cli/(10168:10178): /.xdg-volume-info
+[ERROR] 20:51:57:976 Sac-Cli/(10168:10178): no se pudo enviar pack
+[INFO] 20:51:57:999 Sac-Cli/(10168:10175): Se llamo a fusesito_getattr
+
+[INFO] 20:51:57:1 Sac-Cli/(10168:10175): /autorun.inf
+[ERROR] 20:51:57:1 Sac-Cli/(10168:10175): no se pudo enviar pack
+[INFO] 20:51:57:2 Sac-Cli/(10168:10179): Se llamo a fusesito_getattr
+
+[INFO] 20:51:57:3 Sac-Cli/(10168:10179): /.Trash
+[ERROR] 20:51:57:3 Sac-Cli/(10168:10179): no se pudo enviar pack
+[INFO] 20:51:57:4 Sac-Cli/(10168:10177): Se llamo a fusesito_getattr
+
+[INFO] 20:51:57:4 Sac-Cli/(10168:10177): /.Trash-1000
+[ERROR] 20:51:57:4 Sac-Cli/(10168:10177): no se pudo enviar pack
+[INFO] 20:51:58:10 Sac-Cli/(10168:10178): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:27 Sac-Cli/(10168:10177): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:27 Sac-Cli/(10168:10177): /ElArchivito
+[ERROR] 20:51:58:30 Sac-Cli/(10168:10177): no se pudo enviar pack
+[INFO] 20:51:58:57 Sac-Cli/(10168:10179): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:57 Sac-Cli/(10168:10179): /LaCosa
+[ERROR] 20:51:58:57 Sac-Cli/(10168:10179): no se pudo enviar pack
+[INFO] 20:51:58:68 Sac-Cli/(10168:10179): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:68 Sac-Cli/(10168:10179): /
+[ERROR] 20:51:58:68 Sac-Cli/(10168:10179): no se pudo enviar pack
+[INFO] 20:51:58:70 Sac-Cli/(10168:10175): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:75 Sac-Cli/(10168:10178): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:76 Sac-Cli/(10168:10178): /LaCosa
+[ERROR] 20:51:58:76 Sac-Cli/(10168:10178): no se pudo enviar pack
+[INFO] 20:51:58:83 Sac-Cli/(10168:10178): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:84 Sac-Cli/(10168:10178): /
+[ERROR] 20:51:58:84 Sac-Cli/(10168:10178): no se pudo enviar pack
+[INFO] 20:51:58:85 Sac-Cli/(10168:10175): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:86 Sac-Cli/(10168:10179): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:86 Sac-Cli/(10168:10179): /LaCosa
+[ERROR] 20:51:58:86 Sac-Cli/(10168:10179): no se pudo enviar pack
+[INFO] 20:51:58:89 Sac-Cli/(10168:10177): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:90 Sac-Cli/(10168:10177): /
+[ERROR] 20:51:58:90 Sac-Cli/(10168:10177): no se pudo enviar pack
+[INFO] 20:51:58:91 Sac-Cli/(10168:10175): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:92 Sac-Cli/(10168:10178): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:92 Sac-Cli/(10168:10178): /LaCosa
+[ERROR] 20:51:58:92 Sac-Cli/(10168:10178): no se pudo enviar pack
+[INFO] 20:51:58:94 Sac-Cli/(10168:10179): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:98 Sac-Cli/(10168:10179): /
+[ERROR] 20:51:58:99 Sac-Cli/(10168:10179): no se pudo enviar pack
+[INFO] 20:51:58:99 Sac-Cli/(10168:10175): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:101 Sac-Cli/(10168:10180): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:101 Sac-Cli/(10168:10180): /LaCosa
+[ERROR] 20:51:58:101 Sac-Cli/(10168:10180): no se pudo enviar pack
+[INFO] 20:51:58:107 Sac-Cli/(10168:10177): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:107 Sac-Cli/(10168:10177): /
+[ERROR] 20:51:58:107 Sac-Cli/(10168:10177): no se pudo enviar pack
+[INFO] 20:51:58:108 Sac-Cli/(10168:10176): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:109 Sac-Cli/(10168:10175): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:109 Sac-Cli/(10168:10175): /LaCosa
+[ERROR] 20:51:58:110 Sac-Cli/(10168:10175): no se pudo enviar pack
+[INFO] 20:51:58:115 Sac-Cli/(10168:10180): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:117 Sac-Cli/(10168:10180): /
+[ERROR] 20:51:58:118 Sac-Cli/(10168:10180): no se pudo enviar pack
+[INFO] 20:51:58:119 Sac-Cli/(10168:10178): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:120 Sac-Cli/(10168:10175): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:120 Sac-Cli/(10168:10175): /LaCosa
+[ERROR] 20:51:58:120 Sac-Cli/(10168:10175): no se pudo enviar pack
+[INFO] 20:51:58:122 Sac-Cli/(10168:10178): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:122 Sac-Cli/(10168:10178): /
+[ERROR] 20:51:58:122 Sac-Cli/(10168:10178): no se pudo enviar pack
+[INFO] 20:51:58:123 Sac-Cli/(10168:10176): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:125 Sac-Cli/(10168:10177): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:125 Sac-Cli/(10168:10177): /LaCosa
+[ERROR] 20:51:58:125 Sac-Cli/(10168:10177): no se pudo enviar pack
+[INFO] 20:51:58:127 Sac-Cli/(10168:10179): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:132 Sac-Cli/(10168:10179): /
+[ERROR] 20:51:58:132 Sac-Cli/(10168:10179): no se pudo enviar pack
+[INFO] 20:51:58:133 Sac-Cli/(10168:10178): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:138 Sac-Cli/(10168:10180): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:138 Sac-Cli/(10168:10180): /LaCosa
+[ERROR] 20:51:58:138 Sac-Cli/(10168:10180): no se pudo enviar pack
+[INFO] 20:51:58:140 Sac-Cli/(10168:10177): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:140 Sac-Cli/(10168:10177): /
+[ERROR] 20:51:58:140 Sac-Cli/(10168:10177): no se pudo enviar pack
+[INFO] 20:51:58:141 Sac-Cli/(10168:10180): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:142 Sac-Cli/(10168:10179): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:142 Sac-Cli/(10168:10179): /LaCosa
+[ERROR] 20:51:58:142 Sac-Cli/(10168:10179): no se pudo enviar pack
+[INFO] 20:51:58:151 Sac-Cli/(10168:10180): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:152 Sac-Cli/(10168:10180): /
+[ERROR] 20:51:58:152 Sac-Cli/(10168:10180): no se pudo enviar pack
+[INFO] 20:51:58:153 Sac-Cli/(10168:10176): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:154 Sac-Cli/(10168:10175): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:154 Sac-Cli/(10168:10175): /LaCosa
+[ERROR] 20:51:58:155 Sac-Cli/(10168:10175): no se pudo enviar pack
+[INFO] 20:51:58:157 Sac-Cli/(10168:10180): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:157 Sac-Cli/(10168:10180): /
+[ERROR] 20:51:58:157 Sac-Cli/(10168:10180): no se pudo enviar pack
+[INFO] 20:51:58:158 Sac-Cli/(10168:10176): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:159 Sac-Cli/(10168:10179): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:159 Sac-Cli/(10168:10179): /LaCosa
+[ERROR] 20:51:58:159 Sac-Cli/(10168:10179): no se pudo enviar pack
+[INFO] 20:51:58:171 Sac-Cli/(10168:10178): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:171 Sac-Cli/(10168:10178): /
+[ERROR] 20:51:58:171 Sac-Cli/(10168:10178): no se pudo enviar pack
+[INFO] 20:51:58:172 Sac-Cli/(10168:10180): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:173 Sac-Cli/(10168:10176): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:173 Sac-Cli/(10168:10176): /LaCosa
+[ERROR] 20:51:58:174 Sac-Cli/(10168:10176): no se pudo enviar pack
+[INFO] 20:51:58:175 Sac-Cli/(10168:10178): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:176 Sac-Cli/(10168:10178): /
+[ERROR] 20:51:58:176 Sac-Cli/(10168:10178): no se pudo enviar pack
+[INFO] 20:51:58:177 Sac-Cli/(10168:10177): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:178 Sac-Cli/(10168:10179): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:178 Sac-Cli/(10168:10179): /LaCosa
+[ERROR] 20:51:58:178 Sac-Cli/(10168:10179): no se pudo enviar pack
+[INFO] 20:51:58:185 Sac-Cli/(10168:10175): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:185 Sac-Cli/(10168:10175): /
+[ERROR] 20:51:58:186 Sac-Cli/(10168:10175): no se pudo enviar pack
+[INFO] 20:51:58:186 Sac-Cli/(10168:10178): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:188 Sac-Cli/(10168:10176): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:188 Sac-Cli/(10168:10176): /LaCosa
+[ERROR] 20:51:58:188 Sac-Cli/(10168:10176): no se pudo enviar pack
+[INFO] 20:51:58:190 Sac-Cli/(10168:10177): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:190 Sac-Cli/(10168:10177): /
+[ERROR] 20:51:58:190 Sac-Cli/(10168:10177): no se pudo enviar pack
+[INFO] 20:51:58:191 Sac-Cli/(10168:10178): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:192 Sac-Cli/(10168:10177): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:192 Sac-Cli/(10168:10177): /LaCosa
+[ERROR] 20:51:58:193 Sac-Cli/(10168:10177): no se pudo enviar pack
+[INFO] 20:51:58:194 Sac-Cli/(10168:10180): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:194 Sac-Cli/(10168:10180): /
+[ERROR] 20:51:58:195 Sac-Cli/(10168:10180): no se pudo enviar pack
+[INFO] 20:51:58:204 Sac-Cli/(10168:10176): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:205 Sac-Cli/(10168:10178): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:206 Sac-Cli/(10168:10178): /LaCosa
+[ERROR] 20:51:58:206 Sac-Cli/(10168:10178): no se pudo enviar pack
+[INFO] 20:51:58:207 Sac-Cli/(10168:10176): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:208 Sac-Cli/(10168:10176): /
+[ERROR] 20:51:58:208 Sac-Cli/(10168:10176): no se pudo enviar pack
+[INFO] 20:51:58:209 Sac-Cli/(10168:10175): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:210 Sac-Cli/(10168:10181): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:210 Sac-Cli/(10168:10181): /LaCosa
+[ERROR] 20:51:58:210 Sac-Cli/(10168:10181): no se pudo enviar pack
+[INFO] 20:51:58:217 Sac-Cli/(10168:10178): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:218 Sac-Cli/(10168:10178): /
+[ERROR] 20:51:58:218 Sac-Cli/(10168:10178): no se pudo enviar pack
+[INFO] 20:51:58:219 Sac-Cli/(10168:10179): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:220 Sac-Cli/(10168:10181): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:220 Sac-Cli/(10168:10181): /LaCosa
+[ERROR] 20:51:58:220 Sac-Cli/(10168:10181): no se pudo enviar pack
+[INFO] 20:51:58:222 Sac-Cli/(10168:10176): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:222 Sac-Cli/(10168:10176): /
+[ERROR] 20:51:58:223 Sac-Cli/(10168:10176): no se pudo enviar pack
+[INFO] 20:51:58:224 Sac-Cli/(10168:10181): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:225 Sac-Cli/(10168:10175): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:225 Sac-Cli/(10168:10175): /LaCosa
+[ERROR] 20:51:58:225 Sac-Cli/(10168:10175): no se pudo enviar pack
+[INFO] 20:51:58:227 Sac-Cli/(10168:10181): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:227 Sac-Cli/(10168:10181): /
+[ERROR] 20:51:58:233 Sac-Cli/(10168:10181): no se pudo enviar pack
+[INFO] 20:51:58:234 Sac-Cli/(10168:10178): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:235 Sac-Cli/(10168:10180): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:235 Sac-Cli/(10168:10180): /LaCosa
+[ERROR] 20:51:58:235 Sac-Cli/(10168:10180): no se pudo enviar pack
+[INFO] 20:51:58:237 Sac-Cli/(10168:10178): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:237 Sac-Cli/(10168:10178): /
+[ERROR] 20:51:58:237 Sac-Cli/(10168:10178): no se pudo enviar pack
+[INFO] 20:51:58:238 Sac-Cli/(10168:10179): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:239 Sac-Cli/(10168:10175): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:239 Sac-Cli/(10168:10175): /LaCosa
+[ERROR] 20:51:58:239 Sac-Cli/(10168:10175): no se pudo enviar pack
+[INFO] 20:51:58:241 Sac-Cli/(10168:10179): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:241 Sac-Cli/(10168:10179): /
+[ERROR] 20:51:58:242 Sac-Cli/(10168:10179): no se pudo enviar pack
+[INFO] 20:51:58:243 Sac-Cli/(10168:10178): Se llamo a fusesito_readdir
+
+[INFO] 20:51:58:245 Sac-Cli/(10168:10176): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:253 Sac-Cli/(10168:10176): /LaCosa
+[ERROR] 20:51:58:253 Sac-Cli/(10168:10176): no se pudo enviar pack
+[INFO] 20:51:58:255 Sac-Cli/(10168:10175): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:255 Sac-Cli/(10168:10175): /autorun.inf
+[ERROR] 20:51:58:255 Sac-Cli/(10168:10175): no se pudo enviar pack
+[INFO] 20:51:58:256 Sac-Cli/(10168:10178): Se llamo a fusesito_getattr
+
+[INFO] 20:51:58:256 Sac-Cli/(10168:10178): /
+[ERROR] 20:51:58:257 Sac-Cli/(10168:10178): no se pudo enviar pack
+[INFO] 21:11:20:174 Sac-Cli/(10852:10852): Se ha iniciado una nueva instancia del logger
+
+[INFO] 21:11:20:269 Sac-Cli/(10852:10852): Conexion correcta
+
+[INFO] 21:11:20:797 Sac-Cli/(10852:10860): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:801 Sac-Cli/(10852:10861): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:802 Sac-Cli/(10852:10860): /
+[ERROR] 21:11:20:805 Sac-Cli/(10852:10860): no se pudo enviar pack
+[INFO] 21:11:20:806 Sac-Cli/(10852:10861): /.xdg-volume-info
+[ERROR] 21:11:20:806 Sac-Cli/(10852:10861): no se pudo enviar pack
+[INFO] 21:11:20:826 Sac-Cli/(10852:10862): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:826 Sac-Cli/(10852:10862): /autorun.inf
+[ERROR] 21:11:20:826 Sac-Cli/(10852:10862): no se pudo enviar pack
+[INFO] 21:11:20:828 Sac-Cli/(10852:10859): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:828 Sac-Cli/(10852:10859): /.Trash
+[ERROR] 21:11:20:829 Sac-Cli/(10852:10859): no se pudo enviar pack
+[INFO] 21:11:20:832 Sac-Cli/(10852:10861): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:832 Sac-Cli/(10852:10861): /.Trash-1000
+[ERROR] 21:11:20:833 Sac-Cli/(10852:10861): no se pudo enviar pack
+[INFO] 21:11:20:844 Sac-Cli/(10852:10862): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:867 Sac-Cli/(10852:10861): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:868 Sac-Cli/(10852:10861): /ElArchivito
+[ERROR] 21:11:20:868 Sac-Cli/(10852:10861): no se pudo enviar pack
+[INFO] 21:11:20:914 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:914 Sac-Cli/(10852:10863): /LaCosa
+[ERROR] 21:11:20:915 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:20:922 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:922 Sac-Cli/(10852:10863): /
+[ERROR] 21:11:20:922 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:20:923 Sac-Cli/(10852:10860): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:924 Sac-Cli/(10852:10862): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:924 Sac-Cli/(10852:10862): /LaCosa
+[ERROR] 21:11:20:925 Sac-Cli/(10852:10862): no se pudo enviar pack
+[INFO] 21:11:20:927 Sac-Cli/(10852:10862): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:928 Sac-Cli/(10852:10862): /
+[ERROR] 21:11:20:928 Sac-Cli/(10852:10862): no se pudo enviar pack
+[INFO] 21:11:20:929 Sac-Cli/(10852:10860): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:930 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:931 Sac-Cli/(10852:10863): /LaCosa
+[ERROR] 21:11:20:931 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:20:934 Sac-Cli/(10852:10860): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:935 Sac-Cli/(10852:10860): /
+[ERROR] 21:11:20:937 Sac-Cli/(10852:10860): no se pudo enviar pack
+[INFO] 21:11:20:937 Sac-Cli/(10852:10861): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:938 Sac-Cli/(10852:10859): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:938 Sac-Cli/(10852:10859): /LaCosa
+[ERROR] 21:11:20:939 Sac-Cli/(10852:10859): no se pudo enviar pack
+[INFO] 21:11:20:940 Sac-Cli/(10852:10862): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:941 Sac-Cli/(10852:10862): /
+[ERROR] 21:11:20:941 Sac-Cli/(10852:10862): no se pudo enviar pack
+[INFO] 21:11:20:942 Sac-Cli/(10852:10861): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:943 Sac-Cli/(10852:10860): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:943 Sac-Cli/(10852:10860): /LaCosa
+[ERROR] 21:11:20:944 Sac-Cli/(10852:10860): no se pudo enviar pack
+[INFO] 21:11:20:945 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:946 Sac-Cli/(10852:10863): /
+[ERROR] 21:11:20:946 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:20:950 Sac-Cli/(10852:10859): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:951 Sac-Cli/(10852:10861): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:951 Sac-Cli/(10852:10861): /LaCosa
+[ERROR] 21:11:20:951 Sac-Cli/(10852:10861): no se pudo enviar pack
+[INFO] 21:11:20:954 Sac-Cli/(10852:10859): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:954 Sac-Cli/(10852:10859): /
+[ERROR] 21:11:20:955 Sac-Cli/(10852:10859): no se pudo enviar pack
+[INFO] 21:11:20:955 Sac-Cli/(10852:10860): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:956 Sac-Cli/(10852:10862): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:957 Sac-Cli/(10852:10862): /LaCosa
+[ERROR] 21:11:20:957 Sac-Cli/(10852:10862): no se pudo enviar pack
+[INFO] 21:11:20:958 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:958 Sac-Cli/(10852:10863): /
+[ERROR] 21:11:20:959 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:20:959 Sac-Cli/(10852:10860): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:961 Sac-Cli/(10852:10861): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:961 Sac-Cli/(10852:10861): /LaCosa
+[ERROR] 21:11:20:962 Sac-Cli/(10852:10861): no se pudo enviar pack
+[INFO] 21:11:20:964 Sac-Cli/(10852:10862): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:964 Sac-Cli/(10852:10862): /
+[ERROR] 21:11:20:964 Sac-Cli/(10852:10862): no se pudo enviar pack
+[INFO] 21:11:20:968 Sac-Cli/(10852:10859): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:969 Sac-Cli/(10852:10864): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:970 Sac-Cli/(10852:10864): /LaCosa
+[ERROR] 21:11:20:970 Sac-Cli/(10852:10864): no se pudo enviar pack
+[INFO] 21:11:20:971 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:972 Sac-Cli/(10852:10863): /
+[ERROR] 21:11:20:972 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:20:973 Sac-Cli/(10852:10862): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:975 Sac-Cli/(10852:10861): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:976 Sac-Cli/(10852:10861): /LaCosa
+[ERROR] 21:11:20:976 Sac-Cli/(10852:10861): no se pudo enviar pack
+[INFO] 21:11:20:980 Sac-Cli/(10852:10864): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:980 Sac-Cli/(10852:10864): /
+[ERROR] 21:11:20:981 Sac-Cli/(10852:10864): no se pudo enviar pack
+[INFO] 21:11:20:982 Sac-Cli/(10852:10860): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:983 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:983 Sac-Cli/(10852:10863): /LaCosa
+[ERROR] 21:11:20:984 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:20:985 Sac-Cli/(10852:10859): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:985 Sac-Cli/(10852:10859): /
+[ERROR] 21:11:20:986 Sac-Cli/(10852:10859): no se pudo enviar pack
+[INFO] 21:11:20:987 Sac-Cli/(10852:10861): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:988 Sac-Cli/(10852:10860): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:988 Sac-Cli/(10852:10860): /LaCosa
+[ERROR] 21:11:20:990 Sac-Cli/(10852:10860): no se pudo enviar pack
+[INFO] 21:11:20:991 Sac-Cli/(10852:10862): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:991 Sac-Cli/(10852:10862): /
+[ERROR] 21:11:20:992 Sac-Cli/(10852:10862): no se pudo enviar pack
+[INFO] 21:11:20:994 Sac-Cli/(10852:10859): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:995 Sac-Cli/(10852:10864): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:996 Sac-Cli/(10852:10864): /LaCosa
+[ERROR] 21:11:20:996 Sac-Cli/(10852:10864): no se pudo enviar pack
+[INFO] 21:11:20:1 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:2 Sac-Cli/(10852:10863): /
+[ERROR] 21:11:20:2 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:20:3 Sac-Cli/(10852:10860): Se llamo a fusesito_readdir
+
+[INFO] 21:11:20:4 Sac-Cli/(10852:10859): Se llamo a fusesito_getattr
+
+[INFO] 21:11:20:4 Sac-Cli/(10852:10859): /LaCosa
+[ERROR] 21:11:21:4 Sac-Cli/(10852:10859): no se pudo enviar pack
+[INFO] 21:11:21:6 Sac-Cli/(10852:10860): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:6 Sac-Cli/(10852:10860): /
+[ERROR] 21:11:21:7 Sac-Cli/(10852:10860): no se pudo enviar pack
+[INFO] 21:11:21:7 Sac-Cli/(10852:10862): Se llamo a fusesito_readdir
+
+[INFO] 21:11:21:8 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:9 Sac-Cli/(10852:10863): /LaCosa
+[ERROR] 21:11:21:9 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:21:11 Sac-Cli/(10852:10861): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:12 Sac-Cli/(10852:10861): /
+[ERROR] 21:11:21:12 Sac-Cli/(10852:10861): no se pudo enviar pack
+[INFO] 21:11:21:13 Sac-Cli/(10852:10860): Se llamo a fusesito_readdir
+
+[INFO] 21:11:21:14 Sac-Cli/(10852:10862): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:14 Sac-Cli/(10852:10862): /LaCosa
+[ERROR] 21:11:21:14 Sac-Cli/(10852:10862): no se pudo enviar pack
+[INFO] 21:11:21:16 Sac-Cli/(10852:10864): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:16 Sac-Cli/(10852:10864): /
+[ERROR] 21:11:21:16 Sac-Cli/(10852:10864): no se pudo enviar pack
+[INFO] 21:11:21:17 Sac-Cli/(10852:10859): Se llamo a fusesito_readdir
+
+[INFO] 21:11:21:18 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:18 Sac-Cli/(10852:10863): /LaCosa
+[ERROR] 21:11:21:18 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:21:19 Sac-Cli/(10852:10861): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:20 Sac-Cli/(10852:10861): /
+[ERROR] 21:11:21:20 Sac-Cli/(10852:10861): no se pudo enviar pack
+[INFO] 21:11:21:21 Sac-Cli/(10852:10860): Se llamo a fusesito_readdir
+
+[INFO] 21:11:21:22 Sac-Cli/(10852:10859): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:22 Sac-Cli/(10852:10859): /LaCosa
+[ERROR] 21:11:21:22 Sac-Cli/(10852:10859): no se pudo enviar pack
+[INFO] 21:11:21:23 Sac-Cli/(10852:10862): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:24 Sac-Cli/(10852:10862): /
+[ERROR] 21:11:21:24 Sac-Cli/(10852:10862): no se pudo enviar pack
+[INFO] 21:11:21:25 Sac-Cli/(10852:10861): Se llamo a fusesito_readdir
+
+[INFO] 21:11:21:27 Sac-Cli/(10852:10860): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:27 Sac-Cli/(10852:10860): /LaCosa
+[ERROR] 21:11:21:28 Sac-Cli/(10852:10860): no se pudo enviar pack
+[INFO] 21:11:21:29 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:30 Sac-Cli/(10852:10863): /
+[ERROR] 21:11:21:30 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:21:31 Sac-Cli/(10852:10864): Se llamo a fusesito_readdir
+
+[INFO] 21:11:21:32 Sac-Cli/(10852:10862): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:32 Sac-Cli/(10852:10862): /LaCosa
+[ERROR] 21:11:21:32 Sac-Cli/(10852:10862): no se pudo enviar pack
+[INFO] 21:11:21:33 Sac-Cli/(10852:10859): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:34 Sac-Cli/(10852:10859): /
+[ERROR] 21:11:21:34 Sac-Cli/(10852:10859): no se pudo enviar pack
+[INFO] 21:11:21:35 Sac-Cli/(10852:10860): Se llamo a fusesito_readdir
+
+[INFO] 21:11:21:36 Sac-Cli/(10852:10864): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:36 Sac-Cli/(10852:10864): /LaCosa
+[ERROR] 21:11:21:38 Sac-Cli/(10852:10864): no se pudo enviar pack
+[INFO] 21:11:21:42 Sac-Cli/(10852:10861): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:42 Sac-Cli/(10852:10861): /
+[ERROR] 21:11:21:43 Sac-Cli/(10852:10861): no se pudo enviar pack
+[INFO] 21:11:21:44 Sac-Cli/(10852:10859): Se llamo a fusesito_readdir
+
+[INFO] 21:11:21:45 Sac-Cli/(10852:10860): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:45 Sac-Cli/(10852:10860): /LaCosa
+[ERROR] 21:11:21:48 Sac-Cli/(10852:10860): no se pudo enviar pack
+[INFO] 21:11:21:54 Sac-Cli/(10852:10863): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:54 Sac-Cli/(10852:10863): /
+[ERROR] 21:11:21:55 Sac-Cli/(10852:10863): no se pudo enviar pack
+[INFO] 21:11:21:56 Sac-Cli/(10852:10861): Se llamo a fusesito_readdir
+
+[INFO] 21:11:21:57 Sac-Cli/(10852:10862): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:58 Sac-Cli/(10852:10862): /LaCosa
+[ERROR] 21:11:21:58 Sac-Cli/(10852:10862): no se pudo enviar pack
+[INFO] 21:11:21:61 Sac-Cli/(10852:10860): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:62 Sac-Cli/(10852:10860): /autorun.inf
+[ERROR] 21:11:21:62 Sac-Cli/(10852:10860): no se pudo enviar pack
+[INFO] 21:11:21:69 Sac-Cli/(10852:10861): Se llamo a fusesito_getattr
+
+[INFO] 21:11:21:70 Sac-Cli/(10852:10861): /
+[ERROR] 21:11:21:70 Sac-Cli/(10852:10861): no se pudo enviar pack
+[INFO] 21:21:54:484 Sac-Cli/(11079:11079): Se ha iniciado una nueva instancia del logger
+
+[INFO] 21:21:54:555 Sac-Cli/(11079:11079): Conexion correcta
+
+[INFO] 21:21:55:92 Sac-Cli/(11079:11087): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:94 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:95 Sac-Cli/(11079:11087): /
+[INFO] 21:21:55:96 Sac-Cli/(11079:11088): /.xdg-volume-info
+[ERROR] 21:21:55:97 Sac-Cli/(11079:11088): no se pudo enviar pack
+[ERROR] 21:21:55:100 Sac-Cli/(11079:11087): no se pudo enviar pack
+[INFO] 21:21:55:108 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:109 Sac-Cli/(11079:11089): /autorun.inf
+[ERROR] 21:21:55:109 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:110 Sac-Cli/(11079:11086): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:111 Sac-Cli/(11079:11086): /.Trash
+[ERROR] 21:21:55:111 Sac-Cli/(11079:11086): no se pudo enviar pack
+[INFO] 21:21:55:112 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:118 Sac-Cli/(11079:11088): /.Trash-1000
+[ERROR] 21:21:55:118 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:125 Sac-Cli/(11079:11086): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:135 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:136 Sac-Cli/(11079:11088): /ElArchivito
+[ERROR] 21:21:55:136 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:158 Sac-Cli/(11079:11087): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:159 Sac-Cli/(11079:11087): /LaCosa
+[ERROR] 21:21:55:159 Sac-Cli/(11079:11087): no se pudo enviar pack
+[INFO] 21:21:55:165 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:165 Sac-Cli/(11079:11089): /
+[ERROR] 21:21:55:166 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:167 Sac-Cli/(11079:11088): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:168 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:169 Sac-Cli/(11079:11089): /LaCosa
+[ERROR] 21:21:55:169 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:171 Sac-Cli/(11079:11087): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:171 Sac-Cli/(11079:11087): /
+[ERROR] 21:21:55:172 Sac-Cli/(11079:11087): no se pudo enviar pack
+[INFO] 21:21:55:172 Sac-Cli/(11079:11089): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:177 Sac-Cli/(11079:11087): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:178 Sac-Cli/(11079:11087): /LaCosa
+[ERROR] 21:21:55:179 Sac-Cli/(11079:11087): no se pudo enviar pack
+[INFO] 21:21:55:180 Sac-Cli/(11079:11086): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:180 Sac-Cli/(11079:11086): /
+[ERROR] 21:21:55:181 Sac-Cli/(11079:11086): no se pudo enviar pack
+[INFO] 21:21:55:181 Sac-Cli/(11079:11088): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:183 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:183 Sac-Cli/(11079:11089): /LaCosa
+[ERROR] 21:21:55:184 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:187 Sac-Cli/(11079:11087): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:188 Sac-Cli/(11079:11087): /
+[ERROR] 21:21:55:188 Sac-Cli/(11079:11087): no se pudo enviar pack
+[INFO] 21:21:55:189 Sac-Cli/(11079:11086): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:190 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:190 Sac-Cli/(11079:11088): /LaCosa
+[ERROR] 21:21:55:191 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:192 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:193 Sac-Cli/(11079:11089): /
+[ERROR] 21:21:55:193 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:194 Sac-Cli/(11079:11086): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:195 Sac-Cli/(11079:11087): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:195 Sac-Cli/(11079:11087): /LaCosa
+[ERROR] 21:21:55:196 Sac-Cli/(11079:11087): no se pudo enviar pack
+[INFO] 21:21:55:197 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:198 Sac-Cli/(11079:11088): /
+[ERROR] 21:21:55:198 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:199 Sac-Cli/(11079:11089): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:200 Sac-Cli/(11079:11086): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:200 Sac-Cli/(11079:11086): /LaCosa
+[ERROR] 21:21:55:200 Sac-Cli/(11079:11086): no se pudo enviar pack
+[INFO] 21:21:55:201 Sac-Cli/(11079:11087): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:202 Sac-Cli/(11079:11087): /
+[ERROR] 21:21:55:202 Sac-Cli/(11079:11087): no se pudo enviar pack
+[INFO] 21:21:55:203 Sac-Cli/(11079:11088): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:204 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:209 Sac-Cli/(11079:11089): /LaCosa
+[ERROR] 21:21:55:209 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:211 Sac-Cli/(11079:11086): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:211 Sac-Cli/(11079:11086): /
+[ERROR] 21:21:55:212 Sac-Cli/(11079:11086): no se pudo enviar pack
+[INFO] 21:21:55:212 Sac-Cli/(11079:11087): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:213 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:214 Sac-Cli/(11079:11088): /LaCosa
+[ERROR] 21:21:55:214 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:216 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:217 Sac-Cli/(11079:11089): /
+[ERROR] 21:21:55:217 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:218 Sac-Cli/(11079:11087): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:219 Sac-Cli/(11079:11086): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:219 Sac-Cli/(11079:11086): /LaCosa
+[ERROR] 21:21:55:219 Sac-Cli/(11079:11086): no se pudo enviar pack
+[INFO] 21:21:55:221 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:222 Sac-Cli/(11079:11088): /
+[ERROR] 21:21:55:222 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:223 Sac-Cli/(11079:11087): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:224 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:225 Sac-Cli/(11079:11089): /LaCosa
+[ERROR] 21:21:55:225 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:226 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:227 Sac-Cli/(11079:11088): /
+[ERROR] 21:21:55:227 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:228 Sac-Cli/(11079:11086): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:229 Sac-Cli/(11079:11086): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:229 Sac-Cli/(11079:11086): /LaCosa
+[ERROR] 21:21:55:229 Sac-Cli/(11079:11086): no se pudo enviar pack
+[INFO] 21:21:55:231 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:231 Sac-Cli/(11079:11089): /
+[ERROR] 21:21:55:231 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:232 Sac-Cli/(11079:11087): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:233 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:233 Sac-Cli/(11079:11088): /LaCosa
+[ERROR] 21:21:55:238 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:240 Sac-Cli/(11079:11086): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:240 Sac-Cli/(11079:11086): /
+[ERROR] 21:21:55:241 Sac-Cli/(11079:11086): no se pudo enviar pack
+[INFO] 21:21:55:242 Sac-Cli/(11079:11089): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:242 Sac-Cli/(11079:11090): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:243 Sac-Cli/(11079:11090): /LaCosa
+[ERROR] 21:21:55:243 Sac-Cli/(11079:11090): no se pudo enviar pack
+[INFO] 21:21:55:245 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:246 Sac-Cli/(11079:11089): /
+[ERROR] 21:21:55:246 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:247 Sac-Cli/(11079:11088): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:248 Sac-Cli/(11079:11086): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:248 Sac-Cli/(11079:11086): /LaCosa
+[ERROR] 21:21:55:248 Sac-Cli/(11079:11086): no se pudo enviar pack
+[INFO] 21:21:55:250 Sac-Cli/(11079:11087): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:250 Sac-Cli/(11079:11087): /
+[ERROR] 21:21:55:251 Sac-Cli/(11079:11087): no se pudo enviar pack
+[INFO] 21:21:55:252 Sac-Cli/(11079:11088): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:253 Sac-Cli/(11079:11090): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:253 Sac-Cli/(11079:11090): /LaCosa
+[ERROR] 21:21:55:253 Sac-Cli/(11079:11090): no se pudo enviar pack
+[INFO] 21:21:55:255 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:255 Sac-Cli/(11079:11088): /
+[ERROR] 21:21:55:256 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:256 Sac-Cli/(11079:11086): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:257 Sac-Cli/(11079:11087): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:257 Sac-Cli/(11079:11087): /LaCosa
+[ERROR] 21:21:55:258 Sac-Cli/(11079:11087): no se pudo enviar pack
+[INFO] 21:21:55:259 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:259 Sac-Cli/(11079:11089): /
+[ERROR] 21:21:55:259 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:260 Sac-Cli/(11079:11090): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:261 Sac-Cli/(11079:11086): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:261 Sac-Cli/(11079:11086): /LaCosa
+[ERROR] 21:21:55:262 Sac-Cli/(11079:11086): no se pudo enviar pack
+[INFO] 21:21:55:263 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:263 Sac-Cli/(11079:11088): /
+[ERROR] 21:21:55:264 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:264 Sac-Cli/(11079:11090): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:267 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:268 Sac-Cli/(11079:11089): /LaCosa
+[ERROR] 21:21:55:268 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:273 Sac-Cli/(11079:11086): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:274 Sac-Cli/(11079:11086): /
+[ERROR] 21:21:55:274 Sac-Cli/(11079:11086): no se pudo enviar pack
+[INFO] 21:21:55:275 Sac-Cli/(11079:11088): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:276 Sac-Cli/(11079:11090): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:276 Sac-Cli/(11079:11090): /LaCosa
+[ERROR] 21:21:55:277 Sac-Cli/(11079:11090): no se pudo enviar pack
+[INFO] 21:21:55:278 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:279 Sac-Cli/(11079:11088): /
+[ERROR] 21:21:55:279 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:280 Sac-Cli/(11079:11089): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:281 Sac-Cli/(11079:11087): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:281 Sac-Cli/(11079:11087): /LaCosa
+[ERROR] 21:21:55:282 Sac-Cli/(11079:11087): no se pudo enviar pack
+[INFO] 21:21:55:283 Sac-Cli/(11079:11086): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:284 Sac-Cli/(11079:11086): /
+[ERROR] 21:21:55:284 Sac-Cli/(11079:11086): no se pudo enviar pack
+[INFO] 21:21:55:285 Sac-Cli/(11079:11089): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:286 Sac-Cli/(11079:11090): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:286 Sac-Cli/(11079:11090): /LaCosa
+[ERROR] 21:21:55:287 Sac-Cli/(11079:11090): no se pudo enviar pack
+[INFO] 21:21:55:292 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:292 Sac-Cli/(11079:11088): /
+[ERROR] 21:21:55:293 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:294 Sac-Cli/(11079:11089): Se llamo a fusesito_readdir
+
+[INFO] 21:21:55:295 Sac-Cli/(11079:11090): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:295 Sac-Cli/(11079:11090): /LaCosa
+[ERROR] 21:21:55:295 Sac-Cli/(11079:11090): no se pudo enviar pack
+[INFO] 21:21:55:299 Sac-Cli/(11079:11089): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:299 Sac-Cli/(11079:11089): /autorun.inf
+[ERROR] 21:21:55:300 Sac-Cli/(11079:11089): no se pudo enviar pack
+[INFO] 21:21:55:304 Sac-Cli/(11079:11088): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:304 Sac-Cli/(11079:11088): /
+[ERROR] 21:21:55:305 Sac-Cli/(11079:11088): no se pudo enviar pack
+[INFO] 21:21:55:305 Sac-Cli/(11079:11087): Se llamo a fusesito_getattr
+
+[INFO] 21:21:55:306 Sac-Cli/(11079:11087): /
+[ERROR] 21:21:55:306 Sac-Cli/(11079:11087): no se pudo enviar pack
+[INFO] 21:28:09:734 Sac-Cli/(11502:11502): Se ha iniciado una nueva instancia del logger
+
+[INFO] 21:28:09:818 Sac-Cli/(11502:11502): Conexion correcta
+
+[INFO] 21:28:10:328 Sac-Cli/(11502:11513): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:332 Sac-Cli/(11502:11513): /
+[INFO] 21:28:10:332 Sac-Cli/(11502:11511): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:337 Sac-Cli/(11502:11511): /.xdg-volume-info
+[INFO] 21:28:10:339 Sac-Cli/(11502:11511): se pudo enviar pack
+[INFO] 21:28:10:348 Sac-Cli/(11502:11513): se pudo enviar pack
+[INFO] 21:28:10:363 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:363 Sac-Cli/(11502:11510): /autorun.inf
+[INFO] 21:28:10:364 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:365 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:365 Sac-Cli/(11502:11512): /.Trash
+[INFO] 21:28:10:366 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:367 Sac-Cli/(11502:11511): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:367 Sac-Cli/(11502:11511): /.Trash-1000
+[INFO] 21:28:10:367 Sac-Cli/(11502:11511): se pudo enviar pack
+[INFO] 21:28:10:380 Sac-Cli/(11502:11512): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:400 Sac-Cli/(11502:11511): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:401 Sac-Cli/(11502:11511): /ElArchivito
+[INFO] 21:28:10:401 Sac-Cli/(11502:11511): se pudo enviar pack
+[INFO] 21:28:10:439 Sac-Cli/(11502:11513): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:440 Sac-Cli/(11502:11513): /LaCosa
+[INFO] 21:28:10:440 Sac-Cli/(11502:11513): se pudo enviar pack
+[INFO] 21:28:10:448 Sac-Cli/(11502:11513): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:449 Sac-Cli/(11502:11513): /
+[INFO] 21:28:10:449 Sac-Cli/(11502:11513): se pudo enviar pack
+[INFO] 21:28:10:450 Sac-Cli/(11502:11513): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:451 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:451 Sac-Cli/(11502:11510): /LaCosa
+[INFO] 21:28:10:452 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:454 Sac-Cli/(11502:11513): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:455 Sac-Cli/(11502:11513): /
+[INFO] 21:28:10:455 Sac-Cli/(11502:11513): se pudo enviar pack
+[INFO] 21:28:10:456 Sac-Cli/(11502:11511): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:457 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:458 Sac-Cli/(11502:11512): /LaCosa
+[INFO] 21:28:10:458 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:463 Sac-Cli/(11502:11511): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:465 Sac-Cli/(11502:11511): /
+[INFO] 21:28:10:466 Sac-Cli/(11502:11511): se pudo enviar pack
+[INFO] 21:28:10:466 Sac-Cli/(11502:11510): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:467 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:468 Sac-Cli/(11502:11512): /LaCosa
+[INFO] 21:28:10:468 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:470 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:470 Sac-Cli/(11502:11510): /
+[INFO] 21:28:10:471 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:472 Sac-Cli/(11502:11513): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:473 Sac-Cli/(11502:11511): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:473 Sac-Cli/(11502:11511): /LaCosa
+[INFO] 21:28:10:474 Sac-Cli/(11502:11511): se pudo enviar pack
+[INFO] 21:28:10:478 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:479 Sac-Cli/(11502:11512): /
+[INFO] 21:28:10:479 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:480 Sac-Cli/(11502:11510): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:481 Sac-Cli/(11502:11514): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:481 Sac-Cli/(11502:11514): /LaCosa
+[INFO] 21:28:10:482 Sac-Cli/(11502:11514): se pudo enviar pack
+[INFO] 21:28:10:483 Sac-Cli/(11502:11513): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:484 Sac-Cli/(11502:11513): /
+[INFO] 21:28:10:484 Sac-Cli/(11502:11513): se pudo enviar pack
+[INFO] 21:28:10:485 Sac-Cli/(11502:11511): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:486 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:486 Sac-Cli/(11502:11510): /LaCosa
+[INFO] 21:28:10:486 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:487 Sac-Cli/(11502:11511): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:488 Sac-Cli/(11502:11511): /
+[INFO] 21:28:10:489 Sac-Cli/(11502:11511): se pudo enviar pack
+[INFO] 21:28:10:489 Sac-Cli/(11502:11514): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:490 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:490 Sac-Cli/(11502:11512): /LaCosa
+[INFO] 21:28:10:491 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:494 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:494 Sac-Cli/(11502:11510): /
+[INFO] 21:28:10:498 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:501 Sac-Cli/(11502:11513): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:502 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:502 Sac-Cli/(11502:11512): /LaCosa
+[INFO] 21:28:10:503 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:505 Sac-Cli/(11502:11511): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:506 Sac-Cli/(11502:11511): /
+[INFO] 21:28:10:506 Sac-Cli/(11502:11511): se pudo enviar pack
+[INFO] 21:28:10:507 Sac-Cli/(11502:11511): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:508 Sac-Cli/(11502:11513): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:509 Sac-Cli/(11502:11513): /LaCosa
+[INFO] 21:28:10:509 Sac-Cli/(11502:11513): se pudo enviar pack
+[INFO] 21:28:10:510 Sac-Cli/(11502:11514): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:511 Sac-Cli/(11502:11514): /
+[INFO] 21:28:10:511 Sac-Cli/(11502:11514): se pudo enviar pack
+[INFO] 21:28:10:517 Sac-Cli/(11502:11514): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:517 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:518 Sac-Cli/(11502:11510): /LaCosa
+[INFO] 21:28:10:518 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:519 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:520 Sac-Cli/(11502:11512): /
+[INFO] 21:28:10:520 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:521 Sac-Cli/(11502:11515): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:522 Sac-Cli/(11502:11513): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:522 Sac-Cli/(11502:11513): /LaCosa
+[INFO] 21:28:10:523 Sac-Cli/(11502:11513): se pudo enviar pack
+[INFO] 21:28:10:524 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:525 Sac-Cli/(11502:11512): /
+[INFO] 21:28:10:525 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:526 Sac-Cli/(11502:11511): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:527 Sac-Cli/(11502:11514): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:529 Sac-Cli/(11502:11514): /LaCosa
+[INFO] 21:28:10:529 Sac-Cli/(11502:11514): se pudo enviar pack
+[INFO] 21:28:10:531 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:531 Sac-Cli/(11502:11510): /
+[INFO] 21:28:10:531 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:532 Sac-Cli/(11502:11510): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:537 Sac-Cli/(11502:11511): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:538 Sac-Cli/(11502:11511): /LaCosa
+[INFO] 21:28:10:538 Sac-Cli/(11502:11511): se pudo enviar pack
+[INFO] 21:28:10:539 Sac-Cli/(11502:11513): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:540 Sac-Cli/(11502:11513): /
+[INFO] 21:28:10:540 Sac-Cli/(11502:11513): se pudo enviar pack
+[INFO] 21:28:10:541 Sac-Cli/(11502:11515): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:542 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:542 Sac-Cli/(11502:11512): /LaCosa
+[INFO] 21:28:10:542 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:544 Sac-Cli/(11502:11514): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:544 Sac-Cli/(11502:11514): /
+[INFO] 21:28:10:545 Sac-Cli/(11502:11514): se pudo enviar pack
+[INFO] 21:28:10:546 Sac-Cli/(11502:11513): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:547 Sac-Cli/(11502:11515): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:547 Sac-Cli/(11502:11515): /LaCosa
+[INFO] 21:28:10:548 Sac-Cli/(11502:11515): se pudo enviar pack
+[INFO] 21:28:10:549 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:550 Sac-Cli/(11502:11510): /
+[INFO] 21:28:10:550 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:551 Sac-Cli/(11502:11511): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:552 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:552 Sac-Cli/(11502:11512): /LaCosa
+[INFO] 21:28:10:552 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:554 Sac-Cli/(11502:11513): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:554 Sac-Cli/(11502:11513): /
+[INFO] 21:28:10:554 Sac-Cli/(11502:11513): se pudo enviar pack
+[INFO] 21:28:10:555 Sac-Cli/(11502:11515): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:556 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:556 Sac-Cli/(11502:11510): /LaCosa
+[INFO] 21:28:10:556 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:557 Sac-Cli/(11502:11514): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:558 Sac-Cli/(11502:11514): /
+[INFO] 21:28:10:558 Sac-Cli/(11502:11514): se pudo enviar pack
+[INFO] 21:28:10:561 Sac-Cli/(11502:11511): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:562 Sac-Cli/(11502:11515): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:564 Sac-Cli/(11502:11515): /LaCosa
+[INFO] 21:28:10:564 Sac-Cli/(11502:11515): se pudo enviar pack
+[INFO] 21:28:10:569 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:570 Sac-Cli/(11502:11512): /
+[INFO] 21:28:10:570 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:571 Sac-Cli/(11502:11514): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:572 Sac-Cli/(11502:11513): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:572 Sac-Cli/(11502:11513): /LaCosa
+[INFO] 21:28:10:573 Sac-Cli/(11502:11513): se pudo enviar pack
+[INFO] 21:28:10:574 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:574 Sac-Cli/(11502:11510): /
+[INFO] 21:28:10:575 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:576 Sac-Cli/(11502:11515): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:577 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:578 Sac-Cli/(11502:11512): /LaCosa
+[INFO] 21:28:10:579 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:28:10:581 Sac-Cli/(11502:11514): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:581 Sac-Cli/(11502:11514): /
+[INFO] 21:28:10:582 Sac-Cli/(11502:11514): se pudo enviar pack
+[INFO] 21:28:10:582 Sac-Cli/(11502:11511): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:583 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:584 Sac-Cli/(11502:11510): /LaCosa
+[INFO] 21:28:10:584 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:588 Sac-Cli/(11502:11513): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:589 Sac-Cli/(11502:11513): /
+[INFO] 21:28:10:589 Sac-Cli/(11502:11513): se pudo enviar pack
+[INFO] 21:28:10:591 Sac-Cli/(11502:11512): Se llamo a fusesito_readdir
+
+[INFO] 21:28:10:593 Sac-Cli/(11502:11510): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:593 Sac-Cli/(11502:11510): /LaCosa
+[INFO] 21:28:10:593 Sac-Cli/(11502:11510): se pudo enviar pack
+[INFO] 21:28:10:595 Sac-Cli/(11502:11511): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:596 Sac-Cli/(11502:11511): /autorun.inf
+[INFO] 21:28:10:597 Sac-Cli/(11502:11511): se pudo enviar pack
+[INFO] 21:28:10:639 Sac-Cli/(11502:11512): Se llamo a fusesito_getattr
+
+[INFO] 21:28:10:640 Sac-Cli/(11502:11512): /
+[INFO] 21:28:10:640 Sac-Cli/(11502:11512): se pudo enviar pack
+[INFO] 21:31:43:525 Sac-Cli/(11599:11599): Se ha iniciado una nueva instancia del logger
+
+[INFO] 21:31:43:582 Sac-Cli/(11599:11599): Conexion correcta
+
+[INFO] 21:31:43:845 Sac-Cli/(11599:11608): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:847 Sac-Cli/(11599:11606): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:848 Sac-Cli/(11599:11608): /
+[INFO] 21:31:43:852 Sac-Cli/(11599:11606): /.xdg-volume-info
+[INFO] 21:31:43:854 Sac-Cli/(11599:11606): se pudo enviar pack
+[INFO] 21:31:43:862 Sac-Cli/(11599:11608): se pudo enviar pack
+[INFO] 21:31:43:883 Sac-Cli/(11599:11605): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:883 Sac-Cli/(11599:11605): /autorun.inf
+[INFO] 21:31:43:884 Sac-Cli/(11599:11605): se pudo enviar pack
+[INFO] 21:31:43:885 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:886 Sac-Cli/(11599:11607): /.Trash
+[INFO] 21:31:43:886 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:43:888 Sac-Cli/(11599:11606): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:888 Sac-Cli/(11599:11606): /.Trash-1000
+[INFO] 21:31:43:888 Sac-Cli/(11599:11606): se pudo enviar pack
+[INFO] 21:31:43:896 Sac-Cli/(11599:11607): Se llamo a fusesito_readdir
+
+[INFO] 21:31:43:914 Sac-Cli/(11599:11606): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:914 Sac-Cli/(11599:11606): /ElArchivito
+[INFO] 21:31:43:915 Sac-Cli/(11599:11606): se pudo enviar pack
+[INFO] 21:31:43:938 Sac-Cli/(11599:11609): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:938 Sac-Cli/(11599:11609): /LaCosa
+[INFO] 21:31:43:938 Sac-Cli/(11599:11609): se pudo enviar pack
+[INFO] 21:31:43:945 Sac-Cli/(11599:11608): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:945 Sac-Cli/(11599:11608): /
+[INFO] 21:31:43:945 Sac-Cli/(11599:11608): se pudo enviar pack
+[INFO] 21:31:43:946 Sac-Cli/(11599:11609): Se llamo a fusesito_readdir
+
+[INFO] 21:31:43:947 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:948 Sac-Cli/(11599:11607): /LaCosa
+[INFO] 21:31:43:948 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:43:951 Sac-Cli/(11599:11608): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:951 Sac-Cli/(11599:11608): /
+[INFO] 21:31:43:952 Sac-Cli/(11599:11608): se pudo enviar pack
+[INFO] 21:31:43:952 Sac-Cli/(11599:11609): Se llamo a fusesito_readdir
+
+[INFO] 21:31:43:954 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:954 Sac-Cli/(11599:11607): /LaCosa
+[INFO] 21:31:43:954 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:43:956 Sac-Cli/(11599:11606): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:957 Sac-Cli/(11599:11606): /
+[INFO] 21:31:43:957 Sac-Cli/(11599:11606): se pudo enviar pack
+[INFO] 21:31:43:958 Sac-Cli/(11599:11609): Se llamo a fusesito_readdir
+
+[INFO] 21:31:43:959 Sac-Cli/(11599:11605): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:960 Sac-Cli/(11599:11605): /LaCosa
+[INFO] 21:31:43:960 Sac-Cli/(11599:11605): se pudo enviar pack
+[INFO] 21:31:43:965 Sac-Cli/(11599:11608): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:966 Sac-Cli/(11599:11608): /
+[INFO] 21:31:43:966 Sac-Cli/(11599:11608): se pudo enviar pack
+[INFO] 21:31:43:967 Sac-Cli/(11599:11607): Se llamo a fusesito_readdir
+
+[INFO] 21:31:43:968 Sac-Cli/(11599:11609): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:968 Sac-Cli/(11599:11609): /LaCosa
+[INFO] 21:31:43:968 Sac-Cli/(11599:11609): se pudo enviar pack
+[INFO] 21:31:43:971 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:971 Sac-Cli/(11599:11607): /
+[INFO] 21:31:43:971 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:43:972 Sac-Cli/(11599:11606): Se llamo a fusesito_readdir
+
+[INFO] 21:31:43:973 Sac-Cli/(11599:11605): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:973 Sac-Cli/(11599:11605): /LaCosa
+[INFO] 21:31:43:974 Sac-Cli/(11599:11605): se pudo enviar pack
+[INFO] 21:31:43:975 Sac-Cli/(11599:11606): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:976 Sac-Cli/(11599:11606): /
+[INFO] 21:31:43:976 Sac-Cli/(11599:11606): se pudo enviar pack
+[INFO] 21:31:43:977 Sac-Cli/(11599:11609): Se llamo a fusesito_readdir
+
+[INFO] 21:31:43:978 Sac-Cli/(11599:11608): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:978 Sac-Cli/(11599:11608): /LaCosa
+[INFO] 21:31:43:979 Sac-Cli/(11599:11608): se pudo enviar pack
+[INFO] 21:31:43:982 Sac-Cli/(11599:11609): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:982 Sac-Cli/(11599:11609): /
+[INFO] 21:31:43:982 Sac-Cli/(11599:11609): se pudo enviar pack
+[INFO] 21:31:43:983 Sac-Cli/(11599:11605): Se llamo a fusesito_readdir
+
+[INFO] 21:31:43:984 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:984 Sac-Cli/(11599:11607): /LaCosa
+[INFO] 21:31:43:984 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:43:986 Sac-Cli/(11599:11608): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:986 Sac-Cli/(11599:11608): /
+[INFO] 21:31:43:986 Sac-Cli/(11599:11608): se pudo enviar pack
+[INFO] 21:31:43:987 Sac-Cli/(11599:11605): Se llamo a fusesito_readdir
+
+[INFO] 21:31:43:988 Sac-Cli/(11599:11606): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:988 Sac-Cli/(11599:11606): /LaCosa
+[INFO] 21:31:43:989 Sac-Cli/(11599:11606): se pudo enviar pack
+[INFO] 21:31:43:990 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:990 Sac-Cli/(11599:11607): /
+[INFO] 21:31:43:990 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:43:991 Sac-Cli/(11599:11609): Se llamo a fusesito_readdir
+
+[INFO] 21:31:43:992 Sac-Cli/(11599:11608): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:992 Sac-Cli/(11599:11608): /LaCosa
+[INFO] 21:31:43:0 Sac-Cli/(11599:11608): se pudo enviar pack
+[INFO] 21:31:43:2 Sac-Cli/(11599:11610): Se llamo a fusesito_getattr
+
+[INFO] 21:31:43:3 Sac-Cli/(11599:11610): /
+[INFO] 21:31:43:3 Sac-Cli/(11599:11610): se pudo enviar pack
+[INFO] 21:31:43:4 Sac-Cli/(11599:11605): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:5 Sac-Cli/(11599:11606): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:5 Sac-Cli/(11599:11606): /LaCosa
+[INFO] 21:31:44:5 Sac-Cli/(11599:11606): se pudo enviar pack
+[INFO] 21:31:44:7 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:7 Sac-Cli/(11599:11607): /
+[INFO] 21:31:44:8 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:44:8 Sac-Cli/(11599:11605): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:10 Sac-Cli/(11599:11609): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:10 Sac-Cli/(11599:11609): /LaCosa
+[INFO] 21:31:44:10 Sac-Cli/(11599:11609): se pudo enviar pack
+[INFO] 21:31:44:12 Sac-Cli/(11599:11608): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:12 Sac-Cli/(11599:11608): /
+[INFO] 21:31:44:13 Sac-Cli/(11599:11608): se pudo enviar pack
+[INFO] 21:31:44:14 Sac-Cli/(11599:11607): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:14 Sac-Cli/(11599:11605): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:15 Sac-Cli/(11599:11605): /LaCosa
+[INFO] 21:31:44:15 Sac-Cli/(11599:11605): se pudo enviar pack
+[INFO] 21:31:44:17 Sac-Cli/(11599:11606): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:18 Sac-Cli/(11599:11606): /
+[INFO] 21:31:44:18 Sac-Cli/(11599:11606): se pudo enviar pack
+[INFO] 21:31:44:18 Sac-Cli/(11599:11608): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:19 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:20 Sac-Cli/(11599:11607): /LaCosa
+[INFO] 21:31:44:20 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:44:21 Sac-Cli/(11599:11610): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:22 Sac-Cli/(11599:11610): /
+[INFO] 21:31:44:22 Sac-Cli/(11599:11610): se pudo enviar pack
+[INFO] 21:31:44:23 Sac-Cli/(11599:11609): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:28 Sac-Cli/(11599:11608): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:28 Sac-Cli/(11599:11608): /LaCosa
+[INFO] 21:31:44:29 Sac-Cli/(11599:11608): se pudo enviar pack
+[INFO] 21:31:44:30 Sac-Cli/(11599:11605): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:31 Sac-Cli/(11599:11605): /
+[INFO] 21:31:44:31 Sac-Cli/(11599:11605): se pudo enviar pack
+[INFO] 21:31:44:32 Sac-Cli/(11599:11610): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:33 Sac-Cli/(11599:11609): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:33 Sac-Cli/(11599:11609): /LaCosa
+[INFO] 21:31:44:34 Sac-Cli/(11599:11609): se pudo enviar pack
+[INFO] 21:31:44:36 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:36 Sac-Cli/(11599:11607): /
+[INFO] 21:31:44:36 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:44:37 Sac-Cli/(11599:11605): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:38 Sac-Cli/(11599:11610): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:39 Sac-Cli/(11599:11610): /LaCosa
+[INFO] 21:31:44:39 Sac-Cli/(11599:11610): se pudo enviar pack
+[INFO] 21:31:44:41 Sac-Cli/(11599:11605): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:41 Sac-Cli/(11599:11605): /
+[INFO] 21:31:44:42 Sac-Cli/(11599:11605): se pudo enviar pack
+[INFO] 21:31:44:42 Sac-Cli/(11599:11606): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:43 Sac-Cli/(11599:11609): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:43 Sac-Cli/(11599:11609): /LaCosa
+[INFO] 21:31:44:44 Sac-Cli/(11599:11609): se pudo enviar pack
+[INFO] 21:31:44:45 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:45 Sac-Cli/(11599:11607): /
+[INFO] 21:31:44:46 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:44:46 Sac-Cli/(11599:11606): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:48 Sac-Cli/(11599:11610): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:48 Sac-Cli/(11599:11610): /LaCosa
+[INFO] 21:31:44:48 Sac-Cli/(11599:11610): se pudo enviar pack
+[INFO] 21:31:44:50 Sac-Cli/(11599:11608): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:50 Sac-Cli/(11599:11608): /
+[INFO] 21:31:44:50 Sac-Cli/(11599:11608): se pudo enviar pack
+[INFO] 21:31:44:51 Sac-Cli/(11599:11607): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:52 Sac-Cli/(11599:11606): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:52 Sac-Cli/(11599:11606): /LaCosa
+[INFO] 21:31:44:53 Sac-Cli/(11599:11606): se pudo enviar pack
+[INFO] 21:31:44:54 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:58 Sac-Cli/(11599:11607): /
+[INFO] 21:31:44:59 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:44:60 Sac-Cli/(11599:11605): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:61 Sac-Cli/(11599:11610): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:62 Sac-Cli/(11599:11610): /LaCosa
+[INFO] 21:31:44:62 Sac-Cli/(11599:11610): se pudo enviar pack
+[INFO] 21:31:44:63 Sac-Cli/(11599:11609): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:64 Sac-Cli/(11599:11609): /
+[INFO] 21:31:44:64 Sac-Cli/(11599:11609): se pudo enviar pack
+[INFO] 21:31:44:65 Sac-Cli/(11599:11607): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:67 Sac-Cli/(11599:11605): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:67 Sac-Cli/(11599:11605): /LaCosa
+[INFO] 21:31:44:67 Sac-Cli/(11599:11605): se pudo enviar pack
+[INFO] 21:31:44:70 Sac-Cli/(11599:11609): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:70 Sac-Cli/(11599:11609): /
+[INFO] 21:31:44:71 Sac-Cli/(11599:11609): se pudo enviar pack
+[INFO] 21:31:44:71 Sac-Cli/(11599:11606): Se llamo a fusesito_readdir
+
+[INFO] 21:31:44:72 Sac-Cli/(11599:11606): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:73 Sac-Cli/(11599:11606): /LaCosa
+[INFO] 21:31:44:73 Sac-Cli/(11599:11606): se pudo enviar pack
+[INFO] 21:31:44:74 Sac-Cli/(11599:11607): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:75 Sac-Cli/(11599:11607): /autorun.inf
+[INFO] 21:31:44:75 Sac-Cli/(11599:11607): se pudo enviar pack
+[INFO] 21:31:44:77 Sac-Cli/(11599:11608): Se llamo a fusesito_getattr
+
+[INFO] 21:31:44:77 Sac-Cli/(11599:11608): /
+[INFO] 21:31:44:77 Sac-Cli/(11599:11608): se pudo enviar pack
+[INFO] 21:36:50:635 Sac-Cli/(11779:11779): Se ha iniciado una nueva instancia del logger
+
+[INFO] 21:36:50:689 Sac-Cli/(11779:11779): Conexion correcta
+
+[INFO] 21:36:50:998 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:50:999 Sac-Cli/(11779:11789): Se llamo a fusesito_getattr
+
+[INFO] 21:36:50:2 Sac-Cli/(11779:11789): /.xdg-volume-info
+[INFO] 21:36:51:7 Sac-Cli/(11779:11790): /
+[INFO] 21:36:51:9 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:30 Sac-Cli/(11779:11789): se pudo enviar pack
+[INFO] 21:36:51:35 Sac-Cli/(11779:11788): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:35 Sac-Cli/(11779:11788): /autorun.inf
+[INFO] 21:36:51:37 Sac-Cli/(11779:11788): se pudo enviar pack
+[INFO] 21:36:51:39 Sac-Cli/(11779:11787): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:39 Sac-Cli/(11779:11787): /.Trash
+[INFO] 21:36:51:40 Sac-Cli/(11779:11787): se pudo enviar pack
+[INFO] 21:36:51:43 Sac-Cli/(11779:11789): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:43 Sac-Cli/(11779:11789): /.Trash-1000
+[INFO] 21:36:51:43 Sac-Cli/(11779:11789): se pudo enviar pack
+[INFO] 21:36:51:60 Sac-Cli/(11779:11787): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:70 Sac-Cli/(11779:11788): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:70 Sac-Cli/(11779:11788): /ElArchivito
+[INFO] 21:36:51:71 Sac-Cli/(11779:11788): se pudo enviar pack
+[INFO] 21:36:51:99 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:99 Sac-Cli/(11779:11790): /LaCosa
+[INFO] 21:36:51:100 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:108 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:108 Sac-Cli/(11779:11790): /
+[INFO] 21:36:51:109 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:119 Sac-Cli/(11779:11790): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:120 Sac-Cli/(11779:11789): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:120 Sac-Cli/(11779:11789): /LaCosa
+[INFO] 21:36:51:120 Sac-Cli/(11779:11789): se pudo enviar pack
+[INFO] 21:36:51:125 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:126 Sac-Cli/(11779:11790): /
+[INFO] 21:36:51:126 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:128 Sac-Cli/(11779:11788): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:129 Sac-Cli/(11779:11789): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:129 Sac-Cli/(11779:11789): /LaCosa
+[INFO] 21:36:51:129 Sac-Cli/(11779:11789): se pudo enviar pack
+[INFO] 21:36:51:131 Sac-Cli/(11779:11787): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:132 Sac-Cli/(11779:11787): /
+[INFO] 21:36:51:133 Sac-Cli/(11779:11787): se pudo enviar pack
+[INFO] 21:36:51:134 Sac-Cli/(11779:11788): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:135 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:136 Sac-Cli/(11779:11790): /LaCosa
+[INFO] 21:36:51:137 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:145 Sac-Cli/(11779:11788): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:145 Sac-Cli/(11779:11788): /
+[INFO] 21:36:51:146 Sac-Cli/(11779:11788): se pudo enviar pack
+[INFO] 21:36:51:146 Sac-Cli/(11779:11789): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:147 Sac-Cli/(11779:11789): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:147 Sac-Cli/(11779:11789): /LaCosa
+[INFO] 21:36:51:148 Sac-Cli/(11779:11789): se pudo enviar pack
+[INFO] 21:36:51:149 Sac-Cli/(11779:11787): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:150 Sac-Cli/(11779:11787): /
+[INFO] 21:36:51:151 Sac-Cli/(11779:11787): se pudo enviar pack
+[INFO] 21:36:51:152 Sac-Cli/(11779:11788): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:153 Sac-Cli/(11779:11791): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:153 Sac-Cli/(11779:11791): /LaCosa
+[INFO] 21:36:51:154 Sac-Cli/(11779:11791): se pudo enviar pack
+[INFO] 21:36:51:156 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:156 Sac-Cli/(11779:11790): /
+[INFO] 21:36:51:156 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:159 Sac-Cli/(11779:11788): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:160 Sac-Cli/(11779:11789): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:160 Sac-Cli/(11779:11789): /LaCosa
+[INFO] 21:36:51:161 Sac-Cli/(11779:11789): se pudo enviar pack
+[INFO] 21:36:51:162 Sac-Cli/(11779:11788): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:162 Sac-Cli/(11779:11788): /
+[INFO] 21:36:51:163 Sac-Cli/(11779:11788): se pudo enviar pack
+[INFO] 21:36:51:164 Sac-Cli/(11779:11791): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:165 Sac-Cli/(11779:11787): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:165 Sac-Cli/(11779:11787): /LaCosa
+[INFO] 21:36:51:166 Sac-Cli/(11779:11787): se pudo enviar pack
+[INFO] 21:36:51:170 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:170 Sac-Cli/(11779:11790): /
+[INFO] 21:36:51:172 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:173 Sac-Cli/(11779:11791): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:174 Sac-Cli/(11779:11787): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:175 Sac-Cli/(11779:11787): /LaCosa
+[INFO] 21:36:51:176 Sac-Cli/(11779:11787): se pudo enviar pack
+[INFO] 21:36:51:178 Sac-Cli/(11779:11789): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:178 Sac-Cli/(11779:11789): /
+[INFO] 21:36:51:178 Sac-Cli/(11779:11789): se pudo enviar pack
+[INFO] 21:36:51:182 Sac-Cli/(11779:11788): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:183 Sac-Cli/(11779:11791): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:184 Sac-Cli/(11779:11791): /LaCosa
+[INFO] 21:36:51:184 Sac-Cli/(11779:11791): se pudo enviar pack
+[INFO] 21:36:51:185 Sac-Cli/(11779:11788): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:186 Sac-Cli/(11779:11788): /
+[INFO] 21:36:51:187 Sac-Cli/(11779:11788): se pudo enviar pack
+[INFO] 21:36:51:188 Sac-Cli/(11779:11787): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:189 Sac-Cli/(11779:11789): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:190 Sac-Cli/(11779:11789): /LaCosa
+[INFO] 21:36:51:190 Sac-Cli/(11779:11789): se pudo enviar pack
+[INFO] 21:36:51:192 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:192 Sac-Cli/(11779:11790): /
+[INFO] 21:36:51:193 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:197 Sac-Cli/(11779:11791): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:198 Sac-Cli/(11779:11787): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:199 Sac-Cli/(11779:11787): /LaCosa
+[INFO] 21:36:51:199 Sac-Cli/(11779:11787): se pudo enviar pack
+[INFO] 21:36:51:201 Sac-Cli/(11779:11791): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:202 Sac-Cli/(11779:11791): /
+[INFO] 21:36:51:202 Sac-Cli/(11779:11791): se pudo enviar pack
+[INFO] 21:36:51:204 Sac-Cli/(11779:11790): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:205 Sac-Cli/(11779:11788): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:205 Sac-Cli/(11779:11788): /LaCosa
+[INFO] 21:36:51:206 Sac-Cli/(11779:11788): se pudo enviar pack
+[INFO] 21:36:51:213 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:213 Sac-Cli/(11779:11790): /
+[INFO] 21:36:51:213 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:214 Sac-Cli/(11779:11787): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:215 Sac-Cli/(11779:11789): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:215 Sac-Cli/(11779:11789): /LaCosa
+[INFO] 21:36:51:215 Sac-Cli/(11779:11789): se pudo enviar pack
+[INFO] 21:36:51:217 Sac-Cli/(11779:11788): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:217 Sac-Cli/(11779:11788): /
+[INFO] 21:36:51:217 Sac-Cli/(11779:11788): se pudo enviar pack
+[INFO] 21:36:51:218 Sac-Cli/(11779:11791): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:219 Sac-Cli/(11779:11787): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:219 Sac-Cli/(11779:11787): /LaCosa
+[INFO] 21:36:51:221 Sac-Cli/(11779:11787): se pudo enviar pack
+[INFO] 21:36:51:227 Sac-Cli/(11779:11788): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:227 Sac-Cli/(11779:11788): /
+[INFO] 21:36:51:228 Sac-Cli/(11779:11788): se pudo enviar pack
+[INFO] 21:36:51:229 Sac-Cli/(11779:11790): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:230 Sac-Cli/(11779:11792): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:230 Sac-Cli/(11779:11792): /LaCosa
+[INFO] 21:36:51:230 Sac-Cli/(11779:11792): se pudo enviar pack
+[INFO] 21:36:51:232 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:233 Sac-Cli/(11779:11790): /
+[INFO] 21:36:51:233 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:234 Sac-Cli/(11779:11791): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:235 Sac-Cli/(11779:11788): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:235 Sac-Cli/(11779:11788): /LaCosa
+[INFO] 21:36:51:235 Sac-Cli/(11779:11788): se pudo enviar pack
+[INFO] 21:36:51:237 Sac-Cli/(11779:11787): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:237 Sac-Cli/(11779:11787): /
+[INFO] 21:36:51:238 Sac-Cli/(11779:11787): se pudo enviar pack
+[INFO] 21:36:51:238 Sac-Cli/(11779:11790): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:241 Sac-Cli/(11779:11791): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:241 Sac-Cli/(11779:11791): /LaCosa
+[INFO] 21:36:51:242 Sac-Cli/(11779:11791): se pudo enviar pack
+[INFO] 21:36:51:243 Sac-Cli/(11779:11791): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:246 Sac-Cli/(11779:11791): /
+[INFO] 21:36:51:246 Sac-Cli/(11779:11791): se pudo enviar pack
+[INFO] 21:36:51:247 Sac-Cli/(11779:11789): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:248 Sac-Cli/(11779:11788): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:248 Sac-Cli/(11779:11788): /LaCosa
+[INFO] 21:36:51:248 Sac-Cli/(11779:11788): se pudo enviar pack
+[INFO] 21:36:51:250 Sac-Cli/(11779:11792): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:250 Sac-Cli/(11779:11792): /
+[INFO] 21:36:51:250 Sac-Cli/(11779:11792): se pudo enviar pack
+[INFO] 21:36:51:251 Sac-Cli/(11779:11790): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:252 Sac-Cli/(11779:11789): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:252 Sac-Cli/(11779:11789): /LaCosa
+[INFO] 21:36:51:253 Sac-Cli/(11779:11789): se pudo enviar pack
+[INFO] 21:36:51:254 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:255 Sac-Cli/(11779:11790): /
+[INFO] 21:36:51:259 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:261 Sac-Cli/(11779:11791): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:262 Sac-Cli/(11779:11792): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:262 Sac-Cli/(11779:11792): /LaCosa
+[INFO] 21:36:51:262 Sac-Cli/(11779:11792): se pudo enviar pack
+[INFO] 21:36:51:264 Sac-Cli/(11779:11789): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:265 Sac-Cli/(11779:11789): /
+[INFO] 21:36:51:265 Sac-Cli/(11779:11789): se pudo enviar pack
+[INFO] 21:36:51:266 Sac-Cli/(11779:11788): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:267 Sac-Cli/(11779:11787): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:267 Sac-Cli/(11779:11787): /LaCosa
+[INFO] 21:36:51:268 Sac-Cli/(11779:11787): se pudo enviar pack
+[INFO] 21:36:51:278 Sac-Cli/(11779:11788): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:279 Sac-Cli/(11779:11788): /
+[INFO] 21:36:51:279 Sac-Cli/(11779:11788): se pudo enviar pack
+[INFO] 21:36:51:280 Sac-Cli/(11779:11792): Se llamo a fusesito_readdir
+
+[INFO] 21:36:51:282 Sac-Cli/(11779:11790): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:282 Sac-Cli/(11779:11790): /LaCosa
+[INFO] 21:36:51:282 Sac-Cli/(11779:11790): se pudo enviar pack
+[INFO] 21:36:51:284 Sac-Cli/(11779:11791): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:284 Sac-Cli/(11779:11791): /autorun.inf
+[INFO] 21:36:51:284 Sac-Cli/(11779:11791): se pudo enviar pack
+[INFO] 21:36:51:335 Sac-Cli/(11779:11792): Se llamo a fusesito_getattr
+
+[INFO] 21:36:51:335 Sac-Cli/(11779:11792): /
+[INFO] 21:36:51:336 Sac-Cli/(11779:11792): se pudo enviar pack
+[INFO] 21:40:37:545 Sac-Cli/(12073:12073): Se ha iniciado una nueva instancia del logger
+
+[INFO] 21:40:37:602 Sac-Cli/(12073:12073): Conexion correcta
+
+[INFO] 21:40:37:911 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:37:914 Sac-Cli/(12073:12083): /
+[INFO] 21:40:37:915 Sac-Cli/(12073:12080): Se llamo a fusesito_getattr
+
+[INFO] 21:40:37:923 Sac-Cli/(12073:12080): /.xdg-volume-info
+[INFO] 21:40:37:927 Sac-Cli/(12073:12080): se pudo enviar pack
+[INFO] 21:40:37:932 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:37:948 Sac-Cli/(12073:12081): Se llamo a fusesito_getattr
+
+[INFO] 21:40:37:948 Sac-Cli/(12073:12081): /autorun.inf
+[INFO] 21:40:37:951 Sac-Cli/(12073:12081): se pudo enviar pack
+[INFO] 21:40:37:953 Sac-Cli/(12073:12082): Se llamo a fusesito_getattr
+
+[INFO] 21:40:37:953 Sac-Cli/(12073:12082): /.Trash
+[INFO] 21:40:37:953 Sac-Cli/(12073:12082): se pudo enviar pack
+[INFO] 21:40:37:956 Sac-Cli/(12073:12080): Se llamo a fusesito_getattr
+
+[INFO] 21:40:37:957 Sac-Cli/(12073:12080): /.Trash-1000
+[INFO] 21:40:37:958 Sac-Cli/(12073:12080): se pudo enviar pack
+[INFO] 21:40:37:973 Sac-Cli/(12073:12082): Se llamo a fusesito_readdir
+
+[INFO] 21:40:37:985 Sac-Cli/(12073:12080): Se llamo a fusesito_getattr
+
+[INFO] 21:40:37:985 Sac-Cli/(12073:12080): /ElArchivito
+[INFO] 21:40:37:985 Sac-Cli/(12073:12080): se pudo enviar pack
+[INFO] 21:40:38:16 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:16 Sac-Cli/(12073:12083): /LaCosa
+[INFO] 21:40:38:16 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:38:24 Sac-Cli/(12073:12084): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:24 Sac-Cli/(12073:12084): /
+[INFO] 21:40:38:25 Sac-Cli/(12073:12084): se pudo enviar pack
+[INFO] 21:40:38:27 Sac-Cli/(12073:12083): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:32 Sac-Cli/(12073:12082): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:32 Sac-Cli/(12073:12082): /LaCosa
+[INFO] 21:40:38:32 Sac-Cli/(12073:12082): se pudo enviar pack
+[INFO] 21:40:38:35 Sac-Cli/(12073:12084): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:36 Sac-Cli/(12073:12084): /
+[INFO] 21:40:38:37 Sac-Cli/(12073:12084): se pudo enviar pack
+[INFO] 21:40:38:38 Sac-Cli/(12073:12083): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:42 Sac-Cli/(12073:12082): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:43 Sac-Cli/(12073:12082): /LaCosa
+[INFO] 21:40:38:43 Sac-Cli/(12073:12082): se pudo enviar pack
+[INFO] 21:40:38:46 Sac-Cli/(12073:12084): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:46 Sac-Cli/(12073:12084): /
+[INFO] 21:40:38:47 Sac-Cli/(12073:12084): se pudo enviar pack
+[INFO] 21:40:38:48 Sac-Cli/(12073:12083): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:49 Sac-Cli/(12073:12080): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:49 Sac-Cli/(12073:12080): /LaCosa
+[INFO] 21:40:38:50 Sac-Cli/(12073:12080): se pudo enviar pack
+[INFO] 21:40:38:52 Sac-Cli/(12073:12081): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:53 Sac-Cli/(12073:12081): /
+[INFO] 21:40:38:53 Sac-Cli/(12073:12081): se pudo enviar pack
+[INFO] 21:40:38:54 Sac-Cli/(12073:12082): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:55 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:56 Sac-Cli/(12073:12083): /LaCosa
+[INFO] 21:40:38:56 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:38:63 Sac-Cli/(12073:12080): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:63 Sac-Cli/(12073:12080): /
+[INFO] 21:40:38:64 Sac-Cli/(12073:12080): se pudo enviar pack
+[INFO] 21:40:38:64 Sac-Cli/(12073:12084): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:65 Sac-Cli/(12073:12082): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:66 Sac-Cli/(12073:12082): /LaCosa
+[INFO] 21:40:38:66 Sac-Cli/(12073:12082): se pudo enviar pack
+[INFO] 21:40:38:72 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:73 Sac-Cli/(12073:12083): /
+[INFO] 21:40:38:73 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:38:74 Sac-Cli/(12073:12085): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:75 Sac-Cli/(12073:12084): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:75 Sac-Cli/(12073:12084): /LaCosa
+[INFO] 21:40:38:76 Sac-Cli/(12073:12084): se pudo enviar pack
+[INFO] 21:40:38:77 Sac-Cli/(12073:12081): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:77 Sac-Cli/(12073:12081): /
+[INFO] 21:40:38:78 Sac-Cli/(12073:12081): se pudo enviar pack
+[INFO] 21:40:38:78 Sac-Cli/(12073:12082): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:80 Sac-Cli/(12073:12080): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:80 Sac-Cli/(12073:12080): /LaCosa
+[INFO] 21:40:38:81 Sac-Cli/(12073:12080): se pudo enviar pack
+[INFO] 21:40:38:83 Sac-Cli/(12073:12084): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:84 Sac-Cli/(12073:12084): /
+[INFO] 21:40:38:84 Sac-Cli/(12073:12084): se pudo enviar pack
+[INFO] 21:40:38:84 Sac-Cli/(12073:12083): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:85 Sac-Cli/(12073:12082): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:86 Sac-Cli/(12073:12082): /LaCosa
+[INFO] 21:40:38:86 Sac-Cli/(12073:12082): se pudo enviar pack
+[INFO] 21:40:38:88 Sac-Cli/(12073:12085): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:92 Sac-Cli/(12073:12085): /
+[INFO] 21:40:38:92 Sac-Cli/(12073:12085): se pudo enviar pack
+[INFO] 21:40:38:93 Sac-Cli/(12073:12080): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:94 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:95 Sac-Cli/(12073:12083): /LaCosa
+[INFO] 21:40:38:95 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:38:96 Sac-Cli/(12073:12081): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:97 Sac-Cli/(12073:12081): /
+[INFO] 21:40:38:97 Sac-Cli/(12073:12081): se pudo enviar pack
+[INFO] 21:40:38:98 Sac-Cli/(12073:12081): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:101 Sac-Cli/(12073:12082): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:101 Sac-Cli/(12073:12082): /LaCosa
+[INFO] 21:40:38:101 Sac-Cli/(12073:12082): se pudo enviar pack
+[INFO] 21:40:38:103 Sac-Cli/(12073:12085): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:103 Sac-Cli/(12073:12085): /
+[INFO] 21:40:38:104 Sac-Cli/(12073:12085): se pudo enviar pack
+[INFO] 21:40:38:105 Sac-Cli/(12073:12084): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:106 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:106 Sac-Cli/(12073:12083): /LaCosa
+[INFO] 21:40:38:106 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:38:108 Sac-Cli/(12073:12080): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:108 Sac-Cli/(12073:12080): /
+[INFO] 21:40:38:109 Sac-Cli/(12073:12080): se pudo enviar pack
+[INFO] 21:40:38:114 Sac-Cli/(12073:12080): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:115 Sac-Cli/(12073:12084): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:116 Sac-Cli/(12073:12084): /LaCosa
+[INFO] 21:40:38:116 Sac-Cli/(12073:12084): se pudo enviar pack
+[INFO] 21:40:38:117 Sac-Cli/(12073:12082): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:118 Sac-Cli/(12073:12082): /
+[INFO] 21:40:38:118 Sac-Cli/(12073:12082): se pudo enviar pack
+[INFO] 21:40:38:119 Sac-Cli/(12073:12081): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:120 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:120 Sac-Cli/(12073:12083): /LaCosa
+[INFO] 21:40:38:121 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:38:125 Sac-Cli/(12073:12085): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:125 Sac-Cli/(12073:12085): /
+[INFO] 21:40:38:125 Sac-Cli/(12073:12085): se pudo enviar pack
+[INFO] 21:40:38:130 Sac-Cli/(12073:12082): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:131 Sac-Cli/(12073:12081): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:131 Sac-Cli/(12073:12081): /LaCosa
+[INFO] 21:40:38:132 Sac-Cli/(12073:12081): se pudo enviar pack
+[INFO] 21:40:38:133 Sac-Cli/(12073:12084): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:133 Sac-Cli/(12073:12084): /
+[INFO] 21:40:38:134 Sac-Cli/(12073:12084): se pudo enviar pack
+[INFO] 21:40:38:134 Sac-Cli/(12073:12085): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:136 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:136 Sac-Cli/(12073:12083): /LaCosa
+[INFO] 21:40:38:137 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:38:140 Sac-Cli/(12073:12084): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:146 Sac-Cli/(12073:12084): /
+[INFO] 21:40:38:146 Sac-Cli/(12073:12084): se pudo enviar pack
+[INFO] 21:40:38:147 Sac-Cli/(12073:12082): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:149 Sac-Cli/(12073:12081): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:149 Sac-Cli/(12073:12081): /LaCosa
+[INFO] 21:40:38:149 Sac-Cli/(12073:12081): se pudo enviar pack
+[INFO] 21:40:38:150 Sac-Cli/(12073:12085): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:151 Sac-Cli/(12073:12085): /
+[INFO] 21:40:38:151 Sac-Cli/(12073:12085): se pudo enviar pack
+[INFO] 21:40:38:152 Sac-Cli/(12073:12080): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:152 Sac-Cli/(12073:12082): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:153 Sac-Cli/(12073:12082): /LaCosa
+[INFO] 21:40:38:153 Sac-Cli/(12073:12082): se pudo enviar pack
+[INFO] 21:40:38:154 Sac-Cli/(12073:12080): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:155 Sac-Cli/(12073:12080): /
+[INFO] 21:40:38:155 Sac-Cli/(12073:12080): se pudo enviar pack
+[INFO] 21:40:38:156 Sac-Cli/(12073:12081): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:157 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:158 Sac-Cli/(12073:12083): /LaCosa
+[INFO] 21:40:38:158 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:38:160 Sac-Cli/(12073:12082): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:161 Sac-Cli/(12073:12082): /
+[INFO] 21:40:38:161 Sac-Cli/(12073:12082): se pudo enviar pack
+[INFO] 21:40:38:163 Sac-Cli/(12073:12084): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:164 Sac-Cli/(12073:12081): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:164 Sac-Cli/(12073:12081): /LaCosa
+[INFO] 21:40:38:164 Sac-Cli/(12073:12081): se pudo enviar pack
+[INFO] 21:40:38:166 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:166 Sac-Cli/(12073:12083): /
+[INFO] 21:40:38:167 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:38:169 Sac-Cli/(12073:12082): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:170 Sac-Cli/(12073:12080): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:170 Sac-Cli/(12073:12080): /LaCosa
+[INFO] 21:40:38:171 Sac-Cli/(12073:12080): se pudo enviar pack
+[INFO] 21:40:38:176 Sac-Cli/(12073:12081): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:176 Sac-Cli/(12073:12081): /
+[INFO] 21:40:38:177 Sac-Cli/(12073:12081): se pudo enviar pack
+[INFO] 21:40:38:177 Sac-Cli/(12073:12085): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:178 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:178 Sac-Cli/(12073:12083): /LaCosa
+[INFO] 21:40:38:179 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:38:192 Sac-Cli/(12073:12085): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:192 Sac-Cli/(12073:12085): /
+[INFO] 21:40:38:193 Sac-Cli/(12073:12085): se pudo enviar pack
+[INFO] 21:40:38:194 Sac-Cli/(12073:12081): Se llamo a fusesito_readdir
+
+[INFO] 21:40:38:195 Sac-Cli/(12073:12082): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:196 Sac-Cli/(12073:12082): /LaCosa
+[INFO] 21:40:38:196 Sac-Cli/(12073:12082): se pudo enviar pack
+[INFO] 21:40:38:197 Sac-Cli/(12073:12083): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:198 Sac-Cli/(12073:12083): /autorun.inf
+[INFO] 21:40:38:198 Sac-Cli/(12073:12083): se pudo enviar pack
+[INFO] 21:40:38:208 Sac-Cli/(12073:12081): Se llamo a fusesito_getattr
+
+[INFO] 21:40:38:208 Sac-Cli/(12073:12081): /
+[INFO] 21:40:38:208 Sac-Cli/(12073:12081): se pudo enviar pack

@@ -150,7 +150,7 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "8083", logger);
+	conexion = conectarse_a_un_servidor("127.0.0.1" , "8089", logger);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
 	// Esta es la funcion principal de FUSE, es la que se encarga

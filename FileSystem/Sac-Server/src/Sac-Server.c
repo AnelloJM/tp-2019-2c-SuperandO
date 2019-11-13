@@ -38,7 +38,7 @@ void* funcionMagica(int cliente){
 			case f_GETATTR: ;
 				//desempaquetar pack y hacer el codigo
 				char *path= Fuse_ReceiveAndUnpack_Path(cliente, tam);
-				log_error(logger,"tamanio del path que recive: %i \0", strlen(path));
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(path)+1);
 				log_error(logger, path);
 				break;
 			case f_READDIR:
@@ -78,7 +78,7 @@ int main(void) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "8083", logger);
+	conexion = iniciar_servidor("127.0.0.1", "8089", logger);
 
 
 

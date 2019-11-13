@@ -108,10 +108,6 @@ int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete); //No responde
 
 HeaderFuse Fuse_RecieveHeader(int socketCliente);
 
-void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack);
-
-f_getattr* FuseDesempaquetarPackGetAttr(int socketCliente, uint32_t tamanio);
-
 bool Fuse_PackAndSend_Path(int socketCliente, const char *path, f_operacion operacion);
 
 char* Fuse_ReceiveAndUnpack_Path(int socketCliente, uint32_t tamanioChar);

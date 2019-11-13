@@ -110,47 +110,6 @@ int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete) {
 	return resul;
 }
 
-void FuseEmpaquetarPackGetAttr(const char *path, struct stat *stbuf, PaqueteFuse *pack) {
-	//int tam = sizeof(*path) + sizeof(*stbuf) + (2*(sizeof(uint32_t)));
-	f_getattr *message = malloc(sizeof(f_getattr));
-
-	message->tamPath = strlen(path);
-	message->path = path;
-	message->tamStbuf = strlen(stbuf);
-	message->stbuf = stbuf;
-	pack->headerFuse.tamanioMensaje = strlen(path) + strlen(stbuf) + (2*(sizeof(uint32_t)));
-	pack->headerFuse.operaciones = f_GETATTR;
-	pack->mensaje = message;
-	free(message);
-}
-
-f_getattr* FuseDesempaquetarPackGetAttr(int socketCliente, uint32_t tamanio) {
-	void* buffer = malloc(tamanio);
-	int desplazamiento = 0;
-	uint32_t tamanioPath, tamanioStBuff;
-	recv(socketCliente, buffer, tamanio, MSG_WAITALL);
-	memcpy(&tamanioPath, buffer+desplazamiento, sizeof(uint32_t));
-	desplazamiento+=sizeof(uint32_t);
-	char *path = malloc(tamanioPath);
-	memcpy(path, buffer+desplazamiento, tamanioPath);
-	desplazamiento+=tamanioPath;
-	memcpy(&tamanioStBuff, buffer+desplazamiento, sizeof(uint32_t));
-	desplazamiento+=sizeof(uint32_t);
-	struct stat *stbuf = malloc(tamanioStBuff);
-	memcpy(stbuf, buffer+desplazamiento, tamanioStBuff);
-	free(buffer);
-	f_getattr *getattr = malloc(sizeof(f_getattr));//malloc(strlen(path) + strlen(stbuf) + (2*(sizeof(uint32_t))));
-	getattr->tamPath = tamanioPath;
-	getattr->path = malloc(tamanioPath);
-	getattr->path = path;
-	free(path);
-	getattr->tamStbuf = tamanioStBuff;
-	getattr->stbuf = malloc(tamanioStBuff);
-	getattr->stbuf = stbuf;
-	free(stbuf);
-
-	return getattr;
-}
 
 HeaderFuse Fuse_RecieveHeader(int socketCliente){
 	void* buffer=malloc(sizeof(f_operacion) + sizeof(uint32_t));
@@ -168,7 +127,7 @@ HeaderFuse Fuse_RecieveHeader(int socketCliente){
 
 bool Fuse_PackAndSend_Path(int socketCliente, const char *path, f_operacion operacion) {
 
-	uint32_t tamMessage = sizeof(*path) + sizeof(f_operacion) + sizeof(uint32_t);
+	uint32_t tamMessage = strlen(path) + 1 + sizeof(f_operacion) + sizeof(uint32_t);
 	void* buffer = malloc( tamMessage );
 	int desplazamiento = 0;
 	uint32_t tamPath = strlen(path) +1 ;
@@ -177,6 +136,8 @@ bool Fuse_PackAndSend_Path(int socketCliente, const char *path, f_operacion oper
 	memcpy(buffer+desplazamiento, &tamPath , sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer+desplazamiento, path, tamPath);
+	desplazamiento += tamPath;
+		if(desplazamiento != tamMessage){ return 0; }
 	int resultado = send(socketCliente, buffer, tamMessage, 0);
 	free(buffer);
 	return resultado;
