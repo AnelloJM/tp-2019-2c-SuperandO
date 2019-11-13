@@ -181,38 +181,37 @@ static int fusesito_read(const char *path, char *buf, size_t size, off_t offset,
 	return size;
 }
 
-static int fusesito_release(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+static int fusesito_release(const char *path, struct fuse_file_info *fi){
 	return 0;
 }
-
-static int fusesito_write(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+static int fusesito_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
 	return 0;
 }
-static int fusesito_mknod(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+static int fusesito_mknod(const char *path, mode_t mode, dev_t dev){
 	return 0;
 }
-static int fusesito_unlink(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+static int fusesito_unlink(const char *path){
 	return 0;
 }
-static int fusesito_mkdir(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+static int fusesito_mkdir(const char *path, mode_t mode){
 	return 0;
 }
-static int fusesito_rmdir(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+static int fusesito_rmdir(const char *path){
 	return 0;
 }
-static int fusesito_utime(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+static int fusesito_utime(const char *path, struct utimbuf *buf){
 	return 0;
 }
-static int fusesito_chmod(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+static int fusesito_chmod(const char *path, mode_t mode){
 	return 0;
 }
-static int fusesito_rename(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+static int fusesito_rename(const char *path, const char *buf){
 	return 0;
 }
-static int fusesito_truncate(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+static int fusesito_truncate(const char *path, off_t offset){
 	return 0;
 }
-static int fusesito_setxattr(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+static int fusesito_setxattr(const char *path, const char *nose, const char *nose2, size_t size, int nose3){
 	return 0;
 }
 
