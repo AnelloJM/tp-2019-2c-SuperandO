@@ -33,21 +33,37 @@ void* funcionMagica(int cliente){
 		headerRecibido = Fuse_RecieveHeader(cliente);
 		log_info(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
 		log_info(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+		uint32_t tam = headerRecibido.tamanioMensaje;
 		switch(headerRecibido.operaciones){
 			case f_GETATTR:;
 				//desempaquetar pack y hacer el codigo
-				char *path_getattr= Fuse_ReceiveAndUnpack_Path(cliente, headerRecibido.tamanioMensaje);
-				log_info(logger,"tamanio del path que recive: %i \0", strlen(path_getattr)+1);
-				log_info(logger, path_getattr);
+				char *pathGetAttr= Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathGetAttr)+1);
+				log_error(logger, pathGetAttr);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi GETATTR"), f_HANDSHAKE);
+				free(pathGetAttr);
 				break;
 			case f_READDIR: ;
-				//desempaquetar pack y hacer el codigo
+				char *pathReadDir = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathReadDir)+1);
+				log_error(logger, pathReadDir);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi READDIR"), f_HANDSHAKE);
+				free(pathReadDir);
 				break;
 			case f_READ: ;
+				char *pathRead = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRead)+1);
+				log_error(logger, pathRead);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi READ"), f_HANDSHAKE);
+				free(pathRead);
 				//desempaquetar pack y hacer el codigo
 				break;
 			case f_OPEN: ;
+				char *pathOpen = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathOpen)+1);
+				log_error(logger, pathOpen);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi OPEN"), f_HANDSHAKE);
+				free(pathOpen);
 				//desempaquetar pack y hacer el codigo
 				break;
 			case f_HANDSHAKE: ;

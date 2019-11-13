@@ -87,6 +87,24 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 
 static int fusesito_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_readdir\n");
+	log_info(logger,path);
+	if(Fuse_PackAndSend_Path(conexion, path, f_READDIR)){
+		log_info(logger, "se pudo enviar pack");
+	}
+	else{
+		log_error(logger, "no se pudo enviar pack");
+	}
+	HeaderFuse headerRecibido;
+	sem_wait(&mutex_buffer);
+	headerRecibido = Fuse_RecieveHeader(conexion);
+	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
+	char *pathRecibido= Fuse_ReceiveAndUnpack_Path(conexion, tam);
+	sem_post(&mutex_buffer);
+	log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRecibido)+1);
+	log_error(logger, pathRecibido);
+
 	filler(buf, ".", NULL, 0);
 	filler(buf, "..", NULL, 0);
 	filler(buf, DEFAULT_FILE_NAME , NULL, 0);
@@ -96,6 +114,25 @@ static int fusesito_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 
 static int fusesito_open(const char *path, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_open\n");
+
+	log_info(logger,path);
+	if(Fuse_PackAndSend_Path(conexion, path, f_OPEN)){
+		log_info(logger, "se pudo enviar pack");
+	}
+	else{
+		log_error(logger, "no se pudo enviar pack");
+	}
+	HeaderFuse headerRecibido;
+	sem_wait(&mutex_buffer);
+	headerRecibido = Fuse_RecieveHeader(conexion);
+	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
+	char *pathRecibido= Fuse_ReceiveAndUnpack_Path(conexion, tam);
+	sem_post(&mutex_buffer);
+	log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRecibido)+1);
+	log_error(logger, pathRecibido);
+
 	if (strcmp(path, DEFAULT_FILE_PATH) != 0)
 			return -ENOENT;
 
@@ -108,6 +145,26 @@ static int fusesito_open(const char *path, struct fuse_file_info *fi) {
 
 static int fusesito_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_read\n");
+
+	log_info(logger,path);
+	if(Fuse_PackAndSend_Path(conexion, path, f_READ)){
+		log_info(logger, "se pudo enviar pack");
+	}
+	else{
+		log_error(logger, "no se pudo enviar pack");
+	}
+
+	HeaderFuse headerRecibido;
+	sem_wait(&mutex_buffer);
+	headerRecibido = Fuse_RecieveHeader(conexion);
+	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
+	char *pathRecibido= Fuse_ReceiveAndUnpack_Path(conexion, tam);
+	sem_post(&mutex_buffer);
+	log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRecibido)+1);
+	log_error(logger, pathRecibido);
+
 	size_t len;
 	(void) fi;
 	if (strcmp(path, DEFAULT_FILE_PATH) != 0)
@@ -192,13 +249,4 @@ int main(int argc, char *argv[]) {
 	// en varios threads
 	return fuse_main(args.argc, args.argv, &fusesito_oper, NULL);
 
-	/* LO ANTERIOR
-	puts("Superand0 Sac-Cli Iniciando..."); prints Supernd0 Sac-Cli Iniciando...
-	t_log *logger = log_create("Sac-Cliente.log", "Sac-Cliente", 1, LOG_LEVEL_INFO);
-	int conexion, server;
-	Paquete *paquete;
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "8080", logger);
-	EnviarHandshake(conexion, 3);
-	return EXIT_SUCCESS;
-	*/
 }
