@@ -18,7 +18,7 @@
 #include <Conexiones/Conexiones.h>
 #include <commons/log.h>
 #include <Serializacion-FileSystem/Serializacion-FileSystem.h>
-#include<semaphore.h>
+#include <semaphore.h>
 
 /* Este es el contenido por defecto que va a contener
  * el unico archivo que se encuentre presente en el FS.
@@ -124,6 +124,40 @@ static int fusesito_read(const char *path, char *buf, size_t size, off_t offset,
 	return size;
 }
 
+static int fusesito_release(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+	return 0;
+}
+
+static int fusesito_write(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+	return 0;
+}
+static int fusesito_mknod(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+	return 0;
+}
+static int fusesito_unlink(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+	return 0;
+}
+static int fusesito_mkdir(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+	return 0;
+}
+static int fusesito_rmdir(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+	return 0;
+}
+static int fusesito_utime(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+	return 0;
+}
+static int fusesito_chmod(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+	return 0;
+}
+static int fusesito_rename(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+	return 0;
+}
+static int fusesito_truncate(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+	return 0;
+}
+static int fusesito_setxattr(const char * creo_que_es_un_path, struct fuse_file_info *no_se_que_es){
+	return 0;
+}
 
 
 static struct fuse_operations fusesito_oper = {
@@ -131,6 +165,17 @@ static struct fuse_operations fusesito_oper = {
 		.readdir = fusesito_readdir,
 		.open = fusesito_open,
 		.read = fusesito_read,
+		.release = fusesito_release,
+		.write = fusesito_write,
+		.mknod = fusesito_mknod,
+		.unlink = fusesito_unlink,
+		.mkdir = fusesito_mkdir,
+		.rmdir = fusesito_rmdir,
+		.chmod = fusesito_chmod,
+		.utime = fusesito_utime,
+		.rename = fusesito_rename,
+		.truncate = fusesito_truncate,
+		.setxattr = fusesito_setxattr,
 };
 
 

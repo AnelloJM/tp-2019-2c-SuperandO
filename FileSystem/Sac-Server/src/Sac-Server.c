@@ -31,47 +31,37 @@ void* funcionMagica(int cliente){
 	while(1){
 		HeaderFuse headerRecibido;
 		headerRecibido = Fuse_RecieveHeader(cliente);
-		log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
-		log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
-		uint32_t tam = headerRecibido.tamanioMensaje;
+		log_info(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+		log_info(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
 		switch(headerRecibido.operaciones){
-			case f_GETATTR: ;
+			case f_GETATTR:;
 				//desempaquetar pack y hacer el codigo
-				char *path= Fuse_ReceiveAndUnpack_Path(cliente, tam);
-				log_error(logger,"tamanio del path que recive: %i \0", strlen(path)+1);
-				log_error(logger, path);
+				char *path_getattr= Fuse_ReceiveAndUnpack_Path(cliente, headerRecibido.tamanioMensaje);
+				log_info(logger,"tamanio del path que recive: %i \0", strlen(path_getattr)+1);
+				log_info(logger, path_getattr);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi GETATTR"), f_HANDSHAKE);
 				break;
-			case f_READDIR:
+			case f_READDIR: ;
 				//desempaquetar pack y hacer el codigo
 				break;
-			case f_READ:
+			case f_READ: ;
 				//desempaquetar pack y hacer el codigo
 				break;
-			case f_OPEN:
+			case f_OPEN: ;
 				//desempaquetar pack y hacer el codigo
 				break;
-			case f_HANDSHAKE:
+			case f_HANDSHAKE: ;
 				//desempaquetar pack y hacer el codigo
+				char *path_handshake = Fuse_ReceiveAndUnpack_Path(cliente, headerRecibido.tamanioMensaje);
+				log_info(logger,"tamanio del path que recive: %i \0", strlen(path_handshake)+1);
+				log_info(logger, path_handshake);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi GETATTR"), f_HANDSHAKE);
 				break;
 			default:
 				log_error(logger, "No es un codigo conocido: %i", headerRecibido.operaciones);
 				break;
 		}
-
-		/*
-		int tamPackGetAttr = DameTamPackGetAttr();
-		int tamGetAttr = DameTamGetAttr();
-		PaqueteFuse *paquete = malloc(tamPackGetAttr);
-		FuseRecibirPaqueteServidor(cliente, paquete);
-		f_getattr *info = malloc(tamGetAttr);
-		memcpy(info, paquete->mensaje, tamGetAttr);
-		log_info(logger, "recibi: %s", info->path);
-		free(info);
-		free(paquete);*/
-
 	}
-
 }
 
 int main(void) {

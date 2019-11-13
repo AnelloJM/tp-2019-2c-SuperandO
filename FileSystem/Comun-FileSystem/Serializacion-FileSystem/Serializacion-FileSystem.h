@@ -91,19 +91,19 @@ typedef struct {
 //////////////////////////////////////////
 //              Funciones               //
 //////////////////////////////////////////
-
-bool FuseEnviarHandshake(int socketFD);
-
-bool FuseEnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_operacion operaciones);
-
-bool FuseEnviarPaquete(int socketCliente, PaqueteFuse* paquete);
-
-int FuseRecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir);
-
-int FuseRecibirPaqueteServidor(int socketFD, PaqueteFuse* paquete); //Responde al recibir un Handshake
-
-int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete); //No responde los Handshakes}
-
+//
+//bool FuseEnviarHandshake(int socketFD);
+//
+//bool FuseEnviarDatosTipo(int socketFD, void* datos, int tamDatos, f_operacion operaciones);
+//
+//bool FuseEnviarPaquete(int socketCliente, PaqueteFuse* paquete);
+//
+//int FuseRecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir);
+//
+//int FuseRecibirPaqueteServidor(int socketFD, PaqueteFuse* paquete); //Responde al recibir un Handshake
+//
+//int FuseRecibirPaqueteCliente(int socketFD, PaqueteFuse* paquete); //No responde los Handshakes}
+//
 // ------------------------------------------------------------------------------------------------------
 
 HeaderFuse Fuse_RecieveHeader(int socketCliente);
