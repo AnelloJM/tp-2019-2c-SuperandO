@@ -20,7 +20,7 @@ int main(){
 	log_info(logger,"--------------\n");
 	printf("\n\n::::::::INICIAMOS EL SERVIDOR SUSE::::::::\n");
 
-	socket_Suse = iniciar_servidor("127.0.0.1",listen_port,logger);
+	socket_Suse = iniciar_servidor(server_ip,listen_port,logger);
 
 
 	/* PLANIFICADOR NEW -> READY */
@@ -111,6 +111,7 @@ void leerArchivoDeConfiguracion(){
 }
 
 void setearValores(t_config* archivoConfig){
+	server_ip = strdup(config_get_string_value(archivoConfig,"SERVER_IP"));
 	listen_port = strdup(config_get_string_value(archivoConfig,"LISTEN_PORT"));
 	metrics_timer = config_get_int_value(archivoConfig,"METRICS_TIMER");
 	max_multiprog = config_get_int_value(archivoConfig,"MAX_MULTIPROG");

@@ -32,6 +32,7 @@ t_list * semaforos;
 int colasLibres;
 t_queue * colanew;
 //Arch de Config
+char* server_ip;
 char* listen_port;
 int metrics_timer;
 int max_multiprog;
