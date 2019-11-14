@@ -43,6 +43,7 @@ void* funcionMagica(int cliente){
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi GETATTR"), f_HANDSHAKE);
 				free(pathGetAttr);
 				break;
+
 			case f_READDIR: ;
 				char *pathReadDir = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathReadDir)+1);
@@ -50,6 +51,7 @@ void* funcionMagica(int cliente){
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi READDIR"), f_HANDSHAKE);
 				free(pathReadDir);
 				break;
+
 			case f_READ: ;
 				char *pathRead = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRead)+1);
@@ -58,6 +60,7 @@ void* funcionMagica(int cliente){
 				free(pathRead);
 				//desempaquetar pack y hacer el codigo
 				break;
+
 			case f_OPEN: ;
 				char *pathOpen = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathOpen)+1);
@@ -66,13 +69,48 @@ void* funcionMagica(int cliente){
 				free(pathOpen);
 				//desempaquetar pack y hacer el codigo
 				break;
+
+			case f_RELEASE: ;
+				break;
+
+			case f_WRITE: ;
+				break;
+
+			case f_MKNOD: ;
+				break;
+
+			case f_UNLINK: ;
+				break;
+
+			case f_MKDIR: ;
+				break;
+
+			case f_RMDIR: ;
+				break;
+
+			case f_CHMOD: ;
+				break;
+
+			case f_UTIME: ;
+				break;
+
+			case f_RENAME: ;
+				break;
+
+			case f_TRUNCATE: ;
+				break;
+
+			case f_SETXATTR: ;
+				break;
+
 			case f_HANDSHAKE: ;
 				//desempaquetar pack y hacer el codigo
 				char *path_handshake = Fuse_ReceiveAndUnpack_Path(cliente, headerRecibido.tamanioMensaje);
 				log_info(logger,"tamanio del path que recive: %i \0", strlen(path_handshake)+1);
 				log_info(logger, path_handshake);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi GETATTR"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi HANDSHAKE"), f_HANDSHAKE);
 				break;
+
 			default:
 				log_error(logger, "No es un codigo conocido: %i", headerRecibido.operaciones);
 				break;
