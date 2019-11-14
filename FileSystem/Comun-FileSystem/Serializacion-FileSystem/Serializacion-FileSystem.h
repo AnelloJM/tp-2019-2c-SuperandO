@@ -31,6 +31,17 @@ typedef enum f_operaciones {
 	f_READDIR,
 	f_READ,
 	f_OPEN,
+	f_RELEASE,
+	f_WRITE,
+	f_MKNOD,
+	f_UNLINK,
+	f_MKDIR,
+	f_RMDIR,
+	f_CHMOD,
+	f_UTIME,
+	f_RENAME,
+	f_TRUNCATE,
+	f_SETXATTR,
 	f_HANDSHAKE
 } f_operacion;
 

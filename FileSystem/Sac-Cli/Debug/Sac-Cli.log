@@ -1,0 +1,1224 @@
+[INFO] 19:00:25:478 Sac-Cli/(5243:5243): Se ha iniciado una nueva instancia del logger
+
+[ERROR] 19:00:25:530 Sac-Cli/(5243:5243): Error de conexion
+
+[INFO] 19:00:25:834 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:836 Sac-Cli/(5243:5251): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:837 Sac-Cli/(5243:5251): /.xdg-volume-info
+[INFO] 19:00:25:842 Sac-Cli/(5243:5252): /
+[INFO] 19:00:25:844 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:25:855 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[INFO] 19:00:25:855 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:25:856 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:25:860 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:25:861 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:25:862 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:25:862 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:25:863 Sac-Cli/(5243:5251): 
+[ERROR] 19:00:25:866 Sac-Cli/(5243:5252): 
+[INFO] 19:00:25:875 Sac-Cli/(5243:5248): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:875 Sac-Cli/(5243:5248): /autorun.inf
+[INFO] 19:00:25:876 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:25:876 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:25:876 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:25:877 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:25:877 Sac-Cli/(5243:5248): 
+[INFO] 19:00:25:878 Sac-Cli/(5243:5247): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:878 Sac-Cli/(5243:5247): /.Trash
+[INFO] 19:00:25:878 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:25:879 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:25:879 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:25:879 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:25:880 Sac-Cli/(5243:5247): 
+[INFO] 19:00:25:881 Sac-Cli/(5243:5251): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:883 Sac-Cli/(5243:5251): /.Trash-1000
+[INFO] 19:00:25:883 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:25:885 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:25:886 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:25:886 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:25:887 Sac-Cli/(5243:5251): 
+[INFO] 19:00:25:897 Sac-Cli/(5243:5247): Se llamo a fusesito_readdir
+
+[INFO] 19:00:25:898 Sac-Cli/(5243:5247): /
+[INFO] 19:00:25:899 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:25:899 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:25:900 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:25:901 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:25:902 Sac-Cli/(5243:5247): 
+[INFO] 19:00:25:918 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:918 Sac-Cli/(5243:5252): /ElArchivito
+[INFO] 19:00:25:918 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:25:919 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:25:919 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:25:919 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:25:920 Sac-Cli/(5243:5252): 
+[INFO] 19:00:25:940 Sac-Cli/(5243:5251): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:944 Sac-Cli/(5243:5251): /LaCosa
+[INFO] 19:00:25:944 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:25:945 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:25:945 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:25:946 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:25:947 Sac-Cli/(5243:5251): 
+[INFO] 19:00:25:953 Sac-Cli/(5243:5253): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:953 Sac-Cli/(5243:5253): /
+[INFO] 19:00:25:953 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:25:953 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:25:954 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:25:954 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:25:954 Sac-Cli/(5243:5253): 
+[INFO] 19:00:25:955 Sac-Cli/(5243:5251): Se llamo a fusesito_readdir
+
+[INFO] 19:00:25:956 Sac-Cli/(5243:5251): /
+[INFO] 19:00:25:956 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:25:956 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:25:957 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:25:958 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:25:958 Sac-Cli/(5243:5251): 
+[INFO] 19:00:25:959 Sac-Cli/(5243:5247): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:959 Sac-Cli/(5243:5247): /LaCosa
+[INFO] 19:00:25:960 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:25:960 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:25:960 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:25:961 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:25:961 Sac-Cli/(5243:5247): 
+[INFO] 19:00:25:963 Sac-Cli/(5243:5253): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:963 Sac-Cli/(5243:5253): /
+[INFO] 19:00:25:964 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:25:964 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:25:965 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:25:965 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:25:966 Sac-Cli/(5243:5253): 
+[INFO] 19:00:25:967 Sac-Cli/(5243:5252): Se llamo a fusesito_readdir
+
+[INFO] 19:00:25:967 Sac-Cli/(5243:5252): /
+[INFO] 19:00:25:968 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:25:968 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:25:968 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:25:969 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:25:969 Sac-Cli/(5243:5252): 
+[INFO] 19:00:25:970 Sac-Cli/(5243:5248): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:970 Sac-Cli/(5243:5248): /LaCosa
+[INFO] 19:00:25:970 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:25:971 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:25:971 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:25:971 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:25:971 Sac-Cli/(5243:5248): 
+[INFO] 19:00:25:978 Sac-Cli/(5243:5247): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:979 Sac-Cli/(5243:5247): /
+[INFO] 19:00:25:979 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:25:980 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:25:980 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:25:980 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:25:981 Sac-Cli/(5243:5247): 
+[INFO] 19:00:25:981 Sac-Cli/(5243:5253): Se llamo a fusesito_readdir
+
+[INFO] 19:00:25:982 Sac-Cli/(5243:5253): /
+[INFO] 19:00:25:982 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:25:982 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:25:982 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:25:983 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:25:983 Sac-Cli/(5243:5253): 
+[INFO] 19:00:25:984 Sac-Cli/(5243:5251): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:985 Sac-Cli/(5243:5251): /LaCosa
+[INFO] 19:00:25:985 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:25:985 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:25:985 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:25:986 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:25:986 Sac-Cli/(5243:5251): 
+[INFO] 19:00:25:988 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:988 Sac-Cli/(5243:5252): /
+[INFO] 19:00:25:988 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:25:989 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:25:989 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:25:990 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:25:990 Sac-Cli/(5243:5252): 
+[INFO] 19:00:25:991 Sac-Cli/(5243:5248): Se llamo a fusesito_readdir
+
+[INFO] 19:00:25:991 Sac-Cli/(5243:5248): /
+[INFO] 19:00:25:991 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:25:992 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:25:992 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:25:992 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:25:993 Sac-Cli/(5243:5248): 
+[INFO] 19:00:25:994 Sac-Cli/(5243:5253): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:994 Sac-Cli/(5243:5253): /LaCosa
+[INFO] 19:00:25:994 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:25:995 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:25:995 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:25:995 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:25:996 Sac-Cli/(5243:5253): 
+[INFO] 19:00:25:997 Sac-Cli/(5243:5247): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:997 Sac-Cli/(5243:5247): /
+[INFO] 19:00:25:998 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:25:998 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:25:998 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:25:999 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:25:999 Sac-Cli/(5243:5247): 
+[INFO] 19:00:25:999 Sac-Cli/(5243:5251): Se llamo a fusesito_readdir
+
+[INFO] 19:00:25:0 Sac-Cli/(5243:5251): /
+[INFO] 19:00:25:0 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:25:1 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:25:1 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:25:1 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:25:1 Sac-Cli/(5243:5251): 
+[INFO] 19:00:25:2 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:25:2 Sac-Cli/(5243:5252): /LaCosa
+[INFO] 19:00:26:7 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:26:9 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:26:9 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:26:10 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:26:10 Sac-Cli/(5243:5252): 
+[INFO] 19:00:26:12 Sac-Cli/(5243:5248): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:12 Sac-Cli/(5243:5248): /
+[INFO] 19:00:26:12 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:26:13 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:26:13 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:26:13 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:26:14 Sac-Cli/(5243:5248): 
+[INFO] 19:00:26:15 Sac-Cli/(5243:5247): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:15 Sac-Cli/(5243:5247): /
+[INFO] 19:00:26:15 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:15 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:16 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:16 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:16 Sac-Cli/(5243:5247): 
+[INFO] 19:00:26:17 Sac-Cli/(5243:5253): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:18 Sac-Cli/(5243:5253): /LaCosa
+[INFO] 19:00:26:18 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:26:18 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:26:18 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:26:19 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:26:20 Sac-Cli/(5243:5253): 
+[INFO] 19:00:26:21 Sac-Cli/(5243:5247): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:22 Sac-Cli/(5243:5247): /
+[INFO] 19:00:26:22 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:23 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:23 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:23 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:24 Sac-Cli/(5243:5247): 
+[INFO] 19:00:26:24 Sac-Cli/(5243:5248): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:25 Sac-Cli/(5243:5248): /
+[INFO] 19:00:26:25 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:26:26 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:26:26 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:26:26 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:26:27 Sac-Cli/(5243:5248): 
+[INFO] 19:00:26:27 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:28 Sac-Cli/(5243:5252): /LaCosa
+[INFO] 19:00:26:28 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:26:28 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:26:29 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:26:29 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:26:29 Sac-Cli/(5243:5252): 
+[INFO] 19:00:26:31 Sac-Cli/(5243:5253): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:31 Sac-Cli/(5243:5253): /
+[INFO] 19:00:26:31 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:26:32 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:26:32 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:26:32 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:26:33 Sac-Cli/(5243:5253): 
+[INFO] 19:00:26:33 Sac-Cli/(5243:5251): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:33 Sac-Cli/(5243:5251): /
+[INFO] 19:00:26:38 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:26:39 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:26:39 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:26:39 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:26:39 Sac-Cli/(5243:5251): 
+[INFO] 19:00:26:41 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:42 Sac-Cli/(5243:5252): /LaCosa
+[INFO] 19:00:26:43 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:26:43 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:26:43 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:26:44 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:26:44 Sac-Cli/(5243:5252): 
+[INFO] 19:00:26:46 Sac-Cli/(5243:5251): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:46 Sac-Cli/(5243:5251): /
+[INFO] 19:00:26:46 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:26:46 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:26:47 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:26:47 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:26:47 Sac-Cli/(5243:5251): 
+[INFO] 19:00:26:48 Sac-Cli/(5243:5247): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:48 Sac-Cli/(5243:5247): /
+[INFO] 19:00:26:49 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:49 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:49 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:50 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:50 Sac-Cli/(5243:5247): 
+[INFO] 19:00:26:51 Sac-Cli/(5243:5248): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:51 Sac-Cli/(5243:5248): /LaCosa
+[INFO] 19:00:26:51 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:26:52 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:26:52 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:26:53 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:26:53 Sac-Cli/(5243:5248): 
+[INFO] 19:00:26:55 Sac-Cli/(5243:5253): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:55 Sac-Cli/(5243:5253): /
+[INFO] 19:00:26:55 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:26:56 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:26:56 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:26:57 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:26:57 Sac-Cli/(5243:5253): 
+[INFO] 19:00:26:58 Sac-Cli/(5243:5247): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:58 Sac-Cli/(5243:5247): /
+[INFO] 19:00:26:58 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:58 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:59 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:59 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:59 Sac-Cli/(5243:5247): 
+[INFO] 19:00:26:60 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:61 Sac-Cli/(5243:5252): /LaCosa
+[INFO] 19:00:26:61 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:26:61 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:26:62 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:26:62 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:26:62 Sac-Cli/(5243:5252): 
+[INFO] 19:00:26:64 Sac-Cli/(5243:5251): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:64 Sac-Cli/(5243:5251): /
+[INFO] 19:00:26:64 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:26:65 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:26:65 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:26:70 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:26:71 Sac-Cli/(5243:5251): 
+[INFO] 19:00:26:72 Sac-Cli/(5243:5248): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:72 Sac-Cli/(5243:5248): /
+[INFO] 19:00:26:72 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:26:72 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:26:73 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:26:73 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:26:74 Sac-Cli/(5243:5248): 
+[INFO] 19:00:26:75 Sac-Cli/(5243:5253): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:75 Sac-Cli/(5243:5253): /LaCosa
+[INFO] 19:00:26:75 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:26:76 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:26:76 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:26:76 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:26:77 Sac-Cli/(5243:5253): 
+[INFO] 19:00:26:78 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:79 Sac-Cli/(5243:5252): /
+[INFO] 19:00:26:79 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:26:79 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:26:80 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:26:80 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:26:81 Sac-Cli/(5243:5252): 
+[INFO] 19:00:26:81 Sac-Cli/(5243:5247): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:82 Sac-Cli/(5243:5247): /
+[INFO] 19:00:26:82 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:82 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:83 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:83 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:83 Sac-Cli/(5243:5247): 
+[INFO] 19:00:26:84 Sac-Cli/(5243:5251): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:85 Sac-Cli/(5243:5251): /LaCosa
+[INFO] 19:00:26:85 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:26:85 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:26:86 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:26:86 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:26:86 Sac-Cli/(5243:5251): 
+[INFO] 19:00:26:88 Sac-Cli/(5243:5248): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:88 Sac-Cli/(5243:5248): /
+[INFO] 19:00:26:89 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:26:89 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:26:89 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:26:90 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:26:90 Sac-Cli/(5243:5248): 
+[INFO] 19:00:26:90 Sac-Cli/(5243:5253): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:91 Sac-Cli/(5243:5253): /
+[INFO] 19:00:26:91 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:26:91 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:26:92 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:26:92 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:26:93 Sac-Cli/(5243:5253): 
+[INFO] 19:00:26:93 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:94 Sac-Cli/(5243:5252): /LaCosa
+[INFO] 19:00:26:94 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:26:94 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:26:94 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:26:95 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:26:95 Sac-Cli/(5243:5252): 
+[INFO] 19:00:26:101 Sac-Cli/(5243:5247): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:101 Sac-Cli/(5243:5247): /
+[INFO] 19:00:26:101 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:103 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:103 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:103 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:104 Sac-Cli/(5243:5247): 
+[INFO] 19:00:26:104 Sac-Cli/(5243:5248): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:105 Sac-Cli/(5243:5248): /
+[INFO] 19:00:26:105 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:26:105 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:26:106 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:26:106 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:26:106 Sac-Cli/(5243:5248): 
+[INFO] 19:00:26:108 Sac-Cli/(5243:5251): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:108 Sac-Cli/(5243:5251): /LaCosa
+[INFO] 19:00:26:108 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:26:109 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:26:109 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:26:109 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:26:110 Sac-Cli/(5243:5251): 
+[INFO] 19:00:26:111 Sac-Cli/(5243:5253): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:112 Sac-Cli/(5243:5253): /
+[INFO] 19:00:26:112 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:26:113 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:26:113 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:26:114 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:26:114 Sac-Cli/(5243:5253): 
+[INFO] 19:00:26:114 Sac-Cli/(5243:5252): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:115 Sac-Cli/(5243:5252): /
+[INFO] 19:00:26:115 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:26:115 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:26:116 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:26:116 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:26:117 Sac-Cli/(5243:5252): 
+[INFO] 19:00:26:118 Sac-Cli/(5243:5248): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:118 Sac-Cli/(5243:5248): /LaCosa
+[INFO] 19:00:26:118 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:26:119 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:26:119 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:26:119 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:26:120 Sac-Cli/(5243:5248): 
+[INFO] 19:00:26:121 Sac-Cli/(5243:5247): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:121 Sac-Cli/(5243:5247): /
+[INFO] 19:00:26:122 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:122 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:122 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:123 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:123 Sac-Cli/(5243:5247): 
+[INFO] 19:00:26:124 Sac-Cli/(5243:5251): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:124 Sac-Cli/(5243:5251): /
+[INFO] 19:00:26:124 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:26:125 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:26:125 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:26:125 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:26:126 Sac-Cli/(5243:5251): 
+[INFO] 19:00:26:126 Sac-Cli/(5243:5253): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:129 Sac-Cli/(5243:5253): /LaCosa
+[INFO] 19:00:26:129 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:26:129 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:26:133 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:26:134 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:26:134 Sac-Cli/(5243:5253): 
+[INFO] 19:00:26:136 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:136 Sac-Cli/(5243:5252): /
+[INFO] 19:00:26:136 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:26:137 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:26:137 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:26:138 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:26:138 Sac-Cli/(5243:5252): 
+[INFO] 19:00:26:139 Sac-Cli/(5243:5247): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:139 Sac-Cli/(5243:5247): /
+[INFO] 19:00:26:139 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:139 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:140 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:140 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:141 Sac-Cli/(5243:5247): 
+[INFO] 19:00:26:142 Sac-Cli/(5243:5248): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:143 Sac-Cli/(5243:5248): /LaCosa
+[INFO] 19:00:26:143 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:26:143 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:26:144 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:26:144 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:26:144 Sac-Cli/(5243:5248): 
+[INFO] 19:00:26:146 Sac-Cli/(5243:5251): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:146 Sac-Cli/(5243:5251): /
+[INFO] 19:00:26:147 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:26:147 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:26:147 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:26:148 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:26:148 Sac-Cli/(5243:5251): 
+[INFO] 19:00:26:149 Sac-Cli/(5243:5253): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:149 Sac-Cli/(5243:5253): /
+[INFO] 19:00:26:149 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:26:150 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:26:150 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:26:151 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:26:151 Sac-Cli/(5243:5253): 
+[INFO] 19:00:26:152 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:152 Sac-Cli/(5243:5252): /LaCosa
+[INFO] 19:00:26:152 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:26:153 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:26:153 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:26:153 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:26:154 Sac-Cli/(5243:5252): 
+[INFO] 19:00:26:155 Sac-Cli/(5243:5247): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:155 Sac-Cli/(5243:5247): /
+[INFO] 19:00:26:155 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:156 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:156 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:156 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:157 Sac-Cli/(5243:5247): 
+[INFO] 19:00:26:157 Sac-Cli/(5243:5248): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:158 Sac-Cli/(5243:5248): /
+[INFO] 19:00:26:162 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:26:164 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:26:164 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:26:165 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:26:165 Sac-Cli/(5243:5248): 
+[INFO] 19:00:26:166 Sac-Cli/(5243:5253): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:166 Sac-Cli/(5243:5253): /LaCosa
+[INFO] 19:00:26:166 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:26:167 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:26:167 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:26:167 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:26:168 Sac-Cli/(5243:5253): 
+[INFO] 19:00:26:169 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:170 Sac-Cli/(5243:5252): /
+[INFO] 19:00:26:170 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:26:170 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:26:171 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:26:171 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:26:172 Sac-Cli/(5243:5252): 
+[INFO] 19:00:26:172 Sac-Cli/(5243:5251): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:173 Sac-Cli/(5243:5251): /
+[INFO] 19:00:26:173 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:26:173 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:26:174 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:26:174 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:26:174 Sac-Cli/(5243:5251): 
+[INFO] 19:00:26:175 Sac-Cli/(5243:5248): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:176 Sac-Cli/(5243:5248): /LaCosa
+[INFO] 19:00:26:176 Sac-Cli/(5243:5248): se pudo enviar pack
+[ERROR] 19:00:26:177 Sac-Cli/(5243:5248): Codigo de operacion: 0
+[ERROR] 19:00:26:177 Sac-Cli/(5243:5248): Tamanio: 0
+[ERROR] 19:00:26:178 Sac-Cli/(5243:5248): tamanio del path que recive: 1 
+[ERROR] 19:00:26:178 Sac-Cli/(5243:5248): 
+[INFO] 19:00:26:180 Sac-Cli/(5243:5251): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:180 Sac-Cli/(5243:5251): /
+[INFO] 19:00:26:181 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:26:181 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:26:181 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:26:182 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:26:182 Sac-Cli/(5243:5251): 
+[INFO] 19:00:26:182 Sac-Cli/(5243:5253): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:183 Sac-Cli/(5243:5253): /
+[INFO] 19:00:26:183 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:26:183 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:26:183 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:26:184 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:26:184 Sac-Cli/(5243:5253): 
+[INFO] 19:00:26:185 Sac-Cli/(5243:5247): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:185 Sac-Cli/(5243:5247): /LaCosa
+[INFO] 19:00:26:185 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:186 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:186 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:186 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:186 Sac-Cli/(5243:5247): 
+[INFO] 19:00:26:192 Sac-Cli/(5243:5252): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:192 Sac-Cli/(5243:5252): /
+[INFO] 19:00:26:193 Sac-Cli/(5243:5252): se pudo enviar pack
+[ERROR] 19:00:26:193 Sac-Cli/(5243:5252): Codigo de operacion: 0
+[ERROR] 19:00:26:194 Sac-Cli/(5243:5252): Tamanio: 0
+[ERROR] 19:00:26:197 Sac-Cli/(5243:5252): tamanio del path que recive: 1 
+[ERROR] 19:00:26:198 Sac-Cli/(5243:5252): 
+[INFO] 19:00:26:199 Sac-Cli/(5243:5247): Se llamo a fusesito_readdir
+
+[INFO] 19:00:26:200 Sac-Cli/(5243:5247): /
+[INFO] 19:00:26:200 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:200 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:201 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:202 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:202 Sac-Cli/(5243:5247): 
+[INFO] 19:00:26:203 Sac-Cli/(5243:5251): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:203 Sac-Cli/(5243:5251): /LaCosa
+[INFO] 19:00:26:204 Sac-Cli/(5243:5251): se pudo enviar pack
+[ERROR] 19:00:26:204 Sac-Cli/(5243:5251): Codigo de operacion: 0
+[ERROR] 19:00:26:205 Sac-Cli/(5243:5251): Tamanio: 0
+[ERROR] 19:00:26:205 Sac-Cli/(5243:5251): tamanio del path que recive: 1 
+[ERROR] 19:00:26:206 Sac-Cli/(5243:5251): 
+[INFO] 19:00:26:208 Sac-Cli/(5243:5253): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:209 Sac-Cli/(5243:5253): /autorun.inf
+[INFO] 19:00:26:209 Sac-Cli/(5243:5253): se pudo enviar pack
+[ERROR] 19:00:26:210 Sac-Cli/(5243:5253): Codigo de operacion: 0
+[ERROR] 19:00:26:210 Sac-Cli/(5243:5253): Tamanio: 0
+[ERROR] 19:00:26:211 Sac-Cli/(5243:5253): tamanio del path que recive: 1 
+[ERROR] 19:00:26:211 Sac-Cli/(5243:5253): 
+[INFO] 19:00:26:243 Sac-Cli/(5243:5247): Se llamo a fusesito_getattr
+
+[INFO] 19:00:26:243 Sac-Cli/(5243:5247): /
+[INFO] 19:00:26:244 Sac-Cli/(5243:5247): se pudo enviar pack
+[ERROR] 19:00:26:244 Sac-Cli/(5243:5247): Codigo de operacion: 0
+[ERROR] 19:00:26:244 Sac-Cli/(5243:5247): Tamanio: 0
+[ERROR] 19:00:26:245 Sac-Cli/(5243:5247): tamanio del path que recive: 1 
+[ERROR] 19:00:26:245 Sac-Cli/(5243:5247): 
+[INFO] 19:00:38:885 Sac-Cli/(5277:5277): Se ha iniciado una nueva instancia del logger
+
+[ERROR] 19:00:38:936 Sac-Cli/(5277:5277): Error de conexion
+
+[INFO] 19:00:39:174 Sac-Cli/(5277:5283): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:179 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:180 Sac-Cli/(5277:5283): /.xdg-volume-info
+[INFO] 19:00:39:180 Sac-Cli/(5277:5281): /
+[INFO] 19:00:39:186 Sac-Cli/(5277:5283): se pudo enviar pack
+[ERROR] 19:00:39:193 Sac-Cli/(5277:5283): Codigo de operacion: 0
+[INFO] 19:00:39:194 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:194 Sac-Cli/(5277:5283): Tamanio: 0
+[ERROR] 19:00:39:198 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:204 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:206 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:207 Sac-Cli/(5277:5283): tamanio del path que recive: 1 
+[ERROR] 19:00:39:208 Sac-Cli/(5277:5281): 
+[ERROR] 19:00:39:216 Sac-Cli/(5277:5283): 
+[INFO] 19:00:39:219 Sac-Cli/(5277:5284): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:219 Sac-Cli/(5277:5284): /autorun.inf
+[INFO] 19:00:39:220 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:220 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:221 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:222 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:222 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:224 Sac-Cli/(5277:5282): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:224 Sac-Cli/(5277:5282): /.Trash
+[INFO] 19:00:39:224 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:225 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:225 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:225 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:226 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:226 Sac-Cli/(5277:5282): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:227 Sac-Cli/(5277:5282): /.Trash-1000
+[INFO] 19:00:39:227 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:227 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:228 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:228 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:228 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:242 Sac-Cli/(5277:5281): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:242 Sac-Cli/(5277:5281): /
+[INFO] 19:00:39:243 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:244 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:245 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:246 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:247 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:257 Sac-Cli/(5277:5284): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:257 Sac-Cli/(5277:5284): /ElArchivito
+[INFO] 19:00:39:257 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:258 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:258 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:258 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:258 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:284 Sac-Cli/(5277:5282): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:284 Sac-Cli/(5277:5282): /LaCosa
+[INFO] 19:00:39:284 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:285 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:285 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:285 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:286 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:297 Sac-Cli/(5277:5282): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:298 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:298 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:299 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:299 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:300 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:301 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:301 Sac-Cli/(5277:5284): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:302 Sac-Cli/(5277:5284): /
+[INFO] 19:00:39:302 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:303 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:303 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:303 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:304 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:305 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:306 Sac-Cli/(5277:5281): /LaCosa
+[INFO] 19:00:39:306 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:306 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:307 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:307 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:308 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:309 Sac-Cli/(5277:5282): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:310 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:310 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:311 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:311 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:311 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:312 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:312 Sac-Cli/(5277:5285): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:313 Sac-Cli/(5277:5285): /
+[INFO] 19:00:39:313 Sac-Cli/(5277:5285): se pudo enviar pack
+[ERROR] 19:00:39:314 Sac-Cli/(5277:5285): Codigo de operacion: 0
+[ERROR] 19:00:39:314 Sac-Cli/(5277:5285): Tamanio: 0
+[ERROR] 19:00:39:314 Sac-Cli/(5277:5285): tamanio del path que recive: 1 
+[ERROR] 19:00:39:315 Sac-Cli/(5277:5285): 
+[INFO] 19:00:39:316 Sac-Cli/(5277:5284): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:316 Sac-Cli/(5277:5284): /LaCosa
+[INFO] 19:00:39:317 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:317 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:318 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:318 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:318 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:321 Sac-Cli/(5277:5282): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:321 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:321 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:322 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:322 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:328 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:328 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:329 Sac-Cli/(5277:5283): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:329 Sac-Cli/(5277:5283): /
+[INFO] 19:00:39:329 Sac-Cli/(5277:5283): se pudo enviar pack
+[ERROR] 19:00:39:330 Sac-Cli/(5277:5283): Codigo de operacion: 0
+[ERROR] 19:00:39:330 Sac-Cli/(5277:5283): Tamanio: 0
+[ERROR] 19:00:39:330 Sac-Cli/(5277:5283): tamanio del path que recive: 1 
+[ERROR] 19:00:39:331 Sac-Cli/(5277:5283): 
+[INFO] 19:00:39:332 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:332 Sac-Cli/(5277:5281): /LaCosa
+[INFO] 19:00:39:333 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:333 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:333 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:333 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:334 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:336 Sac-Cli/(5277:5284): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:336 Sac-Cli/(5277:5284): /
+[INFO] 19:00:39:336 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:337 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:337 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:338 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:338 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:339 Sac-Cli/(5277:5285): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:339 Sac-Cli/(5277:5285): /
+[INFO] 19:00:39:339 Sac-Cli/(5277:5285): se pudo enviar pack
+[ERROR] 19:00:39:340 Sac-Cli/(5277:5285): Codigo de operacion: 0
+[ERROR] 19:00:39:340 Sac-Cli/(5277:5285): Tamanio: 0
+[ERROR] 19:00:39:340 Sac-Cli/(5277:5285): tamanio del path que recive: 1 
+[ERROR] 19:00:39:341 Sac-Cli/(5277:5285): 
+[INFO] 19:00:39:342 Sac-Cli/(5277:5286): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:342 Sac-Cli/(5277:5286): /LaCosa
+[INFO] 19:00:39:343 Sac-Cli/(5277:5286): se pudo enviar pack
+[ERROR] 19:00:39:343 Sac-Cli/(5277:5286): Codigo de operacion: 0
+[ERROR] 19:00:39:343 Sac-Cli/(5277:5286): Tamanio: 0
+[ERROR] 19:00:39:344 Sac-Cli/(5277:5286): tamanio del path que recive: 1 
+[ERROR] 19:00:39:344 Sac-Cli/(5277:5286): 
+[INFO] 19:00:39:346 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:346 Sac-Cli/(5277:5281): /
+[INFO] 19:00:39:346 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:347 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:347 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:348 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:348 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:348 Sac-Cli/(5277:5284): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:349 Sac-Cli/(5277:5284): /
+[INFO] 19:00:39:349 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:350 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:350 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:350 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:350 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:351 Sac-Cli/(5277:5285): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:352 Sac-Cli/(5277:5285): /LaCosa
+[INFO] 19:00:39:352 Sac-Cli/(5277:5285): se pudo enviar pack
+[ERROR] 19:00:39:352 Sac-Cli/(5277:5285): Codigo de operacion: 0
+[ERROR] 19:00:39:352 Sac-Cli/(5277:5285): Tamanio: 0
+[ERROR] 19:00:39:357 Sac-Cli/(5277:5285): tamanio del path que recive: 1 
+[ERROR] 19:00:39:357 Sac-Cli/(5277:5285): 
+[INFO] 19:00:39:360 Sac-Cli/(5277:5283): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:360 Sac-Cli/(5277:5283): /
+[INFO] 19:00:39:360 Sac-Cli/(5277:5283): se pudo enviar pack
+[ERROR] 19:00:39:361 Sac-Cli/(5277:5283): Codigo de operacion: 0
+[ERROR] 19:00:39:361 Sac-Cli/(5277:5283): Tamanio: 0
+[ERROR] 19:00:39:361 Sac-Cli/(5277:5283): tamanio del path que recive: 1 
+[ERROR] 19:00:39:362 Sac-Cli/(5277:5283): 
+[INFO] 19:00:39:363 Sac-Cli/(5277:5282): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:363 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:363 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:363 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:364 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:364 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:364 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:366 Sac-Cli/(5277:5286): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:366 Sac-Cli/(5277:5286): /LaCosa
+[INFO] 19:00:39:366 Sac-Cli/(5277:5286): se pudo enviar pack
+[ERROR] 19:00:39:367 Sac-Cli/(5277:5286): Codigo de operacion: 0
+[ERROR] 19:00:39:367 Sac-Cli/(5277:5286): Tamanio: 0
+[ERROR] 19:00:39:368 Sac-Cli/(5277:5286): tamanio del path que recive: 1 
+[ERROR] 19:00:39:368 Sac-Cli/(5277:5286): 
+[INFO] 19:00:39:369 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:370 Sac-Cli/(5277:5281): /
+[INFO] 19:00:39:370 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:371 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:371 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:371 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:372 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:373 Sac-Cli/(5277:5284): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:373 Sac-Cli/(5277:5284): /
+[INFO] 19:00:39:373 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:374 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:374 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:375 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:375 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:376 Sac-Cli/(5277:5285): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:376 Sac-Cli/(5277:5285): /LaCosa
+[INFO] 19:00:39:376 Sac-Cli/(5277:5285): se pudo enviar pack
+[ERROR] 19:00:39:377 Sac-Cli/(5277:5285): Codigo de operacion: 0
+[ERROR] 19:00:39:377 Sac-Cli/(5277:5285): Tamanio: 0
+[ERROR] 19:00:39:377 Sac-Cli/(5277:5285): tamanio del path que recive: 1 
+[ERROR] 19:00:39:378 Sac-Cli/(5277:5285): 
+[INFO] 19:00:39:379 Sac-Cli/(5277:5283): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:379 Sac-Cli/(5277:5283): /
+[INFO] 19:00:39:379 Sac-Cli/(5277:5283): se pudo enviar pack
+[ERROR] 19:00:39:380 Sac-Cli/(5277:5283): Codigo de operacion: 0
+[ERROR] 19:00:39:380 Sac-Cli/(5277:5283): Tamanio: 0
+[ERROR] 19:00:39:380 Sac-Cli/(5277:5283): tamanio del path que recive: 1 
+[ERROR] 19:00:39:381 Sac-Cli/(5277:5283): 
+[INFO] 19:00:39:381 Sac-Cli/(5277:5282): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:382 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:382 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:382 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:382 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:383 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:383 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:389 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:390 Sac-Cli/(5277:5281): /LaCosa
+[INFO] 19:00:39:390 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:390 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:392 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:392 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:393 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:394 Sac-Cli/(5277:5285): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:394 Sac-Cli/(5277:5285): /
+[INFO] 19:00:39:395 Sac-Cli/(5277:5285): se pudo enviar pack
+[ERROR] 19:00:39:395 Sac-Cli/(5277:5285): Codigo de operacion: 0
+[ERROR] 19:00:39:395 Sac-Cli/(5277:5285): Tamanio: 0
+[ERROR] 19:00:39:396 Sac-Cli/(5277:5285): tamanio del path que recive: 1 
+[ERROR] 19:00:39:396 Sac-Cli/(5277:5285): 
+[INFO] 19:00:39:397 Sac-Cli/(5277:5286): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:397 Sac-Cli/(5277:5286): /
+[INFO] 19:00:39:397 Sac-Cli/(5277:5286): se pudo enviar pack
+[ERROR] 19:00:39:398 Sac-Cli/(5277:5286): Codigo de operacion: 0
+[ERROR] 19:00:39:398 Sac-Cli/(5277:5286): Tamanio: 0
+[ERROR] 19:00:39:398 Sac-Cli/(5277:5286): tamanio del path que recive: 1 
+[ERROR] 19:00:39:399 Sac-Cli/(5277:5286): 
+[INFO] 19:00:39:400 Sac-Cli/(5277:5283): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:400 Sac-Cli/(5277:5283): /LaCosa
+[INFO] 19:00:39:401 Sac-Cli/(5277:5283): se pudo enviar pack
+[ERROR] 19:00:39:401 Sac-Cli/(5277:5283): Codigo de operacion: 0
+[ERROR] 19:00:39:401 Sac-Cli/(5277:5283): Tamanio: 0
+[ERROR] 19:00:39:402 Sac-Cli/(5277:5283): tamanio del path que recive: 1 
+[ERROR] 19:00:39:402 Sac-Cli/(5277:5283): 
+[INFO] 19:00:39:404 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:404 Sac-Cli/(5277:5281): /
+[INFO] 19:00:39:405 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:405 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:406 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:406 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:406 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:407 Sac-Cli/(5277:5285): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:407 Sac-Cli/(5277:5285): /
+[INFO] 19:00:39:408 Sac-Cli/(5277:5285): se pudo enviar pack
+[ERROR] 19:00:39:408 Sac-Cli/(5277:5285): Codigo de operacion: 0
+[ERROR] 19:00:39:408 Sac-Cli/(5277:5285): Tamanio: 0
+[ERROR] 19:00:39:409 Sac-Cli/(5277:5285): tamanio del path que recive: 1 
+[ERROR] 19:00:39:409 Sac-Cli/(5277:5285): 
+[INFO] 19:00:39:410 Sac-Cli/(5277:5284): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:410 Sac-Cli/(5277:5284): /LaCosa
+[INFO] 19:00:39:410 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:411 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:411 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:411 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:412 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:413 Sac-Cli/(5277:5282): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:413 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:413 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:414 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:414 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:414 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:415 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:417 Sac-Cli/(5277:5286): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:417 Sac-Cli/(5277:5286): /
+[INFO] 19:00:39:418 Sac-Cli/(5277:5286): se pudo enviar pack
+[ERROR] 19:00:39:418 Sac-Cli/(5277:5286): Codigo de operacion: 0
+[ERROR] 19:00:39:418 Sac-Cli/(5277:5286): Tamanio: 0
+[ERROR] 19:00:39:419 Sac-Cli/(5277:5286): tamanio del path que recive: 1 
+[ERROR] 19:00:39:419 Sac-Cli/(5277:5286): 
+[INFO] 19:00:39:425 Sac-Cli/(5277:5283): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:425 Sac-Cli/(5277:5283): /LaCosa
+[INFO] 19:00:39:425 Sac-Cli/(5277:5283): se pudo enviar pack
+[ERROR] 19:00:39:426 Sac-Cli/(5277:5283): Codigo de operacion: 0
+[ERROR] 19:00:39:426 Sac-Cli/(5277:5283): Tamanio: 0
+[ERROR] 19:00:39:427 Sac-Cli/(5277:5283): tamanio del path que recive: 1 
+[ERROR] 19:00:39:427 Sac-Cli/(5277:5283): 
+[INFO] 19:00:39:428 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:429 Sac-Cli/(5277:5281): /
+[INFO] 19:00:39:429 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:429 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:430 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:430 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:431 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:431 Sac-Cli/(5277:5285): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:432 Sac-Cli/(5277:5285): /
+[INFO] 19:00:39:432 Sac-Cli/(5277:5285): se pudo enviar pack
+[ERROR] 19:00:39:432 Sac-Cli/(5277:5285): Codigo de operacion: 0
+[ERROR] 19:00:39:433 Sac-Cli/(5277:5285): Tamanio: 0
+[ERROR] 19:00:39:433 Sac-Cli/(5277:5285): tamanio del path que recive: 1 
+[ERROR] 19:00:39:434 Sac-Cli/(5277:5285): 
+[INFO] 19:00:39:435 Sac-Cli/(5277:5284): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:435 Sac-Cli/(5277:5284): /LaCosa
+[INFO] 19:00:39:435 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:435 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:436 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:436 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:437 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:438 Sac-Cli/(5277:5282): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:439 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:439 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:439 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:439 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:440 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:440 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:441 Sac-Cli/(5277:5286): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:441 Sac-Cli/(5277:5286): /
+[INFO] 19:00:39:442 Sac-Cli/(5277:5286): se pudo enviar pack
+[ERROR] 19:00:39:442 Sac-Cli/(5277:5286): Codigo de operacion: 0
+[ERROR] 19:00:39:442 Sac-Cli/(5277:5286): Tamanio: 0
+[ERROR] 19:00:39:442 Sac-Cli/(5277:5286): tamanio del path que recive: 1 
+[ERROR] 19:00:39:443 Sac-Cli/(5277:5286): 
+[INFO] 19:00:39:444 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:445 Sac-Cli/(5277:5281): /LaCosa
+[INFO] 19:00:39:445 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:445 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:450 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:451 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:451 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:453 Sac-Cli/(5277:5284): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:454 Sac-Cli/(5277:5284): /
+[INFO] 19:00:39:454 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:454 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:455 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:455 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:456 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:457 Sac-Cli/(5277:5283): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:457 Sac-Cli/(5277:5283): /
+[INFO] 19:00:39:457 Sac-Cli/(5277:5283): se pudo enviar pack
+[ERROR] 19:00:39:457 Sac-Cli/(5277:5283): Codigo de operacion: 0
+[ERROR] 19:00:39:458 Sac-Cli/(5277:5283): Tamanio: 0
+[ERROR] 19:00:39:458 Sac-Cli/(5277:5283): tamanio del path que recive: 1 
+[ERROR] 19:00:39:458 Sac-Cli/(5277:5283): 
+[INFO] 19:00:39:459 Sac-Cli/(5277:5286): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:459 Sac-Cli/(5277:5286): /LaCosa
+[INFO] 19:00:39:460 Sac-Cli/(5277:5286): se pudo enviar pack
+[ERROR] 19:00:39:460 Sac-Cli/(5277:5286): Codigo de operacion: 0
+[ERROR] 19:00:39:460 Sac-Cli/(5277:5286): Tamanio: 0
+[ERROR] 19:00:39:461 Sac-Cli/(5277:5286): tamanio del path que recive: 1 
+[ERROR] 19:00:39:461 Sac-Cli/(5277:5286): 
+[INFO] 19:00:39:463 Sac-Cli/(5277:5283): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:463 Sac-Cli/(5277:5283): /
+[INFO] 19:00:39:464 Sac-Cli/(5277:5283): se pudo enviar pack
+[ERROR] 19:00:39:464 Sac-Cli/(5277:5283): Codigo de operacion: 0
+[ERROR] 19:00:39:465 Sac-Cli/(5277:5283): Tamanio: 0
+[ERROR] 19:00:39:465 Sac-Cli/(5277:5283): tamanio del path que recive: 1 
+[ERROR] 19:00:39:465 Sac-Cli/(5277:5283): 
+[INFO] 19:00:39:466 Sac-Cli/(5277:5282): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:466 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:467 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:467 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:467 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:468 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:468 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:469 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:469 Sac-Cli/(5277:5281): /LaCosa
+[INFO] 19:00:39:469 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:470 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:470 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:471 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:471 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:473 Sac-Cli/(5277:5284): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:473 Sac-Cli/(5277:5284): /
+[INFO] 19:00:39:474 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:474 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:474 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:474 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:475 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:475 Sac-Cli/(5277:5283): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:476 Sac-Cli/(5277:5283): /
+[INFO] 19:00:39:476 Sac-Cli/(5277:5283): se pudo enviar pack
+[ERROR] 19:00:39:476 Sac-Cli/(5277:5283): Codigo de operacion: 0
+[ERROR] 19:00:39:483 Sac-Cli/(5277:5283): Tamanio: 0
+[ERROR] 19:00:39:484 Sac-Cli/(5277:5283): tamanio del path que recive: 1 
+[ERROR] 19:00:39:484 Sac-Cli/(5277:5283): 
+[INFO] 19:00:39:485 Sac-Cli/(5277:5285): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:485 Sac-Cli/(5277:5285): /LaCosa
+[INFO] 19:00:39:486 Sac-Cli/(5277:5285): se pudo enviar pack
+[ERROR] 19:00:39:486 Sac-Cli/(5277:5285): Codigo de operacion: 0
+[ERROR] 19:00:39:486 Sac-Cli/(5277:5285): Tamanio: 0
+[ERROR] 19:00:39:487 Sac-Cli/(5277:5285): tamanio del path que recive: 1 
+[ERROR] 19:00:39:487 Sac-Cli/(5277:5285): 
+[INFO] 19:00:39:490 Sac-Cli/(5277:5286): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:490 Sac-Cli/(5277:5286): /
+[INFO] 19:00:39:490 Sac-Cli/(5277:5286): se pudo enviar pack
+[ERROR] 19:00:39:490 Sac-Cli/(5277:5286): Codigo de operacion: 0
+[ERROR] 19:00:39:491 Sac-Cli/(5277:5286): Tamanio: 0
+[ERROR] 19:00:39:491 Sac-Cli/(5277:5286): tamanio del path que recive: 1 
+[ERROR] 19:00:39:491 Sac-Cli/(5277:5286): 
+[INFO] 19:00:39:492 Sac-Cli/(5277:5282): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:492 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:493 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:493 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:493 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:494 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:495 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:496 Sac-Cli/(5277:5284): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:496 Sac-Cli/(5277:5284): /LaCosa
+[INFO] 19:00:39:497 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:497 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:497 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:498 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:498 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:500 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:500 Sac-Cli/(5277:5281): /
+[INFO] 19:00:39:501 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:501 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:502 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:502 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:502 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:503 Sac-Cli/(5277:5282): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:504 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:504 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:505 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:505 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:506 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:506 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:507 Sac-Cli/(5277:5285): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:508 Sac-Cli/(5277:5285): /LaCosa
+[INFO] 19:00:39:508 Sac-Cli/(5277:5285): se pudo enviar pack
+[ERROR] 19:00:39:513 Sac-Cli/(5277:5285): Codigo de operacion: 0
+[ERROR] 19:00:39:514 Sac-Cli/(5277:5285): Tamanio: 0
+[ERROR] 19:00:39:514 Sac-Cli/(5277:5285): tamanio del path que recive: 1 
+[ERROR] 19:00:39:515 Sac-Cli/(5277:5285): 
+[INFO] 19:00:39:517 Sac-Cli/(5277:5286): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:517 Sac-Cli/(5277:5286): /
+[INFO] 19:00:39:518 Sac-Cli/(5277:5286): se pudo enviar pack
+[ERROR] 19:00:39:518 Sac-Cli/(5277:5286): Codigo de operacion: 0
+[ERROR] 19:00:39:518 Sac-Cli/(5277:5286): Tamanio: 0
+[ERROR] 19:00:39:519 Sac-Cli/(5277:5286): tamanio del path que recive: 1 
+[ERROR] 19:00:39:519 Sac-Cli/(5277:5286): 
+[INFO] 19:00:39:520 Sac-Cli/(5277:5283): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:520 Sac-Cli/(5277:5283): /
+[INFO] 19:00:39:520 Sac-Cli/(5277:5283): se pudo enviar pack
+[ERROR] 19:00:39:521 Sac-Cli/(5277:5283): Codigo de operacion: 0
+[ERROR] 19:00:39:521 Sac-Cli/(5277:5283): Tamanio: 0
+[ERROR] 19:00:39:522 Sac-Cli/(5277:5283): tamanio del path que recive: 1 
+[ERROR] 19:00:39:522 Sac-Cli/(5277:5283): 
+[INFO] 19:00:39:524 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:524 Sac-Cli/(5277:5281): /LaCosa
+[INFO] 19:00:39:524 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:525 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:525 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:525 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:526 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:527 Sac-Cli/(5277:5284): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:527 Sac-Cli/(5277:5284): /
+[INFO] 19:00:39:528 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:528 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:528 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:529 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:529 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:530 Sac-Cli/(5277:5284): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:530 Sac-Cli/(5277:5284): /
+[INFO] 19:00:39:531 Sac-Cli/(5277:5284): se pudo enviar pack
+[ERROR] 19:00:39:531 Sac-Cli/(5277:5284): Codigo de operacion: 0
+[ERROR] 19:00:39:531 Sac-Cli/(5277:5284): Tamanio: 0
+[ERROR] 19:00:39:532 Sac-Cli/(5277:5284): tamanio del path que recive: 1 
+[ERROR] 19:00:39:532 Sac-Cli/(5277:5284): 
+[INFO] 19:00:39:533 Sac-Cli/(5277:5285): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:533 Sac-Cli/(5277:5285): /LaCosa
+[INFO] 19:00:39:534 Sac-Cli/(5277:5285): se pudo enviar pack
+[ERROR] 19:00:39:534 Sac-Cli/(5277:5285): Codigo de operacion: 0
+[ERROR] 19:00:39:534 Sac-Cli/(5277:5285): Tamanio: 0
+[ERROR] 19:00:39:535 Sac-Cli/(5277:5285): tamanio del path que recive: 1 
+[ERROR] 19:00:39:535 Sac-Cli/(5277:5285): 
+[INFO] 19:00:39:536 Sac-Cli/(5277:5286): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:536 Sac-Cli/(5277:5286): /
+[INFO] 19:00:39:537 Sac-Cli/(5277:5286): se pudo enviar pack
+[ERROR] 19:00:39:537 Sac-Cli/(5277:5286): Codigo de operacion: 0
+[ERROR] 19:00:39:537 Sac-Cli/(5277:5286): Tamanio: 0
+[ERROR] 19:00:39:538 Sac-Cli/(5277:5286): tamanio del path que recive: 1 
+[ERROR] 19:00:39:538 Sac-Cli/(5277:5286): 
+[INFO] 19:00:39:539 Sac-Cli/(5277:5282): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:541 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:542 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:542 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:542 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:542 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:543 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:544 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:544 Sac-Cli/(5277:5281): /LaCosa
+[INFO] 19:00:39:545 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:545 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:545 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:545 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:549 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:551 Sac-Cli/(5277:5283): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:551 Sac-Cli/(5277:5283): /
+[INFO] 19:00:39:552 Sac-Cli/(5277:5283): se pudo enviar pack
+[ERROR] 19:00:39:552 Sac-Cli/(5277:5283): Codigo de operacion: 0
+[ERROR] 19:00:39:552 Sac-Cli/(5277:5283): Tamanio: 0
+[ERROR] 19:00:39:552 Sac-Cli/(5277:5283): tamanio del path que recive: 1 
+[ERROR] 19:00:39:553 Sac-Cli/(5277:5283): 
+[INFO] 19:00:39:554 Sac-Cli/(5277:5282): Se llamo a fusesito_readdir
+
+[INFO] 19:00:39:555 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:555 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:555 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:556 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:561 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:561 Sac-Cli/(5277:5282): 
+[INFO] 19:00:39:562 Sac-Cli/(5277:5286): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:563 Sac-Cli/(5277:5286): /LaCosa
+[INFO] 19:00:39:563 Sac-Cli/(5277:5286): se pudo enviar pack
+[ERROR] 19:00:39:563 Sac-Cli/(5277:5286): Codigo de operacion: 0
+[ERROR] 19:00:39:564 Sac-Cli/(5277:5286): Tamanio: 0
+[ERROR] 19:00:39:564 Sac-Cli/(5277:5286): tamanio del path que recive: 1 
+[ERROR] 19:00:39:565 Sac-Cli/(5277:5286): 
+[INFO] 19:00:39:566 Sac-Cli/(5277:5281): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:566 Sac-Cli/(5277:5281): /autorun.inf
+[INFO] 19:00:39:567 Sac-Cli/(5277:5281): se pudo enviar pack
+[ERROR] 19:00:39:567 Sac-Cli/(5277:5281): Codigo de operacion: 0
+[ERROR] 19:00:39:567 Sac-Cli/(5277:5281): Tamanio: 0
+[ERROR] 19:00:39:568 Sac-Cli/(5277:5281): tamanio del path que recive: 1 
+[ERROR] 19:00:39:568 Sac-Cli/(5277:5281): 
+[INFO] 19:00:39:569 Sac-Cli/(5277:5282): Se llamo a fusesito_getattr
+
+[INFO] 19:00:39:569 Sac-Cli/(5277:5282): /
+[INFO] 19:00:39:574 Sac-Cli/(5277:5282): se pudo enviar pack
+[ERROR] 19:00:39:576 Sac-Cli/(5277:5282): Codigo de operacion: 0
+[ERROR] 19:00:39:577 Sac-Cli/(5277:5282): Tamanio: 0
+[ERROR] 19:00:39:577 Sac-Cli/(5277:5282): tamanio del path que recive: 1 
+[ERROR] 19:00:39:578 Sac-Cli/(5277:5282): 
