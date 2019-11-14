@@ -69,15 +69,19 @@ while(1){
 
 	int status = 1;		// Estructura que manjea el status de los recieve.
 
-	while (status){
 
-			status = recibir_paquete_deserializar(socket_cliente,paquete); //ESTO CREO QUE DEBERIA SER UN HILO
+	pthread_t * hiloPaquetes = malloc(sizeof(pthread_t));
+
+	while (status){
+			status = pthread_create(hiloPaquetes, NULL,recibir_paquete_deserializar(socket_cliente,paquete), NULL);
 		}
 		if(!status)
+			free(hiloPaquetes);
 			puts("Se Desconecto el cliente ...");
 
 	}
 	//ACA CREO QUE HAY QUE JOINEAR TODOS LOS HILOS
+
 
 
 	return 0;
