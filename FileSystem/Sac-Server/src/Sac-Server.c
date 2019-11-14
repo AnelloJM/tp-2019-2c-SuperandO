@@ -36,7 +36,6 @@ void* funcionMagica(int cliente){
 		uint32_t tam = headerRecibido.tamanioMensaje;
 		switch(headerRecibido.operaciones){
 			case f_GETATTR:;
-				//desempaquetar pack y hacer el codigo
 				char *pathGetAttr= Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathGetAttr)+1);
 				log_error(logger, pathGetAttr);
@@ -58,7 +57,6 @@ void* funcionMagica(int cliente){
 				log_error(logger, pathRead);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi READ"), f_HANDSHAKE);
 				free(pathRead);
-				//desempaquetar pack y hacer el codigo
 				break;
 
 			case f_OPEN: ;
@@ -67,48 +65,103 @@ void* funcionMagica(int cliente){
 				log_error(logger, pathOpen);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi OPEN"), f_HANDSHAKE);
 				free(pathOpen);
-				//desempaquetar pack y hacer el codigo
 				break;
 
 			case f_RELEASE: ;
+				char *pathRelease = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRelease)+1);
+				log_error(logger, pathRelease);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi RELEASE"), f_HANDSHAKE);
+				free(pathRelease);
 				break;
 
 			case f_WRITE: ;
+				char *pathWrite = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathWrite)+1);
+				log_error(logger, pathWrite);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi WRITE"), f_HANDSHAKE);
+				free(pathWrite);
 				break;
 
 			case f_MKNOD: ;
+				char *pathMKNod = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathMKNod)+1);
+				log_error(logger, pathMKNod);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi MKNOD"), f_HANDSHAKE);
+				free(pathMKNod);
 				break;
 
 			case f_UNLINK: ;
+				char *pathUnlink = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUnlink)+1);
+				log_error(logger, pathUnlink);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi UNLINK"), f_HANDSHAKE);
+				free(pathUnlink);
 				break;
 
 			case f_MKDIR: ;
+				char *pathMKDir = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathMKDir)+1);
+				log_error(logger, pathMKDir);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi MKDIR"), f_HANDSHAKE);
+				free(pathMKDir);
 				break;
 
 			case f_RMDIR: ;
+				char *pathRMDir = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRMDir)+1);
+				log_error(logger, pathRMDir);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi RMDIR"), f_HANDSHAKE);
+				free(pathRMDir);
 				break;
 
 			case f_CHMOD: ;
+				char *pathCHMod = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathCHMod)+1);
+				log_error(logger, pathCHMod);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi CHMOD"), f_HANDSHAKE);
+				free(pathCHMod);
 				break;
 
 			case f_UTIME: ;
+				char *pathUtime = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUtime)+1);
+				log_error(logger, pathUtime);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi UTIME"), f_HANDSHAKE);
+				free(pathUtime);
 				break;
 
 			case f_RENAME: ;
+				char *pathRename = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRename)+1);
+				log_error(logger, pathRename);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi RENAME"), f_HANDSHAKE);
+				free(pathRename);
 				break;
 
 			case f_TRUNCATE: ;
+				char *pathTruncate = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathTruncate)+1);
+				log_error(logger, pathTruncate);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi TRUNCATE"), f_HANDSHAKE);
+				free(pathTruncate);
 				break;
 
 			case f_SETXATTR: ;
+				char *pathSetXAttr = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathSetXAttr)+1);
+				log_error(logger, pathSetXAttr);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi SETXATTR"), f_HANDSHAKE);
+				free(pathSetXAttr);
 				break;
 
 			case f_HANDSHAKE: ;
 				//desempaquetar pack y hacer el codigo
-				char *path_handshake = Fuse_ReceiveAndUnpack_Path(cliente, headerRecibido.tamanioMensaje);
-				log_info(logger,"tamanio del path que recive: %i \0", strlen(path_handshake)+1);
-				log_info(logger, path_handshake);
+				char *pathHandshake = Fuse_ReceiveAndUnpack_Path(cliente, headerRecibido.tamanioMensaje);
+				log_info(logger,"tamanio del path que recive: %i \0", strlen(pathHandshake)+1);
+				log_info(logger, pathHandshake);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi HANDSHAKE"), f_HANDSHAKE);
+				free(pathHandshake);
 				break;
 
 			default:
