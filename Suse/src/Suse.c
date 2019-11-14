@@ -90,6 +90,14 @@ void* tomarMetricasAutomaticas(){
 	}
 }
 
+int gettimeofday(){
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	unsigned long long result = (((unsigned long long)tv.tv_sec)*1000 + ((unsigned long long)tv.tv_usec)/1000);
+	int a = result;
+	return result;
+}
+
 void crearLogger(){
 	char* logPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse/src/SUSE.log";
 	char* nombreArch = "SUSE";
