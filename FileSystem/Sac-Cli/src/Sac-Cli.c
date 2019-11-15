@@ -66,6 +66,14 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_error(logger, pathRecibido);
 	free(pathRecibido);
 
+	//Esto es para probar si funciona Fuse_PackAndSend_IntResponse
+	/*
+	sem_wait(&mutex_buffer);
+	headerRecibido = Fuse_RecieveHeader(conexion);
+	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_error(logger, "Response: %i", headerRecibido.tamanioMensaje);
+	sem_post(&mutex_buffer);
+	*/
 
 	//Continuo con lo que deberia hacer para que no cuelge, esto es solo para testear
 
@@ -477,7 +485,7 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "8999", logger);
+	conexion = conectarse_a_un_servidor("127.0.0.1" , "8799", logger);
 	sem_init(&mutex_buffer,0,1);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);

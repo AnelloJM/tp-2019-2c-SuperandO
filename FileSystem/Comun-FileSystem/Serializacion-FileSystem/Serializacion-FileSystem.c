@@ -30,6 +30,18 @@ bool Fuse_PackAndSend_Path(int socketCliente, const char *path, f_operacion oper
 	return resultado;
 }
 
+bool Fuse_PackAndSend_IntResponse(int socketCliente, const uint32_t response, f_operacion operacion) {
+	uint32_t tamMessage = sizeof(uint32_t) + sizeof(f_operacion);
+	void * buffer = malloc( tamMessage );
+	int desplazamiento = 0;
+	memcpy(buffer, &operacion, sizeof(f_operacion));
+	desplazamiento += sizeof(f_operacion);
+	memcpy(buffer+desplazamiento, &response, sizeof(uint32_t));
+	int resultado = send(socketCliente, buffer, tamMessage,0);
+	free(buffer);
+	return resultado;
+}
+
 ////////////////////////////
 // FUNCIONES PARA RECIBIR //
 ////////////////////////////
@@ -56,4 +68,6 @@ char* Fuse_ReceiveAndUnpack_Path(int socketCliente, uint32_t tamanioChar) {
 	return charRetornado;
 }
 
+//Para recibir una IntResponse, usamos RecieveHeader, si el codigo de operacion es
+//response podemos asumir que el tamaniomensaje es la response.
 

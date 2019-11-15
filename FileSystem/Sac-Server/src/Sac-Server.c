@@ -43,6 +43,10 @@ void* funcionMagica(int cliente){
 				log_error(logger, pathGetAttr);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi GETATTR"), f_HANDSHAKE);
 				free(pathGetAttr);
+
+				//Esto es para probar si funciona Fuse_PackAndSend_IntResponse
+				//Fuse_PackAndSend_IntResponse(cliente, 1, f_RESPONSE);
+
 				break;
 
 			case f_READDIR: ;
@@ -178,7 +182,7 @@ int main(void) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "8999", logger);
+	conexion = iniciar_servidor("127.0.0.1", "8799", logger);
 
 
 

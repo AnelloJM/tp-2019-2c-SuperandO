@@ -42,6 +42,7 @@ typedef enum f_operaciones {
 	f_RENAME,
 	f_TRUNCATE,
 	f_SETXATTR,
+	f_RESPONSE,
 	f_HANDSHAKE
 } f_operacion;
 
@@ -61,6 +62,8 @@ typedef struct {
 HeaderFuse Fuse_RecieveHeader(int socketCliente);
 
 bool Fuse_PackAndSend_Path(int socketCliente, const char *path, f_operacion operacion);
+
+bool Fuse_PackAndSend_IntResponse(int socketCliente, const uint32_t response, f_operacion operacion);
 
 char* Fuse_ReceiveAndUnpack_Path(int socketCliente, uint32_t tamanioChar);
 
