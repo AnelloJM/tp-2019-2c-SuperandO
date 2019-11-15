@@ -68,8 +68,9 @@ char* enviarMiPathYRecibirResponse(t_log *logger, const char *path, int conexion
 
 static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_info(logger, "Se llamo a fusesito_getattr\n");
-	/*log_info(logger,path);
 	int res = 0;
+	/*log_info(logger,path);
+
 	if(Fuse_PackAndSend_Path(conexion, path, f_GETATTR)){
 		log_info(logger, "se pudo enviar pack");
 	}
@@ -89,7 +90,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	free(pathRecibido);*/
 
 	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
-	free(response)
+	free(response);
 
 	//Continuo con lo que deberia hacer para que no cuelge, esto es solo para testear
 
