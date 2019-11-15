@@ -2,9 +2,11 @@
  ============================================================================
  Name        : Sac-Server.c
  Author      : Superand0
- Version     :
- Copyright   : 
- Description : Hello World in C, Ansi-style
+ Version     : 0.1
+ Copyright   : Superand0 2C 2019
+ Description : Proceso que se encarga de recibir peticiones de los Sac-Cli's
+ 	 	 	   Manejara un File System a traves de un bitmap en la computadora
+ 	 	 	   en la que se corra
  ============================================================================
  */
 

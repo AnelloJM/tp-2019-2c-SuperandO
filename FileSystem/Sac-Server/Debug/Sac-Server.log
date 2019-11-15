@@ -1,0 +1,384 @@
+[INFO] 21:46:27:273 Sac-Server/(14520:14520): Se ha creado un nuevo logger
+
+[INFO] 21:46:27:273 Sac-Server/(14520:14520): Dentro de iniciar servidor
+[INFO] 21:46:27:273 Sac-Server/(14520:14520): Listo para escuchar a mi cliente
+[INFO] 21:46:27:273 Sac-Server/(14520:14520): esperando
+[INFO] 21:46:46:328 Sac-Server/(14520:14520): Se conecto un cliente!
+[INFO] 21:46:46:328 Sac-Server/(14520:14520): Se creo el hilo sin problema, cliente: 5
+[INFO] 21:46:46:328 Sac-Server/(14520:14520): esperando
+[INFO] 21:46:46:564 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:564 Sac-Server/(14520:14527): Tamanio: 18
+[ERROR] 21:46:46:564 Sac-Server/(14520:14527): tamanio del path que recive: 18 
+[ERROR] 21:46:46:564 Sac-Server/(14520:14527): /.xdg-volume-info
+[INFO] 21:46:46:570 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:570 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:570 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:570 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:591 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:592 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:46:46:592 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:46:46:592 Sac-Server/(14520:14527): /autorun.inf
+[INFO] 21:46:46:597 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:597 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:597 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:597 Sac-Server/(14520:14527): /.Trash
+[INFO] 21:46:46:605 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:605 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:605 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:605 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:623 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:623 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:46:46:623 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:46:46:623 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:46:46:645 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:645 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:645 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:645 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:658 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:658 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:46:46:658 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:46:46:658 Sac-Server/(14520:14527): /.Trash-1000
+[INFO] 21:46:46:661 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:661 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:661 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:661 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:665 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:665 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:665 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:665 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:668 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:668 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:668 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:668 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:672 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:672 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:672 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:672 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:675 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:675 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:675 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:675 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:678 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:678 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:679 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:679 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:690 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:690 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:690 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:690 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:693 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:693 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:693 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:693 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:696 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:696 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:696 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:696 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:698 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:698 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:698 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:698 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:701 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:701 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:701 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:701 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:704 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:704 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:704 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:704 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:708 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:708 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:708 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:708 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:714 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:714 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:714 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:714 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:717 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:717 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:717 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:717 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:720 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:720 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:720 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:720 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:722 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:722 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:722 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:722 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:725 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:725 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:725 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:725 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:733 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:733 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:733 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:733 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:735 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:735 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:735 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:735 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:739 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:739 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:739 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:739 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:746 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:746 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:746 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:746 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:748 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:748 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:748 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:748 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:756 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:756 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:756 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:756 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:759 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:759 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:759 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:759 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:762 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:762 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:762 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:762 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:764 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:764 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:764 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:764 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:768 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:768 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:768 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:768 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:770 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:770 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:770 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:770 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:774 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:774 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:774 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:774 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:776 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:776 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:776 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:777 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:783 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:783 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:783 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:783 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:786 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:786 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:786 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:786 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:789 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:789 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:789 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:789 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:792 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:792 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:792 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:792 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:800 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:800 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:800 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:800 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:803 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:803 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:803 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:803 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:805 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:805 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:805 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:805 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:808 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:808 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:808 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:808 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:812 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:812 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:812 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:812 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:814 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:814 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:814 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:814 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:821 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:821 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:821 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:821 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:824 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:824 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:824 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:824 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:828 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:828 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:828 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:828 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:835 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:835 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:835 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:835 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:838 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:838 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:838 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:838 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:840 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:840 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:840 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:840 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:842 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:842 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:842 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:842 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:846 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:846 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:846 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:846 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:849 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:849 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:849 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:849 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:856 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:856 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:856 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:856 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:859 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:859 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:859 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:859 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:861 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:861 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:861 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:861 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:863 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:863 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:863 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:863 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:869 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:869 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:869 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:869 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:871 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:871 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:871 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:871 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:874 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:874 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:874 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:874 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:877 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:877 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:877 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:877 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:880 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:880 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:880 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:880 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:883 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:883 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:883 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:883 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:890 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:890 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:890 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:890 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:896 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:896 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:896 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:896 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:898 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:898 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:898 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:898 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:903 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:903 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:903 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:903 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:907 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:46:46:907 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:907 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:907 Sac-Server/(14520:14527): /
+[INFO] 21:46:46:920 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:920 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:46:46:920 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:46:46:920 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:46:46:923 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:923 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:46:46:923 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:46:46:923 Sac-Server/(14520:14527): /autorun.inf
+[INFO] 21:46:46:929 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:46:46:929 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:46:46:929 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:46:46:930 Sac-Server/(14520:14527): /
+[INFO] 21:47:02:478 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:47:02:478 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:47:02:478 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:47:02:478 Sac-Server/(14520:14527): /
+[INFO] 21:47:03:890 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:47:03:890 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:47:03:890 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:47:03:890 Sac-Server/(14520:14527): /
+[INFO] 21:47:03:893 Sac-Server/(14520:14527): Codigo de operacion: 1
+[INFO] 21:47:03:893 Sac-Server/(14520:14527): Tamanio: 2
+[ERROR] 21:47:03:893 Sac-Server/(14520:14527): tamanio del path que recive: 2 
+[ERROR] 21:47:03:893 Sac-Server/(14520:14527): /
+[INFO] 21:47:03:895 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:47:03:895 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:03:895 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:03:895 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:03:906 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:47:03:906 Sac-Server/(14520:14527): Tamanio: 12
+[ERROR] 21:47:03:906 Sac-Server/(14520:14527): tamanio del path que recive: 12 
+[ERROR] 21:47:03:906 Sac-Server/(14520:14527): /.directory
+[INFO] 21:47:03:922 Sac-Server/(14520:14527): Codigo de operacion: 3
+[INFO] 21:47:03:923 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:03:923 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:03:923 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:03:940 Sac-Server/(14520:14527): Codigo de operacion: 2
+[INFO] 21:47:03:940 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:03:940 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:03:940 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:03:971 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:47:03:971 Sac-Server/(14520:14527): Tamanio: 8
+[ERROR] 21:47:03:971 Sac-Server/(14520:14527): tamanio del path que recive: 8 
+[ERROR] 21:47:03:971 Sac-Server/(14520:14527): /LaCosa
+[INFO] 21:47:03:981 Sac-Server/(14520:14527): Codigo de operacion: 4
+[INFO] 21:47:03:981 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:03:981 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:03:982 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:04:794 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:47:04:794 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:04:794 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:04:794 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:04:797 Sac-Server/(14520:14527): Codigo de operacion: 3
+[INFO] 21:47:04:797 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:04:797 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:04:797 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:04:800 Sac-Server/(14520:14527): Codigo de operacion: 2
+[INFO] 21:47:04:800 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:04:800 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:04:800 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:04:803 Sac-Server/(14520:14527): Codigo de operacion: 4
+[INFO] 21:47:04:803 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:04:803 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:04:803 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:04:930 Sac-Server/(14520:14527): Codigo de operacion: 0
+[INFO] 21:47:04:930 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:04:930 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:04:930 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:04:933 Sac-Server/(14520:14527): Codigo de operacion: 3
+[INFO] 21:47:04:933 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:04:933 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:04:933 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:04:936 Sac-Server/(14520:14527): Codigo de operacion: 2
+[INFO] 21:47:04:936 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:04:936 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:04:936 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:04:938 Sac-Server/(14520:14527): Codigo de operacion: 4
+[INFO] 21:47:04:938 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:04:938 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:04:938 Sac-Server/(14520:14527): /ElArchivito
+[INFO] 21:47:04:943 Sac-Server/(14520:14527): Codigo de operacion: 3
+[INFO] 21:47:04:943 Sac-Server/(14520:14527): Tamanio: 13
+[ERROR] 21:47:04:943 Sac-Server/(14520:14527): tamanio del path que recive: 13 
+[ERROR] 21:47:04:943 Sac-Server/(14520:14527): /ElArchivito

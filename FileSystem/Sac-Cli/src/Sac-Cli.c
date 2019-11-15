@@ -1,11 +1,13 @@
 /*
- ============================================================================
+ ==================================================================================
  Name        : Sac-Cli.c
  Author      : Superand0
- Version     :
- Copyright   : 
- Description : Hello World in C, Ansi-style
- ============================================================================
+ Version     : 0.1
+ Copyright   : Superand0 2C 2019
+ Description : Proceso que se encarga de "catchear" las funciones del File System
+ 	 	 	   y se las envia a Sac-Server, espera una respuesta y en base a esta
+ 	 	 	   retorna al SO
+ ==================================================================================
  */
 
 #include <stddef.h>
@@ -464,9 +466,9 @@ int main(int argc, char *argv[]) {
 	sem_init(&mutex_buffer,0,1);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
-	// Esta es la funcion principal de FUSE, es la que se encarga
-	// de realizar el montaje, comuniscarse con el kernel, delegar todo
-	// en varios threads
+	/* Esta es la funcion principal de FUSE, es la que se encarga
+	 de realizar el montaje, comuniscarse con el kernel, delegar todo
+	 en varios threads */
 	return fuse_main(args.argc, args.argv, &fusesito_oper, NULL);
 
 }
