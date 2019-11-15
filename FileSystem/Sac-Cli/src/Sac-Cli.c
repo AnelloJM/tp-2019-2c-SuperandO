@@ -44,8 +44,7 @@ t_log *logger;
 int conexion;
 sem_t mutex_buffer;
 
-static int fusesito_getattr(const char *path, struct stat *stbuf) {
-	log_info(logger, "Se llamo a fusesito_getattr\n");
+char* enviarMiPathYRecibirResponse(t_log *logger, const char *path, int conexion) {
 	log_info(logger,path);
 	int res = 0;
 	if(Fuse_PackAndSend_Path(conexion, path, f_GETATTR)){
@@ -64,16 +63,33 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
-	free(pathRecibido);
+	return pathRecibido;
+}
 
-	//Esto es para probar si funciona Fuse_PackAndSend_IntResponse
-	/*
+static int fusesito_getattr(const char *path, struct stat *stbuf) {
+	log_info(logger, "Se llamo a fusesito_getattr\n");
+	/*log_info(logger,path);
+	int res = 0;
+	if(Fuse_PackAndSend_Path(conexion, path, f_GETATTR)){
+		log_info(logger, "se pudo enviar pack");
+	}
+	else{
+		log_error(logger, "no se pudo enviar pack");
+	}
+	HeaderFuse headerRecibido;
 	sem_wait(&mutex_buffer);
 	headerRecibido = Fuse_RecieveHeader(conexion);
 	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
-	log_error(logger, "Response: %i", headerRecibido.tamanioMensaje);
+	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
+	char *pathRecibido= Fuse_ReceiveAndUnpack_Path(conexion, tam);
 	sem_post(&mutex_buffer);
-	*/
+	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
+	log_error(logger, pathRecibido);
+	free(pathRecibido);*/
+
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	free(response)
 
 	//Continuo con lo que deberia hacer para que no cuelge, esto es solo para testear
 
