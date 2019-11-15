@@ -64,6 +64,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 
 	//Continuo con lo que deberia hacer para que no cuelge, esto es solo para testear
@@ -106,6 +107,7 @@ static int fusesito_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	filler(buf, ".", NULL, 0);
 	filler(buf, "..", NULL, 0);
@@ -134,6 +136,7 @@ static int fusesito_open(const char *path, struct fuse_file_info *fi) {
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	if (strcmp(path, DEFAULT_FILE_PATH) != 0)
 			return -ENOENT;
@@ -166,6 +169,7 @@ static int fusesito_read(const char *path, char *buf, size_t size, off_t offset,
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	size_t len;
 	(void) fi;
@@ -204,6 +208,7 @@ static int fusesito_release(const char *path, struct fuse_file_info *fi){
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	return 0;
 }
@@ -228,6 +233,7 @@ static int fusesito_write(const char *path, const char *buf, size_t size, off_t 
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	return 0;
 }
@@ -250,6 +256,7 @@ static int fusesito_mknod(const char *path, mode_t mode, dev_t dev){
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	return 0;
 }
@@ -272,6 +279,7 @@ static int fusesito_unlink(const char *path){
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	return 0;
 }
@@ -296,6 +304,7 @@ static int fusesito_mkdir(const char *path, mode_t mode){
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	return 0;
 }
@@ -319,6 +328,7 @@ static int fusesito_rmdir(const char *path){
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	return 0;
 }
@@ -342,6 +352,7 @@ static int fusesito_utime(const char *path, struct utimbuf *buf){
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	return 0;
 }
@@ -365,6 +376,7 @@ static int fusesito_chmod(const char *path, mode_t mode){
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	return 0;
 }
@@ -388,6 +400,7 @@ static int fusesito_rename(const char *path, const char *buf){
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	return 0;
 }
@@ -411,6 +424,7 @@ static int fusesito_truncate(const char *path, off_t offset){
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	return 0;
 }
@@ -434,6 +448,7 @@ static int fusesito_setxattr(const char *path, const char *nose, const char *nos
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
+	free(pathRecibido);
 
 	return 0;
 }
