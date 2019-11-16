@@ -10,22 +10,15 @@
  ============================================================================
  */
 
-#include <stddef.h>
-#include <stdlib.h>
-#include <fuse.h>
-#include <sys/socket.h>
-#include <stdio.h>
-#include <string.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <Conexiones/Conexiones.h>
-#include <commons/log.h>
-#include <commons/collections/list.h>
+#include "Sac-Server.h"
+
 #include <Serializacion-FileSystem/Serializacion-FileSystem.h>
-#include <pthread.h>
 
 t_log *logger;
 int conexion;
+uint32_t bloques_del_bitmap;
+uint64_t tamanio_disco; //Como no se de que tamanio va a ser decido sobre exagerar
+uint32_t cantidad_de_bloques_de_datos;
 
 void FuseGetattr(){}
 
@@ -43,10 +36,6 @@ void* funcionMagica(int cliente){
 				log_error(logger, pathGetAttr);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi GETATTR"), f_HANDSHAKE);
 				free(pathGetAttr);
-
-				//Esto es para probar si funciona Fuse_PackAndSend_IntResponse
-				//Fuse_PackAndSend_IntResponse(cliente, 1, f_RESPONSE);
-
 				break;
 
 			case f_READDIR: ;
@@ -177,14 +166,31 @@ void* funcionMagica(int cliente){
 	}
 }
 
+void iniciar_header(Header *header){
+	bloques_del_bitmap = (tamanio_disco/sizeof(Bloque)/8)/sizeof(Bloque);
+	cantidad_de_bloques_de_datos =  tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024;
+
+	char identificador_aux[3]="SAC";
+
+	for(int i=0; i<3; i++){
+		header->identificador[i] = identificador_aux[i];
+	}
+	header->version = 1;
+	header->inicio_bitmap = 1;
+	header->tamanio_bitmap=bloques_del_bitmap;
+}
+
+void iniciar_Sac_Server(Header *header, Bitmap* bitmap, Tabla_de_nodos* tabla_de_nodos){
+	iniciar_header(header);
+	//iniciar_bitmap, preguntar, no entiendo el t_bitarray
+}
+
 int main(void) {
 
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "8799", logger);
-
-
+	conexion = iniciar_servidor("127.0.0.1", "8787", logger);
 
 	t_list* hilosClientes = list_create();
 

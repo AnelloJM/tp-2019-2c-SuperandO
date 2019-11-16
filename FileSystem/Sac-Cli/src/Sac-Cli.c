@@ -235,7 +235,7 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "8799", logger);
+	conexion = conectarse_a_un_servidor("127.0.0.1" , "8787", logger);
 	sem_init(&mutex_buffer,0,1);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
