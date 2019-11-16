@@ -12,12 +12,11 @@
 // FUNCIONES PARA ENVIAR //
 ///////////////////////////
 
-bool Fuse_PackAndSend_Path(int socketCliente, const char *path, f_operacion operacion) {
+bool Fuse_PackAndSend_Path(int socketCliente, const char *path, uint32_t tamPath, f_operacion operacion) {
 
-	uint32_t tamMessage = strlen(path) + 1 + sizeof(f_operacion) + sizeof(uint32_t);
+	uint32_t tamMessage = tamPath + sizeof(f_operacion) + sizeof(uint32_t);
 	void* buffer = malloc( tamMessage );
 	int desplazamiento = 0;
-	uint32_t tamPath = strlen(path) +1 ;
 	memcpy(buffer, &operacion ,sizeof(f_operacion));
 	desplazamiento += sizeof(f_operacion);
 	memcpy(buffer+desplazamiento, &tamPath , sizeof(uint32_t));

@@ -61,7 +61,7 @@ typedef struct {
 
 HeaderFuse Fuse_RecieveHeader(int socketCliente);
 
-bool Fuse_PackAndSend_Path(int socketCliente, const char *path, f_operacion operacion);
+bool Fuse_PackAndSend_Path(int socketCliente, const char *path, uint32_t tamPath, f_operacion operacion);
 
 bool Fuse_PackAndSend_IntResponse(int socketCliente, const uint32_t response, f_operacion operacion);
 
