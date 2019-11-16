@@ -20,7 +20,35 @@ uint64_t tamanio_disco; //Como no se de que tamanio va a ser decido sobre exager
 uint32_t cantidad_de_bloques_de_datos;
 t_bitarray *bitmap;
 
-void FuseGetattr(){}
+uint32_t Hacer_Getattr(char *path){ return 0; }
+
+uint32_t Hacer_ReadDir(char *path){ return 0; }
+
+uint32_t Hacer_Open(char *path){ return 0; }
+
+uint32_t Hacer_Read(char *path){ return 0; }
+
+uint32_t Hacer_Release(char *path){ return 0; }
+
+uint32_t Hacer_Write(char *path, char *buffer){ return 0; } 
+
+uint32_t Hacer_MKNod(char *path){ return 0; }
+
+uint32_t Hacer_Unlink(char *path){ return 0; }
+
+uint32_t Hacer_MKDir(char *path, char *buffer){ return 0; }
+
+uint32_t Hacer_RMDir(char *path){ return 0; }
+
+uint32_t Hacer_CHMod(char *path){ return 0; }
+
+uint32_t Hacer_Utime(char *path){ return 0; }
+
+uint32_t Hacer_Rename(char *path, char *buffer){ return 0; }
+
+uint32_t Hacer_Truncate(char *path){ return 0; }
+
+uint32_t Hacer_SetXAttr(char *path){ return 0; }
 
 void* funcionMagica(int cliente){
 	while(1){
@@ -38,6 +66,7 @@ void* funcionMagica(int cliente){
 				char *pathGetAttr= Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathGetAttr)+1);
 				log_error(logger, pathGetAttr);
+				//Hacer_Getattr(pathGetAttr);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi GETATTR"), strlen("Hola, recibi GETATTR")+1, f_RESPONSE);
 				free(pathGetAttr);
 				break;
@@ -46,6 +75,7 @@ void* funcionMagica(int cliente){
 				char *pathReadDir = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathReadDir)+1);
 				log_error(logger, pathReadDir);
+				//Hacer_ReadDir(pathReadDir);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi READDIR"), strlen("Hola, recibi READDIR")+1, f_RESPONSE);
 				free(pathReadDir);
 				break;
@@ -54,6 +84,7 @@ void* funcionMagica(int cliente){
 				char *pathRead = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRead)+1);
 				log_error(logger, pathRead);
+				//Hacer_Read(pathRead);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi READ"), strlen("Hola, recibi READ")+1, f_RESPONSE);
 				free(pathRead);
 				break;
@@ -62,6 +93,7 @@ void* funcionMagica(int cliente){
 				char *pathOpen = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathOpen)+1);
 				log_error(logger, pathOpen);
+				//Hacer_Open(pathOpen);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi OPEN"), strlen("Hola, recibi OPEN")+1, f_RESPONSE);
 				free(pathOpen);
 				break;
@@ -78,6 +110,7 @@ void* funcionMagica(int cliente){
 				char *pathWrite = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathWrite)+1);
 				log_error(logger, pathWrite);
+				//Hacer_Write(pathWrite, escritura);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi WRITE"), strlen("Hola, recibi WRITE")+1, f_RESPONSE);
 				free(pathWrite);
 				break;
@@ -86,6 +119,7 @@ void* funcionMagica(int cliente){
 				char *pathMKNod = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathMKNod)+1);
 				log_error(logger, pathMKNod);
+				//Hacer_MKNod(pathMKNod);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi MKNOD"), strlen("Hola, recibi MKNOD")+1, f_RESPONSE);
 				free(pathMKNod);
 				break;
@@ -94,6 +128,7 @@ void* funcionMagica(int cliente){
 				char *pathUnlink = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUnlink)+1);
 				log_error(logger, pathUnlink);
+				//Hacer_Unlink(pathUnlink);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi UNLINK"), strlen("Hola, recibi UNLINK")+1, f_RESPONSE);
 				free(pathUnlink);
 				break;
@@ -102,6 +137,7 @@ void* funcionMagica(int cliente){
 				char *pathMKDir = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathMKDir)+1);
 				log_error(logger, pathMKDir);
+				//Hacer_MKDir(pathMKDir, nombreDirectorio);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi MKDIR"), strlen("Hola, recibi MKDIR")+1, f_RESPONSE);
 				free(pathMKDir);
 				break;
@@ -110,6 +146,7 @@ void* funcionMagica(int cliente){
 				char *pathRMDir = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRMDir)+1);
 				log_error(logger, pathRMDir);
+				//Hacer_RMDir(pathRMDir);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi RMDIR"), strlen("Hola, recibi RMDIR")+1, f_RESPONSE);
 				free(pathRMDir);
 				break;
@@ -118,6 +155,7 @@ void* funcionMagica(int cliente){
 				char *pathCHMod = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathCHMod)+1);
 				log_error(logger, pathCHMod);
+				//Hacer_CHMod(pathCHMod);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi CHMOD"), strlen("Hola, recibi CHMOD")+1, f_RESPONSE);
 				free(pathCHMod);
 				break;
@@ -126,6 +164,7 @@ void* funcionMagica(int cliente){
 				char *pathUtime = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUtime)+1);
 				log_error(logger, pathUtime);
+				//Hacer_Utime(pathUtime);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi UTIME"), strlen("Hola, recibi UTIME")+1, f_RESPONSE);
 				free(pathUtime);
 				break;
@@ -134,6 +173,7 @@ void* funcionMagica(int cliente){
 				char *pathRename = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRename)+1);
 				log_error(logger, pathRename);
+				//Hacer_Rename(pathRename);	
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi RENAME"), strlen("Hola, recibi RENAME")+1, f_RESPONSE);
 				free(pathRename);
 				break;
@@ -142,6 +182,7 @@ void* funcionMagica(int cliente){
 				char *pathTruncate = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathTruncate)+1);
 				log_error(logger, pathTruncate);
+				//Hacer_Truncate(pathTruncate);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi TRUNCATE"), strlen("Hola, recibi TRUNCATE")+1, f_RESPONSE);
 				free(pathTruncate);
 				break;
@@ -150,6 +191,7 @@ void* funcionMagica(int cliente){
 				char *pathSetXAttr = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathSetXAttr)+1);
 				log_error(logger, pathSetXAttr);
+				//Hacer_SetXAttr(pathSetXAttr);
 				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi SETXATTR"), strlen("Hola, recibi SETXATTR")+1, f_RESPONSE);
 				free(pathSetXAttr);
 				break;
