@@ -11,7 +11,6 @@
  */
 
 #include "Sac-Server.h"
-
 #include <Serializacion-FileSystem/Serializacion-FileSystem.h>
 
 t_log *logger;
@@ -19,6 +18,7 @@ int conexion;
 uint32_t bloques_del_bitmap;
 uint64_t tamanio_disco; //Como no se de que tamanio va a ser decido sobre exagerar
 uint32_t cantidad_de_bloques_de_datos;
+t_bitarray *bitmap;
 
 void FuseGetattr(){}
 
@@ -28,6 +28,10 @@ void* funcionMagica(int cliente){
 		headerRecibido = Fuse_RecieveHeader(cliente);
 		log_info(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
 		log_info(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+		if(headerRecibido.operaciones == -1){
+			log_error(logger, "Se desconecto el cliente... \n Saliendo...");
+			break;
+		}
 		uint32_t tam = headerRecibido.tamanioMensaje;
 		switch(headerRecibido.operaciones){
 			case f_GETATTR:;
@@ -180,9 +184,13 @@ void iniciar_header(Header *header){
 	header->tamanio_bitmap=bloques_del_bitmap;
 }
 
-void iniciar_Sac_Server(Header *header, Bitmap* bitmap, Tabla_de_nodos* tabla_de_nodos){
+t_bitarray 	*iniciar_bitmap(Bitmap* bitmap){
+	return bitarray_create_with_mode(bitmap, bloques_del_bitmap, MSB_FIRST);
+}
+
+void iniciar_Sac_Server(Header *header, Bitmap* bitmap, Tabla_de_nodos *tabla_de_nodos){
 	iniciar_header(header);
-	//iniciar_bitmap, preguntar, no entiendo el t_bitarray
+	bitmap = iniciar_bitmap(bitmap);
 }
 
 int main(void) {
@@ -190,15 +198,12 @@ int main(void) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "8787", logger);
-
-	t_list* hilosClientes = list_create();
+	conexion = iniciar_servidor("127.0.0.1", "6060", logger);
 
 	while(1){
 		cliente = esperar_cliente_con_accept(conexion, logger);
 
 		pthread_t* cody = malloc(sizeof(pthread_t));
-		list_add(hilosClientes,cody);
 		if(pthread_create(cody,NULL,(void*)funcionMagica,cliente) == 0){
 			pthread_detach(cody);
 			log_info(logger,"Se creo el hilo sin problema, cliente: %i", cliente);

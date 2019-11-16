@@ -80,7 +80,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 
 		if (strcmp(path, "/") == 0) {
 			stbuf->st_mode = S_IFDIR | 0755;
-			stbuf->st_nlink = 2;
+			stbuf->st_nlink = 1;
 		} else if (strcmp(path, DEFAULT_FILE_PATH) == 0) {
 			stbuf->st_mode = S_IFREG | 0444;
 			stbuf->st_nlink = 1;
@@ -235,7 +235,7 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "8787", logger);
+	conexion = conectarse_a_un_servidor("127.0.0.1" , "6060", logger);
 	sem_init(&mutex_buffer,0,1);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);

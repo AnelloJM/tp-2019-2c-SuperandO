@@ -48,7 +48,12 @@ bool Fuse_PackAndSend_IntResponse(int socketCliente, const uint32_t response, f_
 
 HeaderFuse Fuse_RecieveHeader(int socketCliente){
 	void* buffer=malloc(sizeof(f_operacion) + sizeof(uint32_t));
-	recv(socketCliente, buffer, (sizeof(f_operacion) + sizeof(uint32_t)), MSG_WAITALL);
+	if(recv(socketCliente, buffer, (sizeof(f_operacion) + sizeof(uint32_t)), MSG_WAITALL) == 0){
+		HeaderFuse headerQueRetorna;
+		headerQueRetorna.operaciones = (-1);
+		headerQueRetorna.tamanioMensaje = 0;
+		return headerQueRetorna;
+	}
 	uint32_t tamanioMensaje = 0;
 	f_operacion operacion;
 	memcpy(&operacion,buffer,sizeof(f_operacion));
