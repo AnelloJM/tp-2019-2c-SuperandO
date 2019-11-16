@@ -34,7 +34,7 @@ void* funcionMagica(int cliente){
 				char *pathGetAttr= Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathGetAttr)+1);
 				log_error(logger, pathGetAttr);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi GETATTR"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi GETATTR"), (strlen(("Hola, recibi GETATTR")+1), f_RESPONSE);
 				free(pathGetAttr);
 				break;
 
@@ -42,7 +42,7 @@ void* funcionMagica(int cliente){
 				char *pathReadDir = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathReadDir)+1);
 				log_error(logger, pathReadDir);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi READDIR"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi READDIR"), (strlen(("Hola, recibi READDIR")+1), f_RESPONSE);
 				free(pathReadDir);
 				break;
 
@@ -50,7 +50,7 @@ void* funcionMagica(int cliente){
 				char *pathRead = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRead)+1);
 				log_error(logger, pathRead);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi READ"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi READ"), (strlen(("Hola, recibi READ")+1), f_RESPONSE);
 				free(pathRead);
 				break;
 
@@ -58,7 +58,7 @@ void* funcionMagica(int cliente){
 				char *pathOpen = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathOpen)+1);
 				log_error(logger, pathOpen);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi OPEN"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi OPEN"), (strlen(("Hola, recibi OPEN")+1), f_RESPONSE);
 				free(pathOpen);
 				break;
 
@@ -66,7 +66,7 @@ void* funcionMagica(int cliente){
 				char *pathRelease = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRelease)+1);
 				log_error(logger, pathRelease);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi RELEASE"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi RELEASE"), (strlen(("Hola, recibi RELEASE")+1), f_RESPONSE);
 				free(pathRelease);
 				break;
 
@@ -74,7 +74,7 @@ void* funcionMagica(int cliente){
 				char *pathWrite = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathWrite)+1);
 				log_error(logger, pathWrite);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi WRITE"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi RELEASE"), (strlen(("Hola, recibi RELEASE")+1), f_RESPONSE);
 				free(pathWrite);
 				break;
 
@@ -90,7 +90,7 @@ void* funcionMagica(int cliente){
 				char *pathUnlink = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUnlink)+1);
 				log_error(logger, pathUnlink);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi UNLINK"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi UNLINK"), (strlen(("Hola, recibi UNLINK")+1), f_RESPONSE);
 				free(pathUnlink);
 				break;
 
@@ -114,7 +114,7 @@ void* funcionMagica(int cliente){
 				char *pathCHMod = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathCHMod)+1);
 				log_error(logger, pathCHMod);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi CHMOD"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi CHMOD"), (strlen(("Hola, recibi CHMOD")+1), f_RESPONSE);
 				free(pathCHMod);
 				break;
 
@@ -122,7 +122,7 @@ void* funcionMagica(int cliente){
 				char *pathUtime = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUtime)+1);
 				log_error(logger, pathUtime);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi UTIME"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi UTIME"), (strlen(("Hola, recibi UTIME")+1), f_RESPONSE);
 				free(pathUtime);
 				break;
 
@@ -130,7 +130,7 @@ void* funcionMagica(int cliente){
 				char *pathRename = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRename)+1);
 				log_error(logger, pathRename);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi RENAME"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi RENAME"), (strlen(("Hola, recibi RENAME")+1), f_RESPONSE);
 				free(pathRename);
 				break;
 
@@ -138,7 +138,7 @@ void* funcionMagica(int cliente){
 				char *pathTruncate = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathTruncate)+1);
 				log_error(logger, pathTruncate);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi TRUNCATE"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi TRUNCATE"), (strlen(("Hola, recibi TRUNCATE")+1), f_RESPONSE);
 				free(pathTruncate);
 				break;
 
@@ -146,7 +146,7 @@ void* funcionMagica(int cliente){
 				char *pathSetXAttr = Fuse_ReceiveAndUnpack_Path(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathSetXAttr)+1);
 				log_error(logger, pathSetXAttr);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi SETXATTR"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi SETXATTR"), (strlen(("Hola, recibi SETXATTR")+1), f_RESPONSE);
 				free(pathSetXAttr);
 				break;
 
@@ -155,7 +155,7 @@ void* funcionMagica(int cliente){
 				char *pathHandshake = Fuse_ReceiveAndUnpack_Path(cliente, headerRecibido.tamanioMensaje);
 				log_info(logger,"tamanio del path que recive: %i \0", strlen(pathHandshake)+1);
 				log_info(logger, pathHandshake);
-				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi HANDSHAKE"), f_HANDSHAKE);
+				Fuse_PackAndSend_Path(cliente, strdup("Hola, recibi HANDSHAKE"), (strlen(("Hola, recibi HANDSHAKE")+1), f_RESPONSE);
 				free(pathHandshake);
 				break;
 
