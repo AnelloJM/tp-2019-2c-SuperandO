@@ -18,6 +18,7 @@
 #include <commons/collections/list.h>
 #include <commons/bitarray.h>
 #include <pthread.h>
+#include <sys/time.h>
 
 
 #ifndef SAC_SERVER_H_
@@ -46,12 +47,6 @@ typedef struct{
 	char *bitArray;
 }Bitmap;
 
-typedef struct{
-	char dia[2];
-	char mes[2];
-	char anio[4];
-}Fecha;
-
 
 typedef struct{
 	ptrGBloque  direcciones_del_bloque_de_datos [1024];
@@ -62,8 +57,8 @@ typedef struct {
 	char nombre_del_archivo[71];
 	ptrGBloque  padre;
 	uint32_t tamanio_del_archivo;
-	Fecha creacion;
-	Fecha modificado;
+	uint64_t creacion;
+	uint64_t modificado;
 	ptrGBloque  array_de_punteros [1000];
 } Nodo;
 
@@ -74,6 +69,7 @@ typedef struct {
 
 void iniciar_Sac_Server(Header *header, Bitmap* bitmap, Tabla_de_nodos *tabla_de_nodos);
 void iniciar_header(Header *header);
-t_bitarray 	*iniciar_bitmap(Bitmap* bitmap);
+void cargar_bitmap(t_bitarray* bitmap, int cantidad);
+uint64_t timestamp();
 
 #endif /* SAC_SERVER_H_ */

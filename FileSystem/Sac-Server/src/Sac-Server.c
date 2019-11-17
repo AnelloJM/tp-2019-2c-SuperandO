@@ -18,7 +18,10 @@ int conexion;
 uint32_t bloques_del_bitmap;
 uint64_t tamanio_disco; //Como no se de que tamanio va a ser decido sobre exagerar
 uint32_t cantidad_de_bloques_de_datos;
-t_bitarray *bitmap;
+t_bitarray *tBitarray;
+Header header;
+Bitmap bitmap;
+Tabla_de_nodos tabla_de_nodos;
 
 void FuseGetattr(){}
 
@@ -170,6 +173,14 @@ void* funcionMagica(int cliente){
 	}
 }
 
+uint64_t timestamp(){
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	long long result = (((long long )tv.tv_sec) * 1000 + ((long) tv.tv_usec) / 1000); //opero con milisegundos
+	uint64_t timefinal = result;
+	return timefinal;
+}
+
 void iniciar_header(Header *header){
 	bloques_del_bitmap = (tamanio_disco/sizeof(Bloque)/8)/sizeof(Bloque);
 	cantidad_de_bloques_de_datos =  tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024;
@@ -182,21 +193,33 @@ void iniciar_header(Header *header){
 	header->version = 1;
 	header->inicio_bitmap = 1;
 	header->tamanio_bitmap=bloques_del_bitmap;
+
 }
 
-t_bitarray 	*iniciar_bitmap(Bitmap* bitmap){
-	return bitarray_create_with_mode(bitmap, bloques_del_bitmap, MSB_FIRST);
+void cargar_bitmap(t_bitarray* bitmap, int cantidad){
+	for(int cargado = 0; cargado <= cantidad; cargado++){
+		bitarray_set_bit(bitmap, cargado);
+	}
 }
 
 void iniciar_Sac_Server(Header *header, Bitmap* bitmap, Tabla_de_nodos *tabla_de_nodos){
 	iniciar_header(header);
-	bitmap = iniciar_bitmap(bitmap);
+	int bits = tamanio_disco/sizeof(Bloque);
+	tBitarray = bitarray_create_with_mode(bitmap->bitArray, bits, MSB_FIRST);
+	cargar_bitmap(tBitarray,bits);
 }
 
 int main(void) {
 
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
+
+	iniciar_Sac_Server(&header, &bitmap, &tabla_de_nodos);
+
+	for(int cargado = 0; cargado <= bloques_del_bitmap; cargado++){
+		bitarray_test_bit(tBitarray, cargado);
+	}
+
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", "6060", logger);
 

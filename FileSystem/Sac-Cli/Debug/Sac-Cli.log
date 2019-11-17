@@ -14926,3 +14926,623 @@
 [ERROR] 11:13:19:784 Sac-Cli/(7575:7584): Tamanio: 21
 [ERROR] 11:13:19:784 Sac-Cli/(7575:7584): tamanio del path que recibe: 21 
 [ERROR] 11:13:19:784 Sac-Cli/(7575:7584): Hola, recibi GETATTR
+[INFO] 11:30:40:993 Sac-Cli/(8133:8133): Se ha iniciado una nueva instancia del logger
+
+[INFO] 11:30:40:994 Sac-Cli/(8133:8133): Conexion correcta
+
+[INFO] 11:30:41:19 Sac-Cli/(8133:8137): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:20 Sac-Cli/(8133:8137): /.xdg-volume-info
+[INFO] 11:30:41:20 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:20 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:21 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:21 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:21 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:21 Sac-Cli/(8133:8137): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:21 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:22 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:22 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:22 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:22 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:22 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:22 Sac-Cli/(8133:8137): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:23 Sac-Cli/(8133:8137): /autorun.inf
+[INFO] 11:30:41:23 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:23 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:23 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:24 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:24 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:24 Sac-Cli/(8133:8137): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:25 Sac-Cli/(8133:8137): /.Trash
+[INFO] 11:30:41:25 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:25 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:25 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:25 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:26 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:26 Sac-Cli/(8133:8137): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:26 Sac-Cli/(8133:8137): /.Trash-1000
+[INFO] 11:30:41:27 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:27 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:27 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:27 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:27 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:28 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:28 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:28 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:28 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:29 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:29 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:29 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:30 Sac-Cli/(8133:8137): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:30 Sac-Cli/(8133:8137): /ElArchivito
+[INFO] 11:30:41:30 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:30 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:30 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:30 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:30 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:31 Sac-Cli/(8133:8137): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:31 Sac-Cli/(8133:8137): /LaCosa
+[INFO] 11:30:41:31 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:32 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:32 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:32 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:32 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:33 Sac-Cli/(8133:8137): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:34 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:34 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:34 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:34 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:34 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:35 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:35 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:35 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:36 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:36 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:36 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:36 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:36 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:37 Sac-Cli/(8133:8137): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:37 Sac-Cli/(8133:8137): /LaCosa
+[INFO] 11:30:41:37 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:38 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:38 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:38 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:38 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:39 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:39 Sac-Cli/(8133:8142): /
+[INFO] 11:30:41:39 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:39 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:39 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:39 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:39 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:39 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:39 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:40 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:40 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:40 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:40 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:40 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:41 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:41 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:41 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:41 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:41 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:41 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:41 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:41 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:41 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:41 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:41 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:42 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:42 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:42 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:42 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:42 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:42 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:42 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:42 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:42 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:42 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:42 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:42 Sac-Cli/(8133:8140): /LaCosa
+[INFO] 11:30:41:42 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:42 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:42 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:43 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:43 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:43 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:43 Sac-Cli/(8133:8142): /
+[INFO] 11:30:41:43 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:43 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:43 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:43 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:43 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:43 Sac-Cli/(8133:8140): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:43 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:43 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:44 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:44 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:44 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:44 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:44 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:44 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:44 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:44 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:44 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:44 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:44 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:45 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:45 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:45 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:45 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:45 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:45 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:45 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:45 Sac-Cli/(8133:8142): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:45 Sac-Cli/(8133:8142): /
+[INFO] 11:30:41:45 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:45 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:45 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:45 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:45 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:46 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:46 Sac-Cli/(8133:8140): /LaCosa
+[INFO] 11:30:41:46 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:46 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:46 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:46 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:46 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:56 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:56 Sac-Cli/(8133:8142): /
+[INFO] 11:30:41:56 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:59 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:59 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:59 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:59 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:59 Sac-Cli/(8133:8140): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:59 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:59 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:59 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:59 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:59 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:59 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:60 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:60 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:60 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:60 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:60 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:60 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:60 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:61 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:61 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:61 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:61 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:61 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:61 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:61 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:61 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:61 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:61 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:61 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:61 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:61 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:61 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:61 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:61 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:61 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:62 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:62 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:62 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:62 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:62 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:62 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:62 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:63 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:63 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:63 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:63 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:63 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:63 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:63 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:63 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:63 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:63 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:63 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:63 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:63 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:63 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:64 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:64 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:64 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:64 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:64 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:64 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:64 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:65 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:65 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:65 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:65 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:65 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:65 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:65 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:65 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:65 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:65 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:65 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:65 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:65 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:65 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:66 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:66 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:66 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:66 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:66 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:66 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:66 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:66 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:66 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:66 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:67 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:67 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:67 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:67 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:67 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:67 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:67 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:67 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:67 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:67 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:67 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:67 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:67 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:67 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:68 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:68 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:68 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:68 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:68 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:68 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:68 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:68 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:68 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:68 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:68 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:69 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:69 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:69 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:69 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:69 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:69 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:69 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:69 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:69 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:69 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:69 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:69 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:69 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:69 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:70 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:70 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:70 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:70 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:70 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:70 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:70 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:70 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:70 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:70 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:71 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:71 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:71 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:71 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:71 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:71 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:71 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:71 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:71 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:71 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:71 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:71 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:71 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:71 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:71 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:71 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:71 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:72 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:72 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:72 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:72 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:72 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:72 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:72 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:72 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:72 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:72 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:72 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:72 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:72 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:72 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:72 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:73 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:73 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:73 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:73 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:73 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:73 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:73 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:73 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:73 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:73 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:73 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:73 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:73 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:73 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:74 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:74 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:74 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:74 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:74 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:74 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:74 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:74 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:74 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:74 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:74 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:74 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:74 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:74 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:74 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:74 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:74 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:75 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:75 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:75 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:75 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:75 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:75 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:75 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:75 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:75 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:75 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:75 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:88 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:88 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:88 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:89 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:89 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:89 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:89 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:89 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:89 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:89 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:89 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:89 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:89 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:89 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:89 Sac-Cli/(8133:8143): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:89 Sac-Cli/(8133:8143): /
+[INFO] 11:30:41:89 Sac-Cli/(8133:8143): se pudo enviar pack
+[ERROR] 11:30:41:90 Sac-Cli/(8133:8143): Codigo de operacion: 15
+[ERROR] 11:30:41:90 Sac-Cli/(8133:8143): Tamanio: 21
+[ERROR] 11:30:41:90 Sac-Cli/(8133:8143): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:90 Sac-Cli/(8133:8143): Hola, recibi GETATTR
+[INFO] 11:30:41:90 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:90 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:90 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:90 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:90 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:90 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:90 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:91 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:91 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:91 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:91 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:91 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:91 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:91 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:91 Sac-Cli/(8133:8137): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:91 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:91 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:91 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:91 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:91 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:91 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:92 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:92 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:92 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:92 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:92 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:92 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:92 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:92 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:92 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:92 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:92 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:92 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:92 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:92 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:93 Sac-Cli/(8133:8143): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:93 Sac-Cli/(8133:8143): /
+[INFO] 11:30:41:93 Sac-Cli/(8133:8143): se pudo enviar pack
+[ERROR] 11:30:41:93 Sac-Cli/(8133:8143): Codigo de operacion: 15
+[ERROR] 11:30:41:93 Sac-Cli/(8133:8143): Tamanio: 21
+[ERROR] 11:30:41:93 Sac-Cli/(8133:8143): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:93 Sac-Cli/(8133:8143): Hola, recibi GETATTR
+[INFO] 11:30:41:93 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:93 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:93 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:93 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:93 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:93 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:93 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:94 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:94 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:94 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:94 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:94 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:94 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:94 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:94 Sac-Cli/(8133:8143): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:94 Sac-Cli/(8133:8143): /
+[INFO] 11:30:41:94 Sac-Cli/(8133:8143): se pudo enviar pack
+[ERROR] 11:30:41:94 Sac-Cli/(8133:8143): Codigo de operacion: 15
+[ERROR] 11:30:41:94 Sac-Cli/(8133:8143): Tamanio: 21
+[ERROR] 11:30:41:94 Sac-Cli/(8133:8143): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:94 Sac-Cli/(8133:8143): Hola, recibi GETATTR
+[INFO] 11:30:41:95 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:95 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:95 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:95 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:95 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:95 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:95 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:95 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:95 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:95 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:95 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:95 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:95 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:95 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[INFO] 11:30:41:96 Sac-Cli/(8133:8143): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:96 Sac-Cli/(8133:8143): /
+[INFO] 11:30:41:96 Sac-Cli/(8133:8143): se pudo enviar pack
+[ERROR] 11:30:41:96 Sac-Cli/(8133:8143): Codigo de operacion: 15
+[ERROR] 11:30:41:96 Sac-Cli/(8133:8143): Tamanio: 21
+[ERROR] 11:30:41:96 Sac-Cli/(8133:8143): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:96 Sac-Cli/(8133:8143): Hola, recibi GETATTR
+[INFO] 11:30:41:96 Sac-Cli/(8133:8142): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:96 Sac-Cli/(8133:8142): /LaCosa
+[INFO] 11:30:41:96 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:96 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:96 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:96 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:96 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:99 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:99 Sac-Cli/(8133:8140): /
+[INFO] 11:30:41:99 Sac-Cli/(8133:8143): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:99 Sac-Cli/(8133:8143): /
+[INFO] 11:30:41:99 Sac-Cli/(8133:8140): se pudo enviar pack
+[INFO] 11:30:41:99 Sac-Cli/(8133:8143): se pudo enviar pack
+[INFO] 11:30:41:99 Sac-Cli/(8133:8137): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:99 Sac-Cli/(8133:8137): /
+[INFO] 11:30:41:99 Sac-Cli/(8133:8137): se pudo enviar pack
+[ERROR] 11:30:41:100 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:100 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:100 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:100 Sac-Cli/(8133:8140): Hola, recibi GETATTR
+[ERROR] 11:30:41:100 Sac-Cli/(8133:8137): Codigo de operacion: 15
+[ERROR] 11:30:41:100 Sac-Cli/(8133:8137): Tamanio: 21
+[ERROR] 11:30:41:100 Sac-Cli/(8133:8137): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:100 Sac-Cli/(8133:8137): Hola, recibi GETATTR
+[INFO] 11:30:41:100 Sac-Cli/(8133:8142): Se llamo a fusesito_readdir
+
+[INFO] 11:30:41:100 Sac-Cli/(8133:8142): /
+[INFO] 11:30:41:101 Sac-Cli/(8133:8142): se pudo enviar pack
+[ERROR] 11:30:41:101 Sac-Cli/(8133:8143): Codigo de operacion: 15
+[ERROR] 11:30:41:101 Sac-Cli/(8133:8143): Tamanio: 21
+[ERROR] 11:30:41:101 Sac-Cli/(8133:8143): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:101 Sac-Cli/(8133:8143): Hola, recibi GETATTR
+[ERROR] 11:30:41:140 Sac-Cli/(8133:8142): Codigo de operacion: 15
+[ERROR] 11:30:41:141 Sac-Cli/(8133:8142): Tamanio: 21
+[ERROR] 11:30:41:141 Sac-Cli/(8133:8142): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:141 Sac-Cli/(8133:8142): Hola, recibi GETATTR
+[INFO] 11:30:41:141 Sac-Cli/(8133:8143): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:141 Sac-Cli/(8133:8143): /LaCosa
+[INFO] 11:30:41:142 Sac-Cli/(8133:8143): se pudo enviar pack
+[ERROR] 11:30:41:142 Sac-Cli/(8133:8143): Codigo de operacion: 15
+[ERROR] 11:30:41:142 Sac-Cli/(8133:8143): Tamanio: 21
+[ERROR] 11:30:41:142 Sac-Cli/(8133:8143): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:142 Sac-Cli/(8133:8143): Hola, recibi GETATTR
+[INFO] 11:30:41:144 Sac-Cli/(8133:8140): Se llamo a fusesito_getattr
+
+[INFO] 11:30:41:144 Sac-Cli/(8133:8140): /autorun.inf
+[INFO] 11:30:41:144 Sac-Cli/(8133:8140): se pudo enviar pack
+[ERROR] 11:30:41:145 Sac-Cli/(8133:8140): Codigo de operacion: 15
+[ERROR] 11:30:41:145 Sac-Cli/(8133:8140): Tamanio: 21
+[ERROR] 11:30:41:145 Sac-Cli/(8133:8140): tamanio del path que recibe: 21 
+[ERROR] 11:30:41:145 Sac-Cli/(8133:8140): Hola, recibi GETATTR
