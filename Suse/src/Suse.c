@@ -12,27 +12,32 @@ int main(){
 	log_info(logger,"MAx_MULTIPROG ->  %d",max_multiprog);
 	log_info(logger,"--------------\n");
 
+	/*variable para agregar estados ready y execute segun el max_multiprog
+	Se va restando y sumando a medida se llenen y liberen*/
+	colasLibres = max_multiprog; //para no perder info
+
 	printf("\n\n::::::::INICIAMOS EL SERVIDOR SUSE::::::::\n");
 
 	socket_Suse = iniciar_servidor("127.0.0.1",listen_port,logger);
+
+while(1){
+
 	socket_cliente = esperar_cliente_con_accept(socket_Suse,logger);
 	enviar_mensaje(socket_cliente,logger);
 
-	/*Inicializo biblioteca Hilolay*/
-	   /* hilolay_init();
-	    hilolay_t th1;
-	    hilolay_t th2;
+	Paquete paquete;
 
-		hilolay_create(&th1, NULL, &test1, NULL);
-		hilolay_create(&th2, NULL, &test2, NULL);
+	int status = 1;		// Estructura que manjea el status de los recieve.
 
-		hilolay_join(&th2);
-		hilolay_join(&th1);
-	    return hilolay_return(0);
+	while (status){
 
-	*/
+			status = recibir_paquete_deserializar(socket_cliente,paquete);
+		}
+		if(!status)
+			puts("Se Desconecto el cliente ...");
 
-	return 0;
+	}
+return 0;
 }
 
 void crearLogger(){
@@ -67,6 +72,7 @@ void setearValores(t_config* archivoConfig){
 
 
 void suse_init(){
+	//hilolay_init();
 	cargarSemaforos();
 }
 
@@ -178,10 +184,19 @@ void suse_signal(semaforo_t* sem){
 	log_info(logger,"%d","Contador actual:", semAUsar->semActual);
 }
 
-//hace lo mismo que pthread_join. TIene como parametro un hilo (y un PID?)
-void suse_join(){
-}
+//hace lo mismo que pthread_join. TIene como parametro un hilo y su estado de retorno.
+/*void suse_join(hilo_t unHilo, void **__return){
 
+	int rafagaTotal = unHilo.rafagasEstimadas - unHilo.rafagasEjecutadas
+	while(rafagaTotal >0){
+		//bloquear hilo (meter alguna variable local en el nodo de la cola donde esta el hilo
+		sleep(1); //que pase 1 segundo
+		unHilo.rafagasEjecutadas++;
+		rafagaTotal--;
+	}
+	//des
+}
+*/
 
 //Funcion que crea las colas ready segun el grado de multiprogramacion
 void suse_close(){
