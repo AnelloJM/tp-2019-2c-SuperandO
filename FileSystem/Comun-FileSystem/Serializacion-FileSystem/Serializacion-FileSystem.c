@@ -12,7 +12,7 @@
 // FUNCIONES PARA ENVIAR //
 ///////////////////////////
 
-bool Fuse_PackAndSend_Path(int socketCliente, const void *path, uint32_t tamPath, f_operacion operacion) {
+bool Fuse_PackAndSend(int socketCliente, const void *path, uint32_t tamPath, f_operacion operacion) {
 
 	uint32_t tamMessage = tamPath + sizeof(f_operacion) + sizeof(uint32_t);
 	void* buffer = malloc( tamMessage );
@@ -29,14 +29,19 @@ bool Fuse_PackAndSend_Path(int socketCliente, const void *path, uint32_t tamPath
 	return resultado;
 }
 
-bool Fuse_PackAndSend_IntResponse(int socketCliente, const uint32_t response, f_operacion operacion) {
-	uint32_t tamMessage = sizeof(uint32_t) + sizeof(f_operacion);
-	void * buffer = malloc( tamMessage );
+bool Fuse_PackAndSend_Write(int socketCliente, const char *buf, size_t size, off_t offset) {
+	uint32_t tamMessage = strlen(buf) + 1 + sizeof(size_t) + sizeof(off_t);
+	uint32_t tamBuf = (strlen(buf) +1);
+	void* buffer = malloc ( tamMessage );
 	int desplazamiento = 0;
-	memcpy(buffer, &operacion, sizeof(f_operacion));
-	desplazamiento += sizeof(f_operacion);
-	memcpy(buffer+desplazamiento, &response, sizeof(uint32_t));
-	int resultado = send(socketCliente, buffer, tamMessage,0);
+	memcpy(buffer, &tamBuf, sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+	memcpy(buffer, buf, tamBuf);
+	desplazamiento += (strlen(buf)+1);
+	memcpy(buffer, &size, sizeof(size_t));
+	desplazamiento += sizeof(size_t);
+	memcpy(buffer, &offset, sizeof(off_t));
+	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_WRITE);
 	free(buffer);
 	return resultado;
 }
@@ -72,6 +77,22 @@ char* Fuse_ReceiveAndUnpack_Path(int socketCliente, uint32_t tamanioChar) {
 	return charRetornado;
 }
 
-//Para recibir una IntResponse, usamos RecieveHeader, si el codigo de operacion es
-//response podemos asumir que el tamaniomensaje es la response.
+char* Fuse_ReceiveAndUnpack_Write_Buf(int socketCliente) {
+	uint32_t tamanioBuf;
+	recv(socketCliente, &tamanioBuf, sizeof(uint32_t), MSG_WAITALL);
+	char *buf = malloc(tamanioBuf);
+	recv(socketCliente, buf, tamanioBuf, MSG_WAITALL);
+	return buf;
+}
 
+size_t Fuse_ReceiveAndUnpack_Write_Size(int socketCliente) {
+	size_t size;
+	recv(socketCliente, &size, sizeof(size_t), MSG_WAITALL);
+	return size;
+}
+
+off_t Fuse_ReceiveAndUnpack_Write_offset(int socketCliente) {
+	off_t offset;
+	recv(socketCliente, &offset, sizeof(off_t), MSG_WAITALL);
+	return offset;
+}

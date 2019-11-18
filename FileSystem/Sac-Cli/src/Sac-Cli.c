@@ -46,7 +46,7 @@ sem_t mutex_buffer;
 
 char* enviarMiPathYRecibirResponse(t_log *logger, const char *path, int conexion) {
 	log_info(logger,path);
-	if(Fuse_PackAndSend_Path(conexion, path, (strlen(path)+1) , f_GETATTR)){
+	if(Fuse_PackAndSend(conexion, path, (strlen(path)+1) , f_GETATTR)){
 		log_info(logger, "se pudo enviar pack");
 	}
 	else{

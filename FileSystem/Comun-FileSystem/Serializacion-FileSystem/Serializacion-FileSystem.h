@@ -61,10 +61,18 @@ typedef struct {
 
 HeaderFuse Fuse_RecieveHeader(int socketCliente);
 
-bool Fuse_PackAndSend_Path(int socketCliente, const void*path, uint32_t tamPath, f_operacion operacion);
-
-bool Fuse_PackAndSend_IntResponse(int socketCliente, const uint32_t response, f_operacion operacion);
+bool Fuse_PackAndSend(int socketCliente, const void*path, uint32_t tamPath, f_operacion operacion);
 
 char* Fuse_ReceiveAndUnpack_Path(int socketCliente, uint32_t tamanioChar);
+
+bool Fuse_PackAndSend_Write(int socketCliente, const char *buf, size_t size, off_t offset);
+
+char* Fuse_ReceiveAndUnpack_Write_Buf(int socketCliente);
+
+size_t Fuse_ReceiveAndUnpack_Write_Size(int socketCliente);
+
+off_t Fuse_ReceiveAndUnpack_Write_offset(int socketCliente);
+
+
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */
