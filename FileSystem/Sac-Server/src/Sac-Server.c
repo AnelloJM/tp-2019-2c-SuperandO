@@ -270,6 +270,12 @@ void liberar_bloque_en_bitmap(int indice){
 	bitarray_clean_bit(tBitarray,indice);
 }
 
+void iniciar_tabla_de_nodos(){
+	for(int i = 0; i <= 1024; i = i+1){
+		tabla_de_nodos.nodos[i].estado = 0;
+	}
+}
+
 void iniciar_Sac_Server(){
 	iniciar_header();
 	log_info(logger, "Listo header");
@@ -279,6 +285,7 @@ void iniciar_Sac_Server(){
 	tBitarray = bitarray_create_with_mode(bitmap.bitArray, (bits/8), MSB_FIRST);
 	log_info(logger, "tamanio: %i", bitarray_get_max_bit(tBitarray));
 	cargar_bitmap(1 + bloques_del_bitmap + 1024);
+	iniciar_tabla_de_nodos();
 }
 
 
@@ -317,7 +324,10 @@ int main(int argc, char *argv[]) {
 	Bloque *inicio_de_disco = mmap(NULL, tamanio_disco_a_levantar, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_FILE, disco, 0);
 
 	memcpy(inicio_de_disco, &header,sizeof(Bloque));
-	memcpy(inicio_de_disco+1, (void *)tBitarray->bitarray, tBitarray->size);
+	memcpy(inicio_de_disco+ 1, (void *)tBitarray->bitarray, tBitarray->size);
+	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
+	memcpy(inicio_de_disco + 1 + bloques_del_bitmap, &tabla_de_nodos, sizeof(Tabla_de_nodos));
+
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", "6060", logger);
 

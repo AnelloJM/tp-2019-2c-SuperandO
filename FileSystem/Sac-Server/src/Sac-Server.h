@@ -47,11 +47,6 @@ typedef struct{
 	char *bitArray;
 }Bitmap;
 
-
-typedef struct{
-	ptrGBloque  direcciones_del_bloque_de_datos [1024];
-}Bloque_indirecto_simple;
-
 typedef struct {
 	char estado;
 	char nombre_del_archivo[71];
@@ -90,5 +85,6 @@ void* funcionMagica(int cliente);
 int buscar_espacio_en_bitmap();
 void ocupar_bloque_en_bitmap(int indice);
 void liberar_bloque_en_bitmap(int indice);
+void iniciar_tabla_de_nodos();
 
 #endif /* SAC_SERVER_H_ */
