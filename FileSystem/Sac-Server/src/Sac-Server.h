@@ -19,6 +19,7 @@
 #include <commons/bitarray.h>
 #include <pthread.h>
 #include <sys/time.h>
+#include <sys/mman.h>
 
 
 #ifndef SAC_SERVER_H_
@@ -40,7 +41,7 @@ typedef struct {
 	uint32_t version;
 	ptrGBloque inicio_bitmap;
 	uint32_t tamanio_bitmap;
-	char rellenuto[4081];
+	unsigned char rellenuto[4081];
 }Header;
 
 typedef struct{
@@ -67,9 +68,28 @@ typedef struct {
 } Tabla_de_nodos;
 
 
-void iniciar_Sac_Server(Header *header, Bitmap* bitmap, Tabla_de_nodos *tabla_de_nodos);
-void iniciar_header(Header *header);
-void cargar_bitmap(t_bitarray* bitmap, int cantidad);
+void iniciar_Sac_Server();
+void iniciar_header();
+void cargar_bitmap(int cantidad);
 uint64_t timestamp();
+uint32_t Hacer_Getattr(char *path);
+uint32_t Hacer_ReadDir(char *path);
+uint32_t Hacer_Open(char *path);
+uint32_t Hacer_Read(char *path);
+uint32_t Hacer_Release(char *path);
+uint32_t Hacer_Write(char *path, char *buffer);
+uint32_t Hacer_MKNod(char *path);
+uint32_t Hacer_Unlink(char *path);
+uint32_t Hacer_MKDir(char *path, char *buffer);
+uint32_t Hacer_RMDir(char *path);
+uint32_t Hacer_CHMod(char *path);
+uint32_t Hacer_Utime(char *path);
+uint32_t Hacer_Rename(char *path, char *buffer);
+uint32_t Hacer_Truncate(char *path);
+uint32_t Hacer_SetXAttr(char *path);
+void* funcionMagica(int cliente);
+int buscar_espacio_en_bitmap();
+void ocupar_bloque_en_bitmap(int indice);
+void liberar_bloque_en_bitmap(int indice);
 
 #endif /* SAC_SERVER_H_ */
