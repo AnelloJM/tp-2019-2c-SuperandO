@@ -22,6 +22,8 @@ t_bitarray *tBitarray;
 Header header;
 Bitmap bitmap;
 Tabla_de_nodos tabla_de_nodos;
+Bloque *inicio_de_disco;
+int contador;
 
 uint32_t Hacer_Getattr(char *path){ return 0; }
 
@@ -307,10 +309,13 @@ void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo){
 	tabla_de_nodos.nodos[numero_de_nodo].modificado=timestamp();
 	tabla_de_nodos.nodos[numero_de_nodo].tamanio_del_archivo = sizeof(Bloque);
 	tabla_de_nodos.nodos[numero_de_nodo].padre=1;
+
+	memcpy(inicio_de_disco + 1 + bloques_del_bitmap, &tabla_de_nodos, sizeof(Tabla_de_nodos));
 }
 
 int main(int argc, char *argv[]) {
 
+	contador = 2;
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 
@@ -320,28 +325,18 @@ int main(int argc, char *argv[]) {
 
 	iniciar_Sac_Server();
 	log_info(logger, "bloques_del_bitmap: %i", bloques_del_bitmap);
-	/*
-	for(int cargado = 20; cargado <= 30; cargado++){
-		bitarray_clean_bit(tBitarray, cargado);
-	}*/
-/*
-	char *archivo = malloc(32);
-	memcpy(archivo,"/home/utnso/workspace/disco.bin",32);
-*/
 	char *archivo = argv[1];
 	log_info(logger, "Archivo: %s", archivo);
 	uint32_t tamanio_disco_a_levantar = tamanio_archivo(archivo);
 	log_info(logger, "Tamanio: %i", tamanio_disco_a_levantar);
 	int disco = open(archivo, O_RDWR, 0);
-	Bloque *inicio_de_disco = mmap(NULL, tamanio_disco_a_levantar, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_FILE, disco, 0);
+	inicio_de_disco = mmap(NULL, tamanio_disco_a_levantar, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_FILE, disco, 0);
 
 	memcpy(inicio_de_disco, &header,sizeof(Bloque));
 	memcpy(inicio_de_disco+ 1, (void *)tBitarray->bitarray, tBitarray->size);
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 	crear_directorio_en_nodo(0,strdup("carpetita"));
 	crear_directorio_en_nodo(1, strdup("carpetota perro"));
-	memcpy(inicio_de_disco + 1 + bloques_del_bitmap, &tabla_de_nodos, sizeof(Tabla_de_nodos));
-
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", "6060", logger);
