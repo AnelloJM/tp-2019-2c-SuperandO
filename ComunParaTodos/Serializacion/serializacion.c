@@ -44,7 +44,7 @@ bool EnviarDatosTipo(int socketFD, proceso quienEnvia, void* datos, int tamDatos
 bool EnviarHandshake(int socketFD, proceso quienEnvia) {
 	Paquete* paquete = malloc(sizeof(Header));
 	Header header;
-	header.tipoMensaje = t_HANDSHAKE;
+	//header.tipoMensaje = t_HANDSHAKE;
 	header.tamanioMensaje = 0;
 	header.quienEnvia = quienEnvia;
 	paquete->header = header;
@@ -74,26 +74,71 @@ int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir) {
 	return recibido;
 }
 
-int RecibirPaqueteServidor(int socketFD, proceso quienRecibe, Paquete* paquete) {
+/*int RecibirPaqueteServidor(int socketFD, int socket_quienRecibe, Paquete* paquete) {
 	paquete->mensaje = NULL;
 	int resul = RecibirDatos(&(paquete->header), socketFD, sizeof(Header));
 	if (resul > 0) { //si no hubo error
-		if (paquete->header.tipoMensaje == t_HANDSHAKE) { //vemos si es un t_HANDSHAKE
-			EnviarHandshake(socketFD, quienRecibe);
+		//if (paquete->header.tipoMensaje == t_HANDSHAKE) { //vemos si es un t_HANDSHAKE
+			//EnviarHandshake(socketFD, socket_quienRecibe);
 		} else if (paquete->header.tamanioMensaje > 0){ //recibimos un payload y lo procesamos (por ej, puede mostrarlo)
 			paquete->mensaje = malloc(paquete->header.tamanioMensaje);
 			resul = RecibirDatos(paquete->mensaje, socketFD, paquete->header.tamanioMensaje);
 		}
 	}
 	return resul;
-}
+}*/
 
 int RecibirPaqueteCliente(int socketFD, Paquete* paquete) {
 	paquete->mensaje = NULL;
 	int resul = RecibirDatos(&(paquete->header), socketFD, sizeof(Header));
-	if (resul > 0 && paquete->header.tipoMensaje != t_HANDSHAKE && paquete->header.tamanioMensaje > 0) { //si no hubo error ni es un t_HANDSHAKE
+	if (resul > 0 ){//&& paquete->header.tipoMensaje != t_HANDSHAKE && paquete->header.tamanioMensaje > 0) { //si no hubo error ni es un t_HANDSHAKE
 		paquete->mensaje = malloc(paquete->header.tamanioMensaje);
 		resul = RecibirDatos(paquete->mensaje, socketFD, paquete->header.tamanioMensaje);
 	}
 	return resul;
 }
+/*
+int recibir_paquete_deserializar(int socket_cliente, Paquete * pack, char * ip, int puerto){
+
+       t_list* cosas = RecibirPaqueteCliente(socket_cliente, pack);
+
+        switch (pack->header.tipoMensaje){
+            case t_suse_create:
+            {
+                suse_create(socket_cliente, ip, puerto, cosas);
+                break;
+            }
+            case t_suse_schedule_next:
+            {
+                suse_schedule_next(socket_cliente, ip, puerto, cosas);
+                break;
+            }
+            case t_suse_join:
+            {
+                suse_join(socket_cliente, ip, puerto, cosas);
+                break;
+            }
+            case t_suse_close:
+            {
+                suse_close(socket_cliente, ip, puerto, cosas);
+                break;
+            }
+            case t_suse_wait:
+            {
+                suse_wait(socket_cliente, ip, puerto, cosas);
+                break;
+            }
+            case t_suse_signal:
+            {
+                suse_signal(socket_cliente, ip, puerto, cosas);
+                break;
+            }
+            default:
+            {
+                puts("No se reconoce el mensaje. Abortando ...");
+                break;
+            }
+        }
+
+}
+*/

@@ -27,6 +27,7 @@ t_list * cola_new;
 t_list * cola_blocked;
 t_list * cola_exit;
 t_list * semaforos;
+int colasLibres;
 
 //Creo que es mejor que usemos listas en vez de colas porque son mucho mas versatiles y tienen muchas mas funciones en las commons que nos pueden servir
 

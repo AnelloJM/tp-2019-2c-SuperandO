@@ -14,28 +14,12 @@
 //           Tipos de Mensajes          //
 //////////////////////////////////////////
 typedef enum t_protocolo {
-	t_GET = 1,
-	t_SET,
-	t_STORE,
-	t_HANDSHAKE,
-	t_SOLICITUDNOMBRE,
-	t_CONFIGURACIONINSTANCIA,
-	t_IDENTIFICACIONINSTANCIA,
-	t_ABORTARESI,
-	t_SIGUIENTELINEA,
-	t_RESPUESTALINEACORRECTA,
-	t_RESPUESTALINEAINCORRECTA,
-	t_RESPUESTASET,
-	t_RESPUESTASTORE,
-	t_CLAVEBORRADA,
-	t_LEERCLAVE,
-	t_SOLICITARMEMORIATOTAL,
-	t_RESPUESTAMEMORIA,
-	t_VALORDECLAVE,
-	t_INSTANCIACONCLAVE,
-	t_INSTANCIAQUETENDRIALACLAVE,
-	t_REINICIARLINEA,
-	t_COMPACTACIONINSTANCIA
+	t_suse_create = 1,
+	t_suse_schedule_next,
+	t_suse_wait,
+	t_suse_signal,
+	t_suse_join,
+	t_suse_close
 } t_protocolo;
 
 //////////////////////////////////////////
@@ -55,8 +39,8 @@ typedef enum proceso {
 
 typedef struct {
 	t_protocolo tipoMensaje;
-	proceso quienEnvia;
-	int tamanioMensaje;
+	uint32_t quienEnvia;
+	uint32_t tamanioMensaje;
 }__attribute__((packed)) Header;
 
 typedef struct {
