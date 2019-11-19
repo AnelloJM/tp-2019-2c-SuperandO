@@ -48,7 +48,7 @@ typedef struct{
 }Bitmap;
 
 typedef struct {
-	char estado;
+	char estado;//0: Borrado, 1: Ocupado, 2: Directorio
 	char nombre_del_archivo[71];
 	ptrGBloque  padre;
 	uint32_t tamanio_del_archivo;

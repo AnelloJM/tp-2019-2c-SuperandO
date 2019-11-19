@@ -297,6 +297,18 @@ uint32_t tamanio_archivo(char *archivo){
 	return tamanio;
 }
 
+void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo){
+	tabla_de_nodos.nodos[numero_de_nodo].estado = 2;
+//	for(int i = 0; i<=(strlen(nombre_de_archivo)+1); i=i+1){
+		strncpy(tabla_de_nodos.nodos[numero_de_nodo].nombre_del_archivo, nombre_de_archivo, 70);
+		tabla_de_nodos.nodos[numero_de_nodo].nombre_del_archivo[71] = '\0';
+//	}
+	tabla_de_nodos.nodos[numero_de_nodo].creacion=timestamp();
+	tabla_de_nodos.nodos[numero_de_nodo].modificado=timestamp();
+	tabla_de_nodos.nodos[numero_de_nodo].tamanio_del_archivo = sizeof(Bloque);
+	tabla_de_nodos.nodos[numero_de_nodo].padre=1;
+}
+
 int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
@@ -326,7 +338,10 @@ int main(int argc, char *argv[]) {
 	memcpy(inicio_de_disco, &header,sizeof(Bloque));
 	memcpy(inicio_de_disco+ 1, (void *)tBitarray->bitarray, tBitarray->size);
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
+	crear_directorio_en_nodo(0,strdup("carpetita"));
+	crear_directorio_en_nodo(1, strdup("carpetota perro"));
 	memcpy(inicio_de_disco + 1 + bloques_del_bitmap, &tabla_de_nodos, sizeof(Tabla_de_nodos));
+
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", "6060", logger);
