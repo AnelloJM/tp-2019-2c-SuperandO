@@ -30,7 +30,6 @@
 
 typedef uint32_t ptrGBloque;
 
-int cantidad_de_bloques;
 
 typedef struct {
 	unsigned char bytes [4096];

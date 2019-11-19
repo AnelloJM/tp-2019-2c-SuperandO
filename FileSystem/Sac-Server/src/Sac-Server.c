@@ -17,7 +17,7 @@ t_log *logger;
 int conexion;
 uint32_t bloques_del_bitmap;
 uint64_t tamanio_disco; //Como no se de que tamanio va a ser decido sobre exagerar
-uint32_t cantidad_de_bloques_de_datos;
+uint64_t cantidad_de_bloques_de_datos;
 t_bitarray *tBitarray;
 Header header;
 Bitmap bitmap;
@@ -224,8 +224,10 @@ uint64_t timestamp(){
 }
 
 void iniciar_header(){
-	bloques_del_bitmap = (tamanio_disco/sizeof(Bloque)/8)/sizeof(Bloque);
+	bloques_del_bitmap =(tamanio_disco/sizeof(Bloque)/8)/sizeof(Bloque);
+	log_info(logger, "bloques_del_bitmap: %i",bloques_del_bitmap);
 	cantidad_de_bloques_de_datos =  tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024;
+	log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
 
 	header.identificador[0] = 'S';
 	header.identificador[1] = 'A';
@@ -233,12 +235,17 @@ void iniciar_header(){
 
 	header.version = 3;
 	header.inicio_bitmap = 1;
-	header.tamanio_bitmap=bloques_del_bitmap;
+	header.tamanio_bitmap = bloques_del_bitmap;
 }
 
 void cargar_bitmap(int cantidad){
-	for(int cargado = 0; cargado <= cantidad; cargado++){
+	int cargado = 0;
+	while(cargado < cantidad){
 		bitarray_set_bit(tBitarray, cargado);
+		if(!bitarray_test_bit(tBitarray, cargado)){
+			log_error(logger, "cargado: %i", cargado);
+		}
+		cargado = cargado+1;
 	}
 }
 
@@ -246,7 +253,7 @@ int buscar_espacio_en_bitmap(){
 	int total = bitarray_get_max_bit(tBitarray);
 	int indice = 0;
 	while(total){
-		if(bitarray_test_bit(tBitarray,indice)){
+		if(!bitarray_test_bit(tBitarray,indice)){
 			return indice;
 		}
 		total=total-1;
@@ -269,8 +276,9 @@ void iniciar_Sac_Server(){
 	int bits = tamanio_disco/sizeof(Bloque);
 	log_info(logger, "Bits: %i", bits);
 	bitmap.bitArray = malloc(bits);
-	tBitarray = bitarray_create_with_mode(bitmap.bitArray, bits, MSB_FIRST);
-	cargar_bitmap(1+cantidad_de_bloques);
+	tBitarray = bitarray_create_with_mode(bitmap.bitArray, (bits/8), MSB_FIRST);
+	log_info(logger, "tamanio: %i", bitarray_get_max_bit(tBitarray));
+	cargar_bitmap(1 + bloques_del_bitmap + 1024);
 }
 
 
@@ -287,15 +295,16 @@ int main(int argc, char *argv[]) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 
-	tamanio_disco = sizeof(Bloque)*10;
-	log_info(logger, "Tamanio disco: %i", tamanio_disco);
+	tamanio_disco = 13421772800;
+
+	log_info(logger, "Tamanio disco: %llu", tamanio_disco);
 
 	iniciar_Sac_Server();
 	log_info(logger, "bloques_del_bitmap: %i", bloques_del_bitmap);
-
-	for(int cargado = 0; cargado <= 10; cargado++){
+	/*
+	for(int cargado = 20; cargado <= 30; cargado++){
 		bitarray_clean_bit(tBitarray, cargado);
-	}
+	}*/
 /*
 	char *archivo = malloc(32);
 	memcpy(archivo,"/home/utnso/workspace/disco.bin",32);
@@ -308,8 +317,7 @@ int main(int argc, char *argv[]) {
 	Bloque *inicio_de_disco = mmap(NULL, tamanio_disco_a_levantar, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_FILE, disco, 0);
 
 	memcpy(inicio_de_disco, &header,sizeof(Bloque));
-	memcpy(inicio_de_disco+1, tBitarray->bitarray,bloques_del_bitmap);
-
+	memcpy(inicio_de_disco+1, (void *)tBitarray->bitarray, tBitarray->size);
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", "6060", logger);
 
