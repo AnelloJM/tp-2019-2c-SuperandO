@@ -44,9 +44,9 @@ t_log *logger;
 int conexion;
 sem_t mutex_buffer;
 
-char* enviarMiPathYRecibirResponse(t_log *logger, const char *path, int conexion) {
+void* enviarMiPathYRecibirResponse(t_log *logger, const char *path, int conexion, f_operacion operacion) {
 	log_info(logger,path);
-	if(Fuse_PackAndSend(conexion, path, (strlen(path)+1) , f_GETATTR)){
+	if(Fuse_PackAndSend(conexion, path, (strlen(path)+1) , operacion)){
 		log_info(logger, "se pudo enviar pack");
 	}
 	else{
@@ -58,7 +58,7 @@ char* enviarMiPathYRecibirResponse(t_log *logger, const char *path, int conexion
 	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
 	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
 	uint32_t tam = headerRecibido.tamanioMensaje;
-	char *pathRecibido= Fuse_ReceiveAndUnpack_Path(conexion, tam);
+	void *pathRecibido= Fuse_ReceiveAndUnpack(conexion, tam);
 	sem_post(&mutex_buffer);
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
@@ -69,7 +69,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_info(logger, "Se llamo a fusesito_getattr\n");
 	int res = 0;
 
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_GETATTR);
 	free(response);
 
 	//Continuo con lo que deberia hacer para que no cuelge, esto es solo para testear
@@ -95,7 +95,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 static int fusesito_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_readdir\n");
 	
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_READDIR);
 	free(response);
 
 	filler(buf, ".", NULL, 0);
@@ -108,7 +108,7 @@ static int fusesito_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 static int fusesito_open(const char *path, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_open\n");
 
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_OPEN);
 	free(response);
 
 	if (strcmp(path, DEFAULT_FILE_PATH) != 0)
@@ -124,7 +124,7 @@ static int fusesito_open(const char *path, struct fuse_file_info *fi) {
 static int fusesito_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_read\n");
 
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_READ);
 	free(response);
 
 	size_t len;
@@ -145,68 +145,80 @@ static int fusesito_read(const char *path, char *buf, size_t size, off_t offset,
 
 static int fusesito_release(const char *path, struct fuse_file_info *fi){
 	log_info(logger, "Se llamo a fusesito_release\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_RELEASE);
 	free(response);
 	return 0;
 }
 static int fusesito_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
 	log_info(logger, "Se llamo a fusesito_write\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_WRITE);
 	free(response);
 	return 0;
 }
 static int fusesito_mknod(const char *path, mode_t mode, dev_t dev){
 	log_info(logger, "Se llamo a fusesito_mknod\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_MKNOD);
 	free(response);
 	return 0;
 }
 static int fusesito_unlink(const char *path){
 	log_info(logger, "Se llamo a fusesito_unlink\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_UNLINK);
 	free(response);
 	return 0;
 }
 static int fusesito_mkdir(const char *path, mode_t mode){
 	log_info(logger, "Se llamo a fusesito_mkdir\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_MKDIR);
+	bool result = string_starts_with(response,"Pude");
 	free(response);
+	if(result)
+	{
+		log_info(logger, "Se pudo hacer el mkdir");
+		return 0;
+	}
+	else
+	{
+		log_info(logger, "No se pudo hacer el mkdir");
+		return EPERM;
+	}
+
 	return 0;
 }
 static int fusesito_rmdir(const char *path){
 	log_info(logger, "Se llamo a fusesito_rmdir\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_RMDIR);
 	free(response);
 	return 0;
 }
 static int fusesito_utime(const char *path, struct utimbuf *buf){
 	log_info(logger, "Se llamo a fusesito_utime\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_UTIME);
 	free(response);
 	return 0;
 }
 static int fusesito_chmod(const char *path, mode_t mode){
 
 	log_info(logger, "Se llamo a fusesito_chmod\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_CHMOD);
 	free(response);
 	return 0;
 }
 static int fusesito_rename(const char *path, const char *buf){
 	log_info(logger, "Se llamo a fusesito_rename\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_RENAME);
 	free(response);
 	return 0;
 }
 static int fusesito_truncate(const char *path, off_t offset){
 	log_info(logger, "Se llamo a fusesito_truncate\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_TRUNCATE);
 	free(response);
 	return 0;
 }
 static int fusesito_setxattr(const char *path, const char *nose, const char *nose2, size_t size, int nose3){
 	log_info(logger, "Se llamo a fusesito_setxattr\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion);
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_SETXATTR);
 	free(response);
 	return 0;
 }
@@ -235,7 +247,7 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "6060", logger);
+	conexion = conectarse_a_un_servidor("127.0.0.1" , "8080", logger);
 	sem_init(&mutex_buffer,0,1);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);

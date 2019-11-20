@@ -41,7 +41,11 @@ uint32_t Hacer_MKNod(char *path){ return 0; }
 
 uint32_t Hacer_Unlink(char *path){ return 0; }
 
-uint32_t Hacer_MKDir(char *path, char *buffer){ return 0; }
+uint32_t Hacer_MKDir(char *path){
+	crear_directorio_en_nodo(contador, path+1);
+	contador = contador+1;
+	return 1;
+}
 
 uint32_t Hacer_RMDir(char *path){ return 0; }
 
@@ -68,7 +72,7 @@ void* funcionMagica(int cliente){
 		uint32_t tam = headerRecibido.tamanioMensaje;
 		switch(headerRecibido.operaciones){
 			case f_GETATTR:;
-				char *pathGetAttr= Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathGetAttr= Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathGetAttr)+1);
 				log_error(logger, pathGetAttr);
 				//Hacer_Getattr(pathGetAttr);
@@ -77,7 +81,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_READDIR: ;
-				char *pathReadDir = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathReadDir = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathReadDir)+1);
 				log_error(logger, pathReadDir);
 				//Hacer_ReadDir(pathReadDir);
@@ -86,7 +90,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_READ: ;
-				char *pathRead = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathRead = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRead)+1);
 				log_error(logger, pathRead);
 				//Hacer_Read(pathRead);
@@ -95,7 +99,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_OPEN: ;
-				char *pathOpen = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathOpen = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathOpen)+1);
 				log_error(logger, pathOpen);
 				//Hacer_Open(pathOpen);
@@ -104,7 +108,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_RELEASE: ;
-				char *pathRelease = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathRelease = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRelease)+1);
 				log_error(logger, pathRelease);
 				Fuse_PackAndSend(cliente, strdup("Hola, recibi RELEASE"), strlen("Hola, recibi RELEASE")+1, f_RESPONSE);
@@ -112,7 +116,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_WRITE: ;
-				char *pathWrite = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathWrite = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathWrite)+1);
 				log_error(logger, pathWrite);
 				//Hacer_Write(pathWrite, escritura);
@@ -121,7 +125,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_MKNOD: ;
-				char *pathMKNod = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathMKNod = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathMKNod)+1);
 				log_error(logger, pathMKNod);
 				//Hacer_MKNod(pathMKNod);
@@ -130,7 +134,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_UNLINK: ;
-				char *pathUnlink = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathUnlink = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUnlink)+1);
 				log_error(logger, pathUnlink);
 				//Hacer_Unlink(pathUnlink);
@@ -139,16 +143,18 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_MKDIR: ;
-				char *pathMKDir = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathMKDir = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathMKDir)+1);
 				log_error(logger, pathMKDir);
-				//Hacer_MKDir(pathMKDir, nombreDirectorio);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi MKDIR"), strlen("Hola, recibi MKDIR")+1, f_RESPONSE);
+				if(Hacer_MKDir(pathMKDir))
+					Fuse_PackAndSend(cliente, "Pude", strlen("pude")+1, f_RESPONSE);
+				else
+					Fuse_PackAndSend(cliente, "No pude", strlen("No pude")+1, f_RESPONSE);
 				free(pathMKDir);
 				break;
 
 			case f_RMDIR: ;
-				char *pathRMDir = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathRMDir = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRMDir)+1);
 				log_error(logger, pathRMDir);
 				//Hacer_RMDir(pathRMDir);
@@ -157,7 +163,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_CHMOD: ;
-				char *pathCHMod = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathCHMod = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathCHMod)+1);
 				log_error(logger, pathCHMod);
 				//Hacer_CHMod(pathCHMod);
@@ -166,7 +172,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_UTIME: ;
-				char *pathUtime = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathUtime = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUtime)+1);
 				log_error(logger, pathUtime);
 				//Hacer_Utime(pathUtime);
@@ -175,7 +181,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_RENAME: ;
-				char *pathRename = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathRename = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRename)+1);
 				log_error(logger, pathRename);
 				//Hacer_Rename(pathRename);	
@@ -184,7 +190,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_TRUNCATE: ;
-				char *pathTruncate = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathTruncate = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathTruncate)+1);
 				log_error(logger, pathTruncate);
 				//Hacer_Truncate(pathTruncate);
@@ -193,7 +199,7 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_SETXATTR: ;
-				char *pathSetXAttr = Fuse_ReceiveAndUnpack_Path(cliente, tam);
+				char *pathSetXAttr = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathSetXAttr)+1);
 				log_error(logger, pathSetXAttr);
 				//Hacer_SetXAttr(pathSetXAttr);
@@ -203,7 +209,7 @@ void* funcionMagica(int cliente){
 
 			case f_HANDSHAKE: ;
 				//desempaquetar pack y hacer el codigo
-				char *pathHandshake = Fuse_ReceiveAndUnpack_Path(cliente, headerRecibido.tamanioMensaje);
+				char *pathHandshake = Fuse_ReceiveAndUnpack(cliente, headerRecibido.tamanioMensaje);
 				log_info(logger,"tamanio del path que recive: %i \0", strlen(pathHandshake)+1);
 				log_info(logger, pathHandshake);
 				Fuse_PackAndSend(cliente, strdup("Hola, recibi HANDSHAKE"), strlen("Hola, recibi HANDSHAKE")+1, f_RESPONSE);
@@ -339,7 +345,7 @@ int main(int argc, char *argv[]) {
 	crear_directorio_en_nodo(1, strdup("carpetota perro"));
 
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "6060", logger);
+	conexion = iniciar_servidor("127.0.0.1", "8080", logger);
 
 	while(1){
 		cliente = esperar_cliente_con_accept(conexion, logger);
