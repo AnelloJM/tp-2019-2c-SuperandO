@@ -75,7 +75,7 @@ uint32_t Hacer_Release(char *path);
 uint32_t Hacer_Write(char *path, char *buffer);
 uint32_t Hacer_MKNod(char *path);
 uint32_t Hacer_Unlink(char *path);
-uint32_t Hacer_MKDir(char *path, char *buffer);
+uint32_t Hacer_MKDir(char *path);
 uint32_t Hacer_RMDir(char *path);
 uint32_t Hacer_CHMod(char *path);
 uint32_t Hacer_Utime(char *path);

@@ -59,20 +59,77 @@ typedef struct {
 // FUNCIONES //
 ///////////////
 
-HeaderFuse Fuse_RecieveHeader(int socketCliente);
+///////////////////////////
+// FUNCIONES PARA ENVIAR //
+///////////////////////////
 
 bool Fuse_PackAndSend(int socketCliente, const void*path, uint32_t tamPath, f_operacion operacion);
 
-char* Fuse_ReceiveAndUnpack_Path(int socketCliente, uint32_t tamanioChar);
+bool Fuse_PackAndSend_Write(int socketCliente,const char *path, const char *buf, size_t size, off_t offset);
 
-bool Fuse_PackAndSend_Write(int socketCliente, const char *buf, size_t size, off_t offset);
+bool Fuse_PackAndSend_MKDir(int socketCliente, const void *path, const char *nombre);
 
-char* Fuse_ReceiveAndUnpack_Write_Buf(int socketCliente);
+////////////////////////////
+// FUNCIONES PARA RECIBIR //
+////////////////////////////
 
-size_t Fuse_ReceiveAndUnpack_Write_Size(int socketCliente);
+/**
+* ESTA FUNCION RETORNA UNA ESTRUCTURA DEL TIPO
+* HEADERFUSE DE LA CUAL PODEMOS OBTENER EL TIPO
+* DE MENSAJE Y EL TAMANIO DEL MISMO, ESTE ULTIMO
+* PARAMETRO DEBEREMOS PASARSELO A LA FUNCION
+* Fuse_ReceiveAndUnpack PARA QUE NOS DE EL RESTO
+* DEL PAQUETE
+*/
 
-off_t Fuse_ReceiveAndUnpack_Write_offset(int socketCliente);
+HeaderFuse Fuse_RecieveHeader(int socketCliente);
+
+/**
+* ESTA FUNCION RECIBE UN PAQUETE A TRAVES DEL
+* SOCKET, TENER EN CUEENTA QUE SEGUN EL TIPO DE
+* OPERACION, EL PAQUETE RECIBIDO SERA DISTINTO
+* EN ALGUNOS CASOS SERA SOLO UN PATH ASI QUE PODREMOS
+* USARLO DIRECTAMENTE, EN OTROS HARA FALTA LLAMAR
+* A OTRAS FUNCIONES DE DESEMPAQUETADO
+*/
+
+void* Fuse_ReceiveAndUnpack(int socketCliente, uint32_t tamanioChar);
+
+//////////////////////////////////
+// FUNCIONES PARA DESEMPAQUETAR //
+/////////////////////////////////
 
 
+/**
+* ESTA FUNCION SE USA SOLO EN CASO DE QUERER
+* RECIBIR UN PATH DE UN PQUETE QUE CONTENGA ALGO
+* MAS ADEMAS DEL PATH
+*/
+
+char* Fuse_Unpack_Path(void *buffer);
+
+/**
+* ESTA FUNCION RETORNA EL BUFFER EN CASO
+* DE QUE SE HAYA RECIBIDO UN PAQUETE DEL
+* TIPO f_WRITE
+*/
+
+char* Fuse_Unpack_Write_Buf(void *buffer);
+
+/**
+* ESTA FUNCION RETORNA EL SIZE EN CASO
+* DE QUE SE HAYA RECIBIDO UN PAQUETE DEL
+* TIPO f_WRITE
+*/
+
+size_t Fuse_Unpack_Write_Size(void *buffer);
+
+/**
+* ESTA FUNCION RETORNA EL OFFSET EN CASO
+* DE QUE SE HAYA RECIBIDO UN PAQUETE DEL
+* TIPO f_WRITE
+*/
+
+off_t Fuse_Unpack_Write_offset(void *buffer);
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */
