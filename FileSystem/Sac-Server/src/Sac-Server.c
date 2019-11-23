@@ -331,7 +331,7 @@ int tamanio_archivo_en_bloques(uint32_t tamanio){
 }
 
 void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo){
-	tabla_de_nodos->nodos[numero_de_nodo].estado = '2';
+	tabla_de_nodos->nodos[numero_de_nodo].estado = 2;
 	strncpy(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo, nombre_de_archivo, 70);
 	tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo[71] = '\0';
 	tabla_de_nodos->nodos[numero_de_nodo].creacion=timestamp();
@@ -385,11 +385,11 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-	crear_directorio_en_nodo(0,strdup("carpetita"));
-	crear_directorio_en_nodo(1, strdup("carpetota perro"));
+	//crear_directorio_en_nodo(0,strdup("carpetita"));
+	//crear_directorio_en_nodo(1, strdup("carpetota perro"));
 
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "8080", logger);
+	conexion = iniciar_servidor("127.0.0.1", "8081", logger);
 
 	while(1){
 		cliente = esperar_cliente_con_accept(conexion, logger);

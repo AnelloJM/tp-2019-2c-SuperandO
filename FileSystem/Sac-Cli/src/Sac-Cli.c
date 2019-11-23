@@ -88,6 +88,15 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 		} else {
 			res = -ENOENT;
 		}
+		static bool test = false;
+		if(test && strcmp(path, "/hola") == 0){
+		stbuf->st_mode = S_IFDIR | 0755;
+		stbuf->st_nlink = 1;
+		res = 0;
+		}
+		if(strcmp(path, "/hola"))
+			test = true;
+
 		return res;
 }
 
@@ -177,13 +186,8 @@ static int fusesito_mkdir(const char *path, mode_t mode){
 		log_info(logger, "Se pudo hacer el mkdir");
 		return 0;
 	}
-	else
-	{
-		log_info(logger, "No se pudo hacer el mkdir");
-		return EPERM;
-	}
-
-	return 0;
+	log_info(logger, "No se pudo hacer el mkdir");
+	return EPERM;
 }
 static int fusesito_rmdir(const char *path){
 	log_info(logger, "Se llamo a fusesito_rmdir\n");
@@ -247,7 +251,7 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "8080", logger);
+	conexion = conectarse_a_un_servidor("127.0.0.1" , "8081", logger);
 	sem_init(&mutex_buffer,0,1);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
