@@ -20,6 +20,7 @@
 #include <Conexiones/Conexiones.h>
 #include <commons/log.h>
 #include <Serializacion-FileSystem/Serializacion-FileSystem.h>
+#include <Manejos-Comunes/Manejos-Comunes.h>
 #include <semaphore.h>
 
 /* Este es el contenido por defecto que va a contener

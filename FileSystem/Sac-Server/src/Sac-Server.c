@@ -12,6 +12,7 @@
 
 #include "Sac-Server.h"
 #include <Serializacion-FileSystem/Serializacion-FileSystem.h>
+#include <Manejos-Comunes/Manejos-Comunes.h>
 
 t_log *logger;
 int conexion;
@@ -365,6 +366,9 @@ void crear_directorio(){
 }
 
 int main(int argc, char *argv[]) {
+
+	pruebita();
+	sleep(200);
 
 	contador = 2;
 	//Log:
