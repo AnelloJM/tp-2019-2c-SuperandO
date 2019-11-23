@@ -15,14 +15,16 @@
 
 t_log *logger;
 int conexion;
+
+Bloque *inicio_de_disco;
 uint32_t bloques_del_bitmap;
-uint64_t tamanio_disco; //Como no se de que tamanio va a ser decido sobre exagerar
+uint32_t tamanio_disco;
 uint64_t cantidad_de_bloques_de_datos;
 t_bitarray *tBitarray;
-Header header;
+Header *header;
 Bitmap bitmap;
-Tabla_de_nodos tabla_de_nodos;
-Bloque *inicio_de_disco;
+Tabla_de_nodos *tabla_de_nodos;
+
 int contador;
 
 uint32_t Hacer_Getattr(char *path){ return 0; }
@@ -37,7 +39,10 @@ uint32_t Hacer_Release(char *path){ return 0; }
 
 uint32_t Hacer_Write(char *path, char *buffer){ return 0; } 
 
-uint32_t Hacer_MKNod(char *path){ return 0; }
+uint32_t Hacer_MKNod(char *path){
+	uint32_t numero_de_nodo = buscar_nodo_libre();
+	return 0;
+}
 
 uint32_t Hacer_Unlink(char *path){ return 0; }
 
@@ -226,18 +231,15 @@ uint64_t timestamp(){
 }
 
 void iniciar_header(){
-	bloques_del_bitmap =(tamanio_disco/sizeof(Bloque)/8)/sizeof(Bloque);
-	log_info(logger, "bloques_del_bitmap: %i",bloques_del_bitmap);
-	cantidad_de_bloques_de_datos =  tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024;
-	log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
+	header = inicio_de_disco;
 
-	header.identificador[0] = 'S';
-	header.identificador[1] = 'A';
-	header.identificador[2] = 'C';
+	header->identificador[0] = 'S';
+	header->identificador[1] = 'A';
+	header->identificador[2] = 'C';
 
-	header.version = 3;
-	header.inicio_bitmap = 1;
-	header.tamanio_bitmap = bloques_del_bitmap;
+	header->version = 3;
+	header->inicio_bitmap = 1;
+	header->tamanio_bitmap = bloques_del_bitmap;
 }
 
 void cargar_bitmap(int cantidad){
@@ -247,8 +249,9 @@ void cargar_bitmap(int cantidad){
 		if(!bitarray_test_bit(tBitarray, cargado)){
 			log_error(logger, "cargado: %i", cargado);
 		}
-		cargado = cargado+1;
+		cargado = cargado + 1;
 	}
+	log_info(logger, "cargado: %i", cargado);
 }
 
 int buscar_espacio_en_bitmap(){
@@ -261,6 +264,7 @@ int buscar_espacio_en_bitmap(){
 		total=total-1;
 		indice=indice+1;
 	}
+	log_error(logger, "No hay bits dentro del bitmap libres");
 	return -1;
 }
 
@@ -273,20 +277,35 @@ void liberar_bloque_en_bitmap(int indice){
 }
 
 void iniciar_tabla_de_nodos(){
+
+	tabla_de_nodos = inicio_de_disco + 1 + bloques_del_bitmap;
 	for(int i = 0; i <= 1024; i = i+1){
-		tabla_de_nodos.nodos[i].estado = 0;
+		tabla_de_nodos->nodos[i].estado = 0;
+		for(int j = 0; j <= 1000; j = j+1){
+			tabla_de_nodos->nodos[i].array_de_punteros[j] = 0;
+		}
 	}
 }
 
 void iniciar_Sac_Server(){
+	bloques_del_bitmap = ceil(((float)tamanio_disco/sizeof(Bloque)/8)/sizeof(Bloque));
+	log_info(logger, "bloques_del_bitmap: %i",bloques_del_bitmap);
+
+	cantidad_de_bloques_de_datos =  tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024;
+	log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
+
 	iniciar_header();
 	log_info(logger, "Listo header");
-	int bits = tamanio_disco/sizeof(Bloque);
+
+	int bits = ceil((float)tamanio_disco/sizeof(Bloque));
 	log_info(logger, "Bits: %i", bits);
-	bitmap.bitArray = malloc(bits);
-	tBitarray = bitarray_create_with_mode(bitmap.bitArray, (bits/8), MSB_FIRST);
-	log_info(logger, "tamanio: %i", bitarray_get_max_bit(tBitarray));
+
+	tBitarray = bitarray_create_with_mode(inicio_de_disco + 1, ceil(bits/8), MSB_FIRST);
+
+	log_info(logger, "tamanio cargado del bitmap: %i", bitarray_get_max_bit(tBitarray));
+
 	cargar_bitmap(1 + bloques_del_bitmap + 1024);
+
 	iniciar_tabla_de_nodos();
 }
 
@@ -299,42 +318,67 @@ uint32_t tamanio_archivo(char *archivo){
 	return tamanio;
 }
 
-void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo){
-	tabla_de_nodos.nodos[numero_de_nodo].estado = 2;
-//	for(int i = 0; i<=(strlen(nombre_de_archivo)+1); i=i+1){
-		strncpy(tabla_de_nodos.nodos[numero_de_nodo].nombre_del_archivo, nombre_de_archivo, 70);
-		tabla_de_nodos.nodos[numero_de_nodo].nombre_del_archivo[71] = '\0';
-//	}
-	tabla_de_nodos.nodos[numero_de_nodo].creacion=timestamp();
-	tabla_de_nodos.nodos[numero_de_nodo].modificado=timestamp();
-	tabla_de_nodos.nodos[numero_de_nodo].tamanio_del_archivo = sizeof(Bloque);
-	tabla_de_nodos.nodos[numero_de_nodo].padre=1;
+int tamanio_archivo_en_bloques(uint32_t tamanio){
+	if(tamanio%sizeof(Bloque)>0){
+		return tamanio/sizeof(Bloque);
+	}return (tamanio/sizeof(Bloque))+1;
+}
 
-	memcpy(inicio_de_disco + 1 + bloques_del_bitmap, &tabla_de_nodos, sizeof(Tabla_de_nodos));
+void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo){
+	tabla_de_nodos->nodos[numero_de_nodo].estado = '2';
+	strncpy(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo, nombre_de_archivo, 70);
+	tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo[71] = '\0';
+	tabla_de_nodos->nodos[numero_de_nodo].creacion=timestamp();
+	tabla_de_nodos->nodos[numero_de_nodo].modificado=timestamp();
+	tabla_de_nodos->nodos[numero_de_nodo].tamanio_del_archivo = sizeof(Bloque);
+	tabla_de_nodos->nodos[numero_de_nodo].padre=0;
+	log_info(logger, "bitmap: %i", buscar_espacio_en_bitmap());
+	uint32_t numero_de_bloque = buscar_espacio_en_bitmap();
+	log_info(logger, "bloque numero: %i", numero_de_bloque);
+	bitarray_set_bit(tBitarray, numero_de_bloque);
+	tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0] = numero_de_bloque;
+	log_info(logger,"cosas: %i",tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0]);
+}
+
+//Para tener en cuenta cuando hagamos el crear archivo
+//	int bloques_que_ocupa_archivo = tamanio_archivo_en_bloques(tabla_de_nodos.nodos[numero_de_nodo].tamanio_del_archivo);
+//	for(int i = 0; i <= bloques_que_ocupa_archivo; i = i+1){
+
+int buscar_nodo_libre(){
+	for(int i = 0; i<=1024; i = i+1){
+		if(!tabla_de_nodos->nodos[i].estado){
+			return i;
+		}
+	}
+	log_error(logger, "No hay nodos libres");
+	return -1;
+}
+
+void crear_directorio(){
+
 }
 
 int main(int argc, char *argv[]) {
 
 	contador = 2;
+	//Log:
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
+	//Archivos:
+	char *archivo = argv[1];
+	log_info(logger, "Archivo: %s", archivo);
+	tamanio_disco = tamanio_archivo(archivo);
+	log_info(logger, "Tamanio disco: %i", tamanio_disco);
+	//tamanio_disco
 
-	tamanio_disco = 13421772800;
-
-	log_info(logger, "Tamanio disco: %llu", tamanio_disco);
+	int disco = open(archivo, O_RDWR, 0);
+	inicio_de_disco = mmap(NULL, tamanio_disco, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_FILE, disco, 0);
 
 	iniciar_Sac_Server();
 	log_info(logger, "bloques_del_bitmap: %i", bloques_del_bitmap);
-	char *archivo = argv[1];
-	log_info(logger, "Archivo: %s", archivo);
-	uint32_t tamanio_disco_a_levantar = tamanio_archivo(archivo);
-	log_info(logger, "Tamanio: %i", tamanio_disco_a_levantar);
-	int disco = open(archivo, O_RDWR, 0);
-	inicio_de_disco = mmap(NULL, tamanio_disco_a_levantar, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_FILE, disco, 0);
 
-	memcpy(inicio_de_disco, &header,sizeof(Bloque));
-	memcpy(inicio_de_disco+ 1, (void *)tBitarray->bitarray, tBitarray->size);
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
+
 	crear_directorio_en_nodo(0,strdup("carpetita"));
 	crear_directorio_en_nodo(1, strdup("carpetota perro"));
 

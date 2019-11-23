@@ -20,6 +20,7 @@
 #include <pthread.h>
 #include <sys/time.h>
 #include <sys/mman.h>
+#include <math.h>
 
 
 #ifndef SAC_SERVER_H_
@@ -54,7 +55,7 @@ typedef struct {
 	uint32_t tamanio_del_archivo;
 	uint64_t creacion;
 	uint64_t modificado;
-	ptrGBloque  array_de_punteros [1000];
+	ptrGBloque array_de_punteros[1000];
 } Nodo;
 
 typedef struct {
