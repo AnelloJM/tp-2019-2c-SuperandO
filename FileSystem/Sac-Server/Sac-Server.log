@@ -1,0 +1,280 @@
+[INFO] 12:23:17:665 Sac-Server/(4495:4495): Se ha creado un nuevo logger
+
+[INFO] 12:23:20:506 Sac-Server/(4495:4495): Tamanio disco: 13421772800
+[INFO] 12:23:21:584 Sac-Server/(4495:4495): bloques_del_bitmap: 100
+[INFO] 12:23:21:584 Sac-Server/(4495:4495): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:23:21:584 Sac-Server/(4495:4495): Listo header
+[INFO] 12:23:21:584 Sac-Server/(4495:4495): Bits: 3276800
+[INFO] 12:23:21:584 Sac-Server/(4495:4495): tamanio: 3276800
+[INFO] 12:23:46:307 Sac-Server/(4593:4593): Se ha creado un nuevo logger
+
+[INFO] 12:23:51:88 Sac-Server/(4593:4593): Tamanio disco: 13421772800
+[INFO] 12:23:52:905 Sac-Server/(4593:4593): bloques_del_bitmap: 100
+[INFO] 12:23:52:905 Sac-Server/(4593:4593): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:23:52:905 Sac-Server/(4593:4593): Listo header
+[INFO] 12:23:52:905 Sac-Server/(4593:4593): Bits: 3276800
+[INFO] 12:23:52:905 Sac-Server/(4593:4593): tamanio: 3276800
+[INFO] 12:25:09:260 Sac-Server/(4694:4694): Se ha creado un nuevo logger
+
+[INFO] 12:25:10:218 Sac-Server/(4694:4694): Tamanio disco: 13421772800
+[INFO] 12:25:10:811 Sac-Server/(4694:4694): bloques_del_bitmap: 100
+[INFO] 12:25:10:812 Sac-Server/(4694:4694): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:25:10:812 Sac-Server/(4694:4694): Listo header
+[INFO] 12:25:10:812 Sac-Server/(4694:4694): Bits: 3276800
+[INFO] 12:25:10:812 Sac-Server/(4694:4694): tamanio: 3276800
+[INFO] 12:26:05:30 Sac-Server/(4791:4791): Se ha creado un nuevo logger
+
+[INFO] 12:26:05:802 Sac-Server/(4791:4791): Tamanio disco: 13421772800
+[INFO] 12:26:06:139 Sac-Server/(4791:4791): bloques_del_bitmap: 100
+[INFO] 12:26:06:139 Sac-Server/(4791:4791): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:26:06:139 Sac-Server/(4791:4791): Listo header
+[INFO] 12:26:06:139 Sac-Server/(4791:4791): Bits: 3276800
+[INFO] 12:26:06:139 Sac-Server/(4791:4791): tamanio: 3276800
+[INFO] 12:27:37:655 Sac-Server/(4892:4892): Se ha creado un nuevo logger
+
+[INFO] 12:27:38:726 Sac-Server/(4892:4892): Tamanio disco: 13421772800
+[INFO] 12:27:39:367 Sac-Server/(4892:4892): bloques_del_bitmap: 100
+[INFO] 12:27:39:367 Sac-Server/(4892:4892): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:27:39:367 Sac-Server/(4892:4892): Listo header
+[INFO] 12:27:39:367 Sac-Server/(4892:4892): Bits: 3276800
+[INFO] 12:27:39:367 Sac-Server/(4892:4892): tamanio: 3276800
+[INFO] 12:38:55:172 Sac-Server/(5224:5224): Se ha creado un nuevo logger
+
+[INFO] 12:38:55:172 Sac-Server/(5224:5224): Tamanio disco: 13421772800
+[INFO] 12:38:55:172 Sac-Server/(5224:5224): bloques_del_bitmap: 100
+[INFO] 12:38:55:172 Sac-Server/(5224:5224): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:38:55:172 Sac-Server/(5224:5224): Listo header
+[INFO] 12:38:55:172 Sac-Server/(5224:5224): Bits: 3276800
+[INFO] 12:38:55:172 Sac-Server/(5224:5224): tamanio: 3276800
+[INFO] 12:39:29:91 Sac-Server/(5306:5306): Se ha creado un nuevo logger
+
+[INFO] 12:39:29:91 Sac-Server/(5306:5306): Tamanio disco: 13421772800
+[INFO] 12:39:29:91 Sac-Server/(5306:5306): bloques_del_bitmap: 100
+[INFO] 12:39:29:91 Sac-Server/(5306:5306): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:39:29:91 Sac-Server/(5306:5306): Listo header
+[INFO] 12:39:29:91 Sac-Server/(5306:5306): Bits: 3276800
+[INFO] 12:39:29:92 Sac-Server/(5306:5306): tamanio: 3276800
+[INFO] 12:48:58:671 Sac-Server/(5984:5984): Se ha creado un nuevo logger
+
+[INFO] 12:48:58:672 Sac-Server/(5984:5984): Tamanio disco: 13421772800
+[INFO] 12:48:58:672 Sac-Server/(5984:5984): bloques_del_bitmap: 100
+[INFO] 12:48:58:672 Sac-Server/(5984:5984): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:48:58:672 Sac-Server/(5984:5984): Listo header
+[INFO] 12:48:58:672 Sac-Server/(5984:5984): Bits: 3276800
+[INFO] 12:48:58:672 Sac-Server/(5984:5984): tamanio: 3276800
+[INFO] 12:50:17:491 Sac-Server/(6160:6160): Se ha creado un nuevo logger
+
+[INFO] 12:50:17:491 Sac-Server/(6160:6160): Tamanio disco: 13421772800
+[INFO] 12:50:17:491 Sac-Server/(6160:6160): bloques_del_bitmap: 100
+[INFO] 12:50:17:491 Sac-Server/(6160:6160): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:50:17:491 Sac-Server/(6160:6160): Listo header
+[INFO] 12:50:17:491 Sac-Server/(6160:6160): Bits: 3276800
+[INFO] 12:50:17:491 Sac-Server/(6160:6160): tamanio: 3276800
+[INFO] 12:51:26:926 Sac-Server/(6333:6333): Se ha creado un nuevo logger
+
+[INFO] 12:51:26:927 Sac-Server/(6333:6333): Tamanio disco: 13421772800
+[INFO] 12:51:26:927 Sac-Server/(6333:6333): bloques_del_bitmap: 100
+[INFO] 12:51:26:927 Sac-Server/(6333:6333): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:51:26:927 Sac-Server/(6333:6333): Listo header
+[INFO] 12:51:26:928 Sac-Server/(6333:6333): Bits: 3276800
+[INFO] 12:51:26:928 Sac-Server/(6333:6333): tamanio: 3276800
+[INFO] 12:52:58:521 Sac-Server/(6454:6454): Se ha creado un nuevo logger
+
+[INFO] 12:52:58:521 Sac-Server/(6454:6454): Tamanio disco: 13421772800
+[INFO] 12:52:58:521 Sac-Server/(6454:6454): bloques_del_bitmap: 100
+[INFO] 12:52:58:521 Sac-Server/(6454:6454): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:52:58:521 Sac-Server/(6454:6454): Listo header
+[INFO] 12:52:58:522 Sac-Server/(6454:6454): Bits: 3276800
+[INFO] 12:52:58:522 Sac-Server/(6454:6454): tamanio: 3276800
+[INFO] 12:54:36:373 Sac-Server/(6643:6643): Se ha creado un nuevo logger
+
+[INFO] 12:54:36:375 Sac-Server/(6643:6643): Tamanio disco: 13421772800
+[INFO] 12:54:36:376 Sac-Server/(6643:6643): bloques_del_bitmap: 100
+[INFO] 12:54:36:376 Sac-Server/(6643:6643): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:54:36:376 Sac-Server/(6643:6643): Listo header
+[INFO] 12:54:36:376 Sac-Server/(6643:6643): Bits: 3276800
+[INFO] 12:54:36:377 Sac-Server/(6643:6643): tamanio: 3276800
+[INFO] 12:57:28:126 Sac-Server/(6777:6777): Se ha creado un nuevo logger
+
+[INFO] 12:57:28:126 Sac-Server/(6777:6777): Tamanio disco: 13421772800
+[INFO] 12:57:28:126 Sac-Server/(6777:6777): bloques_del_bitmap: 100
+[INFO] 12:57:28:126 Sac-Server/(6777:6777): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:57:28:127 Sac-Server/(6777:6777): Listo header
+[INFO] 12:57:28:127 Sac-Server/(6777:6777): Bits: 3276800
+[INFO] 12:57:28:127 Sac-Server/(6777:6777): tamanio: 3276800
+[INFO] 12:59:20:283 Sac-Server/(6910:6910): Se ha creado un nuevo logger
+
+[INFO] 12:59:20:285 Sac-Server/(6910:6910): Tamanio disco: 13421772800
+[INFO] 12:59:20:285 Sac-Server/(6910:6910): bloques_del_bitmap: 100
+[INFO] 12:59:20:285 Sac-Server/(6910:6910): cantidad_de_bloques_de_datos: 3275675
+[INFO] 12:59:20:285 Sac-Server/(6910:6910): Listo header
+[INFO] 12:59:20:285 Sac-Server/(6910:6910): Bits: 3276800
+[INFO] 12:59:20:285 Sac-Server/(6910:6910): tamanio: 3276800
+[INFO] 13:00:55:91 Sac-Server/(7037:7037): Se ha creado un nuevo logger
+
+[INFO] 13:00:55:91 Sac-Server/(7037:7037): Tamanio disco: 13421772800
+[INFO] 13:00:55:91 Sac-Server/(7037:7037): bloques_del_bitmap: 100
+[INFO] 13:00:55:91 Sac-Server/(7037:7037): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:00:55:92 Sac-Server/(7037:7037): Listo header
+[INFO] 13:00:55:92 Sac-Server/(7037:7037): Bits: 3276800
+[INFO] 13:00:55:92 Sac-Server/(7037:7037): tamanio: 3276800
+[INFO] 13:02:02:217 Sac-Server/(7146:7146): Se ha creado un nuevo logger
+
+[INFO] 13:02:02:217 Sac-Server/(7146:7146): Tamanio disco: 13421772800
+[INFO] 13:02:02:217 Sac-Server/(7146:7146): bloques_del_bitmap: 100
+[INFO] 13:02:02:217 Sac-Server/(7146:7146): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:02:02:217 Sac-Server/(7146:7146): Listo header
+[INFO] 13:02:02:217 Sac-Server/(7146:7146): Bits: 3276800
+[INFO] 13:02:02:217 Sac-Server/(7146:7146): tamanio: 3276800
+[INFO] 13:03:05:304 Sac-Server/(7250:7250): Se ha creado un nuevo logger
+
+[INFO] 13:03:05:304 Sac-Server/(7250:7250): Tamanio disco: 13421772800
+[INFO] 13:03:05:304 Sac-Server/(7250:7250): bloques_del_bitmap: 100
+[INFO] 13:03:05:304 Sac-Server/(7250:7250): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:03:05:304 Sac-Server/(7250:7250): Listo header
+[INFO] 13:03:05:304 Sac-Server/(7250:7250): Bits: 3276800
+[INFO] 13:03:05:304 Sac-Server/(7250:7250): tamanio: 3276800
+[INFO] 13:03:57:853 Sac-Server/(7356:7356): Se ha creado un nuevo logger
+
+[INFO] 13:03:57:854 Sac-Server/(7356:7356): Tamanio disco: 13421772800
+[INFO] 13:03:57:854 Sac-Server/(7356:7356): bloques_del_bitmap: 100
+[INFO] 13:03:57:854 Sac-Server/(7356:7356): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:03:57:854 Sac-Server/(7356:7356): Listo header
+[INFO] 13:03:57:854 Sac-Server/(7356:7356): Bits: 3276800
+[INFO] 13:03:57:854 Sac-Server/(7356:7356): tamanio: 3276800
+[INFO] 13:06:25:456 Sac-Server/(7496:7496): Se ha creado un nuevo logger
+
+[INFO] 13:06:25:456 Sac-Server/(7496:7496): Tamanio disco: 13421772800
+[INFO] 13:06:25:456 Sac-Server/(7496:7496): bloques_del_bitmap: 100
+[INFO] 13:06:25:456 Sac-Server/(7496:7496): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:06:25:457 Sac-Server/(7496:7496): Listo header
+[INFO] 13:06:25:457 Sac-Server/(7496:7496): Bits: 3276800
+[INFO] 13:06:25:457 Sac-Server/(7496:7496): tamanio: 3276800
+[INFO] 13:11:57:398 Sac-Server/(7809:7809): Se ha creado un nuevo logger
+
+[INFO] 13:11:57:398 Sac-Server/(7809:7809): Tamanio disco: 13421772800
+[INFO] 13:11:57:399 Sac-Server/(7809:7809): bloques_del_bitmap: 100
+[INFO] 13:11:57:399 Sac-Server/(7809:7809): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:11:57:399 Sac-Server/(7809:7809): Listo header
+[INFO] 13:11:57:399 Sac-Server/(7809:7809): Bits: 3276800
+[INFO] 13:11:57:400 Sac-Server/(7809:7809): tamanio: 3276800
+[INFO] 13:12:30:243 Sac-Server/(7905:7905): Se ha creado un nuevo logger
+
+[INFO] 13:12:30:243 Sac-Server/(7905:7905): Tamanio disco: 13421772800
+[INFO] 13:12:30:243 Sac-Server/(7905:7905): bloques_del_bitmap: 100
+[INFO] 13:12:30:243 Sac-Server/(7905:7905): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:12:30:243 Sac-Server/(7905:7905): Listo header
+[INFO] 13:12:30:243 Sac-Server/(7905:7905): Bits: 3276800
+[INFO] 13:12:30:243 Sac-Server/(7905:7905): tamanio: 3276800
+[INFO] 13:12:53:624 Sac-Server/(7995:7995): Se ha creado un nuevo logger
+
+[INFO] 13:12:53:624 Sac-Server/(7995:7995): Tamanio disco: 13421772800
+[INFO] 13:12:53:624 Sac-Server/(7995:7995): bloques_del_bitmap: 100
+[INFO] 13:12:53:624 Sac-Server/(7995:7995): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:12:53:625 Sac-Server/(7995:7995): Listo header
+[INFO] 13:12:53:625 Sac-Server/(7995:7995): Bits: 3276800
+[INFO] 13:12:53:625 Sac-Server/(7995:7995): tamanio: 3276800
+[INFO] 13:14:19:891 Sac-Server/(8117:8117): Se ha creado un nuevo logger
+
+[INFO] 13:14:19:891 Sac-Server/(8117:8117): Tamanio disco: 13421772800
+[INFO] 13:14:19:891 Sac-Server/(8117:8117): bloques_del_bitmap: 100
+[INFO] 13:14:19:891 Sac-Server/(8117:8117): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:14:19:891 Sac-Server/(8117:8117): Listo header
+[INFO] 13:14:19:892 Sac-Server/(8117:8117): Bits: 3276800
+[INFO] 13:14:19:892 Sac-Server/(8117:8117): tamanio: 3276800
+[INFO] 13:15:44:180 Sac-Server/(8224:8224): Se ha creado un nuevo logger
+
+[INFO] 13:15:44:180 Sac-Server/(8224:8224): Tamanio disco: 13421772800
+[INFO] 13:15:44:180 Sac-Server/(8224:8224): bloques_del_bitmap: 100
+[INFO] 13:15:44:181 Sac-Server/(8224:8224): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:15:44:181 Sac-Server/(8224:8224): Listo header
+[INFO] 13:15:44:181 Sac-Server/(8224:8224): Bits: 3276800
+[INFO] 13:15:44:181 Sac-Server/(8224:8224): tamanio: 3276800
+[INFO] 13:16:57:393 Sac-Server/(8346:8346): Se ha creado un nuevo logger
+
+[INFO] 13:16:57:395 Sac-Server/(8346:8346): Tamanio disco: 13421772800
+[INFO] 13:16:57:395 Sac-Server/(8346:8346): bloques_del_bitmap: 100
+[INFO] 13:16:57:395 Sac-Server/(8346:8346): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:16:57:395 Sac-Server/(8346:8346): Listo header
+[INFO] 13:16:57:395 Sac-Server/(8346:8346): Bits: 3276800
+[INFO] 13:16:57:395 Sac-Server/(8346:8346): tamanio: 3276800
+[INFO] 13:24:09:233 Sac-Server/(8652:8652): Se ha creado un nuevo logger
+
+[INFO] 13:24:09:233 Sac-Server/(8652:8652): Tamanio disco: 13421772800
+[INFO] 13:24:09:233 Sac-Server/(8652:8652): bloques_del_bitmap: 100
+[INFO] 13:24:09:233 Sac-Server/(8652:8652): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:24:09:234 Sac-Server/(8652:8652): Listo header
+[INFO] 13:24:09:234 Sac-Server/(8652:8652): Bits: 3276800
+[INFO] 13:24:09:234 Sac-Server/(8652:8652): tamanio: 3276800
+[INFO] 13:25:08:47 Sac-Server/(8767:8767): Se ha creado un nuevo logger
+
+[INFO] 13:25:08:47 Sac-Server/(8767:8767): Tamanio disco: 13421772800
+[INFO] 13:25:08:47 Sac-Server/(8767:8767): bloques_del_bitmap: 100
+[INFO] 13:25:08:47 Sac-Server/(8767:8767): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:25:08:48 Sac-Server/(8767:8767): Listo header
+[INFO] 13:25:08:48 Sac-Server/(8767:8767): Bits: 3276800
+[INFO] 13:25:08:48 Sac-Server/(8767:8767): tamanio: 3276800
+[INFO] 13:27:45:485 Sac-Server/(8906:8906): Se ha creado un nuevo logger
+
+[INFO] 13:27:45:485 Sac-Server/(8906:8906): Tamanio disco: 13421772800
+[INFO] 13:27:45:486 Sac-Server/(8906:8906): bloques_del_bitmap: 100
+[INFO] 13:27:45:486 Sac-Server/(8906:8906): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:27:45:486 Sac-Server/(8906:8906): Listo header
+[INFO] 13:27:45:486 Sac-Server/(8906:8906): Bits: 3276800
+[INFO] 13:27:45:486 Sac-Server/(8906:8906): tamanio: 3276800
+[INFO] 13:30:11:796 Sac-Server/(9052:9052): Se ha creado un nuevo logger
+
+[INFO] 13:30:11:796 Sac-Server/(9052:9052): Tamanio disco: 13421772800
+[INFO] 13:30:11:796 Sac-Server/(9052:9052): bloques_del_bitmap: 100
+[INFO] 13:30:11:796 Sac-Server/(9052:9052): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:30:11:796 Sac-Server/(9052:9052): Listo header
+[INFO] 13:30:11:797 Sac-Server/(9052:9052): Bits: 3276800
+[INFO] 13:30:11:797 Sac-Server/(9052:9052): tamanio: 3276800
+[INFO] 13:31:52:503 Sac-Server/(9198:9198): Se ha creado un nuevo logger
+
+[INFO] 13:31:52:503 Sac-Server/(9198:9198): Tamanio disco: 13421772800
+[INFO] 13:31:52:503 Sac-Server/(9198:9198): bloques_del_bitmap: 100
+[INFO] 13:31:52:503 Sac-Server/(9198:9198): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:31:52:503 Sac-Server/(9198:9198): Listo header
+[INFO] 13:31:52:503 Sac-Server/(9198:9198): Bits: 3276800
+[INFO] 13:31:52:503 Sac-Server/(9198:9198): tamanio: 3276800
+[INFO] 13:32:14:79 Sac-Server/(9280:9280): Se ha creado un nuevo logger
+
+[INFO] 13:32:14:80 Sac-Server/(9280:9280): Tamanio disco: 13421772800
+[INFO] 13:32:14:80 Sac-Server/(9280:9280): bloques_del_bitmap: 100
+[INFO] 13:32:14:80 Sac-Server/(9280:9280): cantidad_de_bloques_de_datos: 3275675
+[INFO] 13:32:14:80 Sac-Server/(9280:9280): Listo header
+[INFO] 13:32:14:80 Sac-Server/(9280:9280): Bits: 3276800
+[INFO] 13:32:14:80 Sac-Server/(9280:9280): tamanio: 3276800
+[INFO] 13:37:33:575 Sac-Server/(9469:9469): Se ha creado un nuevo logger
+
+[INFO] 13:37:33:576 Sac-Server/(9469:9469): Tamanio disco: 10485760
+[INFO] 13:37:33:576 Sac-Server/(9469:9469): bloques_del_bitmap: 0
+[INFO] 13:37:33:576 Sac-Server/(9469:9469): cantidad_de_bloques_de_datos: 1535
+[INFO] 13:37:33:576 Sac-Server/(9469:9469): Listo header
+[INFO] 13:37:33:576 Sac-Server/(9469:9469): Bits: 2560
+[INFO] 13:37:33:576 Sac-Server/(9469:9469): tamanio: 2560
+[INFO] 13:41:34:314 Sac-Server/(9638:9638): Se ha creado un nuevo logger
+
+[INFO] 13:41:34:315 Sac-Server/(9638:9638): Tamanio disco: 10485760
+[INFO] 13:41:34:316 Sac-Server/(9638:9638): bloques_del_bitmap: 1
+[INFO] 13:41:34:316 Sac-Server/(9638:9638): cantidad_de_bloques_de_datos: 1534
+[INFO] 13:41:34:316 Sac-Server/(9638:9638): Listo header
+[INFO] 13:41:34:316 Sac-Server/(9638:9638): Bits: 2560
+[INFO] 13:41:34:316 Sac-Server/(9638:9638): tamanio: 2560
+[INFO] 13:42:19:750 Sac-Server/(9734:9734): Se ha creado un nuevo logger
+
+[INFO] 13:42:19:751 Sac-Server/(9734:9734): Tamanio disco: 10485760
+[INFO] 13:42:19:751 Sac-Server/(9734:9734): bloques_del_bitmap: 1
+[INFO] 13:42:19:751 Sac-Server/(9734:9734): cantidad_de_bloques_de_datos: 1534
+[INFO] 13:42:19:753 Sac-Server/(9734:9734): Listo header
+[INFO] 13:42:19:753 Sac-Server/(9734:9734): Bits: 2560
+[INFO] 13:42:19:753 Sac-Server/(9734:9734): tamanio: 2560
+[INFO] 13:44:37:501 Sac-Server/(9874:9874): Se ha creado un nuevo logger
+
+[INFO] 13:44:37:501 Sac-Server/(9874:9874): Tamanio disco: 10485760
+[INFO] 13:44:37:501 Sac-Server/(9874:9874): bloques_del_bitmap: 1
+[INFO] 13:44:37:501 Sac-Server/(9874:9874): cantidad_de_bloques_de_datos: 1534
+[INFO] 13:44:37:501 Sac-Server/(9874:9874): Listo header
+[INFO] 13:44:37:501 Sac-Server/(9874:9874): Bits: 2560
+[INFO] 13:44:37:501 Sac-Server/(9874:9874): tamanio: 2560
