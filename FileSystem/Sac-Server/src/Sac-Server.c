@@ -48,8 +48,11 @@ uint32_t Hacer_MKNod(char *path){
 uint32_t Hacer_Unlink(char *path){ return 0; }
 
 uint32_t Hacer_MKDir(char *path){
-	crear_directorio_en_nodo(contador, path+1);
+	char **StringSeparado = string_split(path, "/");
+	uint32_t posicionFinal = damePosicionFinalDoblePuntero(StringSeparado);
+	crear_directorio_en_nodo(contador, StringSeparado[posicionFinal]);
 	contador = contador+1;
+	liberarDoblePuntero(StringSeparado);
 	return 1;
 }
 
@@ -239,11 +242,9 @@ uint64_t timestamp(){
 
 void iniciar_header(){
 	header = inicio_de_disco;
-
 	header->identificador[0] = 'S';
 	header->identificador[1] = 'A';
 	header->identificador[2] = 'C';
-
 	header->version = 3;
 	header->inicio_bitmap = 1;
 	header->tamanio_bitmap = bloques_del_bitmap;
@@ -366,10 +367,6 @@ void crear_directorio(){
 }
 
 int main(int argc, char *argv[]) {
-
-	pruebita();
-	sleep(200);
-
 	contador = 2;
 	//Log:
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
