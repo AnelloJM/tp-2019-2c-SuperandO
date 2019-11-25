@@ -278,3 +278,15 @@
 [INFO] 13:44:37:501 Sac-Server/(9874:9874): Listo header
 [INFO] 13:44:37:501 Sac-Server/(9874:9874): Bits: 2560
 [INFO] 13:44:37:501 Sac-Server/(9874:9874): tamanio: 2560
+[INFO] 21:08:18:500 Sac-Server/(3210:3210): Se ha creado un nuevo logger
+
+[INFO] 21:08:18:502 Sac-Server/(3210:3210): Archivo: (null)
+[INFO] 21:08:28:55 Sac-Server/(3163:3163): Se ha creado un nuevo logger
+
+[INFO] 21:08:28:55 Sac-Server/(3163:3163): Archivo: (null)
+[INFO] 21:09:26:553 Sac-Server/(3284:3284): Se ha creado un nuevo logger
+
+[INFO] 21:09:27:290 Sac-Server/(3284:3284): Archivo: (null)
+[INFO] 21:10:31:689 Sac-Server/(3413:3413): Se ha creado un nuevo logger
+
+[INFO] 21:10:31:690 Sac-Server/(3413:3413): Archivo: (null)

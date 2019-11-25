@@ -308,7 +308,7 @@ void iniciar_Sac_Server(){
 	int bits = ceil((float)tamanio_disco/sizeof(Bloque));
 	log_info(logger, "Bits: %i", bits);
 
-	tBitarray = bitarray_create_with_mode(inicio_de_disco + 1, ceil(bits/8), MSB_FIRST);
+	tBitarray = bitarray_create_with_mode(inicio_de_disco + 1, ceil((float)bits/8), MSB_FIRST);
 
 	log_info(logger, "tamanio cargado del bitmap: %i", bitarray_get_max_bit(tBitarray));
 
@@ -386,8 +386,9 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-	//crear_directorio_en_nodo(0,strdup("carpetita"));
-	//crear_directorio_en_nodo(1, strdup("carpetota perro"));
+	crear_directorio_en_nodo(0,strdup("carpetita"));
+	crear_directorio_en_nodo(1, strdup("carpetota perro"));
+	crear_directorio_en_nodo(2,strdup("carpetita explosiva"));
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", "8081", logger);
