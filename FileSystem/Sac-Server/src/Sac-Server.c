@@ -58,15 +58,7 @@ uint32_t Hacer_MKDir(char *path){
 
 uint32_t Hacer_RMDir(char *path){ return 0; }
 
-uint32_t Hacer_CHMod(char *path){ return 0; }
-
-uint32_t Hacer_Utime(char *path){ return 0; }
-
 uint32_t Hacer_Rename(char *path, char *buffer){ return 0; }
-
-uint32_t Hacer_Truncate(char *path){ return 0; }
-
-uint32_t Hacer_SetXAttr(char *path){ return 0; }
 
 void* funcionMagica(int cliente){
 	while(1){
@@ -171,24 +163,6 @@ void* funcionMagica(int cliente){
 				free(pathRMDir);
 				break;
 
-			case f_CHMOD: ;
-				char *pathCHMod = Fuse_ReceiveAndUnpack(cliente, tam);
-				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathCHMod)+1);
-				log_error(logger, pathCHMod);
-				//Hacer_CHMod(pathCHMod);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi CHMOD"), strlen("Hola, recibi CHMOD")+1, f_RESPONSE);
-				free(pathCHMod);
-				break;
-
-			case f_UTIME: ;
-				char *pathUtime = Fuse_ReceiveAndUnpack(cliente, tam);
-				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUtime)+1);
-				log_error(logger, pathUtime);
-				//Hacer_Utime(pathUtime);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi UTIME"), strlen("Hola, recibi UTIME")+1, f_RESPONSE);
-				free(pathUtime);
-				break;
-
 			case f_RENAME: ;
 				char *pathRename = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRename)+1);
@@ -196,24 +170,6 @@ void* funcionMagica(int cliente){
 				//Hacer_Rename(pathRename);	
 				Fuse_PackAndSend(cliente, strdup("Hola, recibi RENAME"), strlen("Hola, recibi RENAME")+1, f_RESPONSE);
 				free(pathRename);
-				break;
-
-			case f_TRUNCATE: ;
-				char *pathTruncate = Fuse_ReceiveAndUnpack(cliente, tam);
-				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathTruncate)+1);
-				log_error(logger, pathTruncate);
-				//Hacer_Truncate(pathTruncate);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi TRUNCATE"), strlen("Hola, recibi TRUNCATE")+1, f_RESPONSE);
-				free(pathTruncate);
-				break;
-
-			case f_SETXATTR: ;
-				char *pathSetXAttr = Fuse_ReceiveAndUnpack(cliente, tam);
-				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathSetXAttr)+1);
-				log_error(logger, pathSetXAttr);
-				//Hacer_SetXAttr(pathSetXAttr);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi SETXATTR"), strlen("Hola, recibi SETXATTR")+1, f_RESPONSE);
-				free(pathSetXAttr);
 				break;
 
 			case f_HANDSHAKE: ;

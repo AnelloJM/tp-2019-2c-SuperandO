@@ -196,37 +196,13 @@ static int fusesito_rmdir(const char *path){
 	free(response);
 	return 0;
 }
-static int fusesito_utime(const char *path, struct utimbuf *buf){
-	log_info(logger, "Se llamo a fusesito_utime\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_UTIME);
-	free(response);
-	return 0;
-}
-static int fusesito_chmod(const char *path, mode_t mode){
-
-	log_info(logger, "Se llamo a fusesito_chmod\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_CHMOD);
-	free(response);
-	return 0;
-}
 static int fusesito_rename(const char *path, const char *buf){
 	log_info(logger, "Se llamo a fusesito_rename\n");
 	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_RENAME);
 	free(response);
 	return 0;
 }
-static int fusesito_truncate(const char *path, off_t offset){
-	log_info(logger, "Se llamo a fusesito_truncate\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_TRUNCATE);
-	free(response);
-	return 0;
-}
-static int fusesito_setxattr(const char *path, const char *nose, const char *nose2, size_t size, int nose3){
-	log_info(logger, "Se llamo a fusesito_setxattr\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_SETXATTR);
-	free(response);
-	return 0;
-}
+
 
 
 static struct fuse_operations fusesito_oper = {
@@ -240,11 +216,7 @@ static struct fuse_operations fusesito_oper = {
 		.unlink = fusesito_unlink,
 		.mkdir = fusesito_mkdir,
 		.rmdir = fusesito_rmdir,
-		.chmod = fusesito_chmod,
-		.utime = fusesito_utime,
 		.rename = fusesito_rename,
-		.truncate = fusesito_truncate,
-		.setxattr = fusesito_setxattr,
 };
 
 

@@ -37,11 +37,7 @@ typedef enum f_operaciones {
 	f_UNLINK,
 	f_MKDIR,
 	f_RMDIR,
-	f_CHMOD,
-	f_UTIME,
 	f_RENAME,
-	f_TRUNCATE,
-	f_SETXATTR,
 	f_RESPONSE,
 	f_HANDSHAKE
 } f_operacion;
@@ -63,11 +59,28 @@ typedef struct {
 // FUNCIONES PARA ENVIAR //
 ///////////////////////////
 
+/**
+* ESTA FUNCION ENVIA UN PAQUETE DEL TAMAÑO ESPECIFICADO A TRAVES DEL SOCKET ESPECIFICADO
+*/
+
 bool Fuse_PackAndSend(int socketCliente, const void*path, uint32_t tamPath, f_operacion operacion);
+
+/**
+* ESTA FUNCION ENVIA UN PAQUETE DEL TIPO WRITE A TRAVES DEL SOCKET ESPECIFICADO
+*/
 
 bool Fuse_PackAndSend_Write(int socketCliente,const char *path, const char *buf, size_t size, off_t offset);
 
-bool Fuse_PackAndSend_MKDir(int socketCliente, const void *path, const char *nombre);
+/**
+* ESTA FUNCION ENVIA UN PAQUETE DEL TIPO MKNOD A TRAVES DEL SOCKET ESPECIFICADO
+*/
+bool Fuse_PackAndSend_MKNOD(int socketCliente, const void *path, const mode_t mode);
+
+/**
+* ESTA FUNCION ENVIA UN PAQUETE DEL TIPO RENAME A TRAVES DEL SOCKET ESPECIFICADO
+*/
+
+bool Fuse_PackAndSend_Rename(int socketCliente, const void *path, const char *nombre);
 
 ////////////////////////////
 // FUNCIONES PARA RECIBIR //
@@ -102,7 +115,7 @@ void* Fuse_ReceiveAndUnpack(int socketCliente, uint32_t tamanioChar);
 
 /**
 * ESTA FUNCION SE USA SOLO EN CASO DE QUERER
-* RECIBIR UN PATH DE UN PQUETE QUE CONTENGA ALGO
+* RECIBIR UN PATH DE UN PAQUETE QUE CONTENGA ALGO
 * MAS ADEMAS DEL PATH
 */
 
@@ -131,5 +144,21 @@ size_t Fuse_Unpack_Write_Size(void *buffer);
 */
 
 off_t Fuse_Unpack_Write_offset(void *buffer);
+
+/**
+* ESTA FUNCION RETORNA EL MODO EN CASO
+* DE QUE SE HAYA RECIBIDO UN PAQUETE DEL
+* TIPO f_MKNOD
+*/
+
+mode_t Fuse_Unpack_MKNOD_Mode(void *buffer);
+
+/**
+* ESTA FUNCION RETORNA EL NUEVO NOMBRE EN CASO
+* DE QUE SE HAYA RECIBIDO UN PAQUETE DEL
+* TIPO f_RENAME
+*/
+
+char* Fuse_Unpack_Rename_Nombre(void *buffer);
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */
