@@ -29,10 +29,6 @@ t_list * cola_exit;
 t_list * semaforos;
 int colasLibres;
 
-//Creo que es mejor que usemos listas en vez de colas porque son mucho mas versatiles y tienen muchas mas funciones en las commons que nos pueden servir
-
-//cómo implemento los estados
-
 //Arch de Config
 char* listen_port;
 int metrics_timer;
@@ -55,6 +51,12 @@ typedef struct {
 }hilo_t;
 
 typedef struct {
+	int pid;
+	t_list * cola_ready;
+	t_list * cola_exec;
+}proceso_t;
+
+typedef struct {
 	char* semID;
 	int semInit;
 	int semActual;
@@ -70,6 +72,7 @@ void suse_init();
 void cargarSemaforos();
 void suse_create(hilo_t* hilo);
 void* suse_schedule_next();
+int dispatcher(hilo_t* hilo);
 hilo_t calcularEstimacion();
 bool comparador(hilo_t* unHilo, hilo_t* otroHilo);
 bool comparadorDeRafagas();

@@ -125,6 +125,10 @@ void* suse_schedule_next(){
 	log_info(logger, "La cola de new está vacia");
 	return 0;
 }
+//Este me va a llevar un hilo de new a ready?
+int dispatcher(hilo_t* hilo){
+
+}
 
 hilo_t calcularEstimacion(hilo_t unHilo){
 	unHilo.rafagasEstimadas = (alpha_sjf * unHilo.estimacionAnterior + ((1 - alpha_sjf)*unHilo.rafagasEjecutadas));
