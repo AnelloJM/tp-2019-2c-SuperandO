@@ -62,11 +62,47 @@ typedef struct {
 	Nodo nodos[1024];
 } Tabla_de_nodos;
 
+/////////////////////////////////
+// FUNCIONES DE INICIALIZACION //
+////////////////////////////////
 
 void iniciar_Sac_Server();
 void iniciar_header();
 void cargar_bitmap(int cantidad);
+void iniciar_tabla_de_nodos();
+
+///////////////////////////////
+// FUNCIONES ADMINISTRATIVAS //
+//////////////////////////////
+
 uint64_t timestamp();
+void* funcionMagica(int cliente);
+uint32_t tamanio_archivo(char *archivo);
+int tamanio_archivo_en_bloques(uint32_t tamanio);
+
+//////////////////////////
+// FUNCIONES DEL BITMAP //
+/////////////////////////
+
+int buscar_espacio_en_bitmap();
+void ocupar_bloque_en_bitmap(int indice);
+void liberar_bloque_en_bitmap(int indice);
+
+////////////////////////////////////
+// FUNCIONES DE LA TABLA DE NODOS //
+///////////////////////////////////
+
+char** hallar_padres(char* nombre_buscado);
+bool existe_path(char* path);
+int buscar_nodo_libre();
+char* obtener_nombre_padre_nodo(uint32_t numero_de_nodo);
+char* obtener_nombre_nodo(uint32_t numero_de_nodo);
+void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo);
+
+///////////////////////
+// FUNCIONES DE FUSE //
+//////////////////////
+
 uint32_t Hacer_Getattr(char *path);
 uint32_t Hacer_ReadDir(char *path);
 uint32_t Hacer_Open(char *path);
@@ -78,11 +114,5 @@ uint32_t Hacer_Unlink(char *path);
 uint32_t Hacer_MKDir(char *path);
 uint32_t Hacer_RMDir(char *path);
 uint32_t Hacer_Rename(char *path, char *buffer);
-void* funcionMagica(int cliente);
-int buscar_espacio_en_bitmap();
-void ocupar_bloque_en_bitmap(int indice);
-void liberar_bloque_en_bitmap(int indice);
-void iniciar_tabla_de_nodos();
-void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo);
 
 #endif /* SAC_SERVER_H_ */

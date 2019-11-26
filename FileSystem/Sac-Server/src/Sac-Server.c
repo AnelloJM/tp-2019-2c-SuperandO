@@ -246,6 +246,7 @@ void iniciar_tabla_de_nodos(){
 	tabla_de_nodos = inicio_de_disco + 1 + bloques_del_bitmap;
 	for(int i = 0; i <= 1024; i = i+1){
 		tabla_de_nodos->nodos[i].estado = 0;
+		strncpy(tabla_de_nodos->nodos[i].nombre_del_archivo, "\0", 70);
 		for(int j = 0; j <= 1000; j = j+1){
 			tabla_de_nodos->nodos[i].array_de_punteros[j] = 0;
 		}
@@ -329,6 +330,17 @@ void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo){
 //	int bloques_que_ocupa_archivo = tamanio_archivo_en_bloques(tabla_de_nodos.nodos[numero_de_nodo].tamanio_del_archivo);
 //	for(int i = 0; i <= bloques_que_ocupa_archivo; i = i+1){
 
+char* obtener_nombre_nodo(uint32_t numero_de_nodo){
+	char *nombre_retornado;
+	nombre_retornado = malloc(strlen(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo));
+	strcpy(nombre_retornado, tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo);
+	return nombre_retornado;
+}
+
+char* obtener_nombre_padre_nodo(uint32_t numero_de_nodo){
+	return obtener_nombre_nodo(tabla_de_nodos->nodos[numero_de_nodo].padre);
+}
+
 int buscar_nodo_libre(){
 	for(int i = 0; i<=1024; i = i+1){
 		if(!tabla_de_nodos->nodos[i].estado){
@@ -339,8 +351,26 @@ int buscar_nodo_libre(){
 	return -1;
 }
 
-void crear_directorio(){
+char** hallar_padres(char* nombre_buscado) {
+	char* nombre_de_archivo;
+	char* padre_actual;
+	char** padres = malloc(70); //no estoy muy seguro si esto es necesario pero sino me tira un millon de warnings
+	uint32_t contadorPadre = 0;
+	for(int i=0; i<1024; i=i+1){
+		nombre_de_archivo = obtener_nombre_nodo(i);
+		if(strcmp(nombre_buscado,nombre_de_archivo)){
+			padre_actual = obtener_nombre_padre_nodo(i);
+			padres[contadorPadre] = &padre_actual;
+			contadorPadre = contadorPadre+1;
+		}
+		free(nombre_de_archivo);
+	}
+	padres[contadorPadre] = NULL;
+	return padres;
+}
 
+bool existe_path(char* path) {
+	return true;
 }
 
 int main(int argc, char *argv[]) {
