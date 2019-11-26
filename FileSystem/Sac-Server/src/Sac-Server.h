@@ -33,7 +33,7 @@ typedef uint32_t ptrGBloque;
 
 
 typedef struct {
-	unsigned char bytes [4096];
+	/*unsigned*/ char bytes [4096];
 } Bloque;
 
 typedef struct {
@@ -83,5 +83,6 @@ int buscar_espacio_en_bitmap();
 void ocupar_bloque_en_bitmap(int indice);
 void liberar_bloque_en_bitmap(int indice);
 void iniciar_tabla_de_nodos();
+void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo);
 
 #endif /* SAC_SERVER_H_ */

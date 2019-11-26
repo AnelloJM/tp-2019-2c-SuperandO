@@ -25,6 +25,7 @@ t_bitarray *tBitarray;
 Header *header;
 Bitmap bitmap;
 Tabla_de_nodos *tabla_de_nodos;
+Bloque *bloques_de_datos;
 
 int contador;
 
@@ -251,12 +252,28 @@ void iniciar_tabla_de_nodos(){
 	}
 }
 
-void iniciar_Sac_Server(){
-	bloques_del_bitmap = ceil(((float)tamanio_disco/sizeof(Bloque)/8)/sizeof(Bloque));
-	log_info(logger, "bloques_del_bitmap: %i",bloques_del_bitmap);
+void limbiar_bloques_de_datos(){
+	bloques_de_datos = inicio_de_disco + 1 + bloques_del_bitmap + 1024;
 
 	cantidad_de_bloques_de_datos =  tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024;
 	log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
+
+	Bloque * aux;
+	for(int i=0; i < cantidad_de_bloques_de_datos; i = i+1){
+		aux = bloques_de_datos + i;
+//		log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
+//		log_info(logger, "i: %i", i);
+		for(int j = 0; j<=4096; j = j+1){
+//			log_info(logger, "j: %i", j);
+			aux->bytes[j] = '\0';
+		}
+	}
+
+}
+
+void iniciar_Sac_Server(){
+	bloques_del_bitmap = ceil(((float)tamanio_disco/sizeof(Bloque)/8)/sizeof(Bloque));
+	log_info(logger, "bloques_del_bitmap: %i",bloques_del_bitmap);
 
 	iniciar_header();
 	log_info(logger, "Listo header");
@@ -271,6 +288,10 @@ void iniciar_Sac_Server(){
 	cargar_bitmap(1 + bloques_del_bitmap + 1024);
 
 	iniciar_tabla_de_nodos();
+
+	log_info(logger, "Limpiando bloque de datos");
+	limbiar_bloques_de_datos();
+	log_info(logger, "Bloque de datos limpio");
 }
 
 
@@ -342,9 +363,10 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-	crear_directorio_en_nodo(0,strdup("carpetita"));
-	crear_directorio_en_nodo(1, strdup("carpetota perro"));
-	crear_directorio_en_nodo(2,strdup("carpetita explosiva"));
+	crear_directorio_en_nodo(2,strdup("carpetita"));
+	crear_directorio_en_nodo(3,strdup("carpetota"));
+	crear_directorio_en_nodo(4,strdup("cosa"));
+	crear_directorio_en_nodo(5,strdup("carpe"));
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", "8081", logger);
