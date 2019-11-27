@@ -17,18 +17,86 @@
 #ifndef LIBMUSE_H_
 #define LIBMUSE_H_
 
-    #include <stdint.h>
-    #include <stddef.h>
-	#include <commons/log.h>
-	#include <stdio.h>
-	#include <stdlib.h>
-	#include <arpa/inet.h>
-	#include <sys/socket.h>
-	#include <netdb.h>
-	#include <readline/readline.h>
-	#include <unistd.h>
-	#include <commons/collections/list.h>
-	#include <string.h>
+#include <stdint.h>
+#include <stddef.h>
+#include <commons/log.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
+#include <netdb.h>
+#include <readline/readline.h>
+#include <unistd.h>
+#include <commons/collections/list.h>
+#include <string.h>
+#include "../../ComunParaTodos/Conexiones/Conexiones.h" //esta libreria se define asi porque está en nuestro workspace
+//#include "../../ComunParaTodos/Conexiones/Conexiones.c" // esta la sigo poniendo por mi editor, ignorenla
+#include <commons/log.h>
+#include <commons/string.h>
+#include <commons/config.h>
+
+
+
+//Varibles globales
+
+// reservamos bloque grande de memoria ( UPCM )
+int *UPCM; //UPCM =
+t_list *tabla_de_frames; //tabla de frames la tomamos como una lista de 0/1
+
+int id;
+char* puerto;
+char* ip;
+int socketMuse;
+int socket_cliente;
+int memory_size;
+int page_size;
+int swap_size;
+int frames_table_size;
+
+t_log* logger;
+t_config* archivoConfig;
+
+
+
+
+
+//estructuras
+
+typedef struct
+{
+  int bit_presencia;
+  int direccion;
+}Pagina;
+
+
+typedef struct
+{
+  int size;
+  int isFree; //Bool isFree
+}Heap;
+
+
+typedef struct
+{
+  int size;
+  int base;
+  Heap heap;
+  int *p_tabla_paginas;
+
+} Segmento;
+
+typedef struct
+{
+  int numero_proceso;
+}Proceso;
+
+
+//FUNCIONES
+
+
+/* Cambia el valor de un frame para indicar que esta libre o vacio ( 1/0 )*/
+
+void cambiarValor(t_list *tabla_de_frames,int index,int valor);
     /**
      * Inicializa la biblioteca de MUSE.
      * @param id El Process (o Thread) ID para identificar el caller en MUSE.
@@ -39,19 +107,19 @@
      * @note Debido a la naturaleza centralizada de MUSE, esta función deberá definir
      *  el ID del proceso/hilo según "IP-ID".
      */
-    int muse_init(int id, char* ip, int puerto);
+int muse_init(int id, char* ip, int puerto);
 
     /**
      * Cierra la biblioteca de MUSE.
      */
-    void muse_close();
+void muse_close();
 
     /**
      * Reserva una porción de memoria contígua de tamaño `tam`.
      * @param tam La cantidad de bytes a reservar.
      * @return La dirección de la memoria reservada.
      */
-    uint32_t muse_alloc(uint32_t tam);
+uint32_t muse_alloc(uint32_t tam);
 
     /*BUSCO UN MARCO LIBRE, SI NO HAY SUFICIENTE ESPACIO CREO UN SEGMENTO NUEVO, ESCRIBO O REEMPLAZO LA/S PAGINA/S, Y MARCO LOS MARCOS COMO OCUPADOS*/
 
@@ -59,7 +127,7 @@
      * Libera una porción de memoria reservada.
      * @param dir La dirección de la memoria a reservar.
      */
-    void muse_free(uint32_t dir);
+void muse_free(uint32_t dir);
 
     /**
      * Copia una cantidad `n` de bytes desde una posición de memoria de MUSE a una `dst` local.
@@ -68,7 +136,7 @@
      * @param n Cantidad de bytes a copiar.
      * @return Si pasa un error, retorna -1. Si la operación se realizó correctamente, retorna 0.
      */
-    int muse_get(void* dst, uint32_t src, size_t n);
+int muse_get(void* dst, uint32_t src, size_t n);
 
     /**
      * Copia una cantidad `n` de bytes desde una posición de memoria local a una `dst` en MUSE.
@@ -77,7 +145,7 @@
      * @param n Cantidad de bytes a copiar.
      * @return Si pasa un error, retorna -1. Si la operación se realizó correctamente, retorna 0.
      */
-    int muse_cpy(uint32_t dst, void* src, int n);
+int muse_cpy(uint32_t dst, void* src, int n);
 
 
     /**
@@ -91,7 +159,7 @@
      * @note: Si `length` sobrepasa el tamaño del archivo, toda extensión deberá estar llena de "\0".
      * @note: muse_free no libera la memoria mappeada. @see muse_unmap
      */
-    uint32_t muse_map(char *path, size_t length, int flags);
+uint32_t muse_map(char *path, size_t length, int flags);
 
     /**
      * Descarga una cantidad `len` de bytes y lo escribe en el archivo en el FileSystem.
@@ -100,7 +168,7 @@
      * @return Si pasa un error, retorna -1. Si la operación se realizó correctamente, retorna 0.
      * @note Si `len` es menor que el tamaño de la página en la que se encuentre, se deberá escribir la página completa.
      */
-    int muse_sync(uint32_t addr, size_t len);
+int muse_sync(uint32_t addr, size_t len);
 
     /**
      * Borra el mappeo a un archivo hecho por muse_map.
@@ -110,5 +178,15 @@
      * @note Solo se deberá cerrar el archivo mappeado una vez que todos los hilos hayan liberado la misma cantidad de muse_unmap que muse_map.
      * @return Si pasa un error, retorna -1. Si la operación se realizó correctamente, retorna 0.
      */
-    int muse_unmap(uint32_t dir);
+int muse_unmap(uint32_t dir);
+
+//mas funciones propias
+
+void leerArchivoDeConfiguracion();
+void setearValores(t_config* archivoConfig);
+void crearLogger();
+int iniciarLogger();
+
+
+
 #endif
