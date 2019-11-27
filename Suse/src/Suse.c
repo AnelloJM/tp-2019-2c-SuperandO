@@ -127,7 +127,7 @@ void* suse_schedule_next(){
 }
 //Este me va a llevar un hilo de new a ready?
 int dispatcher(hilo_t* hilo){
-
+	return 0;
 }
 
 hilo_t calcularEstimacion(hilo_t unHilo){
@@ -152,40 +152,62 @@ int list_get_index(t_list* self, void* elemento, bool(*comparador (void*, void*)
 	return contador;
 }
 
-void suse_wait(semaforo_t* sem){
-	semaforo_t* semaforo = sem;
 
-	//Faltaria verificar que exista el semaforo que se está buscando en la lista de semaforos
-	//el list_get_index() no verifica que exista
+//Verifica que el semaforo que se pasa por parametro tenga un ID que exista en la lista de IDs de semaforos
+int buscadorSemaforo (semaforo_t* semaforo){
+	for(int i = 0; i<=list_size(sems_ids); i++){
+		if (semaforo->semID == list_get(sems_ids,i)){
+			return 0;
+		}
+		i++;
+	}
+	return -1;
+}
 
-	int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
-	semaforo_t* semAUsar = list_get(semaforos,indice);
-	if (semAUsar->semActual == semAUsar->semInit){
-		semAUsar->semActual--;
+int suse_wait(semaforo_t* semaforo){
+	if(buscadorSemaforo(semaforo) == 0){
+		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
+		semaforo_t* semAUsar = list_get(semaforos,indice);
+		if (semAUsar->semActual == 0){
+			//no estoy seguro si hay que bloquearlo o dejarlo en 0
+			semAUsar->semActual--;
+			log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
+			log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
+			log_info(logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
+			return -1;
+		}
+		semaforo->semActual--;
 		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
 		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
-		log_info(logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
+		log_info(logger, "%d","Contador actual:", semaforo->semActual);
+		return 0;
 	}
-	semaforo->semActual--;
-	log_info(logger, "%d","Contador actual:", semaforo->semActual);
+	log_info(logger, "El semaforo no fue encontrado");
+	return -1;
+
 }
 
 bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem){
 	return unSem.semID == otroSem.semID;
 }
 
-void suse_signal(semaforo_t* sem){
-	semaforo_t* semaforo = sem;
-	int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
-	semaforo_t* semAUsar = list_get(semaforos,indice);
-	if (semAUsar->semActual == semAUsar->semMax){
+int suse_signal(semaforo_t* semaforo){
+	if(buscadorSemaforo(semaforo) == 0){
+		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
+		semaforo_t* semAUsar = list_get(semaforos,indice);
+		if (semAUsar->semActual == semAUsar->semMax){
+			log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
+			log_error(logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
+			return -1;
+		}
+		semAUsar->semActual++;
+		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
 		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
-		log_error(logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
+		log_info(logger,"%d","Contador actual:", semAUsar->semActual);
+		return 0;
 	}
-	semAUsar->semActual++;
-	log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
-	log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
-	log_info(logger,"%d","Contador actual:", semAUsar->semActual);
+	log_info(logger, "El semaforo no fue encontrado");
+	return -1;
 }
 
 //hace lo mismo que pthread_join. TIene como parametro un hilo y su estado de retorno.

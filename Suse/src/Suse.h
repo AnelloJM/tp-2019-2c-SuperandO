@@ -77,9 +77,10 @@ hilo_t calcularEstimacion();
 bool comparador(hilo_t* unHilo, hilo_t* otroHilo);
 bool comparadorDeRafagas();
 int list_get_index(t_list* self, void* elemento, bool(*comparador (void*, void*)));
-void suse_wait(semaforo_t* sem);
+int buscadorSemaforo (semaforo_t* semaforo);
+int suse_wait(semaforo_t* semaforo);
 bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem);
-void suse_signal(semaforo_t* sem);
+int suse_signal(semaforo_t* semaforo);
 void suse_join();
 void suse_close();
 
