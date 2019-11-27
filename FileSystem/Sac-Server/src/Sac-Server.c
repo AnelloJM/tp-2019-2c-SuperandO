@@ -393,10 +393,6 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-	crear_directorio_en_nodo(2,strdup("carpetita"));
-	crear_directorio_en_nodo(3,strdup("carpetota"));
-	crear_directorio_en_nodo(4,strdup("cosa"));
-	crear_directorio_en_nodo(5,strdup("carpe"));
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", "8081", logger);
