@@ -92,10 +92,10 @@ void liberar_bloque_en_bitmap(int indice);
 // FUNCIONES DE LA TABLA DE NODOS //
 ///////////////////////////////////
 
-char** hallar_padres(char* nombre_buscado);
-bool existe_path(char* path);
+t_list* hallar_padres(char* nombre_buscado);
+uint32_t exite_path_retornando_nodo(char* path);
 int buscar_nodo_libre();
-char* obtener_nombre_padre_nodo(uint32_t numero_de_nodo);
+ptrGBloque obtener_nodo_padre(uint32_t numero_de_nodo);
 char* obtener_nombre_nodo(uint32_t numero_de_nodo);
 void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo);
 
