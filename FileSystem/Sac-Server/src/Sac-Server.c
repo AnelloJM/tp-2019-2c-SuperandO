@@ -27,7 +27,6 @@ Bitmap bitmap;
 Tabla_de_nodos *tabla_de_nodos;
 Bloque *bloques_de_datos;
 
-int contador;
 
 uint32_t Hacer_Getattr(char *path){
 	uint32_t getattr = exite_path_retornando_nodo(path);
@@ -59,7 +58,7 @@ uint32_t Hacer_Unlink(char *path){ return 0; }
 
 uint32_t Hacer_MKDir(char *path){
 	if( exite_path_retornando_nodo(path) != -1){
-		return EEXIST;
+		return -EEXIST;
 	}
 
 	char **path_separado = string_split(path,"/");
@@ -88,7 +87,52 @@ uint32_t Hacer_MKDir(char *path){
 	return 1;
 }
 
-uint32_t Hacer_RMDir(char *path){ return 0; }
+void limpiar_nodo(uint32_t nodo){
+	uint32_t bloques_de_metadata = 1 + bloques_del_bitmap + 1024;
+	uint32_t movimiento_en_bloques_de_datos = 0;
+	ptrGBloque bloque;
+	Bloque *aux = (bloques_de_datos + movimiento_en_bloques_de_datos);
+
+	for(int i = 0; i < 1000; i = i+1){
+		if(tabla_de_nodos->nodos[nodo].array_de_punteros[i] != 0){
+			bloque = tabla_de_nodos->nodos[nodo].array_de_punteros[i];
+			log_error(logger, "bit: %i", bloque);
+			bitarray_clean_bit(tBitarray,bloque);
+			log_error(logger, "bloque numero: %i", bloque);
+			movimiento_en_bloques_de_datos = bloque - bloques_de_metadata;
+			for(int j = 0; j<4096; j = j+1){
+				aux->bytes[j] = '\0';
+			}
+		}
+	}
+	tabla_de_nodos->nodos[nodo].estado = 0;
+	for(int j = 0; j < 1000; j = j+1){
+		tabla_de_nodos->nodos[nodo].array_de_punteros[j] = 0;
+	}
+	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, "\0", 70);
+	tabla_de_nodos->nodos[nodo].modificado=0;
+	tabla_de_nodos->nodos[nodo].creacion=0;
+	tabla_de_nodos->nodos[nodo].padre=0;
+	tabla_de_nodos->nodos[nodo].tamanio_del_archivo=0;
+
+}
+
+uint32_t Hacer_RMDir(char *path){
+	ptrGBloque nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+	{
+		return -ENOENT;
+	}
+	t_list* hijos = hijos_de_nodo(nodo);
+	if(1){//list_get(hijos,0) == -1){
+		limpiar_nodo(nodo);
+		list_destroy(hijos);
+		log_info(logger, "Hasta aca llego");
+		return 0;
+	}
+	list_destroy(hijos);
+	return -ENOTEMPTY;
+}
 
 uint32_t Hacer_Rename(char *path, char *buffer){ return 0; }
 
@@ -200,7 +244,7 @@ void* funcionMagica(int cliente){
 				char *pathRMDir = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRMDir)+1);
 				log_error(logger, pathRMDir);
-				//Hacer_RMDir(pathRMDir);
+				uint32_t response = Hacer_RMDir(pathRMDir);
 				Fuse_PackAndSend(cliente, strdup("Hola, recibi RMDIR"), strlen("Hola, recibi RMDIR")+1, f_RESPONSE);
 				free(pathRMDir);
 				break;
@@ -303,10 +347,7 @@ void limbiar_bloques_de_datos(){
 	Bloque * aux;
 	for(int i=0; i < cantidad_de_bloques_de_datos; i = i+1){
 		aux = bloques_de_datos + i;
-//		log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
-//		log_info(logger, "i: %i", i);
 		for(int j = 0; j<4096; j = j+1){
-//			log_info(logger, "j: %i", j);
 			aux->bytes[j] = '\0';
 		}
 	}
@@ -370,8 +411,10 @@ void crear_directorio_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_ar
 	tabla_de_nodos->nodos[numero_de_nodo].tamanio_del_archivo = sizeof(Bloque);
 	tabla_de_nodos->nodos[numero_de_nodo].padre=numero_de_nodo_padre;
 	uint32_t numero_de_bloque = buscar_espacio_en_bitmap();
+	log_info(logger,"cargo en bitmap: %i", numero_de_bloque);
 	bitarray_set_bit(tBitarray, numero_de_bloque);
 	tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0] = numero_de_bloque;
+	log_info(logger,"creo directorio en bloque: %i", tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0]);
 }
 
 //Para tener en cuenta cuando hagamos el crear archivo
@@ -434,11 +477,15 @@ uint32_t exite_path_retornando_nodo(char* path){
 
 t_list *hijos_de_nodo(uint32_t nodo_padre){
 	t_list *hijos = list_create();
+	uint32_t *elemento = malloc(sizeof(uint32_t));
 	for(uint32_t i = 0; i < 1024; i = i+1){
 		if(tabla_de_nodos->nodos[i].padre == nodo_padre){
-			list_add(hijos,i);
+			log_debug(logger, "nodo que es hijo: %i", i);
+			memcpy(elemento,&i,sizeof(uint32_t));
+			list_add(hijos,(void*)elemento);
 		}
 	}
+	free(elemento);
 	return hijos;
 }
 
@@ -463,10 +510,14 @@ void mostrar_hijos_de(char* path){
 }
 
 int main(int argc, char *argv[]) {
-	contador = 2;
 	//Log:
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
+
+	t_config *archivo_de_configuracion = config_create("../../Sac.config");
+	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
+
+	log_info(logger, "p: %s",puerto);
 	//Archivos:
 	char *archivo = argv[1];
 	log_info(logger, "Archivo: %s", archivo);
@@ -483,7 +534,7 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "9090", logger);
+	conexion = iniciar_servidor("127.0.0.1", puerto, logger);
 
 	while(1){
 		cliente = esperar_cliente_con_accept(conexion, logger);

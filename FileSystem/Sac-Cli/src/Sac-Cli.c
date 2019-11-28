@@ -19,6 +19,7 @@
 #include <fcntl.h>
 #include <Conexiones/Conexiones.h>
 #include <commons/log.h>
+#include <commons/config.h>
 #include <Serializacion-FileSystem/Serializacion-FileSystem.h>
 #include <Manejos-Comunes/Manejos-Comunes.h>
 #include <semaphore.h>
@@ -107,7 +108,8 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 		if(strcmp(path, "/hola"))
 			test = true;
 
-		return res;*/
+		return res;
+		*/
 }
 
 
@@ -129,12 +131,12 @@ static int fusesito_open(const char *path, struct fuse_file_info *fi) {
 
 	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_OPEN);
 	free(response);
-
-	if (strcmp(path, DEFAULT_FILE_PATH) != 0)
-			return -ENOENT;
-
-		if ((fi->flags & 3) != O_RDONLY)
-			return -EACCES;
+//
+//	if (strcmp(path, DEFAULT_FILE_PATH) != 0)
+//			return -ENOENT;
+//
+//		if ((fi->flags & 3) != O_RDONLY)
+//			return -EACCES;
 
 		return 0;
 }
@@ -233,7 +235,12 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "9090", logger);
+
+	t_config *archivo_de_configuracion = config_create("../../Sac.config");
+	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
+	log_info(logger, puerto);
+
+	conexion = conectarse_a_un_servidor("127.0.0.1" , puerto, logger);
 	sem_init(&mutex_buffer,0,1);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
