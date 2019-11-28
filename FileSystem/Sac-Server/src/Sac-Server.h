@@ -97,7 +97,7 @@ uint32_t exite_path_retornando_nodo(char* path);
 int buscar_nodo_libre();
 ptrGBloque obtener_nodo_padre(uint32_t numero_de_nodo);
 char* obtener_nombre_nodo(uint32_t numero_de_nodo);
-void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo);
+void crear_directorio_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_archivo);
 
 ///////////////////////
 // FUNCIONES DE FUSE //

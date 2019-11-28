@@ -401,6 +401,36 @@ uint32_t exite_path_retornando_nodo(char* path){
 	return nodo_actual;
 }
 
+t_list *hijos_de(uint32_t nodo_padre){
+	t_list *hijos = list_create();
+	for(uint32_t i = 0; i < 1024; i = i+1){
+		if(tabla_de_nodos->nodos[i].padre == nodo_padre){
+			list_add(hijos,i);
+		}
+	}
+	return hijos;
+}
+
+t_list *hallar_hijos_de(char* path){
+	uint32_t nodo_por_el_que_consulto = exite_path_retornando_nodo(path);
+	t_list *hijos = list_create();
+	if(nodo_por_el_que_consulto == -1){
+		list_add(hijos,nodo_por_el_que_consulto);
+		return hijos;
+	}
+	hijos = hijos_de(nodo_por_el_que_consulto);
+	return hijos;
+}
+
+void mostrar_hijos_de(char* path){
+	t_list *hijos_home = list_create();
+	hijos_home = hallar_hijos_de(path);
+	for(int i = 0; i<list_size(hijos_home); i= i+1){
+		log_info(logger, "hijo: %s", obtener_nombre_nodo(list_get(hijos_home,i)));
+	}
+	list_destroy(hijos_home);
+}
+
 int main(int argc, char *argv[]) {
 	contador = 2;
 	//Log:
@@ -420,6 +450,17 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "bloques_del_bitmap: %i", bloques_del_bitmap);
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
+
+	crear_directorio_en_padre(0,"home");
+	crear_directorio_en_padre(0,"perro");
+	crear_directorio_en_padre(0,"gato");
+	crear_directorio_en_padre(exite_path_retornando_nodo("home"),"perro");
+	crear_directorio_en_padre(exite_path_retornando_nodo("home"),"gato");
+	crear_directorio_en_padre(exite_path_retornando_nodo("home"),"home");
+	crear_directorio_en_padre(exite_path_retornando_nodo("home/home"),"perro");
+	crear_directorio_en_padre(exite_path_retornando_nodo("home/home/perro"),"anello");
+
+	mostrar_hijos_de("home");
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", "6969", logger);
