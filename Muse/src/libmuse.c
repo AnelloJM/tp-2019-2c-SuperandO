@@ -31,6 +31,7 @@ int muse_init(int id, char* ip, int puerto)
 	//reservamos la UPCM y aniadimos tabla de frames
   UPCM = malloc(memory_size * sizeof(int));
   tabla_de_frames = list_create();
+	Frame tabla_de_frames2[frames_table_size];
 
 	//rellenamos la tabla de frames con 0, porque ninguno esta ocupado
   for(int i=0;i<frames_table_size;i++)
@@ -38,7 +39,19 @@ int muse_init(int id, char* ip, int puerto)
 	    list_add_in_index(tabla_de_frames,i,0);
 	  }
 
+	for(int k=0;k<frames_table_size;k++)
+		{
+			tabla_de_frames2[k].numero_frame = k;
+			tabla_de_frames2[k].espacio_ocupado.size = page_size;
+			tabla_de_frames2[k].espacio_ocupado.isFree = 1;
+		}
 
+	printf("Mostrando tabla_de_frames2\n" );
+	for(int k=0;k<frames_table_size;k++)
+	{
+		printf("frame numero %d\n",tabla_de_frames2[k].numero_frame );
+		printf("bit de ocupado : %d\n",tabla_de_frames2[k].espacio_ocupado.isFree );
+	}
 
 	printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 

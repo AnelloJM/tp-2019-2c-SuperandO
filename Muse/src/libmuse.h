@@ -58,15 +58,15 @@ t_config* archivoConfig;
 
 
 
-
-
 //estructuras
 
-typedef struct
+struct Pagina
 {
   int bit_presencia;
-  int direccion;
-}Pagina;
+  int numero_frame_asociado;
+  int numero_pagina;
+  struct Pagina *next_pagina;
+};
 
 
 typedef struct
@@ -80,15 +80,17 @@ typedef struct
 {
   int size;
   int base;
-  Heap heap;
-  int *p_tabla_paginas;
+  struct Pagina *primer_pagina;
 
 } Segmento;
 
 typedef struct
 {
-  int numero_proceso;
-}Proceso;
+  int numero_frame;
+  Heap espacio_ocupado;
+  Heap espacio_free;
+//  Frame *next_frame;
+}Frame;
 
 
 //FUNCIONES

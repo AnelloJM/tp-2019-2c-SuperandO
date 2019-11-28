@@ -401,7 +401,7 @@ uint32_t exite_path_retornando_nodo(char* path){
 	return nodo_actual;
 }
 
-t_list *hijos_de(uint32_t nodo_padre){
+t_list *hijos_de_nodo(uint32_t nodo_padre){
 	t_list *hijos = list_create();
 	for(uint32_t i = 0; i < 1024; i = i+1){
 		if(tabla_de_nodos->nodos[i].padre == nodo_padre){
@@ -411,20 +411,20 @@ t_list *hijos_de(uint32_t nodo_padre){
 	return hijos;
 }
 
-t_list *hallar_hijos_de(char* path){
+t_list *hallar_hijos_de_path(char* path){
 	uint32_t nodo_por_el_que_consulto = exite_path_retornando_nodo(path);
 	t_list *hijos = list_create();
 	if(nodo_por_el_que_consulto == -1){
 		list_add(hijos,nodo_por_el_que_consulto);
 		return hijos;
 	}
-	hijos = hijos_de(nodo_por_el_que_consulto);
+	hijos = hijos_de_nodo(nodo_por_el_que_consulto);
 	return hijos;
 }
 
 void mostrar_hijos_de(char* path){
 	t_list *hijos_home = list_create();
-	hijos_home = hallar_hijos_de(path);
+	hijos_home = hallar_hijos_de_path(path);
 	for(int i = 0; i<list_size(hijos_home); i= i+1){
 		log_info(logger, "hijo: %s", obtener_nombre_nodo(list_get(hijos_home,i)));
 	}
