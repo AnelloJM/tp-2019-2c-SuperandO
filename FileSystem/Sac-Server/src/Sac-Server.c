@@ -124,7 +124,8 @@ uint32_t Hacer_RMDir(char *path){
 		return -ENOENT;
 	}
 	t_list* hijos = hijos_de_nodo(nodo);
-	if(1){//list_get(hijos,0) == -1){
+
+	if(list_is_empty(hijos)){
 		limpiar_nodo(nodo);
 		list_destroy(hijos);
 		log_info(logger, "Hasta aca llego");
@@ -477,15 +478,11 @@ uint32_t exite_path_retornando_nodo(char* path){
 
 t_list *hijos_de_nodo(uint32_t nodo_padre){
 	t_list *hijos = list_create();
-	uint32_t *elemento = malloc(sizeof(uint32_t));
-	for(uint32_t i = 0; i < 1024; i = i+1){
+	for(int i = 0; i < 1024; i = i+1){
 		if(tabla_de_nodos->nodos[i].padre == nodo_padre){
-			log_debug(logger, "nodo que es hijo: %i", i);
-			memcpy(elemento,&i,sizeof(uint32_t));
-			list_add(hijos,(void*)elemento);
+			list_add(hijos, i);
 		}
 	}
-	free(elemento);
 	return hijos;
 }
 
