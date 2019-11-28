@@ -54,7 +54,19 @@ uint32_t Hacer_MKNod(char *path){
 	return 0;
 }
 
-uint32_t Hacer_Unlink(char *path){ return 0; }
+uint32_t Hacer_Unlink(char *path){
+	ptrGBloque nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+	{
+		return -ENOENT;
+	}
+	if(tabla_de_nodos->nodos[nodo].estado != 1){
+		return -EISDIR;
+	}
+	limpiar_nodo(nodo);;
+	log_info(logger, "Hasta aca llego");
+	return 0;
+}
 
 uint32_t Hacer_MKDir(char *path){
 	if( exite_path_retornando_nodo(path) != -1){
@@ -123,6 +135,10 @@ uint32_t Hacer_RMDir(char *path){
 	{
 		return -ENOENT;
 	}
+	if(tabla_de_nodos->nodos[nodo].estado != 2){
+		return -ENOTDIR;
+	}
+
 	t_list* hijos = hijos_de_nodo(nodo);
 
 	if(list_is_empty(hijos)){
@@ -225,7 +241,7 @@ void* funcionMagica(int cliente){
 				char *pathUnlink = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUnlink)+1);
 				log_error(logger, pathUnlink);
-				//Hacer_Unlink(pathUnlink);
+				Hacer_Unlink(pathUnlink);
 				Fuse_PackAndSend(cliente, strdup("Hola, recibi UNLINK"), strlen("Hola, recibi UNLINK")+1, f_RESPONSE);
 				free(pathUnlink);
 				break;
@@ -418,6 +434,21 @@ void crear_directorio_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_ar
 	log_info(logger,"creo directorio en bloque: %i", tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0]);
 }
 
+void crear_archivo_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_archivo){
+	int numero_de_nodo = hallar_nodo_libre();
+	tabla_de_nodos->nodos[numero_de_nodo].estado = 1;
+	strncpy(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo, nombre_de_archivo, 70);
+	tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo[71] = '\0';
+	tabla_de_nodos->nodos[numero_de_nodo].creacion=timestamp();
+	tabla_de_nodos->nodos[numero_de_nodo].modificado=timestamp();
+	tabla_de_nodos->nodos[numero_de_nodo].tamanio_del_archivo = sizeof(Bloque);
+	tabla_de_nodos->nodos[numero_de_nodo].padre=numero_de_nodo_padre;
+	uint32_t numero_de_bloque = buscar_espacio_en_bitmap();
+	log_info(logger,"cargo en bitmap: %i", numero_de_bloque);
+	bitarray_set_bit(tBitarray, numero_de_bloque);
+	tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0] = numero_de_bloque;
+	log_info(logger,"creo archivo en bloque: %i", tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0]);
+}
 //Para tener en cuenta cuando hagamos el crear archivo
 //	int bloques_que_ocupa_archivo = tamanio_archivo_en_bloques(tabla_de_nodos.nodos[numero_de_nodo].tamanio_del_archivo);
 //	for(int i = 0; i <= bloques_que_ocupa_archivo; i = i+1){
@@ -529,6 +560,8 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "bloques_del_bitmap: %i", bloques_del_bitmap);
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
+
+	crear_archivo_en_padre(0,"archivo");
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", puerto, logger);
