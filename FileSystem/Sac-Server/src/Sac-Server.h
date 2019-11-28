@@ -79,6 +79,7 @@ uint64_t timestamp();
 void* funcionMagica(int cliente);
 uint32_t tamanio_archivo(char *archivo);
 int tamanio_archivo_en_bloques(uint32_t tamanio);
+void limbiar_bloques_de_datos();
 
 //////////////////////////
 // FUNCIONES DEL BITMAP //
@@ -92,12 +93,15 @@ void liberar_bloque_en_bitmap(int indice);
 // FUNCIONES DE LA TABLA DE NODOS //
 ///////////////////////////////////
 
-t_list* hallar_padres(char* nombre_buscado);
+bool existe_nodo_con_nombre(char* nombre);
 uint32_t exite_path_retornando_nodo(char* path);
-int buscar_nodo_libre();
-ptrGBloque obtener_nodo_padre(uint32_t numero_de_nodo);
 char* obtener_nombre_nodo(uint32_t numero_de_nodo);
-void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo);
+int buscar_nodo_libre();
+t_list* hallar_padres(char* nombre_buscado);
+ptrGBloque obtener_nodo_padre(uint32_t numero_de_nodo);
+uint32_t hallar_nodo_con_nombre_y_padre(char* nombre, uint32_t padre);
+void crear_directorio_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_archivo);
+
 
 ///////////////////////
 // FUNCIONES DE FUSE //
