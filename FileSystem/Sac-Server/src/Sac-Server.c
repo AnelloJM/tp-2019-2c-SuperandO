@@ -29,7 +29,16 @@ Bloque *bloques_de_datos;
 
 int contador;
 
-uint32_t Hacer_Getattr(char *path){ return 0; }
+uint32_t Hacer_Getattr(char *path){
+	uint32_t getattr = exite_path_retornando_nodo(path);
+	if(getattr == -1)
+		return 0;
+	if(tabla_de_nodos->nodos[getattr].estado == 1){
+		return 1;
+	}else{
+		return 2;
+	}
+}
 
 uint32_t Hacer_ReadDir(char *path){ return 0; }
 
@@ -57,16 +66,23 @@ uint32_t Hacer_MKDir(char *path){
 	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
 	//consegir nodo padre
 
-
 	uint32_t nodo = 0;
+
 	if(posicion_final != 0){
 		int total=0;
+
 		for(int i = 0; i <posicion_final; i = i+1){
-			total = total +string_length(path_separado[i]);
+			total = total + string_length(path_separado[i]) + 1;
 		}
 		char *padre = string_substring(path, 0, total);
 		nodo = exite_path_retornando_nodo(padre);
+		if(nodo == -1){
+			log_error(logger, "No pude hacer mkdir");
+			log_error(logger, "El padre fue: %s", padre);
+			return -1;
+		}
 	}
+
 	crear_directorio_en_padre(nodo,path_separado[posicion_final]);
 	liberarDoblePuntero(path_separado);
 	return 1;
@@ -92,8 +108,18 @@ void* funcionMagica(int cliente){
 				char *pathGetAttr= Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathGetAttr)+1);
 				log_error(logger, pathGetAttr);
-				//Hacer_Getattr(pathGetAttr);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi GETATTR"), strlen("Hola, recibi GETATTR")+1, f_RESPONSE);
+				uint32_t getattr = Hacer_Getattr(pathGetAttr);
+				char *respuesta;
+				if(getattr == 0){
+					respuesta = "0";
+				}else {
+					if(getattr == 1){
+						respuesta = "1";
+					}else{
+						respuesta = "2";
+					}
+				}
+				Fuse_PackAndSend(cliente, (void*)respuesta, strlen(respuesta)+1, f_RESPONSE);
 				free(pathGetAttr);
 				break;
 
@@ -363,7 +389,8 @@ char* obtener_nombre_nodo(uint32_t numero_de_nodo){
 
 bool existe_nodo_con_nombre(char* nombre) {
 	for(int i=0; i<1024; i=i+1) {
-		if(string_equals_ignore_case(nombre, obtener_nombre_nodo(i)))
+		if(string_equals_ignore_case(nombre, obtener_nombre_nodo(i))
+				&& tabla_de_nodos->nodos[i].estado != 0)
 			return true;
 	}
 	return false;
@@ -382,6 +409,10 @@ uint32_t hallar_nodo_con_nombre_y_padre(char* nombre, uint32_t padre){
 }
 
 uint32_t exite_path_retornando_nodo(char* path){
+	if(strcmp(path,"/") == 0)
+	{
+		return 0;
+	}
 	char **path_separado = string_split(path,"/");
 	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
 	if(!existe_nodo_con_nombre(path_separado[posicion_final])){
@@ -451,19 +482,8 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-	crear_directorio_en_padre(0,"home");
-	crear_directorio_en_padre(0,"perro");
-	crear_directorio_en_padre(0,"gato");
-	crear_directorio_en_padre(exite_path_retornando_nodo("home"),"perro");
-	crear_directorio_en_padre(exite_path_retornando_nodo("home"),"gato");
-	crear_directorio_en_padre(exite_path_retornando_nodo("home"),"home");
-	crear_directorio_en_padre(exite_path_retornando_nodo("home/home"),"perro");
-	crear_directorio_en_padre(exite_path_retornando_nodo("home/home/perro"),"anello");
-
-	mostrar_hijos_de("home");
-
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "6969", logger);
+	conexion = iniciar_servidor("127.0.0.1", "9090", logger);
 
 	while(1){
 		cliente = esperar_cliente_con_accept(conexion, logger);

@@ -69,10 +69,19 @@ void* enviarMiPathYRecibirResponse(t_log *logger, const char *path, int conexion
 static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_info(logger, "Se llamo a fusesito_getattr\n");
 	int res = 0;
-
 	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_GETATTR);
+	if(string_starts_with(response,"0"))
+		res = -ENOENT;
+	if(string_starts_with(response,"1")){
+			stbuf->st_mode = S_IFREG | 0777;
+	}
+	if(string_starts_with(response,"2")){
+			stbuf->st_mode = S_IFDIR | 0777;
+	}
+	stbuf->st_nlink = 1;
 	free(response);
-
+	return res;
+/*
 	//Continuo con lo que deberia hacer para que no cuelge, esto es solo para testear
 
 		memset(stbuf, 0, sizeof(struct stat));
@@ -98,7 +107,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 		if(strcmp(path, "/hola"))
 			test = true;
 
-		return res;
+		return res;*/
 }
 
 
@@ -224,7 +233,7 @@ int main(int argc, char *argv[]) {
 
 	logger = log_create("Sac-Cli.log", "Sac-Cli", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha iniciado una nueva instancia del logger\n");
-	conexion = conectarse_a_un_servidor("127.0.0.1" , "6969", logger);
+	conexion = conectarse_a_un_servidor("127.0.0.1" , "9090", logger);
 	sem_init(&mutex_buffer,0,1);
 
 	struct fuse_args args = FUSE_ARGS_INIT(argc, argv);
