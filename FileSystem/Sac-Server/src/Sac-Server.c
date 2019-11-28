@@ -42,18 +42,33 @@ uint32_t Hacer_Release(char *path){ return 0; }
 uint32_t Hacer_Write(char *path, char *buffer){ return 0; } 
 
 uint32_t Hacer_MKNod(char *path){
-	uint32_t numero_de_nodo = buscar_nodo_libre();
+	uint32_t numero_de_nodo = hallar_nodo_libre();
 	return 0;
 }
 
 uint32_t Hacer_Unlink(char *path){ return 0; }
 
 uint32_t Hacer_MKDir(char *path){
-	char **StringSeparado = string_split(path, "/");
-	uint32_t posicionFinal = damePosicionFinalDoblePuntero(StringSeparado);
-	crear_directorio_en_nodo(contador, StringSeparado[posicionFinal]);
-	contador = contador+1;
-	liberarDoblePuntero(StringSeparado);
+	if( exite_path_retornando_nodo(path) != -1){
+		return EEXIST;
+	}
+
+	char **path_separado = string_split(path,"/");
+	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
+	//consegir nodo padre
+
+
+	uint32_t nodo = 0;
+	if(posicion_final != 0){
+		int total=0;
+		for(int i = 0; i <posicion_final; i = i+1){
+			total = total +string_length(path_separado[i]);
+		}
+		char *padre = string_substring(path, 0, total);
+		nodo = exite_path_retornando_nodo(padre);
+	}
+	crear_directorio_en_padre(nodo,path_separado[posicion_final]);
+	liberarDoblePuntero(path_separado);
 	return 1;
 }
 
@@ -256,7 +271,7 @@ void iniciar_tabla_de_nodos(){
 void limbiar_bloques_de_datos(){
 	bloques_de_datos = inicio_de_disco + 1 + bloques_del_bitmap + 1024;
 
-	cantidad_de_bloques_de_datos =  tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024;
+	cantidad_de_bloques_de_datos =  ceil((float)tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024);
 	log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
 
 	Bloque * aux;
@@ -264,7 +279,7 @@ void limbiar_bloques_de_datos(){
 		aux = bloques_de_datos + i;
 //		log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
 //		log_info(logger, "i: %i", i);
-		for(int j = 0; j<=4096; j = j+1){
+		for(int j = 0; j<4096; j = j+1){
 //			log_info(logger, "j: %i", j);
 			aux->bytes[j] = '\0';
 		}
@@ -310,20 +325,27 @@ int tamanio_archivo_en_bloques(uint32_t tamanio){
 	}return (tamanio/sizeof(Bloque))+1;
 }
 
-void crear_directorio_en_nodo(int numero_de_nodo, char *nombre_de_archivo){
+int hallar_nodo_libre(){
+	for( int i= 1; i < 1024; i = i+1){
+		if(tabla_de_nodos->nodos[i].estado == 0)
+			return i;
+	}
+	log_error(logger, "No existe un nodo libre");
+}
+
+
+void crear_directorio_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_archivo){
+	int numero_de_nodo = hallar_nodo_libre();
 	tabla_de_nodos->nodos[numero_de_nodo].estado = 2;
 	strncpy(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo, nombre_de_archivo, 70);
 	tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo[71] = '\0';
 	tabla_de_nodos->nodos[numero_de_nodo].creacion=timestamp();
 	tabla_de_nodos->nodos[numero_de_nodo].modificado=timestamp();
 	tabla_de_nodos->nodos[numero_de_nodo].tamanio_del_archivo = sizeof(Bloque);
-	tabla_de_nodos->nodos[numero_de_nodo].padre=0;
-	log_info(logger, "bitmap: %i", buscar_espacio_en_bitmap());
+	tabla_de_nodos->nodos[numero_de_nodo].padre=numero_de_nodo_padre;
 	uint32_t numero_de_bloque = buscar_espacio_en_bitmap();
-	log_info(logger, "bloque numero: %i", numero_de_bloque);
 	bitarray_set_bit(tBitarray, numero_de_bloque);
 	tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0] = numero_de_bloque;
-	log_info(logger,"cosas: %i",tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0]);
 }
 
 //Para tener en cuenta cuando hagamos el crear archivo
@@ -337,40 +359,46 @@ char* obtener_nombre_nodo(uint32_t numero_de_nodo){
 	return nombre_retornado;
 }
 
-char* obtener_nombre_padre_nodo(uint32_t numero_de_nodo){
-	return obtener_nombre_nodo(tabla_de_nodos->nodos[numero_de_nodo].padre);
+
+
+bool existe_nodo_con_nombre(char* nombre) {
+	for(int i=0; i<1024; i=i+1) {
+		if(string_equals_ignore_case(nombre, obtener_nombre_nodo(i)))
+			return true;
+	}
+	return false;
 }
 
-int buscar_nodo_libre(){
-	for(int i = 0; i<=1024; i = i+1){
-		if(!tabla_de_nodos->nodos[i].estado){
+
+uint32_t hallar_nodo_con_nombre_y_padre(char* nombre, uint32_t padre){
+	for(int i=0; i < 1024; i = i+1){
+		if(string_equals_ignore_case(tabla_de_nodos->nodos[i].nombre_del_archivo,nombre) &&
+				tabla_de_nodos->nodos[i].padre == padre){
+			log_info(logger, "nodo: %i", i);
 			return i;
 		}
 	}
-	log_error(logger, "No hay nodos libres");
 	return -1;
 }
 
-char** hallar_padres(char* nombre_buscado) {
-	char* nombre_de_archivo;
-	char* padre_actual;
-	char** padres = malloc(70); //no estoy muy seguro si esto es necesario pero sino me tira un millon de warnings
-	uint32_t contadorPadre = 0;
-	for(int i=0; i<1024; i=i+1){
-		nombre_de_archivo = obtener_nombre_nodo(i);
-		if(strcmp(nombre_buscado,nombre_de_archivo)){
-			padre_actual = obtener_nombre_padre_nodo(i);
-			padres[contadorPadre] = &padre_actual;
-			contadorPadre = contadorPadre+1;
-		}
-		free(nombre_de_archivo);
+uint32_t exite_path_retornando_nodo(char* path){
+	char **path_separado = string_split(path,"/");
+	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
+	if(!existe_nodo_con_nombre(path_separado[posicion_final])){
+		log_error(logger, "No existe el archivo");
+		return -1;
 	}
-	padres[contadorPadre] = NULL;
-	return padres;
-}
+	uint32_t nodo_actual = 0;
+	for(int inicio = 0; inicio <= posicion_final; inicio = inicio +1){
+		nodo_actual = hallar_nodo_con_nombre_y_padre(path_separado[inicio],nodo_actual);
 
-bool existe_path(char* path) {
-	return true;
+		if(nodo_actual == -1){
+			log_error(logger, "No existe el path");
+			return nodo_actual;
+		}
+	}
+
+	return nodo_actual;
 }
 
 int main(int argc, char *argv[]) {
@@ -393,9 +421,8 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "8081", logger);
+	conexion = iniciar_servidor("127.0.0.1", "6969", logger);
 
 	while(1){
 		cliente = esperar_cliente_con_accept(conexion, logger);
