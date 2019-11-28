@@ -42,19 +42,33 @@ uint32_t Hacer_Release(char *path){ return 0; }
 uint32_t Hacer_Write(char *path, char *buffer){ return 0; } 
 
 uint32_t Hacer_MKNod(char *path){
-	uint32_t numero_de_nodo = buscar_nodo_libre();
+	uint32_t numero_de_nodo = hallar_nodo_libre();
 	return 0;
 }
 
 uint32_t Hacer_Unlink(char *path){ return 0; }
 
 uint32_t Hacer_MKDir(char *path){
-	char **StringSeparado = string_split(path, "/");
-	uint32_t posicionFinal = damePosicionFinalDoblePuntero(StringSeparado);
+	if( exite_path_retornando_nodo(path) != -1){
+		return EEXIST;
+	}
 
-//	crear_directorio_en_nodo( exite_path_retornando_nodo(path-StringSeparado[posicionFinal]), StringSeparado[posicionFinal]);
-	contador = contador+1;
-	liberarDoblePuntero(StringSeparado);
+	char **path_separado = string_split(path,"/");
+	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
+	//consegir nodo padre
+
+
+	uint32_t nodo = 0;
+	if(posicion_final != 0){
+		int total=0;
+		for(int i = 0; i <posicion_final; i = i+1){
+			total = total +string_length(path_separado[i]);
+		}
+		char *padre = string_substring(path, 0, total);
+		nodo = exite_path_retornando_nodo(padre);
+	}
+	crear_directorio_en_padre(nodo,path_separado[posicion_final]);
+	liberarDoblePuntero(path_separado);
 	return 1;
 }
 
@@ -257,7 +271,7 @@ void iniciar_tabla_de_nodos(){
 void limbiar_bloques_de_datos(){
 	bloques_de_datos = inicio_de_disco + 1 + bloques_del_bitmap + 1024;
 
-	cantidad_de_bloques_de_datos =  tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024;
+	cantidad_de_bloques_de_datos =  ceil((float)tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024);
 	log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
 
 	Bloque * aux;
@@ -265,7 +279,7 @@ void limbiar_bloques_de_datos(){
 		aux = bloques_de_datos + i;
 //		log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
 //		log_info(logger, "i: %i", i);
-		for(int j = 0; j<=4096; j = j+1){
+		for(int j = 0; j<4096; j = j+1){
 //			log_info(logger, "j: %i", j);
 			aux->bytes[j] = '\0';
 		}
@@ -319,7 +333,8 @@ int hallar_nodo_libre(){
 	log_error(logger, "No existe un nodo libre");
 }
 
-void crear_directorio_en_padre(int numero_de_nodo_padre, char *nombre_de_archivo){
+
+void crear_directorio_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_archivo){
 	int numero_de_nodo = hallar_nodo_libre();
 	tabla_de_nodos->nodos[numero_de_nodo].estado = 2;
 	strncpy(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo, nombre_de_archivo, 70);
@@ -344,32 +359,7 @@ char* obtener_nombre_nodo(uint32_t numero_de_nodo){
 	return nombre_retornado;
 }
 
-ptrGBloque obtener_nodo_padre(uint32_t numero_de_nodo){
-	return tabla_de_nodos->nodos[numero_de_nodo].padre;
-}
 
-int buscar_nodo_libre(){
-	for(int i = 0; i<=1024; i = i+1){
-		if(!tabla_de_nodos->nodos[i].estado){
-			return i;
-		}
-	}
-	log_error(logger, "No hay nodos libres");
-	return -1;
-}
-
-t_list* hallar_padres(char* nombre_buscado) {
-	char* nombre_de_archivo;
-	t_list* padres = list_create();
-	for(int i=0; i<1024; i=i+1){
-		nombre_de_archivo = obtener_nombre_nodo(i);
-		if(string_equals_ignore_case(nombre_buscado,nombre_de_archivo)){
-			list_add(padres, obtener_nodo_padre(i) );
-		}
-		free(nombre_de_archivo);
-	}
-	return padres;
-}
 
 bool existe_nodo_con_nombre(char* nombre) {
 	for(int i=0; i<1024; i=i+1) {
@@ -377,13 +367,6 @@ bool existe_nodo_con_nombre(char* nombre) {
 			return true;
 	}
 	return false;
-}
-
-bool se_llama_igual_que_mi_padre(char *papa, uint32_t papa_sospechoso){
-	char* papa_sospechoso_nombre = obtener_nombre_nodo(papa_sospechoso);
-	bool respuesta = string_equals_ignore_case(papa,papa_sospechoso_nombre);
-	free(papa_sospechoso_nombre);
-	return respuesta;
 }
 
 
@@ -398,22 +381,6 @@ uint32_t hallar_nodo_con_nombre_y_padre(char* nombre, uint32_t padre){
 	return -1;
 }
 
-uint32_t nodo_del_padre(char* path){
-
-	char **path_separado = string_split(path,"/");
-	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
-
-	uint32_t nodo_actual = 0;
-	for(int inicio = 0; inicio <= posicion_final; inicio = inicio +1){
-		nodo_actual = hallar_nodo_con_nombre_y_padre(path_separado[inicio],nodo_actual);
-		if(nodo_actual == -1){
-			log_error(logger, "No existe el path");
-			return nodo_actual;
-		}
-	}
-	return nodo_actual;
-}
-
 uint32_t exite_path_retornando_nodo(char* path){
 	char **path_separado = string_split(path,"/");
 	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
@@ -421,7 +388,17 @@ uint32_t exite_path_retornando_nodo(char* path){
 		log_error(logger, "No existe el archivo");
 		return -1;
 	}
-	return nodo_del_padre(path);
+	uint32_t nodo_actual = 0;
+	for(int inicio = 0; inicio <= posicion_final; inicio = inicio +1){
+		nodo_actual = hallar_nodo_con_nombre_y_padre(path_separado[inicio],nodo_actual);
+
+		if(nodo_actual == -1){
+			log_error(logger, "No existe el path");
+			return nodo_actual;
+		}
+	}
+
+	return nodo_actual;
 }
 
 int main(int argc, char *argv[]) {
@@ -445,7 +422,7 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "8081", logger);
+	conexion = iniciar_servidor("127.0.0.1", "6969", logger);
 
 	while(1){
 		cliente = esperar_cliente_con_accept(conexion, logger);
