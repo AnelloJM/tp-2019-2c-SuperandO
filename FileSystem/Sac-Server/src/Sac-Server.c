@@ -50,8 +50,33 @@ uint32_t Hacer_Release(char *path){ return 0; }
 uint32_t Hacer_Write(char *path, char *buffer){ return 0; } 
 
 uint32_t Hacer_MKNod(char *path){
-	uint32_t numero_de_nodo = hallar_nodo_libre();
-	return 0;
+	if( exite_path_retornando_nodo(path) != -1){
+		return -EEXIST;
+	}
+
+	char **path_separado = string_split(path,"/");
+	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
+
+	uint32_t nodo = 0;
+
+	if(posicion_final != 0){
+		int total=0;
+
+		for(int i = 0; i <posicion_final; i = i+1){
+			total = total + string_length(path_separado[i]) + 1;
+		}
+		char *padre = string_substring(path, 0, total);
+		nodo = exite_path_retornando_nodo(padre);
+		if(nodo == -1){
+			log_error(logger, "No pude hacer mkdir");
+			log_error(logger, "El padre fue: %s", padre);
+			return -1;
+		}
+	}
+
+	crear_archivo_en_padre(nodo,path_separado[posicion_final]);
+	liberarDoblePuntero(path_separado);
+	return 1;
 }
 
 uint32_t Hacer_Unlink(char *path){
@@ -232,7 +257,7 @@ void* funcionMagica(int cliente){
 				char *pathMKNod = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathMKNod)+1);
 				log_error(logger, pathMKNod);
-				//Hacer_MKNod(pathMKNod);
+				Hacer_MKNod(pathMKNod);
 				Fuse_PackAndSend(cliente, strdup("Hola, recibi MKNOD"), strlen("Hola, recibi MKNOD")+1, f_RESPONSE);
 				free(pathMKNod);
 				break;
