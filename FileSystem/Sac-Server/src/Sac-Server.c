@@ -176,7 +176,20 @@ uint32_t Hacer_RMDir(char *path){
 	return -ENOTEMPTY;
 }
 
-uint32_t Hacer_Rename(char *path, char *buffer){ return 0; }
+uint32_t Hacer_Rename(char *path, char *buffer){
+	ptrGBloque nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+	{
+		return -ENOENT;
+	}
+
+	char **buffer_separado = string_split(buffer,"/");
+	uint32_t posicion_final = damePosicionFinalDoblePuntero(buffer_separado);
+
+	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, "\0", 70);
+	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, buffer_separado[posicion_final], 70);
+	return 1;
+}
 
 void* funcionMagica(int cliente){
 	while(1){
@@ -292,12 +305,16 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_RENAME: ;
-				char *pathRename = Fuse_ReceiveAndUnpack(cliente, tam);
+				void *packRename = Fuse_ReceiveAndUnpack(cliente, tam);
+				char *pathRename = Fuse_Unpack_Path(packRename);
+				char *nuevo_nombre = Fuse_Unpack_Rename_Nombre(packRename);
+				free(packRename);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRename)+1);
 				log_error(logger, pathRename);
-				//Hacer_Rename(pathRename);	
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi RENAME"), strlen("Hola, recibi RENAME")+1, f_RESPONSE);
+				Hacer_Rename(pathRename, nuevo_nombre);
+				//Fuse_PackAndSend(cliente, strdup("Hola, recibi RENAME"), strlen("Hola, recibi RENAME")+1, f_RESPONSE);
 				free(pathRename);
+				free(nuevo_nombre);
 				break;
 
 			case f_HANDSHAKE: ;

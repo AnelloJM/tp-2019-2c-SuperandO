@@ -80,7 +80,7 @@ bool Fuse_PackAndSend_Rename(int socketCliente, const void *path, const char *no
 	memcpy(buffer + desplazamiento, &tamNombre, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer + desplazamiento, nombre, tamNombre);
-	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_MKDIR);
+	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_RENAME);
 	free(buffer);
 	return resultado;
 

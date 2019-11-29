@@ -209,12 +209,12 @@ static int fusesito_rmdir(const char *path){
 }
 static int fusesito_rename(const char *path, const char *buf){
 	log_info(logger, "Se llamo a fusesito_rename\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_RENAME);
-	free(response);
+	/*char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_RENAME);
+	free(response);*/
+	if(!Fuse_PackAndSend_Rename(conexion, path, buf))
+		return -ENOENT;
 	return 0;
 }
-
-
 
 static struct fuse_operations fusesito_oper = {
 		.getattr = fusesito_getattr,
