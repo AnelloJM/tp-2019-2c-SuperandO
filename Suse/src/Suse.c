@@ -1,26 +1,46 @@
-#include "Suse.h"
+#include "Suse.h"68
+int sumar2();
+//int(*funcion)(int)
+void suse_create(int programa,int variable){ //falta invocar el programa ¿cómo se puede probar? void*(funcion)(int,int)
+	hilo_t* hiloNuevo = malloc(sizeof(hilo_t));
+
+	hiloNuevo->pid = programa;
+	hiloNuevo->tid = tidMAX;
+	tidMAX++;
+
+	list_add(cola_new, hiloNuevo);
+	log_info(logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
+	int resultado = malloc(sizeof(int));
+	resultado = sumar2(variable);
+	printf("Resultado: %d ", resultado);
+
+
+	int cantidadCola = list_size(cola_new);
+	printf("Cantidad de elementos en cola new: %d\n", cantidadCola);
+	printf("ID del programa: %d\n",hiloNuevo->pid);
+	printf("ID del hilo: %d\n",hiloNuevo->tid);
+
+	free(hiloNuevo);
+}
 
 int main(){
 
 	/*INicializando Servidor Suse*/
 	crearLogger();
 	leerArchivoDeConfiguracion();
+	cola_new = list_create();
+	tidMAX=0;
 
 	log_info(logger,"\n [+]La configuracion es la siguiente \n");
 	log_info(logger,"LISTEN_PORT ->  %s",listen_port );
 	log_info(logger,"Metrics_timer ->  %d",metrics_timer );
 	log_info(logger,"MAx_MULTIPROG ->  %d",max_multiprog);
 	log_info(logger,"--------------\n");
-
-	/*variable para agregar estados ready y execute segun el max_multiprog
-	Se va restando y sumando a medida se llenen y liberen*/
-	colasLibres = max_multiprog; //para no perder info
-
 	printf("\n\n::::::::INICIAMOS EL SERVIDOR SUSE::::::::\n");
 
 	socket_Suse = iniciar_servidor("127.0.0.1",listen_port,logger);
 
-while(1){
+/*while(1){
 
 	socket_cliente = esperar_cliente_con_accept(socket_Suse,logger);
 	enviar_mensaje(socket_cliente,logger);
@@ -31,13 +51,54 @@ while(1){
 
 	while (status){
 
-			status = recibir_paquete_deserializar(socket_cliente,paquete);
+			//status = recibir_paquete_deserializar(socket_cliente,paquete);
 		}
 		if(!status)
 			puts("Se Desconecto el cliente ...");
 
 	}
 return 0;
+}
+*/ //COMENTO PARA PODER JUGAR CON LAS COLAS *
+
+	puts("Ingrese opcion: ");
+	int opcion = malloc(sizeof(int));
+	scanf("%d",&opcion);
+	/*puts("Ingrese programa ");
+	int prog = malloc(int);
+	scanf("%d",&prog);
+	puts("Ingrese variable: ");
+	int variable = malloc(int);
+	scanf("%d",&variable);
+*/
+
+	int i = 0;
+	switch(opcion){
+
+	case SUSE_CREATE:
+		//ASIGNARLE TCB (ID PROGRAMA, ID HILO, TIEMPOS, ETC)
+		{
+		while(i<4){
+		printf("sumamos 2 a la variable 5\n");
+		suse_create(1,5); //&sumar2 pasar el pid del fd
+		i++;
+		}
+		break;
+		}
+	case SUSE_SCHELUDE_NEXT:{
+		break;
+	}
+	case SUSE_WAIT:{
+		break;
+	}
+	case SUSE_SIGNAL:{
+		break;
+	}
+	case SUSE_JOIN:
+		break;
+		}
+
+	return 0;
 }
 
 void crearLogger(){
@@ -93,10 +154,9 @@ void cargarSemaforos(){
 	log_info(logger,"Se han inicializado todos los semaforos con exito");
 }
 
-void suse_create(hilo_t* hilo){
-	hilo_t* hiloNuevo = hilo;
-	list_add(cola_new, hiloNuevo);
-	log_info(logger,"Se ha agregado un hilo nuevo a la cola de new");
+//funcion prueba
+int sumar2(int a){
+	return a+2;
 }
 
 void* suse_schedule_next(){

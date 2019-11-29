@@ -12,7 +12,7 @@
 #include <commons/collections/list.h>
 #include <hilolay/hilolay.h>
 #include "../../ComunParaTodos/Serializacion/serializacion.h"
-
+#include <commons/collections/queue.h>
 
 t_log* logger;
 t_config* archivoConfig;
@@ -28,7 +28,7 @@ t_list * cola_blocked;
 t_list * cola_exit;
 t_list * semaforos;
 int colasLibres;
-
+t_queue * colanew;
 //Arch de Config
 char* listen_port;
 int metrics_timer;
@@ -37,6 +37,7 @@ void* sems_ids;
 void* sem_init;
 void* sem_max;
 float alpha_sjf;
+int tidMAX;
 
 //PAQUETES//
 typedef struct {
@@ -48,10 +49,15 @@ typedef struct {
 	int estimacionAnterior;
 	float rafagasEjecutadas;
 	float rafagasEstimadas;
-}hilo_t;
+	int tiempo_espera;
+	int tiempo_bloqueado;
+	char * razon_bloqueado;
+	int tiempo_ejecutando;
+	bool finalizado;
+}hilo_t; //TCB
 
 typedef struct {
-	int pid;
+	//int pid; este ya esta en la tcb t_hilo;
 	t_list * cola_ready;
 	t_list * cola_exec;
 }proceso_t;
@@ -70,7 +76,7 @@ void leerArchivoDeConfiguracion();
 void setearValores();
 void suse_init();
 void cargarSemaforos();
-void suse_create(hilo_t* hilo);
+void suse_create(int programa,int variable);
 void* suse_schedule_next();
 int dispatcher(hilo_t* hilo);
 hilo_t calcularEstimacion();
@@ -83,5 +89,7 @@ bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem);
 int suse_signal(semaforo_t* semaforo);
 void suse_join();
 void suse_close();
+
+int sumar2(int);
 
 #endif
