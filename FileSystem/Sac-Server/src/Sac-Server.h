@@ -179,7 +179,7 @@ t_list *hijos_de_nodo(uint32_t nodo_padre);
 //////////////////////
 
 uint32_t Hacer_Getattr(char *path);
-uint32_t Hacer_ReadDir(char *path);
+char *Hacer_ReadDir(char *path);
 uint32_t Hacer_Open(char *path);
 uint32_t Hacer_Read(char *path);
 uint32_t Hacer_Release(char *path);

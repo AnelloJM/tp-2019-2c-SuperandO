@@ -39,7 +39,47 @@ uint32_t Hacer_Getattr(char *path){
 	}
 }
 
-uint32_t Hacer_ReadDir(char *path){ return 0; }
+char *Hacer_ReadDir(char *path){
+	uint32_t nodo =0;
+	if( !(strcmp(path,"/") == 0) )
+		nodo = exite_path_retornando_nodo(path);
+	char *hijos;
+	if(nodo == -1){
+		hijos = malloc(strlen("No existe el path")+1);
+		memcpy(hijos,"No existe el path",strlen("No existe el path")+1);
+		return hijos;
+	}
+	if(tabla_de_nodos->nodos[nodo].estado != 2){
+		hijos = malloc(strlen("No es un directorio")+1);
+		memcpy(hijos,"No es un directorio",strlen("No es un directorio")+1);
+		return hijos;
+	}
+	t_list *nodos_de_hijos=hijos_de_nodo(nodo);
+	char* nombre_nodo;
+	uint32_t nodo_del_hijo = 0;
+	int desplazamiento = 0;
+	int tamanio = 0;
+	for(int j = 0; j < list_size(nodos_de_hijos); j=j+1){
+		nodo_del_hijo = list_get(nodos_de_hijos,j);
+		tamanio = strlen(tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo) + 1;
+	}
+	nodo_del_hijo = 0;
+	hijos = malloc(tamanio+1);
+	for(int i = 0; i < list_size(nodos_de_hijos); i = i+1){
+		nodo_del_hijo = list_get(nodos_de_hijos,i);
+		nombre_nodo = malloc(strlen(tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo)+1);
+		nombre_nodo = tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo;
+		memcpy(hijos + desplazamiento, nombre_nodo, strlen(nombre_nodo));//,strlen(obtener_nombre_nodo(list_get(nodos_de_hijos,i))));
+		desplazamiento = desplazamiento + strlen(nombre_nodo);
+		int a = strlen("/");
+		memcpy(hijos + desplazamiento, "/",strlen("/"));
+		desplazamiento = desplazamiento + strlen("/");
+//		free(nombre_nodo);
+	}
+	memcpy(hijos+desplazamiento, "\0", 1);
+	list_destroy(nodos_de_hijos);
+	return hijos;
+}
 
 uint32_t Hacer_Open(char *path){ return 0; }
 
@@ -169,7 +209,6 @@ uint32_t Hacer_RMDir(char *path){
 	if(list_is_empty(hijos)){
 		limpiar_nodo(nodo);
 		list_destroy(hijos);
-		log_info(logger, "Hasta aca llego");
 		return 0;
 	}
 	list_destroy(hijos);
@@ -226,9 +265,11 @@ void* funcionMagica(int cliente){
 				char *pathReadDir = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathReadDir)+1);
 				log_error(logger, pathReadDir);
-				//Hacer_ReadDir(pathReadDir);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi READDIR"), strlen("Hola, recibi READDIR")+1, f_RESPONSE);
+				char *hijos_separados_con_barra = Hacer_ReadDir(pathReadDir);
+				log_info(logger, "------ACA PERRO: %s", hijos_separados_con_barra);
+				Fuse_PackAndSend(cliente, hijos_separados_con_barra, strlen(hijos_separados_con_barra)+1, f_RESPONSE);
 				free(pathReadDir);
+				free(hijos_separados_con_barra);
 				break;
 
 			case f_READ: ;
@@ -495,7 +536,7 @@ void crear_archivo_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_archi
 //	int bloques_que_ocupa_archivo = tamanio_archivo_en_bloques(tabla_de_nodos.nodos[numero_de_nodo].tamanio_del_archivo);
 //	for(int i = 0; i <= bloques_que_ocupa_archivo; i = i+1){
 
-char* obtener_nombre_nodo(uint32_t numero_de_nodo){
+char *obtener_nombre_nodo(uint32_t numero_de_nodo){
 	char *nombre_retornado;
 	nombre_retornado = malloc(strlen(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo));
 	strcpy(nombre_retornado, tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo);

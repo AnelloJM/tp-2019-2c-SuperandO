@@ -115,29 +115,23 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 
 static int fusesito_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_readdir\n");
-	
 	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_READDIR);
-	free(response);
 
-	filler(buf, ".", NULL, 0);
-	filler(buf, "..", NULL, 0);
-	filler(buf, DEFAULT_FILE_NAME , NULL, 0);
-	filler(buf, "LaCosa" , NULL, 0);
+	if( !string_is_empty(response) ){
+		char **response_separada = string_split(response,"/");
+		uint32_t posicion_final = damePosicionFinalDoblePuntero(response_separada);
+		filler(buf, ".", NULL, 0);
+		filler(buf, "..", NULL, 0);
+		for(int i = 0; i<=posicion_final; i=i+1)
+			filler(buf, response_separada[i], NULL, 0);
+		liberarDoblePuntero(response_separada);
+	}
+	free(response);
 	return 0;
 }
 
 static int fusesito_open(const char *path, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_open\n");
-
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_OPEN);
-	free(response);
-//
-//	if (strcmp(path, DEFAULT_FILE_PATH) != 0)
-//			return -ENOENT;
-//
-//		if ((fi->flags & 3) != O_RDONLY)
-//			return -EACCES;
-
 		return 0;
 }
 
@@ -166,8 +160,6 @@ static int fusesito_read(const char *path, char *buf, size_t size, off_t offset,
 
 static int fusesito_release(const char *path, struct fuse_file_info *fi){
 	log_info(logger, "Se llamo a fusesito_release\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_RELEASE);
-	free(response);
 	return 0;
 }
 static int fusesito_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
