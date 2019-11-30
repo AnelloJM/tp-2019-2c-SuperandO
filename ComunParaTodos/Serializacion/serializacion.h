@@ -78,7 +78,7 @@ typedef struct {
 }__attribute__((packed)) conexion_programa;
 
 typedef struct {
-	t_Instancia* dato;
+//	t_Instancia* dato;
 	int tamanio;
 }__attribute__((packed)) t_Instancia_con_tamanio;
 

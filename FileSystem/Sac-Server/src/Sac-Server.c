@@ -158,8 +158,7 @@ uint32_t Hacer_Unlink(char *path){
 	if(tabla_de_nodos->nodos[nodo].estado != 1){
 		return -EISDIR;
 	}
-	limpiar_nodo(nodo);;
-	log_info(logger, "Hasta aca llego");
+	limpiar_nodo(nodo);
 	return 0;
 }
 
@@ -198,24 +197,31 @@ void limpiar_nodo(uint32_t nodo){
 	uint32_t bloques_de_metadata = 1 + bloques_del_bitmap + 1024;
 	uint32_t movimiento_en_bloques_de_datos = 0;
 	ptrGBloque bloque;
-	Bloque *aux = (bloques_de_datos + movimiento_en_bloques_de_datos);
+	Bloque_de_puntero *punteros;
+	Bloque *aux;
 
 	for(int i = 0; i < 1000; i = i+1){
 		if(tabla_de_nodos->nodos[nodo].array_de_punteros[i] != 0){
+			punteros = inicio_de_disco + tabla_de_nodos->nodos[nodo].array_de_punteros[i];
+			for(int p = 0; p<1024; p = p+1){
+				if(punteros->bloques_de_datos[p] != 0){
+					bloque = punteros->bloques_de_datos[p];
+					bitarray_clean_bit(tBitarray,bloque);
+					movimiento_en_bloques_de_datos = bloque - bloques_de_metadata;
+					aux = (bloques_de_datos + movimiento_en_bloques_de_datos);
+					for(int j = 0; j<4096; j = j+1){
+						aux->bytes[j] = '\0';
+					}
+				}
+			}
 			bloque = tabla_de_nodos->nodos[nodo].array_de_punteros[i];
-			log_error(logger, "bit: %i", bloque);
 			bitarray_clean_bit(tBitarray,bloque);
-			log_error(logger, "bloque numero: %i", bloque);
-			movimiento_en_bloques_de_datos = bloque - bloques_de_metadata;
 			for(int j = 0; j<4096; j = j+1){
-				aux->bytes[j] = '\0';
+				(inicio_de_disco + bloque)->bytes[j] = '\0';
 			}
 		}
 	}
 	tabla_de_nodos->nodos[nodo].estado = 0;
-	for(int j = 0; j < 1000; j = j+1){
-		tabla_de_nodos->nodos[nodo].array_de_punteros[j] = 0;
-	}
 	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, "\0", 70);
 	tabla_de_nodos->nodos[nodo].modificado=0;
 	tabla_de_nodos->nodos[nodo].creacion=0;
@@ -544,9 +550,12 @@ void crear_directorio_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_ar
 	tabla_de_nodos->nodos[numero_de_nodo].tamanio_del_archivo = sizeof(Bloque);
 	tabla_de_nodos->nodos[numero_de_nodo].padre=numero_de_nodo_padre;
 	uint32_t numero_de_bloque = buscar_espacio_en_bitmap();
-	log_info(logger,"cargo en bitmap: %i", numero_de_bloque);
 	bitarray_set_bit(tBitarray, numero_de_bloque);
 	tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0] = numero_de_bloque;
+	Bloque_de_puntero *punteros = inicio_de_disco + tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0];
+	numero_de_bloque = buscar_espacio_en_bitmap();
+	bitarray_set_bit(tBitarray, numero_de_bloque);
+	punteros->bloques_de_datos[0] = numero_de_bloque;
 	log_info(logger,"creo directorio en bloque: %i", tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0]);
 }
 
@@ -557,12 +566,16 @@ void crear_archivo_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_archi
 	tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo[71] = '\0';
 	tabla_de_nodos->nodos[numero_de_nodo].creacion=timestamp();
 	tabla_de_nodos->nodos[numero_de_nodo].modificado=timestamp();
-	tabla_de_nodos->nodos[numero_de_nodo].tamanio_del_archivo = sizeof(Bloque);
+	tabla_de_nodos->nodos[numero_de_nodo].tamanio_del_archivo = 0;
 	tabla_de_nodos->nodos[numero_de_nodo].padre=numero_de_nodo_padre;
 	uint32_t numero_de_bloque = buscar_espacio_en_bitmap();
 	log_info(logger,"cargo en bitmap: %i", numero_de_bloque);
 	bitarray_set_bit(tBitarray, numero_de_bloque);
 	tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0] = numero_de_bloque;
+	Bloque_de_puntero *punteros = inicio_de_disco + tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0];
+	numero_de_bloque = buscar_espacio_en_bitmap();
+	bitarray_set_bit(tBitarray, numero_de_bloque);
+	punteros->bloques_de_datos[0] = numero_de_bloque;
 	log_info(logger,"creo archivo en bloque: %i", tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0]);
 }
 //Para tener en cuenta cuando hagamos el crear archivo
@@ -659,7 +672,7 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "Se ha creado un nuevo logger\n");
 
 	t_config *archivo_de_configuracion = config_create("../../Sac.config");
-	char *puerto = "6969"; //config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
+	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
 
 	log_info(logger, "p: %s",puerto);
 	//Archivos:
@@ -677,7 +690,7 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-	crear_archivo_en_padre(0,"archivo");
+	/*crear_archivo_en_padre(0,"archivo");
 	uint32_t bloque_libre = buscar_espacio_en_bitmap();
 	tabla_de_nodos->nodos[1].array_de_punteros[0] = bloque_libre;
 	Bloque *algo = bloques_de_datos+bloque_libre;
@@ -688,7 +701,7 @@ int main(int argc, char *argv[]) {
 
 	char *respuestaRead = Hacer_Read("/archivo", 11, 0);
 	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
-
+*/
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", puerto, logger);
 
