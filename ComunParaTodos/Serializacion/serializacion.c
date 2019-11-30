@@ -105,7 +105,7 @@ int RecibirPaqueteCliente(int socketFD, Paquete* paquete) {
         switch (pack->header.tipoMensaje){
             case SUSE_CREATE:
             {
-                suse_create(socket_cliente, ip, puerto, cosas);
+ 00               suse_create(socket_cliente, ip, puerto, cosas);
                 break;
             }
             case SUSE_SCHELUDE_NEXT:

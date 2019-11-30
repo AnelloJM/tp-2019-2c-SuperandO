@@ -1,7 +1,7 @@
 #include "Suse.h"68
 int sumar2();
 //int(*funcion)(int)
-void suse_create(int programa,int variable){ //falta invocar el programa ¿cómo se puede probar? void*(funcion)(int,int)
+void suse_create(int pid ,int tid){
 	hilo_t* hiloNuevo = malloc(sizeof(hilo_t));
 
 	hiloNuevo->pid = programa;
@@ -11,7 +11,7 @@ void suse_create(int programa,int variable){ //falta invocar el programa ¿cómo
 	list_add(cola_new, hiloNuevo);
 	log_info(logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
 	int resultado = malloc(sizeof(int));
-	resultado = sumar2(variable);
+	resultado = funcion(variable);
 	printf("Resultado: %d ", resultado);
 
 
@@ -61,16 +61,6 @@ return 0;
 }
 */ //COMENTO PARA PODER JUGAR CON LAS COLAS *
 
-	puts("Ingrese opcion: ");
-	int opcion = malloc(sizeof(int));
-	scanf("%d",&opcion);
-	/*puts("Ingrese programa ");
-	int prog = malloc(int);
-	scanf("%d",&prog);
-	puts("Ingrese variable: ");
-	int variable = malloc(int);
-	scanf("%d",&variable);
-*/
 
 	int i = 0;
 	switch(opcion){

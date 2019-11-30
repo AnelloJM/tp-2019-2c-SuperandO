@@ -20,7 +20,7 @@ typedef enum t_protocolo {
 	SUSE_SIGNAL,
 	SUSE_JOIN,
 	SUSE_CLOSE
-} t_protocolo;
+} t_protocolo; //CHAR CON IF Y STRCMP
 
 //////////////////////////////////////////
 //               Procesos               //
@@ -38,7 +38,7 @@ typedef enum t_protocolo {
 //////////////////////////////////////////
 
 typedef struct {
-	t_protocolo tipoMensaje;
+	char * tipoMensaje;
 	uint32_t quienEnvia; //FD del prog
 	uint32_t tamanioMensaje;
 }__attribute__((packed)) Header;
@@ -73,9 +73,9 @@ typedef struct {
 	int socket;
 	char* nombre;
 	bool estado_de_conexion;
-	bool flagEL;
-	t_list* claves;
-}__attribute__((packed)) t_Instancia;
+	//bool flagEL;
+	//t_list* claves;
+}__attribute__((packed)) conexion_programa;
 
 typedef struct {
 	t_Instancia* dato;

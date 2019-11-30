@@ -13,6 +13,7 @@
 #include <hilolay/hilolay.h>
 #include "../../ComunParaTodos/Serializacion/serializacion.h"
 #include <commons/collections/queue.h>
+#include <pthread.h>
 
 t_log* logger;
 t_config* archivoConfig;
@@ -44,8 +45,8 @@ typedef struct {
 	hilolay_t *thread;
 	hilolay_attr_t *attr;
 	void *arg;
-	int pid;
-	int tid;
+	char * pid;
+	char * tid;
 	int estimacionAnterior;
 	float rafagasEjecutadas;
 	float rafagasEstimadas;
@@ -58,9 +59,10 @@ typedef struct {
 
 typedef struct {
 	//int pid; este ya esta en la tcb t_hilo;
+	char * pid;
 	t_list * cola_ready;
 	t_list * cola_exec;
-}proceso_t;
+}programa_t;
 
 typedef struct {
 	char* semID;
