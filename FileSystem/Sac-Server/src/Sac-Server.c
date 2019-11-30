@@ -86,7 +86,7 @@ uint32_t Hacer_Open(char *path){ return 0; }
 char *Hacer_Read(char *path, size_t size, off_t offset){
 	uint32_t nodo = exite_path_retornando_nodo(path);
 	if(nodo == -1)
-		return -1;
+		return "-1";
 
 	uint32_t desde_bloque = offset/sizeof(Bloque);
 	uint32_t desde_posicion = offset%sizeof(Bloque);
@@ -408,13 +408,14 @@ void* funcionMagica(int cliente){
 			case f_TRUNCATE: ;
 				void *packTruncate = Fuse_ReceiveAndUnpack(cliente,tam);
 				char *pathTruncate = Fuse_Unpack_Path(packTruncate);
-				uint32_t nuevo_tamanio; //= Fuse_Unpack_Truncate_Size(packTruncate);
+				uint32_t nuevo_tamanio; Fuse_Unpack_Truncate_offset(packTruncate);
 				free(packTruncate);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathTruncate)+1);
 				log_error(logger, pathTruncate);
-				//Hacer_Truncate(pathTruncate, nuevo_tamanio);
-				//Fuse_PackAndSend(cliente, strdup("Hola, recibi TRUNCATE"), strlen("Hola, recibi TRUNCATE")+1, f_RESPONSE);
+				uint32_t resultadoDeTruncar = Hacer_Truncate(pathTruncate, nuevo_tamanio);
+				Fuse_PackAndSend(cliente, strdup("Hola, recibi TRUNCATE"), strlen("Hola, recibi TRUNCATE")+1, f_RESPONSE);
 				free(pathTruncate);
+				break;
 
 			case f_HANDSHAKE: ;
 				//desempaquetar pack y hacer el codigo
