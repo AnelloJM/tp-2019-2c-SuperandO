@@ -88,29 +88,91 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	if(nodo == -1)
 		return "-1";
 
-	uint32_t desde_bloque = offset/sizeof(Bloque);
-	uint32_t desde_posicion = offset%sizeof(Bloque);
-	uint32_t cantidad_bloques = size/sizeof(Bloque);
-	uint32_t cantidad_dentro = size%sizeof(Bloque);
-	ptrGBloque puntero_a_bloque_a_leer = 0;
-	//OJO SI EMPIEZO EN EL MEDIO
+	//DONDE EMPEZAR
 
-	Bloque *bloque_a_leer;
+	/*
+	 * Es entera porque me da la cantidad de
+	 * bloques de datos desde donde comienzo
+	*/
+	uint32_t cantida_de_bloque_desde_donde_comienzo = offset / sizeof(Bloque);
+
+	/*
+	 * Es resto porque me da la cantidad que
+	 * debo moverme desde el comienzo del bloque
+	*/
+	uint32_t desplazamiento = offset % sizeof(Bloque);
+
+	/*
+	 * por que cada poscion del array
+	 * hace referencia a 1024 bloques
+	*/
+	uint32_t poscion_en_array = cantida_de_bloque_desde_donde_comienzo / 1024;
+
+	/*
+	 * falta para llegar dentro
+	 * del los punteros
+	*/
+	uint32_t puntero_indirecto = cantida_de_bloque_desde_donde_comienzo % 1024;
+
+	Bloque_de_puntero *punteros_indirectos = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array];
+	ptrGBloque numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto];
+
+
+	//CUANTO LEER
+
+	uint32_t lo_que_me_queda_despues_del_bloque = sizeof(Bloque) - desplazamiento;
+	uint32_t faltante = size;
 
 	char *buffer = malloc(size);
+	Bloque *bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 
-	if(cantidad_bloques != 0){
-		for(int i = 0; i < cantidad_bloques-1; i = i + 1){
-			puntero_a_bloque_a_leer = tabla_de_nodos->nodos[nodo].array_de_punteros[desde_bloque + i];
-			bloque_a_leer = bloques_de_datos + puntero_a_bloque_a_leer;
-			strncpy(buffer, bloque_a_leer, sizeof(Bloque));
-		}
+	if(faltante < lo_que_me_queda_despues_del_bloque){
+		memcpy(buffer, bloque_a_leer->bytes[desplazamiento] ,faltante);
+		return buffer;
 	}
-	puntero_a_bloque_a_leer = tabla_de_nodos->nodos[nodo].array_de_punteros[desde_bloque + cantidad_bloques];
-	bloque_a_leer = bloques_de_datos + puntero_a_bloque_a_leer;
-//	for(int i=0;i<cantidad_dentro;i=i+1){
-		memcpy(buffer, bloque_a_leer, cantidad_dentro);
-//	}
+	memcpy(buffer, bloque_a_leer->bytes[desplazamiento], lo_que_me_queda_despues_del_bloque);
+	faltante = faltante - lo_que_me_queda_despues_del_bloque;
+	offset = offset + lo_que_me_queda_despues_del_bloque;
+
+	/*
+	 * Los bloques que me faltan leer,
+	 * entera para que si en menos de uno de cero
+	*/
+	uint32_t cantidad_bloques_a_leer_que_me_faltan = faltante / sizeof(Bloque);
+
+	/*
+	 * Desplazamiento dentro del ultimo bloque que me faltan leer,
+	 * resto para que me de el
+	*/
+	uint32_t cantidad_dentro_que_falta_leer = faltante % sizeof(Bloque);
+
+	uint32_t lo_que_me_queda_despues_de_los_punteros = 1024 - puntero_indirecto;
+
+	if(lo_que_me_queda_despues_de_los_punteros < cantidad_bloques_a_leer_que_me_faltan){
+		for(int i = 0; i < lo_que_me_queda_despues_de_los_punteros;i = i+1){
+			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
+			bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
+			memcpy(buffer, bloque_a_leer ,sizeof(Bloque));
+			faltante = faltante - sizeof(Bloque);
+			offset = offset + sizeof(Bloque);
+		}
+	}else{
+		for(int i = 0; i < cantidad_bloques_a_leer_que_me_faltan-1;i = i+1){
+			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
+			bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
+			memcpy(buffer, bloque_a_leer ,sizeof(Bloque));
+			faltante = faltante - sizeof(Bloque);
+			offset = offset + sizeof(Bloque);
+		}
+		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + 1];
+		memcpy(buffer, bloque_a_leer,cantidad_dentro_que_falta_leer);
+		return buffer;
+	}
+
+	char *recursivo = Hacer_Read(path, faltante, offset);
+	memcpy(buffer, recursivo,faltante);
+	free(recursivo);
+
 	return buffer;
 
 }
@@ -267,6 +329,8 @@ uint32_t Hacer_Truncate(char *path, uint32_t nuevo_tamanio) {
 	uint32_t nodo = exite_path_retornando_nodo(path);
 	if(nodo == -1)
 		return -ENOENT;
+	if(tabla_de_nodos->nodos[nodo].estado !=1)
+		return -EISDIR;
 	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = nuevo_tamanio;
 	tabla_de_nodos->nodos[nodo].modificado=timestamp();
 	// LIBERAR/OCUPAR LOS ESPACIOS CORRESPONDIENTES EN TABLA DE NODOS
@@ -446,7 +510,7 @@ void iniciar_header(){
 	header->identificador[0] = 'S';
 	header->identificador[1] = 'A';
 	header->identificador[2] = 'C';
-	header->version = 3;
+	header->version = 1;
 	header->inicio_bitmap = 1;
 	header->tamanio_bitmap = bloques_del_bitmap;
 }
