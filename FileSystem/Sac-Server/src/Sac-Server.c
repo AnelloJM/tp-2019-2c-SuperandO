@@ -40,7 +40,7 @@ uint32_t Hacer_Getattr(char *path){
 }
 
 char *Hacer_ReadDir(char *path){
-	uint32_t nodo =0;
+	uint32_t nodo = 0;
 	if( !(strcmp(path,"/") == 0) )
 		nodo = exite_path_retornando_nodo(path);
 	char *hijos;
@@ -49,7 +49,7 @@ char *Hacer_ReadDir(char *path){
 		memcpy(hijos,"No existe el path",strlen("No existe el path")+1);
 		return hijos;
 	}
-	if(tabla_de_nodos->nodos[nodo].estado != 2){
+	if(tabla_de_nodos->nodos[nodo].estado != 2 && (nodo != 0)){
 		hijos = malloc(strlen("No es un directorio")+1);
 		memcpy(hijos,"No es un directorio",strlen("No es un directorio")+1);
 		return hijos;
@@ -71,7 +71,6 @@ char *Hacer_ReadDir(char *path){
 		nombre_nodo = tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo;
 		memcpy(hijos + desplazamiento, nombre_nodo, strlen(nombre_nodo));//,strlen(obtener_nombre_nodo(list_get(nodos_de_hijos,i))));
 		desplazamiento = desplazamiento + strlen(nombre_nodo);
-		int a = strlen("/");
 		memcpy(hijos + desplazamiento, "/",strlen("/"));
 		desplazamiento = desplazamiento + strlen("/");
 //		free(nombre_nodo);
@@ -593,7 +592,7 @@ uint32_t exite_path_retornando_nodo(char* path){
 t_list *hijos_de_nodo(uint32_t nodo_padre){
 	t_list *hijos = list_create();
 	for(int i = 0; i < 1024; i = i+1){
-		if(tabla_de_nodos->nodos[i].padre == nodo_padre){
+		if(tabla_de_nodos->nodos[i].padre == nodo_padre && tabla_de_nodos->nodos[i].estado != 0){
 			list_add(hijos, i);
 		}
 	}
