@@ -215,6 +215,13 @@ static int fusesito_rename(const char *path, const char *buf){
 	return 0;
 }
 
+static int fusesito_truncate(const char *path, off_t offset){ 
+	log_info(logger, "Se llamo a fusesito_truncate\n");
+	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_TRUNCATE);
+	free(response);
+	return 0; 
+}
+
 static struct fuse_operations fusesito_oper = {
 		.getattr = fusesito_getattr,
 		.readdir = fusesito_readdir,
@@ -227,6 +234,7 @@ static struct fuse_operations fusesito_oper = {
 		.mkdir = fusesito_mkdir,
 		.rmdir = fusesito_rmdir,
 		.rename = fusesito_rename,
+		.truncate = fusesito_truncate,
 };
 
 

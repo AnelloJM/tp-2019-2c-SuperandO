@@ -39,6 +39,7 @@ typedef enum f_operaciones {
 	f_RMDIR,
 	f_RENAME,
 	f_RESPONSE,
+	f_TRUNCATE,
 	f_HANDSHAKE
 } f_operacion;
 
@@ -82,6 +83,12 @@ bool Fuse_PackAndSend_Read(int socketCliente,const char *path, size_t size, off_
 */
 
 bool Fuse_PackAndSend_Rename(int socketCliente, const void *path, const char *nombre);
+
+/**
+* ESTA FUNCION ENVIA UN PAQUETE DEL TIPO TRUNCATE A TRAVES DEL SOCKET ESPECIFICADO
+*/
+
+bool Fuse_PackAndSend_Truncate(int socketCliente, const void *path, off_t offset);
 
 ////////////////////////////
 // FUNCIONES PARA RECIBIR //
@@ -169,5 +176,13 @@ off_t Fuse_Unpack_Read_size(void *buffer);
 */
 
 char* Fuse_Unpack_Rename_Nombre(void *buffer);
+
+/**
+* ESTA FUNCION RETORNA EL OFFSET EN CASO
+* DE QUE SE HAYA RECIBIDO UN PAQUETE DEL
+* TIPO f_TRUNCATE
+*/
+
+off_t Fuse_Unpack_Truncate_offset(void *buffer);
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */
