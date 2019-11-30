@@ -51,21 +51,21 @@ bool Fuse_PackAndSend_Write(int socketCliente,const char *path, const char *buf,
 	return resultado;
 }
 
-bool Fuse_PackAndSend_MKNOD(int socketCliente, const void *path, const mode_t mode) {
-	uint32_t tamMessage = strlen(path) + sizeof(mode_t) + (2*sizeof(uint32_t)) + 1;
+bool Fuse_PackAndSend_Read(int socketCliente,const char *path, off_t offset) {
+	uint32_t tamMessage = strlen(path) +  1 +  sizeof(off_t);
 	uint32_t tamPath = strlen(path) + 1;
-	void* buffer = malloc( tamMessage );
+	void* buffer = malloc ( tamMessage );
 	int desplazamiento = 0;
 	memcpy(buffer, &tamPath, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer + desplazamiento, path, tamPath);
 	desplazamiento += tamPath;
-	memcpy(buffer + desplazamiento, mode, sizeof(mode_t));
-	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_MKDIR);
+	memcpy(buffer + desplazamiento, &offset, sizeof(off_t));
+	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_READ);
 	free(buffer);
 	return resultado;
-
 }
+
 
 bool Fuse_PackAndSend_Rename(int socketCliente, const void *path, const char *nombre) {
 	uint32_t tamMessage = strlen(path) + strlen(nombre) + (2*sizeof(uint32_t)) + 2;
@@ -152,7 +152,6 @@ size_t Fuse_Unpack_Write_Size(void *buffer) {
 
 off_t Fuse_Unpack_Write_offset(void *buffer) {
 	off_t offset;
-	size_t size;
 	uint32_t path = 0;
 	uint32_t buf = 0;
 	memcpy(&path, buffer, sizeof(uint32_t));
@@ -163,13 +162,13 @@ off_t Fuse_Unpack_Write_offset(void *buffer) {
 	return offset;
 }
 
-mode_t Fuse_Unpack_MKNOD_Mode(void *buffer) {
-	mode_t modo;
+off_t Fuse_Unpack_Read_offset(void *buffer) {
+	off_t offset;
 	uint32_t path = 0;
 	memcpy(&path, buffer, sizeof(uint32_t));
 	path += sizeof(uint32_t);
-	memcpy(&modo, buffer+path, sizeof(mode_t));
-	return modo;
+	memcpy(&offset, buffer+path, sizeof(off_t));
+	return offset;
 }
 
 char* Fuse_Unpack_Rename_Nombre(void *buffer) {

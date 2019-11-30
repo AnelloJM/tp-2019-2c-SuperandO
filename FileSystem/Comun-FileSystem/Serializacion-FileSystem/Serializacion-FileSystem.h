@@ -72,9 +72,10 @@ bool Fuse_PackAndSend(int socketCliente, const void*path, uint32_t tamPath, f_op
 bool Fuse_PackAndSend_Write(int socketCliente,const char *path, const char *buf, size_t size, off_t offset);
 
 /**
-* ESTA FUNCION ENVIA UN PAQUETE DEL TIPO MKNOD A TRAVES DEL SOCKET ESPECIFICADO
+* ESTA FUNCION ENVIA UN PAQUETE DEL TIPO READ A TRAVES DEL SOCKET ESPECIFICADO
 */
-bool Fuse_PackAndSend_MKNOD(int socketCliente, const void *path, const mode_t mode);
+
+bool Fuse_PackAndSend_Read(int socketCliente,const char *path, off_t offset) ;
 
 /**
 * ESTA FUNCION ENVIA UN PAQUETE DEL TIPO RENAME A TRAVES DEL SOCKET ESPECIFICADO
@@ -146,12 +147,12 @@ size_t Fuse_Unpack_Write_Size(void *buffer);
 off_t Fuse_Unpack_Write_offset(void *buffer);
 
 /**
-* ESTA FUNCION RETORNA EL MODO EN CASO
+* ESTA FUNCION RETORNA EL OFFSET EN CASO
 * DE QUE SE HAYA RECIBIDO UN PAQUETE DEL
-* TIPO f_MKNOD
+* TIPO f_READ
 */
 
-mode_t Fuse_Unpack_MKNOD_Mode(void *buffer);
+off_t Fuse_Unpack_Read_offset(void *buffer);
 
 /**
 * ESTA FUNCION RETORNA EL NUEVO NOMBRE EN CASO
