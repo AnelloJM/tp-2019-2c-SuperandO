@@ -248,16 +248,24 @@ uint32_t Hacer_RMDir(char *path){
 uint32_t Hacer_Rename(char *path, char *buffer){
 	ptrGBloque nodo = exite_path_retornando_nodo(path);
 	if(nodo == -1)
-	{
 		return -ENOENT;
-	}
-
 	char **buffer_separado = string_split(buffer,"/");
 	uint32_t posicion_final = damePosicionFinalDoblePuntero(buffer_separado);
-
 	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, "\0", 70);
 	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, buffer_separado[posicion_final], 70);
+	tabla_de_nodos->nodos[nodo].modificado=timestamp();
 	return 1;
+}
+
+uint32_t Hacer_Truncate(char *path, uint32_t nuevo_tamanio) {
+	uint32 nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+		return -ENOENT
+	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = nuevo_tamanio
+	tabla_de_nodos->nodos[nodo].modificado=timestamp();
+	// LIBERAR/OCUPAR LOS ESPACIOS CORRESPONDIENTES EN TABLA DE NODOS
+	return 1;
+
 }
 
 void* funcionMagica(int cliente){
@@ -390,6 +398,17 @@ void* funcionMagica(int cliente){
 				free(pathRename);
 				free(nuevo_nombre);
 				break;
+
+			case f_TRUNCATE: ;
+				void *packTruncate = Fuse_ReceiveAndUnpack(cliente,tam);
+				char *pathTruncate = Fuse_Unpack_Path(packTruncate);
+				uint32_t nuevo_tamanio; //= Fuse_Unpack_Truncate_Size(packTruncate);
+				free(packTruncate);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathTruncate)+1);
+				log_error(logger, pathTruncate);
+				//Hacer_Truncate(pathTruncate, nuevo_tamanio);
+				//Fuse_PackAndSend(cliente, strdup("Hola, recibi TRUNCATE"), strlen("Hola, recibi TRUNCATE")+1, f_RESPONSE);
+				free(pathTruncate);
 
 			case f_HANDSHAKE: ;
 				//desempaquetar pack y hacer el codigo

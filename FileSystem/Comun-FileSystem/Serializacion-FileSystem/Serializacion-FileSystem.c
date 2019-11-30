@@ -88,6 +88,21 @@ bool Fuse_PackAndSend_Rename(int socketCliente, const void *path, const char *no
 
 }
 
+bool Fuse_PackAndSend_Truncate(int socketCliente, const void *path, off_t offset) {
+	uint32_t tamMessage = strlen(path) +  1 +  sizeof(off_t);
+	uint32_t tamPath = strlen(path) + 1;
+	void* buffer = malloc ( tamMessage );
+	int desplazamiento = 0;
+	memcpy(buffer, &tamPath, sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+	memcpy(buffer + desplazamiento, path, tamPath);
+	desplazamiento += tamPath;
+	memcpy(buffer + desplazamiento, &offset, sizeof(off_t));
+	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_READ);
+	free(buffer);
+	return resultado;
+}
+
 ////////////////////////////
 // FUNCIONES PARA RECIBIR //
 ////////////////////////////
@@ -191,4 +206,13 @@ char* Fuse_Unpack_Rename_Nombre(void *buffer) {
 	 * confusion
 	 */
 	return Fuse_Unpack_Write_Buf(buffer);
+}
+
+off_t Fuse_Unpack_Truncate_offset(void *buffer) {
+	off_t offset;
+	uint32_t path = 0;
+	memcpy(&path, buffer, sizeof(uint32_t));
+	path += sizeof(uint32_t);
+	memcpy(&offset, buffer+path, sizeof(off_t));
+	return offset;
 }

@@ -193,5 +193,6 @@ uint32_t Hacer_Unlink(char *path);
 uint32_t Hacer_MKDir(char *path);
 uint32_t Hacer_RMDir(char *path);
 uint32_t Hacer_Rename(char *path, char *buffer);
+uint32_t Hacer_Truncate(char *path, uint32_t nuevo_tamanio);
 
 #endif /* SAC_SERVER_H_ */
