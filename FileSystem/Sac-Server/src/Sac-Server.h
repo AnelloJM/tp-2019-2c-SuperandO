@@ -38,6 +38,10 @@ typedef struct {
 } Bloque;
 
 typedef struct {
+	ptrGBloque bloques_de_datos [1024];
+} Bloque_de_puntero;
+
+typedef struct {
 	char identificador [3];
 	uint32_t version;
 	ptrGBloque inicio_bitmap;
@@ -181,7 +185,7 @@ t_list *hijos_de_nodo(uint32_t nodo_padre);
 uint32_t Hacer_Getattr(char *path);
 char *Hacer_ReadDir(char *path);
 uint32_t Hacer_Open(char *path);
-uint32_t Hacer_Read(char *path);
+char *Hacer_Read(char *path, size_t size, off_t offset);
 uint32_t Hacer_Release(char *path);
 uint32_t Hacer_Write(char *path, char *buffer);
 uint32_t Hacer_MKNod(char *path);

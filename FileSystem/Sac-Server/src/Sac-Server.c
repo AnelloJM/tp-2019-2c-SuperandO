@@ -83,7 +83,37 @@ char *Hacer_ReadDir(char *path){
 
 uint32_t Hacer_Open(char *path){ return 0; }
 
-uint32_t Hacer_Read(char *path){ return 0; }
+char *Hacer_Read(char *path, size_t size, off_t offset){
+	uint32_t nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+		return -1;
+
+	uint32_t desde_bloque = offset/sizeof(Bloque);
+	uint32_t desde_posicion = offset%sizeof(Bloque);
+	uint32_t cantidad_bloques = size/sizeof(Bloque);
+	uint32_t cantidad_dentro = size%sizeof(Bloque);
+	ptrGBloque puntero_a_bloque_a_leer = 0;
+	//OJO SI EMPIEZO EN EL MEDIO
+
+	Bloque *bloque_a_leer;
+
+	char *buffer = malloc(size);
+
+	if(cantidad_bloques != 0){
+		for(int i = 0; i < cantidad_bloques-1; i = i + 1){
+			puntero_a_bloque_a_leer = tabla_de_nodos->nodos[nodo].array_de_punteros[desde_bloque + i];
+			bloque_a_leer = bloques_de_datos + puntero_a_bloque_a_leer;
+			strncpy(buffer, bloque_a_leer, sizeof(Bloque));
+		}
+	}
+	puntero_a_bloque_a_leer = tabla_de_nodos->nodos[nodo].array_de_punteros[desde_bloque + cantidad_bloques];
+	bloque_a_leer = bloques_de_datos + puntero_a_bloque_a_leer;
+//	for(int i=0;i<cantidad_dentro;i=i+1){
+		memcpy(buffer, bloque_a_leer, cantidad_dentro);
+//	}
+	return buffer;
+
+}
 
 uint32_t Hacer_Release(char *path){ return 0; }
 
@@ -277,9 +307,11 @@ void* funcionMagica(int cliente){
 				char *pathRead = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRead)+1);
 				log_error(logger, pathRead);
-				//Hacer_Read(pathRead);
+				char *respuestaRead = Hacer_Read(pathRead, 10, 0);
+				log_error(logger, "lo que habia adentro es: %s", respuestaRead);
 				Fuse_PackAndSend(cliente, strdup("Hola, recibi READ"), strlen("Hola, recibi READ")+1, f_RESPONSE);
 				free(pathRead);
+				free(respuestaRead);
 				break;
 
 			case f_OPEN: ;
@@ -645,7 +677,17 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-//	crear_archivo_en_padre(0,"archivo");
+	crear_archivo_en_padre(0,"archivo");
+	uint32_t bloque_libre = buscar_espacio_en_bitmap();
+	tabla_de_nodos->nodos[1].array_de_punteros[0] = bloque_libre;
+	Bloque *algo = bloques_de_datos+bloque_libre;
+	for(int i = 0; i < 10; i = i+1){
+		algo->bytes[i] = 'a';
+	}
+	tabla_de_nodos->nodos[1].tamanio_del_archivo = 10*sizeof(char);
+
+	char *respuestaRead = Hacer_Read("/archivo", 11, 0);
+	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", puerto, logger);
