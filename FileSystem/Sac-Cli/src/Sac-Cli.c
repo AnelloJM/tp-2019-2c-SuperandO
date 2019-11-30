@@ -116,15 +116,22 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 static int fusesito_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_readdir\n");
 	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_READDIR);
-
+	log_info(logger,"ACA: 1");
 	if( !string_is_empty(response) ){
+		log_info(logger,"ACA: 2");
 		char **response_separada = string_split(response,"/");
+		log_info(logger,"ACA: 3");
 		uint32_t posicion_final = damePosicionFinalDoblePuntero(response_separada);
+		log_info(logger,"ACA: 4");
 		filler(buf, ".", NULL, 0);
+		log_info(logger,"ACA: 5");
 		filler(buf, "..", NULL, 0);
+		log_info(logger,"ACA: 6");
 		for(int i = 0; i<=posicion_final; i=i+1)
 			filler(buf, response_separada[i], NULL, 0);
+		log_info(logger,"ACA: 7");
 		liberarDoblePuntero(response_separada);
+		log_info(logger,"ACA: 8");
 	}
 	free(response);
 	return 0;
@@ -230,7 +237,7 @@ int main(int argc, char *argv[]) {
 
 	t_config *archivo_de_configuracion = config_create("../../Sac.config");
 	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
-	log_info(logger, puerto);
+	log_info(logger, "%s", puerto);
 
 	conexion = conectarse_a_un_servidor("127.0.0.1" , puerto, logger);
 	sem_init(&mutex_buffer,0,1);

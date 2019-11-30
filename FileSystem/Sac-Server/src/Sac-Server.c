@@ -58,22 +58,23 @@ char *Hacer_ReadDir(char *path){
 	char* nombre_nodo;
 	uint32_t nodo_del_hijo = 0;
 	int desplazamiento = 0;
+
 	int tamanio = 0;
 	for(int j = 0; j < list_size(nodos_de_hijos); j=j+1){
 		nodo_del_hijo = list_get(nodos_de_hijos,j);
-		tamanio = strlen(tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo) + 1;
+		tamanio = tamanio + strlen(tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo) + 1;
 	}
+
 	nodo_del_hijo = 0;
 	hijos = malloc(tamanio+1);
 	for(int i = 0; i < list_size(nodos_de_hijos); i = i+1){
 		nodo_del_hijo = list_get(nodos_de_hijos,i);
 		nombre_nodo = malloc(strlen(tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo)+1);
 		nombre_nodo = tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo;
-		memcpy(hijos + desplazamiento, nombre_nodo, strlen(nombre_nodo));//,strlen(obtener_nombre_nodo(list_get(nodos_de_hijos,i))));
+		memcpy(hijos + desplazamiento, nombre_nodo, strlen(nombre_nodo));
 		desplazamiento = desplazamiento + strlen(nombre_nodo);
 		memcpy(hijos + desplazamiento, "/",strlen("/"));
 		desplazamiento = desplazamiento + strlen("/");
-//		free(nombre_nodo);
 	}
 	memcpy(hijos+desplazamiento, "\0", 1);
 	list_destroy(nodos_de_hijos);
@@ -246,17 +247,18 @@ void* funcionMagica(int cliente){
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathGetAttr)+1);
 				log_error(logger, pathGetAttr);
 				uint32_t getattr = Hacer_Getattr(pathGetAttr);
-				char *respuesta;
+				char *respuesta = malloc(strlen("0")+1);
 				if(getattr == 0){
-					respuesta = "0";
+					strcpy(respuesta, "0");
 				}else {
 					if(getattr == 1){
-						respuesta = "1";
+						strcpy(respuesta, "1");
 					}else{
-						respuesta = "2";
+						strcpy(respuesta, "2");
 					}
 				}
 				Fuse_PackAndSend(cliente, (void*)respuesta, strlen(respuesta)+1, f_RESPONSE);
+				free(respuesta);
 				free(pathGetAttr);
 				break;
 
@@ -537,7 +539,7 @@ void crear_archivo_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_archi
 
 char *obtener_nombre_nodo(uint32_t numero_de_nodo){
 	char *nombre_retornado;
-	nombre_retornado = malloc(strlen(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo));
+	nombre_retornado = malloc(strlen(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo)+1);
 	strcpy(nombre_retornado, tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo);
 	return nombre_retornado;
 }
@@ -625,7 +627,7 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "Se ha creado un nuevo logger\n");
 
 	t_config *archivo_de_configuracion = config_create("../../Sac.config");
-	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
+	char *puerto = "6969"; //config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
 
 	log_info(logger, "p: %s",puerto);
 	//Archivos:
@@ -643,7 +645,7 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-	crear_archivo_en_padre(0,"archivo");
+//	crear_archivo_en_padre(0,"archivo");
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", puerto, logger);
@@ -652,8 +654,8 @@ int main(int argc, char *argv[]) {
 		cliente = esperar_cliente_con_accept(conexion, logger);
 
 		pthread_t* cody = malloc(sizeof(pthread_t));
-		if(pthread_create(cody,NULL,(void*)funcionMagica,cliente) == 0){
-			pthread_detach(cody);
+		if(pthread_create(cody,NULL,(void*)funcionMagica,(void*)cliente) == 0){
+			pthread_detach(*cody);
 			log_info(logger,"Se creo el hilo sin problema, cliente: %i", cliente);
 		}else{
 			log_error(logger,"No se pudo crear el hilo, cliente: %i", cliente);
