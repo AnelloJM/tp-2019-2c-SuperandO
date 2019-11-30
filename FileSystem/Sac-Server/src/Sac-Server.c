@@ -264,10 +264,10 @@ uint32_t Hacer_Rename(char *path, char *buffer){
 }
 
 uint32_t Hacer_Truncate(char *path, uint32_t nuevo_tamanio) {
-	uint32 nodo = exite_path_retornando_nodo(path);
+	uint32_t nodo = exite_path_retornando_nodo(path);
 	if(nodo == -1)
-		return -ENOENT
-	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = nuevo_tamanio
+		return -ENOENT;
+	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = nuevo_tamanio;
 	tabla_de_nodos->nodos[nodo].modificado=timestamp();
 	// LIBERAR/OCUPAR LOS ESPACIOS CORRESPONDIENTES EN TABLA DE NODOS
 	return 1;
