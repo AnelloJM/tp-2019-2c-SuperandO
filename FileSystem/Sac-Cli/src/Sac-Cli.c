@@ -67,71 +67,76 @@ void* enviarMiPathYRecibirResponse(t_log *logger, const char *path, int conexion
 	return pathRecibido;
 }
 
+uint32_t enviarMiPathYRecibirResponse_uint32(t_log *logger, const char *path, int conexion, f_operacion operacion) {
+	log_info(logger,path);
+	if(Fuse_PackAndSend(conexion, path, (strlen(path)+1) , operacion)){
+		log_info(logger, "se pudo enviar pack");
+	}
+	else{
+		log_error(logger, "no se pudo enviar pack");
+	}
+	HeaderFuse headerRecibido;
+	sem_wait(&mutex_buffer);
+	headerRecibido = Fuse_RecieveHeader(conexion);
+	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
+	void *pathRecibido= Fuse_ReceiveAndUnpack(conexion, tam);
+	sem_post(&mutex_buffer);
+	uint32_t response = Fuse_Unpack_Response_Uint32(pathRecibido);
+	free(pathRecibido);
+	return response;
+}
+
 static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	log_info(logger, "Se llamo a fusesito_getattr\n");
 	int res = 0;
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_GETATTR);
-	if(string_starts_with(response,"0"))
-		res = -ENOENT;
-	if(string_starts_with(response,"1")){
+	uint32_t response = enviarMiPathYRecibirResponse_uint32(logger, path, conexion, f_GETATTR);
+//	if(string_starts_with(response,"0"))
+//		res = -ENOENT;
+//	if(string_starts_with(response,"1")){
+//			stbuf->st_mode = S_IFREG | 0777;
+//	}
+//	if(string_starts_with(response,"2")){
+//			stbuf->st_mode = S_IFDIR | 0777;
+//	}
+	log_info(logger, "Me respondio: %i", response);
+	switch(response) {
+		case 0: ;
+			res = -ENOENT;
+			break;
+		case 1: ;
 			stbuf->st_mode = S_IFREG | 0777;
-	}
-	if(string_starts_with(response,"2")){
+			break;
+		case 2: ;
 			stbuf->st_mode = S_IFDIR | 0777;
+			break;
+		default:
+			log_error(logger, "No es un codigo conocido");
+			break;
 	}
 	stbuf->st_nlink = 1;
-	free(response);
 	return res;
-/*
-	//Continuo con lo que deberia hacer para que no cuelge, esto es solo para testear
-
-		memset(stbuf, 0, sizeof(struct stat));
-
-		//Si path es igual a "/" nos estan pidiendo los atributos del punto de montaje
-
-		if (strcmp(path, "/") == 0) {
-			stbuf->st_mode = S_IFDIR | 0755;
-			stbuf->st_nlink = 1;
-		} else if (strcmp(path, DEFAULT_FILE_PATH) == 0) {
-			stbuf->st_mode = S_IFREG | 0444;
-			stbuf->st_nlink = 1;
-			stbuf->st_size = strlen(DEFAULT_FILE_CONTENT);
-		} else {
-			res = -ENOENT;
-		}
-		static bool test = false;
-		if(test && strcmp(path, "/hola") == 0){
-		stbuf->st_mode = S_IFDIR | 0755;
-		stbuf->st_nlink = 1;
-		res = 0;
-		}
-		if(strcmp(path, "/hola"))
-			test = true;
-
-		return res;
-		*/
 }
 
 
 static int fusesito_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_readdir\n");
 	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_READDIR);
-	log_info(logger,"ACA: 1");
+
+	if(string_starts_with(response, "No existe el path"))
+		return -ENOENT;
+	if(string_starts_with(response,"No es un directorio"))
+		return -ENOTDIR;
+
 	if( !string_is_empty(response) ){
-		log_info(logger,"ACA: 2");
 		char **response_separada = string_split(response,"/");
-		log_info(logger,"ACA: 3");
 		uint32_t posicion_final = damePosicionFinalDoblePuntero(response_separada);
-		log_info(logger,"ACA: 4");
 		filler(buf, ".", NULL, 0);
-		log_info(logger,"ACA: 5");
 		filler(buf, "..", NULL, 0);
-		log_info(logger,"ACA: 6");
 		for(int i = 0; i<=posicion_final; i=i+1)
 			filler(buf, response_separada[i], NULL, 0);
-		log_info(logger,"ACA: 7");
 		liberarDoblePuntero(response_separada);
-		log_info(logger,"ACA: 8");
 	}
 	free(response);
 	return 0;
@@ -177,34 +182,21 @@ static int fusesito_write(const char *path, const char *buf, size_t size, off_t 
 }
 static int fusesito_mknod(const char *path, mode_t mode, dev_t dev){
 	log_info(logger, "Se llamo a fusesito_mknod\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_MKNOD);
-	free(response);
-	return 0;
+	uint32_t response = enviarMiPathYRecibirResponse_uint32(logger,path,conexion, f_MKNOD);
+	log_info(logger, "ME LLEGO %i", response);
+	return response;
 }
 static int fusesito_unlink(const char *path){
 	log_info(logger, "Se llamo a fusesito_unlink\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_UNLINK);
-	free(response);
-	return 0;
+	return enviarMiPathYRecibirResponse_uint32(logger, path, conexion, f_UNLINK);
 }
 static int fusesito_mkdir(const char *path, mode_t mode){
 	log_info(logger, "Se llamo a fusesito_mkdir\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_MKDIR);
-	bool result = string_starts_with(response,"Pude");
-	free(response);
-	if(result)
-	{
-		log_info(logger, "Se pudo hacer el mkdir");
-		return 0;
-	}
-	log_info(logger, "No se pudo hacer el mkdir");
-	return EPERM;
+	return enviarMiPathYRecibirResponse_uint32(logger, path, conexion, f_MKDIR);
 }
 static int fusesito_rmdir(const char *path){
 	log_info(logger, "Se llamo a fusesito_rmdir\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_RMDIR);
-	free(response);
-	return 0;
+	return enviarMiPathYRecibirResponse_uint32(logger, path, conexion, f_RMDIR);
 }
 static int fusesito_rename(const char *path, const char *buf){
 	log_info(logger, "Se llamo a fusesito_rename\n");
@@ -212,14 +204,22 @@ static int fusesito_rename(const char *path, const char *buf){
 	free(response);*/
 	if(!Fuse_PackAndSend_Rename(conexion, path, buf))
 		return -ENOENT;
-	return 0;
+	HeaderFuse headerRecibido;
+	sem_wait(&mutex_buffer);
+	headerRecibido = Fuse_RecieveHeader(conexion);
+	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
+	void *pathRecibido= Fuse_ReceiveAndUnpack(conexion, tam);
+	sem_post(&mutex_buffer);
+	uint32_t response = Fuse_Unpack_Response_Uint32(pathRecibido);
+	free(pathRecibido);
+	return response;
 }
 
 static int fusesito_truncate(const char *path, off_t offset){ 
 	log_info(logger, "Se llamo a fusesito_truncate\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_TRUNCATE);
-	free(response);
-	return 0; 
+	return enviarMiPathYRecibirResponse_uint32(logger, path, conexion, f_TRUNCATE);
 }
 
 static struct fuse_operations fusesito_oper = {
