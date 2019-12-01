@@ -113,10 +113,9 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	 * del los punteros
 	*/
 	uint32_t puntero_indirecto = cantida_de_bloque_desde_donde_comienzo % 1024;
-
-	Bloque_de_puntero *punteros_indirectos = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array];
+	uint32_t numero_de_bloque_de_puntero = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array];
+	Bloque_de_puntero *punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
 	ptrGBloque numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto];
-
 
 	//CUANTO LEER
 
@@ -124,10 +123,13 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	uint32_t faltante = size;
 
 	char *buffer = malloc(size);
+	buffer = "";
 	Bloque *bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 
 	if(faltante < lo_que_me_queda_despues_del_bloque){
-		memcpy(buffer, bloque_a_leer->bytes[desplazamiento] ,faltante);
+//		for(int i = 0; i < faltante; i = i + 1){
+			memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), faltante);
+//		}
 		return buffer;
 	}
 	memcpy(buffer, bloque_a_leer->bytes[desplazamiento], lo_que_me_queda_despues_del_bloque);
@@ -756,7 +758,7 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "Se ha creado un nuevo logger\n");
 
 	t_config *archivo_de_configuracion = config_create("../../Sac.config");
-	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
+	char *puerto = "6969";//config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
 
 	log_info(logger, "p: %s",puerto);
 	//Archivos:
@@ -774,18 +776,26 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-	/*crear_archivo_en_padre(0,"archivo");
-	uint32_t bloque_libre = buscar_espacio_en_bitmap();
-	tabla_de_nodos->nodos[1].array_de_punteros[0] = bloque_libre;
-	Bloque *algo = bloques_de_datos+bloque_libre;
-	for(int i = 0; i < 10; i = i+1){
-		algo->bytes[i] = 'a';
-	}
-	tabla_de_nodos->nodos[1].tamanio_del_archivo = 10*sizeof(char);
+	crear_archivo_en_padre(0,"archivo");
+	uint32_t numero_bloque_de_punteros = tabla_de_nodos->nodos[1].array_de_punteros[0];
+	Bloque_de_puntero *algo = inicio_de_disco + numero_bloque_de_punteros;
+	uint32_t numero_bloque = algo->bloques_de_datos[0];
+	Bloque *dato = inicio_de_disco+numero_bloque;
+	dato->bytes[0] = 'p';
+	dato->bytes[1] = 'u';
+	dato->bytes[2] = 'e';
+	dato->bytes[3] = 'r';
+	dato->bytes[4] = 't';
+	dato->bytes[5] = 'a';
+	dato->bytes[6] = '\0';
 
-	char *respuestaRead = Hacer_Read("/archivo", 11, 0);
+	tabla_de_nodos->nodos[1].tamanio_del_archivo = 6*sizeof(char);
+
+	char *respuestaRead = Hacer_Read("/archivo", 6, 0);
 	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
-*/
+	respuestaRead = Hacer_Read("/archivo", 3, 3);
+	log_error(logger, "lo que habia adentro desde 3: %s", respuestaRead);
+
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", puerto, logger);
 
