@@ -123,7 +123,7 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	uint32_t faltante = size;
 
 	char *buffer = malloc(size);
-	buffer = "";
+//	buffer = "";
 	Bloque *bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 
 	if(faltante < lo_que_me_queda_despues_del_bloque){
@@ -132,7 +132,7 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 //		}
 		return buffer;
 	}
-	memcpy(buffer, bloque_a_leer->bytes[desplazamiento], lo_que_me_queda_despues_del_bloque);
+	memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), lo_que_me_queda_despues_del_bloque);
 	faltante = faltante - lo_que_me_queda_despues_del_bloque;
 	offset = offset + lo_que_me_queda_despues_del_bloque;
 
@@ -167,7 +167,8 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 			offset = offset + sizeof(Bloque);
 		}
 		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + 1];
-		memcpy(buffer, bloque_a_leer,cantidad_dentro_que_falta_leer);
+		bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
+		memcpy(buffer, &(bloque_a_leer->bytes[0]),cantidad_dentro_que_falta_leer);
 		return buffer;
 	}
 
