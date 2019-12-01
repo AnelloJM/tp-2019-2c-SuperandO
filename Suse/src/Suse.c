@@ -164,22 +164,21 @@ void* suse_schedule_next(){
 		hilo_t* hiloAux = (hilo_t*) list_remove(aux,0);
 
 		bool comparador(hilo_t* unHilo, hilo_t* otroHilo){
-			return (unHilo->tid == otroHilo->tid);
+			return (strcmp(unHilo->tid,otroHilo->tid)== 0);
 		}
 		//Busco el indice en la cola de new comparando los TID, si lo encuentro, lo elimino de la cola de new y lo devuelvo
 		int indice = list_get_index(cola_new,hiloAux,(void*)comparador);
 		hilo_t* hiloAEjecutar = list_remove(cola_new,indice);
+		char* pidAux = hiloAEjecutar->pid;
+		//Busco el proceso y obtengo su cola de exec
+		//list_add(hiloAEjecutar,proceso->cola_exec);
+
 
 		return hiloAEjecutar;
 	}
 	log_info(logger, "La cola de new está vacia");
 	return 0;
 }
-//Este me va a llevar un hilo de new a ready?
-int dispatcher(hilo_t* hilo){
-	return 0;
-}
-
 hilo_t calcularEstimacion(hilo_t unHilo){
 	unHilo.rafagasEstimadas = (alpha_sjf * unHilo.estimacionAnterior + ((1 - alpha_sjf)*unHilo.rafagasEjecutadas));
 	return unHilo;
@@ -206,7 +205,7 @@ int list_get_index(t_list* self, void* elemento, bool(*comparador (void*, void*)
 //Verifica que el semaforo que se pasa por parametro tenga un ID que exista en la lista de IDs de semaforos
 int buscadorSemaforo (semaforo_t* semaforo){
 	for(int i = 0; i<=list_size(sems_ids); i++){
-		if (semaforo->semID == list_get(sems_ids,i)){
+		if (strcmp(semaforo->semID,list_get(sems_ids,i)) ==0){
 			return 0;
 		}
 		i++;
@@ -214,16 +213,18 @@ int buscadorSemaforo (semaforo_t* semaforo){
 	return -1;
 }
 
-int suse_wait(semaforo_t* semaforo){
+int suse_wait(semaforo_t* semaforo,char*tid){
 	if(buscadorSemaforo(semaforo) == 0){
 		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
 		semaforo_t* semAUsar = list_get(semaforos,indice);
 		if (semAUsar->semActual == 0){
-			//no estoy seguro si hay que bloquearlo o dejarlo en 0
 			semAUsar->semActual--;
 			log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
 			log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
 			log_info(logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
+			//Tengo que buscar el proceso asociado al tid
+			//hilo_t * hiloBuscado = list_remove(proceso->cola_ready,0);
+			//list_add(semaforo->hilosEnEspera, hiloBuscado);
 			return -1;
 		}
 		semaforo->semActual--;
@@ -254,6 +255,9 @@ int suse_signal(semaforo_t* semaforo){
 		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
 		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
 		log_info(logger,"%d","Contador actual:", semAUsar->semActual);
+		//Tengo que buscar el proceso asociado al tid
+		hilo_t * hiloDesbloqueado = list_remove(semaforo->hilosEnEspera,0);
+		//list_add(hiloDesbloqueado,proceso->cola_ready);
 		return 0;
 	}
 	log_info(logger, "El semaforo no fue encontrado");
@@ -275,7 +279,9 @@ int suse_signal(semaforo_t* semaforo){
 */
 
 //Funcion que crea las colas ready segun el grado de multiprogramacion
-void suse_close(){
-
+void suse_close(char*tid){
+	//Tengo que buscar el proceso asociado al tid
+	//hilo_t *hiloAFinalizar = list_remove(proceso->cola_exec,0);
+	//list_add(cola_exit, hiloAfinalizar);
 }
 //Close recibe un int TID, y mandas el thread ese a Exit
