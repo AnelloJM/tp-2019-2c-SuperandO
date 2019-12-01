@@ -29,6 +29,14 @@ bool Fuse_PackAndSend(int socketCliente, const void *path, uint32_t tamPath, f_o
 	return resultado;
 }
 
+bool Fuse_PackAndSend_Uint32_Response(int socketCliente, uint32_t response){
+	void* pack = malloc(sizeof(uint32_t));
+	memcpy(pack, &response, sizeof(uint32_t));
+	int resultado = Fuse_PackAndSend(socketCliente, pack, sizeof(uint32_t), f_RESPONSE);
+	free(pack);
+	return resultado;
+}
+
 bool Fuse_PackAndSend_Write(int socketCliente,const char *path, const char *buf, size_t size, off_t offset) {
 	uint32_t tamMessage = strlen(path) + strlen(buf) + 2 + sizeof(size_t) + sizeof(off_t);
 	uint32_t tamBuf = (strlen(buf) +1);
@@ -135,6 +143,12 @@ void* Fuse_ReceiveAndUnpack(int socketCliente, uint32_t tamanio) {
 //////////////////////////////////
 // FUNCIONES PARA DESEMPAQUETAR //
 /////////////////////////////////
+
+uint32_t Fuse_Unpack_Response_Uint32(void *pack) {
+	uint32_t response = 0;
+	memcpy(&response, pack, sizeof(uint32_t));
+	return response;
+}
 
 char* Fuse_Unpack_Path(void *buffer) {
 	uint32_t tamPath = 0;

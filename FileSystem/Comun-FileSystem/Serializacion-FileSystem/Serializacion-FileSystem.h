@@ -67,6 +67,12 @@ typedef struct {
 bool Fuse_PackAndSend(int socketCliente, const void*path, uint32_t tamPath, f_operacion operacion);
 
 /**
+* ESTA FUNCION ENVIA UNA RESPONSE INT DEL SERVER AL CLI
+*/
+
+bool Fuse_PackAndSend_Uint32_Response(int socketCliente, uint32_t response);
+
+/**
 * ESTA FUNCION ENVIA UN PAQUETE DEL TIPO WRITE A TRAVES DEL SOCKET ESPECIFICADO
 */
 
@@ -120,6 +126,13 @@ void* Fuse_ReceiveAndUnpack(int socketCliente, uint32_t tamanioChar);
 // FUNCIONES PARA DESEMPAQUETAR //
 /////////////////////////////////
 
+/**
+* ESTA FUNCION SE USA SOLO EN CASO DE QUERER
+* RECIBIR UN UINT32 DE UN PAQUETE ENVIADO POR
+* EL SERVIDOR
+*/
+
+uint32_t Fuse_Unpack_Response_Uint32(void *pack);
 
 /**
 * ESTA FUNCION SE USA SOLO EN CASO DE QUERER

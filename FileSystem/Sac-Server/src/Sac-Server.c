@@ -204,13 +204,13 @@ uint32_t Hacer_MKNod(char *path){
 		if(nodo == -1){
 			log_error(logger, "No pude hacer mkdir");
 			log_error(logger, "El padre fue: %s", padre);
-			return -1;
+			return -EFAULT;
 		}
 	}
 
 	crear_archivo_en_padre(nodo,path_separado[posicion_final]);
 	liberarDoblePuntero(path_separado);
-	return 1;
+	return 0;
 }
 
 uint32_t Hacer_Unlink(char *path){
@@ -248,13 +248,13 @@ uint32_t Hacer_MKDir(char *path){
 		if(nodo == -1){
 			log_error(logger, "No pude hacer mkdir");
 			log_error(logger, "El padre fue: %s", padre);
-			return -1;
+			return -ENOENT;
 		}
 	}
 
 	crear_directorio_en_padre(nodo,path_separado[posicion_final]);
 	liberarDoblePuntero(path_separado);
-	return 1;
+	return 0;
 }
 
 void limpiar_nodo(uint32_t nodo){
@@ -324,7 +324,7 @@ uint32_t Hacer_Rename(char *path, char *buffer){
 	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, "\0", 70);
 	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, buffer_separado[posicion_final], 70);
 	tabla_de_nodos->nodos[nodo].modificado=timestamp();
-	return 1;
+	return 0;
 }
 
 uint32_t Hacer_Truncate(char *path, uint32_t nuevo_tamanio) {
@@ -336,7 +336,7 @@ uint32_t Hacer_Truncate(char *path, uint32_t nuevo_tamanio) {
 	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = nuevo_tamanio;
 	tabla_de_nodos->nodos[nodo].modificado=timestamp();
 	// LIBERAR/OCUPAR LOS ESPACIOS CORRESPONDIENTES EN TABLA DE NODOS
-	return 1;
+	return 0;
 
 }
 
@@ -357,18 +357,8 @@ void* funcionMagica(int cliente){
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathGetAttr)+1);
 				log_error(logger, pathGetAttr);
 				uint32_t getattr = Hacer_Getattr(pathGetAttr);
-				char *respuesta = malloc(strlen("0")+1);
-				if(getattr == 0){
-					strcpy(respuesta, "0");
-				}else {
-					if(getattr == 1){
-						strcpy(respuesta, "1");
-					}else{
-						strcpy(respuesta, "2");
-					}
-				}
-				Fuse_PackAndSend(cliente, (void*)respuesta, strlen(respuesta)+1, f_RESPONSE);
-				free(respuesta);
+				log_info(logger, "LE VOY A MANDAR: %i", getattr);
+				Fuse_PackAndSend_Uint32_Response(cliente, getattr);
 				free(pathGetAttr);
 				break;
 
@@ -424,8 +414,10 @@ void* funcionMagica(int cliente){
 				char *pathMKNod = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathMKNod)+1);
 				log_error(logger, pathMKNod);
-				Hacer_MKNod(pathMKNod);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi MKNOD"), strlen("Hola, recibi MKNOD")+1, f_RESPONSE);
+				uint32_t respuestaMKNOD = Hacer_MKNod(pathMKNod);
+				log_info(logger, "LE VOY A MANDAR %i", respuestaMKNOD);
+				Fuse_PackAndSend_Uint32_Response(cliente, respuestaMKNOD);
+//				Fuse_PackAndSend(cliente, respuestaMKNOD, sizeof(respuestaMKNOD), f_RESPONSE);
 				free(pathMKNod);
 				break;
 
@@ -433,8 +425,9 @@ void* funcionMagica(int cliente){
 				char *pathUnlink = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUnlink)+1);
 				log_error(logger, pathUnlink);
-				Hacer_Unlink(pathUnlink);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi UNLINK"), strlen("Hola, recibi UNLINK")+1, f_RESPONSE);
+				uint32_t responseUnlink = Hacer_Unlink(pathUnlink);
+				log_info(logger, "LE VOY A MANDAR: %i", responseUnlink);
+				Fuse_PackAndSend_Uint32_Response(cliente, responseUnlink);
 				free(pathUnlink);
 				break;
 
@@ -442,10 +435,13 @@ void* funcionMagica(int cliente){
 				char *pathMKDir = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathMKDir)+1);
 				log_error(logger, pathMKDir);
-				if(Hacer_MKDir(pathMKDir))
-					Fuse_PackAndSend(cliente, "Pude", strlen("pude")+1, f_RESPONSE);
-				else
-					Fuse_PackAndSend(cliente, "No pude", strlen("No pude")+1, f_RESPONSE);
+				uint32_t responseMKDIR = Hacer_MKDir(pathMKDir);
+				log_info(logger, "LE VOY A MANDAR: %i", responseMKDIR);
+				Fuse_PackAndSend_Uint32_Response(cliente, responseMKDIR);
+//				if(Hacer_MKDir(pathMKDir))
+//					Fuse_PackAndSend(cliente, "Pude", strlen("pude")+1, f_RESPONSE);
+//				else
+//					Fuse_PackAndSend(cliente, "No pude", strlen("No pude")+1, f_RESPONSE);
 				free(pathMKDir);
 				break;
 
@@ -453,8 +449,9 @@ void* funcionMagica(int cliente){
 				char *pathRMDir = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRMDir)+1);
 				log_error(logger, pathRMDir);
-				uint32_t response = Hacer_RMDir(pathRMDir);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi RMDIR"), strlen("Hola, recibi RMDIR")+1, f_RESPONSE);
+				uint32_t responseRMDir = Hacer_RMDir(pathRMDir);
+				log_info(logger, "LE VOY A MANDAR: %i", responseRMDir);
+				Fuse_PackAndSend_Uint32_Response(cliente, responseRMDir);
 				free(pathRMDir);
 				break;
 
@@ -465,8 +462,9 @@ void* funcionMagica(int cliente){
 				free(packRename);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRename)+1);
 				log_error(logger, pathRename);
-				Hacer_Rename(pathRename, nuevo_nombre);
-				//Fuse_PackAndSend(cliente, strdup("Hola, recibi RENAME"), strlen("Hola, recibi RENAME")+1, f_RESPONSE);
+				uint32_t responseRename = Hacer_Rename(pathRename, nuevo_nombre);
+				log_info(logger, "LE VOY A MANDAR: %i", responseRename);
+				Fuse_PackAndSend_Uint32_Response(cliente, responseRename);
 				free(pathRename);
 				free(nuevo_nombre);
 				break;
@@ -479,7 +477,8 @@ void* funcionMagica(int cliente){
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathTruncate)+1);
 				log_error(logger, pathTruncate);
 				uint32_t resultadoDeTruncar = Hacer_Truncate(pathTruncate, nuevo_tamanio);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi TRUNCATE"), strlen("Hola, recibi TRUNCATE")+1, f_RESPONSE);
+				log_info(logger, "LE VOY A MANDAR: %i", resultadoDeTruncar);
+				Fuse_PackAndSend_Uint32_Response(cliente, resultadoDeTruncar);
 				free(pathTruncate);
 				break;
 
