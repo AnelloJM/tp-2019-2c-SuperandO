@@ -116,6 +116,7 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	uint32_t numero_de_bloque_de_puntero = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array];
 	Bloque_de_puntero *punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
 	ptrGBloque numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto];
+	Bloque *bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 
 	//CUANTO LEER
 
@@ -124,7 +125,6 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 
 	char *buffer;
 //	buffer = "";
-	Bloque *bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 
 	if(faltante < lo_que_me_queda_despues_del_bloque){
 		buffer = &(bloque_a_leer->bytes[desplazamiento]);
@@ -180,7 +180,99 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 
 uint32_t Hacer_Release(char *path){ return 0; }
 
-uint32_t Hacer_Write(char *path, char *buffer){ return 0; } 
+uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
+	uint32_t tamanio_a_escribir = strlen(buffer)+1 -ya_escrito_del_buffer;
+	uint32_t nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+		return -1;
+
+	uint32_t ya_escrito = tabla_de_nodos->nodos[nodo].tamanio_del_archivo;
+
+	//DONDE EMPEZAR
+	/*
+	 * Es entera porque me da la cantidad de
+	 * bloques de datos desde donde comienzo
+	*/
+	uint32_t cantida_de_bloque_desde_donde_comienzo = ya_escrito / sizeof(Bloque);
+
+	/*
+	 * Es resto porque me da la cantidad que
+	 * debo moverme desde el comienzo del bloque
+	*/
+	uint32_t desplazamiento = ya_escrito % sizeof(Bloque);
+
+	/*
+	 * por que cada poscion del array
+	 * hace referencia a 1024 bloques
+	*/
+	uint32_t poscion_en_array = cantida_de_bloque_desde_donde_comienzo / 1024;
+
+	/*
+	 * falta para llegar dentro
+	 * del los punteros
+	*/
+	uint32_t puntero_indirecto = cantida_de_bloque_desde_donde_comienzo % 1024;
+	uint32_t numero_de_bloque_de_puntero = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array];
+	Bloque_de_puntero *punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
+	ptrGBloque numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto];
+	Bloque *bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+
+
+	uint32_t espacio_que_tengo_libre_en_bloque = sizeof(Bloque) - ya_escrito;
+
+	if(tamanio_a_escribir < espacio_que_tengo_libre_en_bloque){
+		memcpy(&(bloque_a_escribir->bytes[desplazamiento]), buffer + ya_escrito_del_buffer, tamanio_a_escribir);
+		ya_escrito_del_buffer = ya_escrito_del_buffer + tamanio_a_escribir;
+		return 0;
+	}
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	memcpy(&(bloque_a_escribir->bytes[desplazamiento]), buffer  + ya_escrito_del_buffer , espacio_que_tengo_libre_en_bloque);
+	ya_escrito_del_buffer = ya_escrito_del_buffer + espacio_que_tengo_libre_en_bloque;
+	tamanio_a_escribir = tamanio_a_escribir - espacio_que_tengo_libre_en_bloque;
+	ya_escrito = ya_escrito + espacio_que_tengo_libre_en_bloque;
+
+	/*
+	 * Los bloques que me faltan leer,
+	 * entera para que si en menos de uno de cero
+	*/
+	uint32_t cantidad_bloques_a_escribir_que_me_faltan = tamanio_a_escribir / sizeof(Bloque);
+
+	/*
+	 * Desplazamiento dentro del ultimo bloque que me faltan leer,
+	 * resto para que me de el
+	*/
+	uint32_t cantidad_dentro_que_falta_escribir = tamanio_a_escribir % sizeof(Bloque);
+
+	uint32_t lo_que_me_queda_despues_de_los_punteros = 1024 - puntero_indirecto;
+
+	if(lo_que_me_queda_despues_de_los_punteros < cantidad_bloques_a_escribir_que_me_faltan){
+		for(int i = 0; i < lo_que_me_queda_despues_de_los_punteros;i = i+1){
+			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
+			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+			memcpy(bloque_a_escribir, buffer  + ya_escrito_del_buffer,sizeof(Bloque));
+			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
+			tamanio_a_escribir = tamanio_a_escribir + sizeof(Bloque);
+			ya_escrito = ya_escrito + sizeof(Bloque);
+		}
+	}else{
+		for(int i = 0; i < cantidad_bloques_a_escribir_que_me_faltan-1;i = i+1){
+			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
+			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+			memcpy(bloque_a_escribir, buffer  + ya_escrito_del_buffer,sizeof(Bloque));
+			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
+			tamanio_a_escribir = tamanio_a_escribir + sizeof(Bloque);
+			ya_escrito = ya_escrito + sizeof(Bloque);
+		}
+		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + 1];
+		bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+		memcpy(&(bloque_a_escribir->bytes[0]), buffer  + ya_escrito_del_buffer, cantidad_dentro_que_falta_escribir);
+
+		ya_escrito_del_buffer = ya_escrito_del_buffer + cantidad_dentro_que_falta_escribir;
+		return 0;
+	}
+
+	return Hacer_Write(path, buffer, ya_escrito_del_buffer);
+}
 
 uint32_t Hacer_MKNod(char *path){
 	if( exite_path_retornando_nodo(path) != -1){
@@ -404,7 +496,8 @@ void* funcionMagica(int cliente){
 				char *pathWrite = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathWrite)+1);
 				log_error(logger, pathWrite);
-				//Hacer_Write(pathWrite, escritura);
+				char * escritura;
+				Hacer_Write(pathWrite, escritura, 0);
 				Fuse_PackAndSend(cliente, strdup("Hola, recibi WRITE"), strlen("Hola, recibi WRITE")+1, f_RESPONSE);
 				free(pathWrite);
 				break;
@@ -775,7 +868,7 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
 	crear_archivo_en_padre(0,"archivo");
-	uint32_t numero_bloque_de_punteros = tabla_de_nodos->nodos[1].array_de_punteros[0];
+	/*uint32_t numero_bloque_de_punteros = tabla_de_nodos->nodos[1].array_de_punteros[0];
 	Bloque_de_puntero *algo = inicio_de_disco + numero_bloque_de_punteros;
 	uint32_t bloque_de_prueba = buscar_espacio_en_bitmap();
 	algo->bloques_de_datos[1] = bloque_de_prueba;
@@ -795,6 +888,8 @@ int main(int argc, char *argv[]) {
 	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
 	respuestaRead = Hacer_Read("/archivo", 3, 4099);
 	log_error(logger, "lo que habia adentro desde 3: %s", respuestaRead);
+*/
+	Hacer_Write("archivo", "Probando el write", 0);
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", puerto, logger);
