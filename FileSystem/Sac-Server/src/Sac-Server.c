@@ -122,14 +122,12 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	uint32_t lo_que_me_queda_despues_del_bloque = sizeof(Bloque) - desplazamiento;
 	uint32_t faltante = size;
 
-	char *buffer = malloc(size);
+	char *buffer;
 //	buffer = "";
 	Bloque *bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 
 	if(faltante < lo_que_me_queda_despues_del_bloque){
-//		for(int i = 0; i < faltante; i = i + 1){
-			memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), faltante);
-//		}
+		buffer = &(bloque_a_leer->bytes[desplazamiento]);
 		return buffer;
 	}
 	memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), lo_que_me_queda_despues_del_bloque);
@@ -779,21 +777,23 @@ int main(int argc, char *argv[]) {
 	crear_archivo_en_padre(0,"archivo");
 	uint32_t numero_bloque_de_punteros = tabla_de_nodos->nodos[1].array_de_punteros[0];
 	Bloque_de_puntero *algo = inicio_de_disco + numero_bloque_de_punteros;
-	uint32_t numero_bloque = algo->bloques_de_datos[0];
-	Bloque *dato = inicio_de_disco+numero_bloque;
+	uint32_t bloque_de_prueba = buscar_espacio_en_bitmap();
+	algo->bloques_de_datos[1] = bloque_de_prueba;
+	bitarray_set_bit(tBitarray, bloque_de_prueba);
+	uint32_t numero_bloque = algo->bloques_de_datos[1];
+	Bloque *dato = inicio_de_disco + numero_bloque;
 	dato->bytes[0] = 'p';
 	dato->bytes[1] = 'u';
 	dato->bytes[2] = 'e';
 	dato->bytes[3] = 'r';
 	dato->bytes[4] = 't';
 	dato->bytes[5] = 'a';
-	dato->bytes[6] = '\0';
 
-	tabla_de_nodos->nodos[1].tamanio_del_archivo = 6*sizeof(char);
+	tabla_de_nodos->nodos[1].tamanio_del_archivo = 5*sizeof(char);
 
-	char *respuestaRead = Hacer_Read("/archivo", 6, 0);
+	char *respuestaRead = Hacer_Read("/archivo", 5, 4096);
 	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
-	respuestaRead = Hacer_Read("/archivo", 3, 3);
+	respuestaRead = Hacer_Read("/archivo", 3, 4099);
 	log_error(logger, "lo que habia adentro desde 3: %s", respuestaRead);
 
 	int cliente;
