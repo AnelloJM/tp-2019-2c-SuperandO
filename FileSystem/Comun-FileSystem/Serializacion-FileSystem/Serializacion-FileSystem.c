@@ -38,7 +38,7 @@ bool Fuse_PackAndSend_Uint32_Response(int socketCliente, uint32_t response){
 }
 
 bool Fuse_PackAndSend_Write(int socketCliente,const char *path, const char *buf, size_t size, off_t offset) {
-	uint32_t tamMessage = strlen(path) + strlen(buf) + 2 + sizeof(size_t) + sizeof(off_t);
+	uint32_t tamMessage = strlen(path) + strlen(buf) + 2 + sizeof(size_t) + sizeof(off_t) + (2*sizeof(uint32_t));
 	uint32_t tamBuf = (strlen(buf) +1);
 	uint32_t tamPath = strlen(path) + 1;
 	void* buffer = malloc ( tamMessage );
@@ -50,7 +50,7 @@ bool Fuse_PackAndSend_Write(int socketCliente,const char *path, const char *buf,
 	memcpy(buffer + desplazamiento, &tamBuf, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer + desplazamiento, buf, tamBuf);
-	desplazamiento += (strlen(buf)+1);
+	desplazamiento += tamBuf;
 	memcpy(buffer + desplazamiento , &size, sizeof(size_t));
 	desplazamiento += sizeof(size_t);
 	memcpy(buffer + desplazamiento, &offset, sizeof(off_t));
@@ -60,7 +60,7 @@ bool Fuse_PackAndSend_Write(int socketCliente,const char *path, const char *buf,
 }
 
 bool Fuse_PackAndSend_Read(int socketCliente,const char *path, size_t size, off_t offset) {
-	uint32_t tamMessage = strlen(path) +  1 +  sizeof(off_t) + sizeof(size_t);
+	uint32_t tamMessage = strlen(path) +  1 +  sizeof(off_t) + sizeof(size_t) + sizeof(uint32_t);
 	uint32_t tamPath = strlen(path) + 1;
 	void* buffer = malloc ( tamMessage );
 	int desplazamiento = 0;
@@ -97,7 +97,7 @@ bool Fuse_PackAndSend_Rename(int socketCliente, const void *path, const char *no
 }
 
 bool Fuse_PackAndSend_Truncate(int socketCliente, const void *path, off_t offset) {
-	uint32_t tamMessage = strlen(path) +  1 +  sizeof(off_t);
+	uint32_t tamMessage = strlen(path) + 1 + sizeof(uint32_t) + sizeof(off_t);
 	uint32_t tamPath = strlen(path) + 1;
 	void* buffer = malloc ( tamMessage );
 	int desplazamiento = 0;
@@ -106,7 +106,7 @@ bool Fuse_PackAndSend_Truncate(int socketCliente, const void *path, off_t offset
 	memcpy(buffer + desplazamiento, path, tamPath);
 	desplazamiento += tamPath;
 	memcpy(buffer + desplazamiento, &offset, sizeof(off_t));
-	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_READ);
+	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_TRUNCATE);
 	free(buffer);
 	return resultado;
 }

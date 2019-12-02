@@ -85,9 +85,18 @@ uint32_t Hacer_Open(char *path){ return 0; }
 
 char *Hacer_Read(char *path, size_t size, off_t offset){
 	uint32_t nodo = exite_path_retornando_nodo(path);
+	char *buffer;
 	if(nodo == -1)
 		return "-1";
+	uint32_t tamanio_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo;
+	if(tamanio_archivo < size) {
+		uint32_t sizeResponse = strlen("Lectura invalida")+1;
+		buffer = malloc(sizeResponse);
+		memcpy(buffer, "Lectura invalida", sizeResponse);
+		return buffer;
+	} //COMENTAR ESTO PARA PROBARLO
 
+	buffer = malloc(size);
 	//DONDE EMPEZAR
 
 	/*
@@ -123,14 +132,17 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	uint32_t lo_que_me_queda_despues_del_bloque = sizeof(Bloque) - desplazamiento;
 	uint32_t faltante = size;
 
-	char *buffer;
-//	buffer = "";
-
 	if(faltante < lo_que_me_queda_despues_del_bloque){
 		buffer = &(bloque_a_leer->bytes[desplazamiento]);
 		return buffer;
 	}
-	memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), lo_que_me_queda_despues_del_bloque);
+
+
+	//ESTO ESTABA ASI, PERO ME HACE RUIDO, SEGURO QUE ES BYTES[DESPLAZAMIENTO] ????????????????
+	//memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), lo_que_me_queda_despues_del_bloque);
+	//PARA MI ESTO DEBERIA IR ASI
+	memcpy(buffer, &(bloque_a_leer->bytes[offset]), lo_que_me_queda_despues_del_bloque);
+
 	faltante = faltante - lo_que_me_queda_despues_del_bloque;
 	offset = offset + lo_que_me_queda_despues_del_bloque;
 
@@ -147,31 +159,33 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	uint32_t cantidad_dentro_que_falta_leer = faltante % sizeof(Bloque);
 
 	uint32_t lo_que_me_queda_despues_de_los_punteros = 1024 - puntero_indirecto;
-
+	uint32_t movimiento_en_buffer = lo_que_me_queda_despues_del_bloque;
 	if(lo_que_me_queda_despues_de_los_punteros < cantidad_bloques_a_leer_que_me_faltan){
 		for(int i = 0; i < lo_que_me_queda_despues_de_los_punteros;i = i+1){
 			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
 			bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
-			memcpy(buffer, bloque_a_leer ,sizeof(Bloque));
+			memcpy(buffer+movimiento_en_buffer, &(bloque_a_leer->bytes[0]) ,sizeof(Bloque));
 			faltante = faltante - sizeof(Bloque);
 			offset = offset + sizeof(Bloque);
+			movimiento_en_buffer = movimiento_en_buffer + sizeof(Bloque);
 		}
 	}else{
 		for(int i = 0; i < cantidad_bloques_a_leer_que_me_faltan-1;i = i+1){
 			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
 			bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
-			memcpy(buffer, bloque_a_leer ,sizeof(Bloque));
+			memcpy(buffer+movimiento_en_buffer, &(bloque_a_leer->bytes[0]) ,sizeof(Bloque));
 			faltante = faltante - sizeof(Bloque);
 			offset = offset + sizeof(Bloque);
+			movimiento_en_buffer = movimiento_en_buffer + sizeof(Bloque);
 		}
 		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + 1];
 		bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
-		memcpy(buffer, &(bloque_a_leer->bytes[0]),cantidad_dentro_que_falta_leer);
+		memcpy(buffer+movimiento_en_buffer, &(bloque_a_leer->bytes[desplazamiento]),cantidad_dentro_que_falta_leer);
 		return buffer;
 	}
 
 	char *recursivo = Hacer_Read(path, faltante, offset);
-	memcpy(buffer, recursivo,faltante);
+	memcpy(buffer+movimiento_en_buffer, recursivo,faltante);
 	free(recursivo);
 
 	return buffer;
@@ -465,12 +479,16 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_READ: ;
-				char *pathRead = Fuse_ReceiveAndUnpack(cliente, tam);
+				void *packRead = Fuse_ReceiveAndUnpack(cliente, tam);
+				char *pathRead = Fuse_Unpack_Path(packRead);
+				size_t sizeRead = Fuse_Unpack_Read_size(packRead);
+				off_t offsetRead = Fuse_Unpack_Read_offset(packRead);
+				free(packRead);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRead)+1);
 				log_error(logger, pathRead);
-				char *respuestaRead = Hacer_Read(pathRead, 10, 0);
+				char *respuestaRead = Hacer_Read(pathRead, sizeRead, offsetRead);
 				log_error(logger, "lo que habia adentro es: %s", respuestaRead);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi READ"), strlen("Hola, recibi READ")+1, f_RESPONSE);
+				Fuse_PackAndSend(cliente, respuestaRead, strlen(respuestaRead)+1, f_RESPONSE);
 				free(pathRead);
 				free(respuestaRead);
 				break;
@@ -497,8 +515,8 @@ void* funcionMagica(int cliente){
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathWrite)+1);
 				log_error(logger, pathWrite);
 				char * escritura;
-				Hacer_Write(pathWrite, escritura, 0);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi WRITE"), strlen("Hola, recibi WRITE")+1, f_RESPONSE);
+				uint32_t responseWrite = Hacer_Write(pathWrite, escritura, 0);
+				Fuse_PackAndSend_Uint32_Response(cliente, responseWrite);
 				free(pathWrite);
 				break;
 
@@ -564,7 +582,7 @@ void* funcionMagica(int cliente){
 			case f_TRUNCATE: ;
 				void *packTruncate = Fuse_ReceiveAndUnpack(cliente,tam);
 				char *pathTruncate = Fuse_Unpack_Path(packTruncate);
-				uint32_t nuevo_tamanio; Fuse_Unpack_Truncate_offset(packTruncate);
+				uint32_t nuevo_tamanio = Fuse_Unpack_Truncate_offset(packTruncate);
 				free(packTruncate);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathTruncate)+1);
 				log_error(logger, pathTruncate);
@@ -849,7 +867,7 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "Se ha creado un nuevo logger\n");
 
 	t_config *archivo_de_configuracion = config_create("../../Sac.config");
-	char *puerto = "6969";//config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
+	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
 
 	log_info(logger, "p: %s",puerto);
 	//Archivos:
@@ -867,8 +885,8 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-	crear_archivo_en_padre(0,"archivo");
-	/*uint32_t numero_bloque_de_punteros = tabla_de_nodos->nodos[1].array_de_punteros[0];
+	crear_archivo_en_padre(0,"archivo"); /*
+	int32_t numero_bloque_de_punteros = tabla_de_nodos->nodos[1].array_de_punteros[0];
 	Bloque_de_puntero *algo = inicio_de_disco + numero_bloque_de_punteros;
 	uint32_t bloque_de_prueba = buscar_espacio_en_bitmap();
 	algo->bloques_de_datos[1] = bloque_de_prueba;
@@ -889,7 +907,10 @@ int main(int argc, char *argv[]) {
 	respuestaRead = Hacer_Read("/archivo", 3, 4099);
 	log_error(logger, "lo que habia adentro desde 3: %s", respuestaRead);
 */
-	Hacer_Write("archivo", "Probando el write", 0);
+	Hacer_Write("/archivo", "Hola esto es una prueba", 0);
+	char *respuestaRead = Hacer_Read("/archivo", 100, 4000);
+	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
+	free(respuestaRead);
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", puerto, logger);

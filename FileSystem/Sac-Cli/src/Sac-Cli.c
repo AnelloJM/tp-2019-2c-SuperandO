@@ -65,6 +65,7 @@ void* enviarMiPathYRecibirResponse(t_log *logger, const char *path, int conexion
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(pathRecibido)+1);
 	log_error(logger, pathRecibido);
 	return pathRecibido;
+
 }
 
 uint32_t enviarMiPathYRecibirResponse_uint32(t_log *logger, const char *path, int conexion, f_operacion operacion) {
@@ -151,21 +152,41 @@ static int fusesito_open(const char *path, struct fuse_file_info *fi) {
 static int fusesito_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_read\n");
 
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_READ);
+//	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_READ);
+//	free(response);
+
+	Fuse_PackAndSend_Read(conexion,path,size,offset);
+	HeaderFuse headerRecibido;
+	sem_wait(&mutex_buffer);
+	headerRecibido = Fuse_RecieveHeader(conexion);
+	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
+	char *response= Fuse_ReceiveAndUnpack(conexion, tam);
+	sem_post(&mutex_buffer);
+	log_error(logger,"tamanio del path que recibe: %i \0", strlen(response)+1);
+	log_error(logger, response);
+
+	/*
+	 if(error) return error
+	 else return 0;
+	 (basandome en la response)
+	 */
+
 	free(response);
-
-	size_t len;
-	(void) fi;
-	if (strcmp(path, DEFAULT_FILE_PATH) != 0)
-		return -ENOENT;
-
-	len = strlen(DEFAULT_FILE_CONTENT);
-	if (offset < len) {
-		if (offset + size > len)
-			size = len - offset;
-		memcpy(buf, DEFAULT_FILE_CONTENT + offset, size);
-	} else
-		size = 0;
+//
+//	size_t len;
+//	(void) fi;
+//	if (strcmp(path, DEFAULT_FILE_PATH) != 0)
+//		return -ENOENT;
+//
+//	len = strlen(DEFAULT_FILE_CONTENT);
+//	if (offset < len) {
+//		if (offset + size > len)
+//			size = len - offset;
+//		memcpy(buf, DEFAULT_FILE_CONTENT + offset, size);
+//	} else
+//		size = 0;
 
 	return size;
 }
@@ -176,8 +197,19 @@ static int fusesito_release(const char *path, struct fuse_file_info *fi){
 }
 static int fusesito_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
 	log_info(logger, "Se llamo a fusesito_write\n");
-	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_WRITE);
-	free(response);
+//	log_info(logger, "Voy a enviar: %s", buf);
+//	Fuse_PackAndSend_Write(conexion,path,buf,size,offset);
+//	HeaderFuse headerRecibido;
+//	sem_wait(&mutex_buffer);
+//	headerRecibido = Fuse_RecieveHeader(conexion);
+//	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+//	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+//	uint32_t tam = headerRecibido.tamanioMensaje;
+//	void *pathRecibido= Fuse_ReceiveAndUnpack(conexion, tam);
+//	sem_post(&mutex_buffer);
+//	uint32_t response = Fuse_Unpack_Response_Uint32(pathRecibido);
+//	free(pathRecibido);
+//	return response;
 	return 0;
 }
 static int fusesito_mknod(const char *path, mode_t mode, dev_t dev){
@@ -219,7 +251,20 @@ static int fusesito_rename(const char *path, const char *buf){
 
 static int fusesito_truncate(const char *path, off_t offset){ 
 	log_info(logger, "Se llamo a fusesito_truncate\n");
-	return enviarMiPathYRecibirResponse_uint32(logger, path, conexion, f_TRUNCATE);
+	if(!Fuse_PackAndSend_Truncate(conexion,path,offset))
+			return -ENOENT;
+	HeaderFuse headerRecibido;
+	sem_wait(&mutex_buffer);
+	headerRecibido = Fuse_RecieveHeader(conexion);
+	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
+	void *pathRecibido= Fuse_ReceiveAndUnpack(conexion, tam);
+	sem_post(&mutex_buffer);
+	uint32_t response = Fuse_Unpack_Response_Uint32(pathRecibido);
+	free(pathRecibido);
+	return response;
+
 }
 
 static struct fuse_operations fusesito_oper = {
