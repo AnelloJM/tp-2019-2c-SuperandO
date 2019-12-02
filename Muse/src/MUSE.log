@@ -37,3 +37,329 @@
 [INFO] 02:40:14:323 MUSE/(25364:25364): swap size ->  1024
 [INFO] 02:40:14:323 MUSE/(25364:25364): --------------
 
+[INFO] 12:01:51:361 MUSE/(3445:3445): El logger se creo con exito
+[INFO] 12:01:51:361 MUSE/(3445:3445): La configuracion fue cargada exitosamente
+[INFO] 12:01:51:361 MUSE/(3445:3445): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:01:51:361 MUSE/(3445:3445): ID ->  14
+[INFO] 12:01:51:361 MUSE/(3445:3445): IP ->  127.0.0.1
+[INFO] 12:01:51:361 MUSE/(3445:3445): Puerto ->  5003
+[INFO] 12:01:51:361 MUSE/(3445:3445): memory size ->  4096
+[INFO] 12:01:51:362 MUSE/(3445:3445): page size ->  32
+[INFO] 12:01:51:362 MUSE/(3445:3445): swap size ->  1024
+[INFO] 12:01:51:362 MUSE/(3445:3445): --------------
+
+[INFO] 12:33:18:41 MUSE/(3885:3885): El logger se creo con exito
+[INFO] 12:33:18:42 MUSE/(3885:3885): La configuracion fue cargada exitosamente
+[INFO] 12:33:18:42 MUSE/(3885:3885): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:33:18:42 MUSE/(3885:3885): ID ->  14
+[INFO] 12:33:18:42 MUSE/(3885:3885): IP ->  127.0.0.1
+[INFO] 12:33:18:42 MUSE/(3885:3885): Puerto ->  5003
+[INFO] 12:33:18:42 MUSE/(3885:3885): memory size ->  4096
+[INFO] 12:33:18:42 MUSE/(3885:3885): page size ->  32
+[INFO] 12:33:18:42 MUSE/(3885:3885): swap size ->  1024
+[INFO] 12:33:18:42 MUSE/(3885:3885): --------------
+
+[INFO] 12:52:44:704 MUSE/(4157:4157): El logger se creo con exito
+[INFO] 12:52:44:705 MUSE/(4157:4157): La configuracion fue cargada exitosamente
+[INFO] 12:52:44:705 MUSE/(4157:4157): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:52:44:705 MUSE/(4157:4157): ID ->  14
+[INFO] 12:52:44:705 MUSE/(4157:4157): IP ->  127.0.0.1
+[INFO] 12:52:44:705 MUSE/(4157:4157): Puerto ->  5003
+[INFO] 12:52:44:705 MUSE/(4157:4157): memory size ->  4096
+[INFO] 12:52:44:705 MUSE/(4157:4157): page size ->  32
+[INFO] 12:52:44:705 MUSE/(4157:4157): swap size ->  1024
+[INFO] 12:52:44:705 MUSE/(4157:4157): --------------
+
+[INFO] 12:52:44:705 MUSE/(4157:4157): Dentro de iniciar servidor
+[INFO] 12:52:44:705 MUSE/(4157:4157): Listo para escuchar a mi cliente
+[INFO] 12:52:44:705 MUSE/(4157:4157): esperando
+[INFO] 12:52:57:863 MUSE/(4157:4157): Se conecto un cliente!
+[INFO] 12:52:57:863 MUSE/(4157:4157): Se envió el mensaje al cliente
+[INFO] 14:23:40:448 MUSE/(3130:3130): El logger se creo con exito
+[INFO] 14:23:40:460 MUSE/(3130:3130): La configuracion fue cargada exitosamente
+[INFO] 14:23:40:461 MUSE/(3130:3130): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 14:23:40:461 MUSE/(3130:3130): ID ->  14
+[INFO] 14:23:40:461 MUSE/(3130:3130): IP ->  127.0.0.1
+[INFO] 14:23:40:461 MUSE/(3130:3130): Puerto ->  5003
+[INFO] 14:23:40:461 MUSE/(3130:3130): memory size ->  4096
+[INFO] 14:23:40:461 MUSE/(3130:3130): page size ->  32
+[INFO] 14:23:40:461 MUSE/(3130:3130): swap size ->  1024
+[INFO] 14:23:40:461 MUSE/(3130:3130): --------------
+
+[INFO] 14:23:40:461 MUSE/(3130:3130): Dentro de iniciar servidor
+[INFO] 14:23:40:461 MUSE/(3130:3130): Listo para escuchar a mi cliente
+[INFO] 14:23:40:461 MUSE/(3130:3130): esperando
+[INFO] 15:42:18:137 MUSE/(4360:4360): El logger se creo con exito
+[INFO] 15:42:18:137 MUSE/(4360:4360): La configuracion fue cargada exitosamente
+[INFO] 15:42:18:137 MUSE/(4360:4360): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 15:42:18:137 MUSE/(4360:4360): ID ->  14
+[INFO] 15:42:18:137 MUSE/(4360:4360): IP ->  127.0.0.1
+[INFO] 15:42:18:137 MUSE/(4360:4360): Puerto ->  5003
+[INFO] 15:42:18:137 MUSE/(4360:4360): memory size ->  4096
+[INFO] 15:42:18:137 MUSE/(4360:4360): page size ->  32
+[INFO] 15:42:18:137 MUSE/(4360:4360): swap size ->  1024
+[INFO] 15:42:18:137 MUSE/(4360:4360): --------------
+
+[INFO] 15:42:18:137 MUSE/(4360:4360): Dentro de iniciar servidor
+[INFO] 15:42:18:138 MUSE/(4360:4360): Listo para escuchar a mi cliente
+[INFO] 15:42:18:138 MUSE/(4360:4360): esperando
+[INFO] 15:44:07:787 MUSE/(4360:4360): Se conecto un cliente!
+[INFO] 15:44:07:788 MUSE/(4360:4360): Se envió el mensaje al cliente
+[INFO] 15:44:13:11 MUSE/(4406:4406): El logger se creo con exito
+[INFO] 15:44:13:11 MUSE/(4406:4406): La configuracion fue cargada exitosamente
+[INFO] 15:44:13:11 MUSE/(4406:4406): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 15:44:13:11 MUSE/(4406:4406): ID ->  14
+[INFO] 15:44:13:11 MUSE/(4406:4406): IP ->  127.0.0.1
+[INFO] 15:44:13:11 MUSE/(4406:4406): Puerto ->  5003
+[INFO] 15:44:13:11 MUSE/(4406:4406): memory size ->  4096
+[INFO] 15:44:13:11 MUSE/(4406:4406): page size ->  32
+[INFO] 15:44:13:11 MUSE/(4406:4406): swap size ->  1024
+[INFO] 15:44:13:12 MUSE/(4406:4406): --------------
+
+[INFO] 15:44:13:12 MUSE/(4406:4406): Dentro de iniciar servidor
+[INFO] 15:44:13:12 MUSE/(4406:4406): Listo para escuchar a mi cliente
+[INFO] 15:44:13:12 MUSE/(4406:4406): esperando
+[INFO] 15:44:13:12 MUSE/(4406:4406): Se conecto un cliente!
+[INFO] 15:44:13:12 MUSE/(4406:4406): Se envió el mensaje al cliente
+[INFO] 15:44:17:659 MUSE/(4409:4409): El logger se creo con exito
+[INFO] 15:44:17:659 MUSE/(4409:4409): La configuracion fue cargada exitosamente
+[INFO] 15:44:17:659 MUSE/(4409:4409): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 15:44:17:659 MUSE/(4409:4409): ID ->  14
+[INFO] 15:44:17:659 MUSE/(4409:4409): IP ->  127.0.0.1
+[INFO] 15:44:17:659 MUSE/(4409:4409): Puerto ->  5003
+[INFO] 15:44:17:659 MUSE/(4409:4409): memory size ->  4096
+[INFO] 15:44:17:659 MUSE/(4409:4409): page size ->  32
+[INFO] 15:44:17:659 MUSE/(4409:4409): swap size ->  1024
+[INFO] 15:44:17:659 MUSE/(4409:4409): --------------
+
+[INFO] 15:44:17:659 MUSE/(4409:4409): Dentro de iniciar servidor
+[INFO] 15:44:17:659 MUSE/(4409:4409): Listo para escuchar a mi cliente
+[INFO] 15:44:17:659 MUSE/(4409:4409): esperando
+[INFO] 15:44:17:659 MUSE/(4409:4409): Se conecto un cliente!
+[INFO] 15:44:17:659 MUSE/(4409:4409): Se envió el mensaje al cliente
+[INFO] 15:44:23:894 MUSE/(4412:4412): El logger se creo con exito
+[INFO] 15:44:23:894 MUSE/(4412:4412): La configuracion fue cargada exitosamente
+[INFO] 15:44:23:894 MUSE/(4412:4412): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 15:44:23:894 MUSE/(4412:4412): ID ->  14
+[INFO] 15:44:23:894 MUSE/(4412:4412): IP ->  127.0.0.1
+[INFO] 15:44:23:895 MUSE/(4412:4412): Puerto ->  5003
+[INFO] 15:44:23:895 MUSE/(4412:4412): memory size ->  4096
+[INFO] 15:44:23:895 MUSE/(4412:4412): page size ->  32
+[INFO] 15:44:23:895 MUSE/(4412:4412): swap size ->  1024
+[INFO] 15:44:23:895 MUSE/(4412:4412): --------------
+
+[INFO] 15:44:23:895 MUSE/(4412:4412): Dentro de iniciar servidor
+[INFO] 15:44:23:895 MUSE/(4412:4412): Listo para escuchar a mi cliente
+[INFO] 15:44:23:895 MUSE/(4412:4412): esperando
+[INFO] 15:44:23:895 MUSE/(4412:4412): Se conecto un cliente!
+[INFO] 15:44:23:895 MUSE/(4412:4412): Se envió el mensaje al cliente
+[INFO] 15:44:49:606 MUSE/(4428:4428): El logger se creo con exito
+[INFO] 15:44:49:607 MUSE/(4428:4428): La configuracion fue cargada exitosamente
+[INFO] 15:44:49:607 MUSE/(4428:4428): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 15:44:49:607 MUSE/(4428:4428): ID ->  14
+[INFO] 15:44:49:607 MUSE/(4428:4428): IP ->  127.0.0.1
+[INFO] 15:44:49:607 MUSE/(4428:4428): Puerto ->  5004
+[INFO] 15:44:49:607 MUSE/(4428:4428): memory size ->  4096
+[INFO] 15:44:49:607 MUSE/(4428:4428): page size ->  32
+[INFO] 15:44:49:607 MUSE/(4428:4428): swap size ->  1024
+[INFO] 15:44:49:607 MUSE/(4428:4428): --------------
+
+[INFO] 15:44:49:607 MUSE/(4428:4428): Dentro de iniciar servidor
+[INFO] 15:44:49:607 MUSE/(4428:4428): Listo para escuchar a mi cliente
+[INFO] 15:44:49:607 MUSE/(4428:4428): esperando
+[INFO] 21:28:26:952 MUSE/(5261:5261): El logger se creo con exito
+[INFO] 21:28:26:961 MUSE/(5261:5261): La configuracion fue cargada exitosamente
+[INFO] 21:28:26:961 MUSE/(5261:5261): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 21:28:26:961 MUSE/(5261:5261): ID ->  14
+[INFO] 21:28:26:961 MUSE/(5261:5261): IP ->  127.0.0.1
+[INFO] 21:28:26:961 MUSE/(5261:5261): Puerto ->  5004
+[INFO] 21:28:26:961 MUSE/(5261:5261): memory size ->  4096
+[INFO] 21:28:26:961 MUSE/(5261:5261): page size ->  32
+[INFO] 21:28:26:961 MUSE/(5261:5261): swap size ->  1024
+[INFO] 21:28:26:961 MUSE/(5261:5261): --------------
+
+[INFO] 21:28:26:961 MUSE/(5261:5261): Dentro de iniciar servidor
+[INFO] 21:28:26:961 MUSE/(5261:5261): Listo para escuchar a mi cliente
+[INFO] 21:28:26:961 MUSE/(5261:5261): esperando
+[INFO] 22:01:15:565 MUSE/(5261:5261): Se conecto un cliente!
+[INFO] 22:01:15:565 MUSE/(5261:5261): Se envió el mensaje al cliente
+[INFO] 22:07:46:527 MUSE/(7427:7427): El logger se creo con exito
+[INFO] 22:07:46:527 MUSE/(7427:7427): La configuracion fue cargada exitosamente
+[INFO] 22:07:46:527 MUSE/(7427:7427): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 22:07:46:527 MUSE/(7427:7427): ID ->  14
+[INFO] 22:07:46:527 MUSE/(7427:7427): IP ->  127.0.0.1
+[INFO] 22:07:46:527 MUSE/(7427:7427): Puerto ->  5004
+[INFO] 22:07:46:527 MUSE/(7427:7427): memory size ->  4096
+[INFO] 22:07:46:527 MUSE/(7427:7427): page size ->  32
+[INFO] 22:07:46:527 MUSE/(7427:7427): swap size ->  1024
+[INFO] 22:07:46:527 MUSE/(7427:7427): --------------
+
+[INFO] 22:07:46:527 MUSE/(7427:7427): Dentro de iniciar servidor
+[INFO] 22:07:46:527 MUSE/(7427:7427): Listo para escuchar a mi cliente
+[INFO] 22:07:46:527 MUSE/(7427:7427): esperando
+[INFO] 22:07:48:513 MUSE/(7427:7427): Se conecto un cliente!
+[INFO] 22:07:48:513 MUSE/(7427:7427): Se envió el mensaje al cliente
+[INFO] 22:09:58:319 MUSE/(7599:7599): El logger se creo con exito
+[INFO] 22:09:58:319 MUSE/(7599:7599): La configuracion fue cargada exitosamente
+[INFO] 22:09:58:319 MUSE/(7599:7599): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 22:09:58:319 MUSE/(7599:7599): ID ->  14
+[INFO] 22:09:58:319 MUSE/(7599:7599): IP ->  127.0.0.1
+[INFO] 22:09:58:320 MUSE/(7599:7599): Puerto ->  5004
+[INFO] 22:09:58:320 MUSE/(7599:7599): memory size ->  4096
+[INFO] 22:09:58:320 MUSE/(7599:7599): page size ->  32
+[INFO] 22:09:58:320 MUSE/(7599:7599): swap size ->  1024
+[INFO] 22:09:58:320 MUSE/(7599:7599): --------------
+
+[INFO] 22:09:58:320 MUSE/(7599:7599): Dentro de iniciar servidor
+[INFO] 22:09:58:320 MUSE/(7599:7599): Listo para escuchar a mi cliente
+[INFO] 22:09:58:320 MUSE/(7599:7599): esperando
+[INFO] 22:10:03:960 MUSE/(7599:7599): Se conecto un cliente!
+[INFO] 22:10:03:960 MUSE/(7599:7599): Se envió el mensaje al cliente
+[INFO] 22:11:35:271 MUSE/(7740:7740): El logger se creo con exito
+[INFO] 22:11:35:271 MUSE/(7740:7740): La configuracion fue cargada exitosamente
+[INFO] 22:11:35:271 MUSE/(7740:7740): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 22:11:35:271 MUSE/(7740:7740): ID ->  14
+[INFO] 22:11:35:271 MUSE/(7740:7740): IP ->  127.0.0.1
+[INFO] 22:11:35:271 MUSE/(7740:7740): Puerto ->  5004
+[INFO] 22:11:35:272 MUSE/(7740:7740): memory size ->  4096
+[INFO] 22:11:35:272 MUSE/(7740:7740): page size ->  32
+[INFO] 22:11:35:272 MUSE/(7740:7740): swap size ->  1024
+[INFO] 22:11:35:272 MUSE/(7740:7740): --------------
+
+[INFO] 22:11:35:272 MUSE/(7740:7740): Dentro de iniciar servidor
+[INFO] 22:11:35:272 MUSE/(7740:7740): Listo para escuchar a mi cliente
+[INFO] 22:11:35:272 MUSE/(7740:7740): esperando
+[INFO] 22:11:36:719 MUSE/(7740:7740): Se conecto un cliente!
+[INFO] 22:11:36:719 MUSE/(7740:7740): Se envió el mensaje al cliente
+[INFO] 22:12:05:845 MUSE/(7787:7787): El logger se creo con exito
+[INFO] 22:12:05:845 MUSE/(7787:7787): La configuracion fue cargada exitosamente
+[INFO] 22:12:05:845 MUSE/(7787:7787): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 22:12:05:845 MUSE/(7787:7787): ID ->  14
+[INFO] 22:12:05:845 MUSE/(7787:7787): IP ->  127.0.0.1
+[INFO] 22:12:05:845 MUSE/(7787:7787): Puerto ->  5004
+[INFO] 22:12:05:845 MUSE/(7787:7787): memory size ->  4096
+[INFO] 22:12:05:845 MUSE/(7787:7787): page size ->  32
+[INFO] 22:12:05:845 MUSE/(7787:7787): swap size ->  1024
+[INFO] 22:12:05:845 MUSE/(7787:7787): --------------
+
+[INFO] 22:12:05:845 MUSE/(7787:7787): Dentro de iniciar servidor
+[INFO] 22:12:05:846 MUSE/(7787:7787): Listo para escuchar a mi cliente
+[INFO] 22:12:05:846 MUSE/(7787:7787): esperando
+[INFO] 22:12:08:235 MUSE/(7787:7787): Se conecto un cliente!
+[INFO] 22:12:08:236 MUSE/(7787:7787): Se envió el mensaje al cliente
+[INFO] 22:14:05:748 MUSE/(7945:7945): El logger se creo con exito
+[INFO] 22:14:05:749 MUSE/(7945:7945): La configuracion fue cargada exitosamente
+[INFO] 22:14:05:749 MUSE/(7945:7945): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 22:14:05:749 MUSE/(7945:7945): ID ->  14
+[INFO] 22:14:05:749 MUSE/(7945:7945): IP ->  127.0.0.1
+[INFO] 22:14:05:749 MUSE/(7945:7945): Puerto ->  5004
+[INFO] 22:14:05:749 MUSE/(7945:7945): memory size ->  4096
+[INFO] 22:14:05:749 MUSE/(7945:7945): page size ->  32
+[INFO] 22:14:05:749 MUSE/(7945:7945): swap size ->  1024
+[INFO] 22:14:05:749 MUSE/(7945:7945): --------------
+
+[INFO] 22:14:05:749 MUSE/(7945:7945): Dentro de iniciar servidor
+[INFO] 22:14:05:749 MUSE/(7945:7945): Listo para escuchar a mi cliente
+[INFO] 22:14:05:749 MUSE/(7945:7945): esperando
+[INFO] 22:14:06:939 MUSE/(7945:7945): Se conecto un cliente!
+[INFO] 22:14:06:939 MUSE/(7945:7945): Se envió el mensaje al cliente
+[INFO] 22:18:04:318 MUSE/(8301:8301): El logger se creo con exito
+[INFO] 22:18:04:318 MUSE/(8301:8301): La configuracion fue cargada exitosamente
+[INFO] 22:18:04:319 MUSE/(8301:8301): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 22:18:04:319 MUSE/(8301:8301): ID ->  14
+[INFO] 22:18:04:319 MUSE/(8301:8301): IP ->  127.0.0.1
+[INFO] 22:18:04:319 MUSE/(8301:8301): Puerto ->  5004
+[INFO] 22:18:04:319 MUSE/(8301:8301): memory size ->  4096
+[INFO] 22:18:04:319 MUSE/(8301:8301): page size ->  32
+[INFO] 22:18:04:319 MUSE/(8301:8301): swap size ->  1024
+[INFO] 22:18:04:319 MUSE/(8301:8301): --------------
+
+[INFO] 22:18:04:319 MUSE/(8301:8301): Dentro de iniciar servidor
+[INFO] 22:18:04:319 MUSE/(8301:8301): Listo para escuchar a mi cliente
+[INFO] 22:18:04:319 MUSE/(8301:8301): esperando
+[INFO] 22:18:44:831 MUSE/(8301:8301): Se conecto un cliente!
+[INFO] 22:18:44:831 MUSE/(8301:8301): Se envió el mensaje al cliente
+[INFO] 22:19:53:769 MUSE/(8429:8429): El logger se creo con exito
+[INFO] 22:19:53:769 MUSE/(8429:8429): La configuracion fue cargada exitosamente
+[INFO] 22:19:53:769 MUSE/(8429:8429): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 22:19:53:769 MUSE/(8429:8429): ID ->  14
+[INFO] 22:19:53:769 MUSE/(8429:8429): IP ->  127.0.0.1
+[INFO] 22:19:53:769 MUSE/(8429:8429): Puerto ->  5004
+[INFO] 22:19:53:769 MUSE/(8429:8429): memory size ->  4096
+[INFO] 22:19:53:769 MUSE/(8429:8429): page size ->  32
+[INFO] 22:19:53:769 MUSE/(8429:8429): swap size ->  1024
+[INFO] 22:19:53:770 MUSE/(8429:8429): --------------
+
+[INFO] 22:19:53:770 MUSE/(8429:8429): Dentro de iniciar servidor
+[INFO] 22:19:53:770 MUSE/(8429:8429): Listo para escuchar a mi cliente
+[INFO] 22:19:53:770 MUSE/(8429:8429): esperando
+[INFO] 22:22:16:938 MUSE/(8623:8623): El logger se creo con exito
+[INFO] 22:22:16:938 MUSE/(8623:8623): La configuracion fue cargada exitosamente
+[INFO] 22:22:16:938 MUSE/(8623:8623): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 22:22:16:938 MUSE/(8623:8623): ID ->  14
+[INFO] 22:22:16:938 MUSE/(8623:8623): IP ->  127.0.0.1
+[INFO] 22:22:16:938 MUSE/(8623:8623): Puerto ->  5004
+[INFO] 22:22:16:938 MUSE/(8623:8623): memory size ->  4096
+[INFO] 22:22:16:938 MUSE/(8623:8623): page size ->  32
+[INFO] 22:22:16:938 MUSE/(8623:8623): swap size ->  1024
+[INFO] 22:22:16:938 MUSE/(8623:8623): --------------
+
+[INFO] 22:22:16:939 MUSE/(8623:8623): Dentro de iniciar servidor
+[INFO] 22:22:16:939 MUSE/(8623:8623): Listo para escuchar a mi cliente
+[INFO] 22:22:16:939 MUSE/(8623:8623): esperando
+[INFO] 22:22:28:839 MUSE/(8623:8623): Se conecto un cliente!
+[INFO] 22:22:28:840 MUSE/(8623:8623): Se envió el mensaje al cliente
+[INFO] 22:23:24:78 MUSE/(8718:8718): El logger se creo con exito
+[INFO] 22:23:24:79 MUSE/(8718:8718): La configuracion fue cargada exitosamente
+[INFO] 22:23:24:79 MUSE/(8718:8718): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 22:23:24:79 MUSE/(8718:8718): ID ->  14
+[INFO] 22:23:24:79 MUSE/(8718:8718): IP ->  127.0.0.1
+[INFO] 22:23:24:79 MUSE/(8718:8718): Puerto ->  5004
+[INFO] 22:23:24:79 MUSE/(8718:8718): memory size ->  4096
+[INFO] 22:23:24:79 MUSE/(8718:8718): page size ->  32
+[INFO] 22:23:24:79 MUSE/(8718:8718): swap size ->  1024
+[INFO] 22:23:24:79 MUSE/(8718:8718): --------------
+
+[INFO] 22:23:24:81 MUSE/(8718:8718): Dentro de iniciar servidor
+[INFO] 22:23:24:82 MUSE/(8718:8718): Listo para escuchar a mi cliente
+[INFO] 22:23:24:82 MUSE/(8718:8718): esperando
+[INFO] 22:23:35:463 MUSE/(8718:8718): Se conecto un cliente!
+[INFO] 22:23:35:463 MUSE/(8718:8718): Se envió el mensaje al cliente

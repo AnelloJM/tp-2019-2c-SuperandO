@@ -22,58 +22,29 @@
 #include <commons/log.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
+#include <netinet/in.h>
 #include <netdb.h>
 #include <readline/readline.h>
 #include <unistd.h>
 #include <commons/collections/list.h>
 #include <string.h>
-#include "../../ComunParaTodos/Conexiones/Conexiones.h" //esta libreria se define asi porque está en nuestro workspace
-//#include "../../ComunParaTodos/Conexiones/Conexiones.c" // esta la sigo poniendo por mi editor, ignorenla
 #include <commons/log.h>
-#include <commons/string.h>
 #include <commons/config.h>
+#include <commons/string.h>
+#include <unistd.h>
 
+//#include "../../ComunParaTodos/Conexiones/Conexiones.h" //esta libreria se define asi porque está en nuestro workspace
+//#include "../../ComunParaTodos/Conexiones/Conexiones.c" // esta la sigo poniendo por mi editor, ignorenla
 
+//global Variables
 
-//Varibles globales
-
-// reservamos bloque grande de memoria ( UPCM )
-int *UPCM; //UPCM =
-t_list *tabla_de_frames; //tabla de frames la tomamos como una lista de 0/1
-
-int id;
-char* puerto;
-char* ip;
-int socketMuse;
-int socket_cliente;
-int memory_size;
-int page_size;
-int swap_size;
-int frames_table_size;
-
-t_log* logger;
-t_config* archivoConfig;
-
-
+//t_log* libmuse_logger;
+int socket_pipe;
 
 //estructuras
-
-struct Pagina
-{
-  int bit_presencia;
-  int numero_frame_asociado;
-  int numero_pagina;
-  struct Pagina *next_pagina;
-};
-
-
-typedef struct
-{
-  int size;
-  int isFree; //Bool isFree
-}Heap;
 
 
 typedef struct
@@ -84,16 +55,19 @@ typedef struct
 
 } Segmento;
 
-typedef struct
+struct Pagina
 {
-  int numero_frame;
-  Heap espacio_ocupado;
-  Heap espacio_free;
-//  Frame *next_frame;
-}Frame;
-
+  int bit_presencia;
+  int numero_frame_asociado;
+  int numero_pagina;
+  struct Pagina *next_pagina;
+};
 
 //FUNCIONES
+
+//int iniciarLogger();
+//void crearLogger();
+int conectarse_a_servidor(char *ip,int puerto);
 
 
 /* Cambia el valor de un frame para indicar que esta libre o vacio ( 1/0 )*/
@@ -183,11 +157,6 @@ int muse_sync(uint32_t addr, size_t len);
 int muse_unmap(uint32_t dir);
 
 //mas funciones propias
-
-void leerArchivoDeConfiguracion();
-void setearValores(t_config* archivoConfig);
-void crearLogger();
-int iniciarLogger();
 
 
 
