@@ -9,30 +9,6 @@
 #include <netinet/in.h>
 
 
-
-//////////////////////////////////////////
-//           Tipos de Mensajes          //
-//////////////////////////////////////////
-typedef enum t_protocolo {
-	SUSE_CREATE = 1,
-	SUSE_SCHELUDE_NEXT,
-	SUSE_WAIT,
-	SUSE_SIGNAL,
-	SUSE_JOIN,
-	SUSE_CLOSE
-} t_protocolo; //CHAR CON IF Y STRCMP
-
-//////////////////////////////////////////
-//               Procesos               //
-//////////////////////////////////////////
-
-/*typedef enum proceso {
-	PROGRAMA=1,
-	COORDINADOR,
-	PLANIFICADOR,
-	INSTANCIA
-} proceso;
-*/ //NO VA.
 //////////////////////////////////////////
 //           Comunicacion Base          //
 //////////////////////////////////////////

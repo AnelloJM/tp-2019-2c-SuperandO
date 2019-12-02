@@ -1,19 +1,15 @@
-#include "Suse.h"68
+#include "Suse.h"
 int sumar2();
 //int(*funcion)(int)
-void suse_create(int pid ,int tid){
+void suse_create(int pid_prog ,int tid){
 	hilo_t* hiloNuevo = malloc(sizeof(hilo_t));
 
-	hiloNuevo->pid = programa;
-	hiloNuevo->tid = tidMAX;
+	hiloNuevo->pid = pid_prog;
+	hiloNuevo->tid = tid;
 	tidMAX++;
 
 	list_add(cola_new, hiloNuevo);
 	log_info(logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
-	int resultado = malloc(sizeof(int));
-	resultado = funcion(variable);
-	printf("Resultado: %d ", resultado);
-
 
 	int cantidadCola = list_size(cola_new);
 	printf("Cantidad de elementos en cola new: %d\n", cantidadCola);
@@ -60,36 +56,6 @@ int main(){
 return 0;
 }
 */ //COMENTO PARA PODER JUGAR CON LAS COLAS *
-
-
-	int i = 0;
-	switch(opcion){
-
-	case SUSE_CREATE:
-		//ASIGNARLE TCB (ID PROGRAMA, ID HILO, TIEMPOS, ETC)
-		{
-		while(i<4){
-		printf("sumamos 2 a la variable 5\n");
-		suse_create(1,5); //&sumar2 pasar el pid del fd
-		i++;
-		}
-		break;
-		}
-	case SUSE_SCHELUDE_NEXT:{
-		break;
-	}
-	case SUSE_WAIT:{
-		break;
-	}
-	case SUSE_SIGNAL:{
-		break;
-	}
-	case SUSE_JOIN:
-		break;
-		}
-
-	return 0;
-}
 
 void crearLogger(){
 	char* logPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse/src/SUSE.log";
