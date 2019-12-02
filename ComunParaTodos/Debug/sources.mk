@@ -17,6 +17,6 @@ Archivos \
 Conexiones \
 Lista \
 Serializacion \
+hilolay/bin \
 hilolay \
-hilolay_alumno.c \
 

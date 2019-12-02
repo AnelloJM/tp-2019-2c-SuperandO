@@ -31,8 +31,11 @@ void init_internal(struct hilolay_operations*);
 
 t_log* logger;
 t_config* archivoConfig;
+Paquete* paquete;
+t_list* cosasAEnviar;
 char* server_ip;
 char* server_port;
+int socket_suse;
 
 void crearLogger();
 void leerArchivoDeConfiguracion();
