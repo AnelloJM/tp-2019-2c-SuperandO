@@ -69,13 +69,14 @@ typedef struct {
 //              Funciones               //
 //////////////////////////////////////////
 
+bool EnviarPaquete(int socketCliente, Paquete* paquete);
+
 /*char* getNombreDelProceso(proceso proceso);
 
 bool EnviarHandshake(int socketFD, proceso quienEnvia);
 
 bool EnviarDatosTipo(int socketFD, proceso quienEnvia, void* datos, int tamDatos, t_protocolo tipoMensaje);
 
-bool EnviarPaquete(int socketCliente, Paquete* paquete);
 
 int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir);
 
