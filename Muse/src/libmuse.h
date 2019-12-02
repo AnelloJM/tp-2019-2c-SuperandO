@@ -35,6 +35,8 @@
 #include <commons/config.h>
 #include <commons/string.h>
 #include <unistd.h>
+#include "servidor-cliente/conexion_muse.h"
+#include "servidor-cliente/conexion_muse.c"
 
 //#include "../../ComunParaTodos/Conexiones/Conexiones.h" //esta libreria se define asi porque está en nuestro workspace
 //#include "../../ComunParaTodos/Conexiones/Conexiones.c" // esta la sigo poniendo por mi editor, ignorenla
@@ -42,7 +44,7 @@
 //global Variables
 
 //t_log* libmuse_logger;
-int socket_pipe;
+uint32_t socket_pipe;
 
 //estructuras
 
@@ -67,7 +69,7 @@ struct Pagina
 
 //int iniciarLogger();
 //void crearLogger();
-int conectarse_a_servidor(char *ip,int puerto);
+//int conectarse_a_servidor(char *ip,int puerto);
 
 
 /* Cambia el valor de un frame para indicar que esta libre o vacio ( 1/0 )*/

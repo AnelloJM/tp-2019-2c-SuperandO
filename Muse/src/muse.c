@@ -7,7 +7,7 @@ int main()
 
   iniciarLogger();
 
-
+/*
   //reservamos la UPCM y aniadimos tabla de frames
   UPCM = malloc(memory_size * sizeof(int));
   tabla_de_frames = list_create();
@@ -53,20 +53,15 @@ int main()
     printf("%d-", list_get(tabla_de_frames,j));
   }
 
-
+*/
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
-  socketMuse = iniciar_servidor(ip,puerto,logger);
-  socket_cliente = esperar_cliente_con_accept(socketMuse,logger);
-  enviar_mensaje(socket_cliente,logger);
+  iniciar_servidor(ip,atoi(puerto));
+
+  //enviar_mensaje(socket_cliente,logger);
   //  recibir_peticion(socket_cliente,logger);
 
   //Terminamos de realizar la Conexion
-
-
-
-
-
 
   free(UPCM);
   free(tabla_de_frames);

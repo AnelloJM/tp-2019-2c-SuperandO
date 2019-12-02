@@ -1,6 +1,6 @@
 #ifndef CONEXION_H_
 #define CONEXION_H_
-
+#include <string.h>
 #include <stdio.h>
 #include <sys/socket.h> //For Sockets
 #include <stdlib.h>
@@ -24,10 +24,10 @@ char message[100] = ""; //This array will store the messages that are sent by th
 
 
 uint32_t conectarse_a_servidor(char *ip,uint32_t puerto);
-void iniciar_servidor(char *ip,uint32_t puerto,t_log * logger);
-uint32_t esperar_cliente(uint32_t socket,t_log * logger);
-void enviar_mensaje(uint32_t socket);
-void recibir_mensaje(uint32_t socket);
+uint32_t iniciar_servidor(char *ip,uint32_t puerto);
+uint32_t esperar_cliente(uint32_t cliente);
+void enviar_mensaje(uint32_t destino);
+void recibir_mensaje(uint32_t destinatario);
 
 
 
