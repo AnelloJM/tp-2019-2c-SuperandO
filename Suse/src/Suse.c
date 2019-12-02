@@ -1,7 +1,10 @@
-#include "Suse.h"68
+#include "Suse.h"
+
 int sumar2();
-//int(*funcion)(int)
+
+
 void suse_create(int pid ,int tid){
+	/*
 	hilo_t* hiloNuevo = malloc(sizeof(hilo_t));
 
 	hiloNuevo->pid = programa;
@@ -21,6 +24,7 @@ void suse_create(int pid ,int tid){
 	printf("ID del hilo: %d\n",hiloNuevo->tid);
 
 	free(hiloNuevo);
+*/
 }
 
 int main(){
@@ -59,7 +63,7 @@ int main(){
 	}
 return 0;
 }
-*/ //COMENTO PARA PODER JUGAR CON LAS COLAS *
+ //COMENTO PARA PODER JUGAR CON LAS COLAS
 
 
 	int i = 0;
@@ -87,7 +91,7 @@ return 0;
 	case SUSE_JOIN:
 		break;
 		}
-
+*/
 	return 0;
 }
 
@@ -169,7 +173,7 @@ void* suse_schedule_next(){
 		//Busco el indice en la cola de new comparando los TID, si lo encuentro, lo elimino de la cola de new y lo devuelvo
 		int indice = list_get_index(cola_new,hiloAux,(void*)comparador);
 		hilo_t* hiloAEjecutar = list_remove(cola_new,indice);
-		char* pidAux = hiloAEjecutar->pid;
+		//char* pidAux = hiloAEjecutar->pid;
 		//Busco el proceso y obtengo su cola de exec
 		//list_add(hiloAEjecutar,proceso->cola_exec);
 
@@ -242,7 +246,7 @@ bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem){
 	return unSem.semID == otroSem.semID;
 }
 
-int suse_signal(semaforo_t* semaforo){
+int suse_signal(semaforo_t* semaforo, char*tid){
 	if(buscadorSemaforo(semaforo) == 0){
 		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
 		semaforo_t* semAUsar = list_get(semaforos,indice);
@@ -256,7 +260,7 @@ int suse_signal(semaforo_t* semaforo){
 		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
 		log_info(logger,"%d","Contador actual:", semAUsar->semActual);
 		//Tengo que buscar el proceso asociado al tid
-		hilo_t * hiloDesbloqueado = list_remove(semaforo->hilosEnEspera,0);
+		//hilo_t * hiloDesbloqueado = list_remove(semaforo->hilosEnEspera,0);
 		//list_add(hiloDesbloqueado,proceso->cola_ready);
 		return 0;
 	}

@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lhilolay_alumno.c -lcommons -lComunParaTodos
+LIBS :=
 
