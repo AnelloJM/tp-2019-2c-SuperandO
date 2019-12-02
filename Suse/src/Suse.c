@@ -1,11 +1,10 @@
 #include "Suse.h"
-int sumar2();
-//int(*funcion)(int)
-void suse_create(int pid_prog ,int tid){
+
+void * suse_create(int pid_prog ,t_list * tid){
 	hilo_t* hiloNuevo = malloc(sizeof(hilo_t));
 
 	hiloNuevo->pid = pid_prog;
-	hiloNuevo->tid = tid;
+	//hiloNuevo->tid = tid;
 	tidMAX++;
 
 	list_add(cola_new, hiloNuevo);
@@ -14,7 +13,7 @@ void suse_create(int pid_prog ,int tid){
 	int cantidadCola = list_size(cola_new);
 	printf("Cantidad de elementos en cola new: %d\n", cantidadCola);
 	printf("ID del programa: %d\n",hiloNuevo->pid);
-	printf("ID del hilo: %d\n",hiloNuevo->tid);
+	//printf("ID del hilo: %d\n",hiloNuevo->tid);
 
 	free(hiloNuevo);
 }
@@ -54,8 +53,11 @@ int main(){
 
 	}
 return 0;
-}
 */ //COMENTO PARA PODER JUGAR CON LAS COLAS *
+}
+
+
+
 
 void crearLogger(){
 	char* logPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse/src/SUSE.log";
@@ -115,7 +117,7 @@ int sumar2(int a){
 	return a+2;
 }
 
-void* suse_schedule_next(){
+void * suse_schedule_next(int socket_cliente){
 	if (!list_is_empty(cola_new)){
 		log_info(logger, "Se comenzará a planificar");
 
@@ -140,10 +142,10 @@ void* suse_schedule_next(){
 		//list_add(hiloAEjecutar,proceso->cola_exec);
 
 
-		return hiloAEjecutar;
+		//return hiloAEjecutar;
 	}
 	log_info(logger, "La cola de new está vacia");
-	return 0;
+	//return 0;
 }
 hilo_t calcularEstimacion(hilo_t unHilo){
 	unHilo.rafagasEstimadas = (alpha_sjf * unHilo.estimacionAnterior + ((1 - alpha_sjf)*unHilo.rafagasEjecutadas));
@@ -179,8 +181,8 @@ int buscadorSemaforo (semaforo_t* semaforo){
 	return -1;
 }
 
-int suse_wait(semaforo_t* semaforo,char*tid){
-	if(buscadorSemaforo(semaforo) == 0){
+void * suse_wait(int socket_cliente, t_list * semaforo){}
+	/*if(buscadorSemaforo(semaforo) == 0){
 		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
 		semaforo_t* semAUsar = list_get(semaforos,indice);
 		if (semAUsar->semActual == 0){
@@ -202,20 +204,20 @@ int suse_wait(semaforo_t* semaforo,char*tid){
 	log_info(logger, "El semaforo no fue encontrado");
 	return -1;
 
-}
+}*/
 
 bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem){
 	return unSem.semID == otroSem.semID;
 }
 
-int suse_signal(semaforo_t* semaforo){
-	if(buscadorSemaforo(semaforo) == 0){
+void * suse_signal(int socket_cliente,t_list * semaforo){
+	/*if(buscadorSemaforo(semaforo) == 0){
 		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
 		semaforo_t* semAUsar = list_get(semaforos,indice);
 		if (semAUsar->semActual == semAUsar->semMax){
 			log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
 			log_error(logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
-			return -1;
+			//return -1;
 		}
 		semAUsar->semActual++;
 		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
@@ -224,14 +226,14 @@ int suse_signal(semaforo_t* semaforo){
 		//Tengo que buscar el proceso asociado al tid
 		hilo_t * hiloDesbloqueado = list_remove(semaforo->hilosEnEspera,0);
 		//list_add(hiloDesbloqueado,proceso->cola_ready);
-		return 0;
+		//return 0;
 	}
 	log_info(logger, "El semaforo no fue encontrado");
-	return -1;
+	//return -1;*/
 }
 
 //hace lo mismo que pthread_join. TIene como parametro un hilo y su estado de retorno.
-/*void suse_join(hilo_t unHilo, void **__return){
+void * suse_join(int socket_cliente, t_list * tid){}/*
 
 	int rafagaTotal = unHilo.rafagasEstimadas - unHilo.rafagasEjecutadas
 	while(rafagaTotal >0){
@@ -245,9 +247,57 @@ int suse_signal(semaforo_t* semaforo){
 */
 
 //Funcion que crea las colas ready segun el grado de multiprogramacion
-void suse_close(char*tid){
+void * suse_close(int socket_cliente,t_list * tid){}
 	//Tengo que buscar el proceso asociado al tid
 	//hilo_t *hiloAFinalizar = list_remove(proceso->cola_exec,0);
 	//list_add(cola_exit, hiloAfinalizar);
-}
 //Close recibe un int TID, y mandas el thread ese a Exit
+
+int recibir_paquete_deserializar(int socket_cliente, Paquete * pack){
+
+       t_list* cosas = RecibirPaqueteCliente(socket_cliente, pack);
+       pthread_t * idHilo = malloc(sizeof(pthread_t));
+
+       char * servicio_suse = malloc(sizeof(char*));
+       strcpy(servicio_suse,pack->header.tipoMensaje);
+       if(strcmp(servicio_suse,"SUSE_CREATE")){
+    	   int estadoHilo = pthread_create(idHilo,NULL,suse_create(socket_cliente,cosas),NULL);
+    	   if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_CREATE*\n");
+    	   free(idHilo);
+    	   return 0;
+       }
+       else if(strcmp(servicio_suse,"SUSE_SCHEDULE_NEXT")){
+    	   int estadoHilo = pthread_create(idHilo,NULL,suse_schedule_next(socket_cliente),NULL);
+           if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_SCHELUDE_NEXT*\n");
+           free(idHilo);
+           return 0;
+       }
+       else if(strcmp(servicio_suse,"SUSE_WAIT")){
+		   int estadoHilo = pthread_create(idHilo,NULL,suse_wait(socket_cliente,cosas),NULL);
+		   if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_WAIT*\n");
+		   free(idHilo);
+		   return 0;
+       }
+       else if(strcmp(servicio_suse,"SUSE_JOIN")){
+		   int estadoHilo = pthread_create(idHilo,NULL,suse_join(socket_cliente,cosas),NULL);
+		   if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_JOIN*\n");
+		   free(idHilo);
+		   return 0;
+       }
+       else if(strcmp(servicio_suse,"SUSE_SIGNAL")){
+		   int estadoHilo = pthread_create(idHilo,NULL,suse_signal(socket_cliente,cosas),NULL);
+		   if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_SIGNAL*\n");
+		   free(idHilo);
+		   return 0;
+       }
+       else if(strcmp(servicio_suse,"SUSE_CLOSE")){
+		   int estadoHilo = pthread_create(idHilo,NULL,suse_close(socket_cliente,cosas),NULL);
+		   if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_CLOSE*\n");
+		   free(idHilo);
+		   return 0;
+       }
+
+       printf("NO SE PUDO ATENDER EL SERVICIO SOLICITADO\n");
+       free(idHilo);
+       return 1;
+}

@@ -76,10 +76,9 @@ typedef struct {
 void crearLogger();
 void leerArchivoDeConfiguracion();
 void setearValores();
-void suse_init();
 void cargarSemaforos();
-void suse_create(int programa, int variable);
-void* suse_schedule_next();
+//void suse_create(int programa, int variable);
+void * suse_schedule_next(int socket_cliente);
 int dispatcher(hilo_t* hilo);
 hilo_t calcularEstimacion();
 bool comparador(hilo_t* unHilo, hilo_t* otroHilo);
@@ -87,11 +86,11 @@ bool comparadorDeRafagas();
 int list_get_index(t_list* self, void* elemento,
 		bool (*comparador(void*, void*)));
 int buscadorSemaforo(semaforo_t* semaforo);
-int suse_wait(semaforo_t* semaforo, char*tid);
+//int suse_wait(semaforo_t* semaforo, char*tid);
 bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem);
-int suse_signal(semaforo_t* semaforo, char*tid);
-void suse_join();
-void suse_close(char*tid);
+//int suse_signal(semaforo_t* semaforo, char*tid);
+//void suse_join();
+void * suse_close(int socket_cliente, t_list * tid);
 
 int sumar2(int);
 
