@@ -21,10 +21,7 @@ int conectarse_a_servidor(char *ip,int puerto)
 	struct hostent *he;
 	struct sockaddr_in server;
 
-	if((he = gethostbyname(ip))==NULL){
-		printf("[-] Error gethostbyname() \n");
-		exit(-1);
-	}
+	he = gethostbyname(ip);
 
 	if((socket_cliente=socket(AF_INET, SOCK_STREAM, 0)) == -1){
 		printf("[-] Error socket()");
@@ -74,7 +71,7 @@ uint32_t muse_alloc(uint32_t tam){
 	char buf[100];
 
 //enviar mensaje a servidor
-	if((numbytes=puts(socket_pipe,buf,100,0)) == -1){
+	if((numbytes=recv(socket_pipe,buf,100,0)) == -1){
 		printf("[-] Error en recv() \n");
 		exit(-1);
 
