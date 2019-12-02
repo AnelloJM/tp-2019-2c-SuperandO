@@ -388,3 +388,15 @@
 
 [INFO] 00:31:07:826 SUSE/(14924:14924): Se ha agregado un hilo nuevo a la cola de new.
 
+[INFO] 14:29:06:688 SUSE/(6642:6642): El logger se creo con exito
+[INFO] 14:29:06:705 SUSE/(6642:6642): La configuracion fue cargada exitosamente
+[INFO] 14:29:06:705 SUSE/(6642:6642): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 14:29:06:706 SUSE/(6642:6642): LISTEN_PORT ->  5003
+[INFO] 14:29:06:706 SUSE/(6642:6642): Metrics_timer ->  50
+[INFO] 14:29:06:706 SUSE/(6642:6642): MAx_MULTIPROG ->  10
+[INFO] 14:29:06:706 SUSE/(6642:6642): --------------
+
+[INFO] 14:29:06:707 SUSE/(6642:6642): Dentro de iniciar servidor
+[INFO] 14:29:06:707 SUSE/(6642:6642): Listo para escuchar a mi cliente

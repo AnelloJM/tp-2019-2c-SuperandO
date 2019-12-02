@@ -32,7 +32,7 @@ void setearValores(t_config* archivoConfig){
 }
 
 
-int suse_create(int tid){
+/*int suse_create(int tid){
 	return 0;
 }
 
@@ -54,4 +54,4 @@ int suse_join(int tid){
 
 int suse_close(int tid){
 	return 0;
-}
+}*/
