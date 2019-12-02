@@ -13,8 +13,8 @@
 #include <unistd.h>
 #include <commons/collections/list.h>
 #include <string.h>
-#include "../../ComunParaTodos/Conexiones/Conexiones.h" //esta libreria se define asi porque está en nuestro workspace
-#include "../../ComunParaTodos/Conexiones/Conexiones.c" // esta la sigo poniendo por mi editor, ignorenla
+#include "servidor-cliente/conexion_muse.h" //esta libreria se define asi porque está en nuestro workspace
+#include "servidor-cliente/conexion_muse.c" // esta la sigo poniendo por mi editor, ignorenla
 #include <commons/log.h>
 #include <commons/string.h>
 #include <commons/config.h>

@@ -17,4 +17,6 @@ Archivos \
 Conexiones \
 Lista \
 Serializacion \
+hilolay_alumno.c/Debug/hilolay \
+hilolay_alumno.c \
 

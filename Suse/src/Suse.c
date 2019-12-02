@@ -1,6 +1,14 @@
 #include "Suse.h"
 
+<<<<<<< HEAD
 void * suse_create(int pid_prog ,t_list * tid){
+=======
+int sumar2();
+
+
+void suse_create(int pid ,int tid){
+	/*
+>>>>>>> 2bc8df23132905117f007ec719c9f4eac3023420
 	hilo_t* hiloNuevo = malloc(sizeof(hilo_t));
 
 	hiloNuevo->pid = pid_prog;
@@ -16,6 +24,7 @@ void * suse_create(int pid_prog ,t_list * tid){
 	//printf("ID del hilo: %d\n",hiloNuevo->tid);
 
 	free(hiloNuevo);
+*/
 }
 
 int main(){
@@ -53,11 +62,46 @@ int main(){
 
 	}
 return 0;
+<<<<<<< HEAD
 */ //COMENTO PARA PODER JUGAR CON LAS COLAS *
 }
 
 
 
+=======
+}
+ //COMENTO PARA PODER JUGAR CON LAS COLAS
+
+
+	int i = 0;
+	switch(opcion){
+
+	case SUSE_CREATE:
+		//ASIGNARLE TCB (ID PROGRAMA, ID HILO, TIEMPOS, ETC)
+		{
+		while(i<4){
+		printf("sumamos 2 a la variable 5\n");
+		suse_create(1,5); //&sumar2 pasar el pid del fd
+		i++;
+		}
+		break;
+		}
+	case SUSE_SCHELUDE_NEXT:{
+		break;
+	}
+	case SUSE_WAIT:{
+		break;
+	}
+	case SUSE_SIGNAL:{
+		break;
+	}
+	case SUSE_JOIN:
+		break;
+		}
+*/
+	return 0;
+}
+>>>>>>> 2bc8df23132905117f007ec719c9f4eac3023420
 
 void crearLogger(){
 	char* logPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse/src/SUSE.log";
@@ -137,7 +181,7 @@ void * suse_schedule_next(int socket_cliente){
 		//Busco el indice en la cola de new comparando los TID, si lo encuentro, lo elimino de la cola de new y lo devuelvo
 		int indice = list_get_index(cola_new,hiloAux,(void*)comparador);
 		hilo_t* hiloAEjecutar = list_remove(cola_new,indice);
-		char* pidAux = hiloAEjecutar->pid;
+		//char* pidAux = hiloAEjecutar->pid;
 		//Busco el proceso y obtengo su cola de exec
 		//list_add(hiloAEjecutar,proceso->cola_exec);
 
@@ -210,8 +254,13 @@ bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem){
 	return unSem.semID == otroSem.semID;
 }
 
+<<<<<<< HEAD
 void * suse_signal(int socket_cliente,t_list * semaforo){
 	/*if(buscadorSemaforo(semaforo) == 0){
+=======
+int suse_signal(semaforo_t* semaforo, char*tid){
+	if(buscadorSemaforo(semaforo) == 0){
+>>>>>>> 2bc8df23132905117f007ec719c9f4eac3023420
 		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
 		semaforo_t* semAUsar = list_get(semaforos,indice);
 		if (semAUsar->semActual == semAUsar->semMax){
@@ -224,7 +273,7 @@ void * suse_signal(int socket_cliente,t_list * semaforo){
 		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
 		log_info(logger,"%d","Contador actual:", semAUsar->semActual);
 		//Tengo que buscar el proceso asociado al tid
-		hilo_t * hiloDesbloqueado = list_remove(semaforo->hilosEnEspera,0);
+		//hilo_t * hiloDesbloqueado = list_remove(semaforo->hilosEnEspera,0);
 		//list_add(hiloDesbloqueado,proceso->cola_ready);
 		//return 0;
 	}

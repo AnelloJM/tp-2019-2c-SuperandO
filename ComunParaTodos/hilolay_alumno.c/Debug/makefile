@@ -8,7 +8,8 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include src/subdir.mk
+-include hilolay/bin/subdir.mk
+-include hilolay/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -23,25 +24,21 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: Suse
-
-dependents:
-	-cd /home/utnso/workspace/hilolay_alumno.c/Debug && $(MAKE) all
+all: libhilolay_alumno.c.so
 
 # Tool invocations
-Suse: $(OBJS) $(USER_OBJS) /home/utnso/workspace/hilolay_alumno.c/Debug/libhilolay_alumno.c.so
+libhilolay_alumno.c.so: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc -L"/home/utnso/workspace/hilolay_alumno.c/Debug" -L"/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug" -o "Suse" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc -shared -o "libhilolay_alumno.c.so" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) Suse
+	-$(RM) $(LIBRARIES)$(OBJS)$(C_DEPS) libhilolay_alumno.c.so
 	-@echo ' '
 
 .PHONY: all clean dependents
-/home/utnso/workspace/hilolay_alumno.c/Debug/libhilolay_alumno.c.so:
 
 -include ../makefile.targets

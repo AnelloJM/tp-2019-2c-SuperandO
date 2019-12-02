@@ -2,11 +2,17 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-USER_OBJS :=
+OBJ_SRCS := 
+ASM_SRCS := 
+C_SRCS := 
+O_SRCS := 
+S_UPPER_SRCS := 
+LIBRARIES := 
+OBJS := 
+C_DEPS := 
 
-<<<<<<< HEAD
-LIBS := -lcommons -lpthread -lcommons -lComunParaTodos
-=======
-LIBS := -lhilolay_alumno.c -lcommons -lComunParaTodos
->>>>>>> 2bc8df23132905117f007ec719c9f4eac3023420
+# Every subdirectory with source files must be described here
+SUBDIRS := \
+hilolay/bin \
+hilolay \
 
