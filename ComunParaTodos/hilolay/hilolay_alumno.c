@@ -32,11 +32,12 @@ void setearValores(t_config* archivoConfig){
 }
 
 //ENVIO DE PAQUETES
-/*
+
 int suse_create(int tid){
 	paquete->header.tipoMensaje= "SUSE_CREATE";
 	paquete->header.tamanioMensaje = sizeof(tid);
-	paquete->mensaje = tid;
+	void* mensaje = paquete->mensaje;
+	memcpy(mensaje, &tid, sizeof(tid));
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
 		log_info(logger,"Falló el envio del paquete");
@@ -52,11 +53,11 @@ int suse_schedule_next(void){
 	}
 	return 0;
 }
-
+/*
 int suse_wait(int tid, char* sem_name){
 	paquete->header.tipoMensaje= "SUSE_WAIT";
-	list_add(cosasAEnviar,tid);
 	list_add(cosasAEnviar,sem_name);
+	list_add(cosasAEnviar,tid);
 	paquete->header.tamanioMensaje = sizeof(cosasAEnviar);
 	paquete->mensaje = cosasAEnviar;
 	int resultado = EnviarPaquete(socket_suse,paquete);
@@ -78,11 +79,12 @@ int suse_signal(int tid, char* sem_name){
 	}
 	return 0;
 }
-
+*/
 int suse_join(int tid){
 	paquete->header.tipoMensaje= "SUSE_JOIN";
 	paquete->header.tamanioMensaje = sizeof(tid);
-	paquete->mensaje = tid;
+	void* mensaje = paquete->mensaje;
+	memcpy(mensaje, &tid, sizeof(tid));
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
 		log_info(logger,"Falló el envio del paquete");
@@ -93,10 +95,11 @@ int suse_join(int tid){
 int suse_close(int tid){
 	paquete->header.tipoMensaje= "SUSE_CLOSE";
 	paquete->header.tamanioMensaje = sizeof(tid);
-	paquete->mensaje = tid;
+	void* mensaje = paquete->mensaje;
+	memcpy(mensaje, &tid, sizeof(tid));
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
 		log_info(logger,"Falló el envio del paquete");
 	}
 	return 0;
-}*/
+}
