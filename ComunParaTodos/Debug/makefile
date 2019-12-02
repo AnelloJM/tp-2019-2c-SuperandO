@@ -8,7 +8,6 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include hilolay_alumno.c/subdir.mk
 -include hilolay/subdir.mk
 -include Serializacion/subdir.mk
 -include Lista/subdir.mk

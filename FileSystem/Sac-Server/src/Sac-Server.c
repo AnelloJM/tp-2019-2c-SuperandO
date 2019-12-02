@@ -90,10 +90,7 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 		return "-1";
 	uint32_t tamanio_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo;
 	if(tamanio_archivo < size) {
-		uint32_t sizeResponse = strlen("Lectura invalida")+1;
-		buffer = malloc(sizeResponse);
-		memcpy(buffer, "Lectura invalida", sizeResponse);
-		return buffer;
+		size = tamanio_archivo;
 	} //COMENTAR ESTO PARA PROBARLO
 
 	buffer = malloc(size);
@@ -122,29 +119,31 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	 * del los punteros
 	*/
 	uint32_t puntero_indirecto = cantida_de_bloque_desde_donde_comienzo % 1024;
+
+
 	uint32_t numero_de_bloque_de_puntero = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array];
-	Bloque_de_puntero *punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
+	Bloque_de_puntero *punteros_indirectos = (Bloque_de_puntero *) (inicio_de_disco + numero_de_bloque_de_puntero);
 	ptrGBloque numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto];
 	Bloque *bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 
 	//CUANTO LEER
 
-	uint32_t lo_que_me_queda_despues_del_bloque = sizeof(Bloque) - desplazamiento;
+	uint32_t lo_que_me_queda_dentro_del_bloque = sizeof(Bloque) - desplazamiento;
 	uint32_t faltante = size;
 
-	if(faltante < lo_que_me_queda_despues_del_bloque){
-		buffer = &(bloque_a_leer->bytes[desplazamiento]);
+	if(faltante < lo_que_me_queda_dentro_del_bloque){
+		memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), faltante);
 		return buffer;
 	}
 
 
 	//ESTO ESTABA ASI, PERO ME HACE RUIDO, SEGURO QUE ES BYTES[DESPLAZAMIENTO] ????????????????
-	//memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), lo_que_me_queda_despues_del_bloque);
+	//memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), lo_que_me_queda_dentro_del_bloque);
 	//PARA MI ESTO DEBERIA IR ASI
-	memcpy(buffer, &(bloque_a_leer->bytes[offset]), lo_que_me_queda_despues_del_bloque);
+	memcpy(buffer, &(bloque_a_leer->bytes[offset]), lo_que_me_queda_dentro_del_bloque);
 
-	faltante = faltante - lo_que_me_queda_despues_del_bloque;
-	offset = offset + lo_que_me_queda_despues_del_bloque;
+	faltante = faltante - lo_que_me_queda_dentro_del_bloque;
+	offset = offset + lo_que_me_queda_dentro_del_bloque;
 
 	/*
 	 * Los bloques que me faltan leer,
@@ -159,9 +158,12 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	uint32_t cantidad_dentro_que_falta_leer = faltante % sizeof(Bloque);
 
 	uint32_t lo_que_me_queda_despues_de_los_punteros = 1024 - puntero_indirecto;
-	uint32_t movimiento_en_buffer = lo_que_me_queda_despues_del_bloque;
+
+	uint32_t movimiento_en_buffer = lo_que_me_queda_dentro_del_bloque;
+
+
 	if(lo_que_me_queda_despues_de_los_punteros < cantidad_bloques_a_leer_que_me_faltan){
-		for(int i = 0; i < lo_que_me_queda_despues_de_los_punteros;i = i+1){
+		for(int i = 1; i <= lo_que_me_queda_despues_de_los_punteros;i = i+1){
 			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
 			bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 			memcpy(buffer+movimiento_en_buffer, &(bloque_a_leer->bytes[0]) ,sizeof(Bloque));
@@ -170,7 +172,7 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 			movimiento_en_buffer = movimiento_en_buffer + sizeof(Bloque);
 		}
 	}else{
-		for(int i = 0; i < cantidad_bloques_a_leer_que_me_faltan-1;i = i+1){
+		for(int i = 1; i <= cantidad_bloques_a_leer_que_me_faltan-1;i = i+1){
 			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
 			bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 			memcpy(buffer+movimiento_en_buffer, &(bloque_a_leer->bytes[0]) ,sizeof(Bloque));
@@ -178,9 +180,12 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 			offset = offset + sizeof(Bloque);
 			movimiento_en_buffer = movimiento_en_buffer + sizeof(Bloque);
 		}
-		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + 1];
+		if(cantidad_bloques_a_leer_que_me_faltan < 0){
+			cantidad_bloques_a_leer_que_me_faltan = 0;
+		}
+		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + cantidad_bloques_a_leer_que_me_faltan];
 		bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
-		memcpy(buffer+movimiento_en_buffer, &(bloque_a_leer->bytes[desplazamiento]),cantidad_dentro_que_falta_leer);
+		memcpy(buffer+movimiento_en_buffer, &(bloque_a_leer->bytes[0]),cantidad_dentro_que_falta_leer);
 		return buffer;
 	}
 
