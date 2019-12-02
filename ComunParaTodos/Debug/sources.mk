@@ -18,5 +18,4 @@ Conexiones \
 Lista \
 Serializacion \
 hilolay \
-hilolay_alumno.c \
 

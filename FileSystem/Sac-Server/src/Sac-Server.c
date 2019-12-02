@@ -511,13 +511,23 @@ void* funcionMagica(int cliente){
 				break;
 
 			case f_WRITE: ;
-				char *pathWrite = Fuse_ReceiveAndUnpack(cliente, tam);
+				void *packWrite = Fuse_ReceiveAndUnpack(cliente, tam);
+				char *pathWrite = Fuse_Unpack_Path(packWrite);
+				char *bufWrite = Fuse_Unpack_Write_Buf(packWrite);
+				uint32_t sizeWrite = Fuse_Unpack_Write_Size(packWrite);
+				free(packWrite);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathWrite)+1);
 				log_error(logger, pathWrite);
-				char * escritura;
-				uint32_t responseWrite = Hacer_Write(pathWrite, escritura, 0);
+				uint32_t responseWrite = Hacer_Write(pathWrite, bufWrite, sizeWrite);
+				log_info(logger,"LE VOY A MANDAR %i", responseWrite);
+				char *respuestaRead2 = Hacer_Read("/archivo",0, 70);
+				log_error(logger, "lo que habia adentro es: %s", respuestaRead2);
+				free(respuestaRead2);
+				sleep(100);
+
 				Fuse_PackAndSend_Uint32_Response(cliente, responseWrite);
 				free(pathWrite);
+				free(bufWrite);
 				break;
 
 			case f_MKNOD: ;
@@ -885,7 +895,7 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-	crear_archivo_en_padre(0,"archivo"); /*
+	crear_archivo_en_padre(0,"archivo");/*
 	int32_t numero_bloque_de_punteros = tabla_de_nodos->nodos[1].array_de_punteros[0];
 	Bloque_de_puntero *algo = inicio_de_disco + numero_bloque_de_punteros;
 	uint32_t bloque_de_prueba = buscar_espacio_en_bitmap();
@@ -907,10 +917,10 @@ int main(int argc, char *argv[]) {
 	respuestaRead = Hacer_Read("/archivo", 3, 4099);
 	log_error(logger, "lo que habia adentro desde 3: %s", respuestaRead);
 */
-	Hacer_Write("/archivo", "Hola esto es una prueba", 0);
-	char *respuestaRead = Hacer_Read("/archivo", 100, 4000);
-	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
-	free(respuestaRead);
+	//Hacer_Write("/archivo", "Hola esto es una prueba", 0);
+//	char *respuestaRead = Hacer_Read("/archivo", 0, 100);
+//	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
+//	free(respuestaRead);
 
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", puerto, logger);
