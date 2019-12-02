@@ -14,32 +14,32 @@
 //           Tipos de Mensajes          //
 //////////////////////////////////////////
 typedef enum t_protocolo {
-	t_suse_create = 1,
-	t_suse_schedule_next,
-	t_suse_wait,
-	t_suse_signal,
-	t_suse_join,
-	t_suse_close
-} t_protocolo;
+	SUSE_CREATE = 1,
+	SUSE_SCHELUDE_NEXT,
+	SUSE_WAIT,
+	SUSE_SIGNAL,
+	SUSE_JOIN,
+	SUSE_CLOSE
+} t_protocolo; //CHAR CON IF Y STRCMP
 
 //////////////////////////////////////////
 //               Procesos               //
 //////////////////////////////////////////
 
-typedef enum proceso {
-	ESI=1,
+/*typedef enum proceso {
+	PROGRAMA=1,
 	COORDINADOR,
 	PLANIFICADOR,
 	INSTANCIA
 } proceso;
-
+*/ //NO VA.
 //////////////////////////////////////////
 //           Comunicacion Base          //
 //////////////////////////////////////////
 
 typedef struct {
-	t_protocolo tipoMensaje;
-	uint32_t quienEnvia;
+	char * tipoMensaje;
+	uint32_t quienEnvia; //FD del prog
 	uint32_t tamanioMensaje;
 }__attribute__((packed)) Header;
 
@@ -73,12 +73,12 @@ typedef struct {
 	int socket;
 	char* nombre;
 	bool estado_de_conexion;
-	bool flagEL;
-	t_list* claves;
-}__attribute__((packed)) t_Instancia;
+	//bool flagEL;
+	//t_list* claves;
+}__attribute__((packed)) conexion_programa;
 
 typedef struct {
-	t_Instancia* dato;
+//	t_Instancia* dato;
 	int tamanio;
 }__attribute__((packed)) t_Instancia_con_tamanio;
 
@@ -93,7 +93,7 @@ typedef struct {
 //              Funciones               //
 //////////////////////////////////////////
 
-char* getNombreDelProceso(proceso proceso);
+/*char* getNombreDelProceso(proceso proceso);
 
 bool EnviarHandshake(int socketFD, proceso quienEnvia);
 
@@ -106,6 +106,6 @@ int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir);
 int RecibirPaqueteServidor(int socketFD, proceso quienEnvia, Paquete* paquete); //Responde al recibir un Handshake
 
 int RecibirPaqueteCliente(int socketFD, Paquete* paquete); //No responde los Handshakes
-
+*/
 
 #endif /* SERIALIZACION_H_ */

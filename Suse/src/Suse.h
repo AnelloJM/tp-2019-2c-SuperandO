@@ -12,7 +12,8 @@
 #include <commons/collections/list.h>
 #include <hilolay/hilolay.h>
 #include "../../ComunParaTodos/Serializacion/serializacion.h"
-
+#include <commons/collections/queue.h>
+#include <pthread.h>
 
 t_log* logger;
 t_config* archivoConfig;
@@ -28,7 +29,7 @@ t_list * cola_blocked;
 t_list * cola_exit;
 t_list * semaforos;
 int colasLibres;
-
+t_queue * colanew;
 //Arch de Config
 char* listen_port;
 int metrics_timer;
@@ -37,32 +38,39 @@ void* sems_ids;
 void* sem_init;
 void* sem_max;
 float alpha_sjf;
+int tidMAX;
 
 //PAQUETES//
 typedef struct {
 	hilolay_t *thread;
 	hilolay_attr_t *attr;
 	void *arg;
-	int pid;
-	int tid;
+	char * pid;
+	char * tid;
 	int estimacionAnterior;
 	float rafagasEjecutadas;
 	float rafagasEstimadas;
-}hilo_t;
+	int tiempo_espera;
+	int tiempo_bloqueado;
+	char * razon_bloqueado;
+	int tiempo_ejecutando;
+	bool finalizado;
+} hilo_t; //TCB
 
 typedef struct {
-	int pid;
+	//int pid; este ya esta en la tcb t_hilo;
+	char * pid;
 	t_list * cola_ready;
 	t_list * cola_exec;
-}proceso_t;
+} programa_t;
 
 typedef struct {
 	char* semID;
 	int semInit;
 	int semActual;
 	int semMax;
-	t_list* procesos;
-}semaforo_t;
+	t_list* hilosEnEspera;
+} semaforo_t;
 
 /* FUNCIONES */
 void crearLogger();
@@ -70,18 +78,21 @@ void leerArchivoDeConfiguracion();
 void setearValores();
 void suse_init();
 void cargarSemaforos();
-void suse_create(hilo_t* hilo);
+void suse_create(int programa, int variable);
 void* suse_schedule_next();
 int dispatcher(hilo_t* hilo);
 hilo_t calcularEstimacion();
 bool comparador(hilo_t* unHilo, hilo_t* otroHilo);
 bool comparadorDeRafagas();
-int list_get_index(t_list* self, void* elemento, bool(*comparador (void*, void*)));
-int buscadorSemaforo (semaforo_t* semaforo);
-int suse_wait(semaforo_t* semaforo);
+int list_get_index(t_list* self, void* elemento,
+		bool (*comparador(void*, void*)));
+int buscadorSemaforo(semaforo_t* semaforo);
+int suse_wait(semaforo_t* semaforo, char*tid);
 bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem);
-int suse_signal(semaforo_t* semaforo);
+int suse_signal(semaforo_t* semaforo, char*tid);
 void suse_join();
-void suse_close();
+void suse_close(char*tid);
+
+int sumar2(int);
 
 #endif

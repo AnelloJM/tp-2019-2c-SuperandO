@@ -29,6 +29,14 @@ bool Fuse_PackAndSend(int socketCliente, const void *path, uint32_t tamPath, f_o
 	return resultado;
 }
 
+bool Fuse_PackAndSend_Uint32_Response(int socketCliente, uint32_t response){
+	void* pack = malloc(sizeof(uint32_t));
+	memcpy(pack, &response, sizeof(uint32_t));
+	int resultado = Fuse_PackAndSend(socketCliente, pack, sizeof(uint32_t), f_RESPONSE);
+	free(pack);
+	return resultado;
+}
+
 bool Fuse_PackAndSend_Write(int socketCliente,const char *path, const char *buf, size_t size, off_t offset) {
 	uint32_t tamMessage = strlen(path) + strlen(buf) + 2 + sizeof(size_t) + sizeof(off_t);
 	uint32_t tamBuf = (strlen(buf) +1);
@@ -51,21 +59,23 @@ bool Fuse_PackAndSend_Write(int socketCliente,const char *path, const char *buf,
 	return resultado;
 }
 
-bool Fuse_PackAndSend_MKNOD(int socketCliente, const void *path, const mode_t mode) {
-	uint32_t tamMessage = strlen(path) + sizeof(mode_t) + (2*sizeof(uint32_t)) + 1;
+bool Fuse_PackAndSend_Read(int socketCliente,const char *path, size_t size, off_t offset) {
+	uint32_t tamMessage = strlen(path) +  1 +  sizeof(off_t) + sizeof(size_t);
 	uint32_t tamPath = strlen(path) + 1;
-	void* buffer = malloc( tamMessage );
+	void* buffer = malloc ( tamMessage );
 	int desplazamiento = 0;
 	memcpy(buffer, &tamPath, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer + desplazamiento, path, tamPath);
 	desplazamiento += tamPath;
-	memcpy(buffer + desplazamiento, mode, sizeof(mode_t));
-	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_MKDIR);
+	memcpy(buffer+desplazamiento, &size, sizeof(size_t));
+	desplazamiento = desplazamiento + sizeof(size_t);
+	memcpy(buffer + desplazamiento, &offset, sizeof(off_t));
+	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_READ);
 	free(buffer);
 	return resultado;
-
 }
+
 
 bool Fuse_PackAndSend_Rename(int socketCliente, const void *path, const char *nombre) {
 	uint32_t tamMessage = strlen(path) + strlen(nombre) + (2*sizeof(uint32_t)) + 2;
@@ -80,10 +90,25 @@ bool Fuse_PackAndSend_Rename(int socketCliente, const void *path, const char *no
 	memcpy(buffer + desplazamiento, &tamNombre, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer + desplazamiento, nombre, tamNombre);
-	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_MKDIR);
+	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_RENAME);
 	free(buffer);
 	return resultado;
 
+}
+
+bool Fuse_PackAndSend_Truncate(int socketCliente, const void *path, off_t offset) {
+	uint32_t tamMessage = strlen(path) +  1 +  sizeof(off_t);
+	uint32_t tamPath = strlen(path) + 1;
+	void* buffer = malloc ( tamMessage );
+	int desplazamiento = 0;
+	memcpy(buffer, &tamPath, sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+	memcpy(buffer + desplazamiento, path, tamPath);
+	desplazamiento += tamPath;
+	memcpy(buffer + desplazamiento, &offset, sizeof(off_t));
+	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_READ);
+	free(buffer);
+	return resultado;
 }
 
 ////////////////////////////
@@ -119,6 +144,12 @@ void* Fuse_ReceiveAndUnpack(int socketCliente, uint32_t tamanio) {
 // FUNCIONES PARA DESEMPAQUETAR //
 /////////////////////////////////
 
+uint32_t Fuse_Unpack_Response_Uint32(void *pack) {
+	uint32_t response = 0;
+	memcpy(&response, pack, sizeof(uint32_t));
+	return response;
+}
+
 char* Fuse_Unpack_Path(void *buffer) {
 	uint32_t tamPath = 0;
 	memcpy(&tamPath, buffer, sizeof(uint32_t));
@@ -152,7 +183,6 @@ size_t Fuse_Unpack_Write_Size(void *buffer) {
 
 off_t Fuse_Unpack_Write_offset(void *buffer) {
 	off_t offset;
-	size_t size;
 	uint32_t path = 0;
 	uint32_t buf = 0;
 	memcpy(&path, buffer, sizeof(uint32_t));
@@ -163,13 +193,23 @@ off_t Fuse_Unpack_Write_offset(void *buffer) {
 	return offset;
 }
 
-mode_t Fuse_Unpack_MKNOD_Mode(void *buffer) {
-	mode_t modo;
+off_t Fuse_Unpack_Read_size(void *buffer) {
+	size_t size;
 	uint32_t path = 0;
 	memcpy(&path, buffer, sizeof(uint32_t));
 	path += sizeof(uint32_t);
-	memcpy(&modo, buffer+path, sizeof(mode_t));
-	return modo;
+	memcpy(&size, buffer+path, sizeof(off_t));
+	return size;
+}
+
+off_t Fuse_Unpack_Read_offset(void *buffer) {
+	off_t offset;
+	uint32_t path = 0;
+	memcpy(&path, buffer, sizeof(uint32_t));
+	path += sizeof(uint32_t);
+	path += sizeof(size_t);
+	memcpy(&offset, buffer+path, sizeof(off_t));
+	return offset;
 }
 
 char* Fuse_Unpack_Rename_Nombre(void *buffer) {
@@ -180,4 +220,13 @@ char* Fuse_Unpack_Rename_Nombre(void *buffer) {
 	 * confusion
 	 */
 	return Fuse_Unpack_Write_Buf(buffer);
+}
+
+off_t Fuse_Unpack_Truncate_offset(void *buffer) {
+	off_t offset;
+	uint32_t path = 0;
+	memcpy(&path, buffer, sizeof(uint32_t));
+	path += sizeof(uint32_t);
+	memcpy(&offset, buffer+path, sizeof(off_t));
+	return offset;
 }

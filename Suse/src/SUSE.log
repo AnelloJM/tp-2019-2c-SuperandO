@@ -13,3 +13,378 @@
 
 [INFO] 18:24:28:460 SUSE/(7510:7510): Dentro de iniciar servidor
 [INFO] 18:24:28:461 SUSE/(7510:7510): Listo para escuchar a mi cliente
+[INFO] 16:32:15:876 SUSE/(7248:7248): El logger se creo con exito
+[INFO] 16:32:15:887 SUSE/(7248:7248): La configuracion fue cargada exitosamente
+[INFO] 16:32:15:888 SUSE/(7248:7248): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 16:32:15:888 SUSE/(7248:7248): LISTEN_PORT ->  5003
+[INFO] 16:32:15:888 SUSE/(7248:7248): Metrics_timer ->  50
+[INFO] 16:32:15:888 SUSE/(7248:7248): MAx_MULTIPROG ->  10
+[INFO] 16:32:15:888 SUSE/(7248:7248): --------------
+
+[INFO] 16:32:15:889 SUSE/(7248:7248): Dentro de iniciar servidor
+[INFO] 16:32:15:889 SUSE/(7248:7248): Listo para escuchar a mi cliente
+[INFO] 16:32:15:890 SUSE/(7248:7248): esperando
+[INFO] 16:39:53:306 SUSE/(7622:7622): El logger se creo con exito
+[INFO] 16:39:53:363 SUSE/(7622:7622): La configuracion fue cargada exitosamente
+[INFO] 16:39:53:364 SUSE/(7622:7622): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 16:39:53:364 SUSE/(7622:7622): LISTEN_PORT ->  5003
+[INFO] 16:39:53:364 SUSE/(7622:7622): Metrics_timer ->  50
+[INFO] 16:39:53:364 SUSE/(7622:7622): MAx_MULTIPROG ->  10
+[INFO] 16:39:53:365 SUSE/(7622:7622): --------------
+
+[INFO] 16:39:53:365 SUSE/(7622:7622): Dentro de iniciar servidor
+[INFO] 16:39:53:366 SUSE/(7622:7622): Listo para escuchar a mi cliente
+[INFO] 16:39:53:366 SUSE/(7622:7622): esperando
+[INFO] 17:08:09:496 SUSE/(8175:8175): El logger se creo con exito
+[INFO] 17:08:09:508 SUSE/(8175:8175): La configuracion fue cargada exitosamente
+[INFO] 17:08:09:508 SUSE/(8175:8175): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 17:08:09:509 SUSE/(8175:8175): LISTEN_PORT ->  5003
+[INFO] 17:08:09:509 SUSE/(8175:8175): Metrics_timer ->  50
+[INFO] 17:08:09:509 SUSE/(8175:8175): MAx_MULTIPROG ->  10
+[INFO] 17:08:09:509 SUSE/(8175:8175): --------------
+
+[INFO] 17:08:09:510 SUSE/(8175:8175): Dentro de iniciar servidor
+[INFO] 17:08:09:510 SUSE/(8175:8175): Listo para escuchar a mi cliente
+[INFO] 17:08:09:510 SUSE/(8175:8175): esperando
+[INFO] 17:12:27:436 SUSE/(8175:8175): Se conecto un cliente!
+[INFO] 17:12:27:437 SUSE/(8175:8175): Se envió el mensaje al cliente
+[INFO] 19:11:31:32 SUSE/(11611:11611): El logger se creo con exito
+[INFO] 19:11:31:43 SUSE/(11611:11611): La configuracion fue cargada exitosamente
+[INFO] 19:11:31:43 SUSE/(11611:11611): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 19:11:31:43 SUSE/(11611:11611): LISTEN_PORT ->  5003
+[INFO] 19:11:31:44 SUSE/(11611:11611): Metrics_timer ->  50
+[INFO] 19:11:31:44 SUSE/(11611:11611): MAx_MULTIPROG ->  10
+[INFO] 19:11:31:44 SUSE/(11611:11611): --------------
+
+[INFO] 19:11:31:51 SUSE/(11611:11611): Dentro de iniciar servidor
+[INFO] 19:11:31:51 SUSE/(11611:11611): Listo para escuchar a mi cliente
+[INFO] 23:13:10:406 SUSE/(13191:13191): El logger se creo con exito
+[INFO] 23:13:10:430 SUSE/(13191:13191): La configuracion fue cargada exitosamente
+[INFO] 23:13:10:430 SUSE/(13191:13191): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:13:10:430 SUSE/(13191:13191): LISTEN_PORT ->  5003
+[INFO] 23:13:10:430 SUSE/(13191:13191): Metrics_timer ->  50
+[INFO] 23:13:10:430 SUSE/(13191:13191): MAx_MULTIPROG ->  10
+[INFO] 23:13:10:431 SUSE/(13191:13191): --------------
+
+[INFO] 23:13:10:431 SUSE/(13191:13191): Dentro de iniciar servidor
+[INFO] 23:13:10:431 SUSE/(13191:13191): Listo para escuchar a mi cliente
+[INFO] 23:13:40:323 SUSE/(13200:13200): El logger se creo con exito
+[INFO] 23:13:40:409 SUSE/(13200:13200): La configuracion fue cargada exitosamente
+[INFO] 23:13:40:416 SUSE/(13200:13200): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:13:40:422 SUSE/(13200:13200): LISTEN_PORT ->  5003
+[INFO] 23:13:40:422 SUSE/(13200:13200): Metrics_timer ->  50
+[INFO] 23:13:40:423 SUSE/(13200:13200): MAx_MULTIPROG ->  10
+[INFO] 23:13:40:424 SUSE/(13200:13200): --------------
+
+[INFO] 23:13:40:429 SUSE/(13200:13200): Dentro de iniciar servidor
+[INFO] 23:13:40:445 SUSE/(13200:13200): Listo para escuchar a mi cliente
+[INFO] 23:16:09:619 SUSE/(13273:13273): El logger se creo con exito
+[INFO] 23:16:09:753 SUSE/(13273:13273): La configuracion fue cargada exitosamente
+[INFO] 23:16:09:762 SUSE/(13273:13273): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:16:09:763 SUSE/(13273:13273): LISTEN_PORT ->  5003
+[INFO] 23:16:09:764 SUSE/(13273:13273): Metrics_timer ->  50
+[INFO] 23:16:09:768 SUSE/(13273:13273): MAx_MULTIPROG ->  10
+[INFO] 23:16:09:770 SUSE/(13273:13273): --------------
+
+[INFO] 23:16:09:780 SUSE/(13273:13273): Dentro de iniciar servidor
+[INFO] 23:16:09:813 SUSE/(13273:13273): Listo para escuchar a mi cliente
+[INFO] 23:20:02:101 SUSE/(13394:13394): El logger se creo con exito
+[INFO] 23:20:02:200 SUSE/(13394:13394): La configuracion fue cargada exitosamente
+[INFO] 23:20:02:211 SUSE/(13394:13394): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:20:02:211 SUSE/(13394:13394): LISTEN_PORT ->  5003
+[INFO] 23:20:02:212 SUSE/(13394:13394): Metrics_timer ->  50
+[INFO] 23:20:02:213 SUSE/(13394:13394): MAx_MULTIPROG ->  10
+[INFO] 23:20:02:213 SUSE/(13394:13394): --------------
+
+[INFO] 23:20:02:217 SUSE/(13394:13394): Dentro de iniciar servidor
+[INFO] 23:20:02:232 SUSE/(13394:13394): Listo para escuchar a mi cliente
+[INFO] 23:20:39:481 SUSE/(13426:13426): El logger se creo con exito
+[INFO] 23:20:39:577 SUSE/(13426:13426): La configuracion fue cargada exitosamente
+[INFO] 23:20:39:583 SUSE/(13426:13426): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:20:39:584 SUSE/(13426:13426): LISTEN_PORT ->  5003
+[INFO] 23:20:39:584 SUSE/(13426:13426): Metrics_timer ->  50
+[INFO] 23:20:39:585 SUSE/(13426:13426): MAx_MULTIPROG ->  10
+[INFO] 23:20:39:585 SUSE/(13426:13426): --------------
+
+[INFO] 23:20:39:589 SUSE/(13426:13426): Dentro de iniciar servidor
+[INFO] 23:20:39:605 SUSE/(13426:13426): Listo para escuchar a mi cliente
+[INFO] 23:28:22:819 SUSE/(13597:13597): El logger se creo con exito
+[INFO] 23:28:22:919 SUSE/(13597:13597): La configuracion fue cargada exitosamente
+[INFO] 23:28:22:930 SUSE/(13597:13597): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:28:22:931 SUSE/(13597:13597): LISTEN_PORT ->  5003
+[INFO] 23:28:22:931 SUSE/(13597:13597): Metrics_timer ->  50
+[INFO] 23:28:22:932 SUSE/(13597:13597): MAx_MULTIPROG ->  10
+[INFO] 23:28:22:932 SUSE/(13597:13597): --------------
+
+[INFO] 23:28:22:937 SUSE/(13597:13597): Dentro de iniciar servidor
+[INFO] 23:28:22:952 SUSE/(13597:13597): Listo para escuchar a mi cliente
+[INFO] 23:28:54:191 SUSE/(13603:13603): El logger se creo con exito
+[INFO] 23:28:54:313 SUSE/(13603:13603): La configuracion fue cargada exitosamente
+[INFO] 23:28:54:321 SUSE/(13603:13603): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:28:54:321 SUSE/(13603:13603): LISTEN_PORT ->  5003
+[INFO] 23:28:54:322 SUSE/(13603:13603): Metrics_timer ->  50
+[INFO] 23:28:54:322 SUSE/(13603:13603): MAx_MULTIPROG ->  10
+[INFO] 23:28:54:323 SUSE/(13603:13603): --------------
+
+[INFO] 23:28:54:329 SUSE/(13603:13603): Dentro de iniciar servidor
+[INFO] 23:28:54:349 SUSE/(13603:13603): Listo para escuchar a mi cliente
+[INFO] 23:29:05:73 SUSE/(13608:13608): El logger se creo con exito
+[INFO] 23:29:05:155 SUSE/(13608:13608): La configuracion fue cargada exitosamente
+[INFO] 23:29:05:162 SUSE/(13608:13608): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:29:05:162 SUSE/(13608:13608): LISTEN_PORT ->  5003
+[INFO] 23:29:05:163 SUSE/(13608:13608): Metrics_timer ->  50
+[INFO] 23:29:05:163 SUSE/(13608:13608): MAx_MULTIPROG ->  10
+[INFO] 23:29:05:164 SUSE/(13608:13608): --------------
+
+[INFO] 23:29:05:172 SUSE/(13608:13608): Dentro de iniciar servidor
+[INFO] 23:29:05:187 SUSE/(13608:13608): Listo para escuchar a mi cliente
+[INFO] 23:29:29:426 SUSE/(13612:13612): El logger se creo con exito
+[INFO] 23:29:29:426 SUSE/(13612:13612): La configuracion fue cargada exitosamente
+[INFO] 23:29:29:426 SUSE/(13612:13612): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:29:29:426 SUSE/(13612:13612): LISTEN_PORT ->  5003
+[INFO] 23:29:29:427 SUSE/(13612:13612): Metrics_timer ->  50
+[INFO] 23:29:29:427 SUSE/(13612:13612): MAx_MULTIPROG ->  10
+[INFO] 23:29:29:427 SUSE/(13612:13612): --------------
+
+[INFO] 23:29:29:427 SUSE/(13612:13612): Dentro de iniciar servidor
+[INFO] 23:29:29:427 SUSE/(13612:13612): Listo para escuchar a mi cliente
+[INFO] 23:33:29:600 SUSE/(13675:13675): El logger se creo con exito
+[INFO] 23:33:29:795 SUSE/(13675:13675): La configuracion fue cargada exitosamente
+[INFO] 23:33:29:804 SUSE/(13675:13675): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:33:29:805 SUSE/(13675:13675): LISTEN_PORT ->  5003
+[INFO] 23:33:29:806 SUSE/(13675:13675): Metrics_timer ->  50
+[INFO] 23:33:29:806 SUSE/(13675:13675): MAx_MULTIPROG ->  10
+[INFO] 23:33:29:807 SUSE/(13675:13675): --------------
+
+[INFO] 23:33:29:815 SUSE/(13675:13675): Dentro de iniciar servidor
+[INFO] 23:33:29:840 SUSE/(13675:13675): Listo para escuchar a mi cliente
+[INFO] 23:33:48:272 SUSE/(13685:13685): El logger se creo con exito
+[INFO] 23:33:48:356 SUSE/(13685:13685): La configuracion fue cargada exitosamente
+[INFO] 23:33:48:362 SUSE/(13685:13685): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:33:48:363 SUSE/(13685:13685): LISTEN_PORT ->  5003
+[INFO] 23:33:48:363 SUSE/(13685:13685): Metrics_timer ->  50
+[INFO] 23:33:48:364 SUSE/(13685:13685): MAx_MULTIPROG ->  10
+[INFO] 23:33:48:364 SUSE/(13685:13685): --------------
+
+[INFO] 23:33:48:369 SUSE/(13685:13685): Dentro de iniciar servidor
+[INFO] 23:33:48:384 SUSE/(13685:13685): Listo para escuchar a mi cliente
+[INFO] 23:33:57:223 SUSE/(13686:13686): El logger se creo con exito
+[INFO] 23:33:57:305 SUSE/(13686:13686): La configuracion fue cargada exitosamente
+[INFO] 23:33:57:311 SUSE/(13686:13686): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:33:57:312 SUSE/(13686:13686): LISTEN_PORT ->  5003
+[INFO] 23:33:57:313 SUSE/(13686:13686): Metrics_timer ->  50
+[INFO] 23:33:57:313 SUSE/(13686:13686): MAx_MULTIPROG ->  10
+[INFO] 23:33:57:314 SUSE/(13686:13686): --------------
+
+[INFO] 23:33:57:323 SUSE/(13686:13686): Dentro de iniciar servidor
+[INFO] 23:33:57:337 SUSE/(13686:13686): Listo para escuchar a mi cliente
+[INFO] 23:34:30:683 SUSE/(13714:13714): El logger se creo con exito
+[INFO] 23:34:30:787 SUSE/(13714:13714): La configuracion fue cargada exitosamente
+[INFO] 23:34:30:793 SUSE/(13714:13714): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:34:30:794 SUSE/(13714:13714): LISTEN_PORT ->  5003
+[INFO] 23:34:30:795 SUSE/(13714:13714): Metrics_timer ->  50
+[INFO] 23:34:30:795 SUSE/(13714:13714): MAx_MULTIPROG ->  10
+[INFO] 23:34:30:796 SUSE/(13714:13714): --------------
+
+[INFO] 23:34:30:805 SUSE/(13714:13714): Dentro de iniciar servidor
+[INFO] 23:34:30:820 SUSE/(13714:13714): Listo para escuchar a mi cliente
+[INFO] 23:36:34:829 SUSE/(13779:13779): El logger se creo con exito
+[INFO] 23:36:34:830 SUSE/(13779:13779): La configuracion fue cargada exitosamente
+[INFO] 23:36:34:830 SUSE/(13779:13779): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:36:34:831 SUSE/(13779:13779): LISTEN_PORT ->  5003
+[INFO] 23:36:34:831 SUSE/(13779:13779): Metrics_timer ->  50
+[INFO] 23:36:34:831 SUSE/(13779:13779): MAx_MULTIPROG ->  10
+[INFO] 23:36:34:831 SUSE/(13779:13779): --------------
+
+[INFO] 23:36:34:831 SUSE/(13779:13779): Dentro de iniciar servidor
+[INFO] 23:36:34:832 SUSE/(13779:13779): Listo para escuchar a mi cliente
+[INFO] 23:36:56:407 SUSE/(13781:13781): El logger se creo con exito
+[INFO] 23:36:56:489 SUSE/(13781:13781): La configuracion fue cargada exitosamente
+[INFO] 23:36:56:495 SUSE/(13781:13781): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:36:56:496 SUSE/(13781:13781): LISTEN_PORT ->  5003
+[INFO] 23:36:56:496 SUSE/(13781:13781): Metrics_timer ->  50
+[INFO] 23:36:56:497 SUSE/(13781:13781): MAx_MULTIPROG ->  10
+[INFO] 23:36:56:497 SUSE/(13781:13781): --------------
+
+[INFO] 23:36:56:505 SUSE/(13781:13781): Dentro de iniciar servidor
+[INFO] 23:36:56:521 SUSE/(13781:13781): Listo para escuchar a mi cliente
+[INFO] 23:40:37:585 SUSE/(13910:13910): El logger se creo con exito
+[INFO] 23:40:37:689 SUSE/(13910:13910): La configuracion fue cargada exitosamente
+[INFO] 23:40:37:700 SUSE/(13910:13910): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:40:37:701 SUSE/(13910:13910): LISTEN_PORT ->  5003
+[INFO] 23:40:37:701 SUSE/(13910:13910): Metrics_timer ->  50
+[INFO] 23:40:37:702 SUSE/(13910:13910): MAx_MULTIPROG ->  10
+[INFO] 23:40:37:702 SUSE/(13910:13910): --------------
+
+[INFO] 23:40:37:707 SUSE/(13910:13910): Dentro de iniciar servidor
+[INFO] 23:40:37:726 SUSE/(13910:13910): Listo para escuchar a mi cliente
+[INFO] 23:40:45:90 SUSE/(13910:13910): Se ha agregado un hilo nuevo a la cola de new
+[INFO] 23:47:23:80 SUSE/(14014:14014): El logger se creo con exito
+[INFO] 23:47:24:173 SUSE/(14014:14014): La configuracion fue cargada exitosamente
+[INFO] 23:47:24:180 SUSE/(14014:14014): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:47:24:181 SUSE/(14014:14014): LISTEN_PORT ->  5003
+[INFO] 23:47:24:182 SUSE/(14014:14014): Metrics_timer ->  50
+[INFO] 23:47:24:182 SUSE/(14014:14014): MAx_MULTIPROG ->  10
+[INFO] 23:47:24:183 SUSE/(14014:14014): --------------
+
+[INFO] 23:47:24:191 SUSE/(14014:14014): Dentro de iniciar servidor
+[INFO] 23:47:24:206 SUSE/(14014:14014): Listo para escuchar a mi cliente
+[INFO] 23:47:25:919 SUSE/(14014:14014): Se ha agregado un hilo nuevo a la cola de new
+[INFO] 23:55:13:863 SUSE/(14228:14228): El logger se creo con exito
+[INFO] 23:55:13:959 SUSE/(14228:14228): La configuracion fue cargada exitosamente
+[INFO] 23:55:13:966 SUSE/(14228:14228): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 23:55:13:967 SUSE/(14228:14228): LISTEN_PORT ->  5003
+[INFO] 23:55:13:968 SUSE/(14228:14228): Metrics_timer ->  50
+[INFO] 23:55:13:968 SUSE/(14228:14228): MAx_MULTIPROG ->  10
+[INFO] 23:55:13:969 SUSE/(14228:14228): --------------
+
+[INFO] 23:55:13:978 SUSE/(14228:14228): Dentro de iniciar servidor
+[INFO] 23:55:13:992 SUSE/(14228:14228): Listo para escuchar a mi cliente
+[INFO] 23:55:15:378 SUSE/(14228:14228): Se ha agregado un hilo nuevo a la cola de new
+[INFO] 23:55:15:384 SUSE/(14228:14228): Se ha agregado un hilo nuevo a la cola de new
+[INFO] 23:55:15:388 SUSE/(14228:14228): Se ha agregado un hilo nuevo a la cola de new
+[INFO] 23:55:15:389 SUSE/(14228:14228): Se ha agregado un hilo nuevo a la cola de new
+[INFO] 00:05:26:405 SUSE/(14418:14418): El logger se creo con exito
+[INFO] 00:05:26:501 SUSE/(14418:14418): La configuracion fue cargada exitosamente
+[INFO] 00:05:26:508 SUSE/(14418:14418): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 00:05:26:509 SUSE/(14418:14418): LISTEN_PORT ->  5003
+[INFO] 00:05:26:510 SUSE/(14418:14418): Metrics_timer ->  50
+[INFO] 00:05:26:510 SUSE/(14418:14418): MAx_MULTIPROG ->  10
+[INFO] 00:05:26:511 SUSE/(14418:14418): --------------
+
+[INFO] 00:05:26:519 SUSE/(14418:14418): Dentro de iniciar servidor
+[INFO] 00:05:26:534 SUSE/(14418:14418): Listo para escuchar a mi cliente
+[INFO] 00:05:31:693 SUSE/(14418:14418): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:05:31:701 SUSE/(14418:14418): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:05:31:702 SUSE/(14418:14418): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:05:31:703 SUSE/(14418:14418): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:18:24:706 SUSE/(14671:14671): El logger se creo con exito
+[INFO] 00:18:24:852 SUSE/(14671:14671): La configuracion fue cargada exitosamente
+[INFO] 00:18:24:859 SUSE/(14671:14671): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 00:18:24:859 SUSE/(14671:14671): LISTEN_PORT ->  5003
+[INFO] 00:18:24:860 SUSE/(14671:14671): Metrics_timer ->  50
+[INFO] 00:18:24:860 SUSE/(14671:14671): MAx_MULTIPROG ->  10
+[INFO] 00:18:24:861 SUSE/(14671:14671): --------------
+
+[INFO] 00:18:24:867 SUSE/(14671:14671): Dentro de iniciar servidor
+[INFO] 00:18:24:886 SUSE/(14671:14671): Listo para escuchar a mi cliente
+[INFO] 00:18:27:359 SUSE/(14671:14671): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:18:27:368 SUSE/(14671:14671): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:18:27:369 SUSE/(14671:14671): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:18:27:370 SUSE/(14671:14671): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:19:20:523 SUSE/(14719:14719): El logger se creo con exito
+[INFO] 00:19:20:603 SUSE/(14719:14719): La configuracion fue cargada exitosamente
+[INFO] 00:19:20:610 SUSE/(14719:14719): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 00:19:20:611 SUSE/(14719:14719): LISTEN_PORT ->  5003
+[INFO] 00:19:20:611 SUSE/(14719:14719): Metrics_timer ->  50
+[INFO] 00:19:20:612 SUSE/(14719:14719): MAx_MULTIPROG ->  10
+[INFO] 00:19:20:613 SUSE/(14719:14719): --------------
+
+[INFO] 00:19:20:617 SUSE/(14719:14719): Dentro de iniciar servidor
+[INFO] 00:19:20:636 SUSE/(14719:14719): Listo para escuchar a mi cliente
+[INFO] 00:19:22:574 SUSE/(14719:14719): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:19:22:583 SUSE/(14719:14719): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:19:22:585 SUSE/(14719:14719): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:19:22:586 SUSE/(14719:14719): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:20:03:366 SUSE/(14756:14756): El logger se creo con exito
+[INFO] 00:20:03:451 SUSE/(14756:14756): La configuracion fue cargada exitosamente
+[INFO] 00:20:03:461 SUSE/(14756:14756): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 00:20:03:462 SUSE/(14756:14756): LISTEN_PORT ->  5003
+[INFO] 00:20:03:462 SUSE/(14756:14756): Metrics_timer ->  50
+[INFO] 00:20:03:463 SUSE/(14756:14756): MAx_MULTIPROG ->  10
+[INFO] 00:20:03:463 SUSE/(14756:14756): --------------
+
+[INFO] 00:20:03:472 SUSE/(14756:14756): Dentro de iniciar servidor
+[INFO] 00:20:03:486 SUSE/(14756:14756): Listo para escuchar a mi cliente
+[INFO] 00:20:05:86 SUSE/(14756:14756): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:20:05:96 SUSE/(14756:14756): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:20:05:98 SUSE/(14756:14756): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:20:05:99 SUSE/(14756:14756): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:31:05:584 SUSE/(14924:14924): El logger se creo con exito
+[INFO] 00:31:05:685 SUSE/(14924:14924): La configuracion fue cargada exitosamente
+[INFO] 00:31:05:692 SUSE/(14924:14924): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 00:31:05:693 SUSE/(14924:14924): LISTEN_PORT ->  5003
+[INFO] 00:31:05:697 SUSE/(14924:14924): Metrics_timer ->  50
+[INFO] 00:31:05:698 SUSE/(14924:14924): MAx_MULTIPROG ->  10
+[INFO] 00:31:05:698 SUSE/(14924:14924): --------------
+
+[INFO] 00:31:05:703 SUSE/(14924:14924): Dentro de iniciar servidor
+[INFO] 00:31:05:717 SUSE/(14924:14924): Listo para escuchar a mi cliente
+[INFO] 00:31:07:816 SUSE/(14924:14924): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:31:07:824 SUSE/(14924:14924): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:31:07:825 SUSE/(14924:14924): Se ha agregado un hilo nuevo a la cola de new.
+
+[INFO] 00:31:07:826 SUSE/(14924:14924): Se ha agregado un hilo nuevo a la cola de new.
+

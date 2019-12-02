@@ -23,7 +23,7 @@ bool EnviarPaquete(int socketCliente, Paquete* paquete) {
 	return valor_retorno;
 }
 
-bool EnviarDatosTipo(int socketFD, proceso quienEnvia, void* datos, int tamDatos, t_protocolo tipoMensaje){
+/*bool EnviarDatosTipo(int socketFD, proceso quienEnvia, void* datos, int tamDatos, t_protocolo tipoMensaje){
 	Paquete* paquete = malloc(sizeof(Paquete));
 	paquete->header.tipoMensaje = tipoMensaje;
 	paquete->header.quienEnvia = quienEnvia;
@@ -51,7 +51,7 @@ bool EnviarHandshake(int socketFD, proceso quienEnvia) {
 	bool resultado = EnviarPaquete(socketFD, paquete);
 	free(paquete);
 	return resultado;
-}
+}*/
 
 int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir) {
 	void* datos = malloc(cantARecibir);
@@ -91,44 +91,44 @@ int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir) {
 int RecibirPaqueteCliente(int socketFD, Paquete* paquete) {
 	paquete->mensaje = NULL;
 	int resul = RecibirDatos(&(paquete->header), socketFD, sizeof(Header));
-	if (resul > 0 ){//&& paquete->header.tipoMensaje != t_HANDSHAKE && paquete->header.tamanioMensaje > 0) { //si no hubo error ni es un t_HANDSHAKE
+	if (resul > 0 && paquete->header.tamanioMensaje > 0) { //si no hubo error ni es un t_HANDSHAKE (//&& paquete->header.tipoMensaje != t_HANDSHAKE)
 		paquete->mensaje = malloc(paquete->header.tamanioMensaje);
 		resul = RecibirDatos(paquete->mensaje, socketFD, paquete->header.tamanioMensaje);
 	}
 	return resul;
 }
-/*
-int recibir_paquete_deserializar(int socket_cliente, Paquete * pack, char * ip, int puerto){
+
+/*int recibir_paquete_deserializar(int socket_cliente, Paquete * pack, char * ip, int puerto){
 
        t_list* cosas = RecibirPaqueteCliente(socket_cliente, pack);
 
         switch (pack->header.tipoMensaje){
-            case t_suse_create:
+            case SUSE_CREATE:
             {
-                suse_create(socket_cliente, ip, puerto, cosas);
+ 00               suse_create(socket_cliente, ip, puerto, cosas);
                 break;
             }
-            case t_suse_schedule_next:
+            case SUSE_SCHELUDE_NEXT:
             {
                 suse_schedule_next(socket_cliente, ip, puerto, cosas);
                 break;
             }
-            case t_suse_join:
+            case SUSE_JOIN:
             {
                 suse_join(socket_cliente, ip, puerto, cosas);
                 break;
             }
-            case t_suse_close:
+            case SUSE_CLOSE:
             {
                 suse_close(socket_cliente, ip, puerto, cosas);
                 break;
             }
-            case t_suse_wait:
+            case SUSE_WAIT:
             {
                 suse_wait(socket_cliente, ip, puerto, cosas);
                 break;
             }
-            case t_suse_signal:
+            case SUSE_SIGNAL:
             {
                 suse_signal(socket_cliente, ip, puerto, cosas);
                 break;

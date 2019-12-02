@@ -27,54 +27,409 @@ Bitmap bitmap;
 Tabla_de_nodos *tabla_de_nodos;
 Bloque *bloques_de_datos;
 
-int contador;
 
-uint32_t Hacer_Getattr(char *path){ return 0; }
+uint32_t Hacer_Getattr(char *path){
+	uint32_t getattr = exite_path_retornando_nodo(path);
+	if(getattr == -1)
+		return 0;
+	if(tabla_de_nodos->nodos[getattr].estado == 1){
+		return 1;
+	}else{
+		return 2;
+	}
+}
 
-uint32_t Hacer_ReadDir(char *path){ return 0; }
+char *Hacer_ReadDir(char *path){
+	uint32_t nodo = 0;
+	if( !(strcmp(path,"/") == 0) )
+		nodo = exite_path_retornando_nodo(path);
+	char *hijos;
+	if(nodo == -1){
+		hijos = malloc(strlen("No existe el path")+1);
+		memcpy(hijos,"No existe el path",strlen("No existe el path")+1);
+		return hijos;
+	}
+	if(tabla_de_nodos->nodos[nodo].estado != 2 && (nodo != 0)){
+		hijos = malloc(strlen("No es un directorio")+1);
+		memcpy(hijos,"No es un directorio",strlen("No es un directorio")+1);
+		return hijos;
+	}
+	t_list *nodos_de_hijos=hijos_de_nodo(nodo);
+	char* nombre_nodo;
+	uint32_t nodo_del_hijo = 0;
+	int desplazamiento = 0;
+
+	int tamanio = 0;
+	for(int j = 0; j < list_size(nodos_de_hijos); j=j+1){
+		nodo_del_hijo = list_get(nodos_de_hijos,j);
+		tamanio = tamanio + strlen(tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo) + 1;
+	}
+
+	nodo_del_hijo = 0;
+	hijos = malloc(tamanio+1);
+	for(int i = 0; i < list_size(nodos_de_hijos); i = i+1){
+		nodo_del_hijo = list_get(nodos_de_hijos,i);
+		nombre_nodo = malloc(strlen(tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo)+1);
+		nombre_nodo = tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo;
+		memcpy(hijos + desplazamiento, nombre_nodo, strlen(nombre_nodo));
+		desplazamiento = desplazamiento + strlen(nombre_nodo);
+		memcpy(hijos + desplazamiento, "/",strlen("/"));
+		desplazamiento = desplazamiento + strlen("/");
+	}
+	memcpy(hijos+desplazamiento, "\0", 1);
+	list_destroy(nodos_de_hijos);
+	return hijos;
+}
 
 uint32_t Hacer_Open(char *path){ return 0; }
 
-uint32_t Hacer_Read(char *path){ return 0; }
+char *Hacer_Read(char *path, size_t size, off_t offset){
+	uint32_t nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+		return "-1";
+
+	//DONDE EMPEZAR
+
+	/*
+	 * Es entera porque me da la cantidad de
+	 * bloques de datos desde donde comienzo
+	*/
+	uint32_t cantida_de_bloque_desde_donde_comienzo = offset / sizeof(Bloque);
+
+	/*
+	 * Es resto porque me da la cantidad que
+	 * debo moverme desde el comienzo del bloque
+	*/
+	uint32_t desplazamiento = offset % sizeof(Bloque);
+
+	/*
+	 * por que cada poscion del array
+	 * hace referencia a 1024 bloques
+	*/
+	uint32_t poscion_en_array = cantida_de_bloque_desde_donde_comienzo / 1024;
+
+	/*
+	 * falta para llegar dentro
+	 * del los punteros
+	*/
+	uint32_t puntero_indirecto = cantida_de_bloque_desde_donde_comienzo % 1024;
+	uint32_t numero_de_bloque_de_puntero = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array];
+	Bloque_de_puntero *punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
+	ptrGBloque numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto];
+	Bloque *bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
+
+	//CUANTO LEER
+
+	uint32_t lo_que_me_queda_despues_del_bloque = sizeof(Bloque) - desplazamiento;
+	uint32_t faltante = size;
+
+	char *buffer;
+//	buffer = "";
+
+	if(faltante < lo_que_me_queda_despues_del_bloque){
+		buffer = &(bloque_a_leer->bytes[desplazamiento]);
+		return buffer;
+	}
+	memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), lo_que_me_queda_despues_del_bloque);
+	faltante = faltante - lo_que_me_queda_despues_del_bloque;
+	offset = offset + lo_que_me_queda_despues_del_bloque;
+
+	/*
+	 * Los bloques que me faltan leer,
+	 * entera para que si en menos de uno de cero
+	*/
+	uint32_t cantidad_bloques_a_leer_que_me_faltan = faltante / sizeof(Bloque);
+
+	/*
+	 * Desplazamiento dentro del ultimo bloque que me faltan leer,
+	 * resto para que me de el
+	*/
+	uint32_t cantidad_dentro_que_falta_leer = faltante % sizeof(Bloque);
+
+	uint32_t lo_que_me_queda_despues_de_los_punteros = 1024 - puntero_indirecto;
+
+	if(lo_que_me_queda_despues_de_los_punteros < cantidad_bloques_a_leer_que_me_faltan){
+		for(int i = 0; i < lo_que_me_queda_despues_de_los_punteros;i = i+1){
+			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
+			bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
+			memcpy(buffer, bloque_a_leer ,sizeof(Bloque));
+			faltante = faltante - sizeof(Bloque);
+			offset = offset + sizeof(Bloque);
+		}
+	}else{
+		for(int i = 0; i < cantidad_bloques_a_leer_que_me_faltan-1;i = i+1){
+			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
+			bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
+			memcpy(buffer, bloque_a_leer ,sizeof(Bloque));
+			faltante = faltante - sizeof(Bloque);
+			offset = offset + sizeof(Bloque);
+		}
+		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + 1];
+		bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
+		memcpy(buffer, &(bloque_a_leer->bytes[0]),cantidad_dentro_que_falta_leer);
+		return buffer;
+	}
+
+	char *recursivo = Hacer_Read(path, faltante, offset);
+	memcpy(buffer, recursivo,faltante);
+	free(recursivo);
+
+	return buffer;
+
+}
 
 uint32_t Hacer_Release(char *path){ return 0; }
 
-uint32_t Hacer_Write(char *path, char *buffer){ return 0; } 
+uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
+	uint32_t tamanio_a_escribir = strlen(buffer)+1 -ya_escrito_del_buffer;
+	uint32_t nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+		return -1;
+
+	uint32_t ya_escrito = tabla_de_nodos->nodos[nodo].tamanio_del_archivo;
+
+	//DONDE EMPEZAR
+	/*
+	 * Es entera porque me da la cantidad de
+	 * bloques de datos desde donde comienzo
+	*/
+	uint32_t cantida_de_bloque_desde_donde_comienzo = ya_escrito / sizeof(Bloque);
+
+	/*
+	 * Es resto porque me da la cantidad que
+	 * debo moverme desde el comienzo del bloque
+	*/
+	uint32_t desplazamiento = ya_escrito % sizeof(Bloque);
+
+	/*
+	 * por que cada poscion del array
+	 * hace referencia a 1024 bloques
+	*/
+	uint32_t poscion_en_array = cantida_de_bloque_desde_donde_comienzo / 1024;
+
+	/*
+	 * falta para llegar dentro
+	 * del los punteros
+	*/
+	uint32_t puntero_indirecto = cantida_de_bloque_desde_donde_comienzo % 1024;
+	uint32_t numero_de_bloque_de_puntero = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array];
+	Bloque_de_puntero *punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
+	ptrGBloque numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto];
+	Bloque *bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+
+
+	uint32_t espacio_que_tengo_libre_en_bloque = sizeof(Bloque) - ya_escrito;
+
+	if(tamanio_a_escribir < espacio_que_tengo_libre_en_bloque){
+		memcpy(&(bloque_a_escribir->bytes[desplazamiento]), buffer + ya_escrito_del_buffer, tamanio_a_escribir);
+		ya_escrito_del_buffer = ya_escrito_del_buffer + tamanio_a_escribir;
+		return 0;
+	}
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	memcpy(&(bloque_a_escribir->bytes[desplazamiento]), buffer  + ya_escrito_del_buffer , espacio_que_tengo_libre_en_bloque);
+	ya_escrito_del_buffer = ya_escrito_del_buffer + espacio_que_tengo_libre_en_bloque;
+	tamanio_a_escribir = tamanio_a_escribir - espacio_que_tengo_libre_en_bloque;
+	ya_escrito = ya_escrito + espacio_que_tengo_libre_en_bloque;
+
+	/*
+	 * Los bloques que me faltan leer,
+	 * entera para que si en menos de uno de cero
+	*/
+	uint32_t cantidad_bloques_a_escribir_que_me_faltan = tamanio_a_escribir / sizeof(Bloque);
+
+	/*
+	 * Desplazamiento dentro del ultimo bloque que me faltan leer,
+	 * resto para que me de el
+	*/
+	uint32_t cantidad_dentro_que_falta_escribir = tamanio_a_escribir % sizeof(Bloque);
+
+	uint32_t lo_que_me_queda_despues_de_los_punteros = 1024 - puntero_indirecto;
+
+	if(lo_que_me_queda_despues_de_los_punteros < cantidad_bloques_a_escribir_que_me_faltan){
+		for(int i = 0; i < lo_que_me_queda_despues_de_los_punteros;i = i+1){
+			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
+			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+			memcpy(bloque_a_escribir, buffer  + ya_escrito_del_buffer,sizeof(Bloque));
+			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
+			tamanio_a_escribir = tamanio_a_escribir + sizeof(Bloque);
+			ya_escrito = ya_escrito + sizeof(Bloque);
+		}
+	}else{
+		for(int i = 0; i < cantidad_bloques_a_escribir_que_me_faltan-1;i = i+1){
+			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
+			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+			memcpy(bloque_a_escribir, buffer  + ya_escrito_del_buffer,sizeof(Bloque));
+			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
+			tamanio_a_escribir = tamanio_a_escribir + sizeof(Bloque);
+			ya_escrito = ya_escrito + sizeof(Bloque);
+		}
+		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + 1];
+		bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+		memcpy(&(bloque_a_escribir->bytes[0]), buffer  + ya_escrito_del_buffer, cantidad_dentro_que_falta_escribir);
+
+		ya_escrito_del_buffer = ya_escrito_del_buffer + cantidad_dentro_que_falta_escribir;
+		return 0;
+	}
+
+	return Hacer_Write(path, buffer, ya_escrito_del_buffer);
+}
 
 uint32_t Hacer_MKNod(char *path){
-	uint32_t numero_de_nodo = hallar_nodo_libre();
+	if( exite_path_retornando_nodo(path) != -1){
+		return -EEXIST;
+	}
+
+	char **path_separado = string_split(path,"/");
+	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
+
+	uint32_t nodo = 0;
+
+	if(posicion_final != 0){
+		int total=0;
+
+		for(int i = 0; i <posicion_final; i = i+1){
+			total = total + string_length(path_separado[i]) + 1;
+		}
+		char *padre = string_substring(path, 0, total);
+		nodo = exite_path_retornando_nodo(padre);
+		if(nodo == -1){
+			log_error(logger, "No pude hacer mkdir");
+			log_error(logger, "El padre fue: %s", padre);
+			return -EFAULT;
+		}
+	}
+
+	crear_archivo_en_padre(nodo,path_separado[posicion_final]);
+	liberarDoblePuntero(path_separado);
 	return 0;
 }
 
-uint32_t Hacer_Unlink(char *path){ return 0; }
+uint32_t Hacer_Unlink(char *path){
+	ptrGBloque nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+	{
+		return -ENOENT;
+	}
+	if(tabla_de_nodos->nodos[nodo].estado != 1){
+		return -EISDIR;
+	}
+	limpiar_nodo(nodo);
+	return 0;
+}
 
 uint32_t Hacer_MKDir(char *path){
 	if( exite_path_retornando_nodo(path) != -1){
-		return EEXIST;
+		return -EEXIST;
 	}
 
 	char **path_separado = string_split(path,"/");
 	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
 	//consegir nodo padre
 
-
 	uint32_t nodo = 0;
+
 	if(posicion_final != 0){
 		int total=0;
+
 		for(int i = 0; i <posicion_final; i = i+1){
-			total = total +string_length(path_separado[i]);
+			total = total + string_length(path_separado[i]) + 1;
 		}
 		char *padre = string_substring(path, 0, total);
 		nodo = exite_path_retornando_nodo(padre);
+		if(nodo == -1){
+			log_error(logger, "No pude hacer mkdir");
+			log_error(logger, "El padre fue: %s", padre);
+			return -ENOENT;
+		}
 	}
+
 	crear_directorio_en_padre(nodo,path_separado[posicion_final]);
 	liberarDoblePuntero(path_separado);
-	return 1;
+	return 0;
 }
 
-uint32_t Hacer_RMDir(char *path){ return 0; }
+void limpiar_nodo(uint32_t nodo){
+	uint32_t bloques_de_metadata = 1 + bloques_del_bitmap + 1024;
+	uint32_t movimiento_en_bloques_de_datos = 0;
+	ptrGBloque bloque;
+	Bloque_de_puntero *punteros;
+	Bloque *aux;
 
-uint32_t Hacer_Rename(char *path, char *buffer){ return 0; }
+	for(int i = 0; i < 1000; i = i+1){
+		if(tabla_de_nodos->nodos[nodo].array_de_punteros[i] != 0){
+			punteros = inicio_de_disco + tabla_de_nodos->nodos[nodo].array_de_punteros[i];
+			for(int p = 0; p<1024; p = p+1){
+				if(punteros->bloques_de_datos[p] != 0){
+					bloque = punteros->bloques_de_datos[p];
+					bitarray_clean_bit(tBitarray,bloque);
+					movimiento_en_bloques_de_datos = bloque - bloques_de_metadata;
+					aux = (bloques_de_datos + movimiento_en_bloques_de_datos);
+					for(int j = 0; j<4096; j = j+1){
+						aux->bytes[j] = '\0';
+					}
+				}
+			}
+			bloque = tabla_de_nodos->nodos[nodo].array_de_punteros[i];
+			bitarray_clean_bit(tBitarray,bloque);
+			for(int j = 0; j<4096; j = j+1){
+				(inicio_de_disco + bloque)->bytes[j] = '\0';
+			}
+		}
+	}
+	tabla_de_nodos->nodos[nodo].estado = 0;
+	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, "\0", 70);
+	tabla_de_nodos->nodos[nodo].modificado=0;
+	tabla_de_nodos->nodos[nodo].creacion=0;
+	tabla_de_nodos->nodos[nodo].padre=0;
+	tabla_de_nodos->nodos[nodo].tamanio_del_archivo=0;
+
+}
+
+uint32_t Hacer_RMDir(char *path){
+	ptrGBloque nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+	{
+		return -ENOENT;
+	}
+	if(tabla_de_nodos->nodos[nodo].estado != 2){
+		return -ENOTDIR;
+	}
+
+	t_list* hijos = hijos_de_nodo(nodo);
+
+	if(list_is_empty(hijos)){
+		limpiar_nodo(nodo);
+		list_destroy(hijos);
+		return 0;
+	}
+	list_destroy(hijos);
+	return -ENOTEMPTY;
+}
+
+uint32_t Hacer_Rename(char *path, char *buffer){
+	ptrGBloque nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+		return -ENOENT;
+	char **buffer_separado = string_split(buffer,"/");
+	uint32_t posicion_final = damePosicionFinalDoblePuntero(buffer_separado);
+	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, "\0", 70);
+	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, buffer_separado[posicion_final], 70);
+	tabla_de_nodos->nodos[nodo].modificado=timestamp();
+	return 0;
+}
+
+uint32_t Hacer_Truncate(char *path, uint32_t nuevo_tamanio) {
+	uint32_t nodo = exite_path_retornando_nodo(path);
+	if(nodo == -1)
+		return -ENOENT;
+	if(tabla_de_nodos->nodos[nodo].estado !=1)
+		return -EISDIR;
+	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = nuevo_tamanio;
+	tabla_de_nodos->nodos[nodo].modificado=timestamp();
+	// LIBERAR/OCUPAR LOS ESPACIOS CORRESPONDIENTES EN TABLA DE NODOS
+	return 0;
+
+}
 
 void* funcionMagica(int cliente){
 	while(1){
@@ -92,8 +447,9 @@ void* funcionMagica(int cliente){
 				char *pathGetAttr= Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathGetAttr)+1);
 				log_error(logger, pathGetAttr);
-				//Hacer_Getattr(pathGetAttr);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi GETATTR"), strlen("Hola, recibi GETATTR")+1, f_RESPONSE);
+				uint32_t getattr = Hacer_Getattr(pathGetAttr);
+				log_info(logger, "LE VOY A MANDAR: %i", getattr);
+				Fuse_PackAndSend_Uint32_Response(cliente, getattr);
 				free(pathGetAttr);
 				break;
 
@@ -101,18 +457,22 @@ void* funcionMagica(int cliente){
 				char *pathReadDir = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathReadDir)+1);
 				log_error(logger, pathReadDir);
-				//Hacer_ReadDir(pathReadDir);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi READDIR"), strlen("Hola, recibi READDIR")+1, f_RESPONSE);
+				char *hijos_separados_con_barra = Hacer_ReadDir(pathReadDir);
+				log_info(logger, "------ACA PERRO: %s", hijos_separados_con_barra);
+				Fuse_PackAndSend(cliente, hijos_separados_con_barra, strlen(hijos_separados_con_barra)+1, f_RESPONSE);
 				free(pathReadDir);
+				free(hijos_separados_con_barra);
 				break;
 
 			case f_READ: ;
 				char *pathRead = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRead)+1);
 				log_error(logger, pathRead);
-				//Hacer_Read(pathRead);
+				char *respuestaRead = Hacer_Read(pathRead, 10, 0);
+				log_error(logger, "lo que habia adentro es: %s", respuestaRead);
 				Fuse_PackAndSend(cliente, strdup("Hola, recibi READ"), strlen("Hola, recibi READ")+1, f_RESPONSE);
 				free(pathRead);
+				free(respuestaRead);
 				break;
 
 			case f_OPEN: ;
@@ -136,7 +496,8 @@ void* funcionMagica(int cliente){
 				char *pathWrite = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathWrite)+1);
 				log_error(logger, pathWrite);
-				//Hacer_Write(pathWrite, escritura);
+				char * escritura;
+				Hacer_Write(pathWrite, escritura, 0);
 				Fuse_PackAndSend(cliente, strdup("Hola, recibi WRITE"), strlen("Hola, recibi WRITE")+1, f_RESPONSE);
 				free(pathWrite);
 				break;
@@ -145,8 +506,10 @@ void* funcionMagica(int cliente){
 				char *pathMKNod = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathMKNod)+1);
 				log_error(logger, pathMKNod);
-				//Hacer_MKNod(pathMKNod);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi MKNOD"), strlen("Hola, recibi MKNOD")+1, f_RESPONSE);
+				uint32_t respuestaMKNOD = Hacer_MKNod(pathMKNod);
+				log_info(logger, "LE VOY A MANDAR %i", respuestaMKNOD);
+				Fuse_PackAndSend_Uint32_Response(cliente, respuestaMKNOD);
+//				Fuse_PackAndSend(cliente, respuestaMKNOD, sizeof(respuestaMKNOD), f_RESPONSE);
 				free(pathMKNod);
 				break;
 
@@ -154,8 +517,9 @@ void* funcionMagica(int cliente){
 				char *pathUnlink = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUnlink)+1);
 				log_error(logger, pathUnlink);
-				//Hacer_Unlink(pathUnlink);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi UNLINK"), strlen("Hola, recibi UNLINK")+1, f_RESPONSE);
+				uint32_t responseUnlink = Hacer_Unlink(pathUnlink);
+				log_info(logger, "LE VOY A MANDAR: %i", responseUnlink);
+				Fuse_PackAndSend_Uint32_Response(cliente, responseUnlink);
 				free(pathUnlink);
 				break;
 
@@ -163,10 +527,13 @@ void* funcionMagica(int cliente){
 				char *pathMKDir = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathMKDir)+1);
 				log_error(logger, pathMKDir);
-				if(Hacer_MKDir(pathMKDir))
-					Fuse_PackAndSend(cliente, "Pude", strlen("pude")+1, f_RESPONSE);
-				else
-					Fuse_PackAndSend(cliente, "No pude", strlen("No pude")+1, f_RESPONSE);
+				uint32_t responseMKDIR = Hacer_MKDir(pathMKDir);
+				log_info(logger, "LE VOY A MANDAR: %i", responseMKDIR);
+				Fuse_PackAndSend_Uint32_Response(cliente, responseMKDIR);
+//				if(Hacer_MKDir(pathMKDir))
+//					Fuse_PackAndSend(cliente, "Pude", strlen("pude")+1, f_RESPONSE);
+//				else
+//					Fuse_PackAndSend(cliente, "No pude", strlen("No pude")+1, f_RESPONSE);
 				free(pathMKDir);
 				break;
 
@@ -174,18 +541,37 @@ void* funcionMagica(int cliente){
 				char *pathRMDir = Fuse_ReceiveAndUnpack(cliente, tam);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRMDir)+1);
 				log_error(logger, pathRMDir);
-				//Hacer_RMDir(pathRMDir);
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi RMDIR"), strlen("Hola, recibi RMDIR")+1, f_RESPONSE);
+				uint32_t responseRMDir = Hacer_RMDir(pathRMDir);
+				log_info(logger, "LE VOY A MANDAR: %i", responseRMDir);
+				Fuse_PackAndSend_Uint32_Response(cliente, responseRMDir);
 				free(pathRMDir);
 				break;
 
 			case f_RENAME: ;
-				char *pathRename = Fuse_ReceiveAndUnpack(cliente, tam);
+				void *packRename = Fuse_ReceiveAndUnpack(cliente, tam);
+				char *pathRename = Fuse_Unpack_Path(packRename);
+				char *nuevo_nombre = Fuse_Unpack_Rename_Nombre(packRename);
+				free(packRename);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRename)+1);
 				log_error(logger, pathRename);
-				//Hacer_Rename(pathRename);	
-				Fuse_PackAndSend(cliente, strdup("Hola, recibi RENAME"), strlen("Hola, recibi RENAME")+1, f_RESPONSE);
+				uint32_t responseRename = Hacer_Rename(pathRename, nuevo_nombre);
+				log_info(logger, "LE VOY A MANDAR: %i", responseRename);
+				Fuse_PackAndSend_Uint32_Response(cliente, responseRename);
 				free(pathRename);
+				free(nuevo_nombre);
+				break;
+
+			case f_TRUNCATE: ;
+				void *packTruncate = Fuse_ReceiveAndUnpack(cliente,tam);
+				char *pathTruncate = Fuse_Unpack_Path(packTruncate);
+				uint32_t nuevo_tamanio; Fuse_Unpack_Truncate_offset(packTruncate);
+				free(packTruncate);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathTruncate)+1);
+				log_error(logger, pathTruncate);
+				uint32_t resultadoDeTruncar = Hacer_Truncate(pathTruncate, nuevo_tamanio);
+				log_info(logger, "LE VOY A MANDAR: %i", resultadoDeTruncar);
+				Fuse_PackAndSend_Uint32_Response(cliente, resultadoDeTruncar);
+				free(pathTruncate);
 				break;
 
 			case f_HANDSHAKE: ;
@@ -217,7 +603,7 @@ void iniciar_header(){
 	header->identificador[0] = 'S';
 	header->identificador[1] = 'A';
 	header->identificador[2] = 'C';
-	header->version = 3;
+	header->version = 1;
 	header->inicio_bitmap = 1;
 	header->tamanio_bitmap = bloques_del_bitmap;
 }
@@ -277,10 +663,7 @@ void limbiar_bloques_de_datos(){
 	Bloque * aux;
 	for(int i=0; i < cantidad_de_bloques_de_datos; i = i+1){
 		aux = bloques_de_datos + i;
-//		log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
-//		log_info(logger, "i: %i", i);
 		for(int j = 0; j<4096; j = j+1){
-//			log_info(logger, "j: %i", j);
 			aux->bytes[j] = '\0';
 		}
 	}
@@ -346,15 +729,39 @@ void crear_directorio_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_ar
 	uint32_t numero_de_bloque = buscar_espacio_en_bitmap();
 	bitarray_set_bit(tBitarray, numero_de_bloque);
 	tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0] = numero_de_bloque;
+	Bloque_de_puntero *punteros = inicio_de_disco + tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0];
+	numero_de_bloque = buscar_espacio_en_bitmap();
+	bitarray_set_bit(tBitarray, numero_de_bloque);
+	punteros->bloques_de_datos[0] = numero_de_bloque;
+	log_info(logger,"creo directorio en bloque: %i", tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0]);
 }
 
+void crear_archivo_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_archivo){
+	int numero_de_nodo = hallar_nodo_libre();
+	tabla_de_nodos->nodos[numero_de_nodo].estado = 1;
+	strncpy(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo, nombre_de_archivo, 70);
+	tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo[71] = '\0';
+	tabla_de_nodos->nodos[numero_de_nodo].creacion=timestamp();
+	tabla_de_nodos->nodos[numero_de_nodo].modificado=timestamp();
+	tabla_de_nodos->nodos[numero_de_nodo].tamanio_del_archivo = 0;
+	tabla_de_nodos->nodos[numero_de_nodo].padre=numero_de_nodo_padre;
+	uint32_t numero_de_bloque = buscar_espacio_en_bitmap();
+	log_info(logger,"cargo en bitmap: %i", numero_de_bloque);
+	bitarray_set_bit(tBitarray, numero_de_bloque);
+	tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0] = numero_de_bloque;
+	Bloque_de_puntero *punteros = inicio_de_disco + tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0];
+	numero_de_bloque = buscar_espacio_en_bitmap();
+	bitarray_set_bit(tBitarray, numero_de_bloque);
+	punteros->bloques_de_datos[0] = numero_de_bloque;
+	log_info(logger,"creo archivo en bloque: %i", tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0]);
+}
 //Para tener en cuenta cuando hagamos el crear archivo
 //	int bloques_que_ocupa_archivo = tamanio_archivo_en_bloques(tabla_de_nodos.nodos[numero_de_nodo].tamanio_del_archivo);
 //	for(int i = 0; i <= bloques_que_ocupa_archivo; i = i+1){
 
-char* obtener_nombre_nodo(uint32_t numero_de_nodo){
+char *obtener_nombre_nodo(uint32_t numero_de_nodo){
 	char *nombre_retornado;
-	nombre_retornado = malloc(strlen(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo));
+	nombre_retornado = malloc(strlen(tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo)+1);
 	strcpy(nombre_retornado, tabla_de_nodos->nodos[numero_de_nodo].nombre_del_archivo);
 	return nombre_retornado;
 }
@@ -363,7 +770,8 @@ char* obtener_nombre_nodo(uint32_t numero_de_nodo){
 
 bool existe_nodo_con_nombre(char* nombre) {
 	for(int i=0; i<1024; i=i+1) {
-		if(string_equals_ignore_case(nombre, obtener_nombre_nodo(i)))
+		if(string_equals_ignore_case(nombre, obtener_nombre_nodo(i))
+				&& tabla_de_nodos->nodos[i].estado != 0)
 			return true;
 	}
 	return false;
@@ -382,6 +790,10 @@ uint32_t hallar_nodo_con_nombre_y_padre(char* nombre, uint32_t padre){
 }
 
 uint32_t exite_path_retornando_nodo(char* path){
+	if(strcmp(path,"/") == 0)
+	{
+		return 0;
+	}
 	char **path_separado = string_split(path,"/");
 	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
 	if(!existe_nodo_con_nombre(path_separado[posicion_final])){
@@ -401,11 +813,45 @@ uint32_t exite_path_retornando_nodo(char* path){
 	return nodo_actual;
 }
 
+t_list *hijos_de_nodo(uint32_t nodo_padre){
+	t_list *hijos = list_create();
+	for(int i = 0; i < 1024; i = i+1){
+		if(tabla_de_nodos->nodos[i].padre == nodo_padre && tabla_de_nodos->nodos[i].estado != 0){
+			list_add(hijos, i);
+		}
+	}
+	return hijos;
+}
+
+t_list *hallar_hijos_de_path(char* path){
+	uint32_t nodo_por_el_que_consulto = exite_path_retornando_nodo(path);
+	t_list *hijos = list_create();
+	if(nodo_por_el_que_consulto == -1){
+		list_add(hijos,nodo_por_el_que_consulto);
+		return hijos;
+	}
+	hijos = hijos_de_nodo(nodo_por_el_que_consulto);
+	return hijos;
+}
+
+void mostrar_hijos_de(char* path){
+	t_list *hijos_home = list_create();
+	hijos_home = hallar_hijos_de_path(path);
+	for(int i = 0; i<list_size(hijos_home); i= i+1){
+		log_info(logger, "hijo: %s", obtener_nombre_nodo(list_get(hijos_home,i)));
+	}
+	list_destroy(hijos_home);
+}
+
 int main(int argc, char *argv[]) {
-	contador = 2;
 	//Log:
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
+
+	t_config *archivo_de_configuracion = config_create("../../Sac.config");
+	char *puerto = "6969";//config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
+
+	log_info(logger, "p: %s",puerto);
 	//Archivos:
 	char *archivo = argv[1];
 	log_info(logger, "Archivo: %s", archivo);
@@ -421,15 +867,39 @@ int main(int argc, char *argv[]) {
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
+	crear_archivo_en_padre(0,"archivo");
+	/*uint32_t numero_bloque_de_punteros = tabla_de_nodos->nodos[1].array_de_punteros[0];
+	Bloque_de_puntero *algo = inicio_de_disco + numero_bloque_de_punteros;
+	uint32_t bloque_de_prueba = buscar_espacio_en_bitmap();
+	algo->bloques_de_datos[1] = bloque_de_prueba;
+	bitarray_set_bit(tBitarray, bloque_de_prueba);
+	uint32_t numero_bloque = algo->bloques_de_datos[1];
+	Bloque *dato = inicio_de_disco + numero_bloque;
+	dato->bytes[0] = 'p';
+	dato->bytes[1] = 'u';
+	dato->bytes[2] = 'e';
+	dato->bytes[3] = 'r';
+	dato->bytes[4] = 't';
+	dato->bytes[5] = 'a';
+
+	tabla_de_nodos->nodos[1].tamanio_del_archivo = 5*sizeof(char);
+
+	char *respuestaRead = Hacer_Read("/archivo", 5, 4096);
+	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
+	respuestaRead = Hacer_Read("/archivo", 3, 4099);
+	log_error(logger, "lo que habia adentro desde 3: %s", respuestaRead);
+*/
+	Hacer_Write("archivo", "Probando el write", 0);
+
 	int cliente;
-	conexion = iniciar_servidor("127.0.0.1", "6969", logger);
+	conexion = iniciar_servidor("127.0.0.1", puerto, logger);
 
 	while(1){
 		cliente = esperar_cliente_con_accept(conexion, logger);
 
 		pthread_t* cody = malloc(sizeof(pthread_t));
-		if(pthread_create(cody,NULL,(void*)funcionMagica,cliente) == 0){
-			pthread_detach(cody);
+		if(pthread_create(cody,NULL,(void*)funcionMagica,(void*)cliente) == 0){
+			pthread_detach(*cody);
 			log_info(logger,"Se creo el hilo sin problema, cliente: %i", cliente);
 		}else{
 			log_error(logger,"No se pudo crear el hilo, cliente: %i", cliente);

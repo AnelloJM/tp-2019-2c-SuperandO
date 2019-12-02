@@ -39,6 +39,7 @@ typedef enum f_operaciones {
 	f_RMDIR,
 	f_RENAME,
 	f_RESPONSE,
+	f_TRUNCATE,
 	f_HANDSHAKE
 } f_operacion;
 
@@ -66,21 +67,34 @@ typedef struct {
 bool Fuse_PackAndSend(int socketCliente, const void*path, uint32_t tamPath, f_operacion operacion);
 
 /**
+* ESTA FUNCION ENVIA UNA RESPONSE INT DEL SERVER AL CLI
+*/
+
+bool Fuse_PackAndSend_Uint32_Response(int socketCliente, uint32_t response);
+
+/**
 * ESTA FUNCION ENVIA UN PAQUETE DEL TIPO WRITE A TRAVES DEL SOCKET ESPECIFICADO
 */
 
 bool Fuse_PackAndSend_Write(int socketCliente,const char *path, const char *buf, size_t size, off_t offset);
 
 /**
-* ESTA FUNCION ENVIA UN PAQUETE DEL TIPO MKNOD A TRAVES DEL SOCKET ESPECIFICADO
+* ESTA FUNCION ENVIA UN PAQUETE DEL TIPO READ A TRAVES DEL SOCKET ESPECIFICADO
 */
-bool Fuse_PackAndSend_MKNOD(int socketCliente, const void *path, const mode_t mode);
+
+bool Fuse_PackAndSend_Read(int socketCliente,const char *path, size_t size, off_t offset) ;
 
 /**
 * ESTA FUNCION ENVIA UN PAQUETE DEL TIPO RENAME A TRAVES DEL SOCKET ESPECIFICADO
 */
 
 bool Fuse_PackAndSend_Rename(int socketCliente, const void *path, const char *nombre);
+
+/**
+* ESTA FUNCION ENVIA UN PAQUETE DEL TIPO TRUNCATE A TRAVES DEL SOCKET ESPECIFICADO
+*/
+
+bool Fuse_PackAndSend_Truncate(int socketCliente, const void *path, off_t offset);
 
 ////////////////////////////
 // FUNCIONES PARA RECIBIR //
@@ -112,6 +126,13 @@ void* Fuse_ReceiveAndUnpack(int socketCliente, uint32_t tamanioChar);
 // FUNCIONES PARA DESEMPAQUETAR //
 /////////////////////////////////
 
+/**
+* ESTA FUNCION SE USA SOLO EN CASO DE QUERER
+* RECIBIR UN UINT32 DE UN PAQUETE ENVIADO POR
+* EL SERVIDOR
+*/
+
+uint32_t Fuse_Unpack_Response_Uint32(void *pack);
 
 /**
 * ESTA FUNCION SE USA SOLO EN CASO DE QUERER
@@ -146,12 +167,20 @@ size_t Fuse_Unpack_Write_Size(void *buffer);
 off_t Fuse_Unpack_Write_offset(void *buffer);
 
 /**
-* ESTA FUNCION RETORNA EL MODO EN CASO
+* ESTA FUNCION RETORNA EL OFFSET EN CASO
 * DE QUE SE HAYA RECIBIDO UN PAQUETE DEL
-* TIPO f_MKNOD
+* TIPO f_READ
 */
 
-mode_t Fuse_Unpack_MKNOD_Mode(void *buffer);
+off_t Fuse_Unpack_Read_offset(void *buffer);
+
+/**
+* ESTA FUNCION RETORNA EL SIZE EN CASO
+* DE QUE SE HAYA RECIBIDO UN PAQUETE DEL
+* TIPO f_READ
+*/
+
+off_t Fuse_Unpack_Read_size(void *buffer);
 
 /**
 * ESTA FUNCION RETORNA EL NUEVO NOMBRE EN CASO
@@ -160,5 +189,13 @@ mode_t Fuse_Unpack_MKNOD_Mode(void *buffer);
 */
 
 char* Fuse_Unpack_Rename_Nombre(void *buffer);
+
+/**
+* ESTA FUNCION RETORNA EL OFFSET EN CASO
+* DE QUE SE HAYA RECIBIDO UN PAQUETE DEL
+* TIPO f_TRUNCATE
+*/
+
+off_t Fuse_Unpack_Truncate_offset(void *buffer);
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */
