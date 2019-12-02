@@ -15,4 +15,5 @@ C_DEPS :=
 SUBDIRS := \
 src/example \
 src \
+src/servidor-cliente \
 
