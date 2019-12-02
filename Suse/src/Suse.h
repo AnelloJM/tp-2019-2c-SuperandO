@@ -10,7 +10,6 @@
 #include <commons/string.h>
 #include <commons/config.h>
 #include <commons/collections/list.h>
-#include <hilolay/hilolay.h>
 #include "../../ComunParaTodos/Serializacion/serializacion.h"
 #include <commons/collections/queue.h>
 #include <pthread.h>
