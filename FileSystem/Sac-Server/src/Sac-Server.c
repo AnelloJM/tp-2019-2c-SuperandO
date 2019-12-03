@@ -61,14 +61,14 @@ char *Hacer_ReadDir(char *path){
 
 	int tamanio = 0;
 	for(int j = 0; j < list_size(nodos_de_hijos); j=j+1){
-		nodo_del_hijo = list_get(nodos_de_hijos,j);
+		nodo_del_hijo = (uint32_t)list_get(nodos_de_hijos,j);
 		tamanio = tamanio + strlen(tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo) + 1;
 	}
 
 	nodo_del_hijo = 0;
 	hijos = malloc(tamanio+1);
 	for(int i = 0; i < list_size(nodos_de_hijos); i = i+1){
-		nodo_del_hijo = list_get(nodos_de_hijos,i);
+		nodo_del_hijo = (uint32_t)list_get(nodos_de_hijos,i);
 		nombre_nodo = malloc(strlen(tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo)+1);
 		nombre_nodo = tabla_de_nodos->nodos[nodo_del_hijo].nombre_del_archivo;
 		memcpy(hijos + desplazamiento, nombre_nodo, strlen(nombre_nodo));
@@ -853,7 +853,7 @@ t_list *hijos_de_nodo(uint32_t nodo_padre){
 	t_list *hijos = list_create();
 	for(int i = 0; i < 1024; i = i+1){
 		if(tabla_de_nodos->nodos[i].padre == nodo_padre && tabla_de_nodos->nodos[i].estado != 0){
-			list_add(hijos, i);
+			list_add(hijos, (void *)i);
 		}
 	}
 	return hijos;
@@ -863,7 +863,7 @@ t_list *hallar_hijos_de_path(char* path){
 	uint32_t nodo_por_el_que_consulto = exite_path_retornando_nodo(path);
 	t_list *hijos = list_create();
 	if(nodo_por_el_que_consulto == -1){
-		list_add(hijos,nodo_por_el_que_consulto);
+		list_add(hijos, (void *)nodo_por_el_que_consulto);
 		return hijos;
 	}
 	hijos = hijos_de_nodo(nodo_por_el_que_consulto);
@@ -874,7 +874,7 @@ void mostrar_hijos_de(char* path){
 	t_list *hijos_home = list_create();
 	hijos_home = hallar_hijos_de_path(path);
 	for(int i = 0; i<list_size(hijos_home); i= i+1){
-		log_info(logger, "hijo: %s", obtener_nombre_nodo(list_get(hijos_home,i)));
+		log_info(logger, "hijo: %s", obtener_nombre_nodo((uint32_t)list_get(hijos_home,i)));
 	}
 	list_destroy(hijos_home);
 }
