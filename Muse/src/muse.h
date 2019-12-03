@@ -22,7 +22,12 @@
 
 //Varibles globales
 
-// reservamos bloque grande de memoria ( UPCM )
+
+
+t_log* logger;
+t_config* archivoConfig;
+
+
 int *UPCM; //UPCM =
 t_list *tabla_de_frames; //tabla de frames la tomamos como una lista de 0/1
 
@@ -72,10 +77,6 @@ typedef struct
 }Frame;
 
 
-
-
-t_log* logger;
-t_config* archivoConfig;
 
 
 
