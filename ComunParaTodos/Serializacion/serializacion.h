@@ -28,10 +28,6 @@ typedef struct {
 //          Estructuras Utiles          //
 //////////////////////////////////////////
 
-typedef struct {
-	pthread_t hilo;
-	int socket;
-} t_hilo;
 
 typedef struct paqueteSemaforo{
 	int tid;

@@ -13,6 +13,7 @@
 #include "../../ComunParaTodos/Serializacion/serializacion.h"
 #include <commons/collections/queue.h>
 #include <pthread.h>
+#include <../../ComunParaTodos/Lista/lista.h>
 
 t_log* logger;
 t_config* archivoConfig;
@@ -41,9 +42,6 @@ int tidMAX;
 
 //PAQUETES//
 typedef struct {
-	hilolay_t *thread;
-	hilolay_attr_t *attr;
-	void *arg;
 	char * pid;
 	char * tid;
 	int estimacionAnterior;
@@ -57,11 +55,12 @@ typedef struct {
 } hilo_t; //TCB
 
 typedef struct {
-	//int pid; este ya esta en la tcb t_hilo;
 	char * pid;
 	t_list * cola_ready;
 	t_list * cola_exec;
 } programa_t;
+
+programa_t * lista_programas;
 
 typedef struct {
 	char* semID;
@@ -76,7 +75,7 @@ void crearLogger();
 void leerArchivoDeConfiguracion();
 void setearValores();
 void cargarSemaforos();
-//void suse_create(int programa, int variable);
+void suse_create(int socket_cliente);
 void * suse_schedule_next(int socket_cliente);
 int dispatcher(hilo_t* hilo);
 hilo_t calcularEstimacion();
