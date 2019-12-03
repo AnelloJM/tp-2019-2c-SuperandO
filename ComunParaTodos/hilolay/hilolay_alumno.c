@@ -40,8 +40,9 @@ int suse_create(int tid){
 	memcpy(mensaje, &tid, sizeof(tid));
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
-		log_info(logger,"Falló el envio del paquete");
+		log_error(logger,"Falló el envio del paquete");
 	}
+	log_info(logger,"El paquete se envió correctamente");
 	return 0;
 }
 
@@ -49,8 +50,9 @@ int suse_schedule_next(void){
 	paquete->header.tipoMensaje= "SUSE_SCHEDULE_NEXT";
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
-		log_info(logger,"Falló el envio del paquete");
+		log_error(logger,"Falló el envio del paquete");
 	}
+	log_info(logger,"El paquete se envió correctamente");
 	return 0;
 }
 
@@ -64,8 +66,9 @@ int suse_wait(int tid, char* sem_name){
 	paquete->header.tamanioMensaje = sizeof(paqueteSem);
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
-		log_info(logger,"Falló el envio del paquete");
+		log_error(logger,"Falló el envio del paquete");
 	}
+	log_info(logger,"El paquete se envió correctamente");
 	return 0;
 }
 
@@ -79,8 +82,9 @@ int suse_signal(int tid, char* sem_name){
 	paquete->header.tamanioMensaje = sizeof(paqueteSem);
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
-		log_info(logger,"Falló el envio del paquete");
+		log_error(logger,"Falló el envio del paquete");
 	}
+	log_info(logger,"El paquete se envió correctamente");
 	return 0;
 }
 
@@ -91,8 +95,9 @@ int suse_join(int tid){
 	memcpy(mensaje, &tid, sizeof(tid));
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
-		log_info(logger,"Falló el envio del paquete");
+		log_error(logger,"Falló el envio del paquete");
 	}
+	log_info(logger,"El paquete se envió correctamente");
 	return 0;
 }
 
@@ -103,7 +108,8 @@ int suse_close(int tid){
 	memcpy(mensaje, &tid, sizeof(tid));
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
-		log_info(logger,"Falló el envio del paquete");
+		log_error(logger,"Falló el envio del paquete");
 	}
+	log_info(logger,"El paquete se envió correctamente");
 	return 0;
 }
