@@ -140,10 +140,7 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	}
 
 
-	//ESTO ESTABA ASI, PERO ME HACE RUIDO, SEGURO QUE ES BYTES[DESPLAZAMIENTO] ????????????????
-	//memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), lo_que_me_queda_dentro_del_bloque);
-	//PARA MI ESTO DEBERIA IR ASI
-	memcpy(buffer, &(bloque_a_leer->bytes[offset]), lo_que_me_queda_dentro_del_bloque);
+	memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), lo_que_me_queda_dentro_del_bloque);
 	memcpy(buffer+lo_que_me_queda_dentro_del_bloque,"\0", 1);
 	faltante = faltante - lo_que_me_queda_dentro_del_bloque;
 	offset = offset + lo_que_me_queda_dentro_del_bloque;
@@ -205,7 +202,7 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 uint32_t Hacer_Release(char *path){ return 0; }
 
 uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
-	uint32_t tamanio_a_escribir = strlen(buffer)+1 -ya_escrito_del_buffer;
+	uint32_t tamanio_a_escribir = strlen(buffer) - ya_escrito_del_buffer;
 	uint32_t nodo = exite_path_retornando_nodo(path);
 	if(nodo == -1)
 		return -1;
@@ -238,11 +235,11 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 	uint32_t puntero_indirecto = cantida_de_bloque_desde_donde_comienzo % 1024;
 	uint32_t numero_de_bloque_de_puntero = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array];
 	Bloque_de_puntero *punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
-	ptrGBloque numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto];
-	Bloque *bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+	ptrGBloque numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto];
+	Bloque *bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
 
 
-	uint32_t espacio_que_tengo_libre_en_bloque = sizeof(Bloque) - ya_escrito;
+	int espacio_que_tengo_libre_en_bloque = sizeof(Bloque) - desplazamiento;
 
 	if(tamanio_a_escribir < espacio_que_tengo_libre_en_bloque){
 		memcpy(&(bloque_a_escribir->bytes[desplazamiento]), buffer + ya_escrito_del_buffer, tamanio_a_escribir);
@@ -257,11 +254,33 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 	ya_escrito = ya_escrito + espacio_que_tengo_libre_en_bloque;
 	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + espacio_que_tengo_libre_en_bloque;
 
+
+	if(puntero_indirecto < 1023){
+		uint32_t bloque_libre = buscar_espacio_en_bitmap();
+		bitarray_set_bit(tBitarray,bloque_libre);
+		punteros_indirectos->bloques_de_datos[puntero_indirecto+1]=bloque_libre;
+	}else{
+		if(poscion_en_array < 999){
+			uint32_t bloque_libre = buscar_espacio_en_bitmap();
+			bitarray_set_bit(tBitarray,bloque_libre);
+			tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array+1] = bloque_libre;
+			punteros_indirectos=inicio_de_disco+bloque_libre;
+			uint32_t bloque_libre_dos = buscar_espacio_en_bitmap();
+			bitarray_set_bit(tBitarray,bloque_libre_dos);
+			puntero_indirecto = 0;
+			punteros_indirectos->bloques_de_datos[puntero_indirecto] = bloque_libre_dos;
+		}else{
+			log_error(logger, "No hay mas espacio en el disco, se escribio: %i", ya_escrito);
+			return -EFBIG;
+		}
+	}
+	uint32_t bloque_libre=0;
+
 	/*
 	 * Los bloques que me faltan leer,
 	 * entera para que si en menos de uno de cero
 	*/
-	uint32_t cantidad_bloques_a_escribir_que_me_faltan = tamanio_a_escribir / sizeof(Bloque);
+	int cantidad_bloques_a_escribir_que_me_faltan = tamanio_a_escribir / sizeof(Bloque);
 
 	/*
 	 * Desplazamiento dentro del ultimo bloque que me faltan leer,
@@ -269,35 +288,51 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 	*/
 	uint32_t cantidad_dentro_que_falta_escribir = tamanio_a_escribir % sizeof(Bloque);
 
-	uint32_t lo_que_me_queda_despues_de_los_punteros = 1024 - puntero_indirecto;
+	int lo_que_me_queda_despues_de_los_punteros = 1023 - puntero_indirecto;
 
-	if(lo_que_me_queda_despues_de_los_punteros < cantidad_bloques_a_escribir_que_me_faltan){
+	if(lo_que_me_queda_despues_de_los_punteros <= cantidad_bloques_a_escribir_que_me_faltan){
 		for(int i = 0; i < lo_que_me_queda_despues_de_los_punteros;i = i+1){
-			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
-			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+			numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
+			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
 			memcpy(bloque_a_escribir, buffer  + ya_escrito_del_buffer,sizeof(Bloque));
 			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
 			tamanio_a_escribir = tamanio_a_escribir + sizeof(Bloque);
 			ya_escrito = ya_escrito + sizeof(Bloque);
 			tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + sizeof(Bloque);
+			bloque_libre = buscar_espacio_en_bitmap();
+			bitarray_set_bit(tBitarray,bloque_libre);
+			punteros_indirectos->bloques_de_datos[puntero_indirecto+i+1]=bloque_libre;
 		}
 	}else{
-		for(int i = 0; i < cantidad_bloques_a_escribir_que_me_faltan-1;i = i+1){
-			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
-			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+		for(int i = 0; i < cantidad_bloques_a_escribir_que_me_faltan - 1;i = i+1){
+			numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
+			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
 			memcpy(bloque_a_escribir, buffer  + ya_escrito_del_buffer,sizeof(Bloque));
 			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
 			tamanio_a_escribir = tamanio_a_escribir + sizeof(Bloque);
 			ya_escrito = ya_escrito + sizeof(Bloque);
 			tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + sizeof(Bloque);
+			bloque_libre = buscar_espacio_en_bitmap();
+			bitarray_set_bit(tBitarray,bloque_libre);
+			punteros_indirectos->bloques_de_datos[puntero_indirecto+i+1]=bloque_libre;
 		}
-		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + 1];
-		bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
+		numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto + 1];
+		bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
 		memcpy(&(bloque_a_escribir->bytes[0]), buffer  + ya_escrito_del_buffer, cantidad_dentro_que_falta_escribir);
 		ya_escrito_del_buffer = ya_escrito_del_buffer + cantidad_dentro_que_falta_escribir;
 		tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + cantidad_dentro_que_falta_escribir;
 		return strlen(buffer)+1;
 	}
+
+
+	uint32_t proximo_del_array = buscar_espacio_en_bitmap();
+	bitarray_set_bit(tBitarray,proximo_del_array);
+	tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array+1] = proximo_del_array;
+	punteros_indirectos=inicio_de_disco+proximo_del_array;
+	uint32_t proximo_del_puntero = buscar_espacio_en_bitmap();
+	bitarray_set_bit(tBitarray,proximo_del_puntero);
+	puntero_indirecto = 0;
+	punteros_indirectos->bloques_de_datos[puntero_indirecto] = proximo_del_puntero;
 
 	return Hacer_Write(path, buffer, ya_escrito_del_buffer);
 }
@@ -945,8 +980,10 @@ int main(int argc, char *argv[]) {
 	respuestaRead = Hacer_Read("/archivo", 3, 4099);
 	log_error(logger, "lo que habia adentro desde 3: %s", respuestaRead);
 */
-	Hacer_Write("/archivo", "Hola esto es una prueba", 0);
-	char *respuestaRead = Hacer_Read("/archivo", 10, 9000);
+
+	Hacer_Write("/archivo", string_repeat('a', 4194304), 0);
+	Hacer_Write("/archivo", string_repeat('b', 100), 0);
+	char *respuestaRead = Hacer_Read("/archivo", 10, 4194300);
 	log_error(logger, "lo que habia adentro 4 es: %s", respuestaRead);
 	respuestaRead = Hacer_Read("/archivo", 10, 1);
 	log_error(logger, "lo que habia adentro 1 es: %s", respuestaRead);
