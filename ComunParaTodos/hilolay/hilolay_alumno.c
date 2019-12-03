@@ -53,13 +53,15 @@ int suse_schedule_next(void){
 	}
 	return 0;
 }
-/*
+
 int suse_wait(int tid, char* sem_name){
 	paquete->header.tipoMensaje= "SUSE_WAIT";
-	list_add(cosasAEnviar,sem_name);
-	list_add(cosasAEnviar,tid);
-	paquete->header.tamanioMensaje = sizeof(cosasAEnviar);
-	paquete->mensaje = cosasAEnviar;
+	paqueteSemaforo* paqueteSem;
+	paqueteSem->tid = tid;
+	paqueteSem->sem_name = sem_name;
+	void* mensaje = paquete->mensaje;
+	memcpy(mensaje, &paqueteSem, sizeof(paqueteSem));
+	paquete->header.tamanioMensaje = sizeof(paqueteSem);
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
 		log_info(logger,"Falló el envio del paquete");
@@ -69,17 +71,19 @@ int suse_wait(int tid, char* sem_name){
 
 int suse_signal(int tid, char* sem_name){
 	paquete->header.tipoMensaje= "SUSE_SIGNAL";
-	list_add(cosasAEnviar,tid);
-	list_add(cosasAEnviar,sem_name);
-	paquete->header.tamanioMensaje = sizeof(cosasAEnviar);
-	paquete->mensaje = cosasAEnviar;
+	paqueteSemaforo* paqueteSem;
+	paqueteSem->tid = tid;
+	paqueteSem->sem_name = sem_name;
+	void* mensaje = paquete->mensaje;
+	memcpy(mensaje, &paqueteSem, sizeof(paqueteSem));
+	paquete->header.tamanioMensaje = sizeof(paqueteSem);
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
 		log_info(logger,"Falló el envio del paquete");
 	}
 	return 0;
 }
-*/
+
 int suse_join(int tid){
 	paquete->header.tipoMensaje= "SUSE_JOIN";
 	paquete->header.tamanioMensaje = sizeof(tid);

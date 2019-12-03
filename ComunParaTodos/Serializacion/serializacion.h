@@ -33,6 +33,11 @@ typedef struct {
 	int socket;
 } t_hilo;
 
+typedef struct paqueteSemaforo{
+	int tid;
+	char* sem_name;
+}paqueteSemaforo;
+
 typedef struct {
 	int socket;
 	char* ID;
