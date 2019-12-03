@@ -89,10 +89,9 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	if(nodo == -1)
 		return "-1";
 	uint32_t tamanio_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo;
-	if(tamanio_archivo < size) {
+	if(tamanio_archivo > size) {
 		size = tamanio_archivo;
-	} //COMENTAR ESTO PARA PROBARLO
-
+	}
 	buffer = malloc(size);
 	//DONDE EMPEZAR
 
@@ -242,7 +241,7 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 	if(tamanio_a_escribir < espacio_que_tengo_libre_en_bloque){
 		memcpy(&(bloque_a_escribir->bytes[desplazamiento]), buffer + ya_escrito_del_buffer, tamanio_a_escribir);
 		ya_escrito_del_buffer = ya_escrito_del_buffer + tamanio_a_escribir;
-		return 0;
+		return strlen(buffer)+1;
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	memcpy(&(bloque_a_escribir->bytes[desplazamiento]), buffer  + ya_escrito_del_buffer , espacio_que_tengo_libre_en_bloque);
@@ -287,7 +286,7 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 		memcpy(&(bloque_a_escribir->bytes[0]), buffer  + ya_escrito_del_buffer, cantidad_dentro_que_falta_escribir);
 
 		ya_escrito_del_buffer = ya_escrito_del_buffer + cantidad_dentro_que_falta_escribir;
-		return 0;
+		return strlen(buffer)+1;
 	}
 
 	return Hacer_Write(path, buffer, ya_escrito_del_buffer);
@@ -491,8 +490,11 @@ void* funcionMagica(int cliente){
 				free(packRead);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRead)+1);
 				log_error(logger, pathRead);
+				log_info(logger, "me pidieron leer un size de: %i", sizeRead);
+				log_info(logger, "me pidieron leer un offset de: %i", offsetRead);
 				char *respuestaRead = Hacer_Read(pathRead, sizeRead, offsetRead);
 				log_error(logger, "lo que habia adentro es: %s", respuestaRead);
+				sleep(100);
 				Fuse_PackAndSend(cliente, respuestaRead, strlen(respuestaRead)+1, f_RESPONSE);
 				free(pathRead);
 				free(respuestaRead);
@@ -523,13 +525,14 @@ void* funcionMagica(int cliente){
 				free(packWrite);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathWrite)+1);
 				log_error(logger, pathWrite);
-				uint32_t responseWrite = Hacer_Write(pathWrite, bufWrite, sizeWrite);
+				log_info(logger, "me pidieron escribir: %s", bufWrite);
+				log_info(logger, "de tamaño: %i", sizeWrite);
+				uint32_t responseWrite = Hacer_Write(pathWrite, bufWrite, 0);
 				log_info(logger,"LE VOY A MANDAR %i", responseWrite);
-				char *respuestaRead2 = Hacer_Read("/archivo",0, 70);
-				log_error(logger, "lo que habia adentro es: %s", respuestaRead2);
-				free(respuestaRead2);
-				sleep(100);
-
+//				char *respuestaRead2 = Hacer_Read("/archivo",6, 0);
+//				log_error(logger, "lo que habia adentro es: %s", respuestaRead2);
+//				free(respuestaRead2);
+//				sleep(100);
 				Fuse_PackAndSend_Uint32_Response(cliente, responseWrite);
 				free(pathWrite);
 				free(bufWrite);
@@ -922,7 +925,7 @@ int main(int argc, char *argv[]) {
 	respuestaRead = Hacer_Read("/archivo", 3, 4099);
 	log_error(logger, "lo que habia adentro desde 3: %s", respuestaRead);
 */
-	//Hacer_Write("/archivo", "Hola esto es una prueba", 0);
+//	Hacer_Write("/archivo", "Hola esto es una prueba", 0);
 //	char *respuestaRead = Hacer_Read("/archivo", 0, 100);
 //	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
 //	free(respuestaRead);

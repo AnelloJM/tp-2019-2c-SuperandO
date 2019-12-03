@@ -152,28 +152,24 @@ static int fusesito_open(const char *path, struct fuse_file_info *fi) {
 static int fusesito_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_read\n");
 
-//	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_READ);
-//	free(response);
+	Fuse_PackAndSend_Read(conexion,path,size,offset);
+	HeaderFuse headerRecibido;
+	sem_wait(&mutex_buffer);
+	headerRecibido = Fuse_RecieveHeader(conexion);
+	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
+	char *response= Fuse_ReceiveAndUnpack(conexion, tam);
+	sem_post(&mutex_buffer);
+	log_error(logger,"tamanio del path que recibe: %i \0", strlen(response)+1);
+	log_error(logger, response);
 
-//	Fuse_PackAndSend_Read(conexion,path,size,offset);
-//	HeaderFuse headerRecibido;
-//	sem_wait(&mutex_buffer);
-//	headerRecibido = Fuse_RecieveHeader(conexion);
-//	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
-//	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
-//	uint32_t tam = headerRecibido.tamanioMensaje;
-//	char *response= Fuse_ReceiveAndUnpack(conexion, tam);
-//	sem_post(&mutex_buffer);
-//	log_error(logger,"tamanio del path que recibe: %i \0", strlen(response)+1);
-//	log_error(logger, response);
-//
-//	/*
-//	 if(error) return error
-//	 else return 0;
-//	 (basandome en la response)
-//	 */
-//
-//	free(response);
+	if(strcmp(response,"-1")==0)
+		return -EBADF;
+	uint32_t sizeLeido = strlen(response)+1;
+	free(response);
+	return sizeLeido;
+
 
 //
 //	size_t len;
