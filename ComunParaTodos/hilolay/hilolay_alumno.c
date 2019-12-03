@@ -33,11 +33,11 @@ void setearValores(t_config* archivoConfig){
 
 //ENVIO DE PAQUETES
 
-int suse_create(int tid){
+int suse_create(int pid){
 	paquete->header.tipoMensaje= "SUSE_CREATE";
-	paquete->header.tamanioMensaje = sizeof(tid);
+	paquete->header.tamanioMensaje = sizeof(pid);
 	void* mensaje = paquete->mensaje;
-	memcpy(mensaje, &tid, sizeof(tid));
+	memcpy(mensaje, &pid, sizeof(pid));
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
 		log_error(logger,"Falló el envio del paquete");
@@ -56,14 +56,11 @@ int suse_schedule_next(void){
 	return 0;
 }
 
-int suse_wait(int tid, char* sem_name){
+int suse_wait(int pid, char* sem_name){
 	paquete->header.tipoMensaje= "SUSE_WAIT";
-	paqueteSemaforo* paqueteSem;
-	paqueteSem->tid = tid;
-	paqueteSem->sem_name = sem_name;
 	void* mensaje = paquete->mensaje;
-	memcpy(mensaje, &paqueteSem, sizeof(paqueteSem));
-	paquete->header.tamanioMensaje = sizeof(paqueteSem);
+	memcpy(mensaje, &sem_name, sizeof(sem_name));
+	paquete->header.tamanioMensaje = sizeof(sem_name);
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
 		log_error(logger,"Falló el envio del paquete");
@@ -72,14 +69,11 @@ int suse_wait(int tid, char* sem_name){
 	return 0;
 }
 
-int suse_signal(int tid, char* sem_name){
+int suse_signal(int pid, char* sem_name){
 	paquete->header.tipoMensaje= "SUSE_SIGNAL";
-	paqueteSemaforo* paqueteSem;
-	paqueteSem->tid = tid;
-	paqueteSem->sem_name = sem_name;
 	void* mensaje = paquete->mensaje;
-	memcpy(mensaje, &paqueteSem, sizeof(paqueteSem));
-	paquete->header.tamanioMensaje = sizeof(paqueteSem);
+	memcpy(mensaje, &sem_name, sizeof(sem_name));
+	paquete->header.tamanioMensaje = sizeof(sem_name);
 	int resultado = EnviarPaquete(socket_suse,paquete);
 	if (resultado == 0 ){
 		log_error(logger,"Falló el envio del paquete");

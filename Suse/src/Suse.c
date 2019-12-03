@@ -170,7 +170,7 @@ int buscadorSemaforo (semaforo_t* semaforo){
 	return -1;
 }
 
-void * suse_wait(int socket_cliente, t_list * semaforo){}
+void * suse_wait(int socket_cliente, char * semaforo){}
 	/*if(buscadorSemaforo(semaforo) == 0){
 		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
 		semaforo_t* semAUsar = list_get(semaforos,indice);
@@ -199,7 +199,7 @@ bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem){
 	return unSem.semID == otroSem.semID;
 }
 
-void * suse_signal(int socket_cliente,t_list * semaforo){
+void * suse_signal(int socket_cliente, char * semaforo){
 	/*if(buscadorSemaforo(semaforo) == 0){
 int suse_signal(semaforo_t* semaforo, char*tid){
 	if(buscadorSemaforo(semaforo) == 0){
@@ -224,7 +224,7 @@ int suse_signal(semaforo_t* semaforo, char*tid){
 }
 
 //hace lo mismo que pthread_join. TIene como parametro un hilo y su estado de retorno.
-void * suse_join(int socket_cliente, t_list * tid){}/*
+void * suse_join(int socket_cliente, int tid){}/*
 
 	int rafagaTotal = unHilo.rafagasEstimadas - unHilo.rafagasEjecutadas
 	while(rafagaTotal >0){
@@ -238,7 +238,7 @@ void * suse_join(int socket_cliente, t_list * tid){}/*
 */
 
 //Funcion que crea las colas ready segun el grado de multiprogramacion
-void * suse_close(int socket_cliente,t_list * tid){}
+void * suse_close(int socket_cliente, int tid){}
 	//Tengo que buscar el proceso asociado al tid
 	//hilo_t *hiloAFinalizar = list_remove(proceso->cola_exec,0);
 	//list_add(cola_exit, hiloAfinalizar);
@@ -265,8 +265,7 @@ int recibir_paquete_deserializar(int socket_cliente, Paquete * pack){
 			free(idHilo);
 			return 0;
 		} else if (strcmp(servicio_suse, "SUSE_WAIT")) {
-			paqueteSemaforo* paqueteSem= pack->mensaje;
-			int estadoHilo = pthread_create(idHilo, NULL,suse_wait(socket_cliente, paqueteSem->tid, paqueteSem->sem_name), NULL);
+			int estadoHilo = pthread_create(idHilo, NULL,suse_wait(socket_cliente, pack->mensaje), NULL);
 			if (estadoHilo)
 				printf("No se pudo crear el hilo para *SUSE_WAIT*\n");
 			free(idHilo);
@@ -278,8 +277,7 @@ int recibir_paquete_deserializar(int socket_cliente, Paquete * pack){
 			free(idHilo);
 			return 0;
 		} else if (strcmp(servicio_suse, "SUSE_SIGNAL")) {
-			paqueteSemaforo* paqueteSem= pack->mensaje;
-			int estadoHilo = pthread_create(idHilo, NULL,suse_signal(socket_cliente, paqueteSem->tid,paqueteSem->sem_name), NULL);
+			int estadoHilo = pthread_create(idHilo, NULL,suse_signal(socket_cliente, pack->mensaje), NULL);
 			if (estadoHilo)
 				printf("No se pudo crear el hilo para *SUSE_SIGNAL*\n");
 			free(idHilo);

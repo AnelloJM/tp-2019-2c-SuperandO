@@ -83,11 +83,12 @@ bool comparadorDeRafagas();
 int list_get_index(t_list* self, void* elemento,
 		bool (*comparador(void*, void*)));
 int buscadorSemaforo(semaforo_t* semaforo);
-//int suse_wait(semaforo_t* semaforo, char*tid);
+//void * suse_wait(int socket_cliente, char * semaforo);
 bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem);
-//int suse_signal(semaforo_t* semaforo, char*tid);
-//void suse_join();
-void * suse_close(int socket_cliente, t_list * tid);
+//void * suse_signal(int socket_cliente, char * semaforo);
+//void * suse_join(int socket_cliente, int tid);
+void * suse_close(int socket_cliente, int tid);
+void * planificador_NEW_READY();
 
 int sumar2(int);
 
