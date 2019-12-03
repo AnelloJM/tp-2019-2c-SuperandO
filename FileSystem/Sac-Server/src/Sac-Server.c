@@ -89,10 +89,11 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	if(nodo == -1)
 		return "-1";
 	uint32_t tamanio_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo;
-	if(tamanio_archivo > size) {
+	if(tamanio_archivo < size) {
 		size = tamanio_archivo;
 	}
-	buffer = malloc(size);
+	int tam = size;
+	buffer = malloc(tam+1);
 	//DONDE EMPEZAR
 
 	/*
@@ -131,7 +132,10 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	uint32_t faltante = size;
 
 	if(faltante < lo_que_me_queda_dentro_del_bloque){
-		memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), faltante);
+		for(int i = 0; i < faltante; i = i+1){
+			memcpy(buffer+i,&(bloque_a_leer->bytes[desplazamiento+i]), 1);
+		}
+		memcpy(buffer+faltante,"\0", 1);
 		return buffer;
 	}
 
@@ -140,7 +144,7 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	//memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), lo_que_me_queda_dentro_del_bloque);
 	//PARA MI ESTO DEBERIA IR ASI
 	memcpy(buffer, &(bloque_a_leer->bytes[offset]), lo_que_me_queda_dentro_del_bloque);
-
+	memcpy(buffer+lo_que_me_queda_dentro_del_bloque,"\0", 1);
 	faltante = faltante - lo_que_me_queda_dentro_del_bloque;
 	offset = offset + lo_que_me_queda_dentro_del_bloque;
 
@@ -185,6 +189,8 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + cantidad_bloques_a_leer_que_me_faltan];
 		bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 		memcpy(buffer+movimiento_en_buffer, &(bloque_a_leer->bytes[0]),cantidad_dentro_que_falta_leer);
+		movimiento_en_buffer = movimiento_en_buffer + cantidad_dentro_que_falta_leer;
+		memcpy(buffer+movimiento_en_buffer,"\0", 1);
 		return buffer;
 	}
 
@@ -241,6 +247,7 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 	if(tamanio_a_escribir < espacio_que_tengo_libre_en_bloque){
 		memcpy(&(bloque_a_escribir->bytes[desplazamiento]), buffer + ya_escrito_del_buffer, tamanio_a_escribir);
 		ya_escrito_del_buffer = ya_escrito_del_buffer + tamanio_a_escribir;
+		tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + tamanio_a_escribir;
 		return strlen(buffer)+1;
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -248,6 +255,7 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 	ya_escrito_del_buffer = ya_escrito_del_buffer + espacio_que_tengo_libre_en_bloque;
 	tamanio_a_escribir = tamanio_a_escribir - espacio_que_tengo_libre_en_bloque;
 	ya_escrito = ya_escrito + espacio_que_tengo_libre_en_bloque;
+	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + espacio_que_tengo_libre_en_bloque;
 
 	/*
 	 * Los bloques que me faltan leer,
@@ -271,6 +279,7 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
 			tamanio_a_escribir = tamanio_a_escribir + sizeof(Bloque);
 			ya_escrito = ya_escrito + sizeof(Bloque);
+			tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + sizeof(Bloque);
 		}
 	}else{
 		for(int i = 0; i < cantidad_bloques_a_escribir_que_me_faltan-1;i = i+1){
@@ -280,12 +289,13 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
 			tamanio_a_escribir = tamanio_a_escribir + sizeof(Bloque);
 			ya_escrito = ya_escrito + sizeof(Bloque);
+			tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + sizeof(Bloque);
 		}
 		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + 1];
 		bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_leer;
 		memcpy(&(bloque_a_escribir->bytes[0]), buffer  + ya_escrito_del_buffer, cantidad_dentro_que_falta_escribir);
-
 		ya_escrito_del_buffer = ya_escrito_del_buffer + cantidad_dentro_que_falta_escribir;
+		tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + cantidad_dentro_que_falta_escribir;
 		return strlen(buffer)+1;
 	}
 
@@ -689,6 +699,18 @@ void iniciar_tabla_de_nodos(){
 		}
 	}
 }
+void limpiar_disco(){
+	uint32_t cantidad_de_bloques_del_disco =  ceil((float)tamanio_disco/sizeof(Bloque));
+	Bloque * aux;
+	for(int i=0; i < cantidad_de_bloques_del_disco; i = i+1){
+		aux = inicio_de_disco + i;
+		for(int j = 0; j<4096; j = j+1){
+			aux->bytes[j] = '\0';
+		}
+	}
+
+}
+
 
 void limbiar_bloques_de_datos(){
 	bloques_de_datos = inicio_de_disco + 1 + bloques_del_bitmap + 1024;
@@ -707,6 +729,8 @@ void limbiar_bloques_de_datos(){
 }
 
 void iniciar_Sac_Server(){
+	limpiar_disco();
+
 	bloques_del_bitmap = ceil(((float)tamanio_disco/sizeof(Bloque)/8)/sizeof(Bloque));
 	log_info(logger, "bloques_del_bitmap: %i",bloques_del_bitmap);
 
@@ -884,10 +908,6 @@ int main(int argc, char *argv[]) {
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
 
-	t_config *archivo_de_configuracion = config_create("../../Sac.config");
-	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
-
-	log_info(logger, "p: %s",puerto);
 	//Archivos:
 	char *archivo = argv[1];
 	log_info(logger, "Archivo: %s", archivo);
@@ -925,11 +945,23 @@ int main(int argc, char *argv[]) {
 	respuestaRead = Hacer_Read("/archivo", 3, 4099);
 	log_error(logger, "lo que habia adentro desde 3: %s", respuestaRead);
 */
-//	Hacer_Write("/archivo", "Hola esto es una prueba", 0);
-//	char *respuestaRead = Hacer_Read("/archivo", 0, 100);
-//	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
-//	free(respuestaRead);
+	Hacer_Write("/archivo", "Hola esto es una prueba", 0);
+	char *respuestaRead = Hacer_Read("/archivo", 10, 9000);
+	log_error(logger, "lo que habia adentro 4 es: %s", respuestaRead);
+	respuestaRead = Hacer_Read("/archivo", 10, 1);
+	log_error(logger, "lo que habia adentro 1 es: %s", respuestaRead);
+	respuestaRead = Hacer_Read("/archivo", 24, 0);
+	log_error(logger, "lo que habia adentro 2 es: %s", respuestaRead);
+	respuestaRead = Hacer_Read("/archivo", 90, 0);
+	log_error(logger, "lo que habia adentro 3 es: %s", respuestaRead);
+	respuestaRead = Hacer_Read("/archivo", 10, 1);
+	log_error(logger, "lo que habia adentro 5 es: %s", respuestaRead);
+	free(respuestaRead);
 
+	t_config *archivo_de_configuracion = config_create("../../Sac.config");
+	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
+
+	log_info(logger, "p: %s",puerto);
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", puerto, logger);
 
