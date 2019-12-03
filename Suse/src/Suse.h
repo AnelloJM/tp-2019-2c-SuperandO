@@ -77,7 +77,6 @@ void setearValores();
 void cargarSemaforos();
 void suse_create(int socket_cliente);
 void * suse_schedule_next(int socket_cliente);
-int dispatcher(hilo_t* hilo);
 hilo_t calcularEstimacion();
 bool comparador(hilo_t* unHilo, hilo_t* otroHilo);
 bool comparadorDeRafagas();

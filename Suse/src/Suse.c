@@ -25,7 +25,11 @@ int main(){
 	/*INicializando Servidor Suse*/
 	crearLogger();
 	leerArchivoDeConfiguracion();
+
 	cola_new = list_create();
+	cola_blocked = list_create();
+	cola_exit = list_create();
+
 	tidMAX=0;
 
 	log_info(logger,"\n [+]La configuracion es la siguiente \n");
@@ -330,7 +334,6 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 					list_add_all(programa->cola_ready,hilosDeIgualPadre);
 					free(unHilo);
 					free(programa);
-					break;
 				}
 				if(!ubicacionPrograma){
 					cantidadHilosNew = list_size(cola_new);
@@ -345,12 +348,11 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 					free(nuevoPrograma);
 					free(unHilo);
 					cantidadProgramas++;
-					break;
 				}
-
 		}
 	}
 
+	printf("Las colas exec estan siendo ocupadas por completo.\n");
 }
 
 bool comparadorMismoPrograma(hilo_t * hilo1, char * pid_programa){
