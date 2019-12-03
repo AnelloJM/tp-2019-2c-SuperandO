@@ -246,51 +246,54 @@ void * suse_close(int socket_cliente,t_list * tid){}
 
 int recibir_paquete_deserializar(int socket_cliente, Paquete * pack){
 
-       t_list* cosas = RecibirPaqueteCliente(socket_cliente, pack);
-       pthread_t * idHilo = malloc(sizeof(pthread_t));
-
-       char * servicio_suse = malloc(sizeof(char*));
-       strcpy(servicio_suse,pack->header.tipoMensaje);
-       if(strcmp(servicio_suse,"SUSE_CREATE")){
-    	   int estadoHilo = pthread_create(idHilo,NULL,suse_create(socket_cliente),NULL);
-    	   if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_CREATE*\n");
-    	   free(idHilo);
-    	   return 0;
-       }
-       else if(strcmp(servicio_suse,"SUSE_SCHEDULE_NEXT")){
-    	   int estadoHilo = pthread_create(idHilo,NULL,suse_schedule_next(socket_cliente),NULL);
-           if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_SCHELUDE_NEXT*\n");
-           free(idHilo);
-           return 0;
-       }
-       else if(strcmp(servicio_suse,"SUSE_WAIT")){
-		   int estadoHilo = pthread_create(idHilo,NULL,suse_wait(socket_cliente,cosas),NULL);
-		   if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_WAIT*\n");
-		   free(idHilo);
-		   return 0;
-       }
-       else if(strcmp(servicio_suse,"SUSE_JOIN")){
-		   int estadoHilo = pthread_create(idHilo,NULL,suse_join(socket_cliente,cosas),NULL);
-		   if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_JOIN*\n");
-		   free(idHilo);
-		   return 0;
-       }
-       else if(strcmp(servicio_suse,"SUSE_SIGNAL")){
-		   int estadoHilo = pthread_create(idHilo,NULL,suse_signal(socket_cliente,cosas),NULL);
-		   if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_SIGNAL*\n");
-		   free(idHilo);
-		   return 0;
-       }
-       else if(strcmp(servicio_suse,"SUSE_CLOSE")){
-		   int estadoHilo = pthread_create(idHilo,NULL,suse_close(socket_cliente,cosas),NULL);
-		   if (estadoHilo)printf("No se pudo crear el hilo para *SUSE_CLOSE*\n");
-		   free(idHilo);
-		   return 0;
-       }
-
-       printf("NO SE PUDO ATENDER EL SERVICIO SOLICITADO\n");
-       free(idHilo);
-       return 1;
+	int resultadoEnvio = RecibirPaqueteCliente(socket_cliente, pack);
+	//Verifico que el envio se haya realizado con exito
+	if (resultadoEnvio == 0) {
+		pthread_t * idHilo = malloc(sizeof(pthread_t));
+		char * servicio_suse = malloc(sizeof(char*));
+		strcpy(servicio_suse, pack->header.tipoMensaje);
+		if (strcmp(servicio_suse, "SUSE_CREATE")) {
+			int estadoHilo = pthread_create(idHilo, NULL,suse_create(socket_cliente), NULL);
+			if (estadoHilo)
+				printf("No se pudo crear el hilo para *SUSE_CREATE*\n");
+			free(idHilo);
+			return 0;
+		} else if (strcmp(servicio_suse, "SUSE_SCHEDULE_NEXT")) {
+			int estadoHilo = pthread_create(idHilo, NULL,suse_schedule_next(socket_cliente), NULL);
+			if (estadoHilo)
+				printf("No se pudo crear el hilo para *SUSE_SCHELUDE_NEXT*\n");
+			free(idHilo);
+			return 0;
+		} else if (strcmp(servicio_suse, "SUSE_WAIT")) {
+			paqueteSemaforo* paqueteSem= pack->mensaje;
+			int estadoHilo = pthread_create(idHilo, NULL,suse_wait(socket_cliente, paqueteSem->tid, paqueteSem->sem_name), NULL);
+			if (estadoHilo)
+				printf("No se pudo crear el hilo para *SUSE_WAIT*\n");
+			free(idHilo);
+			return 0;
+		} else if (strcmp(servicio_suse, "SUSE_JOIN")) {
+			int estadoHilo = pthread_create(idHilo, NULL,suse_join(socket_cliente, pack->mensaje), NULL);
+			if (estadoHilo)
+				printf("No se pudo crear el hilo para *SUSE_JOIN*\n");
+			free(idHilo);
+			return 0;
+		} else if (strcmp(servicio_suse, "SUSE_SIGNAL")) {
+			paqueteSemaforo* paqueteSem= pack->mensaje;
+			int estadoHilo = pthread_create(idHilo, NULL,suse_signal(socket_cliente, paqueteSem->tid,paqueteSem->sem_name), NULL);
+			if (estadoHilo)
+				printf("No se pudo crear el hilo para *SUSE_SIGNAL*\n");
+			free(idHilo);
+			return 0;
+		} else if (strcmp(servicio_suse, "SUSE_CLOSE")) {
+			int estadoHilo = pthread_create(idHilo, NULL,suse_close(socket_cliente, pack->mensaje), NULL);
+			if (estadoHilo)
+				printf("No se pudo crear el hilo para *SUSE_CLOSE*\n");
+			free(idHilo);
+			return 0;
+		}
+	}
+	log_info(logger, "No se pudo recibir el paquete\n");
+	return 1;
 }
 
 void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde iniciarlo
