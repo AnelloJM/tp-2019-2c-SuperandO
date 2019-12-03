@@ -10,10 +10,10 @@
 #include <commons/string.h>
 #include <commons/config.h>
 #include <commons/collections/list.h>
-#include <hilolay/hilolay.h>
 #include "../../ComunParaTodos/Serializacion/serializacion.h"
 #include <commons/collections/queue.h>
 #include <pthread.h>
+#include <../../ComunParaTodos/Lista/lista.h>
 
 t_log* logger;
 t_config* archivoConfig;
@@ -42,9 +42,6 @@ int tidMAX;
 
 //PAQUETES//
 typedef struct {
-	hilolay_t *thread;
-	hilolay_attr_t *attr;
-	void *arg;
 	char * pid;
 	char * tid;
 	int estimacionAnterior;
@@ -58,11 +55,12 @@ typedef struct {
 } hilo_t; //TCB
 
 typedef struct {
-	//int pid; este ya esta en la tcb t_hilo;
 	char * pid;
 	t_list * cola_ready;
 	t_list * cola_exec;
 } programa_t;
+
+programa_t * lista_programas;
 
 typedef struct {
 	char* semID;
@@ -76,22 +74,20 @@ typedef struct {
 void crearLogger();
 void leerArchivoDeConfiguracion();
 void setearValores();
-void suse_init();
 void cargarSemaforos();
-void suse_create(int programa, int variable);
-void* suse_schedule_next();
-int dispatcher(hilo_t* hilo);
+void suse_create(int socket_cliente);
+void * suse_schedule_next(int socket_cliente);
 hilo_t calcularEstimacion();
 bool comparador(hilo_t* unHilo, hilo_t* otroHilo);
 bool comparadorDeRafagas();
 int list_get_index(t_list* self, void* elemento,
 		bool (*comparador(void*, void*)));
 int buscadorSemaforo(semaforo_t* semaforo);
-int suse_wait(semaforo_t* semaforo, char*tid);
+//int suse_wait(semaforo_t* semaforo, char*tid);
 bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem);
-int suse_signal(semaforo_t* semaforo, char*tid);
-void suse_join();
-void suse_close(char*tid);
+//int suse_signal(semaforo_t* semaforo, char*tid);
+//void suse_join();
+void * suse_close(int socket_cliente, t_list * tid);
 
 int sumar2(int);
 

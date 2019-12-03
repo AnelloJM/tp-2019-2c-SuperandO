@@ -152,9 +152,6 @@ static int fusesito_open(const char *path, struct fuse_file_info *fi) {
 static int fusesito_read(const char *path, char *buf, size_t size, off_t offset, struct fuse_file_info *fi) {
 	log_info(logger, "Se llamo a fusesito_read\n");
 
-//	char *response = enviarMiPathYRecibirResponse(logger, path, conexion, f_READ);
-//	free(response);
-
 	Fuse_PackAndSend_Read(conexion,path,size,offset);
 	HeaderFuse headerRecibido;
 	sem_wait(&mutex_buffer);
@@ -167,13 +164,13 @@ static int fusesito_read(const char *path, char *buf, size_t size, off_t offset,
 	log_error(logger,"tamanio del path que recibe: %i \0", strlen(response)+1);
 	log_error(logger, response);
 
-	/*
-	 if(error) return error
-	 else return 0;
-	 (basandome en la response)
-	 */
-
+	if(strcmp(response,"-1")==0)
+		return -EBADF;
+	uint32_t sizeLeido = strlen(response)+1;
 	free(response);
+	return sizeLeido;
+
+
 //
 //	size_t len;
 //	(void) fi;
@@ -197,20 +194,19 @@ static int fusesito_release(const char *path, struct fuse_file_info *fi){
 }
 static int fusesito_write(const char *path, const char *buf, size_t size, off_t offset, struct fuse_file_info *fi){
 	log_info(logger, "Se llamo a fusesito_write\n");
-//	log_info(logger, "Voy a enviar: %s", buf);
-//	Fuse_PackAndSend_Write(conexion,path,buf,size,offset);
-//	HeaderFuse headerRecibido;
-//	sem_wait(&mutex_buffer);
-//	headerRecibido = Fuse_RecieveHeader(conexion);
-//	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
-//	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
-//	uint32_t tam = headerRecibido.tamanioMensaje;
-//	void *pathRecibido= Fuse_ReceiveAndUnpack(conexion, tam);
-//	sem_post(&mutex_buffer);
-//	uint32_t response = Fuse_Unpack_Response_Uint32(pathRecibido);
-//	free(pathRecibido);
-//	return response;
-	return 0;
+	log_info(logger, "Voy a enviar: %s", buf);
+	Fuse_PackAndSend_Write(conexion,path,buf,size,offset);
+	HeaderFuse headerRecibido;
+	sem_wait(&mutex_buffer);
+	headerRecibido = Fuse_RecieveHeader(conexion);
+	log_error(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_error(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
+	void *pathRecibido= Fuse_ReceiveAndUnpack(conexion, tam);
+	sem_post(&mutex_buffer);
+	uint32_t response = Fuse_Unpack_Response_Uint32(pathRecibido);
+	free(pathRecibido);
+	return response;
 }
 static int fusesito_mknod(const char *path, mode_t mode, dev_t dev){
 	log_info(logger, "Se llamo a fusesito_mknod\n");

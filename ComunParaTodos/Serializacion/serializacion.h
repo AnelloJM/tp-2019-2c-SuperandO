@@ -9,30 +9,6 @@
 #include <netinet/in.h>
 
 
-
-//////////////////////////////////////////
-//           Tipos de Mensajes          //
-//////////////////////////////////////////
-typedef enum t_protocolo {
-	SUSE_CREATE = 1,
-	SUSE_SCHELUDE_NEXT,
-	SUSE_WAIT,
-	SUSE_SIGNAL,
-	SUSE_JOIN,
-	SUSE_CLOSE
-} t_protocolo; //CHAR CON IF Y STRCMP
-
-//////////////////////////////////////////
-//               Procesos               //
-//////////////////////////////////////////
-
-/*typedef enum proceso {
-	PROGRAMA=1,
-	COORDINADOR,
-	PLANIFICADOR,
-	INSTANCIA
-} proceso;
-*/ //NO VA.
 //////////////////////////////////////////
 //           Comunicacion Base          //
 //////////////////////////////////////////
@@ -52,10 +28,11 @@ typedef struct {
 //          Estructuras Utiles          //
 //////////////////////////////////////////
 
-typedef struct {
-	pthread_t hilo;
-	int socket;
-} t_hilo;
+
+typedef struct paqueteSemaforo{
+	int tid;
+	char* sem_name;
+}paqueteSemaforo;
 
 typedef struct {
 	int socket;
@@ -93,13 +70,14 @@ typedef struct {
 //              Funciones               //
 //////////////////////////////////////////
 
+bool EnviarPaquete(int socketCliente, Paquete* paquete);
+
 /*char* getNombreDelProceso(proceso proceso);
 
 bool EnviarHandshake(int socketFD, proceso quienEnvia);
 
 bool EnviarDatosTipo(int socketFD, proceso quienEnvia, void* datos, int tamDatos, t_protocolo tipoMensaje);
 
-bool EnviarPaquete(int socketCliente, Paquete* paquete);
 
 int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir);
 
