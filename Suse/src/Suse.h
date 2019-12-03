@@ -86,8 +86,8 @@ int buscadorSemaforo(semaforo_t* semaforo);
 //void * suse_wait(int socket_cliente, char * semaforo);
 bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem);
 //void * suse_signal(int socket_cliente, char * semaforo);
-//void * suse_join(int socket_cliente, int tid);
-void * suse_close(int socket_cliente, int tid);
+//void * suse_join(int socket_cliente, char * tid);
+void * suse_close(int socket_cliente, char * tid);
 void * planificador_NEW_READY();
 
 int sumar2(int);

@@ -224,7 +224,7 @@ int suse_signal(semaforo_t* semaforo, char*tid){
 }
 
 //hace lo mismo que pthread_join. TIene como parametro un hilo y su estado de retorno.
-void * suse_join(int socket_cliente, int tid){}/*
+void * suse_join(int socket_cliente, char * tid){}/*
 
 	int rafagaTotal = unHilo.rafagasEstimadas - unHilo.rafagasEjecutadas
 	while(rafagaTotal >0){
@@ -238,7 +238,7 @@ void * suse_join(int socket_cliente, int tid){}/*
 */
 
 //Funcion que crea las colas ready segun el grado de multiprogramacion
-void * suse_close(int socket_cliente, int tid){}
+void * suse_close(int socket_cliente, char * tid){}
 	//Tengo que buscar el proceso asociado al tid
 	//hilo_t *hiloAFinalizar = list_remove(proceso->cola_exec,0);
 	//list_add(cola_exit, hiloAfinalizar);
