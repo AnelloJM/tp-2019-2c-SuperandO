@@ -1,25 +1,5 @@
 #include "Suse.h"
 
-void * suse_create(int pid_prog){
-
-	hilo_t* hiloNuevo = malloc(sizeof(hilo_t));
-
-	hiloNuevo->pid = pid_prog;
-	hiloNuevo->tid = tidMAX;
-	tidMAX++;
-
-	list_add(cola_new, hiloNuevo);
-	log_info(logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
-
-	int cantidadCola = list_size(cola_new);
-	printf("Cantidad de elementos en cola new: %d\n", cantidadCola);
-	printf("ID del programa: %d\n",hiloNuevo->pid);
-	//printf("ID del hilo: %d\n",hiloNuevo->tid);
-
-	free(hiloNuevo);
-
-}
-
 int main(){
 
 	/*INicializando Servidor Suse*/
@@ -94,15 +74,6 @@ void setearValores(t_config* archivoConfig){
 	alpha_sjf = config_get_int_value(archivoConfig, "ALPHA_SJF");
 }
 
-
-void suse_init(){
-	//hilolay_init();
-	cargarSemaforos();
-}
-
-//Crear nuevo hilo -> pasar funcion por parametro que sera el main del hilo -> el hilo finaliza cuando termina funcion.
-//Cambiar pthread por hilolay
-
 void cargarSemaforos(){
 	int i;
 	//Para todos los ID de semaforos, voy creando un semaforo nuevo y lo guardo en la lista de semaforos
@@ -122,35 +93,54 @@ int sumar2(int a){
 	return a+2;
 }
 
-void * suse_schedule_next(int socket_cliente){
-	if (!list_is_empty(cola_new)){
+void * suse_create(int pid_prog){
+
+	hilo_t* hiloNuevo = malloc(sizeof(hilo_t));
+
+	hiloNuevo->pid = pid_prog;
+	hiloNuevo->tid = tidMAX;
+	tidMAX++;
+
+	list_add(cola_new, hiloNuevo);
+	log_info(logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
+
+	int cantidadCola = list_size(cola_new);
+	printf("Cantidad de elementos en cola new: %d\n", cantidadCola);
+	printf("ID del programa: %s\n",hiloNuevo->pid);
+	//printf("ID del hilo: %d\n",hiloNuevo->tid);
+
+	free(hiloNuevo);
+
+}
+
+bool comparadorPrograma(char* unPid, programa_t* unPrograma){
+	return strcmp(unPid, unPrograma->pid);
+}
+
+void * suse_schedule_next(int pid_prog){
+	programa_t * programaBuscado;
+	int index = list_get_index(lista_programas,pid_prog,(void*)comparadorPrograma);
+	programaBuscado = list_get(lista_programas,index);
+	if (!list_is_empty(programaBuscado->cola_ready)&& list_is_empty(programaBuscado->cola_exec)){
 		log_info(logger, "Se comenzará a planificar");
-
-		//Creo una lista auxiliar con los hilos con la estimacion calculada
 		t_list* aux;
-		aux = list_map(cola_new,(void*)calcularEstimacion);
-
-		//Ordeno los hilos segun su estimacion
+		aux = list_map(programaBuscado->cola_ready,(void*)calcularEstimacion);
 		list_sort(aux, (void*)comparadorDeRafagas);
-
-		//Tomo el primer elemento de esa lista ordenada
 		hilo_t* hiloAux = (hilo_t*) list_remove(aux,0);
-
 		bool comparador(hilo_t* unHilo, hilo_t* otroHilo){
 			return (strcmp(unHilo->tid,otroHilo->tid)== 0);
 		}
-		//Busco el indice en la cola de new comparando los TID, si lo encuentro, lo elimino de la cola de new y lo devuelvo
-		int indice = list_get_index(cola_new,hiloAux,(void*)comparador);
-		hilo_t* hiloAEjecutar = list_remove(cola_new,indice);
-		//char* pidAux = hiloAEjecutar->pid;
-		//Busco el proceso y obtengo su cola de exec
-		//list_add(hiloAEjecutar,proceso->cola_exec);
-
-
-		//return hiloAEjecutar;
+		int indice = list_get_index(programaBuscado->cola_ready,hiloAux,(void*)comparador);
+		hilo_t* hiloAEjecutar = list_remove(programaBuscado->cola_ready,indice);
+		list_add(programaBuscado->cola_exec,hiloAEjecutar);
+		free(programaBuscado);
+		free(aux);
+		free(hiloAux);
+		return hiloAEjecutar;
 	}
-	log_info(logger, "La cola de new está vacia");
-	//return 0;
+	free(programaBuscado);
+	log_error(logger, "La cola de ready del programa está vacia o ya tiene un hilo ejecutando");
+	return 0;
 }
 hilo_t calcularEstimacion(hilo_t unHilo){
 	unHilo.rafagasEstimadas = (alpha_sjf * unHilo.estimacionAnterior + ((1 - alpha_sjf)*unHilo.rafagasEjecutadas));
@@ -293,7 +283,7 @@ int recibir_paquete_deserializar(int socket_cliente, Paquete * pack){
 	log_info(logger, "No se pudo recibir el paquete\n");
 	return 1;
 }
-
+/*
 void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde iniciarlo
 
 	int cantidadProgramas = list_size(lista_programas);
@@ -359,4 +349,4 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 bool comparadorMismoPrograma(hilo_t * hilo1, char * pid_programa){
 	return strcmp(hilo1->pid,pid_programa);
 }
-
+*/

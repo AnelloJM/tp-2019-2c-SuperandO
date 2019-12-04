@@ -13,10 +13,6 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-src/example/2-12/cliente \
-src/example/2-12/servidor \
-src/example \
+Debug/src \
 src \
-src/servidor-cliente \
-src/servidor-cliente/servidor \
 
