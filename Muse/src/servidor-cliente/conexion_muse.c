@@ -53,6 +53,7 @@ uint32_t conectarse_a_servidor(char *ip,uint32_t puerto)
   return fd;
 }
 
+/*
 
 void enviar_paquete(uint32_t destino,uint32_t codigo,uint32_t tamanio_leer,void * data)
 {
@@ -69,9 +70,19 @@ void enviar_paquete(uint32_t destino,uint32_t codigo,uint32_t tamanio_leer,void 
   free(buffer);
 }
 
+*/
+/*
 void enviar_paquete_v2(uint32_t destino,Paquete *paquete)
 {
-  void * buffer=malloc(8+paquete->size_next);
+  switch (paquete->codigo_op) {
+    case 0:
+      enviar_muse_alloc(destino,paquete->size_alloc);
+      break;
+    default:
+      printf("El codigo a enviar es invalido\n");
+  }
+  /*
+  void * buffer=malloc(4+paquete->size_next);
   memcpy(buffer,&(paquete->size_next),4);
   memcpy(buffer+4,&(paquete->op),4);
   memcpy(buffer+8,&(paquete->valor),paquete->size_next);
@@ -79,17 +90,34 @@ void enviar_paquete_v2(uint32_t destino,Paquete *paquete)
   printf("valor: %d\n",paquete->valor);
   send(destino,buffer,8+(paquete->size_next),0);
   printf("Flag FInal\n" );
+
+
 }
+*/
+
+
+
+
 void recibir_paquete(uint32_t destinatario)
 {
-  size_t largo_mensaje;
+
   uint32_t codigo_op;
-  recv(destinatario,largo_mensaje,4,0);
-  recv(destinatario,codigo_op,4,0);
-  void *buffer = malloc(largo_mensaje);
-  recv(destinatario,buffer,largo_mensaje,0);
+  recv(destinatario,&codigo_op,4,0);
 
+  switch (codigo_op)
+  {
+    case 0:
+      printf("Se recibio un muse_alloc\n" );
+      recibir_muse_alloc(destinatario);
+      break;
+    default:
+      printf("Codigo de operacion invalido\n");
+  }
 
+  //void *buffer = malloc(largo_mensaje);
+  //recv(destinatario,buffer,largo_mensaje,0);
+
+/*
   Paquete *paquete =malloc(sizeof(Paquete));
   paquete->size_next = largo_mensaje;
   printf("asdasd\n" );
@@ -101,11 +129,11 @@ void recibir_paquete(uint32_t destinatario)
   printf("Azulasdasdasdasda\n" );
   //printf("El mensaje es: %p\n",paquete->valor );
 
-
+*/
   //desserealizar(buffer,4+largo_mensaje);
 
 }
-
+/*
 void desserealizar(char *paquete_recibido,size_t largo_paquete)
 {
   Paquete *paquete =malloc(sizeof(Paquete));
@@ -115,9 +143,9 @@ void desserealizar(char *paquete_recibido,size_t largo_paquete)
   printf("El mensaje es: %p\n",paquete->valor );
 
 }
+*/
 
-
-
+/*
 void recibir_mensaje(uint32_t destinatario,uint32_t tamanio_recibir)
 {
 
@@ -168,4 +196,25 @@ void enviar_mensaje(uint32_t destino,uint32_t codigo_op,char parametros)
   send(destino,buffer,4+largo_de_parametros,0);
   printf("operacion enviada!\n");
   free(buffer);
+}
+
+*/
+
+uint32_t recibir_muse_alloc(uint32_t destinatario)
+{
+  uint32_t tam;
+  recv(destinatario,&tam,4,0);
+  printf("El tamanio pedido es de %d\n",tam );
+  return 0;
+}
+
+
+uint32_t enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete)
+{
+
+  void *buffer = malloc(8);
+  memcpy(buffer,&(paquete->op),4);
+  memcpy(buffer+4,&(paquete->size_alloc),4);
+  send(destino,buffer,8,0);
+  printf("Operacion muse alloc %d enviada\n",paquete->size_alloc );
 }

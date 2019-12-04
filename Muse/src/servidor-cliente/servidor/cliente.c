@@ -13,17 +13,16 @@ int main()
 
 uint32_t muse_alloc(uint32_t tam)
 {
-  Paquete *paquete = malloc(sizeof(Paquete));
-  paquete->size_next = sizeof(tam);
-  paquete->valor = tam;
+  Paquete_muse_alloc *paquete = malloc(sizeof(Paquete_muse_alloc));
   paquete->op = 0;
+  paquete->size_alloc = tam;
 
-
-  enviar_paquete_v2(server,paquete);
+  enviar_muse_alloc(server,paquete);
 
   return 0;
 }
 
+/*
 void muse_mensaje(void * mensaje)
 {
   Paquete *paquete = malloc(sizeof(Paquete));
@@ -32,3 +31,4 @@ void muse_mensaje(void * mensaje)
   paquete->size_next=strlen(mensaje);
   enviar_paquete_v2(server,paquete);
 }
+*/

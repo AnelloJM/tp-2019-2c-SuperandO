@@ -34,11 +34,10 @@ typedef struct
 
 typedef struct
 {
-  uint32_t size_next;
   uint32_t op;
-  void * valor;
+  uint32_t size_alloc;
 
-}Paquete;
+}Paquete_muse_alloc;
 
 
 
@@ -63,12 +62,13 @@ void enviar_paquete(uint32_t destino,uint32_t codigo,uint32_t amanio_leer,void *
 uint32_t recibir_primer_mensaje(uint32_t destinatario);
 void recibir_mensaje(uint32_t destinatario,uint32_t tamanio_recibir);
 
-void enviar_paquete_v2(uint32_t destino,Paquete *paquete);
+//void enviar_paquete_v2(uint32_t destino,Paquete *paquete);
 void recibir_paquete(uint32_t destinatario);
 void desserealizar(char *paquete_recibido,size_t largo_paquete);
 
-Paquete *crear_paquete(uint32_t operacion,void * data);
-
+//Paquete *crear_paquete(uint32_t operacion,void * data);
+uint32_t recibir_muse_alloc(uint32_t destinatario);
+uint32_t enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete);
 
 
 #endif
