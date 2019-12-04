@@ -166,7 +166,10 @@ static int fusesito_read(const char *path, char *buf, size_t size, off_t offset,
 
 	if(strcmp(response,"-1")==0)
 		return -EBADF;
+	if(strcmp(response,"-2")==0)
+			return -EFAULT;
 	uint32_t sizeLeido = strlen(response)+1;
+	memcpy(buf,response,sizeLeido);
 	free(response);
 	return sizeLeido;
 
@@ -185,7 +188,7 @@ static int fusesito_read(const char *path, char *buf, size_t size, off_t offset,
 //	} else
 //		size = 0;
 
-	return size;
+//	return size;
 }
 
 static int fusesito_release(const char *path, struct fuse_file_info *fi){

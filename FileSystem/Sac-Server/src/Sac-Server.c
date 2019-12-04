@@ -86,12 +86,24 @@ uint32_t Hacer_Open(char *path){ return 0; }
 char *Hacer_Read(char *path, size_t size, off_t offset){
 	uint32_t nodo = exite_path_retornando_nodo(path);
 	char *buffer;
-	if(nodo == -1)
-		return "-1";
+	if(nodo == -1){
+		buffer = malloc(strlen("-1")+1);
+		memcpy(buffer, "-1", strlen("-1")+1);
+		return buffer;
+	}
+
 	uint32_t tamanio_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo;
+
 	if(tamanio_archivo < size) {
 		size = tamanio_archivo;
 	}
+
+	if(size + offset > tamanio_archivo){
+		buffer = malloc(strlen("-2")+1);
+		memcpy(buffer, "-2", strlen("-2")+1);
+		return buffer;
+	}
+
 	int tam = size;
 	buffer = malloc(tam+1);
 	//DONDE EMPEZAR
@@ -119,10 +131,8 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	 * del los punteros
 	*/
 	uint32_t puntero_indirecto = cantida_de_bloque_desde_donde_comienzo % 1024;
-
-
 	uint32_t numero_de_bloque_de_puntero = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array];
-	Bloque_de_puntero *punteros_indirectos = (Bloque_de_puntero *) (inicio_de_disco + numero_de_bloque_de_puntero);
+	Bloque_de_puntero *punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
 	ptrGBloque numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto];
 	Bloque *bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 
@@ -141,7 +151,6 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 
 
 	memcpy(buffer, &(bloque_a_leer->bytes[desplazamiento]), lo_que_me_queda_dentro_del_bloque);
-	memcpy(buffer+lo_que_me_queda_dentro_del_bloque,"\0", 1);
 	faltante = faltante - lo_que_me_queda_dentro_del_bloque;
 	offset = offset + lo_que_me_queda_dentro_del_bloque;
 
@@ -149,7 +158,7 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	 * Los bloques que me faltan leer,
 	 * entera para que si en menos de uno de cero
 	*/
-	uint32_t cantidad_bloques_a_leer_que_me_faltan = faltante / sizeof(Bloque);
+	int cantidad_bloques_a_leer_que_me_faltan = faltante / sizeof(Bloque);
 
 	/*
 	 * Desplazamiento dentro del ultimo bloque que me faltan leer,
@@ -157,9 +166,19 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 	*/
 	uint32_t cantidad_dentro_que_falta_leer = faltante % sizeof(Bloque);
 
-	uint32_t lo_que_me_queda_despues_de_los_punteros = 1024 - puntero_indirecto;
+	uint32_t lo_que_me_queda_despues_de_los_punteros = 1023 - puntero_indirecto;
 
 	uint32_t movimiento_en_buffer = lo_que_me_queda_dentro_del_bloque;
+
+	if(lo_que_me_queda_despues_de_los_punteros == 0){
+		puntero_indirecto = 0;
+		poscion_en_array = poscion_en_array + 1;
+		numero_de_bloque_de_puntero = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array];
+		punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
+		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto];
+		bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
+		lo_que_me_queda_despues_de_los_punteros = 1023;
+	}
 
 
 	if(lo_que_me_queda_despues_de_los_punteros < cantidad_bloques_a_leer_que_me_faltan){
@@ -172,16 +191,13 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 			movimiento_en_buffer = movimiento_en_buffer + sizeof(Bloque);
 		}
 	}else{
-		for(int i = 1; i <= cantidad_bloques_a_leer_que_me_faltan-1;i = i+1){
+		for(int i = 0; i < cantidad_bloques_a_leer_que_me_faltan - 1;i = i+1){
 			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
 			bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 			memcpy(buffer+movimiento_en_buffer, &(bloque_a_leer->bytes[0]) ,sizeof(Bloque));
 			faltante = faltante - sizeof(Bloque);
 			offset = offset + sizeof(Bloque);
 			movimiento_en_buffer = movimiento_en_buffer + sizeof(Bloque);
-		}
-		if(cantidad_bloques_a_leer_que_me_faltan < 0){
-			cantidad_bloques_a_leer_que_me_faltan = 0;
 		}
 		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto + cantidad_bloques_a_leer_que_me_faltan];
 		bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
@@ -254,21 +270,25 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 	ya_escrito = ya_escrito + espacio_que_tengo_libre_en_bloque;
 	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + espacio_que_tengo_libre_en_bloque;
 
+	int lo_que_me_queda_despues_de_los_punteros = 0;
 
 	if(puntero_indirecto < 1023){
-		uint32_t bloque_libre = buscar_espacio_en_bitmap();
-		bitarray_set_bit(tBitarray,bloque_libre);
-		punteros_indirectos->bloques_de_datos[puntero_indirecto+1]=bloque_libre;
+//		uint32_t bloque_libre = buscar_espacio_en_bitmap();
+//		bitarray_set_bit(tBitarray,bloque_libre);
+//		punteros_indirectos->bloques_de_datos[puntero_indirecto+1]=bloque_libre;
+		puntero_indirecto = puntero_indirecto + 1;
+		lo_que_me_queda_despues_de_los_punteros = 1024 - puntero_indirecto;
 	}else{
 		if(poscion_en_array < 999){
 			uint32_t bloque_libre = buscar_espacio_en_bitmap();
 			bitarray_set_bit(tBitarray,bloque_libre);
 			tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array+1] = bloque_libre;
-			punteros_indirectos=inicio_de_disco+bloque_libre;
+			punteros_indirectos = inicio_de_disco+bloque_libre;
 			uint32_t bloque_libre_dos = buscar_espacio_en_bitmap();
 			bitarray_set_bit(tBitarray,bloque_libre_dos);
 			puntero_indirecto = 0;
 			punteros_indirectos->bloques_de_datos[puntero_indirecto] = bloque_libre_dos;
+			lo_que_me_queda_despues_de_los_punteros = 1023;
 		}else{
 			log_error(logger, "No hay mas espacio en el disco, se escribio: %i", ya_escrito);
 			return -EFBIG;
@@ -288,20 +308,22 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 	*/
 	uint32_t cantidad_dentro_que_falta_escribir = tamanio_a_escribir % sizeof(Bloque);
 
-	int lo_que_me_queda_despues_de_los_punteros = 1023 - puntero_indirecto;
+
 
 	if(lo_que_me_queda_despues_de_los_punteros <= cantidad_bloques_a_escribir_que_me_faltan){
 		for(int i = 0; i < lo_que_me_queda_despues_de_los_punteros;i = i+1){
+
+			bloque_libre = buscar_espacio_en_bitmap();
+			bitarray_set_bit(tBitarray,bloque_libre);
+			punteros_indirectos->bloques_de_datos[puntero_indirecto + i]=bloque_libre;
+
 			numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
 			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
 			memcpy(bloque_a_escribir, buffer  + ya_escrito_del_buffer,sizeof(Bloque));
 			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
-			tamanio_a_escribir = tamanio_a_escribir + sizeof(Bloque);
+			tamanio_a_escribir = tamanio_a_escribir - sizeof(Bloque);
 			ya_escrito = ya_escrito + sizeof(Bloque);
 			tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + sizeof(Bloque);
-			bloque_libre = buscar_espacio_en_bitmap();
-			bitarray_set_bit(tBitarray,bloque_libre);
-			punteros_indirectos->bloques_de_datos[puntero_indirecto+i+1]=bloque_libre;
 		}
 	}else{
 		for(int i = 0; i < cantidad_bloques_a_escribir_que_me_faltan - 1;i = i+1){
@@ -539,7 +561,6 @@ void* funcionMagica(int cliente){
 				log_info(logger, "me pidieron leer un offset de: %i", offsetRead);
 				char *respuestaRead = Hacer_Read(pathRead, sizeRead, offsetRead);
 				log_error(logger, "lo que habia adentro es: %s", respuestaRead);
-				sleep(100);
 				Fuse_PackAndSend(cliente, respuestaRead, strlen(respuestaRead)+1, f_RESPONSE);
 				free(pathRead);
 				free(respuestaRead);
@@ -680,7 +701,6 @@ uint64_t timestamp(){
 }
 
 void iniciar_header(){
-	header = inicio_de_disco;
 	header->identificador[0] = 'S';
 	header->identificador[1] = 'A';
 	header->identificador[2] = 'C';
@@ -725,7 +745,6 @@ void liberar_bloque_en_bitmap(int indice){
 
 void iniciar_tabla_de_nodos(){
 
-	tabla_de_nodos = inicio_de_disco + 1 + bloques_del_bitmap;
 	for(int i = 0; i <= 1024; i = i+1){
 		tabla_de_nodos->nodos[i].estado = 0;
 		strncpy(tabla_de_nodos->nodos[i].nombre_del_archivo, "\0", 70);
@@ -748,9 +767,6 @@ void limpiar_disco(){
 
 
 void limbiar_bloques_de_datos(){
-	bloques_de_datos = inicio_de_disco + 1 + bloques_del_bitmap + 1024;
-
-	cantidad_de_bloques_de_datos =  ceil((float)tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024);
 	log_info(logger, "cantidad_de_bloques_de_datos: %llu",cantidad_de_bloques_de_datos);
 
 	Bloque * aux;
@@ -766,23 +782,10 @@ void limbiar_bloques_de_datos(){
 void iniciar_Sac_Server(){
 	limpiar_disco();
 
-	bloques_del_bitmap = ceil(((float)tamanio_disco/sizeof(Bloque)/8)/sizeof(Bloque));
-	log_info(logger, "bloques_del_bitmap: %i",bloques_del_bitmap);
-
 	iniciar_header();
 	log_info(logger, "Listo header");
-
-	int bits = ceil((float)tamanio_disco/sizeof(Bloque));
-	log_info(logger, "Bits: %i", bits);
-
-	tBitarray = bitarray_create_with_mode(inicio_de_disco + 1, ceil((float)bits/8), MSB_FIRST);
-
-	log_info(logger, "tamanio cargado del bitmap: %i", bitarray_get_max_bit(tBitarray));
-
 	cargar_bitmap(1 + bloques_del_bitmap + 1024);
-
 	iniciar_tabla_de_nodos();
-
 	log_info(logger, "Limpiando bloque de datos");
 	limbiar_bloques_de_datos();
 	log_info(logger, "Bloque de datos limpio");
@@ -938,10 +941,30 @@ void mostrar_hijos_de(char* path){
 	list_destroy(hijos_home);
 }
 
+void calculos(){
+
+	header = inicio_de_disco;
+	bloques_del_bitmap = ceil(((float)tamanio_disco/sizeof(Bloque)/8)/sizeof(Bloque));
+	int bits = ceil((float)tamanio_disco/sizeof(Bloque));
+	tBitarray = bitarray_create_with_mode(inicio_de_disco + 1, ceil((float)bits/8), MSB_FIRST);
+	tabla_de_nodos = inicio_de_disco + 1 + bloques_del_bitmap;
+	bloques_de_datos = inicio_de_disco + 1 + bloques_del_bitmap + 1024;
+	cantidad_de_bloques_de_datos =  ceil((float)tamanio_disco/sizeof(Bloque) - 1 - bloques_del_bitmap - 1024);
+}
+
 int main(int argc, char *argv[]) {
+
+	char *format = "";
+	format = argv[2];
+
 	//Log:
 	logger = log_create("Sac-Server.log", "Sac-Server", 1, LOG_LEVEL_INFO);
 	log_info(logger, "Se ha creado un nuevo logger\n");
+	if( argc > 3 || (argc == 3 && strcmp("-f", format) != 0)){
+		log_error(logger,"Argumentos invalidos, format: -f");
+		return -1;
+	}
+
 
 	//Archivos:
 	char *archivo = argv[1];
@@ -953,51 +976,20 @@ int main(int argc, char *argv[]) {
 	int disco = open(archivo, O_RDWR, 0);
 	inicio_de_disco = mmap(NULL, tamanio_disco, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_FILE, disco, 0);
 
-	iniciar_Sac_Server();
+	log_info(logger, " argumentos: %s",argv[0]);
+
+	calculos();
+
+	if( argc == 3  && strcmp("-f", format) == 0){
+		iniciar_Sac_Server();
+	}
+
 	log_info(logger, "bloques_del_bitmap: %i", bloques_del_bitmap);
 
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
-	crear_archivo_en_padre(0,"archivo");/*
-	int32_t numero_bloque_de_punteros = tabla_de_nodos->nodos[1].array_de_punteros[0];
-	Bloque_de_puntero *algo = inicio_de_disco + numero_bloque_de_punteros;
-	uint32_t bloque_de_prueba = buscar_espacio_en_bitmap();
-	algo->bloques_de_datos[1] = bloque_de_prueba;
-	bitarray_set_bit(tBitarray, bloque_de_prueba);
-	uint32_t numero_bloque = algo->bloques_de_datos[1];
-	Bloque *dato = inicio_de_disco + numero_bloque;
-	dato->bytes[0] = 'p';
-	dato->bytes[1] = 'u';
-	dato->bytes[2] = 'e';
-	dato->bytes[3] = 'r';
-	dato->bytes[4] = 't';
-	dato->bytes[5] = 'a';
-
-	tabla_de_nodos->nodos[1].tamanio_del_archivo = 5*sizeof(char);
-
-	char *respuestaRead = Hacer_Read("/archivo", 5, 4096);
-	log_error(logger, "lo que habia adentro es: %s", respuestaRead);
-	respuestaRead = Hacer_Read("/archivo", 3, 4099);
-	log_error(logger, "lo que habia adentro desde 3: %s", respuestaRead);
-*/
-
-	Hacer_Write("/archivo", string_repeat('a', 4194304), 0);
-	Hacer_Write("/archivo", string_repeat('b', 100), 0);
-	char *respuestaRead = Hacer_Read("/archivo", 10, 4194300);
-	log_error(logger, "lo que habia adentro 4 es: %s", respuestaRead);
-	respuestaRead = Hacer_Read("/archivo", 10, 1);
-	log_error(logger, "lo que habia adentro 1 es: %s", respuestaRead);
-	respuestaRead = Hacer_Read("/archivo", 24, 0);
-	log_error(logger, "lo que habia adentro 2 es: %s", respuestaRead);
-	respuestaRead = Hacer_Read("/archivo", 90, 0);
-	log_error(logger, "lo que habia adentro 3 es: %s", respuestaRead);
-	respuestaRead = Hacer_Read("/archivo", 10, 1);
-	log_error(logger, "lo que habia adentro 5 es: %s", respuestaRead);
-	free(respuestaRead);
-
 	t_config *archivo_de_configuracion = config_create("../../Sac.config");
 	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
-
 	log_info(logger, "p: %s",puerto);
 	int cliente;
 	conexion = iniciar_servidor("127.0.0.1", puerto, logger);
