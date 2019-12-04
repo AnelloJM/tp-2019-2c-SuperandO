@@ -497,9 +497,24 @@ uint32_t Hacer_Rename(char *path, char *buffer){
 		return -ENOENT;
 	char **buffer_separado = string_split(buffer,"/");
 	uint32_t posicion_final = damePosicionFinalDoblePuntero(buffer_separado);
+	if(posicion_final!=0){
+		uint32_t nodoPadre;
+		int total=0;
+		for(int i = 0; i <posicion_final; i = i+1){
+			total = total + string_length(buffer_separado[i]) + 1;
+		}
+		char *padre = string_substring(buffer, 0, total);
+		nodoPadre = exite_path_retornando_nodo(padre);
+		if(nodoPadre == -1)
+				return -ENOENT;
+		tabla_de_nodos->nodos[nodo].padre = nodoPadre;
+	}
+	else
+		tabla_de_nodos->nodos[nodo].padre = 0;
 	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, "\0", 70);
 	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, buffer_separado[posicion_final], 70);
 	tabla_de_nodos->nodos[nodo].modificado=timestamp();
+	liberarDoblePuntero(buffer_separado);
 	return 0;
 }
 
@@ -656,6 +671,7 @@ void* funcionMagica(int cliente){
 				free(packRename);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathRename)+1);
 				log_error(logger, pathRename);
+				log_error(logger, nuevo_nombre);
 				uint32_t responseRename = Hacer_Rename(pathRename, nuevo_nombre);
 				log_info(logger, "LE VOY A MANDAR: %i", responseRename);
 				Fuse_PackAndSend_Uint32_Response(cliente, responseRename);
