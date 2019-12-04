@@ -82,11 +82,11 @@ hilo_t calcularEstimacion(hilo_t unHilo);
 bool comparadorDeHilos(hilo_t* unHilo, hilo_t* otroHilo);
 bool comparadorDeRafagas();
 int buscadorSemaforo(char* semaforo);
-//void * suse_wait(int pid_prog, char * semaforo);
+void * suse_wait(int pid_prog, char * semaforo);
 bool comparadorDeSemaforos(char* unSem, semaforo_t otroSem);
-//void * suse_signal(int socket_cliente, char * semaforo);
+void * suse_signal(int socket_cliente, char * semaforo);
 //void * suse_join(int socket_cliente, char * tid);
-void * suse_close(int socket_cliente, char * tid);
+void * suse_close(int pid_prog, char * tid);
 void * planificador_NEW_READY();
 
 int sumar2(int);

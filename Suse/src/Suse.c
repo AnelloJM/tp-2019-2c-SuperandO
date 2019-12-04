@@ -240,12 +240,16 @@ void * suse_join(int socket_cliente, char * tid){}/*
 }
 */
 
-//Funcion que crea las colas ready segun el grado de multiprogramacion
-void * suse_close(int socket_cliente, char * tid){}
-	//Tengo que buscar el proceso asociado al tid
-	//hilo_t *hiloAFinalizar = list_remove(proceso->cola_exec,0);
-	//list_add(cola_exit, hiloAfinalizar);
-//Close recibe un int TID, y mandas el thread ese a Exit
+void * suse_close(int pid_prog, char * tid){
+	int index = list_get_index(lista_programas,pid_prog,(void*)comparadorPrograma);
+	programa_t* programaBuscado = list_get(lista_programas,index);
+	hilo_t* hiloATerminar = list_remove(programaBuscado->cola_exec, 0);
+	list_add(cola_exit,hiloATerminar);
+	hiloATerminar->finalizado = true;
+	free(hiloATerminar);
+	free(programaBuscado);
+	return 0;
+}
 
 int recibir_paquete_deserializar(int socket_cliente, Paquete * pack){
 
