@@ -127,10 +127,7 @@ void * suse_schedule_next(int pid_prog){
 		aux = list_map(programaBuscado->cola_ready,(void*)calcularEstimacion);
 		list_sort(aux, (void*)comparadorDeRafagas);
 		hilo_t* hiloAux = (hilo_t*) list_remove(aux,0);
-		bool comparador(hilo_t* unHilo, hilo_t* otroHilo){
-			return (strcmp(unHilo->tid,otroHilo->tid)== 0);
-		}
-		int indice = list_get_index(programaBuscado->cola_ready,hiloAux,(void*)comparador);
+		int indice = list_get_index(programaBuscado->cola_ready,hiloAux,(void*)comparadorDeHilos);
 		hilo_t* hiloAEjecutar = list_remove(programaBuscado->cola_ready,indice);
 		list_add(programaBuscado->cola_exec,hiloAEjecutar);
 		free(programaBuscado);
@@ -142,6 +139,10 @@ void * suse_schedule_next(int pid_prog){
 	log_error(logger, "La cola de ready del programa está vacia o ya tiene un hilo ejecutando");
 	return 0;
 }
+bool comparadorDeHilos(hilo_t* unHilo, hilo_t* otroHilo){
+	return (strcmp(unHilo->tid,otroHilo->tid)== 0);
+}
+
 hilo_t calcularEstimacion(hilo_t unHilo){
 	unHilo.rafagasEstimadas = (alpha_sjf * unHilo.estimacionAnterior + ((1 - alpha_sjf)*unHilo.rafagasEjecutadas));
 	return unHilo;
@@ -174,44 +175,55 @@ void * suse_wait(int pid_prog, char * semaforo){
 			hilo_t* hiloBuscado = list_remove(programaBuscado->cola_exec,0);
 			list_add(cola_blocked,hiloBuscado);
 			list_add(semAUsar->hilosEnEspera,hiloBuscado);
+			free(programaBuscado);
+			free(hiloBuscado);
+			free(semAUsar);
 			return 0;
 		}
 		semAUsar->semActual--;
 		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
 		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
 		log_info(logger, "%d","Contador actual:", semAUsar->semActual);
+		free(semAUsar);
 		return 0;
 	}
 	log_error(logger,"El semaforo no fue encontrado");
 	return -1;
 }
 
-bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem){
-	return strcmp(unSem.semID,otroSem.semID);
+bool comparadorDeSemaforos(char* unSem, semaforo_t otroSem){
+	return (strcmp(unSem,otroSem.semID)==0);
 }
 
-void * suse_signal(int socket_cliente, char * semaforo){
-	/*if(buscadorSemaforo(semaforo) == 0){
-int suse_signal(semaforo_t* semaforo, char*tid){
+void * suse_signal(int pid_prog, char * semaforo){
 	if(buscadorSemaforo(semaforo) == 0){
 		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
 		semaforo_t* semAUsar = list_get(semaforos,indice);
 		if (semAUsar->semActual == semAUsar->semMax){
 			log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
 			log_error(logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
-			//return -1;
+			free(semAUsar);
+			return 0;
 		}
 		semAUsar->semActual++;
 		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
 		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
 		log_info(logger,"%d","Contador actual:", semAUsar->semActual);
-		//Tengo que buscar el proceso asociado al tid
-		//hilo_t * hiloDesbloqueado = list_remove(semaforo->hilosEnEspera,0);
-		//list_add(hiloDesbloqueado,proceso->cola_ready);
-		//return 0;
+		log_info(logger,"Se pasará a desbloquear el primer hilo en la cola de espera del semaforo, este hilo pasará al estado ready");
+		int index = list_get_index(lista_programas,pid_prog,(void*)comparadorPrograma);
+		programa_t* programaBuscado = list_get(lista_programas,index);
+		hilo_t* hiloADesbloquear = list_remove(semAUsar->hilosEnEspera,0);
+		int index2 = list_get_index(cola_blocked,hiloADesbloquear,(void*)comparadorDeHilos);
+		hiloADesbloquear = list_remove(cola_blocked,index2);
+		list_add(programaBuscado->cola_ready,hiloADesbloquear);
+		free(programaBuscado);
+		free(hiloADesbloquear);
+		free(semAUsar);
+		return 0;
+
 	}
-	log_info(logger, "El semaforo no fue encontrado");
-	//return -1;*/
+	log_error(logger, "El semaforo no fue encontrado");
+	return -1;
 }
 
 //hace lo mismo que pthread_join. TIene como parametro un hilo y su estado de retorno.
