@@ -37,3 +37,18 @@
 [INFO] 20:25:56:618 MUSE/(12580:12580): swap size ->  1024
 [INFO] 20:25:56:618 MUSE/(12580:12580): --------------
 
+[INFO] 19:53:17:439 MUSE/(9758:9758): El logger se creo con exito
+[INFO] 19:53:17:474 MUSE/(9758:9758): La configuracion fue cargada exitosamente
+[INFO] 19:53:17:474 MUSE/(9758:9758): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 19:53:17:474 MUSE/(9758:9758): ID ->  14
+[INFO] 19:53:17:474 MUSE/(9758:9758): IP ->  (null)
+[INFO] 19:53:17:474 MUSE/(9758:9758): Puerto ->  5555
+[INFO] 19:53:17:474 MUSE/(9758:9758): memory size ->  4096
+[INFO] 19:53:17:474 MUSE/(9758:9758): page size ->  32
+[INFO] 19:53:17:474 MUSE/(9758:9758): swap size ->  1024
+[INFO] 19:53:17:474 MUSE/(9758:9758): --------------
+
+[INFO] 19:53:28:302 MUSE/(9758:9758): Servidor corriendo
+

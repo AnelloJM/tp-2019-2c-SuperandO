@@ -12,6 +12,18 @@ int muse_init(int id, char* ip, int puerto)
 
   return 0;
 }
+
+
+uint32_t muse_alloc(uint32_t tam)
+{
+  Paquete_muse_alloc *paquete = malloc(sizeof(Paquete_muse_alloc));
+  paquete->op = 0;
+  paquete->size_alloc = tam;
+
+  enviar_muse_alloc(socket_pipe,paquete);
+
+  return 0;
+}
 /*
 int conectarse_a_servidor(char *ip,int puerto)
 {
@@ -64,30 +76,6 @@ void muse_close()
 }
 
 
-
-
-uint32_t muse_alloc(uint32_t tam){
-
-	enviar_mensaje(socket_pipe);
-
-
-
-//enviar mensaje a servidor
-/*	if((numbytes=recv(socket_pipe,buf,100,0)) == -1){
-		printf("[-] Error en recv() \n");
-		exit(-1);
-
-	}
-	buf[numbytes]='\0';
-
-	printf("Mensaje del servidor %s\n",buf);
-
-
-	printf("Enviando a servidor \n" );
-//	enviar_mensaje(servidor,libmuse_logger);
-
-*/
-}
 
 
 void muse_free(uint32_t dir) {

@@ -15,22 +15,6 @@ la libreria libmuse.h
 
 //Estructuras
 
-typedef struct
-{
-  uint32_t codigo_op;
-  uint32_t tamanio_buffer;
-}estructura_codigo;
-
-typedef struct
-{
-  uint32_t operacion;
-  void *valor;
-}estructura_recibir;
-
-typedef struct
-{
-  uint32_t size;
-}Next_size;
 
 typedef struct
 {
@@ -39,6 +23,47 @@ typedef struct
 
 }Paquete_muse_alloc;
 
+typedef struct
+{
+  uint32_t op;
+  
+}Paquete_muse_free;
+
+
+typedef struct
+{
+  uint32_t op;
+}Paquete_muse_get;
+
+
+typedef struct
+{
+  uint32_t op;
+}Paquete_muse_copy;
+
+
+typedef struct
+{
+  uint32_t op;
+}Paquete_muse_map;
+
+
+typedef struct
+{
+  uint32_t op;
+}Paquete_muse_sync;
+
+
+typedef struct
+{
+  uint32_t op;
+}Paquete_muse_unmap;
+
+
+typedef struct
+{
+  uint32_t op;
+}Paquete_muse_close;
 
 
 //Variables globales
@@ -55,20 +80,11 @@ char message[100] = ""; //This array will store the messages that are sent by th
 uint32_t conectarse_a_servidor(char *ip,uint32_t puerto);
 uint32_t iniciar_servidor(uint32_t puerto);
 uint32_t esperar_cliente(uint32_t cliente);
-
-void enviar_mensaje(uint32_t destino,uint32_t codigo_op,char parametros);
-void enviar_primer_mensaje(uint32_t destino,uint32_t tamanio_enviar);
-void enviar_paquete(uint32_t destino,uint32_t codigo,uint32_t amanio_leer,void * data);
-uint32_t recibir_primer_mensaje(uint32_t destinatario);
-void recibir_mensaje(uint32_t destinatario,uint32_t tamanio_recibir);
-
-//void enviar_paquete_v2(uint32_t destino,Paquete *paquete);
 void recibir_paquete(uint32_t destinatario);
-void desserealizar(char *paquete_recibido,size_t largo_paquete);
 
-//Paquete *crear_paquete(uint32_t operacion,void * data);
 uint32_t recibir_muse_alloc(uint32_t destinatario);
 uint32_t enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete);
 
+uint32_t enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete);
 
 #endif
