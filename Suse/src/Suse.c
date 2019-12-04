@@ -227,7 +227,19 @@ void * suse_signal(int pid_prog, char * semaforo){
 }
 
 //hace lo mismo que pthread_join. TIene como parametro un hilo y su estado de retorno.
-void * suse_join(int socket_cliente, char * tid){}/*
+void * suse_join(int pid_prog, char * tid){
+	int index = list_get_index(lista_programas,pid_prog,(void*)comparadorPrograma);
+	programa_t* programaBuscado = list_get(lista_programas,index);
+	hilo_t* hiloABloquear = list_remove(programaBuscado->cola_exec,0);
+
+	//ACA ME FALTARIA ESPERAR A ALGUN MENSAJE PARA PODER DESBLOQUEARLO
+	//TENGO QUE VER TAMBIEN LO DE JOINEAR UN HILO QUE ESTÉ EN EXIT
+
+	free(programaBuscado);
+	free(hiloABloquear);
+	return 0;
+}
+/*
 
 	int rafagaTotal = unHilo.rafagasEstimadas - unHilo.rafagasEjecutadas
 	while(rafagaTotal >0){
