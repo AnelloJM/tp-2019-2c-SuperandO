@@ -150,9 +150,9 @@ bool comparadorDeRafagas(hilo_t unHilo, hilo_t otroHilo){
 	return unHilo.rafagasEstimadas <= otroHilo.rafagasEstimadas;
 }
 //Verifica que el semaforo que se pasa por parametro tenga un ID que exista en la lista de IDs de semaforos
-int buscadorSemaforo (semaforo_t* semaforo){
+int buscadorSemaforo (char* semaforo){
 	for(int i = 0; i<=list_size(sems_ids); i++){
-		if (strcmp(semaforo->semID,list_get(sems_ids,i)) ==0){
+		if (strcmp(semaforo,list_get(sems_ids,i)) == 0){
 			return 0;
 		}
 		i++;
@@ -160,7 +160,31 @@ int buscadorSemaforo (semaforo_t* semaforo){
 	return -1;
 }
 
-void * suse_wait(int socket_cliente, char * semaforo){}
+void * suse_wait(int pid_prog, char * semaforo){
+	if(buscadorSemaforo(semaforo) == 0){
+		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
+		semaforo_t* semAUsar = list_get(semaforos,indice);
+		if (semAUsar->semActual <= 0){
+			semAUsar->semActual--;
+			log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
+			log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
+			log_info(logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
+			int index = list_get_index(lista_programas,pid_prog,(void*)comparadorPrograma);
+			programa_t* programaBuscado = list_get(lista_programas,index);
+			hilo_t* hiloBuscado = list_remove(programaBuscado->cola_exec,0);
+			list_add(cola_blocked,hiloBuscado);
+			list_add(semAUsar->hilosEnEspera,hiloBuscado);
+			return 0;
+		}
+		semAUsar->semActual--;
+		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
+		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
+		log_info(logger, "%d","Contador actual:", semAUsar->semActual);
+		return 0;
+	}
+	log_error(logger,"El semaforo no fue encontrado");
+	return -1;
+}
 	/*if(buscadorSemaforo(semaforo) == 0){
 		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
 		semaforo_t* semAUsar = list_get(semaforos,indice);
