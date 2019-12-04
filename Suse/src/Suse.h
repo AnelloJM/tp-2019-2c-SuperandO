@@ -13,7 +13,7 @@
 #include "../../ComunParaTodos/Serializacion/serializacion.h"
 #include <commons/collections/queue.h>
 #include <pthread.h>
-#include <../../ComunParaTodos/Lista/lista.h>
+#include "../../ComunParaTodos/Lista/lista.h"
 
 t_log* logger;
 t_config* archivoConfig;
@@ -60,7 +60,7 @@ typedef struct {
 	t_list * cola_exec;
 } programa_t;
 
-programa_t * lista_programas;
+t_list * lista_programas;
 
 typedef struct {
 	char* semID;
@@ -75,19 +75,18 @@ void crearLogger();
 void leerArchivoDeConfiguracion();
 void setearValores();
 void cargarSemaforos();
-void suse_create(int socket_cliente);
-void * suse_schedule_next(int socket_cliente);
-hilo_t calcularEstimacion();
-bool comparador(hilo_t* unHilo, hilo_t* otroHilo);
+void * suse_create(int pid_prog);
+void * suse_schedule_next(int pid_prog);
+bool comparadorPrograma(char* unPid, programa_t* unPrograma);
+hilo_t calcularEstimacion(hilo_t unHilo);
+bool comparadorDeHilos(hilo_t* unHilo, hilo_t* otroHilo);
 bool comparadorDeRafagas();
-int list_get_index(t_list* self, void* elemento,
-		bool (*comparador(void*, void*)));
-int buscadorSemaforo(semaforo_t* semaforo);
-//void * suse_wait(int socket_cliente, char * semaforo);
-bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem);
-//void * suse_signal(int socket_cliente, char * semaforo);
-//void * suse_join(int socket_cliente, char * tid);
-void * suse_close(int socket_cliente, char * tid);
+int buscadorSemaforo(char* semaforo);
+void * suse_wait(int pid_prog, char * semaforo);
+bool comparadorDeSemaforos(char* unSem, semaforo_t otroSem);
+void * suse_signal(int socket_cliente, char * semaforo);
+void * suse_join(int pid_prog, char * tid);
+void * suse_close(int pid_prog, char * tid);
 void * planificador_NEW_READY();
 
 int sumar2(int);

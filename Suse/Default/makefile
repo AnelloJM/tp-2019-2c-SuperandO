@@ -4,16 +4,12 @@
 
 -include ../makefile.init
 
-RM := rm -rf
+RM := rm
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include src/servidor-cliente/servidor/subdir.mk
--include src/servidor-cliente/subdir.mk
--include src/example/2-12/servidor/subdir.mk
--include src/example/2-12/cliente/subdir.mk
--include src/example/subdir.mk
 -include src/subdir.mk
+-include Debug/src/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -28,22 +24,22 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: Muse
+all: Suse
 
 dependents:
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) all
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) clean all
 
 # Tool invocations
-Muse: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so
+Suse: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc -L"/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug" -o "Muse" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc -L"/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug" -o "Suse" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) Muse
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) Suse
 	-@echo ' '
 
 .PHONY: all clean dependents
