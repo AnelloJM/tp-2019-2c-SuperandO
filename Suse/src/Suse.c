@@ -185,32 +185,9 @@ void * suse_wait(int pid_prog, char * semaforo){
 	log_error(logger,"El semaforo no fue encontrado");
 	return -1;
 }
-	/*if(buscadorSemaforo(semaforo) == 0){
-		int indice = list_get_index(semaforos,semaforo,(void*)comparadorDeSemaforos);
-		semaforo_t* semAUsar = list_get(semaforos,indice);
-		if (semAUsar->semActual == 0){
-			semAUsar->semActual--;
-			log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
-			log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
-			log_info(logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
-			//Tengo que buscar el proceso asociado al tid
-			//hilo_t * hiloBuscado = list_remove(proceso->cola_ready,0);
-			//list_add(semaforo->hilosEnEspera, hiloBuscado);
-			return -1;
-		}
-		semaforo->semActual--;
-		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
-		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
-		log_info(logger, "%d","Contador actual:", semaforo->semActual);
-		return 0;
-	}
-	log_info(logger, "El semaforo no fue encontrado");
-	return -1;
-
-}*/
 
 bool comparadorDeSemaforos(semaforo_t unSem, semaforo_t otroSem){
-	return unSem.semID == otroSem.semID;
+	return strcmp(unSem.semID,otroSem.semID);
 }
 
 void * suse_signal(int socket_cliente, char * semaforo){
