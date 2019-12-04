@@ -5,12 +5,33 @@
 #include <sys/socket.h> //For Sockets
 #include <stdlib.h>
 #include <netinet/in.h> //For the AF_INET (Address Family)
-
+#include <string.h>
 
 /*
 Funciones para conectar MUSE con los procesos que usan
 la libreria libmuse.h
 */
+
+//Estructuras
+
+typedef struct
+{
+  uint32_t codigo_op;
+  uint32_t tamanio_buffer;
+}estructura_codigo;
+
+typedef struct
+{
+  uint32_t operacion;
+  void * valor;
+}estructura_recibir;
+
+typedef struct
+{
+  uint32_t next_buffer_size;
+}Tamanio_buffer;
+
+
 
 //Variables globales
 
@@ -26,8 +47,13 @@ char message[100] = ""; //This array will store the messages that are sent by th
 uint32_t conectarse_a_servidor(char *ip,uint32_t puerto);
 uint32_t iniciar_servidor(char *ip,uint32_t puerto);
 uint32_t esperar_cliente(uint32_t cliente);
-void enviar_mensaje(uint32_t destino);
-void recibir_mensaje(uint32_t destinatario);
+
+void enviar_mensaje(uint32_t destino,uint32_t codigo_op,char parametros);
+void enviar_primer_mensaje(uint32_t destino,uint32_t tamanio_enviar);
+void enviar_cod_op(uint32_t destino,uint32_t codigo,uint32_t tamanio_enviar);
+void recibir_primer_mensaje(uint32_t destinatario);
+void recibir_mensaje(uint32_t destinatario,uint32_t tamanio_recibir);
+
 
 
 

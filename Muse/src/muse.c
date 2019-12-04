@@ -56,7 +56,8 @@ int main()
 */
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
-  iniciar_servidor(ip,atoi(puerto));
+  iniciar_servidor(atoi(puerto));
+  log_info(logger,"Servidor corriendo\n");
 
   //enviar_mensaje(socket_cliente,logger);
   //  recibir_peticion(socket_cliente,logger);
@@ -177,7 +178,6 @@ void leerArchivoDeConfiguracion()
 
 void setearValores(t_config* archivoConfig)
 {
-	ip = strdup(config_get_string_value(archivoConfig,"IP"));
 	id = config_get_int_value(archivoConfig,"ID");
 	puerto = strdup(config_get_string_value(archivoConfig,"PUERTO"));
 	memory_size = config_get_int_value(archivoConfig,"MEMORY_SIZE");
