@@ -23,12 +23,6 @@ int main(){
 
 	lista_programas = list_create();
 
-	void* tomarMetricasAutomaticas(){
-		while(1){
-			tomarMetricas();
-			sleep(metrics_timer);
-		}
-	}
 /*
 while(1){
 
@@ -44,6 +38,7 @@ while(1){
 	programaNuevo->cola_exec = list_create();
 	list_add(lista_programas, programaNuevo);
 
+	tomarMetricasAutomaticas();
 	Paquete paquete;
 
 	int status = 1;		// Estructura que manjea el status de los recieve.
@@ -58,6 +53,13 @@ while(1){
 	}
 return 0;
 */ //COMENTO PARA PODER JUGAR CON LAS COLAS *
+}
+
+void tomarMetricasAutomaticas(){
+	while(1){
+		tomarMetricas();
+		sleep(metrics_timer);
+	}
 }
 
 void crearLogger(){

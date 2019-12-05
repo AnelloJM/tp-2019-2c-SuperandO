@@ -87,6 +87,7 @@ void crearLogger();
 void leerArchivoDeConfiguracion();
 void setearValores();
 void cargarSemaforos();
+void tomarMetricasAutomaticas();
 void tomarMetricas();
 void * suse_create(int pid_prog);
 void * suse_schedule_next(int pid_prog);
