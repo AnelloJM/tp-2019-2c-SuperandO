@@ -54,24 +54,25 @@ void recibir_paquete(uint32_t destinatario)
 
     case 0:
       printf("Se recibio un muse_alloc\n" );
-      Paquete_respuesta *paquete_malloc = malloc(sizeof(Paquete_respuesta));
-      respuesta = recibir_muse_alloc(destinatario);
-      paquete_malloc->resp = respuesta;
-      responder_proceso(destinatario,paquete_malloc);
+      Paquete_respuesta_general *paquete_malloc = malloc(sizeof(Paquete_respuesta_general));
+      paquete_malloc = recibir_muse_alloc(destinatario);
+      enviar_respuesta_general(destinatario,paquete_malloc);
       free(paquete_malloc);
       break;
+
     case 1:
       printf("Se recibio un muse_free\n" );
       recibir_muse_free(destinatario);
       break;
+
     case 2:
       printf("Se recibio un muse_get\n" );
-      Paquete_respuesta *paquete_get = malloc(sizeof(Paquete_respuesta));
-      respuesta = recibir_muse_get(destinatario);
-      paquete_get->resp = respuesta;
-      responder_proceso(destinatario,paquete_get);
+      Paquete_respuesta_general *paquete_get = malloc(sizeof(Paquete_respuesta_general));
+      paquete_get = recibir_muse_get(destinatario);
+      enviar_respuesta_general(destinatario,paquete_get);
       free(paquete_get);
       break;
+
     case 3:
       printf("Se recibio un muse_copy\n" );
       break;
@@ -95,12 +96,18 @@ void recibir_paquete(uint32_t destinatario)
 
 }
 
-uint32_t recibir_muse_alloc(uint32_t destinatario)
+Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario)
 {
+  Paquete_respuesta_general *paquete = malloc(sizeof(Paquete_respuesta_general));
   uint32_t tam;
   recv(destinatario,&tam,4,0);
-  printf("El tamanio pedido es de %d\n",tam );
-  return 0;
+
+
+  paquete->size_resp = 4;
+  paquete->respuesta = tam;
+  printf("El tamanio pedido es de %d\n",paquete->respuesta );
+
+  return paquete;
 }
 
 
@@ -124,6 +131,7 @@ uint32_t recibir_muse_free(uint32_t destinatario)
   printf("La direccion a liberear es %d\n",dst );
   return 0;
 }
+
 void enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete)
 {
   void *buffer = malloc(8);
@@ -136,15 +144,22 @@ void enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete)
 }
 
 
-uint32_t recibir_muse_get(uint32_t destinatario)
+Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario)
 {
-  uint32_t valor = 1111;
+  Paquete_respuesta_general * paquete =malloc(sizeof(Paquete_respuesta_general));
+
   uint32_t read_pos,read_size;
   recv(destinatario,&read_pos,4,0);
   recv(destinatario,&read_size,4,0);
   printf("Se pidio obtener de la posicion %d los %d siguientes bits\n",read_pos,read_size );
 
-  return valor;
+  char * mensaje = malloc(strlen("elmateesamargo"));
+  memcpy(mensaje,"elmateesamargo",strlen("elmateesamargo")); //aca copiamos la direcicon que nos pide
+
+  paquete->size_resp = strlen(mensaje);
+  memcpy(&(paquete->respuesta),mensaje,sizeof(mensaje));
+  free(mensaje);
+  return paquete;
 }
 
 
@@ -161,25 +176,40 @@ void enviar_muse_get(uint32_t destino,Paquete_muse_get *paquete)
 }
 
 
-
-void responder_proceso(uint32_t destinatario,Paquete_respuesta *paquete)
+void esperar_respuesta_muse_get(uint32_t destino,Paquete_muse_get *paquete)
 {
-  void *buffer = malloc(4);
-  memcpy(buffer,&(paquete->resp),4);
-  send(destinatario,buffer,4,0);
-  printf("respuesta enviada!\n" );
+  void *buffer = malloc(paquete->read_size);
+  recv(destino,buffer,paquete->read_size,0);
+
+  printf("Respuesta de muse_get recibida\n");
   free(buffer);
 }
 
-uint32_t esperar_respuesta_uint(uint32_t destino)
+void enviar_respuesta_general(uint32_t destino,Paquete_respuesta_general *paquete)
 {
-  uint32_t respuesta;
-  recv(destino,&respuesta,4,0);
-  printf("Respuesta de muse: %d\n",respuesta );
-  return respuesta;
+  void *buffer = malloc(4+paquete->size_resp);
+  memcpy(buffer,&(paquete->size_resp),4);
+  memcpy(buffer+4,&(paquete->respuesta),paquete->size_resp);
+  send(destino,buffer,4+(paquete->size_resp),0);
+  printf("Respuesta enviada!\n" );
+  free(buffer);
 }
 
+Paquete_respuesta_general * recibir_respuesta_general(uint32_t destinatario)
+{
+  uint32_t next_buff;
+  Paquete_respuesta_general * paquete = malloc(sizeof(Paquete_respuesta_general));
+  recv(destinatario,&(next_buff),4,0);
+  paquete->size_resp = next_buff;
+  void * buffer = malloc(next_buff);
+  recv(destinatario,buffer,next_buff,0);
+  memcpy(&(paquete->respuesta),buffer,next_buff);
 
+  printf("Respuesta recibida!\n");
+  free(buffer);
+
+  return paquete;
+}
 
 
 

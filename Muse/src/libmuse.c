@@ -4,18 +4,19 @@
 
 int muse_init(int id, char* ip, int puerto)
 {
-	uint32_t pet;
-
 //Nos conectamos a Muse
+	uint32_t respuesta;
+
 	socket_pipe = conectarse_a_servidor(ip,puerto);
-	pet = muse_alloc(30);
-	printf("La respuesta de muse es %d\n\n",pet );
+	respuesta = muse_alloc(30);
+
+	printf("La respuesta de muse es %d\n\n",respuesta );
 	socket_pipe = conectarse_a_servidor(ip,puerto);
 	muse_free(25293);
 
 	socket_pipe = conectarse_a_servidor(ip,puerto);
-	pet = muse_get(23, 33, 5);
-	printf("La respuesta de muse es %d\n\n",pet );
+	respuesta = muse_get(23, 33, 5);
+	printf("La respuesta de muse es %d\n\n",respuesta );
 
 
 
@@ -25,18 +26,16 @@ int muse_init(int id, char* ip, int puerto)
 
 uint32_t muse_alloc(uint32_t tam)
 {
-	uint32_t respuesta;
   Paquete_muse_alloc *paquete = malloc(sizeof(Paquete_muse_alloc));
-  paquete->op = 0;
+	Paquete_respuesta_general *respuesta_muse = malloc(sizeof(Paquete_respuesta_general));
+
+	paquete->op = 0;
   paquete->size_alloc = tam;
 
   enviar_muse_alloc(socket_pipe,paquete);
-	respuesta = esperar_respuesta_uint(socket_pipe);
-
+	respuesta_muse = recibir_respuesta_general(socket_pipe);
 	free(paquete);
-  return respuesta;
-
-
+  return 0;
 }
 
 void muse_free(uint32_t dir) {
@@ -48,21 +47,36 @@ void muse_free(uint32_t dir) {
 	free(paquete);
 		//free((void*) dir);
 
+	printf("\n");
 }
 
 
 int muse_get(void* dst, uint32_t src, size_t n){
-	uint32_t respuesta;
+
 	Paquete_muse_get *paquete = malloc(sizeof(Paquete_muse_get));
+	Paquete_respuesta_general *respuesta_muse = malloc(sizeof(Paquete_respuesta_general));
 	paquete->op=2;
 	paquete->p_muse_read = src;
 	paquete->read_size = n;
 
 	enviar_muse_get(socket_pipe,paquete);
-	respuesta = esperar_respuesta_uint(socket_pipe);
-	free(paquete);
+	respuesta_muse = recibir_respuesta_general(socket_pipe);
+
+	char *buffer = malloc(respuesta_muse->size_resp);
+
+	memcpy(buffer,&(respuesta_muse->respuesta),respuesta_muse->size_resp);
+	for(int i=0;i<(respuesta_muse->size_resp);i++)
+	{
+		printf("%c",buffer[i]);
+	}
+
   //  memcpy(dst, (void*) src, n);
-  return 0;
+	free(paquete);
+	free(buffer);
+
+	printf("\n");
+//comprobar si se copio, sino , retorna -1
+	return 0;
 }
 
 void muse_close()

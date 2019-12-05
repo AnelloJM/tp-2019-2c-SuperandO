@@ -76,6 +76,11 @@ typedef struct
   uint32_t id;
 }Paquete_muse_close;
 
+typedef struct
+{
+  uint32_t size_resp;
+  void * respuesta;
+}Paquete_respuesta_general;
 
 //Variables globales
 
@@ -93,13 +98,13 @@ uint32_t iniciar_servidor(uint32_t puerto);
 uint32_t esperar_cliente(uint32_t cliente);
 void recibir_paquete(uint32_t destinatario);
 
-uint32_t recibir_muse_alloc(uint32_t destinatario);
+Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario);
 void enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete);
 
 uint32_t recibir_muse_free(uint32_t destinatario);
 void enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete);
 
-uint32_t recibir_muse_get(uint32_t destinatario);
+Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario);
 void enviar_muse_get(uint32_t destino,Paquete_muse_get *paquete);
 
 uint32_t recibir_muse_cpy(uint32_t destinatario);
@@ -108,9 +113,16 @@ void enviar_muse_cpy(uint32_t destino,Paquete_muse_cpy *paquete);
 uint32_t recibir_muse_close(uint32_t destinatario);
 void enviar_muse_close(uint32_t destino,Paquete_muse_close *paquete);
 
-
-void responder_proceso(uint32_t proceso,Paquete_respuesta *paquete);
+//---------------------------------------------
+void respuesta_uint(uint32_t proceso,Paquete_respuesta *paquete);
 uint32_t esperar_respuesta_uint(uint32_t destino);
+
+void enviar_respuesta_general(uint32_t destino,Paquete_respuesta_general *paquete);
+Paquete_respuesta_general * recibir_respuesta_general(uint32_t destinatario);
+
+
+
+
 //falta serializar mus_map ,muse_unmap y muse_sync
 
 #endif
