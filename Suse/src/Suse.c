@@ -106,18 +106,30 @@ void cargarSemaforos(){
 	log_info(logger,"Se han inicializado todos los semaforos con exito");
 }
 
-void tomarMetricas(){
+void calcularTiempoEjecucion(hilo_t* hilo){
 	int tiempoFinal = gettimeofday();
+	hilo->tiempoEjecucion = (tiempoFinal - hilo->tiempoEjecucionInicial);
+}
+
+void tomarMetricas(){
 	for(int i=0;i<=list_size(lista_programas);i++){
 		programa_t* unPrograma = list_get(lista_programas,i);
 		t_list* hilosDelPrograma = unPrograma->hilos;
+		hilosDelPrograma = list_map(hilosDelPrograma,(void*)calcularTiempoEjecucion);
+		int tiempoTotalEjecucion = 0;
+		//Hago una iteracion completa de los hilos para calcular el total de ejecucion
+		for(int l=0;l<=list_size(hilosDelPrograma);l++){
+			hilo_t* unhilo = list_get(hilosDelPrograma,l);
+			tiempoTotalEjecucion += unhilo->tiempoEjecucion;
+		}
+		//METRICAS POR HILO DE UN PROCESO
 		for(int j=0;j<=list_size(hilosDelPrograma);j++){
 			hilo_t* unHilo = list_get(hilosDelPrograma,j);
-			unHilo->tiempoEjecucion = (tiempoFinal - unHilo->tiempoEjecucionInicial);
-			//ME FALTARIA VER COMO HAGO PARA CALCULAR EL PORCENTAJE DE TIEMPO DENTRO DEL FOR, TALVES DEBERIA USAR MAP?????
+			unHilo->porcentajeTiempoEjecucion = (unHilo->tiempoEjecucion / tiempoTotalEjecucion)*100 ;
 			printf("Proceso:%s/n Hilo:%s/n Tiempo de Ejecucion:%d/n Tiempo de Espera:%d/n Tiempo de Uso de CPU:%d/n Porcentaje del tiempo de Ejecucion:%f/n",
 					unPrograma->pid,unHilo->tid,unHilo->tiempoEjecucion,unHilo->tiempo_espera,unHilo->tiempoUsoCPU,unHilo->porcentajeTiempoEjecucion);
 		}
+		//METRICAS DEL PROCESO
 		int hilosEnNew = list_size(cola_new);
 		int hilosEnBlocked = list_size(cola_blocked);
 		int hilosEnReady = list_size(unPrograma->cola_ready);
@@ -125,6 +137,7 @@ void tomarMetricas(){
 		printf("Proceso:%s/n Hilos en estado NEW:%d/n Hilos en estado BLOCKED:%d/n Hilos en estado READY:%d/n Hilos en estado EXEC:%d/n",unPrograma->pid,
 				hilosEnNew,hilosEnBlocked,hilosEnReady,hilosEnExec);
 	}
+	//METRICAS DEL SISTEMA
 	for(int k=0;k<=list_size(semaforos);k++){
 		semaforo_t* semaforo = list_get(semaforos,k);
 		printf("Semaforo:%s/n Valor Actual:%d/n",semaforo->semID, semaforo->semActual);
@@ -137,7 +150,7 @@ int sumar2(int a){
 	return a+2;
 }
 
-void * suse_create(int pid_prog){
+void suse_create(int pid_prog){
 
 	hilo_t* hiloNuevo = malloc(sizeof(hilo_t));
 
