@@ -38,7 +38,10 @@ while(1){
 	programaNuevo->cola_exec = list_create();
 	list_add(lista_programas, programaNuevo);
 
-	tomarMetricasAutomaticas();
+
+	tomarMetricasAutomaticas(); //ACA SEGURO DEBERIA ABRIR UN HILO
+
+
 	Paquete paquete;
 
 	int status = 1;		// Estructura que manjea el status de los recieve.
