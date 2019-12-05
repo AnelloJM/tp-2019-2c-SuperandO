@@ -14,6 +14,7 @@
 #include <commons/collections/queue.h>
 #include <pthread.h>
 #include "../../ComunParaTodos/Lista/lista.h"
+#include <time.h>
 
 t_log* logger;
 t_config* archivoConfig;
@@ -47,15 +48,26 @@ typedef struct {
 	int estimacionAnterior;
 	float rafagasEjecutadas;
 	float rafagasEstimadas;
-	int tiempo_espera;
-	int tiempo_bloqueado;
 	char * razon_bloqueado;
-	int tiempo_ejecutando;
 	bool finalizado;
+	//Tiempo entre la creacion y la toma de la metrica
+	int tiempoEjecucionInicial;
+	int tiempoEjecucion;
+	//Tiempo que pasa en el estado READY
+	int tiempoEsperaInicial;
+	int tiempoEsperaFinal;
+	int tiempo_espera;
+	//Tiempo que pasa en el estado EXEC
+	int tiempoUsoCPUInicial;
+	int tiempoUsoCPUFinal;
+	int tiempoUsoCPU;
+	//Tiempo ejecucion del hilo dividido el total de tiempo de ejecucion de todos los hilos del proceso
+	float porcentajeTiempoEjecucion;
 } hilo_t; //TCB
 
 typedef struct {
 	char * pid;
+	t_list * hilos;
 	t_list * cola_ready;
 	t_list * cola_exec;
 } programa_t;

@@ -23,10 +23,26 @@ int main(){
 
 	lista_programas = list_create();
 
-/*while(1){
+	void* tomarMetricasAutomaticas(){
+		while(1){
+			tomarMetricas();
+			sleep(metrics_timer);
+		}
+	}
+/*
+while(1){
 
 	socket_cliente = esperar_cliente_con_accept(socket_Suse,logger);
 	enviar_mensaje(socket_cliente,logger);
+
+	//CUANDO CONECTA UN CLIENTE, SU SOCKET ES SU PID E INICIALIZO TODAS LAS ESTRUCTURAS
+	 * ADEMAS, LO AGREGO A LA LISTA DE PROGRAMAS NUEVOS
+
+	programa_t* programaNuevo;
+	programaNuevo->pid = socket_cliente;
+	programaNuevo->cola_ready = list_create();
+	programaNuevo->cola_exec = list_create();
+	list_add(lista_programas, programaNuevo);
 
 	Paquete paquete;
 
@@ -88,6 +104,22 @@ void cargarSemaforos(){
 	log_info(logger,"Se han inicializado todos los semaforos con exito");
 }
 
+void tomarMetricas(){
+	int tiempoFinal = gettimeofday();
+	for(int i=0;i<=list_size(lista_programas);i++){
+		programa_t* unPrograma = list_get(lista_programas,i);
+		t_list* hilosDelPrograma = unPrograma->hilos;
+		for(int j=0;j<=list_size(hilosDelPrograma);j++){
+			hilo_t* unHilo = list_get(hilosDelPrograma,i);
+			unHilo->tiempoEjecucion = unHilo->tiempoEjecucionInicial - tiempoFinal;
+			printf("Proceso:%d/n Hilo:%d/n Tiempo de Ejecucion:%d/n Tiempo de Espera:%d/n Tiempo de Uso de CPU:%d/n Porcentaje del tiempo de Ejecucion:%d/n",
+					unPrograma->pid,unHilo->tid,unHilo->tiempoEjecucion,unHilo->tiempo_espera,unHilo->tiempoUsoCPU,unHilo->porcentajeTiempoEjecucion);
+		}
+
+	}
+
+}
+
 //funcion prueba
 int sumar2(int a){
 	return a+2;
@@ -99,7 +131,13 @@ void * suse_create(int pid_prog){
 
 	hiloNuevo->pid = pid_prog;
 	hiloNuevo->tid = tidMAX;
+	hiloNuevo->tiempoEjecucionInicial = gettimeofday();
 	tidMAX++;
+
+	programa_t * programaBuscado;
+	int index = list_get_index(lista_programas,pid_prog,(void*)comparadorPrograma);
+	programaBuscado = list_get(lista_programas,index);
+	list_add(programaBuscado->hilos,hiloNuevo);
 
 	list_add(cola_new, hiloNuevo);
 	log_info(logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
@@ -129,7 +167,14 @@ void * suse_schedule_next(int pid_prog){
 		hilo_t* hiloAux = (hilo_t*) list_remove(aux,0);
 		int indice = list_get_index(programaBuscado->cola_ready,hiloAux,(void*)comparadorDeHilos);
 		hilo_t* hiloAEjecutar = list_remove(programaBuscado->cola_ready,indice);
+		hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
+		hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaFinal - hiloAEjecutar->tiempoEsperaInicial);
 		list_add(programaBuscado->cola_exec,hiloAEjecutar);
+		hiloAEjecutar->tiempoUsoCPUInicial = gettimeofday();
+		//Tomo el tiempo final de espera
+		hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
+		//Y aca ya me queda guardado el tiempo de espera
+		hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaInicial - hiloAEjecutar->tiempoEsperaFinal);
 		free(programaBuscado);
 		free(aux);
 		free(hiloAux);
@@ -173,6 +218,8 @@ void * suse_wait(int pid_prog, char * semaforo){
 			int index = list_get_index(lista_programas,pid_prog,(void*)comparadorPrograma);
 			programa_t* programaBuscado = list_get(lista_programas,index);
 			hilo_t* hiloBuscado = list_remove(programaBuscado->cola_exec,0);
+			hiloBuscado->tiempoUsoCPUFinal = gettimeofday();
+			hiloBuscado->tiempoUsoCPU += (hiloBuscado->tiempoUsoCPUFinal - hiloBuscado->tiempoUsoCPUInicial);
 			list_add(cola_blocked,hiloBuscado);
 			list_add(semAUsar->hilosEnEspera,hiloBuscado);
 			free(programaBuscado);
@@ -216,6 +263,7 @@ void * suse_signal(int pid_prog, char * semaforo){
 		int index2 = list_get_index(cola_blocked,hiloADesbloquear,(void*)comparadorDeHilos);
 		hiloADesbloquear = list_remove(cola_blocked,index2);
 		list_add(programaBuscado->cola_ready,hiloADesbloquear);
+		hiloADesbloquear->tiempoEsperaInicial = gettimeofday();
 		free(programaBuscado);
 		free(hiloADesbloquear);
 		free(semAUsar);
@@ -231,6 +279,8 @@ void * suse_join(int pid_prog, char * tid){
 	int index = list_get_index(lista_programas,pid_prog,(void*)comparadorPrograma);
 	programa_t* programaBuscado = list_get(lista_programas,index);
 	hilo_t* hiloABloquear = list_remove(programaBuscado->cola_exec,0);
+	hiloABloquear->tiempoUsoCPUFinal = gettimeofday();
+	hiloABloquear->tiempoUsoCPU += (hiloABloquear->tiempoUsoCPUFinal - hiloABloquear->tiempoUsoCPUInicial);
 
 	//ACA ME FALTARIA ESPERAR A ALGUN MENSAJE PARA PODER DESBLOQUEARLO
 	//TENGO QUE VER TAMBIEN LO DE JOINEAR UN HILO QUE ESTÉ EN EXIT
@@ -260,6 +310,7 @@ void * suse_close(int pid_prog, char * tid){
 	hiloATerminar->finalizado = true;
 	free(hiloATerminar);
 	free(programaBuscado);
+	tomarMetricas();
 	return 0;
 }
 
@@ -379,3 +430,4 @@ bool comparadorMismoPrograma(hilo_t * hilo1, char * pid_programa){
 	return strcmp(hilo1->pid,pid_programa);
 }
 */
+
