@@ -15,27 +15,17 @@ uint32_t iniciar_servidor(uint32_t puerto)  //estaria bueno que el logger no se 
   listen(fd,5); //Listen for client connections. Maximum 5 connections will be permitted.
   //Now we start handling the connections.
   printf("Servidor levantado en el puerto %d\n",puerto);
-  conn = accept(fd, (struct sockaddr *)NULL, NULL);
-  int i=0;
-  while(i < 4 ) {
+
+  while(1)
+  {
+    conn = accept(fd, (struct sockaddr *)NULL, NULL);
     recibir_paquete(conn);
+    //enviar_respuesta(fd,1);
+    close(conn);
+  }
 
 
-/*    uint32_t next_buff = recibir_primer_mensaje(conn);
-    recibir_mensaje(conn,next_buff);
-  /*    int pid;
-      if((pid = fork()) == 0) {
-            while (recv(conn, message, 100, 0)>0) {
-              printf("Message Received: %s\n", message);
-                  //An extra breaking condition can be added here (to terminate the child process)
-
-              }
-            exit(0);
-      }
-*/
-    i = i +1;
-    }
-    return 0;
+  return 0;
 }
 
 uint32_t conectarse_a_servidor(char *ip,uint32_t puerto)
@@ -56,20 +46,31 @@ uint32_t conectarse_a_servidor(char *ip,uint32_t puerto)
 void recibir_paquete(uint32_t destinatario)
 {
 
-  uint32_t codigo_op;
+  uint32_t codigo_op,respuesta;
   recv(destinatario,&codigo_op,4,0);
 
   switch (codigo_op)
   {
+
     case 0:
       printf("Se recibio un muse_alloc\n" );
-      recibir_muse_alloc(destinatario);
+      Paquete_respuesta *paquete_malloc = malloc(sizeof(Paquete_respuesta));
+      respuesta = recibir_muse_alloc(destinatario);
+      paquete_malloc->resp = respuesta;
+      responder_proceso(destinatario,paquete_malloc);
+      free(paquete_malloc);
       break;
     case 1:
       printf("Se recibio un muse_free\n" );
+      recibir_muse_free(destinatario);
       break;
     case 2:
       printf("Se recibio un muse_get\n" );
+      Paquete_respuesta *paquete_get = malloc(sizeof(Paquete_respuesta));
+      respuesta = recibir_muse_get(destinatario);
+      paquete_get->resp = respuesta;
+      responder_proceso(destinatario,paquete_get);
+      free(paquete_get);
       break;
     case 3:
       printf("Se recibio un muse_copy\n" );
@@ -91,6 +92,7 @@ void recibir_paquete(uint32_t destinatario)
       printf("Codigo de operacion invalido\n");
   }
 
+
 }
 
 uint32_t recibir_muse_alloc(uint32_t destinatario)
@@ -102,12 +104,95 @@ uint32_t recibir_muse_alloc(uint32_t destinatario)
 }
 
 
-uint32_t enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete)
+void enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete)
 {
 
   void *buffer = malloc(8);
   memcpy(buffer,&(paquete->op),4);
   memcpy(buffer+4,&(paquete->size_alloc),4);
   send(destino,buffer,8,0);
-  printf("Operacion muse alloc %d enviada\n",paquete->size_alloc );
+  printf("Operacion muse_alloc(%d) enviada\n",paquete->size_alloc );
+  free(buffer);
 }
+
+
+
+uint32_t recibir_muse_free(uint32_t destinatario)
+{
+  uint32_t dst;
+  recv(destinatario,&dst,4,0);
+  printf("La direccion a liberear es %d\n",dst );
+  return 0;
+}
+void enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete)
+{
+  void *buffer = malloc(8);
+  memcpy(buffer,&(paquete->op),4);
+  memcpy(buffer+4,&(paquete->direccion),4);
+  send(destino,buffer,8,0);
+  printf("Operacion muse_free(%d) enviada\n",paquete->direccion );
+
+  free(buffer);
+}
+
+
+uint32_t recibir_muse_get(uint32_t destinatario)
+{
+  uint32_t valor = 1111;
+  uint32_t read_pos,read_size;
+  recv(destinatario,&read_pos,4,0);
+  recv(destinatario,&read_size,4,0);
+  printf("Se pidio obtener de la posicion %d los %d siguientes bits\n",read_pos,read_size );
+
+  return valor;
+}
+
+
+void enviar_muse_get(uint32_t destino,Paquete_muse_get *paquete)
+{
+  void *buffer = malloc(12);
+  memcpy(buffer,&(paquete->op),4);
+  memcpy(buffer+4,&(paquete->p_muse_read),4);
+  memcpy(buffer+8,&(paquete->read_size),4);
+  send(destino,buffer,12,0);
+  printf("Operacion muse_get(%d,%d) enviada\n",paquete->p_muse_read,paquete->read_size );
+  free(buffer);
+
+}
+
+
+
+void responder_proceso(uint32_t destinatario,Paquete_respuesta *paquete)
+{
+  void *buffer = malloc(4);
+  memcpy(buffer,&(paquete->resp),4);
+  send(destinatario,buffer,4,0);
+  printf("respuesta enviada!\n" );
+  free(buffer);
+}
+
+uint32_t esperar_respuesta_uint(uint32_t destino)
+{
+  uint32_t respuesta;
+  recv(destino,&respuesta,4,0);
+  printf("Respuesta de muse: %d\n",respuesta );
+  return respuesta;
+}
+
+
+
+
+
+
+
+/*
+
+
+
+
+uint32_t recibir_muse_cpy(uint32_t destinatario);
+uint32_t enviar_muse_cpy(uint32_t destino,Paquete_muse_cpy *paquete);
+
+uint32_t recibir_muse_close(uint32_t destinatario);
+uint32_t enviar_muse_close(uint32_t destino,Paquete_muse_close *paquete);
+*/

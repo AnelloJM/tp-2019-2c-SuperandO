@@ -15,6 +15,10 @@ la libreria libmuse.h
 
 //Estructuras
 
+typedef struct
+{
+  uint32_t resp;
+}Paquete_respuesta;
 
 typedef struct
 {
@@ -26,25 +30,31 @@ typedef struct
 typedef struct
 {
   uint32_t op;
-  
+  uint32_t direccion;
 }Paquete_muse_free;
 
 
 typedef struct
 {
   uint32_t op;
+  uint32_t p_muse_read; //posicion de muse a leer
+  uint32_t read_size; //deberia ser size_t ? Si es asi, hay que ver cuanto ocupa en 32bit para enviarlo
 }Paquete_muse_get;
 
 
 typedef struct
 {
   uint32_t op;
-}Paquete_muse_copy;
+  uint32_t muse_pos;
+  void * data;
+  size_t size_send;
+}Paquete_muse_cpy;
 
 
 typedef struct
 {
   uint32_t op;
+
 }Paquete_muse_map;
 
 
@@ -63,6 +73,7 @@ typedef struct
 typedef struct
 {
   uint32_t op;
+  uint32_t id;
 }Paquete_muse_close;
 
 
@@ -83,8 +94,23 @@ uint32_t esperar_cliente(uint32_t cliente);
 void recibir_paquete(uint32_t destinatario);
 
 uint32_t recibir_muse_alloc(uint32_t destinatario);
-uint32_t enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete);
+void enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete);
 
-uint32_t enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete);
+uint32_t recibir_muse_free(uint32_t destinatario);
+void enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete);
+
+uint32_t recibir_muse_get(uint32_t destinatario);
+void enviar_muse_get(uint32_t destino,Paquete_muse_get *paquete);
+
+uint32_t recibir_muse_cpy(uint32_t destinatario);
+void enviar_muse_cpy(uint32_t destino,Paquete_muse_cpy *paquete);
+
+uint32_t recibir_muse_close(uint32_t destinatario);
+void enviar_muse_close(uint32_t destino,Paquete_muse_close *paquete);
+
+
+void responder_proceso(uint32_t proceso,Paquete_respuesta *paquete);
+uint32_t esperar_respuesta_uint(uint32_t destino);
+//falta serializar mus_map ,muse_unmap y muse_sync
 
 #endif

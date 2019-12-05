@@ -4,11 +4,20 @@
 
 int muse_init(int id, char* ip, int puerto)
 {
-
+	uint32_t pet;
 
 //Nos conectamos a Muse
 	socket_pipe = conectarse_a_servidor(ip,puerto);
-	muse_alloc(30);
+	pet = muse_alloc(30);
+	printf("La respuesta de muse es %d\n\n",pet );
+	socket_pipe = conectarse_a_servidor(ip,puerto);
+	muse_free(25293);
+
+	socket_pipe = conectarse_a_servidor(ip,puerto);
+	pet = muse_get(23, 33, 5);
+	printf("La respuesta de muse es %d\n\n",pet );
+
+
 
   return 0;
 }
@@ -16,58 +25,46 @@ int muse_init(int id, char* ip, int puerto)
 
 uint32_t muse_alloc(uint32_t tam)
 {
+	uint32_t respuesta;
   Paquete_muse_alloc *paquete = malloc(sizeof(Paquete_muse_alloc));
   paquete->op = 0;
   paquete->size_alloc = tam;
 
   enviar_muse_alloc(socket_pipe,paquete);
+	respuesta = esperar_respuesta_uint(socket_pipe);
 
+	free(paquete);
+  return respuesta;
+
+
+}
+
+void muse_free(uint32_t dir) {
+
+	Paquete_muse_free *paquete = malloc(sizeof(Paquete_muse_free));
+	paquete->op=1;
+	paquete->direccion=dir;
+	enviar_muse_free(socket_pipe,paquete);
+	free(paquete);
+		//free((void*) dir);
+
+}
+
+
+int muse_get(void* dst, uint32_t src, size_t n){
+	uint32_t respuesta;
+	Paquete_muse_get *paquete = malloc(sizeof(Paquete_muse_get));
+	paquete->op=2;
+	paquete->p_muse_read = src;
+	paquete->read_size = n;
+
+	enviar_muse_get(socket_pipe,paquete);
+	respuesta = esperar_respuesta_uint(socket_pipe);
+	free(paquete);
+  //  memcpy(dst, (void*) src, n);
   return 0;
 }
-/*
-int conectarse_a_servidor(char *ip,int puerto)
-{
-	int numbytes,socket_cliente;
-	char buf[100];
 
-	struct hostent *he;
-	struct sockaddr_in server;
-
-	he = gethostbyname(ip);
-
-	if((socket_cliente=socket(AF_INET, SOCK_STREAM, 0)) == -1){
-		printf("[-] Error socket()");
-		exit(-1);
-	}
-
-	server.sin_family = AF_INET;
-	server.sin_port = htons(puerto);
-	server.sin_addr = *((struct in_addr *)he -> h_addr);
-
-	bzero(&(server.sin_zero),8);
-
-	if(connect(socket_cliente, (struct sockaddr *)&server,sizeof(struct sockaddr))==-1){
-		printf("[-] Error connect() \n");
-		exit(-1);
-	}
-
-
-
-	return socket_cliente;
-}
-
-*/
-
-/*void crearLogger()
-{
-	char* logPath = "proceso.log";//"/home/utnso/workspace/tp-2019-2c-SuperandO/Muse/src/MUSE.log";
-	char* nombreArch = "proceso";
-	bool consolaActiva = true;
-	libmuse_logger = log_create(logPath, nombreArch, consolaActiva, LOG_LEVEL_INFO);
-	log_info(libmuse_logger, "El logger del proceso se creo con exito");
-//	free(logPath);
-}
-*/
 void muse_close()
 {
 
@@ -77,15 +74,6 @@ void muse_close()
 
 
 
-
-void muse_free(uint32_t dir) {
-    free((void*) dir);
-}
-
-int muse_get(void* dst, uint32_t src, size_t n){
-    memcpy(dst, (void*) src, n);
-    return 0;
-}
 
 int muse_cpy(uint32_t dst, void* src, int n){
     memcpy((void*) dst, src, n);
