@@ -54,7 +54,7 @@ typedef struct {
 	int tiempoEjecucionInicial;
 	int tiempoEjecucion;
 	//Tiempo que pasa en el estado READY
-	int tiempoEsperaInicial;
+	int tiempoEsperaInicial; /*CUANDO LO MANDE A READY TENGO QUE TOMAR EL TIEMPO DE ESE INSTANTE, NO OLVIDARSE (CUANDO PASA DE NEW A READY)*/
 	int tiempoEsperaFinal;
 	int tiempo_espera;
 	//Tiempo que pasa en el estado EXEC
@@ -87,6 +87,7 @@ void crearLogger();
 void leerArchivoDeConfiguracion();
 void setearValores();
 void cargarSemaforos();
+void tomarMetricas();
 void * suse_create(int pid_prog);
 void * suse_schedule_next(int pid_prog);
 bool comparadorPrograma(char* unPid, programa_t* unPrograma);

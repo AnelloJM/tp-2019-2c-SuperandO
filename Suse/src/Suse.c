@@ -110,14 +110,24 @@ void tomarMetricas(){
 		programa_t* unPrograma = list_get(lista_programas,i);
 		t_list* hilosDelPrograma = unPrograma->hilos;
 		for(int j=0;j<=list_size(hilosDelPrograma);j++){
-			hilo_t* unHilo = list_get(hilosDelPrograma,i);
-			unHilo->tiempoEjecucion = unHilo->tiempoEjecucionInicial - tiempoFinal;
-			printf("Proceso:%d/n Hilo:%d/n Tiempo de Ejecucion:%d/n Tiempo de Espera:%d/n Tiempo de Uso de CPU:%d/n Porcentaje del tiempo de Ejecucion:%d/n",
+			hilo_t* unHilo = list_get(hilosDelPrograma,j);
+			unHilo->tiempoEjecucion = (tiempoFinal - unHilo->tiempoEjecucionInicial);
+			//ME FALTARIA VER COMO HAGO PARA CALCULAR EL PORCENTAJE DE TIEMPO DENTRO DEL FOR, TALVES DEBERIA USAR MAP?????
+			printf("Proceso:%s/n Hilo:%s/n Tiempo de Ejecucion:%d/n Tiempo de Espera:%d/n Tiempo de Uso de CPU:%d/n Porcentaje del tiempo de Ejecucion:%f/n",
 					unPrograma->pid,unHilo->tid,unHilo->tiempoEjecucion,unHilo->tiempo_espera,unHilo->tiempoUsoCPU,unHilo->porcentajeTiempoEjecucion);
 		}
-
+		int hilosEnNew = list_size(cola_new);
+		int hilosEnBlocked = list_size(cola_blocked);
+		int hilosEnReady = list_size(unPrograma->cola_ready);
+		int hilosEnExec = list_size(unPrograma->cola_exec);
+		printf("Proceso:%s/n Hilos en estado NEW:%d/n Hilos en estado BLOCKED:%d/n Hilos en estado READY:%d/n Hilos en estado EXEC:%d/n",unPrograma->pid,
+				hilosEnNew,hilosEnBlocked,hilosEnReady,hilosEnExec);
 	}
-
+	for(int k=0;k<=list_size(semaforos);k++){
+		semaforo_t* semaforo = list_get(semaforos,k);
+		printf("Semaforo:%s/n Valor Actual:%d/n",semaforo->semID, semaforo->semActual);
+	}
+	printf("Grado actual de multiprogramacion:%d/n",list_size(lista_programas));
 }
 
 //funcion prueba
@@ -289,27 +299,18 @@ void * suse_join(int pid_prog, char * tid){
 	free(hiloABloquear);
 	return 0;
 }
-/*
-
-	int rafagaTotal = unHilo.rafagasEstimadas - unHilo.rafagasEjecutadas
-	while(rafagaTotal >0){
-		//bloquear hilo (meter alguna variable local en el nodo de la cola donde esta el hilo
-		sleep(1); //que pase 1 segundo
-		unHilo.rafagasEjecutadas++;
-		rafagaTotal--;
-	}
-	//des
-}
-*/
 
 void * suse_close(int pid_prog, char * tid){
 	int index = list_get_index(lista_programas,pid_prog,(void*)comparadorPrograma);
 	programa_t* programaBuscado = list_get(lista_programas,index);
 	hilo_t* hiloATerminar = list_remove(programaBuscado->cola_exec, 0);
+	hiloATerminar->tiempoUsoCPUFinal = gettimeofday();
+	hiloATerminar->tiempoUsoCPU += (hiloATerminar->tiempoUsoCPUFinal - hiloATerminar->tiempoUsoCPUInicial);
 	list_add(cola_exit,hiloATerminar);
 	hiloATerminar->finalizado = true;
 	free(hiloATerminar);
 	free(programaBuscado);
+	//Cuando cierra un hilo toma las metricas
 	tomarMetricas();
 	return 0;
 }
