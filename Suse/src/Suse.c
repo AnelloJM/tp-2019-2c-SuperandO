@@ -153,7 +153,7 @@ int sumar2(int a){
 	return a+2;
 }
 
-void suse_create(int pid_prog){
+void* suse_create(int pid_prog){
 
 	hilo_t* hiloNuevo = malloc(sizeof(hilo_t));
 
