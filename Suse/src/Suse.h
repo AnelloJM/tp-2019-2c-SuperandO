@@ -100,6 +100,7 @@ int buscadorSemaforo(char* semaforo);
 void * suse_wait(int pid_prog, char * semaforo);
 bool comparadorDeSemaforos(char* unSem, semaforo_t otroSem);
 void * suse_signal(int socket_cliente, char * semaforo);
+bool buscadorDeHilos(char* tid, hilo_t* hilo);
 void * suse_join(int pid_prog, char * tid);
 void * suse_close(int pid_prog, char * tid);
 void * planificador_NEW_READY();

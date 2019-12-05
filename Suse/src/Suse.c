@@ -302,19 +302,24 @@ void * suse_signal(int pid_prog, char * semaforo){
 	return -1;
 }
 
-//hace lo mismo que pthread_join. TIene como parametro un hilo y su estado de retorno.
+bool buscadorDeHilos(char* tid, hilo_t* hilo){
+	return (strcmp(tid,hilo->tid)==0);
+}
+
 void * suse_join(int pid_prog, char * tid){
-	int index = list_get_index(lista_programas,pid_prog,(void*)comparadorPrograma);
-	programa_t* programaBuscado = list_get(lista_programas,index);
-	hilo_t* hiloABloquear = list_remove(programaBuscado->cola_exec,0);
-	hiloABloquear->tiempoUsoCPUFinal = gettimeofday();
-	hiloABloquear->tiempoUsoCPU += (hiloABloquear->tiempoUsoCPUFinal - hiloABloquear->tiempoUsoCPUInicial);
-
-	//ACA ME FALTARIA ESPERAR A ALGUN MENSAJE PARA PODER DESBLOQUEARLO
-	//TENGO QUE VER TAMBIEN LO DE JOINEAR UN HILO QUE ESTÉ EN EXIT
-
-	free(programaBuscado);
-	free(hiloABloquear);
+	int index = list_get_index(cola_exit,tid,(void*)buscadorDeHilos);
+	//Si el tid pasado no está en exit entonces procedo normalmente
+	if(index == list_size(cola_exit)){
+		int index2 = list_get_index(lista_programas,pid_prog,(void*)comparadorPrograma);
+		programa_t* programaBuscado = list_get(lista_programas,index2);
+		hilo_t* hiloABloquear = list_remove(programaBuscado->cola_exec,0);
+		hiloABloquear->tiempoUsoCPUFinal = gettimeofday();
+		hiloABloquear->tiempoUsoCPU += (hiloABloquear->tiempoUsoCPUFinal - hiloABloquear->tiempoUsoCPUInicial);
+		free(programaBuscado);
+		free(hiloABloquear);
+		return 0;
+	}
+	//Si el tid ya está en exit, entonces el hilo que lo llama no se bloquea
 	return 0;
 }
 
@@ -329,7 +334,7 @@ void * suse_close(int pid_prog, char * tid){
 	free(hiloATerminar);
 	free(programaBuscado);
 	//Cuando cierra un hilo toma las metricas
-	tomarMetricas();
+	tomarMetricas(); //Esto por ahi tambien deberia ser un hilo
 	return 0;
 }
 

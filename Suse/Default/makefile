@@ -9,7 +9,6 @@ RM := rm
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/subdir.mk
--include Debug/src/subdir.mk
 -include subdir.mk
 -include objects.mk
 
@@ -27,7 +26,7 @@ endif
 all: Suse
 
 dependents:
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) clean all
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) all
 
 # Tool invocations
 Suse: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so
