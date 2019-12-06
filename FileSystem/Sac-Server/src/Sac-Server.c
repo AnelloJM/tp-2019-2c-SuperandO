@@ -39,6 +39,13 @@ uint32_t Hacer_Getattr(char *path){
 	}
 }
 
+uint32_t Hacer_Getattr_Size(char *path){
+	uint32_t getattr = exite_path_retornando_nodo(path);
+	if(getattr == -1)
+		return 0;
+	return tabla_de_nodos->nodos[getattr].tamanio_del_archivo;
+}
+
 char *Hacer_ReadDir(char *path){
 	uint32_t nodo = 0;
 	if( !(strcmp(path,"/") == 0) )
@@ -281,10 +288,20 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 	}else{
 		if(poscion_en_array < 999){
 			uint32_t bloque_libre = buscar_espacio_en_bitmap();
+			if(bloque_libre == -1)
+			{
+				log_error(logger, "Espacio Insuficiente");
+				return -ENOSPC;
+			}
 			bitarray_set_bit(tBitarray,bloque_libre);
 			tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array+1] = bloque_libre;
 			punteros_indirectos = inicio_de_disco+bloque_libre;
 			uint32_t bloque_libre_dos = buscar_espacio_en_bitmap();
+			if(bloque_libre_dos == -1)
+			{
+				log_error(logger, "Espacio Insuficiente");
+				return -ENOSPC;
+			}
 			bitarray_set_bit(tBitarray,bloque_libre_dos);
 			puntero_indirecto = 0;
 			punteros_indirectos->bloques_de_datos[puntero_indirecto] = bloque_libre_dos;
@@ -314,6 +331,11 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 		for(int i = 0; i < lo_que_me_queda_despues_de_los_punteros;i = i+1){
 
 			bloque_libre = buscar_espacio_en_bitmap();
+			if(bloque_libre == -1)
+			{
+				log_error(logger, "Espacio Insuficiente");
+				return -ENOSPC;
+			}
 			bitarray_set_bit(tBitarray,bloque_libre);
 			punteros_indirectos->bloques_de_datos[puntero_indirecto + i]=bloque_libre;
 
@@ -335,6 +357,11 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 			ya_escrito = ya_escrito + sizeof(Bloque);
 			tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + sizeof(Bloque);
 			bloque_libre = buscar_espacio_en_bitmap();
+			if(bloque_libre == -1)
+			{
+				log_error(logger, "Espacio Insuficiente");
+				return -ENOSPC;
+			}
 			bitarray_set_bit(tBitarray,bloque_libre);
 			punteros_indirectos->bloques_de_datos[puntero_indirecto+i+1]=bloque_libre;
 		}
@@ -348,10 +375,20 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 
 
 	uint32_t proximo_del_array = buscar_espacio_en_bitmap();
+	if(proximo_del_array == -1)
+	{
+		log_error(logger, "Espacio Insuficiente");
+		return -ENOSPC;
+	}
 	bitarray_set_bit(tBitarray,proximo_del_array);
 	tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array+1] = proximo_del_array;
 	punteros_indirectos=inicio_de_disco+proximo_del_array;
 	uint32_t proximo_del_puntero = buscar_espacio_en_bitmap();
+	if(proximo_del_puntero == -1)
+	{
+		log_error(logger, "Espacio Insuficiente");
+		return -ENOSPC;
+	}
 	bitarray_set_bit(tBitarray,proximo_del_puntero);
 	puntero_indirecto = 0;
 	punteros_indirectos->bloques_de_datos[puntero_indirecto] = proximo_del_puntero;
@@ -548,8 +585,10 @@ void* funcionMagica(int cliente){
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathGetAttr)+1);
 				log_error(logger, pathGetAttr);
 				uint32_t getattr = Hacer_Getattr(pathGetAttr);
+				uint32_t getattr_size = Hacer_Getattr_Size(pathGetAttr);
 				log_info(logger, "LE VOY A MANDAR: %i", getattr);
-				Fuse_PackAndSend_Uint32_Response(cliente, getattr);
+				log_info(logger, "LE VOY A MANDAR: %i", getattr_size);
+				Fuse_PackAndSend_Response_GetAttr(cliente, getattr, getattr_size);
 				free(pathGetAttr);
 				break;
 
@@ -841,10 +880,20 @@ void crear_directorio_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_ar
 	tabla_de_nodos->nodos[numero_de_nodo].tamanio_del_archivo = sizeof(Bloque);
 	tabla_de_nodos->nodos[numero_de_nodo].padre=numero_de_nodo_padre;
 	uint32_t numero_de_bloque = buscar_espacio_en_bitmap();
+	if(numero_de_bloque == -1)
+	{
+		log_error(logger, "Espacio Insuficiente");
+		return;
+	}
 	bitarray_set_bit(tBitarray, numero_de_bloque);
 	tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0] = numero_de_bloque;
 	Bloque_de_puntero *punteros = inicio_de_disco + tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0];
 	numero_de_bloque = buscar_espacio_en_bitmap();
+	if(numero_de_bloque == -1)
+	{
+		log_error(logger, "Espacio Insuficiente");
+		return;
+	}
 	bitarray_set_bit(tBitarray, numero_de_bloque);
 	punteros->bloques_de_datos[0] = numero_de_bloque;
 	log_info(logger,"creo directorio en bloque: %i", tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0]);
@@ -860,11 +909,21 @@ void crear_archivo_en_padre(uint32_t numero_de_nodo_padre, char *nombre_de_archi
 	tabla_de_nodos->nodos[numero_de_nodo].tamanio_del_archivo = 0;
 	tabla_de_nodos->nodos[numero_de_nodo].padre=numero_de_nodo_padre;
 	uint32_t numero_de_bloque = buscar_espacio_en_bitmap();
+	if(numero_de_bloque == -1)
+	{
+		log_error(logger, "Espacio Insuficiente");
+		return;
+	}
 	log_info(logger,"cargo en bitmap: %i", numero_de_bloque);
 	bitarray_set_bit(tBitarray, numero_de_bloque);
 	tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0] = numero_de_bloque;
 	Bloque_de_puntero *punteros = inicio_de_disco + tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0];
 	numero_de_bloque = buscar_espacio_en_bitmap();
+	if(numero_de_bloque == -1)
+	{
+		log_error(logger, "Espacio Insuficiente");
+		return;
+	}
 	bitarray_set_bit(tBitarray, numero_de_bloque);
 	punteros->bloques_de_datos[0] = numero_de_bloque;
 	log_info(logger,"creo archivo en bloque: %i", tabla_de_nodos->nodos[numero_de_nodo].array_de_punteros[0]);
