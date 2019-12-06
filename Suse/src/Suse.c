@@ -24,7 +24,7 @@ int main(){
 	lista_programas = list_create();
 	int cantidadProgramas = list_size(lista_programas);
 
-	while (cantidadProgramas <= max_multiprog){
+	while (cantidadProgramas < max_multiprog){
 		//planificador_NEW_READY(); //ACA DEBERIA ABRIR UN HILO NUEVO
 	}
 /*
@@ -391,12 +391,13 @@ int recibir_paquete_deserializar(int socket_cliente, Paquete * pack){
 	log_info(logger, "No se pudo recibir el paquete\n");
 	return 1;
 }
-/*
+
 void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde iniciarlo
 
 		if(list_is_empty(cola_new)){
 			printf("No hay hilos para planificar.\n");
-			break;
+			return 0;
+			//break;
 		}
 
 		int cantidadHilosNew = list_size(cola_new);
@@ -406,7 +407,7 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 			cantidadHilosNew = list_size(cola_new);
 			hilo_t * unHilo = malloc(sizeof(hilo_t));
 			unHilo = list_get(cola_new,0); // tomo el primer elemento
-			t_list * hilosDeIgualPadre = list_remove_by_condition()(cola_new,comparadorMismoPrograma(unHilo->pid));
+			t_list * hilosDeIgualPadre = list_filter(cola_new,(void*)comparadorMismoPrograma); //filtro los elementos que cumplen
 			programa_t * nuevoPrograma = malloc(sizeof(programa_t));
 			nuevoPrograma->pid = unHilo->pid;
 			list_add_all(nuevoPrograma->cola_ready, hilosDeIgualPadre);
@@ -423,12 +424,12 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 			break;
 			}
 
-		while(cantidadProgramas>0 & cantidadProgramas<=max_multiprog){
+		while(cantidadProgramas>0 && cantidadProgramas<=max_multiprog){
 			cantidadHilosNew = list_size(cola_new);
 			hilo_t * unHilo = malloc(sizeof(hilo_t));
 			unHilo = list_get(cola_new,0); // tomo el primer elemento
-			t_list * hilosDeIgualPadre = list_remove_by_condition()(cola_new,comparadorMismoPrograma(unHilo->pid));
-			int ubicacionPrograma = list_get_index(lista_programas,unHilo->pid,comparadorMismoPrograma());
+			t_list * hilosDeIgualPadre = list_filter(cola_new,(void*)comparadorMismoPrograma);
+			int ubicacionPrograma = list_get_index(lista_programas,unHilo->pid,(void*)comparadorMismoPrograma);
 				if(ubicacionPrograma){
 					programa_t * programa = malloc(sizeof(programa_t));
 					programa= list_get(lista_programas,ubicacionPrograma);
@@ -444,7 +445,7 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 					cantidadHilosNew = list_size(cola_new);
 					hilo_t * unHilo = malloc(sizeof(hilo_t));
 					unHilo = list_get(cola_new,0); // tomo el primer elemento
-					t_list * hilosDeIgualPadre = list_remove_by_condition()(cola_new,comparadorMismoPrograma(unHilo->pid));
+					t_list * hilosDeIgualPadre = list_filter(cola_new,(void*)comparadorMismoPrograma);
 					programa_t * nuevoPrograma = malloc(sizeof(programa_t));
 					nuevoPrograma->pid = unHilo->pid;
 					list_add_all(nuevoPrograma->cola_ready, hilosDeIgualPadre);
@@ -460,7 +461,7 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 				}
 		}
 }
-*/
+
 bool comparadorMismoPrograma(hilo_t * hilo1, char * pid_programa){
 	return (strcmp(hilo1->pid,pid_programa)==0);
 }
