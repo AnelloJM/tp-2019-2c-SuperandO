@@ -2,7 +2,8 @@
 
 int main(){
 
-	/*INicializando Servidor Suse*/
+	/* INICIALIZAR SERVIDOR */
+
 	crearLogger();
 	leerArchivoDeConfiguracion();
 
@@ -21,11 +22,20 @@ int main(){
 
 	socket_Suse = iniciar_servidor("127.0.0.1",listen_port,logger);
 
+
+	/* PLANIFICADOR NEW -> READY */
+
 	lista_programas = list_create();
 	int cantidadProgramas = list_size(lista_programas);
 
 	while (cantidadProgramas < max_multiprog){
-		//planificador_NEW_READY(); //ACA DEBERIA ABRIR UN HILO NUEVO
+		pthread_t * hiloPlani = malloc(sizeof(pthread_t));
+		int estadoHilo = pthread_create(hiloPlani, NULL,planificador_NEW_READY(), NULL);
+		if (estadoHilo){
+			printf("No se pudo crear el hilo para *PLANIFICADOR NEW READY*\n");
+			free(hiloPlani);
+			return 0;
+		}
 	}
 
 while(1){
@@ -33,16 +43,27 @@ while(1){
 	socket_cliente = esperar_cliente_con_accept(socket_Suse,logger);
 	enviar_mensaje(socket_cliente,logger);
 
-	//CUANDO CONECTA UN CLIENTE, SU SOCKET ES SU PID E INICIALIZO TODAS LAS ESTRUCTURAS
-	 //* ADEMAS, LO AGREGO A LA LISTA DE PROGRAMAS NUEVOS
+
+	/* CREAR PROGRAMA NUEVO CUANDO LLEGA UNA CONEXION*/
 
 	programa_t* programaNuevo;
 	programaNuevo->pid = socket_cliente;
 	programaNuevo->cola_ready = list_create();
 	programaNuevo->cola_exec = list_create();
-	list_add(lista_programas, programaNuevo);
+	list_add(lista_programas, programaNuevo); //Este warning no afecta
 
-	tomarMetricasAutomaticas(); //ACA SEGURO DEBERIA ABRIR UN HILO
+
+	/* TOMAR METRICAS */
+
+	pthread_t * hiloMetricas = malloc(sizeof(pthread_t));
+	int estadoHilo = pthread_create(hiloMetricas, NULL,tomarMetricasAutomaticas(), NULL);
+	if (estadoHilo){
+		printf("No se pudo crear el hilo para *TOMAR METRICAS*\n");
+		free(hiloMetricas);
+		return 0;
+	}
+
+	/* RECIBIR PAQUETES */
 
 	Paquete* paquete;
 
@@ -50,16 +71,19 @@ while(1){
 
 	while (status){
 
-			status = recibir_paquete_deserializar(socket_cliente,paquete);
+			status = recibir_paquete_deserializar(socket_cliente,paquete); //ESTO CREO QUE DEBERIA SER UN HILO
 		}
 		if(!status)
 			puts("Se Desconecto el cliente ...");
 
 	}
+	//ACA CREO QUE HAY QUE JOINEAR TODOS LOS HILOS
+
+
 	return 0;
 }
 
-void tomarMetricasAutomaticas(){
+void* tomarMetricasAutomaticas(){
 	while(1){
 		tomarMetricas();
 		sleep(metrics_timer);
@@ -72,7 +96,7 @@ void crearLogger(){
 	bool consolaActiva = true;
 	logger = log_create(logPath, nombreArch, consolaActiva, LOG_LEVEL_INFO);
 	log_info(logger, "El logger se creo con exito");
-//	free(logPath);
+	//free(logPath);
 }
 
 void leerArchivoDeConfiguracion(){
@@ -101,7 +125,7 @@ void cargarSemaforos(){
 	//Para todos los ID de semaforos, voy creando un semaforo nuevo y lo guardo en la lista de semaforos
 	for(i=0; i<= list_size(sems_ids); i++){
 		semaforo_t* semaforo;
-		strcpy(semaforo->semID,list_get(sems_ids,i));
+		strcpy(semaforo->semID,list_get(sems_ids,i)); //este warning no afecta
 		semaforo->semInit = list_get(sem_init,i);
 		semaforo->semActual = semaforo->semInit;
 		semaforo->semMax =	list_get(sem_max,i);

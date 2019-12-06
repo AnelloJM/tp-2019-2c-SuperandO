@@ -87,7 +87,7 @@ void crearLogger();
 void leerArchivoDeConfiguracion();
 void setearValores();
 void cargarSemaforos();
-void tomarMetricasAutomaticas();
+void * tomarMetricasAutomaticas();
 void calcularTiempoEjecucion(hilo_t* hilo);
 void tomarMetricas();
 void * suse_create(int pid_prog);
