@@ -22,7 +22,11 @@ int main(){
 	socket_Suse = iniciar_servidor("127.0.0.1",listen_port,logger);
 
 	lista_programas = list_create();
+	int cantidadProgramas = list_size(lista_programas);
 
+	while (cantidadProgramas <= max_multiprog){
+		//planificador_NEW_READY(); //ACA DEBERIA ABRIR UN HILO NUEVO
+	}
 /*
 while(1){
 
@@ -390,16 +394,13 @@ int recibir_paquete_deserializar(int socket_cliente, Paquete * pack){
 /*
 void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde iniciarlo
 
-	int cantidadProgramas = list_size(lista_programas);
+		if(list_is_empty(cola_new)){
+			printf("No hay hilos para planificar.\n");
+			break;
+		}
 
-	if(list_is_empty(cola_new)){
-		printf("No hay hilos para planificar.\n");
-		break;
-	}
-
-	while(cantidadProgramas<max_multiprog)
-	{
 		int cantidadHilosNew = list_size(cola_new);
+		int cantidadProgramas = list_size(lista_programas);
 
 		while(cantidadProgramas == 0){
 			cantidadHilosNew = list_size(cola_new);
@@ -409,6 +410,11 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 			programa_t * nuevoPrograma = malloc(sizeof(programa_t));
 			nuevoPrograma->pid = unHilo->pid;
 			list_add_all(nuevoPrograma->cola_ready, hilosDeIgualPadre);
+			//ESTE FOR ES PARA LA TOMA DE METRICAS
+			for (int i=0; i<=list_size(hilosDeIgualPadre); i++){
+				hilo_t* hiloReady = list_get(hilosDeIgualPadre,i);
+				hiloReady->tiempoEsperaInicial = gettimeofday();
+			}
 			nuevoPrograma->cola_exec=NULL;
 			list_add(lista_programas,nuevoPrograma);
 			free(nuevoPrograma);
@@ -427,6 +433,10 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 					programa_t * programa = malloc(sizeof(programa_t));
 					programa= list_get(lista_programas,ubicacionPrograma);
 					list_add_all(programa->cola_ready,hilosDeIgualPadre);
+					for (int i=0; i<=list_size(hilosDeIgualPadre); i++){
+						hilo_t* hiloReady = list_get(hilosDeIgualPadre,i);
+						hiloReady->tiempoEsperaInicial = gettimeofday();
+					}
 					free(unHilo);
 					free(programa);
 				}
@@ -438,6 +448,10 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 					programa_t * nuevoPrograma = malloc(sizeof(programa_t));
 					nuevoPrograma->pid = unHilo->pid;
 					list_add_all(nuevoPrograma->cola_ready, hilosDeIgualPadre);
+					for (int i=0; i<=list_size(hilosDeIgualPadre); i++){
+						hilo_t* hiloReady = list_get(hilosDeIgualPadre,i);
+						hiloReady->tiempoEsperaInicial = gettimeofday();
+					}
 					nuevoPrograma->cola_exec=NULL;
 					list_add(lista_programas,nuevoPrograma);
 					free(nuevoPrograma);
@@ -445,13 +459,10 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 					cantidadProgramas++;
 				}
 		}
-	}
-
-	printf("Las colas exec estan siendo ocupadas por completo.\n");
-}
-
-bool comparadorMismoPrograma(hilo_t * hilo1, char * pid_programa){
-	return strcmp(hilo1->pid,pid_programa);
 }
 */
+bool comparadorMismoPrograma(hilo_t * hilo1, char * pid_programa){
+	return (strcmp(hilo1->pid,pid_programa)==0);
+}
+
 

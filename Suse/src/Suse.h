@@ -104,6 +104,7 @@ bool buscadorDeHilos(char* tid, hilo_t* hilo);
 void * suse_join(int pid_prog, char * tid);
 void * suse_close(int pid_prog, char * tid);
 void * planificador_NEW_READY();
+bool comparadorMismoPrograma(hilo_t * hilo1, char * pid_programa);
 
 int sumar2(int);
 
