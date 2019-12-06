@@ -7,11 +7,11 @@ int main()
 
   iniciarLogger();
 
-/*
+
   //reservamos la UPCM y aniadimos tabla de frames
-  UPCM = malloc(memory_size * sizeof(int));
+//->  UPCM = malloc(memory_size * sizeof(int));
   tabla_de_frames = list_create();
-  Frame tabla_de_frames2[frames_table_size];
+  Frame cadena_Frames[frames_table_size];
 
   //rellenamos la tabla de frames con 0, porque ninguno esta ocupado
   for(int i=0;i<frames_table_size;i++)
@@ -21,52 +21,41 @@ int main()
 
   for(int k=0;k<frames_table_size;k++)
     {
-      tabla_de_frames2[k].numero_frame = k;
-      tabla_de_frames2[k].espacio_ocupado.size = page_size;
-      tabla_de_frames2[k].espacio_ocupado.isFree = false;
+      cadena_Frames[k].numero_frame = k;
+      cadena_Frames[k].espacio_ocupado.size = page_size;
+      cadena_Frames[k].espacio_ocupado.isFree = false;
     }
 
-  printf("Mostrando tabla_de_frames2\n" );
+  printf("Mostrando cadena de frames: \n" );
 
   for(int k=0;k<frames_table_size;k++)
   {
-    printf("frame numero %d\n",tabla_de_frames2[k].numero_frame );
-    printf("bit de ocupado : %c\n",tabla_de_frames2[k].espacio_ocupado.isFree );
+    printf("frame numero %d\n",cadena_Frames[k].numero_frame );
+    printf("bit de ocupado : %d\n",cadena_Frames[k].espacio_ocupado.isFree );
   }
 
   //pp ->
 
   cambiarValor(tabla_de_frames,0,1);
   cambiarValor(tabla_de_frames,1,1);
-  cambiarValor(tabla_de_frames,2,1);
-  cambiarValor(tabla_de_frames,3,1);
-  cambiarValor(tabla_de_frames,5,1);
-  cambiarValor(tabla_de_frames,4,1);
-  cambiarValor(tabla_de_frames,6,1);
-  cambiarValor(tabla_de_frames,7,1);
-  cambiarValor(tabla_de_frames,8,1);
-  cambiarValor(tabla_de_frames,9,1);
 
    // lista de frames
+  printf("\n\nLista de frames: \n" );
   for(int j=0;j<frames_table_size;j++)
   {
     printf("%d-", list_get(tabla_de_frames,j));
   }
 
-*/
+
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
   iniciar_servidor(atoi(puerto));
   log_info(logger,"Servidor corriendo\n");
 
-  //enviar_mensaje(socket_cliente,logger);
-  //  recibir_peticion(socket_cliente,logger);
+  //uint32_t pet = tratar_muse_alloc(15);
+  //free(UPCM);
 
-  //Terminamos de realizar la Conexion
-
-  free(UPCM);
   free(tabla_de_frames);
-
   return 0;
 }
 
@@ -77,14 +66,14 @@ int recibir_peticion(uint32_t tam)
     //buscar frames libres..
 }
 
-int pasar_a_frames(tam)
+int pasar_a_frames(uint32_t tam)
 {
   int frames= 0;
   frames = page_size / tam;
   return frames;
 }
 
-uint32_t muse_alloc(uint32_t tam){
+uint32_t tratar_muse_alloc(uint32_t tam){
 
 	int frames_necesarios,free_frame;
 	int flag = 0;
@@ -115,7 +104,20 @@ uint32_t muse_alloc(uint32_t tam){
   //comprobamos que tenga espacio suficiente ?
 
   // cambiamos el valor de ese frame de libre a ocupado
+  //cambiarValor(tabla_de_frames,free_frame,1);
+  //cambiarValorCadena(free_frame,1);
+
   cambiarValor(tabla_de_frames,free_frame,1);
+
+//mostramos como quedo la tabla de frames
+
+  printf("\n\nLista de frames: \n" );
+  for(int j=0;j<frames_table_size;j++)
+  {
+    printf("%d-", list_get(tabla_de_frames,j));
+  }
+
+  printf("\n\n\n" );
 
   if(flag==1)
   {
@@ -132,6 +134,13 @@ uint32_t muse_alloc(uint32_t tam){
   }
 
 
+}
+
+
+
+void cambiarValor(t_list *tabla_de_frames,int index,int valor)
+{
+  list_replace(tabla_de_frames,index,valor); // 1 o 0
 }
 
 
@@ -183,9 +192,4 @@ void setearValores(t_config* archivoConfig)
 	memory_size = config_get_int_value(archivoConfig,"MEMORY_SIZE");
 	page_size =	config_get_int_value(archivoConfig,"PAGE_SIZE");
 	swap_size = config_get_int_value(archivoConfig,"SWAP_SIZE");
-}
-
-void cambiarValor(t_list *tabla_de_frames,int index,int valor)
-{
-  list_replace(tabla_de_frames,index,valor); // 1 o 0
 }

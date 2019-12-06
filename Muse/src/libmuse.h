@@ -35,8 +35,8 @@
 #include <commons/config.h>
 #include <commons/string.h>
 #include <unistd.h>
-#include "servidor-cliente/conexion_muse.h"
-#include "servidor-cliente/conexion_muse.c"
+#include "servidor-cliente/lib_conexion.h"
+#include "servidor-cliente/conexion_proceso.c"
 
 //#include "../../ComunParaTodos/Conexiones/Conexiones.h" //esta libreria se define asi porque está en nuestro workspace
 //#include "../../ComunParaTodos/Conexiones/Conexiones.c" // esta la sigo poniendo por mi editor, ignorenla
@@ -159,7 +159,6 @@ int muse_sync(uint32_t addr, size_t len);
 int muse_unmap(uint32_t dir);
 
 //mas funciones propias
-
 
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef CONEXION_H_
-#define CONEXION_H_
+#ifndef LIB_CONEXION_H_
+#define LIB_CONEXION_H_
 #include <string.h>
 #include <stdio.h>
 #include <stdint.h>
@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <netinet/in.h> //For the AF_INET (Address Family)
 #include <string.h>
+
+#define MAXCONN 15
 
 /*
 Funciones para conectar MUSE con los procesos que usan
@@ -118,7 +120,7 @@ void enviar_muse_close(uint32_t destino,Paquete_muse_close *paquete);
 void enviar_respuesta_general(uint32_t destino,Paquete_respuesta_general *paquete);
 Paquete_respuesta_general * recibir_respuesta_general(uint32_t destinatario);
 
-
+uint32_t tratar_muse_alloc(uint32_t tam);
 
 
 //falta serializar mus_map ,muse_unmap y muse_sync
