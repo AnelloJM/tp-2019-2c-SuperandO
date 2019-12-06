@@ -153,11 +153,12 @@ Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario)
   recv(destinatario,&read_size,4,0);
   printf("Se pidio obtener de la posicion %d los %d siguientes bits\n",read_pos,read_size );
 
+
   char * mensaje = malloc(strlen("elmateesamargo"));
   memcpy(mensaje,"elmateesamargo",strlen("elmateesamargo")); //aca copiamos la direcicon que nos pide
 
   paquete->size_resp = strlen(mensaje);
-  memcpy(&(paquete->respuesta),mensaje,sizeof(mensaje));
+  memcpy(&(paquete->respuesta),mensaje,strlen(mensaje));
   free(mensaje);
   return paquete;
 }

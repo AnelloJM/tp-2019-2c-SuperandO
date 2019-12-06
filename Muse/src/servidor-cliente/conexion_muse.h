@@ -114,8 +114,6 @@ uint32_t recibir_muse_close(uint32_t destinatario);
 void enviar_muse_close(uint32_t destino,Paquete_muse_close *paquete);
 
 //---------------------------------------------
-void respuesta_uint(uint32_t proceso,Paquete_respuesta *paquete);
-uint32_t esperar_respuesta_uint(uint32_t destino);
 
 void enviar_respuesta_general(uint32_t destino,Paquete_respuesta_general *paquete);
 Paquete_respuesta_general * recibir_respuesta_general(uint32_t destinatario);
