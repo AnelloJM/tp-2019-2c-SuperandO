@@ -21,9 +21,9 @@ int main()
     }
   //pp ->
 
-  cambiarValor(tabla_de_frames,0,1);
-  cambiarValor(tabla_de_frames,1,2);
-  cambiarValor(tabla_de_frames,2,2);
+//  cambiarValor(tabla_de_frames,0,1);
+  //cambiarValor(tabla_de_frames,1,2);
+  //cambiarValor(tabla_de_frames,2,2);
    // lista de frames
   printf("\n\nLista de frames: \n" );
 
@@ -47,23 +47,29 @@ int main()
 
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
-  tratar_muse_alloc(20,1);
-  tratar_muse_alloc(10,6);
-  tratar_muse_alloc(2,2);
+//-pp->
+  uint32_t pet1 =tratar_muse_alloc(59,1);
+  uint32_t pet2 = tratar_muse_alloc(70,6);
+  uint32_t pet3 = tratar_muse_alloc(2,2);
+  uint32_t pet4 =tratar_muse_alloc(200,1);
+  uint32_t pet5 = tratar_muse_alloc(7,6);
+  uint32_t pet6 = tratar_muse_alloc(2,2);
 
-  buscar_proceso(2);
-  buscar_proceso(6);
+  printf("Pet 1 en pos %d\n",pet1 );
+  printf("Pet2 en pos: %d\n",pet2 );
+  //printf("Pet3 en pos %d\n",pet3 );
+
+// <-pp-
+
 
   /*iniciar_servidor(atoi(puerto));
   log_info(logger,"Servidor corriendo\n");
 */
 
-
-  uint32_t disponible = free_frame_heap(calcular_posicion_en_UPCM(2));
-
-
+  printf("\n\n\n[+]Liberando memoria asignada a upcm..\n" );
   free(UPCM);
   free(tabla_de_frames);
+  printf("Adios!\n" );
   return 0;
 }
 
@@ -162,20 +168,15 @@ void alloc_tam(uint32_t tam,uint32_t posicion)
 
 uint32_t buscar_proceso(uint32_t id_proceso)
 {
-  uint32_t posicion_en_tabla;
-  int flag=0;
-  while(flag==0)
+  uint32_t posicion_en_tabla = -1;
+  for(int i=0;i<frames_table_size;i++)
   {
-    for(int i=0;i<frames_table_size;i++)
+    if(list_get(tabla_de_frames,i)==id_proceso)
     {
-      if(list_get(tabla_de_frames,i)==id_proceso)
-      {
-        posicion_en_tabla = i;
-        flag = 1;
-      }
-
+      posicion_en_tabla = i;
     }
-   }
+
+  }
 
   printf("El proceso %d esta cargado en el marco %d\n",id_proceso,posicion_en_tabla );
 
@@ -186,27 +187,68 @@ uint32_t buscar_proceso(uint32_t id_proceso)
 uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso)
 {
 
+  uint32_t cantidad_frames_necesarios = tam / (page_size - 5); //frames enteros a reservar
+  uint32_t cantidad_memoria_necesaria = tam % (page_size - 5); //memoria que ocupa menos de una pagina
+  uint32_t frame_index = buscar_proceso(id_proceso);
+  uint32_t free_frame_pos;
+  uint32_t free_frame;
 
-  //if proceso no esta cargado
-  uint32_t free_frame = buscar_frame_libre();
-  uint32_t free_frame_pos = calcular_posicion_en_UPCM(free_frame);
-  if(tam < page_size - 5) //el tamanio entra en un solo frame
+  if(frame_index==-1)
   {
-    alloc_tam(tam,free_frame_pos);
-  }
+    //si proceso no tiene ninguen frame asignado :
+    printf("El proceso %d no tenia ningun marco asignado\n",id_proceso );
+    for(int i=0;i<cantidad_frames_necesarios;i++)
+    {
+      free_frame = buscar_frame_libre();
+      free_frame_pos = calcular_posicion_en_UPCM(free_frame);
+      alloc_tam(page_size-5,free_frame_pos);
+      cambiarValor(tabla_de_frames,free_frame,id_proceso);
+    }
 
-  //cambiamos el valor en la tabla de frames
-  cambiarValor(tabla_de_frames,free_frame,id_proceso);
+    //una vez allocadas las paginas completas, pasamos a
+    //allocar la memoria restante
+
+    free_frame = buscar_frame_libre();
+    free_frame_pos = calcular_posicion_en_UPCM(free_frame);
+    alloc_tam(cantidad_memoria_necesaria,free_frame_pos);
+    cambiarValor(tabla_de_frames,free_frame,id_proceso);
+  }
+  else
+  {
+    //el proceso ya tenia marcos asignados, entonces :
+    printf("El primer marco asignado al proceso %d es %d\n",id_proceso,frame_index);
+    uint32_t memoria_disponible_en_index = frame_free_size(calcular_posicion_en_UPCM(frame_index));
+    if(memoria_disponible_en_index<tam)
+    {
+        alloc_tam(memoria_disponible_en_index,frame_index);
+    }
+    else
+    {
+      alloc_tam(tam,frame_index);
+    }
+
+    cantidad_frames_necesarios = (tam-memoria_disponible_en_index) / (page_size - 5); //frames enteros a reservar
+    cantidad_memoria_necesaria = (tam - memoria_disponible_en_index) % (page_size - 5); //memoria que ocupa menos de una pagina
+
+    for(int i=0;i<cantidad_frames_necesarios;i++)
+    {
+      free_frame = buscar_frame_libre();
+      free_frame_pos = calcular_posicion_en_UPCM(free_frame);
+      alloc_tam(page_size-5,free_frame_pos);
+      cambiarValor(tabla_de_frames,free_frame,id_proceso);
+    }
+
+    free_frame = buscar_frame_libre();
+    free_frame_pos = calcular_posicion_en_UPCM(free_frame);
+    alloc_tam(cantidad_memoria_necesaria,free_frame_pos);
+    cambiarValor(tabla_de_frames,free_frame,id_proceso);
+
+   }
 
   printf("\n\n[+]Tabla de frames actualizada: \n" );
   mostrar_frames_table();
 
   printf("\n" );
-
-  // si el proceso esta cargado en las tabla_de_frames
-
-
-
 
   return free_frame_pos; //devolvemos la posicion donde se encuentra reservada la memoria
 
