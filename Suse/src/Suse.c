@@ -12,7 +12,7 @@ int main(){
 	cola_exit = list_create();
 	lista_programas = list_create();
 	sem_t semaforoPlanificacion;
-	sem_init(&semaforoPlanificacion,0,1);
+	sem_init(&semaforoPlanificacion,0,max_multiprog);
 
 	tidMAX=0;
 
@@ -25,21 +25,25 @@ int main(){
 
 	socket_Suse = iniciar_servidor(server_ip,listen_port,logger);
 
+	log_info(logger,"socket: %i", socket_Suse);
+
 while(1){
+	log_info(logger,"En while");
 
 	socket_cliente = esperar_cliente_con_accept(socket_Suse,logger);
 
 	//CREAR HILO RECIBIR PAQUETE
 	pthread_t* hiloRecibirPaquetes = malloc(sizeof(pthread_t));
-	Paquete * pack;
-	if(pthread_create(hiloRecibirPaquetes, NULL,(void*)recibir_paquete_deserializar,(void*)(socket_cliente,pack) )== 0){
-		pthread_detach(hiloRecibirPaquetes);
-		log_info(logger,"Se creo el hilo correctamente");
+	if(pthread_create(hiloRecibirPaquetes, NULL,(void*)recibir_paquete_deserializar,(void*)(socket_cliente) )== 0){
+		pthread_detach(*hiloRecibirPaquetes);
+		// log_info(logger,"Se creo el hilo hiloRecibirPaquetes correctamente");
 	}else{
 		log_error(logger,"No se ha podido crear el hilo: hiloRecibirPaquetes");
 	}
 
+
 	/* PLANIFICADOR NEW -> READY */
+
 	sem_wait(&semaforoPlanificacion);
 
 	int cantidadProgramas = list_size(lista_programas);
@@ -58,11 +62,12 @@ while(1){
 	/* TOMAR METRICAS */
 
 	pthread_t * hiloMetricas = malloc(sizeof(pthread_t));
-	int estadoHilo = pthread_create(hiloMetricas, NULL,tomarMetricasAutomaticas(), NULL);
-	if (estadoHilo){
-		printf("No se pudo crear el hilo para *TOMAR METRICAS*\n");
-		free(hiloMetricas);
-		return 0;
+	if(pthread_create(hiloMetricas, NULL,(void *)tomarMetricasAutomaticas(), NULL)==0){
+		pthread_detach(hiloMetricas);
+		log_info(logger,"Se creo el hilo *hiloMetricas* correctamente");
+	}
+	else {
+		log_error(logger,"No se ha podido crear el hilo: hiloMetricas");
 	}
 	return 0;
 }
@@ -84,7 +89,7 @@ int gettimeofday(){
 }
 
 void crearLogger(){
-	char* logPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse/src/SUSE.log";
+	char* logPath = "SUSE.log";
 	char* nombreArch = "SUSE";
 	bool consolaActiva = true;
 	logger = log_create(logPath, nombreArch, consolaActiva, LOG_LEVEL_INFO);
@@ -104,8 +109,8 @@ void leerArchivoDeConfiguracion(){
 }
 
 void setearValores(t_config* archivoConfig){
-	server_ip = strdup(config_get_string_value(archivoConfig,"SERVER_IP"));
-	listen_port = strdup(config_get_string_value(archivoConfig,"LISTEN_PORT"));
+	server_ip = config_get_string_value(archivoConfig,"SERVER_IP");
+	listen_port = config_get_string_value(archivoConfig,"LISTEN_PORT");
 	metrics_timer = config_get_int_value(archivoConfig,"METRICS_TIMER");
 	max_multiprog = config_get_int_value(archivoConfig,"MAX_MULTIPROG");
 	sems_ids = config_get_array_value(archivoConfig, "SEM_IDS");
@@ -359,10 +364,11 @@ void * suse_close(int pid_prog, char * tid){
 	return 0;
 }
 
-int recibir_paquete_deserializar(int socket_cliente, Paquete* pack){
+int recibir_paquete_deserializar(int socket_cliente){
 	/* CREAR PROGRAMA NUEVO CUANDO LLEGA UNA CONEXION*/
+	Paquete* pack;
 	programa_t* programaNuevo;
-	programaNuevo->pid = socket_cliente;
+	programaNuevo->pid = string_itoa(socket_cliente);
 	programaNuevo->cola_ready = list_create();
 	programaNuevo->cola_exec = list_create();
 	list_add(lista_programas, programaNuevo); //Este warning no afecta

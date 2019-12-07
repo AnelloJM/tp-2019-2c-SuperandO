@@ -5,15 +5,15 @@
 #include <string.h>
 #include <stdbool.h>
 #include <readline/readline.h>
-#include "../../ComunParaTodos/Conexiones/Conexiones.h"
+#include <Conexiones/Conexiones.h>
 #include <commons/log.h>
 #include <commons/string.h>
 #include <commons/config.h>
 #include <commons/collections/list.h>
-#include "../../ComunParaTodos/Serializacion/serializacion.h"
+#include <Serializacion/serializacion.h>
 #include <commons/collections/queue.h>
 #include <pthread.h>
-#include "../../ComunParaTodos/Lista/lista.h"
+#include <Lista/lista.h>
 #include <time.h>
 #include <semaphore.h>
 
@@ -107,7 +107,7 @@ void * suse_join(int pid_prog, char * tid);
 void * suse_close(int pid_prog, char * tid);
 void * planificador_NEW_READY();
 bool comparadorMismoPrograma(hilo_t * hilo1, char * pid_programa);
-int recibir_paquete_deserializar(int socket_cliente, Paquete* pack);
+int recibir_paquete_deserializar(int socket_cliente);
 
 //int sumar2(int);
 

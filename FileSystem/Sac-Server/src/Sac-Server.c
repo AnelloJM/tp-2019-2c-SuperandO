@@ -84,7 +84,7 @@ char *Hacer_ReadDir(char *path){
 		desplazamiento = desplazamiento + strlen(nombre_nodo);
 		memcpy(hijos + desplazamiento, "/",strlen("/"));
 		desplazamiento = desplazamiento + strlen("/");
-		free(nombre_nodo);
+//		free(nombre_nodo);
 	}
 	memcpy(hijos+desplazamiento, "\0", 1);
 	list_destroy(nodos_de_hijos);
@@ -1217,7 +1217,7 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
 	t_config *archivo_de_configuracion = config_create("../../Sac.config");
-	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
+	char *puerto = "6969";//config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
 	log_info(logger, "p: %s",puerto);
 
 	//Inicializacion de semaforos
