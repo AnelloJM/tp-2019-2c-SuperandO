@@ -20,7 +20,7 @@ int main(){
 	log_info(logger,"--------------\n");
 	printf("\n\n::::::::INICIAMOS EL SERVIDOR SUSE::::::::\n");
 
-	socket_Suse = iniciar_servidor("127.0.0.1",listen_port,logger);
+	socket_Suse = iniciar_servidor(server_ip,listen_port,logger);
 
 
 	/* PLANIFICADOR NEW -> READY */
@@ -69,15 +69,19 @@ while(1){
 
 	int status = 1;		// Estructura que manjea el status de los recieve.
 
-	while (status){
 
-			status = recibir_paquete_deserializar(socket_cliente,paquete); //ESTO CREO QUE DEBERIA SER UN HILO
+	pthread_t * hiloPaquetes = malloc(sizeof(pthread_t));
+
+	while (status){
+			status = pthread_create(hiloPaquetes, NULL,recibir_paquete_deserializar(socket_cliente,paquete), NULL);
 		}
 		if(!status)
+			free(hiloPaquetes);
 			puts("Se Desconecto el cliente ...");
 
 	}
 	//ACA CREO QUE HAY QUE JOINEAR TODOS LOS HILOS
+
 
 
 	return 0;
@@ -88,6 +92,14 @@ void* tomarMetricasAutomaticas(){
 		tomarMetricas();
 		sleep(metrics_timer);
 	}
+}
+
+int gettimeofday(){
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	unsigned long long result = (((unsigned long long)tv.tv_sec)*1000 + ((unsigned long long)tv.tv_usec)/1000);
+	int a = result;
+	return result;
 }
 
 void crearLogger(){
@@ -111,6 +123,7 @@ void leerArchivoDeConfiguracion(){
 }
 
 void setearValores(t_config* archivoConfig){
+	server_ip = strdup(config_get_string_value(archivoConfig,"SERVER_IP"));
 	listen_port = strdup(config_get_string_value(archivoConfig,"LISTEN_PORT"));
 	metrics_timer = config_get_int_value(archivoConfig,"METRICS_TIMER");
 	max_multiprog = config_get_int_value(archivoConfig,"MAX_MULTIPROG");
