@@ -1839,3 +1839,133 @@
 [INFO] 04:27:25:26 MUSE/(11872:11872): swap size ->  1024
 [INFO] 04:27:25:26 MUSE/(11872:11872): --------------
 
+[INFO] 11:51:45:176 MUSE/(2985:2985): El logger se creo con exito
+[INFO] 11:51:45:230 MUSE/(2985:2985): La configuracion fue cargada exitosamente
+[INFO] 11:51:45:230 MUSE/(2985:2985): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 11:51:45:230 MUSE/(2985:2985): ID ->  14
+[INFO] 11:51:45:230 MUSE/(2985:2985): IP ->  (null)
+[INFO] 11:51:45:230 MUSE/(2985:2985): Puerto ->  5555
+[INFO] 11:51:45:230 MUSE/(2985:2985): memory size ->  512
+[INFO] 11:51:45:230 MUSE/(2985:2985): page size ->  32
+[INFO] 11:51:45:230 MUSE/(2985:2985): swap size ->  1024
+[INFO] 11:51:45:230 MUSE/(2985:2985): --------------
+
+[INFO] 11:54:14:320 MUSE/(3015:3015): El logger se creo con exito
+[INFO] 11:54:14:320 MUSE/(3015:3015): La configuracion fue cargada exitosamente
+[INFO] 11:54:14:320 MUSE/(3015:3015): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 11:54:14:320 MUSE/(3015:3015): ID ->  14
+[INFO] 11:54:14:320 MUSE/(3015:3015): IP ->  (null)
+[INFO] 11:54:14:321 MUSE/(3015:3015): Puerto ->  5555
+[INFO] 11:54:14:321 MUSE/(3015:3015): memory size ->  512
+[INFO] 11:54:14:321 MUSE/(3015:3015): page size ->  32
+[INFO] 11:54:14:321 MUSE/(3015:3015): swap size ->  1024
+[INFO] 11:54:14:321 MUSE/(3015:3015): --------------
+
+[INFO] 11:57:12:510 MUSE/(3048:3048): El logger se creo con exito
+[INFO] 11:57:12:510 MUSE/(3048:3048): La configuracion fue cargada exitosamente
+[INFO] 11:57:12:510 MUSE/(3048:3048): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 11:57:12:510 MUSE/(3048:3048): ID ->  14
+[INFO] 11:57:12:511 MUSE/(3048:3048): IP ->  (null)
+[INFO] 11:57:12:511 MUSE/(3048:3048): Puerto ->  5555
+[INFO] 11:57:12:511 MUSE/(3048:3048): memory size ->  512
+[INFO] 11:57:12:511 MUSE/(3048:3048): page size ->  32
+[INFO] 11:57:12:511 MUSE/(3048:3048): swap size ->  1024
+[INFO] 11:57:12:511 MUSE/(3048:3048): --------------
+
+[INFO] 12:07:00:756 MUSE/(3115:3115): El logger se creo con exito
+[INFO] 12:07:00:756 MUSE/(3115:3115): La configuracion fue cargada exitosamente
+[INFO] 12:07:00:757 MUSE/(3115:3115): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:07:00:757 MUSE/(3115:3115): ID ->  14
+[INFO] 12:07:00:757 MUSE/(3115:3115): IP ->  (null)
+[INFO] 12:07:00:757 MUSE/(3115:3115): Puerto ->  5555
+[INFO] 12:07:00:757 MUSE/(3115:3115): memory size ->  512
+[INFO] 12:07:00:757 MUSE/(3115:3115): page size ->  32
+[INFO] 12:07:00:757 MUSE/(3115:3115): swap size ->  1024
+[INFO] 12:07:00:757 MUSE/(3115:3115): --------------
+
+[INFO] 12:10:28:894 MUSE/(3154:3154): El logger se creo con exito
+[INFO] 12:10:28:894 MUSE/(3154:3154): La configuracion fue cargada exitosamente
+[INFO] 12:10:28:894 MUSE/(3154:3154): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:10:28:894 MUSE/(3154:3154): ID ->  14
+[INFO] 12:10:28:894 MUSE/(3154:3154): IP ->  (null)
+[INFO] 12:10:28:894 MUSE/(3154:3154): Puerto ->  5555
+[INFO] 12:10:28:894 MUSE/(3154:3154): memory size ->  512
+[INFO] 12:10:28:894 MUSE/(3154:3154): page size ->  32
+[INFO] 12:10:28:894 MUSE/(3154:3154): swap size ->  1024
+[INFO] 12:10:28:894 MUSE/(3154:3154): --------------
+
+[INFO] 12:11:51:563 MUSE/(3169:3169): El logger se creo con exito
+[INFO] 12:11:51:563 MUSE/(3169:3169): La configuracion fue cargada exitosamente
+[INFO] 12:11:51:564 MUSE/(3169:3169): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:11:51:564 MUSE/(3169:3169): ID ->  14
+[INFO] 12:11:51:564 MUSE/(3169:3169): IP ->  (null)
+[INFO] 12:11:51:564 MUSE/(3169:3169): Puerto ->  5555
+[INFO] 12:11:51:564 MUSE/(3169:3169): memory size ->  512
+[INFO] 12:11:51:564 MUSE/(3169:3169): page size ->  32
+[INFO] 12:11:51:564 MUSE/(3169:3169): swap size ->  1024
+[INFO] 12:11:51:564 MUSE/(3169:3169): --------------
+
+[INFO] 12:12:25:195 MUSE/(3193:3193): El logger se creo con exito
+[INFO] 12:12:25:195 MUSE/(3193:3193): La configuracion fue cargada exitosamente
+[INFO] 12:12:25:195 MUSE/(3193:3193): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:12:25:195 MUSE/(3193:3193): ID ->  14
+[INFO] 12:12:25:195 MUSE/(3193:3193): IP ->  (null)
+[INFO] 12:12:25:195 MUSE/(3193:3193): Puerto ->  5555
+[INFO] 12:12:25:195 MUSE/(3193:3193): memory size ->  512
+[INFO] 12:12:25:195 MUSE/(3193:3193): page size ->  32
+[INFO] 12:12:25:195 MUSE/(3193:3193): swap size ->  1024
+[INFO] 12:12:25:195 MUSE/(3193:3193): --------------
+
+[INFO] 12:12:35:783 MUSE/(3208:3208): El logger se creo con exito
+[INFO] 12:12:35:783 MUSE/(3208:3208): La configuracion fue cargada exitosamente
+[INFO] 12:12:35:784 MUSE/(3208:3208): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:12:35:784 MUSE/(3208:3208): ID ->  14
+[INFO] 12:12:35:784 MUSE/(3208:3208): IP ->  (null)
+[INFO] 12:12:35:784 MUSE/(3208:3208): Puerto ->  5555
+[INFO] 12:12:35:784 MUSE/(3208:3208): memory size ->  512
+[INFO] 12:12:35:784 MUSE/(3208:3208): page size ->  32
+[INFO] 12:12:35:784 MUSE/(3208:3208): swap size ->  1024
+[INFO] 12:12:35:784 MUSE/(3208:3208): --------------
+
+[INFO] 12:13:00:844 MUSE/(3213:3213): El logger se creo con exito
+[INFO] 12:13:00:844 MUSE/(3213:3213): La configuracion fue cargada exitosamente
+[INFO] 12:13:00:844 MUSE/(3213:3213): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:13:00:844 MUSE/(3213:3213): ID ->  14
+[INFO] 12:13:00:845 MUSE/(3213:3213): IP ->  (null)
+[INFO] 12:13:00:845 MUSE/(3213:3213): Puerto ->  5555
+[INFO] 12:13:00:845 MUSE/(3213:3213): memory size ->  512
+[INFO] 12:13:00:845 MUSE/(3213:3213): page size ->  32
+[INFO] 12:13:00:845 MUSE/(3213:3213): swap size ->  1024
+[INFO] 12:13:00:845 MUSE/(3213:3213): --------------
+
+[INFO] 12:13:02:622 MUSE/(3221:3221): El logger se creo con exito
+[INFO] 12:13:02:622 MUSE/(3221:3221): La configuracion fue cargada exitosamente
+[INFO] 12:13:02:622 MUSE/(3221:3221): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:13:02:622 MUSE/(3221:3221): ID ->  14
+[INFO] 12:13:02:622 MUSE/(3221:3221): IP ->  (null)
+[INFO] 12:13:02:622 MUSE/(3221:3221): Puerto ->  5555
+[INFO] 12:13:02:622 MUSE/(3221:3221): memory size ->  512
+[INFO] 12:13:02:623 MUSE/(3221:3221): page size ->  32
+[INFO] 12:13:02:623 MUSE/(3221:3221): swap size ->  1024
+[INFO] 12:13:02:623 MUSE/(3221:3221): --------------
+
