@@ -617,7 +617,7 @@ void achicar_tamanio_de_path_a(char *path, uint32_t nuevo_tamanio){
 		numero_de_bloque_de_puntero = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array + i];
 		punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
 		for(int j = 0; j<1024; j = j+1){
-			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[punteros_indirectos+j];
+			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto+j];
 			bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
 			for(int k = 0; k<4096; k = k+1){
 				bloque_a_leer->bytes[k] = '\0';
