@@ -131,6 +131,7 @@ HeaderFuse Fuse_RecieveHeader(int socketCliente){
 		HeaderFuse headerQueRetorna;
 		headerQueRetorna.operaciones = (-1);
 		headerQueRetorna.tamanioMensaje = 0;
+		free(buffer);
 		return headerQueRetorna;
 	}
 	uint32_t tamanioMensaje = 0;

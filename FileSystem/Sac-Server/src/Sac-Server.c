@@ -84,6 +84,7 @@ char *Hacer_ReadDir(char *path){
 		desplazamiento = desplazamiento + strlen(nombre_nodo);
 		memcpy(hijos + desplazamiento, "/",strlen("/"));
 		desplazamiento = desplazamiento + strlen("/");
+		free(nombre_nodo);
 	}
 	memcpy(hijos+desplazamiento, "\0", 1);
 	list_destroy(nodos_de_hijos);
@@ -508,14 +509,17 @@ void limpiar_nodo(uint32_t nodo){
 						aux->bytes[j] = '\0';
 					}
 				}
+			punteros->bloques_de_datos[p]=0;
 			}
 			bloque = tabla_de_nodos->nodos[nodo].array_de_punteros[i];
 			bitarray_clean_bit(tBitarray,bloque);
 			for(int j = 0; j<4096; j = j+1){
 				(inicio_de_disco + bloque)->bytes[j] = '\0';
 			}
+		tabla_de_nodos->nodos[nodo].array_de_punteros[i] = 0;
 		}
 	}
+
 	tabla_de_nodos->nodos[nodo].estado = 0;
 	strncpy(tabla_de_nodos->nodos[nodo].nombre_del_archivo, "\0", 70);
 	tabla_de_nodos->nodos[nodo].modificado=0;
@@ -546,6 +550,7 @@ uint32_t Hacer_RMDir(char *path){
 	return -ENOTEMPTY;
 }
 
+
 uint32_t Hacer_Rename(char *path, char *buffer){
 	ptrGBloque nodo = exite_path_retornando_nodo(path);
 	if(nodo == -1)
@@ -560,8 +565,19 @@ uint32_t Hacer_Rename(char *path, char *buffer){
 		}
 		char *padre = string_substring(buffer, 0, total);
 		nodoPadre = exite_path_retornando_nodo(padre);
+		free(padre);
 		if(nodoPadre == -1)
-				return -ENOENT;
+			return -ENOENT;
+		t_list* hijos = hijos_de_nodo(nodoPadre);
+		char* nombre_hijo;
+		for(int i = 0; i < list_size(hijos);i = i+1){
+			nombre_hijo = tabla_de_nodos->nodos[(uint32_t)list_get(hijos,i)].nombre_del_archivo;
+			if(strcmp(buffer_separado[posicion_final], nombre_hijo)== 0){
+				list_destroy(hijos);
+				return -EEXIST;
+			}
+		}
+		list_destroy(hijos);
 		tabla_de_nodos->nodos[nodo].padre = nodoPadre;
 	}
 	else
@@ -577,9 +593,10 @@ void argrandar_tamanio_de_path_a(char *path, uint32_t nuevo_tamanio){
 	uint32_t nodo = exite_path_retornando_nodo(path);
 	uint32_t tamanio_a_agregar = nuevo_tamanio - tabla_de_nodos->nodos[nodo].tamanio_del_archivo;
 	char *buffer = malloc(tamanio_a_agregar+1);
-	for(int i = 0; i <= tamanio_a_agregar; i = i+1){
-		memcpy(buffer+i,"\0",1);
+	for(int i = 0; i < tamanio_a_agregar; i = i+1){
+		memcpy(buffer+i,"@",1);
 	}
+	memcpy(buffer+tamanio_a_agregar,"\0",1);
 	Hacer_Write(path, buffer, 0);
 	free(buffer);
 }
@@ -617,9 +634,24 @@ void achicar_tamanio_de_path_a(char *path, uint32_t nuevo_tamanio){
 		bloque_a_leer->bytes[desplazamiento+i] = '\0';
 	}
 
-	uint32_t cantida_de_bloque_hasta_donde_llego = ceil((float)tamanio_de_archivo/sizeof(Bloque));
+	uint32_t cantida_de_bloque_hasta_donde_llego = tamanio_de_archivo/sizeof(Bloque);
+	if(cantida_de_bloque_hasta_donde_llego == 0){
+		tabla_de_nodos->nodos[nodo].tamanio_del_archivo = nuevo_tamanio;
+		return;
+	}
 	uint32_t poscion_en_array_hasta_la_que_llego = cantida_de_bloque_hasta_donde_llego / 1024;
 	uint32_t puntero_indirecto_final = cantida_de_bloque_hasta_donde_llego % 1024;
+	if(poscion_en_array_hasta_la_que_llego == 0){
+		for(int j = 0; j < (puntero_indirecto_final - puntero_indirecto) ; j = j+1){
+			numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto+1+j];
+			bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
+			for(int i = 0; i<4096; i = i+1){
+				bloque_a_leer->bytes[i] = '\0';
+			}
+		}
+		tabla_de_nodos->nodos[nodo].tamanio_del_archivo = nuevo_tamanio;
+		return;
+	}
 
 	for(int j = 0; j < (1024 - puntero_indirecto) ; j = j+1){
 		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto+1+j];
@@ -631,7 +663,7 @@ void achicar_tamanio_de_path_a(char *path, uint32_t nuevo_tamanio){
 
 	tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array] = 0;
 	poscion_en_array = poscion_en_array + 1;
-	for(int i=0; i < poscion_en_array_hasta_la_que_llego - poscion_en_array -1; i = i+1){
+	for(int i=0; i < (poscion_en_array_hasta_la_que_llego - poscion_en_array -1); i = i+1){
 		numero_de_bloque_de_puntero = tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array + i];
 		punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
 		for(int j = 0; j<1024; j = j+1){
@@ -649,7 +681,7 @@ void achicar_tamanio_de_path_a(char *path, uint32_t nuevo_tamanio){
 	for(int i = 0; i<4096; i = i+1){
 		bloque_a_leer->bytes[i] = '\0';
 	}
-
+	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = nuevo_tamanio;
 }
 
 uint32_t Hacer_Truncate(char *path, uint32_t nuevo_tamanio) {
@@ -1057,10 +1089,14 @@ char *obtener_nombre_nodo(uint32_t numero_de_nodo){
 
 
 bool existe_nodo_con_nombre(char* nombre) {
+	char *nodoi;
 	for(int i=0; i<1024; i=i+1) {
-		if(string_equals_ignore_case(nombre, obtener_nombre_nodo(i))
-				&& tabla_de_nodos->nodos[i].estado != 0)
+		nodoi = obtener_nombre_nodo(i);
+		if(string_equals_ignore_case(nombre, nodoi) && tabla_de_nodos->nodos[i].estado != 0){
+			free(nodoi);
 			return true;
+		}
+		free(nodoi);
 	}
 	return false;
 }
@@ -1086,6 +1122,7 @@ uint32_t exite_path_retornando_nodo(char* path){
 	uint32_t posicion_final = damePosicionFinalDoblePuntero(path_separado);
 	if(!existe_nodo_con_nombre(path_separado[posicion_final])){
 		log_error(logger, "No existe el archivo");
+		liberarDoblePuntero(path_separado);
 		return -1;
 	}
 	uint32_t nodo_actual = 0;
@@ -1094,10 +1131,11 @@ uint32_t exite_path_retornando_nodo(char* path){
 
 		if(nodo_actual == -1){
 			log_error(logger, "No existe el path");
+			liberarDoblePuntero(path_separado);
 			return nodo_actual;
 		}
 	}
-
+	liberarDoblePuntero(path_separado);
 	return nodo_actual;
 }
 
