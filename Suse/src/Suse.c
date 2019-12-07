@@ -40,6 +40,9 @@ while(1){
 	}
 
 	/* PLANIFICADOR NEW -> READY */
+
+	//CHECKEAR ESTADO DEL SEMAFORO ANTES DE EJECUTAR
+
 	sem_wait(&semaforoPlanificacion);
 
 	int cantidadProgramas = list_size(lista_programas);
