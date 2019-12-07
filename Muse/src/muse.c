@@ -14,23 +14,20 @@ int main()
 
   tabla_de_frames = list_create();
 
-  //rellenamos la tabla de frames con 1, porque ninguno esta ocupado
+  //rellenamos la tabla de frames con -1, porque ninguno esta ocupado
   for(int i=0;i<frames_table_size;i++)
     {
-      list_add_in_index(tabla_de_frames,i,1);
+      list_add_in_index(tabla_de_frames,i,-1);
     }
   //pp ->
 
-  cambiarValor(tabla_de_frames,0,0);
-  cambiarValor(tabla_de_frames,1,0);
-  cambiarValor(tabla_de_frames,2,0);
-
+  cambiarValor(tabla_de_frames,0,1);
+  cambiarValor(tabla_de_frames,1,2);
+  cambiarValor(tabla_de_frames,2,2);
    // lista de frames
   printf("\n\nLista de frames: \n" );
-  for(int j=0;j<frames_table_size;j++)
-  {
-    printf("%d-", list_get(tabla_de_frames,j));
-  }
+
+  mostrar_frames_table();
 
   printf("\n[+]Cargando heaps en la UPCM..\n");
 
@@ -50,9 +47,12 @@ int main()
 
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
-  tratar_muse_alloc(20);
-  tratar_muse_alloc(10);
-  tratar_muse_alloc(2);
+  tratar_muse_alloc(20,1);
+  tratar_muse_alloc(10,6);
+  tratar_muse_alloc(2,2);
+
+  buscar_proceso(2);
+  buscar_proceso(6);
 
   /*iniciar_servidor(atoi(puerto));
   log_info(logger,"Servidor corriendo\n");
@@ -113,7 +113,7 @@ uint32_t buscar_frame_libre()
   {
     for(int i=0;i<frames_table_size;i++)
     {
-      if(list_get(tabla_de_frames,i)==1)
+      if(list_get(tabla_de_frames,i)==-1)
       {
         frame_libre = i;
         flag = 1;
@@ -160,11 +160,34 @@ void alloc_tam(uint32_t tam,uint32_t posicion)
 
 }
 
-
-
-
-uint32_t tratar_muse_alloc(uint32_t tam)
+uint32_t buscar_proceso(uint32_t id_proceso)
 {
+  uint32_t posicion_en_tabla;
+  int flag=0;
+  while(flag==0)
+  {
+    for(int i=0;i<frames_table_size;i++)
+    {
+      if(list_get(tabla_de_frames,i)==id_proceso)
+      {
+        posicion_en_tabla = i;
+        flag = 1;
+      }
+
+    }
+   }
+
+  printf("El proceso %d esta cargado en el marco %d\n",id_proceso,posicion_en_tabla );
+
+  return posicion_en_tabla;
+}
+
+
+uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso)
+{
+
+
+  //if proceso no esta cargado
   uint32_t free_frame = buscar_frame_libre();
   uint32_t free_frame_pos = calcular_posicion_en_UPCM(free_frame);
   if(tam < page_size - 5) //el tamanio entra en un solo frame
@@ -172,21 +195,19 @@ uint32_t tratar_muse_alloc(uint32_t tam)
     alloc_tam(tam,free_frame_pos);
   }
 
-
-  //uint32_t free_frame = buscar_frame_libre();
-  //uint32_t free_frame_pos = calcular_posicion_en_UPCM(free_frame);
-  //reservar_espacio(free_frame_pos,tam);
-
   //cambiamos el valor en la tabla de frames
-  cambiarValor(tabla_de_frames,free_frame,0);
+  cambiarValor(tabla_de_frames,free_frame,id_proceso);
 
   printf("\n\n[+]Tabla de frames actualizada: \n" );
-  for(int j=0;j<frames_table_size;j++)
-  {
-    printf("%d-", list_get(tabla_de_frames,j));
-  }
+  mostrar_frames_table();
 
   printf("\n" );
+
+  // si el proceso esta cargado en las tabla_de_frames
+
+
+
+
   return free_frame_pos; //devolvemos la posicion donde se encuentra reservada la memoria
 
 }
@@ -254,4 +275,13 @@ void setearValores(t_config* archivoConfig)
 	memory_size = config_get_int_value(archivoConfig,"MEMORY_SIZE");
 	page_size =	config_get_int_value(archivoConfig,"PAGE_SIZE");
 	swap_size = config_get_int_value(archivoConfig,"SWAP_SIZE");
+}
+
+
+void mostrar_frames_table()
+{
+  for(int j=0;j<frames_table_size;j++)
+  {
+    printf("%d,", list_get(tabla_de_frames,j));
+  }
 }

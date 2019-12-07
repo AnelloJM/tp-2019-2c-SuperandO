@@ -120,7 +120,7 @@ void enviar_muse_close(uint32_t destino,Paquete_muse_close *paquete);
 void enviar_respuesta_general(uint32_t destino,Paquete_respuesta_general *paquete);
 Paquete_respuesta_general * recibir_respuesta_general(uint32_t destinatario);
 
-uint32_t tratar_muse_alloc(uint32_t tam);
+uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso);
 
 
 //falta serializar mus_map ,muse_unmap y muse_sync

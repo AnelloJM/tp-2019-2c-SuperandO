@@ -10,6 +10,9 @@ int main(){
 	cola_new = list_create();
 	cola_blocked = list_create();
 	cola_exit = list_create();
+	lista_programas = list_create();
+	sem_t semaforoPlanificacion;
+	sem_init(&semaforoPlanificacion,0,1);
 
 	tidMAX=0;
 
@@ -22,12 +25,27 @@ int main(){
 
 	socket_Suse = iniciar_servidor(server_ip,listen_port,logger);
 
+while(1){
+
+	socket_cliente = esperar_cliente_con_accept(socket_Suse,logger);
+
+	//CREAR HILO RECIBIR PAQUETE
+	pthread_t* hiloRecibirPaquetes = malloc(sizeof(pthread_t));
+	Paquete * pack;
+	if(pthread_create(hiloRecibirPaquetes, NULL,(void*)recibir_paquete_deserializar,(void*)(socket_cliente,pack) )== 0){
+		pthread_detach(hiloRecibirPaquetes);
+		log_info(logger,"Se creo el hilo correctamente");
+	}else{
+		log_error(logger,"No se ha podido crear el hilo: hiloRecibirPaquetes");
+	}
 
 	/* PLANIFICADOR NEW -> READY */
 
-	lista_programas = list_create();
-	int cantidadProgramas = list_size(lista_programas);
+	//CHECKEAR ESTADO DEL SEMAFORO ANTES DE EJECUTAR
 
+	sem_wait(&semaforoPlanificacion);
+
+	int cantidadProgramas = list_size(lista_programas);
 	while (cantidadProgramas < max_multiprog){
 		pthread_t * hiloPlani = malloc(sizeof(pthread_t));
 		int estadoHilo = pthread_create(hiloPlani, NULL,planificador_NEW_READY(), NULL);
@@ -37,20 +55,7 @@ int main(){
 			return 0;
 		}
 	}
-
-while(1){
-
-	socket_cliente = esperar_cliente_con_accept(socket_Suse,logger);
-	enviar_mensaje(socket_cliente,logger);
-
-
-	/* CREAR PROGRAMA NUEVO CUANDO LLEGA UNA CONEXION*/
-
-	programa_t* programaNuevo;
-	programaNuevo->pid = socket_cliente;
-	programaNuevo->cola_ready = list_create();
-	programaNuevo->cola_exec = list_create();
-	list_add(lista_programas, programaNuevo); //Este warning no afecta
+	sem_post(&semaforoPlanificacion);
 
 
 	/* TOMAR METRICAS */
@@ -62,29 +67,8 @@ while(1){
 		free(hiloMetricas);
 		return 0;
 	}
-
-	/* RECIBIR PAQUETES */
-
-	Paquete* paquete;
-
-	int status = 1;		// Estructura que manjea el status de los recieve.
-
-
-	pthread_t * hiloPaquetes = malloc(sizeof(pthread_t));
-
-	while (status){
-			status = pthread_create(hiloPaquetes, NULL,recibir_paquete_deserializar(socket_cliente,paquete), NULL);
-		}
-		if(!status)
-			free(hiloPaquetes);
-			puts("Se Desconecto el cliente ...");
-
-	}
-	//ACA CREO QUE HAY QUE JOINEAR TODOS LOS HILOS
-
-
-
 	return 0;
+}
 }
 
 void* tomarMetricasAutomaticas(){
@@ -128,7 +112,7 @@ void setearValores(t_config* archivoConfig){
 	metrics_timer = config_get_int_value(archivoConfig,"METRICS_TIMER");
 	max_multiprog = config_get_int_value(archivoConfig,"MAX_MULTIPROG");
 	sems_ids = config_get_array_value(archivoConfig, "SEM_IDS");
-	sem_init = config_get_array_value(archivoConfig, "SEM_INIT");
+	sem_init_s = config_get_array_value(archivoConfig, "SEM_INIT");
 	sem_max = config_get_array_value(archivoConfig, "SEM_MAX");
 	alpha_sjf = config_get_int_value(archivoConfig, "ALPHA_SJF");
 }
@@ -379,6 +363,14 @@ void * suse_close(int pid_prog, char * tid){
 }
 
 int recibir_paquete_deserializar(int socket_cliente, Paquete* pack){
+	/* CREAR PROGRAMA NUEVO CUANDO LLEGA UNA CONEXION*/
+	programa_t* programaNuevo;
+	programaNuevo->pid = socket_cliente;
+	programaNuevo->cola_ready = list_create();
+	programaNuevo->cola_exec = list_create();
+	list_add(lista_programas, programaNuevo); //Este warning no afecta
+
+	/* ACEPTAR PAQUETES */
 
 	int resultadoEnvio = RecibirPaqueteCliente(socket_cliente, pack);
 	//Verifico que el envio se haya realizado con exito
@@ -427,6 +419,12 @@ int recibir_paquete_deserializar(int socket_cliente, Paquete* pack){
 	log_info(logger, "No se pudo recibir el paquete\n");
 	return 1;
 }
+
+
+bool comparadorMismoPrograma(hilo_t * hilo1, char * pid_programa){
+	return (strcmp(hilo1->pid,pid_programa)==0);
+}
+
 
 void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde iniciarlo
 
@@ -496,10 +494,6 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 					cantidadProgramas++;
 				}
 		}
-}
-
-bool comparadorMismoPrograma(hilo_t * hilo1, char * pid_programa){
-	return (strcmp(hilo1->pid,pid_programa)==0);
 }
 
 

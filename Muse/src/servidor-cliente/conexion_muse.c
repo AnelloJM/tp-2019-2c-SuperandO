@@ -84,7 +84,7 @@ Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario)
   recv(destinatario,&tam,4,0);
 
   uint32_t resp_muse;
-  resp_muse = tratar_muse_alloc(tam);
+  resp_muse = tratar_muse_alloc(tam,1); // el segundo parametro es el id del proceso
   paquete->size_resp = 4;
   paquete->respuesta = resp_muse;
   printf("El tamanio pedido es de %d\n",paquete->respuesta );

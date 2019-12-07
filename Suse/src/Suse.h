@@ -15,6 +15,7 @@
 #include <pthread.h>
 #include "../../ComunParaTodos/Lista/lista.h"
 #include <time.h>
+#include <semaphore.h>
 
 t_log* logger;
 t_config* archivoConfig;
@@ -37,7 +38,7 @@ char* listen_port;
 int metrics_timer;
 int max_multiprog;
 void* sems_ids;
-void* sem_init;
+void* sem_init_s;
 void* sem_max;
 float alpha_sjf;
 int tidMAX;
