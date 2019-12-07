@@ -400,3 +400,15 @@
 
 [INFO] 14:29:06:707 SUSE/(6642:6642): Dentro de iniciar servidor
 [INFO] 14:29:06:707 SUSE/(6642:6642): Listo para escuchar a mi cliente
+[INFO] 11:20:38:543 SUSE/(5836:5836): El logger se creo con exito
+[INFO] 11:20:38:544 SUSE/(5836:5836): La configuracion fue cargada exitosamente
+[INFO] 11:20:38:544 SUSE/(5836:5836): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 11:20:38:544 SUSE/(5836:5836): LISTEN_PORT ->  5003
+[INFO] 11:20:38:544 SUSE/(5836:5836): Metrics_timer ->  50
+[INFO] 11:20:38:544 SUSE/(5836:5836): MAx_MULTIPROG ->  10
+[INFO] 11:20:38:544 SUSE/(5836:5836): --------------
+
+[INFO] 11:20:38:544 SUSE/(5836:5836): Dentro de iniciar servidor
+[INFO] 11:20:38:544 SUSE/(5836:5836): Listo para escuchar a mi cliente
