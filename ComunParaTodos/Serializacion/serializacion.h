@@ -71,8 +71,8 @@ typedef struct {
 //////////////////////////////////////////
 
 bool EnviarPaquete(int socketCliente, Paquete* paquete);
-
-/*char* getNombreDelProceso(proceso proceso);
+/*
+char* getNombreDelProceso(proceso proceso);
 
 bool EnviarHandshake(int socketFD, proceso quienEnvia);
 
@@ -82,8 +82,8 @@ bool EnviarDatosTipo(int socketFD, proceso quienEnvia, void* datos, int tamDatos
 int RecibirDatos(void* paquete, int socketFD, uint32_t cantARecibir);
 
 int RecibirPaqueteServidor(int socketFD, proceso quienEnvia, Paquete* paquete); //Responde al recibir un Handshake
-
-int RecibirPaqueteCliente(int socketFD, Paquete* paquete); //No responde los Handshakes
 */
+int RecibirPaqueteCliente(int socketFD, Paquete* paquete); //No responde los Handshakes
+
 
 #endif /* SERIALIZACION_H_ */

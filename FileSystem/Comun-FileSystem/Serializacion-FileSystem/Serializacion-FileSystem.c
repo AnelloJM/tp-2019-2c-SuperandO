@@ -111,6 +111,16 @@ bool Fuse_PackAndSend_Truncate(int socketCliente, const void *path, off_t offset
 	return resultado;
 }
 
+bool Fuse_PackAndSend_Response_GetAttr(int socketCliente, uint32_t isDirectory, uint32_t size){
+	uint32_t tamMessage = (2*(sizeof(uint32_t)));
+	void *buffer = malloc( tamMessage );
+	memcpy(buffer, &isDirectory, sizeof(uint32_t));
+	memcpy(buffer+sizeof(uint32_t), &size, sizeof(uint32_t));
+	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_RESPONSE);
+	free(buffer);
+	return resultado;
+}
+
 ////////////////////////////
 // FUNCIONES PARA RECIBIR //
 ////////////////////////////
@@ -229,4 +239,16 @@ off_t Fuse_Unpack_Truncate_offset(void *buffer) {
 	path += sizeof(uint32_t);
 	memcpy(&offset, buffer+path, sizeof(off_t));
 	return offset;
+}
+
+uint32_t Fuse_Unpack_Response_Getattr_isDirectory(void *buffer) {
+	uint32_t isDirectory;
+	memcpy(&isDirectory, buffer, sizeof(uint32_t));
+	return isDirectory;
+}
+
+uint32_t Fuse_Unpack_Response_Getattr_Size(void *buffer) {
+	uint32_t size;
+	memcpy(&size, buffer+sizeof(uint32_t), sizeof(uint32_t));
+	return size;
 }

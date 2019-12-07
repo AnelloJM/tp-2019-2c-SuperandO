@@ -96,6 +96,12 @@ bool Fuse_PackAndSend_Rename(int socketCliente, const void *path, const char *no
 
 bool Fuse_PackAndSend_Truncate(int socketCliente, const void *path, off_t offset);
 
+/**
+* ESTA FUNCION ENVIA UN PAQUETE DEL TIPO RESPONSE A UN GETATTR POR EL SOCKET ESPECIFICADO
+*/
+
+bool Fuse_PackAndSend_Response_GetAttr(int socketCliente, uint32_t isDirectory, uint32_t size);
+
 ////////////////////////////
 // FUNCIONES PARA RECIBIR //
 ////////////////////////////
@@ -197,5 +203,22 @@ char* Fuse_Unpack_Rename_Nombre(void *buffer);
 */
 
 off_t Fuse_Unpack_Truncate_offset(void *buffer);
+
+/**
+* ESTA FUNCION RETORNA EL INT IDENTIFICADOR
+* DE SI EL PATH CONSULTADO ES DIRECTORIO O
+* ARCHIVO EN CASO DE QUE SE HAYA RECIBIDO UN
+* PAQUETE DEL TIPO f_RESPONSE A UN GETATTR
+*/
+
+uint32_t Fuse_Unpack_Response_Getattr_isDirectory(void *buffer);
+
+/**
+* ESTA FUNCION RETORNA EL SIZE DEL PATH
+* CONSULTADO EN CASO DE QUE SE HAYA RECIBIDO UN
+* PAQUETE DEL TIPO f_RESPONSE A UN GETATTR
+*/
+
+uint32_t Fuse_Unpack_Response_Getattr_Size(void *buffer);
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */

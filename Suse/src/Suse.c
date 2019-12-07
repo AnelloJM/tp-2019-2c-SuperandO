@@ -2,7 +2,8 @@
 
 int main(){
 
-	/*INicializando Servidor Suse*/
+	/* INICIALIZAR SERVIDOR */
+
 	crearLogger();
 	leerArchivoDeConfiguracion();
 
@@ -21,48 +22,68 @@ int main(){
 
 	socket_Suse = iniciar_servidor("127.0.0.1",listen_port,logger);
 
+
+	/* PLANIFICADOR NEW -> READY */
+
 	lista_programas = list_create();
 	int cantidadProgramas = list_size(lista_programas);
 
-	while (cantidadProgramas <= max_multiprog){
-		//planificador_NEW_READY(); //ACA DEBERIA ABRIR UN HILO NUEVO
+	while (cantidadProgramas < max_multiprog){
+		pthread_t * hiloPlani = malloc(sizeof(pthread_t));
+		int estadoHilo = pthread_create(hiloPlani, NULL,planificador_NEW_READY(), NULL);
+		if (estadoHilo){
+			printf("No se pudo crear el hilo para *PLANIFICADOR NEW READY*\n");
+			free(hiloPlani);
+			return 0;
+		}
 	}
-/*
+
 while(1){
 
 	socket_cliente = esperar_cliente_con_accept(socket_Suse,logger);
 	enviar_mensaje(socket_cliente,logger);
 
-	//CUANDO CONECTA UN CLIENTE, SU SOCKET ES SU PID E INICIALIZO TODAS LAS ESTRUCTURAS
-	 * ADEMAS, LO AGREGO A LA LISTA DE PROGRAMAS NUEVOS
+
+	/* CREAR PROGRAMA NUEVO CUANDO LLEGA UNA CONEXION*/
 
 	programa_t* programaNuevo;
 	programaNuevo->pid = socket_cliente;
 	programaNuevo->cola_ready = list_create();
 	programaNuevo->cola_exec = list_create();
-	list_add(lista_programas, programaNuevo);
+	list_add(lista_programas, programaNuevo); //Este warning no afecta
 
 
-	tomarMetricasAutomaticas(); //ACA SEGURO DEBERIA ABRIR UN HILO
+	/* TOMAR METRICAS */
 
+	pthread_t * hiloMetricas = malloc(sizeof(pthread_t));
+	int estadoHilo = pthread_create(hiloMetricas, NULL,tomarMetricasAutomaticas(), NULL);
+	if (estadoHilo){
+		printf("No se pudo crear el hilo para *TOMAR METRICAS*\n");
+		free(hiloMetricas);
+		return 0;
+	}
 
-	Paquete paquete;
+	/* RECIBIR PAQUETES */
+
+	Paquete* paquete;
 
 	int status = 1;		// Estructura que manjea el status de los recieve.
 
 	while (status){
 
-			//status = recibir_paquete_deserializar(socket_cliente,paquete);
+			status = recibir_paquete_deserializar(socket_cliente,paquete); //ESTO CREO QUE DEBERIA SER UN HILO
 		}
 		if(!status)
 			puts("Se Desconecto el cliente ...");
 
 	}
-return 0;
-*/ //COMENTO PARA PODER JUGAR CON LAS COLAS *
+	//ACA CREO QUE HAY QUE JOINEAR TODOS LOS HILOS
+
+
+	return 0;
 }
 
-void tomarMetricasAutomaticas(){
+void* tomarMetricasAutomaticas(){
 	while(1){
 		tomarMetricas();
 		sleep(metrics_timer);
@@ -75,7 +96,7 @@ void crearLogger(){
 	bool consolaActiva = true;
 	logger = log_create(logPath, nombreArch, consolaActiva, LOG_LEVEL_INFO);
 	log_info(logger, "El logger se creo con exito");
-//	free(logPath);
+	//free(logPath);
 }
 
 void leerArchivoDeConfiguracion(){
@@ -104,7 +125,7 @@ void cargarSemaforos(){
 	//Para todos los ID de semaforos, voy creando un semaforo nuevo y lo guardo en la lista de semaforos
 	for(i=0; i<= list_size(sems_ids); i++){
 		semaforo_t* semaforo;
-		strcpy(semaforo->semID,list_get(sems_ids,i));
+		strcpy(semaforo->semID,list_get(sems_ids,i)); //este warning no afecta
 		semaforo->semInit = list_get(sem_init,i);
 		semaforo->semActual = semaforo->semInit;
 		semaforo->semMax =	list_get(sem_max,i);
@@ -152,10 +173,12 @@ void tomarMetricas(){
 	printf("Grado actual de multiprogramacion:%d/n",list_size(lista_programas));
 }
 
+/*
 //funcion prueba
 int sumar2(int a){
 	return a+2;
 }
+*/
 
 void* suse_create(int pid_prog){
 
@@ -342,7 +365,7 @@ void * suse_close(int pid_prog, char * tid){
 	return 0;
 }
 
-int recibir_paquete_deserializar(int socket_cliente, Paquete * pack){
+int recibir_paquete_deserializar(int socket_cliente, Paquete* pack){
 
 	int resultadoEnvio = RecibirPaqueteCliente(socket_cliente, pack);
 	//Verifico que el envio se haya realizado con exito
@@ -391,12 +414,13 @@ int recibir_paquete_deserializar(int socket_cliente, Paquete * pack){
 	log_info(logger, "No se pudo recibir el paquete\n");
 	return 1;
 }
-/*
+
 void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde iniciarlo
 
 		if(list_is_empty(cola_new)){
 			printf("No hay hilos para planificar.\n");
-			break;
+			return 0;
+			//break;
 		}
 
 		int cantidadHilosNew = list_size(cola_new);
@@ -406,7 +430,7 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 			cantidadHilosNew = list_size(cola_new);
 			hilo_t * unHilo = malloc(sizeof(hilo_t));
 			unHilo = list_get(cola_new,0); // tomo el primer elemento
-			t_list * hilosDeIgualPadre = list_remove_by_condition()(cola_new,comparadorMismoPrograma(unHilo->pid));
+			t_list * hilosDeIgualPadre = list_filter(cola_new,(void*)comparadorMismoPrograma); //filtro los elementos que cumplen
 			programa_t * nuevoPrograma = malloc(sizeof(programa_t));
 			nuevoPrograma->pid = unHilo->pid;
 			list_add_all(nuevoPrograma->cola_ready, hilosDeIgualPadre);
@@ -423,13 +447,13 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 			break;
 			}
 
-		while(cantidadProgramas>0 & cantidadProgramas<=max_multiprog){
+		while(cantidadProgramas>0 && cantidadProgramas<=max_multiprog){
 			cantidadHilosNew = list_size(cola_new);
 			hilo_t * unHilo = malloc(sizeof(hilo_t));
 			unHilo = list_get(cola_new,0); // tomo el primer elemento
-			t_list * hilosDeIgualPadre = list_remove_by_condition()(cola_new,comparadorMismoPrograma(unHilo->pid));
-			int ubicacionPrograma = list_get_index(lista_programas,unHilo->pid,comparadorMismoPrograma());
-				if(ubicacionPrograma){
+			t_list * hilosDeIgualPadre = list_filter(cola_new,(void*)comparadorMismoPrograma);
+			int ubicacionPrograma = list_get_index(lista_programas,unHilo->pid,(void*)comparadorMismoPrograma);
+				if(ubicacionPrograma < list_size(lista_programas)){ //SI ESTÁ EN LA LISTA DE PROGRAMAS
 					programa_t * programa = malloc(sizeof(programa_t));
 					programa= list_get(lista_programas,ubicacionPrograma);
 					list_add_all(programa->cola_ready,hilosDeIgualPadre);
@@ -440,11 +464,11 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 					free(unHilo);
 					free(programa);
 				}
-				if(!ubicacionPrograma){
+				if(ubicacionPrograma == list_size(lista_programas)){ //SI NO ESTÁ EN LA LISTA DE PROGRAMAS
 					cantidadHilosNew = list_size(cola_new);
 					hilo_t * unHilo = malloc(sizeof(hilo_t));
 					unHilo = list_get(cola_new,0); // tomo el primer elemento
-					t_list * hilosDeIgualPadre = list_remove_by_condition()(cola_new,comparadorMismoPrograma(unHilo->pid));
+					t_list * hilosDeIgualPadre = list_filter(cola_new,(void*)comparadorMismoPrograma);
 					programa_t * nuevoPrograma = malloc(sizeof(programa_t));
 					nuevoPrograma->pid = unHilo->pid;
 					list_add_all(nuevoPrograma->cola_ready, hilosDeIgualPadre);
@@ -460,7 +484,7 @@ void * planificador_NEW_READY(){ //aun no se que pasarle como parametro y donde 
 				}
 		}
 }
-*/
+
 bool comparadorMismoPrograma(hilo_t * hilo1, char * pid_programa){
 	return (strcmp(hilo1->pid,pid_programa)==0);
 }
