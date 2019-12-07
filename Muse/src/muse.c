@@ -9,35 +9,21 @@ int main()
 
 
   //reservamos la UPCM y aniadimos tabla de frames
-//->  UPCM = malloc(memory_size * sizeof(int));
-  tabla_de_frames = list_create();
-  Frame cadena_Frames[frames_table_size];
+  UPCM = malloc(memory_size);
+  printf("[+]La direccion inicial de la UPCM es: %u\n",UPCM );
 
-  //rellenamos la tabla de frames con 0, porque ninguno esta ocupado
+  tabla_de_frames = list_create();
+
+  //rellenamos la tabla de frames con 1, porque ninguno esta ocupado
   for(int i=0;i<frames_table_size;i++)
     {
-      list_add_in_index(tabla_de_frames,i,0);
+      list_add_in_index(tabla_de_frames,i,1);
     }
-
-  for(int k=0;k<frames_table_size;k++)
-    {
-      cadena_Frames[k].numero_frame = k;
-      cadena_Frames[k].espacio_ocupado.size = page_size;
-      cadena_Frames[k].espacio_ocupado.isFree = false;
-    }
-
-  printf("Mostrando cadena de frames: \n" );
-
-  for(int k=0;k<frames_table_size;k++)
-  {
-    printf("frame numero %d\n",cadena_Frames[k].numero_frame );
-    printf("bit de ocupado : %d\n",cadena_Frames[k].espacio_ocupado.isFree );
-  }
-
   //pp ->
 
-  cambiarValor(tabla_de_frames,0,1);
-  cambiarValor(tabla_de_frames,1,1);
+  cambiarValor(tabla_de_frames,0,0);
+  cambiarValor(tabla_de_frames,1,0);
+  cambiarValor(tabla_de_frames,2,0);
 
    // lista de frames
   printf("\n\nLista de frames: \n" );
@@ -46,97 +32,173 @@ int main()
     printf("%d-", list_get(tabla_de_frames,j));
   }
 
+  printf("\n[+]Cargando heaps en la UPCM..\n");
+
+
+  for(int i=0;i<frames_table_size;i++)
+  {
+    uint32_t pos = calcular_posicion_en_UPCM(i);
+    Heap *heap = malloc(sizeof(Heap));
+    heap->isFree = true;
+    heap->size = page_size - 5;
+    poner_heap(heap,pos);
+    free(heap);
+  }
+
+  printf("   Heaps cargados de forma exitosa!\n");
+
 
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
-  iniciar_servidor(atoi(puerto));
+  tratar_muse_alloc(20);
+  tratar_muse_alloc(10);
+  tratar_muse_alloc(2);
+
+  /*iniciar_servidor(atoi(puerto));
   log_info(logger,"Servidor corriendo\n");
+*/
 
-  //uint32_t pet = tratar_muse_alloc(15);
-  //free(UPCM);
 
+  uint32_t disponible = free_frame_heap(calcular_posicion_en_UPCM(2));
+
+
+  free(UPCM);
   free(tabla_de_frames);
   return 0;
 }
 
-int recibir_peticion(uint32_t tam)
-{
-    printf("Comprobar si hay %d libre\n",tam );
-    pasar_a_frames(tam);
-    //buscar frames libres..
+void poner_heap(Heap *heap,uint32_t posicion){
+  memcpy(UPCM+posicion,&(heap->isFree),1);
+  memcpy(UPCM+posicion+1,&(heap->size),4);
+  printf("[+]Se puso el heap(%d,%d) en la posicion(de UPCM) %u\n",heap->isFree,heap->size,posicion);
 }
 
-int pasar_a_frames(uint32_t tam)
+uint32_t calcular_posicion_en_UPCM(uint32_t n_frame)
 {
-  int frames= 0;
-  frames = page_size / tam;
-  return frames;
+  uint32_t posicion = n_frame * page_size;
+  return posicion;
 }
 
-uint32_t tratar_muse_alloc(uint32_t tam){
-
-	int frames_necesarios,free_frame;
-	int flag = 0;
-
-	frames_necesarios = tam / (page_size - 5);
-	if(frames_necesarios == 0)
-	{
-		frames_necesarios = 1;
-	}
-
-	//buscamos marcos libres
-  for(int i=0;i<frames_table_size;i++)
+uint32_t free_frame_heap(uint32_t posicion)
+{
+  uint32_t val,respuesta;
+  memcpy(&val,UPCM+posicion,1);
+  if(val==1)
+  {
+    respuesta = posicion;
+  }
+  else
+  {
+    uint32_t size;
+    memcpy(&size,UPCM+posicion+1,4);
+    if(size+10 < page_size) //el tamanio usado + los dos heaps tiene que ser menor
+    {                       // que el tamanio de la pagina, sino no tiene espacio libre
+      respuesta = posicion + size + 5;
+    }
+    else
     {
-      if(flag == 0)
-      {
-        if(list_get(tabla_de_frames,i)==0)
-        {
-          //-> pp
-          printf("Frame libre numero %d\n",i );
-          //<- pp
-
-          free_frame = i;
-          flag = 1;
-        }
-      }
+      respuesta = -1;
     }
 
-  //comprobamos que tenga espacio suficiente ?
+  }
+  printf(" La posicion donde esta el heap free es %d\n",respuesta );
+  return respuesta;
+}
 
-  // cambiamos el valor de ese frame de libre a ocupado
-  //cambiarValor(tabla_de_frames,free_frame,1);
-  //cambiarValorCadena(free_frame,1);
+uint32_t buscar_frame_libre()
+{
+  uint32_t frame_libre;
+  int flag=0;
+  while(flag==0)
+  {
+    for(int i=0;i<frames_table_size;i++)
+    {
+      if(list_get(tabla_de_frames,i)==1)
+      {
+        frame_libre = i;
+        flag = 1;
+        i = frames_table_size-1;
+      }
 
-  cambiarValor(tabla_de_frames,free_frame,1);
+    }
+    //->
+    //si no hay frames libres hay que swapear
+  }
 
-//mostramos como quedo la tabla de frames
+  printf("El frame libre es el numero %d\n",frame_libre );
+  return frame_libre;
+}
 
-  printf("\n\nLista de frames: \n" );
+void reservar_espacio(uint32_t posicion,uint32_t tamanio)
+{
+  Heap * heap = malloc(sizeof(Heap));
+  heap->isFree=false;
+  heap->size=tamanio;
+  poner_heap(heap,posicion);
+
+  free(heap);
+}
+
+void alloc_tam(uint32_t tam,uint32_t posicion)
+{
+  //@tam : siempre es menor que page_size - 5 (menos el heap)
+  //@posicion : donde esta el heap
+  reservar_espacio(posicion,tam);
+
+  //si tam + 10 < page size, tenemos que indicar cuanto espacio libre queda
+  // y para eso aniadimos otro heap
+  if(tam+10 <= page_size)
+  {
+    Heap *heap_free = malloc(sizeof(Heap));
+    heap_free->isFree=true;
+    heap_free->size=(page_size - tam - 10);
+    memcpy(UPCM+posicion+5+tam,&(heap_free->isFree),1);
+    memcpy(UPCM+posicion+6+tam,&(heap_free->size),4);
+    free(heap_free);
+  }
+
+
+}
+
+
+
+
+uint32_t tratar_muse_alloc(uint32_t tam)
+{
+  uint32_t free_frame = buscar_frame_libre();
+  uint32_t free_frame_pos = calcular_posicion_en_UPCM(free_frame);
+  if(tam < page_size - 5) //el tamanio entra en un solo frame
+  {
+    alloc_tam(tam,free_frame_pos);
+  }
+
+
+  //uint32_t free_frame = buscar_frame_libre();
+  //uint32_t free_frame_pos = calcular_posicion_en_UPCM(free_frame);
+  //reservar_espacio(free_frame_pos,tam);
+
+  //cambiamos el valor en la tabla de frames
+  cambiarValor(tabla_de_frames,free_frame,0);
+
+  printf("\n\n[+]Tabla de frames actualizada: \n" );
   for(int j=0;j<frames_table_size;j++)
   {
     printf("%d-", list_get(tabla_de_frames,j));
   }
 
-  printf("\n\n\n" );
-
-  if(flag==1)
-  {
-    return free_frame; //este sera el frame libre que se le dara al proceso
-		  // return (uint32_t) malloc(tam);
-  }
-  else
-  {
-    //-> pp
-    printf("No hay frames libres, pasar los que están a MV\n");
-    // <- pp
-
-    return -1; //esto significa que hay que swapear
-  }
-
+  printf("\n" );
+  return free_frame_pos; //devolvemos la posicion donde se encuentra reservada la memoria
 
 }
 
 
+uint32_t frame_free_size(uint32_t posicion)
+{
+    uint32_t free_size;
+    memcpy(&free_size,UPCM+posicion+1,4);
+    printf("Memoria disponible : %d\n",free_size );
+    return free_size;
+}
 
 void cambiarValor(t_list *tabla_de_frames,int index,int valor)
 {

@@ -13,9 +13,9 @@ uint32_t iniciar_servidor(uint32_t puerto)  //estaria bueno que el logger no se 
   listen(fd,MAXCONN);
   printf("Servidor levantado en el puerto %d\n",puerto);
 
-  while(1)
+  while(1) //mandarlo a thread
   {
-    conn = accept(fd, (struct sockaddr *)NULL, NULL);
+    conn = accept(fd, (struct sockaddr *)NULL, NULL); //mandarlo a thread
     recibir_paquete(conn);
     close(conn);
   }

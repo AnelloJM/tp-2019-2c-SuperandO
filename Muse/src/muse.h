@@ -28,7 +28,7 @@ t_log* logger;
 t_config* archivoConfig;
 
 
-int *UPCM; //UPCM =
+void *UPCM; //UPCM = unica porcion contigua de memoria
 t_list *tabla_de_frames; //tabla de frames la tomamos como una lista de 0/1
 
 int memory_size;
@@ -56,7 +56,7 @@ struct Pagina
 typedef struct
 {
   int size;
-  bool isFree; //Bool isFree
+  bool isFree;
 }Heap;
 
 
@@ -68,17 +68,6 @@ typedef struct
 
 } Segmento;
 
-typedef struct
-{
-  int numero_frame;
-  Heap espacio_ocupado;
-  Heap espacio_free;
-//  Frame *next_frame;
-}Frame;
-
-
-
-
 
 //deberiamos pasarlos a uint32_t ??
 void leerArchivoDeConfiguracion();
@@ -88,6 +77,12 @@ int iniciarLogger();
 int recibir_peticion(uint32_t tam);
 int pasar_a_frames(uint32_t am);
 uint32_t tratar_muse_alloc(uint32_t tam);
-
+void poner_heap(Heap *heap,uint32_t posicion);
+uint32_t calcular_posicion_en_UPCM(uint32_t n_frame);
+uint32_t buscar_frame_libre();
+void reservar_espacio(uint32_t posicion,uint32_t tamanio);
+uint32_t frame_free_size(uint32_t posicion);
+uint32_t free_frame_heap(uint32_t posicion);
+void alloc_tam(uint32_t tam,uint32_t posicion);
 
 #endif
