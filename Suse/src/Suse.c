@@ -98,14 +98,13 @@ void crearLogger(){
 }
 
 void leerArchivoDeConfiguracion(){
-	char* configPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse/src/SUSE.cfg";
+	char* configPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse/src/SUSE.config";
 	archivoConfig = config_create(configPath);
 	if (archivoConfig == NULL){
 		log_error(logger,"ERROR: Archivo de configuracion no encontrado");
 	}
 	setearValores(archivoConfig);
 	log_info(logger,"La configuracion fue cargada exitosamente");
-	config_destroy(archivoConfig);
 }
 
 void setearValores(t_config* archivoConfig){
