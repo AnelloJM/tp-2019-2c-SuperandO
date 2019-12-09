@@ -45,10 +45,17 @@
 
 //t_log* libmuse_logger;
 uint32_t socket_pipe;
-
+int id_proceso;
 //estructuras
 
+typedef struct
+{
+  uint32_t base;
+  t_list * tabla_index;
+  uint32_t size;
+}Segmento;
 
+/*
 typedef struct
 {
   int size;
@@ -64,6 +71,7 @@ struct Pagina
   int numero_pagina;
   struct Pagina *next_pagina;
 };
+*/
 
 //FUNCIONES
 
@@ -159,6 +167,6 @@ int muse_sync(uint32_t addr, size_t len);
 int muse_unmap(uint32_t dir);
 
 //mas funciones propias
-
+void enviar_id(uint32_t destinatario,int id);
 
 #endif

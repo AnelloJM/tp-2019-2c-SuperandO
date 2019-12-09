@@ -7,6 +7,7 @@ int main()
 
   iniciarLogger();
 
+  uint32_t cliente;
 
   //reservamos la UPCM y aniadimos tabla de frames
   UPCM = malloc(memory_size);
@@ -19,12 +20,7 @@ int main()
     {
       list_add_in_index(tabla_de_frames,i,-1);
     }
-  //pp ->
 
-//  cambiarValor(tabla_de_frames,0,1);
-  //cambiarValor(tabla_de_frames,1,2);
-  //cambiarValor(tabla_de_frames,2,2);
-   // lista de frames
   printf("\n\nLista de frames: \n" );
 
   mostrar_frames_table();
@@ -47,6 +43,7 @@ int main()
 
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
+/*
 //-pp->
   uint32_t pet1 =tratar_muse_alloc(59,1);
   uint32_t pet2 = tratar_muse_alloc(70,6);
@@ -60,18 +57,38 @@ int main()
   //printf("Pet3 en pos %d\n",pet3 );
 
 // <-pp-
-
-
-  /*iniciar_servidor(atoi(puerto));
-  log_info(logger,"Servidor corriendo\n");
 */
+
+  // iniciar_servidor(atoi(puerto),logger);
+
+  socketMuse = iniciar_servidor(puerto, logger);
+
+  log_info(logger,"Servidor corriendo\n");
+  while(1){
+    cliente = esperar_cliente_con_accept(socketMuse, logger);
+
+    pthread_t* cody = malloc(sizeof(pthread_t));
+    if(pthread_create(cody,NULL,(void*)recibir_paquete,(void*)cliente) == 0){
+      pthread_detach(*cody);
+      log_info(logger,"Se creo el hilo sin problema, cliente: %i", cliente);
+    }else{
+      log_error(logger,"No se pudo crear el hilo, cliente: %i", cliente);
+    }
+  }
+
+
+
 
   printf("\n\n\n[+]Liberando memoria asignada a upcm..\n" );
   free(UPCM);
   free(tabla_de_frames);
   printf("Adios!\n" );
+
+
   return 0;
 }
+
+
 
 void poner_heap(Heap *heap,uint32_t posicion){
   memcpy(UPCM+posicion,&(heap->isFree),1);

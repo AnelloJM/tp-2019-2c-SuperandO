@@ -6,23 +6,23 @@ int muse_init(int id, char* ip, int puerto)
 {
 //Nos conectamos a Muse
 	uint32_t respuesta;
-
+	id_proceso = id;
 	socket_pipe = conectarse_a_servidor(ip,puerto);
-	respuesta = muse_alloc(30);
+	respuesta = muse_alloc(70);
 
 	printf("La respuesta de muse es %d\n\n",respuesta );
-	socket_pipe = conectarse_a_servidor(ip,puerto);
-	muse_free(25293);
-
-	socket_pipe = conectarse_a_servidor(ip,puerto);
-	respuesta = muse_get(23, 33, 5);
-	printf("La respuesta de muse es %d\n\n",respuesta );
-
-
 
   return 0;
 }
 
+void enviar_id(uint32_t destinatario,int id)
+{
+	void * buffer = malloc(4);
+	memcpy(buffer,&id,4);
+	send(destinatario,buffer,4,0);
+
+	free(buffer);
+}
 
 uint32_t muse_alloc(uint32_t tam)
 {
@@ -32,11 +32,14 @@ uint32_t muse_alloc(uint32_t tam)
 	paquete->op = 0;
   paquete->size_alloc = tam;
 
+	enviar_id(socket_pipe,id_proceso);
   enviar_muse_alloc(socket_pipe,paquete);
 	respuesta_muse = recibir_respuesta_general(socket_pipe);
+
 	free(paquete);
-  return 0;
+  return (respuesta_muse->respuesta);
 }
+
 
 void muse_free(uint32_t dir) {
 
@@ -45,9 +48,6 @@ void muse_free(uint32_t dir) {
 	paquete->direccion=dir;
 	enviar_muse_free(socket_pipe,paquete);
 	free(paquete);
-		//free((void*) dir);
-
-	printf("\n");
 }
 
 
@@ -70,12 +70,11 @@ int muse_get(void* dst, uint32_t src, size_t n){
 		printf("%c",buffer[i]);
 	}
 
-  //  memcpy(dst, (void*) src, n);
 	free(paquete);
 	free(buffer);
 
 	printf("\n");
-//comprobar si se copio, sino , retorna -1
+
 	return 0;
 }
 
@@ -113,7 +112,7 @@ int muse_unmap(uint32_t dir){
 int main()
 {
 
-  muse_init(12,"127.0.0.1",5555);
+  muse_init(7,"127.0.0.1",5555);
   muse_close();
   return 0;
 }
