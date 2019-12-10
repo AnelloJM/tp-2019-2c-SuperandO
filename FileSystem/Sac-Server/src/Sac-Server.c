@@ -781,7 +781,7 @@ void* funcionMagica(int cliente){
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathWrite)+1);
 				log_error(logger, pathWrite);
 				log_info(logger, "me pidieron escribir: %s", bufWrite);
-				log_info(logger, "de tamaño: %i", sizeWrite);
+				log_info(logger, "de tamanio: %i", sizeWrite);
 				uint32_t responseWrite = Hacer_Write(pathWrite, bufWrite, 0);
 				log_info(logger,"LE VOY A MANDAR %i", responseWrite);
 //				char *respuestaRead2 = Hacer_Read("/archivo",6, 0);
@@ -1217,7 +1217,7 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
 	t_config *archivo_de_configuracion = config_create("../../Sac.config");
-	char *puerto = "6969";//config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
+	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
 	log_info(logger, "p: %s",puerto);
 
 	//Inicializacion de semaforos
