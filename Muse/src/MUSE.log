@@ -2216,3 +2216,198 @@
 [INFO] 15:32:57:808 MUSE/(3966:3966): swap size ->  1024
 [INFO] 15:32:57:808 MUSE/(3966:3966): --------------
 
+[INFO] 16:40:35:83 MUSE/(4845:4845): El logger se creo con exito
+[INFO] 16:40:35:84 MUSE/(4845:4845): La configuracion fue cargada exitosamente
+[INFO] 16:40:35:84 MUSE/(4845:4845): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 16:40:35:84 MUSE/(4845:4845): ID ->  14
+[INFO] 16:40:35:84 MUSE/(4845:4845): IP ->  (null)
+[INFO] 16:40:35:84 MUSE/(4845:4845): Puerto ->  5555
+[INFO] 16:40:35:84 MUSE/(4845:4845): memory size ->  512
+[INFO] 16:40:35:84 MUSE/(4845:4845): page size ->  32
+[INFO] 16:40:35:84 MUSE/(4845:4845): swap size ->  1024
+[INFO] 16:40:35:84 MUSE/(4845:4845): --------------
+
+[INFO] 16:46:37:156 MUSE/(4969:4969): El logger se creo con exito
+[INFO] 16:46:37:156 MUSE/(4969:4969): La configuracion fue cargada exitosamente
+[INFO] 16:46:37:157 MUSE/(4969:4969): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 16:46:37:157 MUSE/(4969:4969): ID ->  14
+[INFO] 16:46:37:157 MUSE/(4969:4969): IP ->  (null)
+[INFO] 16:46:37:157 MUSE/(4969:4969): Puerto ->  5555
+[INFO] 16:46:37:157 MUSE/(4969:4969): memory size ->  512
+[INFO] 16:46:37:157 MUSE/(4969:4969): page size ->  32
+[INFO] 16:46:37:157 MUSE/(4969:4969): swap size ->  1024
+[INFO] 16:46:37:157 MUSE/(4969:4969): --------------
+
+[INFO] 11:17:45:133 MUSE/(3766:3766): El logger se creo con exito
+[INFO] 11:17:45:184 MUSE/(3766:3766): La configuracion fue cargada exitosamente
+[INFO] 11:17:45:184 MUSE/(3766:3766): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 11:17:45:184 MUSE/(3766:3766): ID ->  14
+[INFO] 11:17:45:184 MUSE/(3766:3766): IP ->  (null)
+[INFO] 11:17:45:184 MUSE/(3766:3766): Puerto ->  5555
+[INFO] 11:17:45:184 MUSE/(3766:3766): memory size ->  512
+[INFO] 11:17:45:184 MUSE/(3766:3766): page size ->  32
+[INFO] 11:17:45:184 MUSE/(3766:3766): swap size ->  1024
+[INFO] 11:17:45:184 MUSE/(3766:3766): --------------
+
+[INFO] 11:28:27:728 MUSE/(3945:3945): El logger se creo con exito
+[INFO] 11:28:27:728 MUSE/(3945:3945): La configuracion fue cargada exitosamente
+[INFO] 11:28:27:729 MUSE/(3945:3945): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 11:28:27:729 MUSE/(3945:3945): ID ->  14
+[INFO] 11:28:27:729 MUSE/(3945:3945): IP ->  (null)
+[INFO] 11:28:27:729 MUSE/(3945:3945): Puerto ->  5555
+[INFO] 11:28:27:729 MUSE/(3945:3945): memory size ->  512
+[INFO] 11:28:27:729 MUSE/(3945:3945): page size ->  32
+[INFO] 11:28:27:729 MUSE/(3945:3945): swap size ->  1024
+[INFO] 11:28:27:729 MUSE/(3945:3945): --------------
+
+[INFO] 11:59:09:193 MUSE/(4372:4372): El logger se creo con exito
+[INFO] 11:59:09:193 MUSE/(4372:4372): La configuracion fue cargada exitosamente
+[INFO] 11:59:09:193 MUSE/(4372:4372): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 11:59:09:193 MUSE/(4372:4372): ID ->  14
+[INFO] 11:59:09:193 MUSE/(4372:4372): IP ->  (null)
+[INFO] 11:59:09:193 MUSE/(4372:4372): Puerto ->  5555
+[INFO] 11:59:09:193 MUSE/(4372:4372): memory size ->  512
+[INFO] 11:59:09:193 MUSE/(4372:4372): page size ->  32
+[INFO] 11:59:09:193 MUSE/(4372:4372): swap size ->  1024
+[INFO] 11:59:09:193 MUSE/(4372:4372): --------------
+
+[INFO] 11:59:09:193 MUSE/(4372:4372): Dentro de iniciar servidor
+[INFO] 12:01:14:441 MUSE/(4419:4419): El logger se creo con exito
+[INFO] 12:01:14:441 MUSE/(4419:4419): La configuracion fue cargada exitosamente
+[INFO] 12:01:14:441 MUSE/(4419:4419): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:01:14:441 MUSE/(4419:4419): ID ->  14
+[INFO] 12:01:14:441 MUSE/(4419:4419): IP ->  (null)
+[INFO] 12:01:14:441 MUSE/(4419:4419): Puerto ->  5555
+[INFO] 12:01:14:441 MUSE/(4419:4419): memory size ->  512
+[INFO] 12:01:14:442 MUSE/(4419:4419): page size ->  32
+[INFO] 12:01:14:442 MUSE/(4419:4419): swap size ->  1024
+[INFO] 12:01:14:442 MUSE/(4419:4419): --------------
+
+[INFO] 12:01:14:442 MUSE/(4419:4419): Dentro de iniciar servidor
+[INFO] 12:01:25:521 MUSE/(4432:4432): El logger se creo con exito
+[INFO] 12:01:25:521 MUSE/(4432:4432): La configuracion fue cargada exitosamente
+[INFO] 12:01:25:521 MUSE/(4432:4432): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:01:25:522 MUSE/(4432:4432): ID ->  14
+[INFO] 12:01:25:522 MUSE/(4432:4432): IP ->  (null)
+[INFO] 12:01:25:522 MUSE/(4432:4432): Puerto ->  5555
+[INFO] 12:01:25:522 MUSE/(4432:4432): memory size ->  512
+[INFO] 12:01:25:522 MUSE/(4432:4432): page size ->  32
+[INFO] 12:01:25:522 MUSE/(4432:4432): swap size ->  1024
+[INFO] 12:01:25:522 MUSE/(4432:4432): --------------
+
+[INFO] 12:01:25:522 MUSE/(4432:4432): Dentro de iniciar servidor
+[INFO] 12:03:11:21 MUSE/(4460:4460): El logger se creo con exito
+[INFO] 12:03:11:22 MUSE/(4460:4460): La configuracion fue cargada exitosamente
+[INFO] 12:03:11:22 MUSE/(4460:4460): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:03:11:22 MUSE/(4460:4460): ID ->  14
+[INFO] 12:03:11:22 MUSE/(4460:4460): IP ->  (null)
+[INFO] 12:03:11:22 MUSE/(4460:4460): Puerto ->  5555
+[INFO] 12:03:11:22 MUSE/(4460:4460): memory size ->  512
+[INFO] 12:03:11:22 MUSE/(4460:4460): page size ->  32
+[INFO] 12:03:11:22 MUSE/(4460:4460): swap size ->  1024
+[INFO] 12:03:11:22 MUSE/(4460:4460): --------------
+
+[INFO] 12:03:11:22 MUSE/(4460:4460): Dentro de iniciar servidor
+[INFO] 12:04:34:997 MUSE/(4487:4487): El logger se creo con exito
+[INFO] 12:04:34:997 MUSE/(4487:4487): La configuracion fue cargada exitosamente
+[INFO] 12:04:34:997 MUSE/(4487:4487): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:04:34:997 MUSE/(4487:4487): ID ->  14
+[INFO] 12:04:34:997 MUSE/(4487:4487): IP ->  (null)
+[INFO] 12:04:34:997 MUSE/(4487:4487): Puerto ->  5555
+[INFO] 12:04:34:997 MUSE/(4487:4487): memory size ->  512
+[INFO] 12:04:34:997 MUSE/(4487:4487): page size ->  32
+[INFO] 12:04:34:997 MUSE/(4487:4487): swap size ->  1024
+[INFO] 12:04:34:997 MUSE/(4487:4487): --------------
+
+[INFO] 12:04:34:997 MUSE/(4487:4487): Dentro de iniciar servidor
+[INFO] 12:08:33:960 MUSE/(4648:4648): El logger se creo con exito
+[INFO] 12:08:33:961 MUSE/(4648:4648): La configuracion fue cargada exitosamente
+[INFO] 12:08:33:961 MUSE/(4648:4648): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:08:33:961 MUSE/(4648:4648): ID ->  14
+[INFO] 12:08:33:961 MUSE/(4648:4648): IP ->  (null)
+[INFO] 12:08:33:961 MUSE/(4648:4648): Puerto ->  5555
+[INFO] 12:08:33:961 MUSE/(4648:4648): memory size ->  512
+[INFO] 12:08:33:961 MUSE/(4648:4648): page size ->  32
+[INFO] 12:08:33:961 MUSE/(4648:4648): swap size ->  1024
+[INFO] 12:08:33:961 MUSE/(4648:4648): --------------
+
+[INFO] 12:08:33:961 MUSE/(4648:4648): Dentro de iniciar servidor
+[INFO] 12:08:33:961 MUSE/(4648:4648): esperando proceso cliente
+[INFO] 12:08:46:184 MUSE/(4648:4648): Se conecto un proceso!
+[INFO] 12:08:46:185 MUSE/(4648:4648): Se creo el hilo sin problema, cliente: 5
+[INFO] 12:08:46:185 MUSE/(4648:4648): esperando proceso cliente
+[INFO] 12:10:58:718 MUSE/(4688:4688): El logger se creo con exito
+[INFO] 12:10:58:718 MUSE/(4688:4688): La configuracion fue cargada exitosamente
+[INFO] 12:10:58:719 MUSE/(4688:4688): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:10:58:719 MUSE/(4688:4688): ID ->  14
+[INFO] 12:10:58:719 MUSE/(4688:4688): IP ->  (null)
+[INFO] 12:10:58:719 MUSE/(4688:4688): Puerto ->  5555
+[INFO] 12:10:58:719 MUSE/(4688:4688): memory size ->  512
+[INFO] 12:10:58:719 MUSE/(4688:4688): page size ->  32
+[INFO] 12:10:58:719 MUSE/(4688:4688): swap size ->  1024
+[INFO] 12:10:58:719 MUSE/(4688:4688): --------------
+
+[INFO] 12:10:58:719 MUSE/(4688:4688): Dentro de iniciar servidor
+[INFO] 12:10:58:719 MUSE/(4688:4688): Servidor corriendo
+
+[INFO] 12:10:58:719 MUSE/(4688:4688): esperando proceso cliente
+[INFO] 12:11:03:587 MUSE/(4688:4688): Se conecto un proceso!
+[INFO] 12:11:03:587 MUSE/(4688:4688): Se creo el hilo sin problema, cliente: 5
+[INFO] 12:11:03:587 MUSE/(4688:4688): esperando proceso cliente
+[INFO] 12:11:08:868 MUSE/(4688:4688): Se conecto un proceso!
+[INFO] 12:11:08:868 MUSE/(4688:4688): Se creo el hilo sin problema, cliente: 6
+[INFO] 12:11:08:868 MUSE/(4688:4688): esperando proceso cliente
+[INFO] 12:11:12:319 MUSE/(4688:4688): Se conecto un proceso!
+[INFO] 12:11:12:319 MUSE/(4688:4688): Se creo el hilo sin problema, cliente: 7
+[INFO] 12:11:12:319 MUSE/(4688:4688): esperando proceso cliente
+[INFO] 12:11:15:357 MUSE/(4688:4688): Se conecto un proceso!
+[INFO] 12:11:15:357 MUSE/(4688:4688): Se creo el hilo sin problema, cliente: 8
+[INFO] 12:11:15:357 MUSE/(4688:4688): esperando proceso cliente
+[INFO] 12:12:01:841 MUSE/(4736:4736): El logger se creo con exito
+[INFO] 12:12:01:841 MUSE/(4736:4736): La configuracion fue cargada exitosamente
+[INFO] 12:12:01:841 MUSE/(4736:4736): 
+ [+]La configuracion es la siguiente 
+
+[INFO] 12:12:01:842 MUSE/(4736:4736): ID ->  14
+[INFO] 12:12:01:842 MUSE/(4736:4736): IP ->  (null)
+[INFO] 12:12:01:842 MUSE/(4736:4736): Puerto ->  5555
+[INFO] 12:12:01:842 MUSE/(4736:4736): memory size ->  512
+[INFO] 12:12:01:842 MUSE/(4736:4736): page size ->  32
+[INFO] 12:12:01:842 MUSE/(4736:4736): swap size ->  1024
+[INFO] 12:12:01:842 MUSE/(4736:4736): --------------
+
+[INFO] 12:12:01:842 MUSE/(4736:4736): Dentro de iniciar servidor
+[INFO] 12:12:01:842 MUSE/(4736:4736): Servidor corriendo
+
+[INFO] 12:12:01:842 MUSE/(4736:4736): esperando proceso cliente
+[INFO] 12:12:35:830 MUSE/(4736:4736): Se conecto un proceso!
+[INFO] 12:12:35:831 MUSE/(4736:4736): Se creo el hilo sin problema, cliente: 5
+[INFO] 12:12:35:831 MUSE/(4736:4736): esperando proceso cliente
+[INFO] 12:12:40:521 MUSE/(4736:4736): Se conecto un proceso!
+[INFO] 12:12:40:521 MUSE/(4736:4736): Se creo el hilo sin problema, cliente: 6
+[INFO] 12:12:40:521 MUSE/(4736:4736): esperando proceso cliente
+[INFO] 12:12:54:250 MUSE/(4736:4736): Se conecto un proceso!
+[INFO] 12:12:54:250 MUSE/(4736:4736): Se creo el hilo sin problema, cliente: 7
+[INFO] 12:12:54:250 MUSE/(4736:4736): esperando proceso cliente

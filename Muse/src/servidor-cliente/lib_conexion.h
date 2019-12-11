@@ -89,24 +89,24 @@ typedef struct
 struct sockaddr_in serv; //This is our main socket variable.
 uint32_t fd; //This is the socket file descriptor that will be used to identify the socket
 uint32_t conn; //This is the connection file descriptor that will be used to distinguish client connections.
-char message[100] = ""; //This array will store the messages that are sent by the server
 
 
 //Funciones
 
 
 uint32_t conectarse_a_servidor(char *ip,uint32_t puerto);
-uint32_t iniciar_servidor(uint32_t puerto);
+uint32_t iniciar_servidor(char* puerto,t_log * logger);
+uint32_t esperar_cliente_con_accept(uint32_t socket_servidor, t_log* logger);
 uint32_t esperar_cliente(uint32_t cliente);
 void recibir_paquete(uint32_t destinatario);
 
-Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario);
+Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario,uint32_t id_proceso);
 void enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete);
 
-uint32_t recibir_muse_free(uint32_t destinatario);
+uint32_t recibir_muse_free(uint32_t destinatario,uint32_t id_proceso);
 void enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete);
 
-Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario);
+Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario,uint32_t id_proceso);
 void enviar_muse_get(uint32_t destino,Paquete_muse_get *paquete);
 
 uint32_t recibir_muse_cpy(uint32_t destinatario);

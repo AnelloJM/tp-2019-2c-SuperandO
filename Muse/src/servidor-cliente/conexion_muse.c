@@ -1,6 +1,6 @@
 #include "lib_conexion.h"
 
-
+/*
 uint32_t iniciar_servidor(uint32_t puerto)  //estaria bueno que el logger no se maneje aca
 {
 
@@ -23,11 +23,74 @@ uint32_t iniciar_servidor(uint32_t puerto)  //estaria bueno que el logger no se 
 
   return 0;
 }
+*/
+
+uint32_t iniciar_servidor(char* puerto,t_log* logger)
+{
+	log_info(logger,"Dentro de iniciar servidor");
+	uint32_t socket_servidor;
+  char * ip= "127.0.0.1";
+
+  struct addrinfo hints, *servinfo, *p;
+
+  memset(&hints, 0, sizeof(hints));
+  hints.ai_family = AF_UNSPEC;
+  hints.ai_socktype = SOCK_STREAM;
+  hints.ai_flags = AI_PASSIVE;
+
+
+
+
+  getaddrinfo(ip, puerto, &hints, &servinfo);
+
+printf("Flagg\n" );
+  for (p=servinfo; p != NULL; p = p->ai_next)
+  {
+      if ((socket_servidor = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1)
+          continue;
+      if (bind(socket_servidor, p->ai_addr, p->ai_addrlen) == -1) {
+          close(socket_servidor);
+          continue;
+      }
+      break;
+  }
+
+  listen(socket_servidor, MAXCONN);
+
+  freeaddrinfo(servinfo);
+
+  return socket_servidor;
+}
+
+
+uint32_t esperar_cliente_con_accept(uint32_t socket_servidor, t_log* logger)
+{
+	struct sockaddr_in dir_cliente;
+	int tam_direccion = sizeof(struct sockaddr_in);
+	log_info(logger, "esperando proceso cliente");
+
+	uint32_t socket_cliente = accept(socket_servidor, &dir_cliente, &tam_direccion);
+
+	log_info(logger, "Se conecto un proceso!");
+	return socket_cliente;
+}
+
+
+
+
+
+
+
+
+
 
 void recibir_paquete(uint32_t destinatario)
 {
 
-  uint32_t codigo_op,respuesta;
+  uint32_t codigo_op,respuesta,n_proceso;
+  //recibimos el id del proceso
+  recv(destinatario,&n_proceso,4,0);
+  //recibimos el codigo de operacion
   recv(destinatario,&codigo_op,4,0);
 
   switch (codigo_op)
@@ -36,20 +99,20 @@ void recibir_paquete(uint32_t destinatario)
     case 0:
       printf("Se recibio un muse_alloc\n" );
       Paquete_respuesta_general *paquete_malloc = malloc(sizeof(Paquete_respuesta_general));
-      paquete_malloc = recibir_muse_alloc(destinatario);
+      paquete_malloc = recibir_muse_alloc(destinatario,n_proceso);
       enviar_respuesta_general(destinatario,paquete_malloc);
       free(paquete_malloc);
       break;
 
     case 1:
       printf("Se recibio un muse_free\n" );
-      recibir_muse_free(destinatario);
+      recibir_muse_free(destinatario,n_proceso);
       break;
 
     case 2:
       printf("Se recibio un muse_get\n" );
       Paquete_respuesta_general *paquete_get = malloc(sizeof(Paquete_respuesta_general));
-      paquete_get = recibir_muse_get(destinatario);
+      paquete_get = recibir_muse_get(destinatario, n_proceso);
       enviar_respuesta_general(destinatario,paquete_get);
       free(paquete_get);
       break;
@@ -77,14 +140,14 @@ void recibir_paquete(uint32_t destinatario)
 
 }
 
-Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario)
+Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario,uint32_t id_proceso)
 {
   Paquete_respuesta_general *paquete = malloc(sizeof(Paquete_respuesta_general));
   uint32_t tam;
   recv(destinatario,&tam,4,0);
 
   uint32_t resp_muse;
-  resp_muse = tratar_muse_alloc(tam,1); // el segundo parametro es el id del proceso
+  resp_muse = tratar_muse_alloc(tam,id_proceso); // el segundo parametro es el id del proceso
   paquete->size_resp = 4;
   paquete->respuesta = resp_muse;
   printf("El tamanio pedido es de %d\n",paquete->respuesta );
@@ -93,15 +156,16 @@ Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario)
   return paquete;
 }
 
-uint32_t recibir_muse_free(uint32_t destinatario)
+uint32_t recibir_muse_free(uint32_t destinatario,uint32_t id_proceso)
 {
   uint32_t dst;
   recv(destinatario,&dst,4,0);
+  //tratar_muse_free(id_proceso);
   printf("La direccion a liberear es %d\n",dst );
   return 0;
 }
 
-Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario)
+Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario,uint32_t n_proceso)
 {
   Paquete_respuesta_general * paquete =malloc(sizeof(Paquete_respuesta_general));
 
@@ -109,7 +173,7 @@ Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario)
   recv(destinatario,&read_pos,4,0);
   recv(destinatario,&read_size,4,0);
   printf("Se pidio obtener de la posicion %d los %d siguientes bits\n",read_pos,read_size );
-
+  //tratar_muse_get(id_proceso,...);
 
   char * mensaje = malloc(strlen("elmateesamargo"));
   memcpy(mensaje,"elmateesamargo",strlen("elmateesamargo")); //aca copiamos la direcicon que nos pide
