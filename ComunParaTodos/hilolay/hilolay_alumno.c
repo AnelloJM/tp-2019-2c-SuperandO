@@ -9,10 +9,8 @@ void hilolay_init(){
 void crearLogger(){
 	char* logPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/hilolay/hilolay.log";
 	char* nombreArch = "hilolay";
-	bool consolaActiva = true;
-	logger = log_create(logPath, nombreArch, consolaActiva, LOG_LEVEL_INFO);
+	logger = log_create(logPath, nombreArch, 1, LOG_LEVEL_INFO);
 	log_info(logger, "El logger se creo con exito");
-//	free(logPath);
 }
 
 void leerArchivoDeConfiguracion(){
@@ -23,12 +21,11 @@ void leerArchivoDeConfiguracion(){
 	}
 	setearValores(archivoConfig);
 	log_info(logger,"La configuracion fue cargada exitosamente");
-	config_destroy(archivoConfig);
 }
 
 void setearValores(t_config* archivoConfig){
-	server_ip = strdup(config_get_string_value(archivoConfig,"SERVER_IP"));
-	server_port = strdup(config_get_string_value(archivoConfig,"SERVER_PORT"));
+	server_ip = config_get_string_value(archivoConfig,"SERVER_IP");
+	server_port = config_get_string_value(archivoConfig,"SERVER_PORT");
 }
 
 //ENVIO DE PAQUETES
