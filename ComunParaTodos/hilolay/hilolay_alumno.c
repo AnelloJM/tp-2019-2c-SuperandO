@@ -1,9 +1,12 @@
 #include "hilolay_alumnos.h"
 
+//CONEXION CON SUSE
+
 void hilolay_init(){
 	crearLogger();
 	leerArchivoDeConfiguracion();
 	socket_suse = conectarse_a_un_servidor(server_ip, server_port,logger);
+	init_internal(main_ops);
 }
 
 void crearLogger(){
@@ -30,77 +33,58 @@ void setearValores(t_config* archivoConfig){
 
 //ENVIO DE PAQUETES
 
-int suse_create(int pid){
-	paquete->header.tipoMensaje= "SUSE_CREATE";
-	paquete->header.tamanioMensaje = sizeof(pid);
-	void* mensaje = paquete->mensaje;
-	memcpy(mensaje, &pid, sizeof(pid));
-	int resultado = EnviarPaquete(socket_suse,paquete);
-	if (resultado == 0 ){
-		log_error(logger,"Falló el envio del paquete");
+int suse_create(uint32_t pid){
+	if(Suse_PackAndSend_Create(socket_suse, pid)){
+		log_info(logger,"Se pudo enviar el paquete a suse");
+		return 0;
 	}
-	log_info(logger,"El paquete se envió correctamente");
-	return 0;
+	log_error(logger, "No se pudo enviar el paquete a suse");
+	return -1;
 }
 
-int suse_schedule_next(void){
-	paquete->header.tipoMensaje= "SUSE_SCHEDULE_NEXT";
-	int resultado = EnviarPaquete(socket_suse,paquete);
-	if (resultado == 0 ){
-		log_error(logger,"Falló el envio del paquete");
+int suse_schedule_next(uint32_t pid){
+	if(Suse_PackAndSend_Schedule_Next(socket_suse, pid)){
+		log_info(logger,"Se pudo enviar el paquete a suse");
+		return 0;
 	}
-	log_info(logger,"El paquete se envió correctamente");
-	return 0;
+	log_error(logger, "No se pudo enviar el paquete a suse");
+	return -1;
 }
 
-int suse_wait(int pid, char* sem_name){
-	paquete->header.tipoMensaje= "SUSE_WAIT";
-	void* mensaje = paquete->mensaje;
-	memcpy(mensaje, &sem_name, sizeof(sem_name));
-	paquete->header.tamanioMensaje = sizeof(sem_name);
-	int resultado = EnviarPaquete(socket_suse,paquete);
-	if (resultado == 0 ){
-		log_error(logger,"Falló el envio del paquete");
+int suse_wait(uint32_t pid, char* semID){
+	if(Suse_PackAndSend_Wait(socket_suse, pid, semID)){
+		log_info(logger,"Se pudo enviar el paquete a suse");
+		return 0;
 	}
-	log_info(logger,"El paquete se envió correctamente");
-	return 0;
+	log_error(logger, "No se pudo enviar el paquete a suse");
+	return -1;
 }
 
-int suse_signal(int pid, char* sem_name){
-	paquete->header.tipoMensaje= "SUSE_SIGNAL";
-	void* mensaje = paquete->mensaje;
-	memcpy(mensaje, &sem_name, sizeof(sem_name));
-	paquete->header.tamanioMensaje = sizeof(sem_name);
-	int resultado = EnviarPaquete(socket_suse,paquete);
-	if (resultado == 0 ){
-		log_error(logger,"Falló el envio del paquete");
+int suse_signal(uint32_t pid, char* semID){
+	if(Suse_PackAndSend_Signal(socket_suse, pid, semID)){
+		log_info(logger,"Se pudo enviar el paquete a suse");
+		return 0;
 	}
-	log_info(logger,"El paquete se envió correctamente");
-	return 0;
+	log_error(logger, "No se pudo enviar el paquete a suse");
+	return -1;
 }
 
-int suse_join(int tid){
-	paquete->header.tipoMensaje= "SUSE_JOIN";
-	paquete->header.tamanioMensaje = sizeof(tid);
-	void* mensaje = paquete->mensaje;
-	memcpy(mensaje, &tid, sizeof(tid));
-	int resultado = EnviarPaquete(socket_suse,paquete);
-	if (resultado == 0 ){
-		log_error(logger,"Falló el envio del paquete");
+int suse_join(uint32_t pid, uint32_t tid){
+	if(Suse_PackAnd_Send_Join(socket_suse, pid, tid)){
+		log_info(logger,"Se pudo enviar el paquete a suse");
+		return 0;
 	}
-	log_info(logger,"El paquete se envió correctamente");
-	return 0;
+	log_error(logger, "No se pudo enviar el paquete a suse");
+	return -1;
 }
 
-int suse_close(int tid){
-	paquete->header.tipoMensaje= "SUSE_CLOSE";
-	paquete->header.tamanioMensaje = sizeof(tid);
-	void* mensaje = paquete->mensaje;
-	memcpy(mensaje, &tid, sizeof(tid));
-	int resultado = EnviarPaquete(socket_suse,paquete);
-	if (resultado == 0 ){
-		log_error(logger,"Falló el envio del paquete");
+int suse_close(uint32_t pid, uint32_t tid){
+	if(Suse_PackAnd_Send_Close(socket_suse, pid, tid)){
+		log_info(logger,"Se pudo enviar el paquete a suse");
+		return 0;
 	}
-	log_info(logger,"El paquete se envió correctamente");
-	return 0;
+	log_error(logger, "No se pudo enviar el paquete a suse");
+	return -1;
 }
+
+
