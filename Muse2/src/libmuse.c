@@ -112,15 +112,3 @@ int muse_sync(uint32_t addr, size_t len){
 int muse_unmap(uint32_t dir){
     return 0;
 }
-
-
-
-
-int main()
-{
-
-  muse_init(7,"127.0.0.1",5555);
-  muse_close();
-  return 0;
-}
-
