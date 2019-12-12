@@ -24,19 +24,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: Muse
+all: Muse2
 
 # Tool invocations
-Muse: $(OBJS) $(USER_OBJS)
+Muse2: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc  -o "Muse" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc  -o "Muse2" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) Muse
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) Muse2
 	-@echo ' '
 
 .PHONY: all clean dependents
