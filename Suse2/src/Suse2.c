@@ -6,13 +6,10 @@ int main(void) {
 	socket_suse = iniciar_servidor(suse_ip,suse_port,logger);
 	inicializarEstructuras();
 	inicializarSemaforos();
-	int pidMAX = 1;
-
 
 	while(1){
 		log_info(logger,"Esperando por clientes");
 		socket_cliente = esperar_cliente_con_accept(socket_suse,logger);
-
 		pthread_t* hiloRecibirPaquetes = malloc(sizeof(pthread_t));
 		if(pthread_create(hiloRecibirPaquetes, NULL,(void*)atenderCliente,(void*)(socket_cliente) )== 0){
 			pthread_detach(*hiloRecibirPaquetes);
@@ -109,6 +106,23 @@ int suse_schedule_next(int pid){
 	return 0;
 }
 
+int suse_wait(int pid, char* semaforoID){
+	return 0;
+}
+
+int suse_signal(int pid, char* semaforoID){
+	return 0;
+}
+
+int suse_join(int pid, int tid){
+	return 0;
+}
+
+int suse_close(int pid, int tid){
+	return 0;
+}
+
+
 void* atenderCliente(int socket_cliente){
 	t_programa* programaNuevo = malloc(sizeof(programaNuevo));
 	programaNuevo->pid = pidMAX;
@@ -135,6 +149,7 @@ void* atenderCliente(int socket_cliente){
 			void* paqueteCreate = Suse_ReceiveAndUnpack(socket_cliente,tam);
 			log_info(logger, "Se recibió un pedido de Suse_Create");
 			int pidCreate = Suse_Unpack_Uint32_pid(paqueteCreate);
+			free(paqueteCreate);
 			int respuestaCreate = suse_create(pidCreate);
 			if (respuestaCreate == 0){
 				log_info(logger, "La operacion Suse_Create se realizó con exito");
@@ -147,6 +162,7 @@ void* atenderCliente(int socket_cliente){
 			void* paqueteScheduleNext = Suse_ReceiveAndUnpack(socket_cliente,tam);
 			log_info(logger, "Se recibió un pedido de Suse_Schedule_Next");
 			int pidNext = Suse_Unpack_Uint32_pid(paqueteScheduleNext);
+			free(paqueteScheduleNext);
 			int respuestaNext = suse_schedule_next(pidNext);
 			if (respuestaNext != 0){ //Si devuelvo cualquier TID entra aca
 				log_info(logger, "La operacion Suse_Schedule_Next se realizó con exito");
@@ -158,19 +174,57 @@ void* atenderCliente(int socket_cliente){
 			break;
 
 		case S_WAIT:;
-			//Comportamiento
+			void* paqueteWait = Suse_ReceiveAndUnpack(socket_cliente,tam);
+			log_info(logger, "Se recibió un pedido de Suse_Wait");
+			int pidWait = Suse_Unpack_Uint32_pid(paqueteWait);
+			char* semIDWait = Suse_Unpack_Char(paqueteWait);
+			free(paqueteWait);
+			int respuestaWait = suse_wait(pidWait, semIDWait);
+			if (respuestaWait == 0){
+				log_info(logger, "La operacion Suse_Wait se realizó con exito");
+				break;
+			}
+			log_error(logger, "La operacion Suse_Wait ha fallado");
 			break;
 
 		case S_SIGNAL:;
-			//Comportamiento
+			void* paqueteSignal = Suse_ReceiveAndUnpack(socket_cliente,tam);
+			log_info(logger, "Se recibió un pedido de Suse_Signal");
+			int pidSignal = Suse_Unpack_Uint32_pid(paqueteSignal);
+			char* semIDSignal = Suse_Unpack_Char(paqueteSignal);
+			free(paqueteSignal);
+			int respuestaSignal = suse_signal(pidSignal, semIDSignal);
+			if (respuestaSignal == 0){
+				log_info(logger, "La operacion Suse_Signal se realizó con exito");
+				break;
+			}
+			log_error(logger, "La operacion Suse_Signal ha fallado");
 			break;
 
 		case S_JOIN:;
-			//Comportamiento
+			void* paqueteJoin = Suse_ReceiveAndUnpack(socket_cliente,tam);
+			log_info(logger, "Se recibió un pedida de Suse_Join");
+			int pidJoin = Suse_Unpack_Uint32_pid(paqueteJoin);
+			int tidJoin = Suse_Unpack_Uint32_tid(paqueteJoin);
+			free(paqueteJoin);
+			int respuestaJoin = suse_join(pidJoin, tidJoin);
+			if (respuestaJoin == 0){
+				log_info(logger, "La operacion Suse_Join se realizó con exito");
+			}
+			log_error(logger, "La operacion Suse_Join ha fallado");
 			break;
 
 		case S_CLOSE:;
-			//Comportamiento
+			void* paqueteClose = Suse_ReceiveAndUnpack(socket_cliente,tam);
+			log_info(logger, "Se recibió un pedida de Suse_Close");
+			int pidClose = Suse_Unpack_Uint32_pid(paqueteClose);
+			int tidClose = Suse_Unpack_Uint32_tid(paqueteClose);
+			free(paqueteClose);
+			int respuestaClose = suse_close(pidClose, tidClose);
+			if (respuestaClose == 0){
+				log_info(logger, "La operacion Suse_Close se realizó con exito");
+			}
+			log_error(logger, "La operacion Suse_Close ha fallado");
 			break;
 
 		default:

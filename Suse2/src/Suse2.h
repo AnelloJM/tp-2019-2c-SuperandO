@@ -53,7 +53,7 @@ char** sem_max_suse;
 double alpha_sjf;
 int socket_suse;
 int socket_cliente;
-int pidMAX;
+int pidMAX = 1;
 
 //FUNCIONES
 void crearLogger();
@@ -65,6 +65,10 @@ int posicionFinalDoblePuntero(char **puntero);
 void liberarDoblePuntero(char **puntero);
 int suse_create(int pid);
 int suse_schedule_next(int pid);
+int suse_wait(int pid, char* semaforoID);
+int suse_signal(int pid, char* semaforoID);
+int suse_join(int pid, int tid);
+int suse_close(int pid, int tid);
 
 void* atenderCliente(int socket_cliente); //Mi funcion magica
 
