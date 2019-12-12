@@ -98,6 +98,101 @@ void liberarDoblePuntero(char **puntero){
 	free(puntero);
 }
 
+int gettimeofday(){
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	unsigned long long result = (((unsigned long long)tv.tv_sec)*1000 + ((unsigned long long)tv.tv_usec)/1000);
+	int a = result;
+	return a;
+}
+
+bool comparadorPrograma(int unPid, t_programa* unPrograma){
+	return (unPid == unPrograma->pid);
+}
+
+t_hilo calcularEstimacion(t_hilo unHilo){
+	unHilo.rafagasEstimadas = (alpha_sjf * unHilo.estimacionAnterior + ((1 - alpha_sjf)*unHilo.rafagasEjecutadas));
+	return unHilo;
+}
+
+bool comparadorDeRafagas(t_hilo unHilo, t_hilo otroHilo){
+	return unHilo.rafagasEstimadas <= otroHilo.rafagasEstimadas;
+}
+
+bool comparadorDeHilos(t_hilo* unHilo, t_hilo* otroHilo){
+	return (unHilo->tid == otroHilo->tid);
+}
+
+int buscadorSemaforo (char* semaforoID){
+	int final = posicionFinalDoblePuntero(sems_ids_suse);
+	for(int i = 0; i<=final; i++){
+		if (strcmp(semaforoID,sems_ids_suse[i]) == 0){
+			return 0;
+		}
+		i++;
+	}
+	return -1;
+}
+
+bool comparadorDeSemaforos(char* unSem, t_semaforo otroSem){
+	return (strcmp(unSem,otroSem.semID)==0);
+}
+
+bool buscadorDeHilos(int tid, t_hilo* hilo){
+	return (tid == hilo->tid);
+}
+
+void tomarMetricas(){
+	for(int i=0;i<=list_size(lista_programas);i++){
+		t_programa* unPrograma = malloc(sizeof(t_programa));
+		unPrograma = list_get(lista_programas,i);
+		t_list* hilosDelPrograma = unPrograma->hilos;
+		hilosDelPrograma = list_map(hilosDelPrograma,(void*)calcularTiempoEjecucion);
+		int tiempoTotalEjecucion = 0;
+		//Hago una iteracion completa de los hilos para calcular el total de ejecucion
+		for(int l=0;l<=list_size(hilosDelPrograma);l++){
+			t_hilo* unhilo = malloc(sizeof(t_hilo));
+			unhilo = list_get(hilosDelPrograma,l);
+			tiempoTotalEjecucion += unhilo->tiempoEjecucion;
+		}
+		//METRICAS POR HILO DE UN PROCESO
+		for(int j=0;j<=list_size(hilosDelPrograma);j++){
+			t_hilo* unHilo = malloc(sizeof(t_hilo));
+			unHilo = list_get(hilosDelPrograma,j);
+			unHilo->porcentajeTiempoEjecucion = (unHilo->tiempoEjecucion / tiempoTotalEjecucion)*100 ;
+			printf("Proceso:%d/n Hilo:%d/n Tiempo de Ejecucion:%d/n Tiempo de Espera:%d/n Tiempo de Uso de CPU:%d/n Porcentaje del tiempo de Ejecucion:%f/n",
+					unPrograma->pid,unHilo->tid,unHilo->tiempoEjecucion,unHilo->tiempo_espera,unHilo->tiempoUsoCPU,unHilo->porcentajeTiempoEjecucion);
+		}
+		//METRICAS DEL PROCESO
+		int hilosEnNew = list_size(cola_new);
+		int hilosEnBlocked = list_size(cola_blocked);
+		int hilosEnReady = list_size(unPrograma->cola_ready);
+		int hilosEnExec = list_size(unPrograma->cola_exec);
+		printf("Proceso:%d/n Hilos en estado NEW:%d/n Hilos en estado BLOCKED:%d/n Hilos en estado READY:%d/n Hilos en estado EXEC:%d/n",unPrograma->pid,
+				hilosEnNew,hilosEnBlocked,hilosEnReady,hilosEnExec);
+	}
+	//METRICAS DEL SISTEMA
+	for(int k=0;k<=list_size(semaforos);k++){
+		t_semaforo* semaforo = malloc(sizeof(t_semaforo));
+		semaforo = list_get(semaforos,k);
+		printf("Semaforo:%s/n Valor Actual:%d/n",semaforo->semID, semaforo->semActual);
+	}
+	printf("Grado actual de multiprogramacion:%d/n",list_size(lista_programas));
+
+
+	//REVISAR LOS FREES, VER BIEN DONDE VAN
+
+}
+
+void calcularTiempoEjecucion(t_hilo* hilo){
+	int tiempoFinal = gettimeofday();
+	hilo->tiempoEjecucion = (tiempoFinal - hilo->tiempoEjecucionInicial);
+}
+
+
+//FUNCIONES DE SUSE
+
+
 int suse_create(int pid){
 	/*
 	t_hilo* hiloNuevo = malloc(sizeof(t_hilo));
@@ -121,30 +216,159 @@ int suse_create(int pid){
 	return 0;
 }
 
-bool comparadorPrograma(int unPid, t_programa* unPrograma){
-	return (unPid == unPrograma->pid);
-}
-
-
 int suse_schedule_next(int pid){
+	/*
+	t_programa * programaBuscado = malloc(sizeof(t_programa));
+	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+	programaBuscado = list_get(lista_programas,index);
+	if (!list_is_empty(programaBuscado->cola_ready)&& list_is_empty(programaBuscado->cola_exec)){
+		log_info(logger, "Se comenzará a planificar");
+		t_list* aux;
+		aux = list_map(programaBuscado->cola_ready,(void*)calcularEstimacion);
+		list_sort(aux, (void*)comparadorDeRafagas);
+		t_hilo* hiloAux = malloc(sizeof(t_hilo));
+		hiloAux = (t_hilo*) list_remove(aux,0);
+		int indice = list_get_index(programaBuscado->cola_ready,hiloAux,(void*)comparadorDeHilos);
+		t_hilo* hiloAEjecutar = list_remove(programaBuscado->cola_ready,indice);
+		hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
+		hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaFinal - hiloAEjecutar->tiempoEsperaInicial);
+		list_add(programaBuscado->cola_exec,hiloAEjecutar);
+		hiloAEjecutar->tiempoUsoCPUInicial = gettimeofday();
+		//Tomo el tiempo final de espera
+		hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
+		//Y aca ya me queda guardado el tiempo de espera
+		hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaInicial - hiloAEjecutar->tiempoEsperaFinal);
+		free(programaBuscado);
+		list_clean_and_destroy_elements(aux,(void*)free);
+		list_destroy(aux);
+		free(hiloAux);
+		return hiloAEjecutar->tid;
+	}
+	free(programaBuscado);
+	log_error(logger, "La cola de ready del programa está vacia o ya tiene un hilo ejecutando");
+	*/
 	return 0;
 }
 
 int suse_wait(int pid, char* semaforoID){
+	/*
+	if(buscadorSemaforo(semaforoID) == 0){
+		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
+		t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
+		semAUsar = list_get(semaforos,indice);
+		if (semAUsar->semActual <= 0){
+			semAUsar->semActual--;
+			log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
+			log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
+			log_info(logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
+			int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+			t_programa* programaBuscado = malloc(sizeof(t_programa));
+			programaBuscado = list_get(lista_programas,index);
+			t_hilo* hiloBuscado = malloc(sizeof(t_hilo));
+			hiloBuscado = list_remove(programaBuscado->cola_exec,0);
+			hiloBuscado->tiempoUsoCPUFinal = gettimeofday();
+			hiloBuscado->tiempoUsoCPU += (hiloBuscado->tiempoUsoCPUFinal - hiloBuscado->tiempoUsoCPUInicial);
+			list_add(cola_blocked,hiloBuscado);
+			list_add(semAUsar->hilosEnEspera,hiloBuscado);
+			free(programaBuscado);
+			free(hiloBuscado);
+			free(semAUsar);
+			return 0;
+		}
+		semAUsar->semActual--;
+		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
+		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
+		log_info(logger, "%d","Contador actual:", semAUsar->semActual);
+		free(semAUsar);
+		return 0;
+	}
+	log_error(logger,"El semaforo no fue encontrado");
+	return -1;
+	*/
 	return 0;
 }
 
 int suse_signal(int pid, char* semaforoID){
+	/*
+	if(buscadorSemaforo(semaforoID) == 0){
+		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
+		t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
+		semAUsar = list_get(semaforos,indice);
+		if (semAUsar->semActual == semAUsar->semMax){
+			log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
+			log_error(logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
+			free(semAUsar);
+			return 0;
+		}
+		semAUsar->semActual++;
+		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
+		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
+		log_info(logger,"%d","Contador actual:", semAUsar->semActual);
+		log_info(logger,"Se pasará a desbloquear el primer hilo en la cola de espera del semaforo, este hilo pasará al estado ready");
+		int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+		t_programa* programaBuscado = malloc(sizeof(t_programa));
+		programaBuscado = list_get(lista_programas,index);
+		t_hilo* hiloADesbloquear = malloc(sizeof(t_hilo));
+		hiloADesbloquear = list_remove(semAUsar->hilosEnEspera,0);
+		int index2 = list_get_index(cola_blocked,hiloADesbloquear,(void*)comparadorDeHilos);
+		hiloADesbloquear = list_remove(cola_blocked,index2);
+		list_add(programaBuscado->cola_ready,hiloADesbloquear);
+		hiloADesbloquear->tiempoEsperaInicial = gettimeofday();
+		free(programaBuscado);
+		free(hiloADesbloquear);
+		free(semAUsar);
+		return 0;
+
+	}
+	log_error(logger, "El semaforo no fue encontrado");
+	return -1;
+	*/
 	return 0;
 }
 
 int suse_join(int pid, int tid){
+	/*
+	int index = list_get_index(cola_exit,tid,(void*)buscadorDeHilos);
+	//Si el tid pasado no está en exit entonces procedo normalmente
+	if(index == list_size(cola_exit)){
+		int index2 = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+		t_programa* programaBuscado = malloc(sizeof(t_programa));
+		programaBuscado = list_get(lista_programas,index2);
+		t_hilo* hiloABloquear = malloc(sizeof(t_hilo));
+		hiloABloquear = list_remove(programaBuscado->cola_exec,0);
+		hiloABloquear->tiempoUsoCPUFinal = gettimeofday();
+		hiloABloquear->tiempoUsoCPU += (hiloABloquear->tiempoUsoCPUFinal - hiloABloquear->tiempoUsoCPUInicial);
+		free(programaBuscado);
+		free(hiloABloquear);
+		return 0;
+	}
+	//Si el tid ya está en exit, entonces el hilo que lo llama no se bloquea
+	return 0;
+	*/
 	return 0;
 }
 
 int suse_close(int pid, int tid){
+	/*
+	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+	t_programa* programaBuscado = malloc(sizeof(t_programa));
+	programaBuscado = list_get(lista_programas,index);
+	t_hilo* hiloATerminar = malloc(sizeof(t_hilo));
+	hiloATerminar = list_remove(programaBuscado->cola_exec, 0);
+	hiloATerminar->tiempoUsoCPUFinal = gettimeofday();
+	hiloATerminar->tiempoUsoCPU += (hiloATerminar->tiempoUsoCPUFinal - hiloATerminar->tiempoUsoCPUInicial);
+	list_add(cola_exit,hiloATerminar);
+	hiloATerminar->finalizado = true;
+	free(hiloATerminar);
+	free(programaBuscado);
+	//Cuando cierra un hilo toma las metricas
+	tomarMetricas(); //Esto por ahi tambien deberia ser un hilo
+	*/
 	return 0;
 }
+
+
+//FUNCION MAGICA
 
 
 void* atenderCliente(int socket_cliente){

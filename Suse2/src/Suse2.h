@@ -88,6 +88,15 @@ void inicializarSemaforos();
 int posicionFinalDoblePuntero(char **puntero);
 void liberarDoblePuntero(char **puntero);
 bool comparadorPrograma(int unPid, t_programa* unPrograma);
+t_hilo calcularEstimacion(t_hilo unHilo);
+bool comparadorDeRafagas(t_hilo unHilo, t_hilo otroHilo);
+bool comparadorDeHilos(t_hilo* unHilo, t_hilo* otroHilo);
+int gettimeofday();
+int buscadorSemaforo (char* semaforoID);
+bool comparadorDeSemaforos(char* unSem, t_semaforo otroSem);
+bool buscadorDeHilos(int tid, t_hilo* hilo);
+void tomarMetricas();
+void calcularTiempoEjecucion(t_hilo* hilo);
 
 //FUNCIONES DE SUSE
 int suse_create(int pid);
@@ -96,6 +105,7 @@ int suse_wait(int pid, char* semaforoID);
 int suse_signal(int pid, char* semaforoID);
 int suse_join(int pid, int tid);
 int suse_close(int pid, int tid);
+
 //FUNCION MAGICA
 void* atenderCliente(int socket_cliente); //Mi funcion magica
 
