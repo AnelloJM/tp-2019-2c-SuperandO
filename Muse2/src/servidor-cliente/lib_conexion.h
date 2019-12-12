@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <sys/socket.h> //For Sockets
+#include <netdb.h>
 #include <stdlib.h>
 #include <netinet/in.h> //For the AF_INET (Address Family)
 #include <string.h>
