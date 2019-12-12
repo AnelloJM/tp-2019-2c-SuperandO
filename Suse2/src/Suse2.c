@@ -99,8 +99,32 @@ void liberarDoblePuntero(char **puntero){
 }
 
 int suse_create(int pid){
+	/*
+	t_hilo* hiloNuevo = malloc(sizeof(t_hilo));
+	hiloNuevo->pid = pid;
+	hiloNuevo->tid = tidMAX;
+	hiloNuevo->tiempoEjecucionInicial = gettimeofday();
+	tidMAX++;
+	t_programa * programaBuscado = malloc(sizeof(t_programa));
+	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+	programaBuscado = list_get(lista_programas,index);
+	list_add(programaBuscado->hilos,hiloNuevo);
+	list_add(cola_new, hiloNuevo);
+	log_info(logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
+	int cantidadColaNew = list_size(cola_new);
+	log_info(logger,"Cantidad de elementos en cola new: %d\n", cantidadColaNew);
+	log_info(logger,"ID del programa: %d\n",hiloNuevo->pid);
+	log_info(logger,"ID del hilo: %d\n",hiloNuevo->tid);
+	free(hiloNuevo);
+	free(programaBuscado);
+	*/
 	return 0;
 }
+
+bool comparadorPrograma(int unPid, t_programa* unPrograma){
+	return (unPid == unPrograma->pid);
+}
+
 
 int suse_schedule_next(int pid){
 	return 0;
