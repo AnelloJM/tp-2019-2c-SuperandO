@@ -61,11 +61,13 @@ bool Suse_PackAndSend_Schedule_Next(int socketCliente, uint32_t pid){
 
 //Orden: int 1° , char* 2°
 bool Suse_PackAndSend_Wait(int socketCLiente, uint32_t pid, char* semaforoID){
-	uint32_t tamMensaje = strlen(semaforoID) + 1 + sizeof(pid);
+	uint32_t tamMensaje = strlen(semaforoID) + 1 + sizeof(pid) + sizeof(uint32_t);
 	uint32_t tamSemID = strlen(semaforoID) + 1;
 	void* buffer = malloc (tamMensaje);
 	int desplazamiento = 0;
 	memcpy(buffer, &pid, sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+	memcpy(buffer + desplazamiento, tamSemID, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer + desplazamiento, semaforoID, tamSemID);
 	int resultado = Suse_PackAndSend(socketCLiente, buffer, tamMensaje, S_WAIT);
@@ -74,11 +76,13 @@ bool Suse_PackAndSend_Wait(int socketCLiente, uint32_t pid, char* semaforoID){
 }
 
 bool Suse_PackAndSend_Signal(int socketCLiente, uint32_t pid, char* semaforoID){
-	uint32_t tamMensaje = strlen(semaforoID) + 1 + sizeof(pid);
+	uint32_t tamMensaje = strlen(semaforoID) + 1 + sizeof(pid) + sizeof(uint32_t);
 	uint32_t tamSemID = strlen(semaforoID) + 1;
 	void* buffer = malloc (tamMensaje);
 	int desplazamiento = 0;
 	memcpy(buffer, &pid, sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+	memcpy(buffer + desplazamiento, tamSemID, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer + desplazamiento, semaforoID, tamSemID);
 	int resultado = Suse_PackAndSend(socketCLiente, buffer, tamMensaje, S_SIGNAL);
