@@ -97,6 +97,7 @@ bool comparadorDeSemaforos(char* unSem, t_semaforo otroSem);
 bool buscadorDeHilos(int tid, t_hilo* hilo);
 void tomarMetricas();
 void calcularTiempoEjecucion(t_hilo* hilo);
+void* planificador_NEW_READY();
 
 //FUNCIONES DE SUSE
 int suse_create(int pid);
