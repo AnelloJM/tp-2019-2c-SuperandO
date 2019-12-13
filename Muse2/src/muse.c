@@ -51,23 +51,6 @@ int main()
 
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
-/*
-//-pp->
-  uint32_t pet1 =tratar_muse_alloc(59,1);
-  uint32_t pet2 = tratar_muse_alloc(70,6);
-  uint32_t pet3 = tratar_muse_alloc(2,2);
-  uint32_t pet4 =tratar_muse_alloc(200,1);
-  uint32_t pet5 = tratar_muse_alloc(7,6);
-  uint32_t pet6 = tratar_muse_alloc(2,2);
-
-  printf("Pet 1 en pos %d\n",pet1 );
-  printf("Pet2 en pos: %d\n",pet2 );
-  //printf("Pet3 en pos %d\n",pet3 );
-
-// <-pp-
-*/
-
-  // iniciar_servidor(atoi(puerto),logger);
 
   socketMuse = iniciar_servidor(puerto, logger);
 
@@ -83,8 +66,6 @@ int main()
       log_error(logger,"No se pudo crear el hilo, cliente: %i", cliente);
     }
   }
-
-
 
 
   printf("\n\n\n[+]Liberando memoria asignada a upcm..\n" );
@@ -279,6 +260,14 @@ uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso)
 
 }
 
+uint32_t tratar_muse_cpy(uint32_t tam,uint32_t posicion,void * data,uint32_t id_proceso)
+{
+  //tenemos que verificar que el proceso tenga esa poscion reservada
+  memcpy(UPCM+posicion,&data,tam);
+  printf("Datos copiados en la posicion %d de forma exitosa!\n",posicion );
+  return 0;
+}
+
 
 uint32_t frame_free_size(uint32_t posicion)
 {
@@ -325,7 +314,7 @@ void crearLogger()
 
 void leerArchivoDeConfiguracion()
 {
-	char* configPath = "MUSE.cfg";// "/home/utnso/workspace/tp-2019-2c-SuperandO/Muse/src/MUSE.cfg";
+	char* configPath = "/home/fluor/tp-2019-2c-SuperandO/Muse2/src/MUSE.cfg";
 	archivoConfig = config_create(configPath);
 	if (archivoConfig == NULL){
 		perror("ERROR: Archivo de configuracion no encontrado");

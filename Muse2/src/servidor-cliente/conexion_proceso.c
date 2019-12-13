@@ -22,6 +22,19 @@ uint32_t conectarse_a_servidor(char *ip,uint32_t puerto)
   return fd;
 }
 
+void enviar_muse_cpy(uint32_t destino, Paquete_muse_cpy *paquete)
+{
+  void *buffer = malloc(12+(paquete->size_send));
+  memcpy(buffer,&(paquete->op),4);
+  memcpy(buffer+4,&(paquete->size_send),4);
+  memcpy(buffer+8,&(paquete->muse_pos),4);
+  memcpy(buffer+12,&(paquete->data),paquete->size_send);
+  send(destino,buffer,12+(paquete->size_send),0);
+  printf("Se envio un muse_cpy de %d bits , en la posicion %d, y el dato %s\n",(paquete->size_send),(paquete->muse_pos),(paquete->data) );
+  free(buffer);
+}
+
+
 void enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete)
 {
 
@@ -80,12 +93,6 @@ Paquete_respuesta_general * recibir_respuesta_general(uint32_t destinatario)
 
 
 /*
-
-
-
-
-uint32_t recibir_muse_cpy(uint32_t destinatario);
-uint32_t enviar_muse_cpy(uint32_t destino,Paquete_muse_cpy *paquete);
 
 uint32_t recibir_muse_close(uint32_t destinatario);
 uint32_t enviar_muse_close(uint32_t destino,Paquete_muse_close *paquete);

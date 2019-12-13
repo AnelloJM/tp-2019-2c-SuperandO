@@ -15,6 +15,28 @@ uint32_t conectarse_a_servidor(char *ip,uint32_t puerto)
   return fd;
 }
 
+
+void enviar_fin(uint32_t destino)
+{
+	//enviamos un id = -1
+  send(destino,-1,4,0);
+  uint32_t codigo_fin = 7;
+  send(destino,codigo_fin,4,0);
+  printf("Se envio paquete para terminar el servidor UPCM\n");
+}
+
+void enviar_muse_cpy(uint32_t destino, Paquete_muse_cpy *paquete)
+{
+  void *buffer = malloc(12+(paquete->size_send));
+  memcpy(buffer,&(paquete->op),4);
+  memcpy(buffer+4,&(paquete->size_send),4);
+  memcpy(buffer+8,&(paquete->muse_pos),4);
+  memcpy(buffer+12,&(paquete->data),paquete->size_send);
+  send(destino,buffer,12+(paquete->size_send),0);
+  printf("Se envio un muse_cpy de %d bits , en la posicion %d, y el dato %s\n",(paquete->size_send),(paquete->muse_pos),(paquete->data) );
+  free(buffer);
+}
+
 void enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete)
 {
 

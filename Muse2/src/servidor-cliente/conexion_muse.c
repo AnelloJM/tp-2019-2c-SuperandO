@@ -8,31 +8,6 @@
 
 #include "lib_conexion.h"
 
-/*
-uint32_t iniciar_servidor(uint32_t puerto)  //estaria bueno que el logger no se maneje aca
-{
-
-  serv.sin_family = AF_INET;
-  serv.sin_port = htons(puerto);
-  serv.sin_addr.s_addr = INADDR_ANY;
-  fd = socket(AF_INET, SOCK_STREAM, 0);
-
-  bind(fd, (struct sockaddr *)&serv, sizeof(serv));
-  listen(fd,MAXCONN);
-  printf("Servidor levantado en el puerto %d\n",puerto);
-
-  while(1) //mandarlo a thread
-  {
-    conn = accept(fd, (struct sockaddr *)NULL, NULL); //mandarlo a thread
-    recibir_paquete(conn);
-    close(conn);
-  }
-
-
-  return 0;
-}
-*/
-
 uint32_t iniciar_servidor(char* puerto,t_log* logger)
 {
 	log_info(logger,"Dentro de iniciar servidor");
@@ -47,11 +22,8 @@ uint32_t iniciar_servidor(char* puerto,t_log* logger)
   hints.ai_flags = AI_PASSIVE;
 
 
-
-
   getaddrinfo(ip, puerto, &hints, &servinfo);
 
-printf("Flagg\n" );
   for (p=servinfo; p != NULL; p = p->ai_next)
   {
       if ((socket_servidor = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1)
@@ -82,14 +54,6 @@ uint32_t esperar_cliente_con_accept(uint32_t socket_servidor, t_log* logger)
 	log_info(logger, "Se conecto un proceso!");
 	return socket_cliente;
 }
-
-
-
-
-
-
-
-
 
 
 void recibir_paquete(uint32_t destinatario)
@@ -126,7 +90,12 @@ void recibir_paquete(uint32_t destinatario)
       break;
 
     case 3:
-      printf("Se recibio un muse_copy\n" );
+      printf("Se recibio un muse_cpy\n" );
+      Paquete_respuesta_general *paquete_cpy = malloc(sizeof(Paquete_respuesta_general));
+      paquete_cpy = recibir_muse_cpy(destinatario,n_proceso);
+      printf("Flgaaa\n");
+      enviar_respuesta_general(destinatario,paquete_cpy);
+      free(paquete_cpy);
       break;
     case 4:
       printf("Se recibio un muse_map\n" );
@@ -147,6 +116,36 @@ void recibir_paquete(uint32_t destinatario)
 
 
 }
+
+
+
+
+
+Paquete_respuesta_general * recibir_muse_cpy(uint32_t destinatario,uint32_t id_proceso)
+{
+	Paquete_respuesta_general *paquete_dos = malloc(sizeof(Paquete_respuesta_general));
+	uint32_t posicion_a_copiar;
+	int tam;
+	//recibe tamanio a copiar
+	recv(destinatario,&tam,4,0);
+	void *buffer = malloc(tam);
+	//recibe posicion en la cual copiar
+	recv(destinatario,&posicion_a_copiar,4,0);
+	//recibe datos a copiar
+	recv(destinatario,&buffer,tam,0);
+	uint32_t resp_muse;
+	tratar_muse_cpy(tam,posicion_a_copiar,buffer,id_proceso);
+	paquete_dos->size_resp = 4;
+	paquete_dos->respuesta = 0;
+	printf("flg\n" );
+	/*memcpy(&(paquete->size_resp),4,4);
+	printf("Flagg\n" );
+	paquete->respuesta = resp_muse;
+*/
+	printf("Se pidio copiar %d bytes de la posicion %d\n",tam,posicion_a_copiar);
+	return paquete_dos;
+}
+
 
 Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario,uint32_t id_proceso)
 {

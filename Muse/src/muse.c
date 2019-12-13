@@ -43,23 +43,6 @@ int main()
 
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
-/*
-//-pp->
-  uint32_t pet1 =tratar_muse_alloc(59,1);
-  uint32_t pet2 = tratar_muse_alloc(70,6);
-  uint32_t pet3 = tratar_muse_alloc(2,2);
-  uint32_t pet4 =tratar_muse_alloc(200,1);
-  uint32_t pet5 = tratar_muse_alloc(7,6);
-  uint32_t pet6 = tratar_muse_alloc(2,2);
-
-  printf("Pet 1 en pos %d\n",pet1 );
-  printf("Pet2 en pos: %d\n",pet2 );
-  //printf("Pet3 en pos %d\n",pet3 );
-
-// <-pp-
-*/
-
-  // iniciar_servidor(atoi(puerto),logger);
 
   socketMuse = iniciar_servidor(puerto, logger);
 
@@ -78,6 +61,10 @@ int main()
 
 
 
+/*
+  printf("Probando muse_cpy\n" );
+  tratar_muse_cpy(10,12,"elmalsoelsoe",9);
+*/
 
   printf("\n\n\n[+]Liberando memoria asignada a upcm..\n" );
   free(UPCM);
@@ -87,7 +74,6 @@ int main()
 
   return 0;
 }
-
 
 
 void poner_heap(Heap *heap,uint32_t posicion){
@@ -198,6 +184,15 @@ uint32_t buscar_proceso(uint32_t id_proceso)
   printf("El proceso %d esta cargado en el marco %d\n",id_proceso,posicion_en_tabla );
 
   return posicion_en_tabla;
+}
+
+
+uint32_t tratar_muse_cpy(uint32_t tam,uint32_t posicion,void * data,uint32_t id_proceso)
+{
+  //tenemos que verificar que el proceso tenga esa poscion reservada
+  memcpy(UPCM+posicion,&data,tam);
+  printf("Datos copiados en la posicion %d de forma exitosa!\n",posicion );
+  return 0;
 }
 
 

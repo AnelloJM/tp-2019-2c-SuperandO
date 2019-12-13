@@ -48,8 +48,8 @@ typedef struct
 {
   uint32_t op;
   uint32_t muse_pos;
+  int size_send;
   void * data;
-  size_t size_send;
 }Paquete_muse_cpy;
 
 
@@ -89,7 +89,7 @@ typedef struct
 struct sockaddr_in serv; //This is our main socket variable.
 uint32_t fd; //This is the socket file descriptor that will be used to identify the socket
 uint32_t conn; //This is the connection file descriptor that will be used to distinguish client connections.
-
+uint32_t socket_servidor;
 
 //Funciones
 
@@ -109,7 +109,7 @@ void enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete);
 Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario,uint32_t id_proceso);
 void enviar_muse_get(uint32_t destino,Paquete_muse_get *paquete);
 
-uint32_t recibir_muse_cpy(uint32_t destinatario);
+Paquete_respuesta_general * recibir_muse_cpy(uint32_t destinatario,uint32_t id_proceso);
 void enviar_muse_cpy(uint32_t destino,Paquete_muse_cpy *paquete);
 
 uint32_t recibir_muse_close(uint32_t destinatario);
@@ -121,8 +121,9 @@ void enviar_respuesta_general(uint32_t destino,Paquete_respuesta_general *paquet
 Paquete_respuesta_general * recibir_respuesta_general(uint32_t destinatario);
 
 uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso);
+uint32_t tratar_muse_cpy(uint32_t tam,uint32_t posicion,void * data,uint32_t id_proceso);
 
-
+void enviar_fin(uint32_t destino);
 //falta serializar mus_map ,muse_unmap y muse_sync
 
 #endif
