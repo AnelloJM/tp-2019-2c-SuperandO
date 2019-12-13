@@ -5,14 +5,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <readline/readline.h>
-#include "../../ComunParaTodos/Conexiones/Conexiones.h"
+#include "../Conexiones/Conexiones.h"
 #include <commons/log.h>
 #include <commons/string.h>
 #include <commons/config.h>
 #include <commons/collections/list.h>
-#include "../../ComunParaTodos/Serializacion/serializacion.h"
+#include "../Serializacion/serializacion.h"
 #include <commons/collections/queue.h>
-#include "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse2/src/SerializacionSUSE/SerializacionSUSE.h"
+#include <SerializacionSUSE/SerializacionSUSE.h>
 
 /**
  * TODO: Interface for alumnos (what they should implement in orde to make this work)
@@ -34,7 +34,7 @@ t_log* logger;
 t_config* archivoConfig;
 char* server_ip;
 char* server_port;
-int socket_suse;
+int socket_suse2;
 
 void crearLogger();
 void leerArchivoDeConfiguracion();

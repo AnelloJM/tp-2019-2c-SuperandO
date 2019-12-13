@@ -5,7 +5,7 @@
 void hilolay_init(){
 	crearLogger();
 	leerArchivoDeConfiguracion();
-	socket_suse = conectarse_a_un_servidor(server_ip, server_port,logger);
+	socket_suse2 = conectarse_a_un_servidor(server_ip, server_port,logger);
 	init_internal(main_ops);
 }
 
@@ -34,7 +34,7 @@ void setearValores(t_config* archivoConfig){
 //ENVIO DE PAQUETES
 
 int suse_create(uint32_t pid){
-	if(Suse_PackAndSend_Create(socket_suse, pid)){
+	if(Suse_PackAndSend_Create(socket_suse2, pid)){
 		log_info(logger,"Se pudo enviar el paquete a suse");
 		return 0;
 	}
@@ -43,7 +43,7 @@ int suse_create(uint32_t pid){
 }
 
 int suse_schedule_next(uint32_t pid){
-	if(Suse_PackAndSend_Schedule_Next(socket_suse, pid)){
+	if(Suse_PackAndSend_Schedule_Next(socket_suse2, pid)){
 		log_info(logger,"Se pudo enviar el paquete a suse");
 		return 0;
 	}
@@ -52,7 +52,7 @@ int suse_schedule_next(uint32_t pid){
 }
 
 int suse_wait(uint32_t pid, char* semID){
-	if(Suse_PackAndSend_Wait(socket_suse, pid, semID)){
+	if(Suse_PackAndSend_Wait(socket_suse2, pid, semID)){
 		log_info(logger,"Se pudo enviar el paquete a suse");
 		return 0;
 	}
@@ -61,7 +61,7 @@ int suse_wait(uint32_t pid, char* semID){
 }
 
 int suse_signal(uint32_t pid, char* semID){
-	if(Suse_PackAndSend_Signal(socket_suse, pid, semID)){
+	if(Suse_PackAndSend_Signal(socket_suse2, pid, semID)){
 		log_info(logger,"Se pudo enviar el paquete a suse");
 		return 0;
 	}
@@ -70,7 +70,7 @@ int suse_signal(uint32_t pid, char* semID){
 }
 
 int suse_join(uint32_t pid, uint32_t tid){
-	if(Suse_PackAnd_Send_Join(socket_suse, pid, tid)){
+	if(Suse_PackAnd_Send_Join(socket_suse2, pid, tid)){
 		log_info(logger,"Se pudo enviar el paquete a suse");
 		return 0;
 	}
@@ -79,7 +79,7 @@ int suse_join(uint32_t pid, uint32_t tid){
 }
 
 int suse_close(uint32_t pid, uint32_t tid){
-	if(Suse_PackAnd_Send_Close(socket_suse, pid, tid)){
+	if(Suse_PackAnd_Send_Close(socket_suse2, pid, tid)){
 		log_info(logger,"Se pudo enviar el paquete a suse");
 		return 0;
 	}

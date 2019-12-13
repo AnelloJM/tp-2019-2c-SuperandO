@@ -846,3 +846,9 @@
 [ERROR] 17:25:14:450 SUSE/(5958:5958): ERROR: Archivo de configuracion no encontrado
 [INFO] 17:25:39:967 SUSE/(5738:5738): El logger se creo con exito
 [ERROR] 17:25:40:726 SUSE/(5738:5738): ERROR: Archivo de configuracion no encontrado
+[INFO] 22:46:10:672 SUSE/(6035:6035): El logger se creo con exito
+[ERROR] 22:46:10:711 SUSE/(6035:6035): ERROR: Archivo de configuracion no encontrado
+[INFO] 22:48:32:236 SUSE/(6545:6545): El logger se creo con exito
+[ERROR] 22:48:32:279 SUSE/(6545:6545): ERROR: Archivo de configuracion no encontrado
+[INFO] 22:49:32:978 SUSE/(6894:6894): El logger se creo con exito
+[ERROR] 22:49:32:979 SUSE/(6894:6894): ERROR: Archivo de configuracion no encontrado

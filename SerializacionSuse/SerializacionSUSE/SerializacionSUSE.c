@@ -67,7 +67,7 @@ bool Suse_PackAndSend_Wait(int socketCLiente, uint32_t pid, char* semaforoID){
 	int desplazamiento = 0;
 	memcpy(buffer, &pid, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
-	memcpy(buffer + desplazamiento, tamSemID, sizeof(uint32_t));
+	memcpy(buffer + desplazamiento, &tamSemID, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer + desplazamiento, semaforoID, tamSemID);
 	int resultado = Suse_PackAndSend(socketCLiente, buffer, tamMensaje, S_WAIT);
@@ -82,7 +82,7 @@ bool Suse_PackAndSend_Signal(int socketCLiente, uint32_t pid, char* semaforoID){
 	int desplazamiento = 0;
 	memcpy(buffer, &pid, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
-	memcpy(buffer + desplazamiento, tamSemID, sizeof(uint32_t));
+	memcpy(buffer + desplazamiento, &tamSemID, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer + desplazamiento, semaforoID, tamSemID);
 	int resultado = Suse_PackAndSend(socketCLiente, buffer, tamMensaje, S_SIGNAL);

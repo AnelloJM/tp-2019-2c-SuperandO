@@ -1,27 +1,29 @@
 #include "Suse2.h"
 
 int main(void) {
-	crearLogger();
-	leerArchivoDeConfiguracion();
-	socket_suse = iniciar_servidor(suse_ip,suse_port,logger);
+	suse_crearLogger();
+	suse_leerArchivoDeConfiguracion();
+	socket_suse = iniciar_servidor(suse_ip,suse_port,suse_logger);
 	inicializarEstructuras();
 	inicializarSemaforos();
 	sem_t semaforoPlanificacion;
 	sem_init(&semaforoPlanificacion,0,max_multiprog);
 
+	log_info(suse_logger, "Me conectare al puerto: %s", suse_port);
+
+
 	while(1){
 
 		//ACEPTAR CLIENTES
-		log_info(logger,"Esperando por clientes");
-		socket_cliente = esperar_cliente_con_accept(socket_suse,logger);
-
+		log_info(suse_logger,"Esperando por clientes");
+		socket_cliente = esperar_cliente_con_accept(socket_suse,suse_logger);
 		//ATENDER CLIENTES
 		pthread_t* hiloRecibirPaquetes = malloc(sizeof(pthread_t));
 		if(pthread_create(hiloRecibirPaquetes, NULL,(void*)atenderCliente,(void*)(socket_cliente) ) == 0){
 			pthread_detach(*hiloRecibirPaquetes);
-			log_info(logger,"Se creo el hilo RecibirPaquetes correctamente");
+			log_info(suse_logger,"Se creo el hilo RecibirPaquetes correctamente");
 		}else{
-			log_error(logger,"No se ha podido crear el hilo: RecibirPaquetes");
+			log_error(suse_logger,"No se ha podido crear el hilo: RecibirPaquetes");
 		}
 
 		//PLANIFICADOR NEW A READY
@@ -31,9 +33,9 @@ int main(void) {
 			pthread_t * hiloPlani = malloc(sizeof(pthread_t));
 			if(pthread_create(hiloPlani, NULL,(void*)planificador_NEW_READY(), NULL) == 0){
 				pthread_detach(*hiloPlani); //Esta bien que vaya con detach???
-				log_info(logger,"Se creo el hilo de planificacion new->ready correctamente");
+				log_info(suse_logger,"Se creo el hilo de planificacion new->ready correctamente");
 			}else{
-				log_error(logger,"No se ha podido crear el hilo de planificacion new->ready");
+				log_error(suse_logger,"No se ha podido crear el hilo de planificacion new->ready");
 			}
 		}
 		sem_post(&semaforoPlanificacion);
@@ -42,10 +44,10 @@ int main(void) {
 		pthread_t * hiloMetricas = malloc(sizeof(pthread_t));
 		if(pthread_create(hiloMetricas, NULL,(void *)tomarMetricasAutomaticas(), NULL)==0){
 			pthread_detach(*hiloMetricas);
-			log_info(logger,"Se creo el hilo *hiloMetricas* correctamente");
+			log_info(suse_logger,"Se creo el hilo *hiloMetricas* correctamente");
 		}
 		else {
-			log_error(logger,"No se ha podido crear el hilo: HiloMetricas");
+			log_error(suse_logger,"No se ha podido crear el hilo: HiloMetricas");
 		}
 
 	}
@@ -53,32 +55,32 @@ int main(void) {
 	return 0;
 }
 
-void crearLogger(){
+void suse_crearLogger(){
 	char* logPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse2/src/Suse2.log";
 	char* nombreArch = "Suse2";
-	logger = log_create(logPath, nombreArch, 1, LOG_LEVEL_INFO);
-	log_info(logger, "El logger se creo con exito");
+	suse_logger = log_create(logPath, nombreArch, 1, LOG_LEVEL_INFO);
+	log_info(suse_logger, "El logger se creo con exito");
 }
 
-void leerArchivoDeConfiguracion(){
+void suse_leerArchivoDeConfiguracion(){
 	char* configPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Suse2/src/Suse2.config";
-	archivoConfig = config_create(configPath);
-	if (archivoConfig == NULL){
-		log_error(logger,"Archivo de configuracion no encontrado");
+	suse_archivoConfig = config_create(configPath);
+	if (suse_archivoConfig == NULL){
+		log_error(suse_logger,"Archivo de configuracion no encontrado");
 	}
-	setearValores(archivoConfig);
-	log_info(logger,"La configuracion fue cargada exitosamente");
+	suse_setearValores(suse_archivoConfig);
+	log_info(suse_logger,"La configuracion fue cargada exitosamente");
 }
 
-void setearValores(t_config* archivoConfig){
-	suse_ip = config_get_string_value(archivoConfig,"SERVER_IP");
-	suse_port = config_get_string_value(archivoConfig,"LISTEN_PORT");
-	metrics_timer = config_get_int_value(archivoConfig,"METRICS_TIMER");
-	max_multiprog = config_get_int_value(archivoConfig,"MAX_MULTIPROG");
-	sems_ids_suse = config_get_array_value(archivoConfig, "SEM_IDS");
-	sem_init_suse = config_get_array_value(archivoConfig, "SEM_INIT");
-	sem_max_suse = config_get_array_value(archivoConfig, "SEM_MAX");
-	alpha_sjf = config_get_double_value(archivoConfig, "ALPHA_SJF");
+void suse_setearValores(t_config* archivoConfigLocal){
+	suse_ip = config_get_string_value(archivoConfigLocal,"SERVER_IP");
+	suse_port = config_get_string_value(archivoConfigLocal,"LISTEN_PORT");
+	metrics_timer = config_get_int_value(archivoConfigLocal,"METRICS_TIMER");
+	max_multiprog = config_get_int_value(archivoConfigLocal,"MAX_MULTIPROG");
+	sems_ids_suse = config_get_array_value(archivoConfigLocal, "SEM_IDS");
+	sem_init_suse = config_get_array_value(archivoConfigLocal, "SEM_INIT");
+	sem_max_suse = config_get_array_value(archivoConfigLocal, "SEM_MAX");
+	alpha_sjf = config_get_double_value(archivoConfigLocal, "ALPHA_SJF");
 }
 
 void inicializarEstructuras(){
@@ -86,7 +88,7 @@ void inicializarEstructuras(){
 	cola_blocked = list_create();
 	cola_exit = list_create();
 	semaforos = list_create();
-	log_info(logger, "Las estructuras se han inicializado con exito");
+	log_info(suse_logger, "Las estructuras se han inicializado con exito");
 }
 
 void inicializarSemaforos(){
@@ -109,7 +111,7 @@ void inicializarSemaforos(){
 	liberarDoblePuntero(sems_ids_suse);
 	liberarDoblePuntero(sem_init_suse);
 	liberarDoblePuntero(sem_max_suse);
-	log_info(logger,"Se han inicializado todos los semaforos con exito");
+	log_info(suse_logger,"Se han inicializado todos los semaforos con exito");
 }
 
 //No me toma el include de manejos comunes, por ahora las dejo locales
@@ -219,7 +221,7 @@ void calcularTiempoEjecucion(t_hilo* hilo){
 void* planificador_NEW_READY() {
 	/*
 	if (list_is_empty(cola_new)) {
-		log_info(logger, "No hay hilos para planificar actualmente");
+		log_info(suse_logger, "No hay hilos para planificar actualmente");
 	} else {
 		t_hilo * unHilo = malloc(sizeof(t_hilo));
 		unHilo = list_get(cola_new, 0);
@@ -262,7 +264,7 @@ void* tomarMetricasAutomaticas(){
 //FUNCIONES DE SUSE
 
 
-int suse_create(int pid){
+int hacer_suse_create(int pid){
 	/*
 	t_hilo* hiloNuevo = malloc(sizeof(t_hilo));
 	hiloNuevo->pid = pid;
@@ -274,24 +276,24 @@ int suse_create(int pid){
 	programaBuscado = list_get(lista_programas,index);
 	list_add(programaBuscado->hilos,hiloNuevo);
 	list_add(cola_new, hiloNuevo);
-	log_info(logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
+	log_info(suse_logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
 	int cantidadColaNew = list_size(cola_new);
-	log_info(logger,"Cantidad de elementos en cola new: %d\n", cantidadColaNew);
-	log_info(logger,"ID del programa: %d\n",hiloNuevo->pid);
-	log_info(logger,"ID del hilo: %d\n",hiloNuevo->tid);
+	log_info(suse_logger,"Cantidad de elementos en cola new: %d\n", cantidadColaNew);
+	log_info(suse_logger,"ID del programa: %d\n",hiloNuevo->pid);
+	log_info(suse_logger,"ID del hilo: %d\n",hiloNuevo->tid);
 	free(hiloNuevo);
 	free(programaBuscado);
 	*/
 	return 0;
 }
 
-int suse_schedule_next(int pid){
+int hacer_suse_schedule_next(int pid){
 	/*
 	t_programa * programaBuscado = malloc(sizeof(t_programa));
 	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
 	programaBuscado = list_get(lista_programas,index);
 	if (!list_is_empty(programaBuscado->cola_ready)&& list_is_empty(programaBuscado->cola_exec)){
-		log_info(logger, "Se comenzará a planificar");
+		log_info(suse_logger, "Se comenzará a planificar");
 		t_list* aux;
 		aux = list_map(programaBuscado->cola_ready,(void*)calcularEstimacion);
 		list_sort(aux, (void*)comparadorDeRafagas);
@@ -314,12 +316,12 @@ int suse_schedule_next(int pid){
 		return hiloAEjecutar->tid;
 	}
 	free(programaBuscado);
-	log_error(logger, "La cola de ready del programa está vacia o ya tiene un hilo ejecutando");
+	log_error(suse_logger, "La cola de ready del programa está vacia o ya tiene un hilo ejecutando");
 	*/
 	return 0;
 }
 
-int suse_wait(int pid, char* semaforoID){
+int hacer_suse_wait(int pid, char* semaforoID){
 	/*
 	if(buscadorSemaforo(semaforoID) == 0){
 		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
@@ -327,9 +329,9 @@ int suse_wait(int pid, char* semaforoID){
 		semAUsar = list_get(semaforos,indice);
 		if (semAUsar->semActual <= 0){
 			semAUsar->semActual--;
-			log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
-			log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
-			log_info(logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
+			log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
+			log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+			log_info(suse_logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
 			int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
 			t_programa* programaBuscado = malloc(sizeof(t_programa));
 			programaBuscado = list_get(lista_programas,index);
@@ -345,35 +347,35 @@ int suse_wait(int pid, char* semaforoID){
 			return 0;
 		}
 		semAUsar->semActual--;
-		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
-		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
-		log_info(logger, "%d","Contador actual:", semAUsar->semActual);
+		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
+		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+		log_info(suse_logger, "%d","Contador actual:", semAUsar->semActual);
 		free(semAUsar);
 		return 0;
 	}
-	log_error(logger,"El semaforo no fue encontrado");
+	log_error(suse_logger,"El semaforo no fue encontrado");
 	return -1;
 	*/
 	return 0;
 }
 
-int suse_signal(int pid, char* semaforoID){
+int hacer_suse_signal(int pid, char* semaforoID){
 	/*
 	if(buscadorSemaforo(semaforoID) == 0){
 		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
 		t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
 		semAUsar = list_get(semaforos,indice);
 		if (semAUsar->semActual == semAUsar->semMax){
-			log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
-			log_error(logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
+			log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+			log_error(suse_logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
 			free(semAUsar);
 			return 0;
 		}
 		semAUsar->semActual++;
-		log_info(logger,"%d","Contador inicial:", semAUsar->semInit);
-		log_info(logger,"%d","Contador maximo:", semAUsar->semMax);
-		log_info(logger,"%d","Contador actual:", semAUsar->semActual);
-		log_info(logger,"Se pasará a desbloquear el primer hilo en la cola de espera del semaforo, este hilo pasará al estado ready");
+		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
+		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+		log_info(suse_logger,"%d","Contador actual:", semAUsar->semActual);
+		log_info(suse_logger,"Se pasará a desbloquear el primer hilo en la cola de espera del semaforo, este hilo pasará al estado ready");
 		int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
 		t_programa* programaBuscado = malloc(sizeof(t_programa));
 		programaBuscado = list_get(lista_programas,index);
@@ -389,13 +391,13 @@ int suse_signal(int pid, char* semaforoID){
 		return 0;
 
 	}
-	log_error(logger, "El semaforo no fue encontrado");
+	log_error(suse_logger, "El semaforo no fue encontrado");
 	return -1;
 	*/
 	return 0;
 }
 
-int suse_join(int pid, int tid){
+int hacer_suse_join(int pid, int tid){
 	/*
 	int index = list_get_index(cola_exit,tid,(void*)buscadorDeHilos);
 	//Si el tid pasado no está en exit entonces procedo normalmente
@@ -417,7 +419,7 @@ int suse_join(int pid, int tid){
 	return 0;
 }
 
-int suse_close(int pid, int tid){
+int hacer_suse_close(int pid, int tid){
 	/*
 	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
 	t_programa* programaBuscado = malloc(sizeof(t_programa));
@@ -451,10 +453,10 @@ void* atenderCliente(int socket_cliente){
 	while(1){
 		HeaderSuse headerRecibido;
 		headerRecibido = Suse_RecieveHeader(socket_cliente);
-		log_info(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
-		log_info(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+		log_info(suse_logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+		log_info(suse_logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
 		if(headerRecibido.operaciones == -1){
-			log_error(logger, "Se desconecto el cliente\n");
+			log_error(suse_logger, "Se desconecto el cliente\n");
 			break;
 		}
 		uint32_t tam = headerRecibido.tamanioMensaje;
@@ -464,88 +466,88 @@ void* atenderCliente(int socket_cliente){
 
 		case S_CREATE:;
 			void* paqueteCreate = Suse_ReceiveAndUnpack(socket_cliente,tam);
-			log_info(logger, "Se recibió un pedido de Suse_Create");
+			log_info(suse_logger, "Se recibió un pedido de Suse_Create");
 			int pidCreate = Suse_Unpack_Uint32_pid(paqueteCreate);
 			free(paqueteCreate);
-			int respuestaCreate = suse_create(pidCreate);
+			int respuestaCreate = hacer_suse_create(pidCreate);
 			if (respuestaCreate == 0){
-				log_info(logger, "La operacion Suse_Create se realizó con exito");
+				log_info(suse_logger, "La operacion Suse_Create se realizó con exito");
 				break;
 			}
-			log_error(logger, "La operacion Suse_Create ha fallado");
+			log_error(suse_logger, "La operacion Suse_Create ha fallado");
 			break;
 
 		case S_SCHEDULE_NEXT:;
 			void* paqueteScheduleNext = Suse_ReceiveAndUnpack(socket_cliente,tam);
-			log_info(logger, "Se recibió un pedido de Suse_Schedule_Next");
+			log_info(suse_logger, "Se recibió un pedido de Suse_Schedule_Next");
 			int pidNext = Suse_Unpack_Uint32_pid(paqueteScheduleNext);
 			free(paqueteScheduleNext);
-			int respuestaNext = suse_schedule_next(pidNext);
+			int respuestaNext = hacer_suse_schedule_next(pidNext);
 			if (respuestaNext != 0){ //Si devuelvo cualquier TID entra aca
-				log_info(logger, "La operacion Suse_Schedule_Next se realizó con exito");
-				log_info(logger, "El proximo hilo a ejecutar es el tid=%d",respuestaNext);
+				log_info(suse_logger, "La operacion Suse_Schedule_Next se realizó con exito");
+				log_info(suse_logger, "El proximo hilo a ejecutar es el tid=%d",respuestaNext);
 				break;
 			}
 			//Si falla, devuelve 0
-			log_error(logger, "La operacion Suse_Schedule_Next ha fallado");
+			log_error(suse_logger, "La operacion Suse_Schedule_Next ha fallado");
 			break;
 
 		case S_WAIT:;
 			void* paqueteWait = Suse_ReceiveAndUnpack(socket_cliente,tam);
-			log_info(logger, "Se recibió un pedido de Suse_Wait");
+			log_info(suse_logger, "Se recibió un pedido de Suse_Wait");
 			int pidWait = Suse_Unpack_Uint32_pid(paqueteWait);
 			char* semIDWait = Suse_Unpack_Char(paqueteWait);
 			free(paqueteWait);
-			int respuestaWait = suse_wait(pidWait, semIDWait);
+			int respuestaWait = hacer_suse_wait(pidWait, semIDWait);
 			if (respuestaWait == 0){
-				log_info(logger, "La operacion Suse_Wait se realizó con exito");
+				log_info(suse_logger, "La operacion Suse_Wait se realizó con exito");
 				break;
 			}
-			log_error(logger, "La operacion Suse_Wait ha fallado");
+			log_error(suse_logger, "La operacion Suse_Wait ha fallado");
 			break;
 
 		case S_SIGNAL:;
 			void* paqueteSignal = Suse_ReceiveAndUnpack(socket_cliente,tam);
-			log_info(logger, "Se recibió un pedido de Suse_Signal");
+			log_info(suse_logger, "Se recibió un pedido de Suse_Signal");
 			int pidSignal = Suse_Unpack_Uint32_pid(paqueteSignal);
 			char* semIDSignal = Suse_Unpack_Char(paqueteSignal);
 			free(paqueteSignal);
-			int respuestaSignal = suse_signal(pidSignal, semIDSignal);
+			int respuestaSignal = hacer_suse_signal(pidSignal, semIDSignal);
 			if (respuestaSignal == 0){
-				log_info(logger, "La operacion Suse_Signal se realizó con exito");
+				log_info(suse_logger, "La operacion Suse_Signal se realizó con exito");
 				break;
 			}
-			log_error(logger, "La operacion Suse_Signal ha fallado");
+			log_error(suse_logger, "La operacion Suse_Signal ha fallado");
 			break;
 
 		case S_JOIN:;
 			void* paqueteJoin = Suse_ReceiveAndUnpack(socket_cliente,tam);
-			log_info(logger, "Se recibió un pedida de Suse_Join");
+			log_info(suse_logger, "Se recibió un pedida de Suse_Join");
 			int pidJoin = Suse_Unpack_Uint32_pid(paqueteJoin);
 			int tidJoin = Suse_Unpack_Uint32_tid(paqueteJoin);
 			free(paqueteJoin);
-			int respuestaJoin = suse_join(pidJoin, tidJoin);
+			int respuestaJoin = hacer_suse_join(pidJoin, tidJoin);
 			if (respuestaJoin == 0){
-				log_info(logger, "La operacion Suse_Join se realizó con exito");
+				log_info(suse_logger, "La operacion Suse_Join se realizó con exito");
 			}
-			log_error(logger, "La operacion Suse_Join ha fallado");
+			log_error(suse_logger, "La operacion Suse_Join ha fallado");
 			break;
 
 		case S_CLOSE:;
 			void* paqueteClose = Suse_ReceiveAndUnpack(socket_cliente,tam);
-			log_info(logger, "Se recibió un pedida de Suse_Close");
+			log_info(suse_logger, "Se recibió un pedida de Suse_Close");
 			int pidClose = Suse_Unpack_Uint32_pid(paqueteClose);
 			int tidClose = Suse_Unpack_Uint32_tid(paqueteClose);
 			free(paqueteClose);
-			int respuestaClose = suse_close(pidClose, tidClose);
+			int respuestaClose = hacer_suse_close(pidClose, tidClose);
 			if (respuestaClose == 0){
-				log_info(logger, "La operacion Suse_Close se realizó con exito");
+				log_info(suse_logger, "La operacion Suse_Close se realizó con exito");
 			}
-			log_error(logger, "La operacion Suse_Close ha fallado");
+			log_error(suse_logger, "La operacion Suse_Close ha fallado");
 			break;
 
 		default:
-			log_error(logger, "No es un codigo conocido: %i", headerRecibido.operaciones);
+			log_error(suse_logger, "No es un codigo conocido: %i", headerRecibido.operaciones);
 			break;
 		}
 	}

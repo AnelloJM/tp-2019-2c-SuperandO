@@ -5,22 +5,22 @@
 #include <string.h>
 #include <stdbool.h>
 #include <readline/readline.h>
-#include "/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Conexiones/Conexiones.h"
+#include <Conexiones/Conexiones.h>
 #include <commons/log.h>
 #include <commons/string.h>
 #include <commons/config.h>
 #include <commons/collections/list.h>
-#include "/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Serializacion/serializacion.h"
+#include <Serializacion/serializacion.h>
 #include <commons/collections/queue.h>
 #include <pthread.h>
-#include "/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Lista/lista.h"
+#include <Lista/lista.h>
 #include <time.h>
 #include <semaphore.h>
-#include "SerializacionSUSE/SerializacionSUSE.h"
+#include <SerializacionSUSE/SerializacionSUSE.h>
 
 //ESTRUCTURAS
-t_log* logger;
-t_config* archivoConfig;
+t_log* suse_logger;
+t_config* suse_archivoConfig;
 t_list * cola_new;
 t_list * cola_blocked;
 t_list * cola_exit;
@@ -80,9 +80,9 @@ int pidMAX = 1;
 int tidMAX = 1;
 
 //FUNCIONES
-void crearLogger();
-void leerArchivoDeConfiguracion();
-void setearValores(t_config* archivoConfig);
+void suse_crearLogger();
+void suse_leerArchivoDeConfiguracion();
+void suse_setearValores(t_config* archivoConfig);
 void inicializarEstructuras();
 void inicializarSemaforos();
 int posicionFinalDoblePuntero(char **puntero);
@@ -102,12 +102,12 @@ bool comparadorMismoPrograma(int pid_programa, t_hilo* hilo);
 void* tomarMetricasAutomaticas();
 
 //FUNCIONES DE SUSE
-int suse_create(int pid);
-int suse_schedule_next(int pid);
-int suse_wait(int pid, char* semaforoID);
-int suse_signal(int pid, char* semaforoID);
-int suse_join(int pid, int tid);
-int suse_close(int pid, int tid);
+int hacer_suse_create(int pid);
+int hacer_suse_schedule_next(int pid);
+int hacer_suse_wait(int pid, char* semaforoID);
+int hacer_suse_signal(int pid, char* semaforoID);
+int hacer_suse_join(int pid, int tid);
+int hacer_suse_close(int pid, int tid);
 
 //FUNCION MAGICA
 void* atenderCliente(int socket_cliente); //Mi funcion magica
