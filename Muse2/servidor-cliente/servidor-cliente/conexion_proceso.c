@@ -5,7 +5,7 @@
  *      Author: cruz636
  */
 
-#include "lib_conexion.h"
+#include "../servidor-cliente/lib_conexion.h"
 
 uint32_t conectarse_a_servidor(char *ip,uint32_t puerto)
 {

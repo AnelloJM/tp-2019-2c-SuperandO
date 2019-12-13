@@ -6,7 +6,7 @@
  */
 
 
-#include "lib_conexion.h"
+#include "../servidor-cliente/lib_conexion.h"
 
 /*
 uint32_t iniciar_servidor(uint32_t puerto)  //estaria bueno que el logger no se maneje aca

@@ -20,7 +20,7 @@
 #include <unistd.h>
 #include <commons/collections/list.h>
 #include <string.h>
-#include "servidor-cliente/lib_conexion.h" //esta libreria se define asi porque está en nuestro workspace
+#include <servidor-cliente/lib_conexion.h> //esta libreria se define asi porque está en nuestro workspace
 //#include "servidor-cliente/conexion_muse.c" // esta la sigo poniendo por mi editor, ignorenla
 #include <commons/log.h>
 #include <commons/string.h>
