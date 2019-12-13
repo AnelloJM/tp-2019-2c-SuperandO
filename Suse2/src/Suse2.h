@@ -98,6 +98,8 @@ bool buscadorDeHilos(int tid, t_hilo* hilo);
 void tomarMetricas();
 void calcularTiempoEjecucion(t_hilo* hilo);
 void* planificador_NEW_READY();
+bool comparadorMismoPrograma(int pid_programa, t_hilo* hilo);
+void* tomarMetricasAutomaticas();
 
 //FUNCIONES DE SUSE
 int suse_create(int pid);

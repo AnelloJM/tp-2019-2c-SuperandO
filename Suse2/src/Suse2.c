@@ -38,6 +38,16 @@ int main(void) {
 		}
 		sem_post(&semaforoPlanificacion);
 
+		//TOMAR METRICAS AUTOMATICAMENTE
+		pthread_t * hiloMetricas = malloc(sizeof(pthread_t));
+		if(pthread_create(hiloMetricas, NULL,(void *)tomarMetricasAutomaticas(), NULL)==0){
+			pthread_detach(*hiloMetricas);
+			log_info(logger,"Se creo el hilo *hiloMetricas* correctamente");
+		}
+		else {
+			log_error(logger,"No se ha podido crear el hilo: HiloMetricas");
+		}
+
 	}
 	//ACORDATE DE LIBERAR Y DESTRUIR A TODOS ANTES DE SALIR
 	return 0;
@@ -206,75 +216,46 @@ void calcularTiempoEjecucion(t_hilo* hilo){
 	hilo->tiempoEjecucion = (tiempoFinal - hilo->tiempoEjecucionInicial);
 }
 
-void* planificador_NEW_READY(){
+void* planificador_NEW_READY() {
 	/*
-		if(list_is_empty(cola_new)){
-			log_info(logger,"No hay hilos para planificar actualmente");
-		}
-		int cantidadHilosNew = list_size(cola_new);
-		int cantidadProgramas = list_size(lista_programas);
-		while(cantidadProgramas == 0){
-			cantidadHilosNew = list_size(cola_new);
-			t_hilo * unHilo = malloc(sizeof(t_hilo));
-			unHilo = list_get(cola_new,0); // tomo el primer elemento
-			t_list * hilosDeIgualPadre = list_filter(cola_new,(void*)comparadorMismoPrograma); //filtro los elementos que cumplen
-			programa_t * nuevoPrograma = malloc(sizeof(programa_t));
-			nuevoPrograma->pid = unHilo->pid;
-			list_add_all(nuevoPrograma->cola_ready, hilosDeIgualPadre);
-			//ESTE FOR ES PARA LA TOMA DE METRICAS
-			for (int i=0; i<=list_size(hilosDeIgualPadre); i++){
-				hilo_t* hiloReady = list_get(hilosDeIgualPadre,i);
-				hiloReady->tiempoEsperaInicial = gettimeofday();
-			}
-			nuevoPrograma->cola_exec=NULL;
-			list_add(lista_programas,nuevoPrograma);
-			free(nuevoPrograma);
-			free(unHilo);
-			cantidadProgramas++;
-			break;
-			}
+	if (list_is_empty(cola_new)) {
+		log_info(logger, "No hay hilos para planificar actualmente");
+	} else {
+		t_hilo * unHilo = malloc(sizeof(t_hilo));
+		unHilo = list_get(cola_new, 0);
 
-		while(cantidadProgramas>0 && cantidadProgramas<=max_multiprog){
-			cantidadHilosNew = list_size(cola_new);
-			hilo_t * unHilo = malloc(sizeof(hilo_t));
-			unHilo = list_get(cola_new,0); // tomo el primer elemento
-			t_list * hilosDeIgualPadre = list_filter(cola_new,(void*)comparadorMismoPrograma(unHilo));
-			int ubicacionPrograma = list_get_index(lista_programas,unHilo->pid,(void*)comparadorMismoPrograma);
-				if(ubicacionPrograma < list_size(lista_programas)){ //SI ESTÁ EN LA LISTA DE PROGRAMAS
-					programa_t * programa = malloc(sizeof(programa_t));
-					programa= list_get(lista_programas,ubicacionPrograma);
-					list_add_all(programa->cola_ready,hilosDeIgualPadre);
-					for (int i=0; i<=list_size(hilosDeIgualPadre); i++){
-						hilo_t* hiloReady = list_get(hilosDeIgualPadre,i);
-						hiloReady->tiempoEsperaInicial = gettimeofday();
-					}
-					free(unHilo);
-					free(programa);
-				}
-				if(ubicacionPrograma == list_size(lista_programas)){ //SI NO ESTÁ EN LA LISTA DE PROGRAMAS
-					cantidadHilosNew = list_size(cola_new);
-					hilo_t * unHilo = malloc(sizeof(hilo_t));
-					unHilo = list_get(cola_new,0); // tomo el primer elemento
-					t_list * hilosDeIgualPadre = list_filter(cola_new,(void*)comparadorMismoPrograma);
-					programa_t * nuevoPrograma = malloc(sizeof(programa_t));
-					nuevoPrograma->pid = unHilo->pid;
-					list_add_all(nuevoPrograma->cola_ready, hilosDeIgualPadre);
-					for (int i=0; i<=list_size(hilosDeIgualPadre); i++){
-						hilo_t* hiloReady = list_get(hilosDeIgualPadre,i);
-						hiloReady->tiempoEsperaInicial = gettimeofday();
-					}
-					nuevoPrograma->cola_exec=NULL;
-					list_add(lista_programas,nuevoPrograma);
-					free(nuevoPrograma);
-					free(unHilo);
-					cantidadProgramas++;
-				}
+		//TODOS LOS HILOS DEL MISMO PADRE VAN A READY???????
+
+		t_list * hilosDeIgualPadre = malloc(sizeof(t_list));
+		hilosDeIgualPadre = list_filter(cola_new,(void*) comparadorMismoPrograma); //Esto hay que revisar bien como hacerlo
+		int pid = unHilo->pid;
+		int ubicacionPrograma = list_get_index(lista_programas, pid,(void*) comparadorMismoPrograma);
+		t_programa * programa = malloc(sizeof(t_programa));
+		programa = list_get(lista_programas, ubicacionPrograma);
+		list_add_all(programa->cola_ready, hilosDeIgualPadre);
+		for (int i = 0; i <= list_size(hilosDeIgualPadre); i++) {
+			t_hilo* hiloReady = malloc(sizeof(t_hilo));
+			hiloReady = list_get(hilosDeIgualPadre, i);
+			hiloReady->tiempoEsperaInicial = gettimeofday();
+			//free hiloready ?????
 		}
-		*/
+		list_clean_and_destroy_elements(hilosDeIgualPadre,(void*)free);
+		list_destroy(hilosDeIgualPadre);
+		free(unHilo);
+		free(programa);
+	}
+	*/
 }
 
-bool comparadorMismoPrograma(t_hilo* hilo1, int pid_programa){
-	return (hilo1->pid == pid_programa);
+bool comparadorMismoPrograma(int pid_programa, t_hilo* hilo){
+	return (hilo->pid == pid_programa);
+}
+
+void* tomarMetricasAutomaticas(){
+	while(1){
+		tomarMetricas();
+		sleep(metrics_timer);
+	}
 }
 
 
