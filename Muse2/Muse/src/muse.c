@@ -151,6 +151,31 @@ void reservar_espacio(uint32_t posicion,uint32_t tamanio)
   free(heap);
 }
 
+void liberar_espacio(uint32_t posicion)
+{
+  uint32_t tamanio;
+  memcpy(&tamanio,UPCM+posicion+1,4);
+  Heap * heap = malloc(sizeof(Heap));
+  uint32_t fragmentacion_interna;
+  memcpy(&fragmentacion_interna,UPCM+posicion+5+tamanio,1);
+  if(fragmentacion_interna == 0)
+  {
+	 heap->isFree=true;
+	 heap->size=tamanio;
+  }
+  else
+  {
+	  heap->isFree=true;
+	  heap->size=page_size;
+	  uint32_t index = posicion % page_size;
+	  cambiarValor(tabla_de_frames,index,-1);
+  }
+
+  poner_heap(heap,posicion);
+  free(heap);
+  printf("Se libero la posicion %d",posicion);
+}
+
 void alloc_tam(uint32_t tam,uint32_t posicion)
 {
   //@tam : siempre es menor que page_size - 5 (menos el heap)
@@ -254,8 +279,7 @@ uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso)
   printf("\n\n[+]Tabla de frames actualizada: \n" );
   mostrar_frames_table();
 
-  printf("\n" );
-
+  printf("\n");
   return free_frame_pos; //devolvemos la posicion donde se encuentra reservada la memoria
 
 }
@@ -267,6 +291,16 @@ uint32_t tratar_muse_cpy(uint32_t tam,uint32_t posicion,void * data,uint32_t id_
   printf("Datos copiados en la posicion %d de forma exitosa!\n",posicion );
   return 0;
 }
+
+uint32_t tratar_muse_free(uint32_t dir,uint32_t id_proceso)
+{
+	liberar_espacio(dir);
+	printf("\n\n[+]Tabla de frames actualizada: \n" );
+	mostrar_frames_table();
+
+	return 0;
+}
+
 
 
 uint32_t frame_free_size(uint32_t posicion)
@@ -304,7 +338,7 @@ int iniciarLogger()
 
 void crearLogger()
 {
-	char* logPath = "MUSE.log";//"/home/utnso/workspace/tp-2019-2c-SuperandO/Muse/src/MUSE.log";
+	char* logPath = "MUSE.log";
 	char* nombreArch = "MUSE";
 	bool consolaActiva = true;
 	logger = log_create(logPath, nombreArch, consolaActiva, LOG_LEVEL_INFO);
@@ -314,7 +348,7 @@ void crearLogger()
 
 void leerArchivoDeConfiguracion()
 {
-	char* configPath = "/home/fluor/tp-2019-2c-SuperandO/Muse2/src/MUSE.cfg";
+	char* configPath = "MUSE.cfg";
 	archivoConfig = config_create(configPath);
 	if (archivoConfig == NULL){
 		perror("ERROR: Archivo de configuracion no encontrado");

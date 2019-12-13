@@ -113,7 +113,7 @@ void recibir_paquete(uint32_t destinatario);
 Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario,uint32_t id_proceso);
 void enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete);
 
-uint32_t recibir_muse_free(uint32_t destinatario,uint32_t id_proceso);
+Paquete_respuesta_general * recibir_muse_free(uint32_t destinatario,uint32_t id_proceso);
 void enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete);
 
 Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario,uint32_t id_proceso);
@@ -132,6 +132,7 @@ Paquete_respuesta_general * recibir_respuesta_general(uint32_t destinatario);
 
 uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso);
 uint32_t tratar_muse_cpy(uint32_t tam,uint32_t posicion,void * data,uint32_t id_proceso);
+uint32_t tratar_muse_free(uint32_t dir,uint32_t id_proceso);
 
 //falta serializar mus_map ,muse_unmap y muse_sync
 
