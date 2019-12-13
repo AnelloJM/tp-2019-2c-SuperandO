@@ -78,7 +78,10 @@ void recibir_paquete(uint32_t destinatario)
 
     case 1:
       printf("Se recibio un muse_free\n" );
-      recibir_muse_free(destinatario,n_proceso);
+      Paquete_respuesta_general *paquete_free = malloc(sizeof(Paquete_respuesta_general));
+      paquete_free = recibir_muse_free(destinatario,n_proceso);
+      enviar_respuesta_general(destinatario,paquete_free);
+      free(paquete_free);
       break;
 
     case 2:

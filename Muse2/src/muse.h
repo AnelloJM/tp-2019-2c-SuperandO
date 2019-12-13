@@ -85,6 +85,7 @@ int recibir_peticion(uint32_t tam);
 int pasar_a_frames(uint32_t am);
 uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso);
 uint32_t tratar_muse_cpy(uint32_t tam,uint32_t posicion,void * data,uint32_t id_proceso);
+uint32_t tratar_muse_free(uint32_t dir,uint32_t id_proceso);
 void poner_heap(Heap *heap,uint32_t posicion);
 uint32_t calcular_posicion_en_UPCM(uint32_t n_frame);
 uint32_t buscar_frame_libre();
@@ -94,6 +95,8 @@ uint32_t free_frame_heap(uint32_t posicion);
 void alloc_tam(uint32_t tam,uint32_t posicion);
 void mostrar_frames_table();
 uint32_t buscar_proceso(uint32_t id_proceso);
+void liberar_espacio(uint32_t posicion);
+
 
 
 #endif

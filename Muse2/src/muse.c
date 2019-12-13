@@ -279,6 +279,7 @@ uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso)
   printf("\n\n[+]Tabla de frames actualizada: \n" );
   mostrar_frames_table();
 
+  printf("\n");
   return free_frame_pos; //devolvemos la posicion donde se encuentra reservada la memoria
 
 }
