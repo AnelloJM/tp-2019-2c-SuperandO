@@ -119,7 +119,6 @@ char* Suse_Unpack_Char(void *pack){
 	uint32_t desplazamiento = 0;
 	memcpy(&desplazamiento, pack, sizeof(uint32_t));
 	desplazamiento += sizeof(uint32_t);
-	//Preguntar como calcular el tamaño de lo que falta, el tamanioSemID
 	memcpy(&tamanioSemID, pack+desplazamiento, sizeof(uint32_t));
 	char* semID = malloc(tamanioSemID);
 	memcpy(semID, pack+desplazamiento, tamanioSemID);
