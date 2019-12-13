@@ -28,6 +28,29 @@ t_list * semaforos;
 t_list * lista_programas;
 
 typedef struct {
+	int pid;
+	int tid;
+	int estimacionAnterior;
+	float rafagasEjecutadas;
+	float rafagasEstimadas;
+	char * razon_bloqueado;
+	bool finalizado;
+	//Tiempo entre la creacion y la toma de la metrica
+	int tiempoEjecucionInicial;
+	int tiempoEjecucion;
+	//Tiempo que pasa en el estado READY
+	int tiempoEsperaInicial; /*CUANDO LO MANDE A READY TENGO QUE TOMAR EL TIEMPO DE ESE INSTANTE, NO OLVIDARSE (CUANDO PASA DE NEW A READY)*/
+	int tiempoEsperaFinal;
+	int tiempo_espera;
+	//Tiempo que pasa en el estado EXEC
+	int tiempoUsoCPUInicial;
+	int tiempoUsoCPUFinal;
+	int tiempoUsoCPU;
+	//Tiempo ejecucion del hilo dividido el total de tiempo de ejecucion de todos los hilos del proceso
+	float porcentajeTiempoEjecucion;
+} t_hilo;
+
+typedef struct {
 	char* semID;
 	int semInit;
 	int semActual;
@@ -54,6 +77,7 @@ double alpha_sjf;
 int socket_suse;
 int socket_cliente;
 int pidMAX = 1;
+int tidMAX = 1;
 
 //FUNCIONES
 void crearLogger();
@@ -63,6 +87,21 @@ void inicializarEstructuras();
 void inicializarSemaforos();
 int posicionFinalDoblePuntero(char **puntero);
 void liberarDoblePuntero(char **puntero);
+bool comparadorPrograma(int unPid, t_programa* unPrograma);
+t_hilo calcularEstimacion(t_hilo unHilo);
+bool comparadorDeRafagas(t_hilo unHilo, t_hilo otroHilo);
+bool comparadorDeHilos(t_hilo* unHilo, t_hilo* otroHilo);
+int gettimeofday();
+int buscadorSemaforo (char* semaforoID);
+bool comparadorDeSemaforos(char* unSem, t_semaforo otroSem);
+bool buscadorDeHilos(int tid, t_hilo* hilo);
+void tomarMetricas();
+void calcularTiempoEjecucion(t_hilo* hilo);
+void* planificador_NEW_READY();
+bool comparadorMismoPrograma(int pid_programa, t_hilo* hilo);
+void* tomarMetricasAutomaticas();
+
+//FUNCIONES DE SUSE
 int suse_create(int pid);
 int suse_schedule_next(int pid);
 int suse_wait(int pid, char* semaforoID);
@@ -70,6 +109,7 @@ int suse_signal(int pid, char* semaforoID);
 int suse_join(int pid, int tid);
 int suse_close(int pid, int tid);
 
+//FUNCION MAGICA
 void* atenderCliente(int socket_cliente); //Mi funcion magica
 
 #endif

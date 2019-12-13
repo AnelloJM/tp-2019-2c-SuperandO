@@ -14,8 +14,6 @@
 
 int main(void) {
 	puts("Superand0 Sac-Server Iniciando..."); /* prints Superand0 Sac-Server Iniciando... */
-	Segmento prueba;
-	prueba.base=10;
-	printf("base %i", prueba.base);
+	prueba_de_creacion();
 	return EXIT_SUCCESS;
 }

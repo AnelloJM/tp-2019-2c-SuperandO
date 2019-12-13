@@ -84,6 +84,7 @@ int iniciarLogger();
 int recibir_peticion(uint32_t tam);
 int pasar_a_frames(uint32_t am);
 uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso);
+uint32_t tratar_muse_cpy(uint32_t tam,uint32_t posicion,void * data,uint32_t id_proceso);
 void poner_heap(Heap *heap,uint32_t posicion);
 uint32_t calcular_posicion_en_UPCM(uint32_t n_frame);
 uint32_t buscar_frame_libre();

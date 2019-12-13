@@ -7,8 +7,9 @@
 
 #include "libmuse.h"
 
+
 void prueba_de_creacion(){
-	printf("hola se inicio");
+	puts("This is a test");
 }
 
 int muse_init(int id, char* ip, int puerto)
