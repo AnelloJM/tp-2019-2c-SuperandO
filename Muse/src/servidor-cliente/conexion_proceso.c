@@ -60,7 +60,6 @@ void enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete)
   free(buffer);
 }
 
-
 void enviar_muse_get(uint32_t destino,Paquete_muse_get *paquete)
 {
   void *buffer = malloc(12);

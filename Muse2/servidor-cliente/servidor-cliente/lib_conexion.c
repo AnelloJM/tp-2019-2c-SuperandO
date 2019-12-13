@@ -77,7 +77,10 @@ void recibir_paquete(uint32_t destinatario)
 
     case 1:
       printf("Se recibio un muse_free\n" );
-      recibir_muse_free(destinatario,n_proceso);
+      Paquete_respuesta_general *paquete_free = malloc(sizeof(Paquete_respuesta_general));
+      paquete_free = recibir_muse_free(destinatario,n_proceso);
+      enviar_respuesta_general(destinatario,paquete_free);
+      free(paquete_free);
       break;
 
     case 2:
@@ -162,13 +165,18 @@ Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario,uint32_t id
   return paquete;
 }
 
-uint32_t recibir_muse_free(uint32_t destinatario,uint32_t id_proceso)
+Paquete_respuesta_general * recibir_muse_free(uint32_t destinatario,uint32_t id_proceso)
 {
+  Paquete_respuesta_general *paquete = malloc(sizeof(Paquete_respuesta_general));
   uint32_t dst;
   recv(destinatario,&dst,4,0);
-  //tratar_muse_free(id_proceso);
+  tratar_muse_free(dst,id_proceso);
   printf("La direccion a liberear es %d\n",dst );
-  return 0;
+
+  paquete->size_resp = 4;
+  paquete->respuesta = 0;
+
+  return paquete;
 }
 
 Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario,uint32_t n_proceso)
