@@ -78,6 +78,7 @@ int socket_suse;
 int socket_cliente;
 int pidMAX = 0;
 int tidMAX = 0;
+int hilosEnNew = 0; 	//Variable en suse-create que aumenta cuando creo un hilo nuevo
 
 //FUNCIONES
 void suse_crearLogger();
@@ -98,7 +99,7 @@ bool buscadorDeHilos(int tid, t_hilo* hilo);
 void tomarMetricas();
 void calcularTiempoEjecucion(t_hilo* hilo);
 void* planificador_NEW_READY();
-bool comparadorMismoPrograma(int pid_programa, t_hilo* hilo);
+bool comparadorMismoPrograma(t_hilo* hilo, int pid_programa);
 void* tomarMetricasAutomaticas();
 
 //FUNCIONES DE SUSE

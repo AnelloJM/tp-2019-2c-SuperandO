@@ -24,12 +24,29 @@ void setearValores(t_config* archivoConfig){
 	server_port = config_get_string_value(archivoConfig,"SERVER_PORT");
 }
 
+//RECIBIR RESPUESTA
+
+int RecibirRespuesta(int socket) {
+	HeaderSuse headerRecibido;
+	sem_wait(&mutex_buffer);
+	headerRecibido = Suse_RecieveHeader(socket);
+	log_error(hilolay_logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_error(hilolay_logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tam = headerRecibido.tamanioMensaje;
+	void *packRecibido= Suse_ReceiveAndUnpack(socket, tam);
+	sem_post(&mutex_buffer);
+	int respuesta = Suse_Unpack_Uint32_pid(packRecibido);
+	free(packRecibido);
+	return respuesta;
+}
+
 //ENVIO DE PAQUETES
 
 int suse_create(uint32_t pid){
 	if(Suse_PackAndSend_Create(socket_suse2, pid)){
 		log_info(hilolay_logger,"Se pudo enviar el paquete create suse");
-		return 0;
+		int respuesta = RecibirRespuesta(socket_suse2);
+		return respuesta;
 	}
 	log_error(hilolay_logger, "No se pudo enviar el paquete a suse");
 	return -1;
@@ -38,7 +55,8 @@ int suse_create(uint32_t pid){
 int suse_schedule_next(uint32_t pid){
 	if(Suse_PackAndSend_Schedule_Next(socket_suse2, pid)){
 		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
-		return 0;
+		int respuesta = RecibirRespuesta(socket_suse2);
+		return respuesta;
 	}
 	log_error(hilolay_logger, "No se pudo enviar el paquete a suse");
 	return -1;
@@ -47,7 +65,8 @@ int suse_schedule_next(uint32_t pid){
 int suse_wait(uint32_t pid, char* semID){
 	if(Suse_PackAndSend_Wait(socket_suse2, pid, semID)){
 		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
-		return 0;
+		int respuesta = RecibirRespuesta(socket_suse2);
+		return respuesta;
 	}
 	log_error(hilolay_logger, "No se pudo enviar el paquete a suse");
 	return -1;
@@ -56,7 +75,8 @@ int suse_wait(uint32_t pid, char* semID){
 int suse_signal(uint32_t pid, char* semID){
 	if(Suse_PackAndSend_Signal(socket_suse2, pid, semID)){
 		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
-		return 0;
+		int respuesta = RecibirRespuesta(socket_suse2);
+		return respuesta;
 	}
 	log_error(hilolay_logger, "No se pudo enviar el paquete a suse");
 	return -1;
@@ -65,7 +85,8 @@ int suse_signal(uint32_t pid, char* semID){
 int suse_join(uint32_t pid, uint32_t tid){
 	if(Suse_PackAnd_Send_Join(socket_suse2, pid, tid)){
 		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
-		return 0;
+		int respuesta = RecibirRespuesta(socket_suse2);
+		return respuesta;
 	}
 	log_error(hilolay_logger, "No se pudo enviar el paquete a suse");
 	return -1;
@@ -74,7 +95,8 @@ int suse_join(uint32_t pid, uint32_t tid){
 int suse_close(uint32_t pid, uint32_t tid){
 	if(Suse_PackAnd_Send_Close(socket_suse2, pid, tid)){
 		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
-		return 0;
+		int respuesta = RecibirRespuesta(socket_suse2);
+		return respuesta;
 	}
 	log_error(hilolay_logger, "No se pudo enviar el paquete a suse");
 	return -1;
@@ -94,6 +116,7 @@ void hilolay_init(){
 	crearLogger();
 	leerArchivoDeConfiguracion();
 	socket_suse2 = conectarse_a_un_servidor(server_ip, server_port,hilolay_logger);
+	sem_init(&mutex_buffer,0,1);
 	printf("====ACA=====\n");
 	init_internal(&hiloops);
 	printf("====ACA=====\n");

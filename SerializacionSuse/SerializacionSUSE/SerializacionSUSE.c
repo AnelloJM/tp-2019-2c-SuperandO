@@ -44,6 +44,10 @@ void* Suse_ReceiveAndUnpack(int socketCliente, uint32_t tamanio) {
 	return retorno;
 }
 
+bool Suse_PackAndSend_Respuesta(int socketCliente, uint32_t respuesta){
+	return Suse_PackAndSend_Create(socketCliente,respuesta);
+}
+
 bool Suse_PackAndSend_Create(int socketCliente, uint32_t pid){
 	void* pack = malloc(sizeof(uint32_t));
 	memcpy(pack, &pid, sizeof(uint32_t));

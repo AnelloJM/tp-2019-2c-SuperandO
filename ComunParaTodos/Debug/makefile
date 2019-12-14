@@ -30,7 +30,7 @@ endif
 all: libComunParaTodos.so
 
 dependents:
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/SerializacionSuse/Debug && $(MAKE) all
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/SerializacionSuse/Debug && $(MAKE) clean all
 
 # Tool invocations
 libComunParaTodos.so: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-SuperandO/SerializacionSuse/Debug/libSerializacionSuse.so
