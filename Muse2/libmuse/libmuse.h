@@ -41,11 +41,8 @@
 #include <commons/config.h>
 #include <commons/string.h>
 #include <unistd.h>
-#include <servidor-cliente/lib_conexion.h>
 
-//#include "servidor-cliente/conexion_proceso.c"
-//#include "../../ComunParaTodos/Conexiones/Conexiones.h" //esta libreria se define asi porque está en nuestro workspace
-//#include "../../ComunParaTodos/Conexiones/Conexiones.c" // esta la sigo poniendo por mi editor, ignorenla
+#include "conexion_proceso.h"
 
 //global Variables
 
@@ -174,8 +171,6 @@ int muse_unmap(uint32_t dir);
 
 //mas funciones propias
 void enviar_id(uint32_t destinatario,int id);
-
-void prueba_de_creacion();
 
 #endif
 

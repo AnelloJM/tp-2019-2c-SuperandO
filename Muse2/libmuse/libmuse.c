@@ -8,9 +8,6 @@
 #include "libmuse.h"
 
 
-void prueba_de_creacion(){
-	puts("This is a test");
-}
 
 int muse_init(int id, char* ip, int puerto)
 {
@@ -37,26 +34,30 @@ void enviar_id(uint32_t destinatario,int id)
 uint32_t muse_alloc(uint32_t tam)
 {
   Paquete_muse_alloc *paquete = malloc(sizeof(Paquete_muse_alloc));
-	Paquete_respuesta_general *respuesta_muse = malloc(sizeof(Paquete_respuesta_general));
+  Paquete_respuesta_general *respuesta_muse = malloc(sizeof(Paquete_respuesta_general));
 
-	paquete->op = 0;
+  paquete->op = 0;
   paquete->size_alloc = tam;
 
-	enviar_id(socket_pipe,id_proceso);
+  enviar_id(socket_pipe,id_proceso);
   enviar_muse_alloc(socket_pipe,paquete);
-	respuesta_muse = recibir_respuesta_general(socket_pipe);
+  respuesta_muse = recibir_respuesta_general(socket_pipe);
 
-	free(paquete);
+  free(paquete);
   return (respuesta_muse->respuesta);
 }
 
 
 void muse_free(uint32_t dir) {
-
 	Paquete_muse_free *paquete = malloc(sizeof(Paquete_muse_free));
+	Paquete_respuesta_general *respuesta_muse = malloc(sizeof(Paquete_respuesta_general));
+
 	paquete->op=1;
 	paquete->direccion=dir;
+	enviar_id(socket_pipe,id_proceso);
 	enviar_muse_free(socket_pipe,paquete);
+	respuesta_muse = recibir_respuesta_general(socket_pipe);
+
 	free(paquete);
 }
 

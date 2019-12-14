@@ -1,13 +1,13 @@
 /*
- * lib_conexion.h
+ * conexion_proceso.h
  *
- *  Created on: Dec 12, 2019
- *      Author: cruz636
+ *  Created on: Dec 13, 2019
+ *      Author: root
  */
 
 
-#ifndef LIB_CONEXION_H_
-#define LIB_CONEXION_H_
+#ifndef CONEXION_PROCESO_H_
+#define CONEXION_PROCESO_H_
 #include <string.h>
 #include <stdio.h>
 #include <stdint.h>
@@ -18,19 +18,7 @@
 #include <string.h>
 #include <commons/log.h>
 #include <commons/config.h>
-#define MAXCONN 15
 
-/*
-Funciones para conectar MUSE con los procesos que usan
-la libreria libmuse.h
-*/
-
-//Estructuras
-
-typedef struct
-{
-  uint32_t resp;
-}Paquete_respuesta;
 
 typedef struct
 {
@@ -105,36 +93,21 @@ uint32_t conn; //This is the connection file descriptor that will be used to dis
 
 
 uint32_t conectarse_a_servidor(char *ip,uint32_t puerto);
-uint32_t iniciar_servidor(char* puerto,t_log * logger);
-uint32_t esperar_cliente_con_accept(uint32_t socket_servidor, t_log* logger);
-uint32_t esperar_cliente(uint32_t cliente);
-void recibir_paquete(uint32_t destinatario);
 
-Paquete_respuesta_general * recibir_muse_alloc(uint32_t destinatario,uint32_t id_proceso);
 void enviar_muse_alloc(uint32_t destino,Paquete_muse_alloc *paquete);
 
-Paquete_respuesta_general * recibir_muse_free(uint32_t destinatario,uint32_t id_proceso);
 void enviar_muse_free(uint32_t destino,Paquete_muse_free *paquete);
 
-Paquete_respuesta_general * recibir_muse_get(uint32_t destinatario,uint32_t id_proceso);
 void enviar_muse_get(uint32_t destino,Paquete_muse_get *paquete);
 
-Paquete_respuesta_general * recibir_muse_cpy(uint32_t destinatario,uint32_t id_proceso);
 void enviar_muse_cpy(uint32_t destino,Paquete_muse_cpy *paquete);
 
-uint32_t recibir_muse_close(uint32_t destinatario);
 void enviar_muse_close(uint32_t destino,Paquete_muse_close *paquete);
 
-//---------------------------------------------
-
-void enviar_respuesta_general(uint32_t destino,Paquete_respuesta_general *paquete);
 Paquete_respuesta_general * recibir_respuesta_general(uint32_t destinatario);
 
-uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso);
-uint32_t tratar_muse_cpy(uint32_t tam,uint32_t posicion,void * data,uint32_t id_proceso);
-uint32_t tratar_muse_free(uint32_t dir,uint32_t id_proceso);
 
 //falta serializar mus_map ,muse_unmap y muse_sync
 
-#endif
 
+#endif

@@ -20,11 +20,11 @@
 #include <unistd.h>
 #include <commons/collections/list.h>
 #include <string.h>
-#include "servidor-cliente/conexion_muse.h"
 #include <commons/log.h>
 #include <commons/string.h>
 #include <commons/config.h>
 #include <pthread.h>
+#include "conexion_muse.h"
 
 //Varibles globales
 

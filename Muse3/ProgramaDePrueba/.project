@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>libmuse</name>
+	<name>Prueba</name>
 	<comment></comment>
 	<projects>
+		<project>libmuse</project>
+		<project>lib_conexion</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
