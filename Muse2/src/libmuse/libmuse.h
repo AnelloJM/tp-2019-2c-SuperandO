@@ -41,7 +41,7 @@
 #include <commons/config.h>
 #include <commons/string.h>
 #include <unistd.h>
-#include "servidor-cliente/conexion_proceso.h"
+#include "conexion_proceso.h"
 
 //global Variables
 
