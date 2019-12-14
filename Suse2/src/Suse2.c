@@ -320,6 +320,7 @@ int hacer_suse_schedule_next(int pid){
 	}
 	free(programaBuscado);
 	log_error(suse_logger, "La cola de ready del programa está vacia o ya tiene un hilo ejecutando");
+	return -1;
 	*/
 	return 0;
 }
@@ -445,9 +446,9 @@ int hacer_suse_close(int pid, int tid){
 //FUNCION MAGICA
 
 
-void atenderCliente(void* socket_cliente){
-	int foo = *(int*) socket_cliente;
-	log_info(suse_logger, "%d", foo);
+void atenderCliente(void* socket_cliente_void){
+	int socket_cliente = *(int*) socket_cliente_void;
+	log_info(suse_logger, "%d", socket_cliente);
 	t_programa* programaNuevo = malloc(sizeof(t_programa));
 	programaNuevo->pid = pidMAX;
 	pidMAX++;
@@ -477,6 +478,7 @@ void atenderCliente(void* socket_cliente){
 			void* paqueteCreate = Suse_ReceiveAndUnpack(socket_cliente,tam);
 			log_info(suse_logger, "Se recibió un pedido de Suse_Create");
 			int pidCreate = Suse_Unpack_Uint32_pid(paqueteCreate);
+			log_info(suse_logger, "He recibido un PID : %i", pidCreate);
 			free(paqueteCreate);
 			int respuestaCreate = hacer_suse_create(pidCreate);
 			if (respuestaCreate == 0){
@@ -492,7 +494,7 @@ void atenderCliente(void* socket_cliente){
 			int pidNext = Suse_Unpack_Uint32_pid(paqueteScheduleNext);
 			free(paqueteScheduleNext);
 			int respuestaNext = hacer_suse_schedule_next(pidNext);
-			if (respuestaNext != 0){ //Si devuelvo cualquier TID entra aca
+			if (respuestaNext != -1){ //Si devuelvo cualquier TID entra aca
 				log_info(suse_logger, "La operacion Suse_Schedule_Next se realizó con exito");
 				log_info(suse_logger, "El proximo hilo a ejecutar es el tid=%d",respuestaNext);
 				break;

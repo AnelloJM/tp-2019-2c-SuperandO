@@ -30,7 +30,7 @@ hilolay_operations *main_ops;
 
 void init_internal(struct hilolay_operations*);
 
-t_log* logger;
+t_log* hilolay_logger;
 t_config* archivoConfig;
 char* server_ip;
 char* server_port;

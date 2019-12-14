@@ -76,8 +76,8 @@ char** sem_max_suse;
 double alpha_sjf;
 int socket_suse;
 int socket_cliente;
-int pidMAX = 1;
-int tidMAX = 1;
+int pidMAX = 0;
+int tidMAX = 0;
 
 //FUNCIONES
 void suse_crearLogger();

@@ -18,7 +18,8 @@ bool Suse_PackAndSend(int socketCliente, const void *paquete, uint32_t tamPaquet
 
 HeaderSuse Suse_RecieveHeader(int socketCliente){
 	void* buffer=malloc(sizeof(s_operacion) + sizeof(uint32_t));
-	if(recv(socketCliente, buffer, (sizeof(s_operacion) + sizeof(uint32_t)), MSG_WAITALL) == 0){
+	int result = recv(socketCliente, buffer, (sizeof(s_operacion) + sizeof(uint32_t)), MSG_WAITALL);
+	if(result == 0 || result == -1){
 		HeaderSuse headerQueRetorna;
 		headerQueRetorna.operaciones = (-1);
 		headerQueRetorna.tamanioMensaje = 0;

@@ -17,7 +17,7 @@
 int main(void) {
 	puts("Probando SUSE..."); /* prints Superand0 Sac-Server Iniciando... */
 	hilolay_init();
-	log_info(logger, "Me conectare al puerto: %s", server_port);
+	log_info(hilolay_logger, "Me conectare al puerto: %s", server_port);
 //	suse_create(0);
 //	suse_schedule_next(0);
 //	suse_wait(0, strdup("SEMID"));
