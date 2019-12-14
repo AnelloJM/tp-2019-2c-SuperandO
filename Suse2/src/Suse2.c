@@ -10,6 +10,7 @@ int main(void) {
 	sem_init(&semaforoPlanificacion,0,max_multiprog);
 
 	log_info(suse_logger, "Me conectare al puerto: %s", suse_port);
+	lista_programas = list_create();
 
 
 	while(1){
@@ -18,37 +19,39 @@ int main(void) {
 		log_info(suse_logger,"Esperando por clientes");
 		socket_cliente = esperar_cliente_con_accept(socket_suse,suse_logger);
 		//ATENDER CLIENTES
-		pthread_t* hiloRecibirPaquetes = malloc(sizeof(pthread_t));
-		if(pthread_create(hiloRecibirPaquetes, NULL,(void*)atenderCliente,(void*)(socket_cliente) ) == 0){
-			pthread_detach(*hiloRecibirPaquetes);
+		pthread_t hiloRecibirPaquetes;
+		pthread_create(&hiloRecibirPaquetes, NULL,(void*)atenderCliente, &socket_cliente );
+		if(0 == 0){
+			pthread_detach(&hiloRecibirPaquetes);
 			log_info(suse_logger,"Se creo el hilo RecibirPaquetes correctamente");
 		}else{
 			log_error(suse_logger,"No se ha podido crear el hilo: RecibirPaquetes");
 		}
 
-		//PLANIFICADOR NEW A READY
-		sem_wait(&semaforoPlanificacion);
-		int cantidadProgramas = list_size(lista_programas);
-		while (cantidadProgramas < max_multiprog){
-			pthread_t * hiloPlani = malloc(sizeof(pthread_t));
-			if(pthread_create(hiloPlani, NULL,(void*)planificador_NEW_READY(), NULL) == 0){
-				pthread_detach(*hiloPlani); //Esta bien que vaya con detach???
-				log_info(suse_logger,"Se creo el hilo de planificacion new->ready correctamente");
-			}else{
-				log_error(suse_logger,"No se ha podido crear el hilo de planificacion new->ready");
-			}
-		}
-		sem_post(&semaforoPlanificacion);
-
-		//TOMAR METRICAS AUTOMATICAMENTE
-		pthread_t * hiloMetricas = malloc(sizeof(pthread_t));
-		if(pthread_create(hiloMetricas, NULL,(void *)tomarMetricasAutomaticas(), NULL)==0){
-			pthread_detach(*hiloMetricas);
-			log_info(suse_logger,"Se creo el hilo *hiloMetricas* correctamente");
-		}
-		else {
-			log_error(suse_logger,"No se ha podido crear el hilo: HiloMetricas");
-		}
+//		//PLANIFICADOR NEW A READY
+//		sem_wait(&semaforoPlanificacion);
+//		int cantidadProgramas = list_size(lista_programas);
+////		while (cantidadProgramas < max_multiprog){
+////			pthread_t * hiloPlani = malloc(sizeof(pthread_t));
+////			if(pthread_create(hiloPlani, NULL,(void*)planificador_NEW_READY(), NULL) == 0){
+////				pthread_detach(*hiloPlani); //Esta bien que vaya con detach???
+////				log_info(suse_logger,"Se creo el hilo de planificacion new->ready correctamente");
+////			}else{
+////				log_error(suse_logger,"No se ha podido crear el hilo de planificacion new->ready");
+////			}
+////			break;
+////		}
+//		sem_post(&semaforoPlanificacion);
+//
+//		//TOMAR METRICAS AUTOMATICAMENTE
+//		pthread_t * hiloMetricas = malloc(sizeof(pthread_t));
+//		if(pthread_create(hiloMetricas, NULL,(void *)tomarMetricasAutomaticas(), NULL)==0){
+//			pthread_detach(*hiloMetricas);
+//			log_info(suse_logger,"Se creo el hilo *hiloMetricas* correctamente");
+//		}
+//		else {
+//			log_error(suse_logger,"No se ha podido crear el hilo: HiloMetricas");
+//		}
 
 	}
 	//ACORDATE DE LIBERAR Y DESTRUIR A TODOS ANTES DE SALIR
@@ -442,8 +445,10 @@ int hacer_suse_close(int pid, int tid){
 //FUNCION MAGICA
 
 
-void* atenderCliente(int socket_cliente){
-	t_programa* programaNuevo = malloc(sizeof(programaNuevo));
+void atenderCliente(void* socket_cliente){
+	int foo = *(int*) socket_cliente;
+	log_info(suse_logger, "%d", foo);
+	t_programa* programaNuevo = malloc(sizeof(t_programa));
 	programaNuevo->pid = pidMAX;
 	pidMAX++;
 	programaNuevo->hilos = list_create();
@@ -463,6 +468,10 @@ void* atenderCliente(int socket_cliente){
 		switch(headerRecibido.operaciones){
 
 		//Las operaciones no tienen que enviar ninguna respuesta de vuelta creo
+
+		case S_INIT:;
+			log_info(suse_logger,"Bienvenido nuevo cliente!");
+			break;
 
 		case S_CREATE:;
 			void* paqueteCreate = Suse_ReceiveAndUnpack(socket_cliente,tam);

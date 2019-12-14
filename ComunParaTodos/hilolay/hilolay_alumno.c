@@ -2,13 +2,6 @@
 
 //CONEXION CON SUSE
 
-void hilolay_init(){
-	crearLogger();
-	leerArchivoDeConfiguracion();
-	socket_suse2 = conectarse_a_un_servidor(server_ip, server_port,logger);
-	init_internal(main_ops);
-}
-
 void crearLogger(){
 	char* logPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/hilolay/hilolay.log";
 	char* nombreArch = "hilolay";
@@ -87,4 +80,21 @@ int suse_close(uint32_t pid, uint32_t tid){
 	return -1;
 }
 
+static struct hilolay_operations hiloops = {
+		.suse_create = &suse_create,
+		.suse_schedule_next = &suse_schedule_next,
+		.suse_join = &suse_join,
+		.suse_close = &suse_close,
+		.suse_wait = &suse_wait,
+		.suse_signal = &suse_signal
+};
 
+
+void hilolay_init(){
+	crearLogger();
+	leerArchivoDeConfiguracion();
+	socket_suse2 = conectarse_a_un_servidor(server_ip, server_port,logger);
+	printf("====ACA=====\n");
+	init_internal(&hiloops);
+	printf("====ACA=====\n");
+}
