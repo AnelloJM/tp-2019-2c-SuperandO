@@ -85,6 +85,13 @@ void poner_heap(Heap *heap,uint32_t posicion){
   printf("[+]Se puso el heap(%d,%d) en la posicion(de UPCM) %u\n",heap->isFree,heap->size,posicion);
 }
 
+void poner_heap_meta_free(uint32_t posicion,uint32_t free_space)
+{
+	memcpy(UPCM+posicion,true,1);
+	memcpy(UPCM+posicion+1,free_space,4);
+	printf("Se indico que hay %d de espacion libre luego de la posicion %d",free_space,posicion);
+}
+
 uint32_t calcular_posicion_en_UPCM(uint32_t n_frame)
 {
   uint32_t posicion = n_frame * page_size;
@@ -113,7 +120,7 @@ uint32_t free_frame_heap(uint32_t posicion)
     }
 
   }
-  printf(" La posicion donde esta el heap free es %d\n",respuesta );
+  printf(" La posicion que esta free es %d\n",respuesta );
   return respuesta;
 }
 
@@ -214,7 +221,6 @@ uint32_t buscar_proceso(uint32_t id_proceso)
   return posicion_en_tabla;
 }
 
-
 uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso)
 {
 
@@ -301,21 +307,53 @@ uint32_t tratar_muse_free(uint32_t dir,uint32_t id_proceso)
 	return 0;
 }
 
-
-
-uint32_t frame_free_size(uint32_t posicion)
+uint32_t frame_free_size(uint32_t posicion) //free size in frame
 {
-    uint32_t free_size;
-    memcpy(&free_size,UPCM+posicion+1,4);
-    printf("Memoria disponible : %d\n",free_size );
-    return free_size;
+	 uint32_t free_size;
+	 memcpy(&free_size,UPCM+posicion+1,4);
+	 printf("Memoria disponible : %d\n",free_size );
+	 return free_size;
 }
+
+
+uint32_t free_size_in_frame(uint32_t frame)
+{
+	uint32_t ini_pos = calcular_posicion_en_UPCM(frame);
+	uint32_t value,used_size;
+	uint32_t total_used_size=0;
+
+	memcpy(&value,UPCM+ini_pos,1);
+	while(value==0 && total_used_size < page_size - 5)//mientras el heap_metadata indique que hay memoria reservada,buscamos un heap_metadata libre
+	{
+		memcpy(&used_size,UPCM+ini_pos+1,4);
+		total_used_size = total_used_size + used_size;
+		ini_pos = ini_pos + 5 + used_size;
+		memcpy(&value,UPCM+ini_pos,1);
+	}
+	if(value==0 && total_used_size > page_size - 5)
+	{
+		return 0; //no hay espacio disponible en el frame
+	}
+	if(value==1)
+	{
+		uint32_t free_size;
+		memcpy(&free_size,UPCM+ini_pos+1,4);
+		printf("Hay %d memoria disponible en el frame (pos: %d) ",free_size,ini_pos);
+		return free_size; //devolvemos la cantidad de memoria libre que hay en el frame
+	}
+
+
+}
+
+
+
+
+
 
 void cambiarValor(t_list *tabla_de_frames,int index,int valor)
 {
   list_replace(tabla_de_frames,index,valor); // 1 o 0
 }
-
 
 int iniciarLogger()
 {
@@ -334,7 +372,6 @@ int iniciarLogger()
 	frames_table_size = memory_size / page_size ;
 	return 0;
 }
-
 
 void crearLogger()
 {
@@ -366,7 +403,6 @@ void setearValores(t_config* archivoConfig)
 	page_size =	config_get_int_value(archivoConfig,"PAGE_SIZE");
 	swap_size = config_get_int_value(archivoConfig,"SWAP_SIZE");
 }
-
 
 void mostrar_frames_table()
 {
