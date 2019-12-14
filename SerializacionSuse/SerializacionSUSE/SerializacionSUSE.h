@@ -16,6 +16,7 @@
 #include <fcntl.h>
 
 typedef enum f_operaciones {
+	S_INIT,
 	S_CREATE, 	//recibe pid
 	S_SCHEDULE_NEXT, 	//recibe pid
 	S_WAIT, 	//recibe 1°pid y 2°semID

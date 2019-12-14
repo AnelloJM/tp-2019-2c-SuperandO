@@ -110,6 +110,6 @@ int hacer_suse_join(int pid, int tid);
 int hacer_suse_close(int pid, int tid);
 
 //FUNCION MAGICA
-void* atenderCliente(int socket_cliente); //Mi funcion magica
+void atenderCliente(void* socket_cliente); //Mi funcion magica
 
 #endif
