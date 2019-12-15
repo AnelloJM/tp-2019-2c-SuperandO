@@ -253,6 +253,7 @@ void* tomarMetricasAutomaticas(){
 
 
 int hacer_suse_create(int pid){
+	/*
 	t_hilo* hiloNuevo = malloc(sizeof(t_hilo));
 	hiloNuevo->pid = pid;
 	hiloNuevo->tid = tidMAX;
@@ -270,6 +271,7 @@ int hacer_suse_create(int pid){
 	planificador_NEW_READY();
 	free(hiloNuevo);
 	free(programaBuscado);
+	*/
 	return 0;
 }
 
@@ -470,6 +472,7 @@ void atenderCliente(void* socket_cliente_void){
 			else
 				log_error(suse_logger, "La operacion Suse_Create ha fallado");
 			Suse_PackAndSend_Respuesta(socket_cliente,respuestaCreate);
+			log_info(suse_logger, "Se ha enviado una respuesta de suse_create");
 			break;
 
 		case S_SCHEDULE_NEXT:;
@@ -485,6 +488,7 @@ void atenderCliente(void* socket_cliente_void){
 			else
 				log_error(suse_logger, "La operacion Suse_Schedule_Next ha fallado");
 			Suse_PackAndSend_Respuesta(socket_cliente,respuestaNext);
+			log_info(suse_logger, "Se ha enviado una respuesta de suse_schedule_next");
 			break;
 
 		case S_WAIT:;
@@ -499,6 +503,7 @@ void atenderCliente(void* socket_cliente_void){
 			else
 				log_error(suse_logger, "La operacion Suse_Wait ha fallado");
 			Suse_PackAndSend_Respuesta(socket_cliente,respuestaWait);
+			log_info(suse_logger, "Se ha enviado una respuesta de suse_wait");
 			break;
 
 		case S_SIGNAL:;
@@ -513,6 +518,7 @@ void atenderCliente(void* socket_cliente_void){
 			else
 				log_error(suse_logger, "La operacion Suse_Signal ha fallado");
 			Suse_PackAndSend_Respuesta(socket_cliente,respuestaSignal);
+			log_info(suse_logger, "Se ha enviado una respuesta de suse_signal");
 			break;
 
 		case S_JOIN:;
@@ -527,6 +533,7 @@ void atenderCliente(void* socket_cliente_void){
 			else
 				log_error(suse_logger, "La operacion Suse_Join ha fallado");
 			Suse_PackAndSend_Respuesta(socket_cliente,respuestaJoin);
+			log_info(suse_logger, "Se ha enviado una respuesta de suse_join");
 			break;
 
 		case S_CLOSE:;
@@ -541,6 +548,7 @@ void atenderCliente(void* socket_cliente_void){
 			else
 				log_error(suse_logger, "La operacion Suse_Close ha fallado");
 			Suse_PackAndSend_Respuesta(socket_cliente,respuestaClose);
+			log_info(suse_logger, "Se ha enviado una respuesta de suse_close");
 			break;
 
 		default:
