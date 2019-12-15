@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lcommons -lSerializacionSuse -lComunParaTodos
+LIBS := -lcommons -lpthread -lSerializacionSuse -lComunParaTodos
 
