@@ -13,7 +13,7 @@ int main(void) {
 
 //	//TOMAR METRICAS AUTOMATICAMENTE
 
-//	pthread_t  hiloMetricas = malloc(sizeof(pthread_t));
+//	pthread_t  hiloMetricas;
 //	if(pthread_create(&hiloMetricas, NULL,(void*)tomarMetricasAutomaticas, NULL)==0){
 //		pthread_detach(&hiloMetricas);
 //		log_info(suse_logger,"Se creo el hilo *hiloMetricas* correctamente");
@@ -21,17 +21,6 @@ int main(void) {
 //	else {
 //		log_error(suse_logger,"No se ha podido crear el hilo: HiloMetricas");
 //	}
-
-
-	//PLANIFICADOR NEW A READY
-
-	pthread_t * hiloPlani = malloc(sizeof(pthread_t));
-	if(pthread_create(hiloPlani, NULL,(void*)planificador_NEW_READY(), NULL) == 0){
-		pthread_detach(*hiloPlani);
-		log_info(suse_logger,"Se creo el hilo de planificacion new->ready correctamente");
-		}else{
-			log_error(suse_logger,"No se ha podido crear el hilo de planificacion new->ready");
-		}
 
 	while(1){
 
@@ -214,42 +203,39 @@ void calcularTiempoEjecucion(t_hilo* hilo){
 	hilo->tiempoEjecucion = (tiempoFinal - hilo->tiempoEjecucionInicial);
 }
 
-void* planificador_NEW_READY() {
-	//hilos en new ready y bloqueados
-	//lo llamo cuando creo con create y lo llamo cuando cierro con close
-	//es 1 solo hilo
-	 while (hilosEnNew <= max_multiprog){
+t_list* obtenerColaReady(t_programa* programa){
+	return programa->cola_ready;
+}
+
+int sumatoria(int acumulador, int unValor){
+	return acumulador+=unValor;
+}
+
+void planificador_NEW_READY() {
+	//hilos en new ready y bloqueados, lo llamo cuando creo con create y lo llamo cuando cierro con close, es 1 solo hilo
+	int hilosEnNew = list_size(cola_new);
+	int hilosEnBlocked = list_size(cola_blocked);
+	t_list* colasReady = list_map(lista_programas, (void*)obtenerColaReady);
+	t_list* sizeColasReady = list_map(colasReady, (void*)list_size);
+	int hilosEnReady = list_fold(sizeColasReady,0,(void*)sumatoria); //Chequear bien esto
+	hilosEnSistema = hilosEnNew + hilosEnBlocked + hilosEnReady;
+	if (hilosEnSistema <= max_multiprog){
 		if (list_is_empty(cola_new)) {
 			log_info(suse_logger, "No hay hilos para planificar actualmente");
 		} else {
 			t_hilo * unHilo = malloc(sizeof(t_hilo));
 			unHilo = list_get(cola_new, 0);
-
-			//TODOS LOS HILOS DEL MISMO PADRE VAN A READY???????
-
-			t_list * hilosDeIgualPadre = malloc(sizeof(t_list));
 			int pid = unHilo->pid;
-			hilosDeIgualPadre = list_filter( cola_new,( (void*)comparadorMismoPrograma,pid ) ); //Esto hay que revisar bien como hacerlo
-			int ubicacionPrograma = list_get_index(lista_programas, pid,(void*) comparadorMismoPrograma);
+			int ubicacionPrograma = list_get_index(lista_programas, &pid,(void*) comparadorMismoPrograma);
 			t_programa * programa = malloc(sizeof(t_programa));
 			programa = list_get(lista_programas, ubicacionPrograma);
-			list_add_all(programa->cola_ready, hilosDeIgualPadre);
-			for (int i = 0; i <= list_size(hilosDeIgualPadre); i++) {
-				t_hilo* hiloReady = malloc(sizeof(t_hilo));
-				hiloReady = list_get(hilosDeIgualPadre, i);
-				hiloReady->tiempoEsperaInicial = gettimeofday();
-				//free hiloready ?????
+			list_add(programa->cola_ready, unHilo);
+			unHilo->tiempoEsperaInicial = gettimeofday();
 			}
-			list_clean_and_destroy_elements(hilosDeIgualPadre,(void*)free);
-			list_destroy(hilosDeIgualPadre);
-			free(unHilo);
-			free(programa);
-		}
-
 	}
+	//list_destroy(colasReady);
+	//list_destroy(sizeColasReady);
 }
-
-
 
 bool comparadorMismoPrograma(t_hilo* hilo, int pid_programa){
 	return (hilo->pid == pid_programa);
@@ -277,11 +263,11 @@ int hacer_suse_create(int pid){
 	programaBuscado = list_get(lista_programas,index);
 	list_add(programaBuscado->hilos,hiloNuevo);
 	list_add(cola_new, hiloNuevo);
-	hilosEnNew++;
 	log_info(suse_logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
 	log_info(suse_logger,"Cantidad de elementos en cola new: %d\n", hilosEnNew);
 	log_info(suse_logger,"ID del programa: %d\n",hiloNuevo->pid);
 	log_info(suse_logger,"ID del hilo: %d\n",hiloNuevo->tid);
+	planificador_NEW_READY();
 	free(hiloNuevo);
 	free(programaBuscado);
 	return 0;
@@ -434,7 +420,8 @@ int hacer_suse_close(int pid, int tid){
 	free(hiloATerminar);
 	free(programaBuscado);
 	//Cuando cierra un hilo toma las metricas
-	tomarMetricas(); //Esto por ahi tambien deberia ser un hilo
+	tomarMetricas();
+	planificador_NEW_READY();
 	*/
 	return 0;
 }

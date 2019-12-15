@@ -78,7 +78,10 @@ int socket_suse;
 int socket_cliente;
 int pidMAX = 0;
 int tidMAX = 0;
-int hilosEnNew = 0; 	//Variable en suse-create que aumenta cuando creo un hilo nuevo
+int hilosEnSistema = 0;
+int hilosEnNew;
+int hilosEnBlocked;
+int hilosEnReady;//Variable en suse-create que aumenta cuando creo un hilo nuevo
 
 //FUNCIONES
 void suse_crearLogger();
@@ -98,9 +101,11 @@ bool comparadorDeSemaforos(char* unSem, t_semaforo otroSem);
 bool buscadorDeHilos(int tid, t_hilo* hilo);
 void tomarMetricas();
 void calcularTiempoEjecucion(t_hilo* hilo);
-void* planificador_NEW_READY();
+void planificador_NEW_READY();
 bool comparadorMismoPrograma(t_hilo* hilo, int pid_programa);
 void* tomarMetricasAutomaticas();
+t_list* obtenerColaReady(t_programa* programa);
+int sumatoria(int acumulador, int unValor);
 
 //FUNCIONES DE SUSE
 int hacer_suse_create(int pid);

@@ -7,14 +7,12 @@
  Description : Hello World in C, Ansi-style
  ============================================================================
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <hilolay/hilolay_alumnos.h>
 #include <hilolay/hilolay.h>
 #include <commons/log.h>
 #include <commons/config.h>
-#include <semaphore.h>
 
 int f1(){
 	log_info(hilolay_logger,"Hola, soy un suse create exitoso");
@@ -28,7 +26,7 @@ int main(void) {
 	log_info(hilolay_logger, "Me conectare al puerto: %s", server_port);
 	hilolay_t *threadCreate =malloc(sizeof(hilolay_t));
 	hilolay_create(threadCreate,NULL,(void*)f1,NULL);
-	hilolay_wait(strdup("SEMID"));
+//	hilolay_wait(strdup("SEMID"));
 //	suse_signal(0, strdup("SEMID"));
 //	suse_join(0, 0);
 //	suse_close(0, 0);
