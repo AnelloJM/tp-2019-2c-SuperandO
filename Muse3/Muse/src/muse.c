@@ -254,7 +254,8 @@ uint32_t tratar_muse_alloc(uint32_t tam,uint32_t id_proceso)
   {
     //el proceso ya tenia marcos asignados, entonces :
     printf("El primer marco asignado al proceso %d es %d\n",id_proceso,frame_index);
-    uint32_t memoria_disponible_en_index = frame_free_size(calcular_posicion_en_UPCM(frame_index));
+//    uint32_t memoria_disponible_en_index = frame_free_size(calcular_posicion_en_UPCM(frame_index));
+    uint32_t memoria_disponible_en_index = free_size_in_frame(frame_index,tam);
     if(memoria_disponible_en_index<tam)
     {
         alloc_tam(memoria_disponible_en_index,frame_index);
@@ -316,33 +317,27 @@ uint32_t frame_free_size(uint32_t posicion) //free size in frame
 }
 
 
-uint32_t free_size_in_frame(uint32_t frame)
+uint32_t free_size_in_frame(uint32_t frame,uint32_t tam)
 {
 	uint32_t ini_pos = calcular_posicion_en_UPCM(frame);
-	uint32_t value,used_size;
-	uint32_t total_used_size=0;
+	uint32_t value, tamanio_del_segmento;
+	uint32_t espacios_recorridos = 0;
 
-	memcpy(&value,UPCM+ini_pos,1);
-	while(value==0 && total_used_size < page_size - 5)//mientras el heap_metadata indique que hay memoria reservada,buscamos un heap_metadata libre
+	while(espacios_recorridos < page_size)
 	{
-		memcpy(&used_size,UPCM+ini_pos+1,4);
-		total_used_size = total_used_size + used_size;
-		ini_pos = ini_pos + 5 + used_size;
 		memcpy(&value,UPCM+ini_pos,1);
+		memcpy(&tamanio_del_segmento,UPCM+ini_pos+1,4);
+		if(value==1)
+		{
+			if(tamanio_del_segmento >= tam + 5)
+			{
+				return tamanio_del_segmento;
+			}
+		}
+		espacios_recorridos = espacios_recorridos + 5 + tamanio_del_segmento;
+		ini_pos = ini_pos + 5 + tamanio_del_segmento;
 	}
-	if(value==0 && total_used_size > page_size - 5)
-	{
-		return 0; //no hay espacio disponible en el frame
-	}
-	if(value==1)
-	{
-		uint32_t free_size;
-		memcpy(&free_size,UPCM+ini_pos+1,4);
-		printf("Hay %d memoria disponible en el frame (pos: %d) ",free_size,ini_pos);
-		return free_size; //devolvemos la cantidad de memoria libre que hay en el frame
-	}
-
-
+	return 0;
 }
 
 

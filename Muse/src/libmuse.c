@@ -8,13 +8,13 @@ int muse_init(int id, char* ip, int puerto)
 	uint32_t respuesta;
 	id_proceso = id;
 	socket_pipe = conectarse_a_servidor(ip,puerto);
-//	respuesta = muse_alloc(70);
+	respuesta = muse_alloc(4);
 
 	void *buff = "hola mi nombre es juan";
 
 //	respuesta = muse_cpy(70,&buff,strlen(buff));
-	//printf("La respuesta de muse es %d\n\n",respuesta );
-	muse_free(64);
+	printf("La respuesta de muse es %d\n\n",respuesta );
+//	muse_free(64);
 
   return 0;
 }
@@ -137,7 +137,7 @@ int muse_unmap(uint32_t dir){
 int main()
 {
 
-  muse_init(4,"127.0.0.1",5555);
+  muse_init(8,"127.0.0.1",5555);
   muse_close();
   return 0;
 }
