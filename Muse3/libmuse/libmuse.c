@@ -7,8 +7,6 @@
 
 #include "libmuse.h"
 
-
-
 int muse_init(int id, char* ip, int puerto)
 {
 //Nos conectamos a Muse

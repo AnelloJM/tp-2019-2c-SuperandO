@@ -171,7 +171,6 @@ int muse_unmap(uint32_t dir);
 
 //mas funciones propias
 void enviar_id(uint32_t destinatario,int id);
-
 #endif
 
 
