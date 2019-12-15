@@ -47,5 +47,6 @@ bool Suse_PackAnd_Send_Join(int socketCliente, uint32_t pid, uint32_t tid); //Em
 bool Suse_PackAnd_Send_Close(int socketCliente, uint32_t pid, uint32_t tid); //Empaqueta un pid y un tid para close y lo envia
 uint32_t Suse_Unpack_Uint32_tid(void *pack); //Desempaqueta un TID, despues de recibir un PID
 
+bool Suse_PackAndSend_Respuesta(int socketCliente, uint32_t respuesta); //envia un uint_32 a hilolay
 
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */
