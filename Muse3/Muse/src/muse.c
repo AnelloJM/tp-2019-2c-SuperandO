@@ -21,7 +21,9 @@ int main()
   UPCM = malloc(memory_size);
   printf("[+]La direccion inicial de la UPCM es: %u\i",UPCM );
 
-  tabla_de_frames = list_create();
+  tabla_de_frames = list_create(); //creamos la tabla de frames
+
+  tabla_de_procesos = list_create(); //creamos la tabla de procesos para saber que proceso ya esta en memoria
 
   //rellenamos la tabla de frames con -1, porque ninguno esta ocupado
   for(int i=0;i<frames_table_size;i++)
@@ -48,7 +50,7 @@ int main()
 
   printf("   Heaps cargados de forma exitosa!\n");
 
-
+/*
   printf("\n\n::::::::INICIAMOS EL SERVIDOR::::::::\n");
 
 
@@ -67,6 +69,7 @@ int main()
     }
   }
 
+*/
 
   printf("\n\n\n[+]Liberando memoria asignada a upcm..\n" );
   free(UPCM);
@@ -76,6 +79,42 @@ int main()
 
   return 0;
 }
+
+
+int buscar_proceso_en_tabla(char *pid)
+{
+	int posicion_en_tabla = -1;
+	int tamanio_tabla_procesos = list_size(tabla_de_procesos);
+
+	for(int i=0;i<tamanio_tabla_procesos;i++)
+	{
+		if(pid == list_get(tabla_de_procesos,i))
+		{
+			posicion_en_tabla = i;
+		}
+
+	}
+
+	if(posicion_en_tabla == -1)
+	{
+		list_add(tabla_de_procesos,pid);
+		posicion_en_tabla = tamanio_tabla_procesos + 1;
+	}
+
+
+	return posicion_en_tabla;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
