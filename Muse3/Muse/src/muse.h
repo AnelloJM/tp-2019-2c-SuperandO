@@ -61,8 +61,8 @@ struct Pagina
 
 typedef struct
 {
-  int size;
   bool isFree;
+  int size;
 }Heap;
 
 
@@ -95,7 +95,7 @@ void alloc_tam(uint32_t tam,uint32_t posicion);
 void mostrar_frames_table();
 uint32_t buscar_proceso(uint32_t id_proceso);
 void liberar_espacio(uint32_t posicion);
-
+uint32_t free_size_in_frame(uint32_t frame,uint32_t tam);
 
 
 #endif
