@@ -33,12 +33,57 @@
 t_log* logger;
 t_config* archivoConfig;
 
+/* UPCM = unica porcion contigua de memoria
+ *
+ *
+ * La UPCM guarda las paginas.
+ * Para mi para que guarde el dato real tien que ser un vector de Paginas nuevas
+ * Pagina_nueva UPCM [memory_size/tamanio_de_frame]; //ver de donde sacar el tamanio de frame
+ */
+void *UPCM;
 
-void *UPCM; //UPCM = unica porcion contigua de memoria
-t_list *tabla_de_frames; //tabla de frames la tomamos como una lista de 0/1
+/*tabla de frames la tomamos como una lista de 0/1
+ *
+ * ~>En realidad ahora tiene que ser de elementos de tabla de frame
+*/
+t_list *tabla_de_frames;
+t_list *tabla_de_paginas_por_segmento;
+
+typedef struct {
+	char* pid;
+	uint32_t numero_de_pagina;
+}Elemento_de_tabla_de_frame;
+
+typedef struct {
+	char* pid;
+	uint32_t numero_de_segmento;
+	uint32_t numero_de_pagina;
+	uint32_t bit_de_presencia;
+	uint32_t bit_de_modificado;
+}Elemento_de_tabla_de_paginas_por_segmento;
+
+
+int page_size;
+
+/*
+ * Es un char por que cada char pesa un byte,
+ * y es un vector para que guarde los datos reales
+ * y no las pocisiones de memoria (las reales de la pc)
+ */
+typedef struct {
+	char datos[page_size];
+}Pagina_nueva;
+
+//El segmento va a ser un puntero en donde se haga un memcpy de las paginas de ese segmento
+
+typedef struct
+{
+  bool isFree;
+  int size;
+}Heap;
+
 
 int memory_size;
-int page_size;
 int swap_size;
 int frames_table_size;
 int id;
@@ -48,7 +93,7 @@ int socketMuse;
 int socket_cliente;
 
 
-//estructuras
+//estructuras viejas
 
 struct Pagina
 {
@@ -57,14 +102,6 @@ struct Pagina
   int numero_pagina;
   struct Pagina *next_pagina;
 };
-
-
-typedef struct
-{
-  bool isFree;
-  int size;
-}Heap;
-
 
 typedef struct
 {
