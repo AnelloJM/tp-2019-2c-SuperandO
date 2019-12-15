@@ -62,16 +62,11 @@ typedef struct {
 	uint32_t bit_de_modificado;
 }Elemento_de_tabla_de_paginas_por_segmento;
 
-
-int page_size;
-
 /*
- * Es un char por que cada char pesa un byte,
- * y es un vector para que guarde los datos reales
- * y no las pocisiones de memoria (las reales de la pc)
+ * Es un char* para hacer malloc(tam_pagina).
  */
 typedef struct {
-	char datos[page_size];
+	char* datos_de_pagina;
 }Pagina_nueva;
 
 //El segmento va a ser un puntero en donde se haga un memcpy de las paginas de ese segmento
@@ -84,6 +79,7 @@ typedef struct
 
 
 int memory_size;
+int page_size;
 int swap_size;
 int frames_table_size;
 int id;

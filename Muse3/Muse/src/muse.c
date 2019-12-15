@@ -19,7 +19,7 @@ int main()
 
   //reservamos la UPCM y aniadimos tabla de frames
   UPCM = malloc(memory_size);
-  printf("[+]La direccion inicial de la UPCM es: %u\n",UPCM );
+  printf("[+]La direccion inicial de la UPCM es: %u\i",UPCM );
 
   tabla_de_frames = list_create();
 
