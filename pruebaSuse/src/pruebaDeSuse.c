@@ -27,9 +27,9 @@ int main(void) {
 	hilolay_t *threadCreate =malloc(sizeof(hilolay_t));
 	hilolay_create(threadCreate,NULL,(void*)f1,NULL);
 	hilolay_sem_t* semaforoPrueba;
-	semaforoPrueba = hilolay_sem_open("A");
+	semaforoPrueba = hilolay_sem_open(strdup("A"));
 	hilolay_wait(semaforoPrueba);
-//	suse_signal(0, strdup("SEMID"));
+	hilolay_signal(semaforoPrueba);
 //	suse_join(0, 0);
 //	suse_close(0, 0);
 	return EXIT_SUCCESS;
