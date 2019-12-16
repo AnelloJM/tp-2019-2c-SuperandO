@@ -485,6 +485,7 @@ void atenderCliente(void* socket_cliente_void){
 			int tidWait = Suse_Unpack_Uint32_pid(paqueteWait);
 			char* semIDWait = Suse_Unpack_Char(paqueteWait);
 			free(paqueteWait);
+			log_info(suse_logger, "Recibi el semaforo: %s", semIDWait);
 			int respuestaWait = hacer_suse_wait(programaNuevo->pid, tidWait, semIDWait);
 			if (respuestaWait == 0)
 				log_info(suse_logger, "La operacion Suse_Wait se realizó con exito");
@@ -500,6 +501,7 @@ void atenderCliente(void* socket_cliente_void){
 			int tidSignal = Suse_Unpack_Uint32_pid(paqueteSignal);
 			char* semIDSignal = Suse_Unpack_Char(paqueteSignal);
 			free(paqueteSignal);
+			log_info(suse_logger, "Recibi el semaforo: %s", semIDSignal);
 			int respuestaSignal = hacer_suse_signal(programaNuevo->pid,tidSignal, semIDSignal);
 			if (respuestaSignal == 0)
 				log_info(suse_logger, "La operacion Suse_Signal se realizó con exito");

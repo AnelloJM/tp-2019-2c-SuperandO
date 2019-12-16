@@ -121,11 +121,10 @@ bool Suse_PackAnd_Send_Close(int socketCliente, uint32_t pid, uint32_t tid){
 
 char* Suse_Unpack_Char(void *pack){
 	uint32_t tamanioSemID;
-	uint32_t desplazamiento = 0;
-	memcpy(&desplazamiento, pack, sizeof(uint32_t));
-	desplazamiento += sizeof(uint32_t);
+	uint32_t desplazamiento = sizeof(uint32_t);
 	memcpy(&tamanioSemID, pack+desplazamiento, sizeof(uint32_t));
 	char* semID = malloc(tamanioSemID);
+	desplazamiento += sizeof(uint32_t);
 	memcpy(semID, pack+desplazamiento, tamanioSemID);
 	return semID;
 }
