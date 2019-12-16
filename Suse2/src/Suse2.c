@@ -404,22 +404,23 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 }
 
 int hacer_suse_join(int pid, int tid){
-//	int index = list_get_index(cola_exit,tid,(void*)buscadorDeHilos);
-//	//Si el tid pasado no está en exit entonces procedo normalmente
-//	if(index == list_size(cola_exit)){
-//		int index2 = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-//		t_programa* programaBuscado; //= malloc(sizeof(t_programa));
-//		programaBuscado = list_get(lista_programas,index2);
-//		t_hilo* hiloABloquear; //= malloc(sizeof(t_hilo));
-//		hiloABloquear = list_remove(programaBuscado->cola_exec,0);
-//		hiloABloquear->tiempoUsoCPUFinal = gettimeofday();
-//		hiloABloquear->tiempoUsoCPU += (hiloABloquear->tiempoUsoCPUFinal - hiloABloquear->tiempoUsoCPUInicial);
-//		//free(programaBuscado);
-//		//free(hiloABloquear);
-//		return 0;
-//	}
-//	//Si el tid ya está en exit, entonces el hilo que lo llama no se bloquea
-//	return 0;
+	int index = list_get_index(cola_exit,tid,(void*)buscadorDeHilos);
+	//Si el tid pasado no está en exit entonces procedo normalmente
+	if(index == list_size(cola_exit)){
+		int index2 = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+		t_programa* programaBuscado; //= malloc(sizeof(t_programa));
+		programaBuscado = list_get(lista_programas,index2);
+		t_hilo* hiloABloquear; //= malloc(sizeof(t_hilo));
+		hiloABloquear = list_remove(programaBuscado->cola_exec,0);
+		list_add(cola_blocked,hiloABloquear);
+		//hiloABloquear->tiempoUsoCPUFinal = gettimeofday();
+		//hiloABloquear->tiempoUsoCPU += (hiloABloquear->tiempoUsoCPUFinal - hiloABloquear->tiempoUsoCPUInicial);
+		//free(programaBuscado);
+		//free(hiloABloquear);
+		return 0;
+	}
+	log_info(suse_logger, "Se realizo un join sobre un hilo que ya termino");
+	//Si el tid ya está en exit, entonces el hilo que lo llama no se bloquea
 	return 0;
 }
 

@@ -30,7 +30,7 @@ int main(void) {
 	semaforoPrueba = hilolay_sem_open(strdup("A"));
 	hilolay_wait(semaforoPrueba);
 	hilolay_signal(semaforoPrueba);
-//	suse_join(0, 0);
+	hilolay_join(threadCreate);
 //	suse_close(0, 0);
 	return EXIT_SUCCESS;
 }
