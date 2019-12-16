@@ -110,8 +110,8 @@ int sumatoria(int acumulador, int unValor);
 //FUNCIONES DE SUSE
 int hacer_suse_create(int pid, int tid);
 int hacer_suse_schedule_next(int pid);
-int hacer_suse_wait(int pid, char* semaforoID);
-int hacer_suse_signal(int pid, char* semaforoID);
+int hacer_suse_wait(int pid, int tid, char* semaforoID);
+int hacer_suse_signal(int pid, int tid, char* semaforoID);
 int hacer_suse_join(int pid, int tid);
 int hacer_suse_close(int pid, int tid);
 

@@ -278,75 +278,74 @@ int hacer_suse_create(int pid, int tid){
 }
 
 int hacer_suse_schedule_next(int pid){
-//	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
-//	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-//	programaBuscado = list_get(lista_programas,index);
-//	if (!list_is_empty(programaBuscado->cola_ready)&& list_is_empty(programaBuscado->cola_exec)){
-//		log_info(suse_logger, "Se comenzará a planificar");
-//		t_list* aux;
-//		aux = list_map(programaBuscado->cola_ready,(void*)calcularEstimacion);
-//		list_sort(aux, (void*)comparadorDeRafagas);
-//		t_hilo* hiloAux; //= malloc(sizeof(t_hilo));
-//		hiloAux = (t_hilo*) list_remove(aux,0);
-//		int indice = list_get_index(programaBuscado->cola_ready,hiloAux,(void*)comparadorDeHilos);
-//		t_hilo* hiloAEjecutar = list_remove(programaBuscado->cola_ready,indice);
-//		hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
-//		hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaFinal - hiloAEjecutar->tiempoEsperaInicial);
-//		list_add(programaBuscado->cola_exec,hiloAEjecutar);
-//		hiloAEjecutar->tiempoUsoCPUInicial = gettimeofday();
-//		//Tomo el tiempo final de espera
-//		hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
-//		//Y aca ya me queda guardado el tiempo de espera
-//		hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaInicial - hiloAEjecutar->tiempoEsperaFinal);
-//		//free(programaBuscado); //creo que esto tambien le haria free al elemento de la lista
-//		list_clean_and_destroy_elements(aux,(void*)free);
-//		list_destroy(aux);
-//		free(hiloAux);
-//		return hiloAEjecutar->tid;
-//	}
-//	//free(programaBuscado); //esto ya no es necesario porque la variable no se mallocea
-//	log_error(suse_logger, "La cola de ready del programa está vacia o ya tiene un hilo ejecutando");
-//	return -1;
+	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
+	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+	programaBuscado = list_get(lista_programas,index);
+	if (!list_is_empty(programaBuscado->cola_ready)&& list_is_empty(programaBuscado->cola_exec)){
+		log_info(suse_logger, "Se comenzará a planificar");
+		t_list* aux;
+		aux = list_map(programaBuscado->cola_ready,(void*)calcularEstimacion);
+		list_sort(aux, (void*)comparadorDeRafagas);
+		t_hilo* hiloAux; //= malloc(sizeof(t_hilo));
+		hiloAux = (t_hilo*) list_remove(aux,0);
+		int indice = list_get_index(programaBuscado->cola_ready,hiloAux,(void*)comparadorDeHilos);
+		t_hilo* hiloAEjecutar = list_remove(programaBuscado->cola_ready,indice);
+		//hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
+		//hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaFinal - hiloAEjecutar->tiempoEsperaInicial);
+		list_add(programaBuscado->cola_exec,hiloAEjecutar);
+		//hiloAEjecutar->tiempoUsoCPUInicial = gettimeofday();
+		//Tomo el tiempo final de espera
+		//hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
+		//Y aca ya me queda guardado el tiempo de espera
+		//hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaInicial - hiloAEjecutar->tiempoEsperaFinal);
+		//free(programaBuscado); //creo que esto tambien le haria free al elemento de la lista
+		list_clean_and_destroy_elements(aux,(void*)free);
+		list_destroy(aux);
+		free(hiloAux);
+		return hiloAEjecutar->tid;
+	}
+	//free(programaBuscado); //esto ya no es necesario porque la variable no se mallocea
+	log_error(suse_logger, "La cola de ready del programa está vacia o ya tiene un hilo ejecutando");
+	return -1;
+}
+
+int hacer_suse_wait(int pid, int tid, char* semaforoID){
+	if(buscadorSemaforo(semaforoID) == 0){
+		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
+		t_semaforo* semAUsar; //= malloc(sizeof(t_semaforo));
+		semAUsar = list_get(semaforos,indice);
+		if (semAUsar->semActual <= 0){
+			semAUsar->semActual--;
+			log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
+			log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+			log_info(suse_logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
+			int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+			t_programa* programaBuscado; //= malloc(sizeof(t_programa));
+			programaBuscado = list_get(lista_programas,index);
+			t_hilo* hiloBuscado; //= malloc(sizeof(t_hilo));
+			hiloBuscado = list_remove(programaBuscado->cola_exec,0);
+			hiloBuscado->tiempoUsoCPUFinal = gettimeofday();
+			hiloBuscado->tiempoUsoCPU += (hiloBuscado->tiempoUsoCPUFinal - hiloBuscado->tiempoUsoCPUInicial);
+			list_add(cola_blocked,hiloBuscado);
+			list_add(semAUsar->hilosEnEspera,hiloBuscado);
+			//free(programaBuscado);
+			//free(hiloBuscado); Los comento porque creo que los liberaria tambien de las listas
+			//free(semAUsar);
+			return 0;
+		}
+		semAUsar->semActual--;
+		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
+		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+		log_info(suse_logger, "%d","Contador actual:", semAUsar->semActual);
+		free(semAUsar);
+		return 0;
+	}
+	log_error(suse_logger,"El semaforo no fue encontrado");
+	return -1;
 	return 0;
 }
 
-int hacer_suse_wait(int pid, char* semaforoID){
-//	if(buscadorSemaforo(semaforoID) == 0){
-//		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
-//		t_semaforo* semAUsar; //= malloc(sizeof(t_semaforo));
-//		semAUsar = list_get(semaforos,indice);
-//		if (semAUsar->semActual <= 0){
-//			semAUsar->semActual--;
-//			log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
-//			log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
-//			log_info(suse_logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
-//			int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-//			t_programa* programaBuscado; //= malloc(sizeof(t_programa));
-//			programaBuscado = list_get(lista_programas,index);
-//			t_hilo* hiloBuscado; //= malloc(sizeof(t_hilo));
-//			hiloBuscado = list_remove(programaBuscado->cola_exec,0);
-//			hiloBuscado->tiempoUsoCPUFinal = gettimeofday();
-//			hiloBuscado->tiempoUsoCPU += (hiloBuscado->tiempoUsoCPUFinal - hiloBuscado->tiempoUsoCPUInicial);
-//			list_add(cola_blocked,hiloBuscado);
-//			list_add(semAUsar->hilosEnEspera,hiloBuscado);
-//			//free(programaBuscado);
-//			//free(hiloBuscado); Los comento porque creo que los liberaria tambien de las listas
-//			//free(semAUsar);
-//			return 0;
-//		}
-//		semAUsar->semActual--;
-//		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
-//		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
-//		log_info(suse_logger, "%d","Contador actual:", semAUsar->semActual);
-//		free(semAUsar);
-//		return 0;
-//	}
-//	log_error(suse_logger,"El semaforo no fue encontrado");
-//	return -1;
-	return 0;
-}
-
-int hacer_suse_signal(int pid, char* semaforoID){
+int hacer_suse_signal(int pid, int tid, char* semaforoID){
 //	if(buscadorSemaforo(semaforoID) == 0){
 //		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
 //		t_semaforo* semAUsar; //= malloc(sizeof(t_semaforo));
@@ -468,11 +467,8 @@ void atenderCliente(void* socket_cliente_void){
 			break;
 
 		case S_SCHEDULE_NEXT:;
-			void* paqueteScheduleNext = Suse_ReceiveAndUnpack(socket_cliente,tam);
 			log_info(suse_logger, "Se recibió un pedido de Suse_Schedule_Next");
-			int pidNext = Suse_Unpack_Uint32_pid(paqueteScheduleNext);
-			free(paqueteScheduleNext);
-			int respuestaNext = hacer_suse_schedule_next(pidNext);
+			int respuestaNext = hacer_suse_schedule_next(programaNuevo->pid);
 			if (respuestaNext != -1){ //Si devuelvo cualquier TID entra aca
 				log_info(suse_logger, "La operacion Suse_Schedule_Next se realizó con exito");
 				log_info(suse_logger, "El proximo hilo a ejecutar es el tid=%d",respuestaNext);
@@ -486,10 +482,10 @@ void atenderCliente(void* socket_cliente_void){
 		case S_WAIT:;
 			void* paqueteWait = Suse_ReceiveAndUnpack(socket_cliente,tam);
 			log_info(suse_logger, "Se recibió un pedido de Suse_Wait");
-			int pidWait = Suse_Unpack_Uint32_pid(paqueteWait);
+			int tidWait = Suse_Unpack_Uint32_pid(paqueteWait);
 			char* semIDWait = Suse_Unpack_Char(paqueteWait);
 			free(paqueteWait);
-			int respuestaWait = hacer_suse_wait(pidWait, semIDWait);
+			int respuestaWait = hacer_suse_wait(programaNuevo->pid, tidWait, semIDWait);
 			if (respuestaWait == 0)
 				log_info(suse_logger, "La operacion Suse_Wait se realizó con exito");
 			else
@@ -501,10 +497,10 @@ void atenderCliente(void* socket_cliente_void){
 		case S_SIGNAL:;
 			void* paqueteSignal = Suse_ReceiveAndUnpack(socket_cliente,tam);
 			log_info(suse_logger, "Se recibió un pedido de Suse_Signal");
-			int pidSignal = Suse_Unpack_Uint32_pid(paqueteSignal);
+			int tidSignal = Suse_Unpack_Uint32_pid(paqueteSignal);
 			char* semIDSignal = Suse_Unpack_Char(paqueteSignal);
 			free(paqueteSignal);
-			int respuestaSignal = hacer_suse_signal(pidSignal, semIDSignal);
+			int respuestaSignal = hacer_suse_signal(programaNuevo->pid,tidSignal, semIDSignal);
 			if (respuestaSignal == 0)
 				log_info(suse_logger, "La operacion Suse_Signal se realizó con exito");
 			else
@@ -516,10 +512,9 @@ void atenderCliente(void* socket_cliente_void){
 		case S_JOIN:;
 			void* paqueteJoin = Suse_ReceiveAndUnpack(socket_cliente,tam);
 			log_info(suse_logger, "Se recibió un pedida de Suse_Join");
-			int pidJoin = Suse_Unpack_Uint32_pid(paqueteJoin);
-			int tidJoin = Suse_Unpack_Uint32_tid(paqueteJoin);
+			int tidJoin = Suse_Unpack_Uint32_pid(paqueteJoin);
 			free(paqueteJoin);
-			int respuestaJoin = hacer_suse_join(pidJoin, tidJoin);
+			int respuestaJoin = hacer_suse_join(programaNuevo->pid, tidJoin);
 			if (respuestaJoin == 0)
 				log_info(suse_logger, "La operacion Suse_Join se realizó con exito");
 			else
@@ -531,10 +526,9 @@ void atenderCliente(void* socket_cliente_void){
 		case S_CLOSE:;
 			void* paqueteClose = Suse_ReceiveAndUnpack(socket_cliente,tam);
 			log_info(suse_logger, "Se recibió un pedida de Suse_Close");
-			int pidClose = Suse_Unpack_Uint32_pid(paqueteClose);
-			int tidClose = Suse_Unpack_Uint32_tid(paqueteClose);
+			int tidClose = Suse_Unpack_Uint32_pid(paqueteClose);
 			free(paqueteClose);
-			int respuestaClose = hacer_suse_close(pidClose, tidClose);
+			int respuestaClose = hacer_suse_close(programaNuevo->pid, tidClose);
 			if (respuestaClose == 0)
 				log_info(suse_logger, "La operacion Suse_Close se realizó con exito");
 			else

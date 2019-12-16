@@ -26,7 +26,9 @@ int main(void) {
 	log_info(hilolay_logger, "Me conectare al puerto: %s", server_port);
 	hilolay_t *threadCreate =malloc(sizeof(hilolay_t));
 	hilolay_create(threadCreate,NULL,(void*)f1,NULL);
-//	hilolay_wait(strdup("SEMID"));
+	hilolay_sem_t* semaforoPrueba;
+	semaforoPrueba = hilolay_sem_open("A");
+	hilolay_wait(semaforoPrueba);
 //	suse_signal(0, strdup("SEMID"));
 //	suse_join(0, 0);
 //	suse_close(0, 0);
