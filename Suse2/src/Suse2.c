@@ -378,9 +378,9 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 			return 0;
 		}
 		semAUsar->semActual++;
-		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
-		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
-		log_info(suse_logger,"%d","Contador actual:", semAUsar->semActual);
+		log_info(suse_logger,"Contador inicial: %d", semAUsar->semInit);
+		log_info(suse_logger,"Contador maximo: %d", semAUsar->semMax);
+		log_info(suse_logger,"Contador actual: %d", semAUsar->semActual);
 		log_info(suse_logger,"Se pasará a desbloquear el primer hilo en la cola de espera del semaforo, este hilo pasará al estado ready");
 		int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
 		t_programa* programaBuscado; //= malloc(sizeof(t_programa));
