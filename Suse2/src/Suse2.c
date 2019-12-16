@@ -425,20 +425,26 @@ int hacer_suse_join(int pid, int tid){
 }
 
 int hacer_suse_close(int pid, int tid){
-//	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-//	t_programa* programaBuscado; //= malloc(sizeof(t_programa));
-//	programaBuscado = list_get(lista_programas,index);
-//	t_hilo* hiloATerminar; //= malloc(sizeof(t_hilo));
-//	hiloATerminar = list_remove(programaBuscado->cola_exec, 0);
-//	hiloATerminar->tiempoUsoCPUFinal = gettimeofday();
-//	hiloATerminar->tiempoUsoCPU += (hiloATerminar->tiempoUsoCPUFinal - hiloATerminar->tiempoUsoCPUInicial);
-//	list_add(cola_exit,hiloATerminar);
-//	hiloATerminar->finalizado = true;
-//	//free(hiloATerminar); mas alla de que este hilo termino, como lo agrega a la cola de exit, debe seguir malloceado, lo cual me genera la duda en que momento se limpia la cola de exit?
-//	//free(programaBuscado);
-//	//Cuando cierra un hilo toma las metricas
-//	tomarMetricas();
-//	planificador_NEW_READY();
+	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+	t_programa* programaBuscado; //= malloc(sizeof(t_programa));
+	programaBuscado = list_get(lista_programas,index);
+	t_hilo* hiloATerminar; //= malloc(sizeof(t_hilo));
+	if (list_is_empty(programaBuscado->cola_exec)){
+		log_info(suse_logger, "No hay hilo para terminar");
+		return 0; //Este caso realmente no creo que ocurra, pero por las dudas lo atajo
+	}
+	hiloATerminar = list_remove(programaBuscado->cola_exec, 0);
+	//hiloATerminar->tiempoUsoCPUFinal = gettimeofday();
+	//hiloATerminar->tiempoUsoCPU += (hiloATerminar->tiempoUsoCPUFinal - hiloATerminar->tiempoUsoCPUInicial);
+	list_add(cola_exit,hiloATerminar);
+	hiloATerminar->finalizado = true;
+	int finalizados = list_size(cola_exit);
+	log_info(suse_logger, "Hilos en exit: %d", finalizados);
+	//free(hiloATerminar); mas alla de que este hilo termino, como lo agrega a la cola de exit, debe seguir malloceado, lo cual me genera la duda en que momento se limpia la cola de exit?
+	//free(programaBuscado);
+	//Cuando cierra un hilo toma las metricas
+	//tomarMetricas();
+	planificador_NEW_READY();
 	return 0;
 }
 
