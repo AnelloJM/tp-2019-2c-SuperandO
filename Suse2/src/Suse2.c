@@ -439,6 +439,7 @@ int hacer_suse_close(int pid, int tid){
 	list_add(cola_exit,hiloATerminar);
 	hiloATerminar->finalizado = true;
 	int finalizados = list_size(cola_exit);
+	log_info(suse_logger, "Se va a enviar a exit al hilo TID: %d", hiloATerminar->tid);
 	log_info(suse_logger, "Hilos en exit: %d", finalizados);
 	//free(hiloATerminar); mas alla de que este hilo termino, como lo agrega a la cola de exit, debe seguir malloceado, lo cual me genera la duda en que momento se limpia la cola de exit?
 	//free(programaBuscado);
