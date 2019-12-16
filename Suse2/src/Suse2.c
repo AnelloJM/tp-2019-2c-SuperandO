@@ -228,9 +228,6 @@ void planificador_NEW_READY() {
 			int ubicacionPrograma = list_get_index(lista_programas, unHilo,(void*) comparadorMismoPrograma);
 			t_programa * programa; //= malloc(sizeof(t_programa));
 			programa = list_get(lista_programas, ubicacionPrograma);
-
-			log_info(suse_logger, "ACA ESTOY");
-
 			list_add(programa->cola_ready, unHilo);
 			t_hilo * hiloASacar;
 			hiloASacar = list_remove(cola_new,0);
