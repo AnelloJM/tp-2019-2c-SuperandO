@@ -82,8 +82,8 @@ void inicializarSemaforos(){
 	int final = posicionFinalDoblePuntero(sems_ids_suse);
 	for(i=0; i<= final; i++){
 		t_semaforo* semaforo = malloc(sizeof(t_semaforo));
-		char* valorID = malloc(strlen(sems_ids_suse[i])+1);
-		semaforo->semID = malloc (sizeof(valorID));
+		char* valorID = sems_ids_suse[i];
+		semaforo->semID = malloc(strlen(sems_ids_suse[i])+1);
 		memcpy(semaforo->semID,valorID,(strlen(sems_ids_suse[i])+1)); //el +1 es por el /0
 		int valorInit = atoi(sem_init_suse[i]);
 		semaforo->semInit = valorInit;
@@ -93,9 +93,9 @@ void inicializarSemaforos(){
 		semaforo->hilosEnEspera = list_create();
 		list_add(semaforos, semaforo);
 	}
-	liberarDoblePuntero(sems_ids_suse);
-	liberarDoblePuntero(sem_init_suse);
-	liberarDoblePuntero(sem_max_suse);
+//	liberarDoblePuntero(sems_ids_suse);
+//	liberarDoblePuntero(sem_init_suse);
+//	liberarDoblePuntero(sem_max_suse);
 	log_info(suse_logger,"Se han inicializado todos los semaforos con exito");
 }
 
@@ -128,13 +128,13 @@ bool comparadorPrograma(t_programa* unPrograma, int unPid){
 	return (unPid == unPrograma->pid);
 }
 
-t_hilo calcularEstimacion(t_hilo unHilo){
-	unHilo.rafagasEstimadas = (alpha_sjf * unHilo.estimacionAnterior + ((1 - alpha_sjf)*unHilo.rafagasEjecutadas));
+t_hilo* calcularEstimacion(t_hilo *unHilo){
+	unHilo->rafagasEstimadas = (alpha_sjf * unHilo->estimacionAnterior + ((1 - alpha_sjf)*unHilo->rafagasEjecutadas));
 	return unHilo;
 }
 
-bool comparadorDeRafagas(t_hilo unHilo, t_hilo otroHilo){
-	return unHilo.rafagasEstimadas <= otroHilo.rafagasEstimadas;
+bool comparadorDeRafagas(t_hilo *unHilo, t_hilo *otroHilo){
+	return unHilo->rafagasEstimadas <= otroHilo->rafagasEstimadas;
 }
 
 bool comparadorDeHilos(t_hilo* unHilo, t_hilo* otroHilo){
@@ -152,8 +152,8 @@ int buscadorSemaforo (char* semaforoID){
 	return -1;
 }
 
-bool comparadorDeSemaforos(char* unSem, t_semaforo otroSem){
-	return (strcmp(unSem,otroSem.semID)==0);
+bool comparadorDeSemaforos(t_semaforo *unSem, t_semaforo *otroSem){
+	return (strcmp(unSem->semID,otroSem->semID)==0);
 }
 
 bool buscadorDeHilos(int tid, t_hilo* hilo){
@@ -301,7 +301,7 @@ int hacer_suse_schedule_next(int pid){
 		//free(programaBuscado); //creo que esto tambien le haria free al elemento de la lista
 		list_clean_and_destroy_elements(aux,(void*)free);
 		list_destroy(aux);
-		free(hiloAux);
+//		free(hiloAux);
 		return hiloAEjecutar->tid;
 	}
 	//free(programaBuscado); //esto ya no es necesario porque la variable no se mallocea
@@ -311,17 +311,20 @@ int hacer_suse_schedule_next(int pid){
 
 int hacer_suse_wait(int pid, int tid, char* semaforoID){
 	if(buscadorSemaforo(semaforoID) == 0){
-		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
-		t_semaforo* semAUsar; //= malloc(sizeof(t_semaforo));
+		t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
+		semAUsar->semID = semaforoID;
+		int indice = list_get_index(semaforos,semAUsar,(void*)comparadorDeSemaforos);
 		semAUsar = list_get(semaforos,indice);
 		if (semAUsar->semActual <= 0){
 			semAUsar->semActual--;
-			log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
-			log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
-			log_info(suse_logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
+			log_info(suse_logger,"Contador inicial: %d", semAUsar->semInit);
+			log_info(suse_logger,"Contador maximo: %d", semAUsar->semMax);
+			log_info(suse_logger,"El semaforo se ha bloqueado, contador actual: %d",semAUsar->semActual);
 			int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
 			t_programa* programaBuscado; //= malloc(sizeof(t_programa));
 			programaBuscado = list_get(lista_programas,index);
+			if(list_is_empty(programaBuscado->cola_exec))
+				return -1;
 			t_hilo* hiloBuscado; //= malloc(sizeof(t_hilo));
 			hiloBuscado = list_remove(programaBuscado->cola_exec,0);
 			hiloBuscado->tiempoUsoCPUFinal = gettimeofday();
@@ -334,9 +337,9 @@ int hacer_suse_wait(int pid, int tid, char* semaforoID){
 			return 0;
 		}
 		semAUsar->semActual--;
-		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
-		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
-		log_info(suse_logger, "%d","Contador actual:", semAUsar->semActual);
+		log_info(suse_logger,"Contador inicial: %d", semAUsar->semInit);
+		log_info(suse_logger,"Contador maximo: %d", semAUsar->semMax);
+		log_info(suse_logger, "Contador actual: %d", semAUsar->semActual);
 		free(semAUsar);
 		return 0;
 	}
