@@ -413,7 +413,7 @@ int hacer_suse_join(int pid, int tid){
 		t_hilo* hiloABloquear; //= malloc(sizeof(t_hilo));
 		hiloABloquear = list_remove(programaBuscado->cola_exec,0);
 		list_add(cola_blocked,hiloABloquear);
-		log_info(suse_logger, "Se va a enviar a bloqueado al hilo TID: %d", hiloABloquear->tid);
+		//log_info(suse_logger, "Se va a enviar a bloqueado al hilo TID: %d", hiloABloquear->tid); //Esto me rompe por alguna razon
 		int bloqueados = list_size(cola_blocked);
 		log_info(suse_logger, "Hilos en blocked: %d", bloqueados);
 		//hiloABloquear->tiempoUsoCPUFinal = gettimeofday();
