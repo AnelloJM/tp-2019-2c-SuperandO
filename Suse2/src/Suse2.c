@@ -252,15 +252,32 @@ void* tomarMetricasAutomaticas(){
 	}
 }
 
+t_hilo* crearHiloNuevo(int pid, int tid){
+	t_hilo* hiloNuevo = malloc(sizeof(t_hilo));
+	hiloNuevo->pid = pid;
+	hiloNuevo->tid = tid;
+	hiloNuevo->estimacionAnterior = 0;
+	hiloNuevo->porcentajeTiempoEjecucion = 0;
+	hiloNuevo->finalizado = false;
+	hiloNuevo->rafagasEjecutadas = 0;
+	hiloNuevo->rafagasEstimadas = 0;
+	hiloNuevo->razon_bloqueado = "NULL";
+	hiloNuevo->tiempoEjecucion = 0;
+	hiloNuevo->tiempoEjecucionInicial = 0;
+	hiloNuevo->tiempoEsperaFinal = 0;
+	hiloNuevo->tiempoEsperaInicial = 0;
+	hiloNuevo->tiempoUsoCPU = 0;
+	hiloNuevo->tiempoUsoCPUFinal = 0;
+	hiloNuevo->tiempoUsoCPUInicial = 0;
+	hiloNuevo->tiempo_espera = 0;
+	return hiloNuevo;
+}
 
 //FUNCIONES DE SUSE
 
 
 int hacer_suse_create(int pid, int tid){
-	t_hilo* hiloNuevo = malloc(sizeof(t_hilo));
-	hiloNuevo->pid = pid;
-	hiloNuevo->tid = tid;
-	//hiloNuevo->tiempoEjecucionInicial = gettimeofday();
+	t_hilo* hiloNuevo = crearHiloNuevo(pid,tid);
 	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
 	int index = list_get_index(lista_programas,hiloNuevo,(void*)comparadorMismoPrograma);
 	programaBuscado = list_get(lista_programas,index);
