@@ -11,14 +11,11 @@
 #include <commons/log.h>
 
 t_log* logger;
+int conexion;
 
 void iniciar_logger(){
 	logger = log_create("libmuse.log", "libmuse", 1, LOG_LEVEL_INFO);
 	log_info(logger, "::::::Se ha creado un nuevo logger::::::");
-}
-
-void iniciar_configuracion(){
-
 }
 
 char* obtener_id_proceso(int id, char* ip){
@@ -31,19 +28,20 @@ char* obtener_id_proceso(int id, char* ip){
 int muse_init(int id, char* ip, int puerto){
 
 	iniciar_logger();
-	iniciar_configuracion();
-
 	char* id_del_proceso = obtener_id_proceso(id, ip);
 	log_info(logger,"id_del_proceso: %s", id_del_proceso);
 	char* puerto_en_char = string_itoa(puerto);
-	int conexion = conectarse_a_un_servidor(ip,puerto_en_char,logger);
+	conexion = conectarse_a_un_servidor(ip,puerto_en_char,logger);
 	if(conexion == -1){
 		return -1;
 	}
 	return 0;
 }
 void muse_close(){
-    
+    close(conexion);
+    log_info(logger, ":::Cerrado el socket:::");
+    log_info(logger, ":::Cerrando el log:::");
+    log_destroy(logger);
 }
 uint32_t muse_alloc(uint32_t tam){
     return 0;
