@@ -102,7 +102,7 @@ bool buscadorDeHilos(int tid, t_hilo* hilo);
 void tomarMetricas();
 void calcularTiempoEjecucion(t_hilo* hilo);
 void planificador_NEW_READY();
-bool comparadorMismoPrograma(t_hilo* hilo, int pid_programa);
+bool comparadorMismoPrograma(t_programa* programa1, t_programa* programa2);
 void* tomarMetricasAutomaticas();
 t_list* obtenerColaReady(t_programa* programa);
 int sumatoria(int acumulador, int unValor);

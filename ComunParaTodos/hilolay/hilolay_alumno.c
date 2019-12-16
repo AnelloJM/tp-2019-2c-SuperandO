@@ -36,7 +36,7 @@ int RecibirRespuesta(int socket) {
 	void *packRecibido= Suse_ReceiveAndUnpack(socket, tam);
 	sem_post(&mutex_buffer);
 	int respuesta = Suse_Unpack_Uint32_pid(packRecibido);
-	log_info(hilolay_logger,"Recibí una respuesta desde SUSE");
+	log_info(hilolay_logger,"Recibí la siguiente respuesta de SUSE: %i", respuesta);
 	free(packRecibido);
 	return respuesta;
 }

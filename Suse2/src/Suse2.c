@@ -223,11 +223,11 @@ void planificador_NEW_READY() {
 		if (hilosEnNew == 0) {
 			log_info(suse_logger, "No hay hilos para planificar actualmente");
 		} else {
-			t_hilo * unHilo = malloc(sizeof(t_hilo));
+			t_hilo * unHilo;// = malloc(sizeof(t_hilo));
 			unHilo = list_get(cola_new, 0);
 			int pid = unHilo->pid;
-			int ubicacionPrograma = list_get_index(lista_programas, &pid,(void*) comparadorMismoPrograma);
-			t_programa * programa = malloc(sizeof(t_programa));
+			int ubicacionPrograma = list_get_index(lista_programas, unHilo,(void*) comparadorMismoPrograma);
+			t_programa * programa; //= malloc(sizeof(t_programa));
 			programa = list_get(lista_programas, ubicacionPrograma);
 
 			log_info(suse_logger, "ACA ESTOY");
@@ -237,13 +237,14 @@ void planificador_NEW_READY() {
 			//unHilo->tiempoEsperaInicial = gettimeofday();
 			}
 	}
-	log_info(suse_logger, "El sistema esta corriendo al nivel maximo de multiprogramacion, no se agregaran nuevos hilos a ready");
+	else
+		log_info(suse_logger, "El sistema esta corriendo al nivel maximo de multiprogramacion, no se agregaran nuevos hilos a ready");
 	//list_destroy(colasReady);
 	//list_destroy(sizeColasReady);
 }
 
-bool comparadorMismoPrograma(t_hilo* hilo, int pid_programa){
-	return (hilo->pid == pid_programa);
+bool comparadorMismoPrograma(t_programa* programa1, t_programa* programa2){
+	return (programa1->pid == programa2->pid);
 }
 
 void* tomarMetricasAutomaticas(){
@@ -264,7 +265,7 @@ int hacer_suse_create(int pid){
 	//hiloNuevo->tiempoEjecucionInicial = gettimeofday();
 	tidMAX++;
 	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
-	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+	int index = list_get_index(lista_programas,hiloNuevo,(void*)comparadorMismoPrograma);
 	programaBuscado = list_get(lista_programas,index);
 	list_add(programaBuscado->hilos,hiloNuevo);
 	list_add(cola_new, hiloNuevo);

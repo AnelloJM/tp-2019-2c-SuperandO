@@ -17,5 +17,6 @@ Archivos \
 Conexiones \
 Lista \
 Serializacion \
+hilolay/bin \
 hilolay \
 
