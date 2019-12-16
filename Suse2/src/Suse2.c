@@ -162,20 +162,20 @@ bool buscadorDeHilos(int tid, t_hilo* hilo){
 
 void tomarMetricas(){
 	for(int i=0;i<=list_size(lista_programas);i++){
-		t_programa* unPrograma = malloc(sizeof(t_programa));
+		t_programa* unPrograma; // = malloc(sizeof(t_programa)); //Me parece que el list_get ya te lo devuelve malloceado
 		unPrograma = list_get(lista_programas,i);
 		t_list* hilosDelPrograma = unPrograma->hilos;
 		hilosDelPrograma = list_map(hilosDelPrograma,(void*)calcularTiempoEjecucion);
 		int tiempoTotalEjecucion = 0;
 		//Hago una iteracion completa de los hilos para calcular el total de ejecucion
 		for(int l=0;l<=list_size(hilosDelPrograma);l++){
-			t_hilo* unhilo = malloc(sizeof(t_hilo));
+			t_hilo* unhilo; //= malloc(sizeof(t_hilo)); //idem arriba
 			unhilo = list_get(hilosDelPrograma,l);
 			tiempoTotalEjecucion += unhilo->tiempoEjecucion;
 		}
 		//METRICAS POR HILO DE UN PROCESO
 		for(int j=0;j<=list_size(hilosDelPrograma);j++){
-			t_hilo* unHilo = malloc(sizeof(t_hilo));
+			t_hilo* unHilo;// = malloc(sizeof(t_hilo)); //idem arriba
 			unHilo = list_get(hilosDelPrograma,j);
 			unHilo->porcentajeTiempoEjecucion = (unHilo->tiempoEjecucion / tiempoTotalEjecucion)*100 ;
 			printf("Proceso:%d/n Hilo:%d/n Tiempo de Ejecucion:%d/n Tiempo de Espera:%d/n Tiempo de Uso de CPU:%d/n Porcentaje del tiempo de Ejecucion:%f/n",
@@ -191,7 +191,7 @@ void tomarMetricas(){
 	}
 	//METRICAS DEL SISTEMA
 	for(int k=0;k<=list_size(semaforos);k++){
-		t_semaforo* semaforo = malloc(sizeof(t_semaforo));
+		t_semaforo* semaforo; //= malloc(sizeof(t_semaforo)); //creo que list_get ya te lo da malloceado
 		semaforo = list_get(semaforos,k);
 		printf("Semaforo:%s/n Valor Actual:%d/n",semaforo->semID, semaforo->semActual);
 	}
@@ -223,11 +223,11 @@ void planificador_NEW_READY() {
 		if (list_is_empty(cola_new)) {
 			log_info(suse_logger, "No hay hilos para planificar actualmente");
 		} else {
-			t_hilo * unHilo = malloc(sizeof(t_hilo));
+			t_hilo * unHilo;// = malloc(sizeof(t_hilo));
 			unHilo = list_get(cola_new, 0);
 			int pid = unHilo->pid;
 			int ubicacionPrograma = list_get_index(lista_programas, &pid,(void*) comparadorMismoPrograma);
-			t_programa * programa = malloc(sizeof(t_programa));
+			t_programa * programa; //= malloc(sizeof(t_programa));
 			programa = list_get(lista_programas, ubicacionPrograma);
 			list_add(programa->cola_ready, unHilo);
 			unHilo->tiempoEsperaInicial = gettimeofday();
@@ -253,178 +253,166 @@ void* tomarMetricasAutomaticas(){
 
 
 int hacer_suse_create(int pid){
-	/*
-	t_hilo* hiloNuevo = malloc(sizeof(t_hilo));
-	hiloNuevo->pid = pid;
-	hiloNuevo->tid = tidMAX;
-	hiloNuevo->tiempoEjecucionInicial = gettimeofday();
-	tidMAX++;
-	t_programa * programaBuscado = malloc(sizeof(t_programa));
-	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-	programaBuscado = list_get(lista_programas,index);
-	list_add(programaBuscado->hilos,hiloNuevo);
-	list_add(cola_new, hiloNuevo);
-	log_info(suse_logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
-	log_info(suse_logger,"Cantidad de elementos en cola new: %d\n", hilosEnNew);
-	log_info(suse_logger,"ID del programa: %d\n",hiloNuevo->pid);
-	log_info(suse_logger,"ID del hilo: %d\n",hiloNuevo->tid);
-	planificador_NEW_READY();
-	free(hiloNuevo);
-	free(programaBuscado);
-	*/
+//	t_hilo* hiloNuevo = malloc(sizeof(t_hilo));
+//	hiloNuevo->pid = pid;
+//	hiloNuevo->tid = tidMAX;
+//	hiloNuevo->tiempoEjecucionInicial = gettimeofday();
+//	tidMAX++;
+//	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
+//	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+//	programaBuscado = list_get(lista_programas,index);
+//	list_add(programaBuscado->hilos,hiloNuevo);
+//	list_add(cola_new, hiloNuevo);
+//	log_info(suse_logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
+//	log_info(suse_logger,"Cantidad de elementos en cola new: %d\n", hilosEnNew);
+//	log_info(suse_logger,"ID del programa: %d\n",hiloNuevo->pid);
+//	log_info(suse_logger,"ID del hilo: %d\n",hiloNuevo->tid);
+//	planificador_NEW_READY();
+//	//free(hiloNuevo); CREO que estos free no van porque tambien lo liberarian de la lista pero no estoy 100% seguro hay que probar
+//	//free(programaBuscado);
 	return 0;
 }
 
 int hacer_suse_schedule_next(int pid){
-	/*
-	t_programa * programaBuscado = malloc(sizeof(t_programa));
-	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-	programaBuscado = list_get(lista_programas,index);
-	if (!list_is_empty(programaBuscado->cola_ready)&& list_is_empty(programaBuscado->cola_exec)){
-		log_info(suse_logger, "Se comenzará a planificar");
-		t_list* aux;
-		aux = list_map(programaBuscado->cola_ready,(void*)calcularEstimacion);
-		list_sort(aux, (void*)comparadorDeRafagas);
-		t_hilo* hiloAux = malloc(sizeof(t_hilo));
-		hiloAux = (t_hilo*) list_remove(aux,0);
-		int indice = list_get_index(programaBuscado->cola_ready,hiloAux,(void*)comparadorDeHilos);
-		t_hilo* hiloAEjecutar = list_remove(programaBuscado->cola_ready,indice);
-		hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
-		hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaFinal - hiloAEjecutar->tiempoEsperaInicial);
-		list_add(programaBuscado->cola_exec,hiloAEjecutar);
-		hiloAEjecutar->tiempoUsoCPUInicial = gettimeofday();
-		//Tomo el tiempo final de espera
-		hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
-		//Y aca ya me queda guardado el tiempo de espera
-		hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaInicial - hiloAEjecutar->tiempoEsperaFinal);
-		free(programaBuscado);
-		list_clean_and_destroy_elements(aux,(void*)free);
-		list_destroy(aux);
-		free(hiloAux);
-		return hiloAEjecutar->tid;
-	}
-	free(programaBuscado);
-	log_error(suse_logger, "La cola de ready del programa está vacia o ya tiene un hilo ejecutando");
-	return -1;
-	*/
+//	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
+//	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+//	programaBuscado = list_get(lista_programas,index);
+//	if (!list_is_empty(programaBuscado->cola_ready)&& list_is_empty(programaBuscado->cola_exec)){
+//		log_info(suse_logger, "Se comenzará a planificar");
+//		t_list* aux;
+//		aux = list_map(programaBuscado->cola_ready,(void*)calcularEstimacion);
+//		list_sort(aux, (void*)comparadorDeRafagas);
+//		t_hilo* hiloAux; //= malloc(sizeof(t_hilo));
+//		hiloAux = (t_hilo*) list_remove(aux,0);
+//		int indice = list_get_index(programaBuscado->cola_ready,hiloAux,(void*)comparadorDeHilos);
+//		t_hilo* hiloAEjecutar = list_remove(programaBuscado->cola_ready,indice);
+//		hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
+//		hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaFinal - hiloAEjecutar->tiempoEsperaInicial);
+//		list_add(programaBuscado->cola_exec,hiloAEjecutar);
+//		hiloAEjecutar->tiempoUsoCPUInicial = gettimeofday();
+//		//Tomo el tiempo final de espera
+//		hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
+//		//Y aca ya me queda guardado el tiempo de espera
+//		hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaInicial - hiloAEjecutar->tiempoEsperaFinal);
+//		//free(programaBuscado); //creo que esto tambien le haria free al elemento de la lista
+//		list_clean_and_destroy_elements(aux,(void*)free);
+//		list_destroy(aux);
+//		free(hiloAux);
+//		return hiloAEjecutar->tid;
+//	}
+//	//free(programaBuscado); //esto ya no es necesario porque la variable no se mallocea
+//	log_error(suse_logger, "La cola de ready del programa está vacia o ya tiene un hilo ejecutando");
+//	return -1;
 	return 0;
 }
 
 int hacer_suse_wait(int pid, char* semaforoID){
-	/*
-	if(buscadorSemaforo(semaforoID) == 0){
-		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
-		t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
-		semAUsar = list_get(semaforos,indice);
-		if (semAUsar->semActual <= 0){
-			semAUsar->semActual--;
-			log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
-			log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
-			log_info(suse_logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
-			int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-			t_programa* programaBuscado = malloc(sizeof(t_programa));
-			programaBuscado = list_get(lista_programas,index);
-			t_hilo* hiloBuscado = malloc(sizeof(t_hilo));
-			hiloBuscado = list_remove(programaBuscado->cola_exec,0);
-			hiloBuscado->tiempoUsoCPUFinal = gettimeofday();
-			hiloBuscado->tiempoUsoCPU += (hiloBuscado->tiempoUsoCPUFinal - hiloBuscado->tiempoUsoCPUInicial);
-			list_add(cola_blocked,hiloBuscado);
-			list_add(semAUsar->hilosEnEspera,hiloBuscado);
-			free(programaBuscado);
-			free(hiloBuscado);
-			free(semAUsar);
-			return 0;
-		}
-		semAUsar->semActual--;
-		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
-		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
-		log_info(suse_logger, "%d","Contador actual:", semAUsar->semActual);
-		free(semAUsar);
-		return 0;
-	}
-	log_error(suse_logger,"El semaforo no fue encontrado");
-	return -1;
-	*/
+//	if(buscadorSemaforo(semaforoID) == 0){
+//		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
+//		t_semaforo* semAUsar; //= malloc(sizeof(t_semaforo));
+//		semAUsar = list_get(semaforos,indice);
+//		if (semAUsar->semActual <= 0){
+//			semAUsar->semActual--;
+//			log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
+//			log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+//			log_info(suse_logger,"%d","El semaforo se ha bloqueado, contador actual:",semAUsar->semActual);
+//			int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+//			t_programa* programaBuscado; //= malloc(sizeof(t_programa));
+//			programaBuscado = list_get(lista_programas,index);
+//			t_hilo* hiloBuscado; //= malloc(sizeof(t_hilo));
+//			hiloBuscado = list_remove(programaBuscado->cola_exec,0);
+//			hiloBuscado->tiempoUsoCPUFinal = gettimeofday();
+//			hiloBuscado->tiempoUsoCPU += (hiloBuscado->tiempoUsoCPUFinal - hiloBuscado->tiempoUsoCPUInicial);
+//			list_add(cola_blocked,hiloBuscado);
+//			list_add(semAUsar->hilosEnEspera,hiloBuscado);
+//			//free(programaBuscado);
+//			//free(hiloBuscado); Los comento porque creo que los liberaria tambien de las listas
+//			//free(semAUsar);
+//			return 0;
+//		}
+//		semAUsar->semActual--;
+//		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
+//		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+//		log_info(suse_logger, "%d","Contador actual:", semAUsar->semActual);
+//		free(semAUsar);
+//		return 0;
+//	}
+//	log_error(suse_logger,"El semaforo no fue encontrado");
+//	return -1;
 	return 0;
 }
 
 int hacer_suse_signal(int pid, char* semaforoID){
-	/*
-	if(buscadorSemaforo(semaforoID) == 0){
-		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
-		t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
-		semAUsar = list_get(semaforos,indice);
-		if (semAUsar->semActual == semAUsar->semMax){
-			log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
-			log_error(suse_logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
-			free(semAUsar);
-			return 0;
-		}
-		semAUsar->semActual++;
-		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
-		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
-		log_info(suse_logger,"%d","Contador actual:", semAUsar->semActual);
-		log_info(suse_logger,"Se pasará a desbloquear el primer hilo en la cola de espera del semaforo, este hilo pasará al estado ready");
-		int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-		t_programa* programaBuscado = malloc(sizeof(t_programa));
-		programaBuscado = list_get(lista_programas,index);
-		t_hilo* hiloADesbloquear = malloc(sizeof(t_hilo));
-		hiloADesbloquear = list_remove(semAUsar->hilosEnEspera,0);
-		int index2 = list_get_index(cola_blocked,hiloADesbloquear,(void*)comparadorDeHilos);
-		hiloADesbloquear = list_remove(cola_blocked,index2);
-		list_add(programaBuscado->cola_ready,hiloADesbloquear);
-		hiloADesbloquear->tiempoEsperaInicial = gettimeofday();
-		free(programaBuscado);
-		free(hiloADesbloquear);
-		free(semAUsar);
-		return 0;
-
-	}
-	log_error(suse_logger, "El semaforo no fue encontrado");
-	return -1;
-	*/
+//	if(buscadorSemaforo(semaforoID) == 0){
+//		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
+//		t_semaforo* semAUsar; //= malloc(sizeof(t_semaforo));
+//		semAUsar = list_get(semaforos,indice);
+//		if (semAUsar->semActual == semAUsar->semMax){
+//			log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+//			log_error(suse_logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
+//			//free(semAUsar);
+//			return 0;
+//		}
+//		semAUsar->semActual++;
+//		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
+//		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+//		log_info(suse_logger,"%d","Contador actual:", semAUsar->semActual);
+//		log_info(suse_logger,"Se pasará a desbloquear el primer hilo en la cola de espera del semaforo, este hilo pasará al estado ready");
+//		int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+//		t_programa* programaBuscado; //= malloc(sizeof(t_programa));
+//		programaBuscado = list_get(lista_programas,index);
+//		t_hilo* hiloADesbloquear; //= malloc(sizeof(t_hilo));
+//		hiloADesbloquear = list_remove(semAUsar->hilosEnEspera,0);
+//		int index2 = list_get_index(cola_blocked,hiloADesbloquear,(void*)comparadorDeHilos);
+//		hiloADesbloquear = list_remove(cola_blocked,index2);
+//		list_add(programaBuscado->cola_ready,hiloADesbloquear);
+//		hiloADesbloquear->tiempoEsperaInicial = gettimeofday();
+//		//free(programaBuscado);
+//		//free(hiloADesbloquear);
+//		//free(semAUsar);
+//		return 0;
+//
+//	}
+//	log_error(suse_logger, "El semaforo no fue encontrado");
+//	return -1;
 	return 0;
 }
 
 int hacer_suse_join(int pid, int tid){
-	/*
-	int index = list_get_index(cola_exit,tid,(void*)buscadorDeHilos);
-	//Si el tid pasado no está en exit entonces procedo normalmente
-	if(index == list_size(cola_exit)){
-		int index2 = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-		t_programa* programaBuscado = malloc(sizeof(t_programa));
-		programaBuscado = list_get(lista_programas,index2);
-		t_hilo* hiloABloquear = malloc(sizeof(t_hilo));
-		hiloABloquear = list_remove(programaBuscado->cola_exec,0);
-		hiloABloquear->tiempoUsoCPUFinal = gettimeofday();
-		hiloABloquear->tiempoUsoCPU += (hiloABloquear->tiempoUsoCPUFinal - hiloABloquear->tiempoUsoCPUInicial);
-		free(programaBuscado);
-		free(hiloABloquear);
-		return 0;
-	}
-	//Si el tid ya está en exit, entonces el hilo que lo llama no se bloquea
-	return 0;
-	*/
+//	int index = list_get_index(cola_exit,tid,(void*)buscadorDeHilos);
+//	//Si el tid pasado no está en exit entonces procedo normalmente
+//	if(index == list_size(cola_exit)){
+//		int index2 = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+//		t_programa* programaBuscado; //= malloc(sizeof(t_programa));
+//		programaBuscado = list_get(lista_programas,index2);
+//		t_hilo* hiloABloquear; //= malloc(sizeof(t_hilo));
+//		hiloABloquear = list_remove(programaBuscado->cola_exec,0);
+//		hiloABloquear->tiempoUsoCPUFinal = gettimeofday();
+//		hiloABloquear->tiempoUsoCPU += (hiloABloquear->tiempoUsoCPUFinal - hiloABloquear->tiempoUsoCPUInicial);
+//		//free(programaBuscado);
+//		//free(hiloABloquear);
+//		return 0;
+//	}
+//	//Si el tid ya está en exit, entonces el hilo que lo llama no se bloquea
+//	return 0;
 	return 0;
 }
 
 int hacer_suse_close(int pid, int tid){
-	/*
-	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-	t_programa* programaBuscado = malloc(sizeof(t_programa));
-	programaBuscado = list_get(lista_programas,index);
-	t_hilo* hiloATerminar = malloc(sizeof(t_hilo));
-	hiloATerminar = list_remove(programaBuscado->cola_exec, 0);
-	hiloATerminar->tiempoUsoCPUFinal = gettimeofday();
-	hiloATerminar->tiempoUsoCPU += (hiloATerminar->tiempoUsoCPUFinal - hiloATerminar->tiempoUsoCPUInicial);
-	list_add(cola_exit,hiloATerminar);
-	hiloATerminar->finalizado = true;
-	free(hiloATerminar);
-	free(programaBuscado);
-	//Cuando cierra un hilo toma las metricas
-	tomarMetricas();
-	planificador_NEW_READY();
-	*/
+//	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+//	t_programa* programaBuscado; //= malloc(sizeof(t_programa));
+//	programaBuscado = list_get(lista_programas,index);
+//	t_hilo* hiloATerminar; //= malloc(sizeof(t_hilo));
+//	hiloATerminar = list_remove(programaBuscado->cola_exec, 0);
+//	hiloATerminar->tiempoUsoCPUFinal = gettimeofday();
+//	hiloATerminar->tiempoUsoCPU += (hiloATerminar->tiempoUsoCPUFinal - hiloATerminar->tiempoUsoCPUInicial);
+//	list_add(cola_exit,hiloATerminar);
+//	hiloATerminar->finalizado = true;
+//	//free(hiloATerminar); mas alla de que este hilo termino, como lo agrega a la cola de exit, debe seguir malloceado, lo cual me genera la duda en que momento se limpia la cola de exit?
+//	//free(programaBuscado);
+//	//Cuando cierra un hilo toma las metricas
+//	tomarMetricas();
+//	planificador_NEW_READY();
 	return 0;
 }
 
