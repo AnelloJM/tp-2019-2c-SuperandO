@@ -13,7 +13,7 @@
 t_log* logger;
 
 void iniciar_logger(){
-	logger = log_create("libmuse.log", "Sac-libmuse", 1, LOG_LEVEL_INFO);
+	logger = log_create("libmuse.log", "libmuse", 1, LOG_LEVEL_INFO);
 	log_info(logger, "::::::Se ha creado un nuevo logger::::::");
 }
 
