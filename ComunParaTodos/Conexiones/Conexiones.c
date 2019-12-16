@@ -17,6 +17,8 @@ int conectarse_a_un_servidor(char *ip, char* puerto,t_log* log){
 
 	if(connect(socket_cliente, server_info->ai_addr, server_info->ai_addrlen) == -1){
 		log_error(log, "Error de conexion\n");
+		freeaddrinfo(server_info);
+		return -1;
 	}else{
 		log_info(log, "Conexion correcta\n");
 	}
