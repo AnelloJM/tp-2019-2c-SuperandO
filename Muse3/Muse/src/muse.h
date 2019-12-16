@@ -26,9 +26,7 @@
 #include <pthread.h>
 #include "conexion_muse.h"
 
-//Varibles globales
-
-
+//Variables globales
 
 t_log* logger;
 t_config* archivoConfig;
@@ -75,7 +73,7 @@ typedef struct
 {
   bool isFree;
   int size;
-}Heap;
+}Heap; //se tiene que llamar HeapMetadata en realidad, hay que cambiarlo en todos lados
 
 
 int memory_size;
@@ -89,16 +87,28 @@ int socketMuse;
 int socket_cliente;
 
 
-//estructuras viejas
+//estructuras cruz
 
-struct Pagina
+typedef struct
 {
+  int tam_libre;
+  int tam_usado;
   int bit_presencia;
-  int numero_frame_asociado;
-  int numero_pagina;
-  struct Pagina *next_pagina;
-};
+  int numero_frame_asociado; //numero de marco de la UPCM
+ }Pagina;
 
+ typedef struct
+ {
+	 char *pid; // "ip:proceso_id"
+	 t_list *Paginas;
+
+ }Proceso;
+
+
+t_list *tabla_de_procesos;
+
+
+ //estructuras viejas
 typedef struct
 {
   int size;

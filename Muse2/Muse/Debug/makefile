@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include src/servidor-cliente/subdir.mk
 -include src/subdir.mk
 -include subdir.mk
 -include objects.mk
@@ -23,27 +24,25 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: pruebaDeSuse
+all: Muse
 
 dependents:
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) clean all
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/SerializacionSuse/Debug && $(MAKE) clean all
+	-cd /home/fluor/eclipse-workspace/libmuse/Debug && $(MAKE) clean all
 
 # Tool invocations
-pruebaDeSuse: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so /home/utnso/workspace/tp-2019-2c-SuperandO/SerializacionSuse/Debug/libSerializacionSuse.so
+Muse: $(OBJS) $(USER_OBJS) /home/fluor/eclipse-workspace/libmuse/Debug/liblibmuse.so
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc -L"/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug" -L/home/utnso/workspace/tp-2019-2c-SuperandO/SerializacionSuse/Debug -o "pruebaDeSuse" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc -L"/home/fluor/eclipse-workspace/libmuse/Debug" -o "Muse" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) pruebaDeSuse
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) Muse
 	-@echo ' '
 
 .PHONY: all clean dependents
-/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so:
-/home/utnso/workspace/tp-2019-2c-SuperandO/SerializacionSuse/Debug/libSerializacionSuse.so:
+/home/fluor/eclipse-workspace/libmuse/Debug/liblibmuse.so:
 
 -include ../makefile.targets
