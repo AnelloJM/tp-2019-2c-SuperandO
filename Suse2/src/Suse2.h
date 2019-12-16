@@ -91,7 +91,7 @@ void inicializarEstructuras();
 void inicializarSemaforos();
 int posicionFinalDoblePuntero(char **puntero);
 void liberarDoblePuntero(char **puntero);
-bool comparadorPrograma(int unPid, t_programa* unPrograma);
+bool comparadorPrograma(t_programa* unPrograma, int unPid);
 t_hilo calcularEstimacion(t_hilo unHilo);
 bool comparadorDeRafagas(t_hilo unHilo, t_hilo otroHilo);
 bool comparadorDeHilos(t_hilo* unHilo, t_hilo* otroHilo);

@@ -124,7 +124,7 @@ int gettimeofday(){
 	return a;
 }
 
-bool comparadorPrograma(int unPid, t_programa* unPrograma){
+bool comparadorPrograma(t_programa* unPrograma, int unPid){
 	return (unPid == unPrograma->pid);
 }
 
@@ -220,19 +220,24 @@ void planificador_NEW_READY() {
 	int hilosEnReady = list_fold(sizeColasReady,0,(void*)sumatoria); //Chequear bien esto
 	hilosEnSistema = hilosEnNew + hilosEnBlocked + hilosEnReady;
 	if (hilosEnSistema <= max_multiprog){
-		if (list_is_empty(cola_new)) {
+		if (hilosEnNew == 0) {
 			log_info(suse_logger, "No hay hilos para planificar actualmente");
 		} else {
-			t_hilo * unHilo;// = malloc(sizeof(t_hilo));
+			t_hilo * unHilo = malloc(sizeof(t_hilo));
 			unHilo = list_get(cola_new, 0);
 			int pid = unHilo->pid;
 			int ubicacionPrograma = list_get_index(lista_programas, &pid,(void*) comparadorMismoPrograma);
-			t_programa * programa; //= malloc(sizeof(t_programa));
+			t_programa * programa = malloc(sizeof(t_programa));
 			programa = list_get(lista_programas, ubicacionPrograma);
+
+			log_info(suse_logger, "ACA ESTOY");
+
 			list_add(programa->cola_ready, unHilo);
-			unHilo->tiempoEsperaInicial = gettimeofday();
+			log_info(suse_logger, "Se agrego un hilo a la cola de ready, TID:%d", unHilo->tid);
+			//unHilo->tiempoEsperaInicial = gettimeofday();
 			}
 	}
+	log_info(suse_logger, "El sistema esta corriendo al nivel maximo de multiprogramacion, no se agregaran nuevos hilos a ready");
 	//list_destroy(colasReady);
 	//list_destroy(sizeColasReady);
 }
@@ -253,21 +258,22 @@ void* tomarMetricasAutomaticas(){
 
 
 int hacer_suse_create(int pid){
-//	t_hilo* hiloNuevo = malloc(sizeof(t_hilo));
-//	hiloNuevo->pid = pid;
-//	hiloNuevo->tid = tidMAX;
-//	hiloNuevo->tiempoEjecucionInicial = gettimeofday();
-//	tidMAX++;
-//	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
-//	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-//	programaBuscado = list_get(lista_programas,index);
-//	list_add(programaBuscado->hilos,hiloNuevo);
-//	list_add(cola_new, hiloNuevo);
-//	log_info(suse_logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
-//	log_info(suse_logger,"Cantidad de elementos en cola new: %d\n", hilosEnNew);
-//	log_info(suse_logger,"ID del programa: %d\n",hiloNuevo->pid);
-//	log_info(suse_logger,"ID del hilo: %d\n",hiloNuevo->tid);
-//	planificador_NEW_READY();
+	t_hilo* hiloNuevo = malloc(sizeof(t_hilo));
+	hiloNuevo->pid = pid;
+	hiloNuevo->tid = tidMAX;
+	//hiloNuevo->tiempoEjecucionInicial = gettimeofday();
+	tidMAX++;
+	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
+	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+	programaBuscado = list_get(lista_programas,index);
+	list_add(programaBuscado->hilos,hiloNuevo);
+	list_add(cola_new, hiloNuevo);
+	log_info(suse_logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
+	int hilosEnNew = list_size(cola_new);
+	log_info(suse_logger,"Cantidad de elementos en cola new: %d\n", hilosEnNew);
+	log_info(suse_logger,"ID del programa: %d\n",hiloNuevo->pid);
+	log_info(suse_logger,"ID del hilo: %d\n",hiloNuevo->tid);
+	planificador_NEW_READY();
 //	//free(hiloNuevo); CREO que estos free no van porque tambien lo liberarian de la lista pero no estoy 100% seguro hay que probar
 //	//free(programaBuscado);
 	return 0;
