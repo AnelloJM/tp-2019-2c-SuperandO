@@ -225,7 +225,6 @@ void planificador_NEW_READY() {
 		} else {
 			t_hilo * unHilo;// = malloc(sizeof(t_hilo));
 			unHilo = list_get(cola_new, 0);
-			int pid = unHilo->pid;
 			int ubicacionPrograma = list_get_index(lista_programas, unHilo,(void*) comparadorMismoPrograma);
 			t_programa * programa; //= malloc(sizeof(t_programa));
 			programa = list_get(lista_programas, ubicacionPrograma);
@@ -233,6 +232,8 @@ void planificador_NEW_READY() {
 			log_info(suse_logger, "ACA ESTOY");
 
 			list_add(programa->cola_ready, unHilo);
+			t_hilo * hiloASacar;
+			hiloASacar = list_remove(cola_new,0);
 			log_info(suse_logger, "Se agrego un hilo a la cola de ready, TID:%d", unHilo->tid);
 			//unHilo->tiempoEsperaInicial = gettimeofday();
 			}
@@ -258,12 +259,11 @@ void* tomarMetricasAutomaticas(){
 //FUNCIONES DE SUSE
 
 
-int hacer_suse_create(int pid){
+int hacer_suse_create(int pid, int tid){
 	t_hilo* hiloNuevo = malloc(sizeof(t_hilo));
 	hiloNuevo->pid = pid;
-	hiloNuevo->tid = tidMAX;
+	hiloNuevo->tid = tid;
 	//hiloNuevo->tiempoEjecucionInicial = gettimeofday();
-	tidMAX++;
 	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
 	int index = list_get_index(lista_programas,hiloNuevo,(void*)comparadorMismoPrograma);
 	programaBuscado = list_get(lista_programas,index);
@@ -458,10 +458,10 @@ void atenderCliente(void* socket_cliente_void){
 		case S_CREATE:;
 			void* paqueteCreate = Suse_ReceiveAndUnpack(socket_cliente,tam);
 			log_info(suse_logger, "Se recibió un pedido de Suse_Create");
-			int pidCreate = Suse_Unpack_Uint32_pid(paqueteCreate);
-			log_info(suse_logger, "He recibido un PID : %i", pidCreate);
+			int tidCreate = Suse_Unpack_Uint32_pid(paqueteCreate); //En realidad recibe un TID
+			log_info(suse_logger, "He recibido un TID : %i", tidCreate);
 			free(paqueteCreate);
-			int respuestaCreate = hacer_suse_create(pidCreate);
+			int respuestaCreate = hacer_suse_create(programaNuevo->pid,tidCreate);
 			if (respuestaCreate == 0)
 				log_info(suse_logger, "La operacion Suse_Create se realizó con exito");
 			else

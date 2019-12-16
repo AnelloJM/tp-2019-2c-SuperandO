@@ -108,7 +108,7 @@ t_list* obtenerColaReady(t_programa* programa);
 int sumatoria(int acumulador, int unValor);
 
 //FUNCIONES DE SUSE
-int hacer_suse_create(int pid);
+int hacer_suse_create(int pid, int tid);
 int hacer_suse_schedule_next(int pid);
 int hacer_suse_wait(int pid, char* semaforoID);
 int hacer_suse_signal(int pid, char* semaforoID);
