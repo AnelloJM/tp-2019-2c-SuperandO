@@ -3,6 +3,9 @@
 	<name>Muse</name>
 	<comment></comment>
 	<projects>
+		<project>ComunParaTodos</project>
+		<project>SerializacionMuse</project>
+		<project>SerializacionSuse</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
