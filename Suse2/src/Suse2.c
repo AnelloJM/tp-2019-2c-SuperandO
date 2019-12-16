@@ -331,6 +331,7 @@ int hacer_suse_wait(int pid, int tid, char* semaforoID){
 		t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
 		semAUsar->semID = semaforoID;
 		int indice = list_get_index(semaforos,semAUsar,(void*)comparadorDeSemaforos);
+		free(semAUsar);
 		semAUsar = list_get(semaforos,indice);
 		if (semAUsar->semActual <= 0){
 			semAUsar->semActual--;
@@ -341,11 +342,11 @@ int hacer_suse_wait(int pid, int tid, char* semaforoID){
 			t_programa* programaBuscado; //= malloc(sizeof(t_programa));
 			programaBuscado = list_get(lista_programas,index);
 			if(list_is_empty(programaBuscado->cola_exec))
-				return -1;
+				return 0;
 			t_hilo* hiloBuscado; //= malloc(sizeof(t_hilo));
 			hiloBuscado = list_remove(programaBuscado->cola_exec,0);
-			hiloBuscado->tiempoUsoCPUFinal = gettimeofday();
-			hiloBuscado->tiempoUsoCPU += (hiloBuscado->tiempoUsoCPUFinal - hiloBuscado->tiempoUsoCPUInicial);
+			//hiloBuscado->tiempoUsoCPUFinal = gettimeofday();
+			//hiloBuscado->tiempoUsoCPU += (hiloBuscado->tiempoUsoCPUFinal - hiloBuscado->tiempoUsoCPUInicial);
 			list_add(cola_blocked,hiloBuscado);
 			list_add(semAUsar->hilosEnEspera,hiloBuscado);
 			//free(programaBuscado);
@@ -362,43 +363,44 @@ int hacer_suse_wait(int pid, int tid, char* semaforoID){
 	}
 	log_error(suse_logger,"El semaforo no fue encontrado");
 	return -1;
-	return 0;
 }
 
 int hacer_suse_signal(int pid, int tid, char* semaforoID){
-//	if(buscadorSemaforo(semaforoID) == 0){
-//		int indice = list_get_index(semaforos,semaforoID,(void*)comparadorDeSemaforos);
-//		t_semaforo* semAUsar; //= malloc(sizeof(t_semaforo));
-//		semAUsar = list_get(semaforos,indice);
-//		if (semAUsar->semActual == semAUsar->semMax){
-//			log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
-//			log_error(suse_logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
-//			//free(semAUsar);
-//			return 0;
-//		}
-//		semAUsar->semActual++;
-//		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
-//		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
-//		log_info(suse_logger,"%d","Contador actual:", semAUsar->semActual);
-//		log_info(suse_logger,"Se pasará a desbloquear el primer hilo en la cola de espera del semaforo, este hilo pasará al estado ready");
-//		int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-//		t_programa* programaBuscado; //= malloc(sizeof(t_programa));
-//		programaBuscado = list_get(lista_programas,index);
-//		t_hilo* hiloADesbloquear; //= malloc(sizeof(t_hilo));
-//		hiloADesbloquear = list_remove(semAUsar->hilosEnEspera,0);
-//		int index2 = list_get_index(cola_blocked,hiloADesbloquear,(void*)comparadorDeHilos);
-//		hiloADesbloquear = list_remove(cola_blocked,index2);
-//		list_add(programaBuscado->cola_ready,hiloADesbloquear);
-//		hiloADesbloquear->tiempoEsperaInicial = gettimeofday();
-//		//free(programaBuscado);
-//		//free(hiloADesbloquear);
-//		//free(semAUsar);
-//		return 0;
-//
-//	}
-//	log_error(suse_logger, "El semaforo no fue encontrado");
-//	return -1;
-	return 0;
+	if(buscadorSemaforo(semaforoID) == 0){
+		t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
+		semAUsar->semID = semaforoID;
+		int indice = list_get_index(semaforos,semAUsar,(void*)comparadorDeSemaforos);
+		semAUsar = list_get(semaforos,indice);
+		if (semAUsar->semActual == semAUsar->semMax){
+			log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+			log_error(suse_logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
+			//free(semAUsar);
+			return 0;
+		}
+		semAUsar->semActual++;
+		log_info(suse_logger,"%d","Contador inicial:", semAUsar->semInit);
+		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
+		log_info(suse_logger,"%d","Contador actual:", semAUsar->semActual);
+		log_info(suse_logger,"Se pasará a desbloquear el primer hilo en la cola de espera del semaforo, este hilo pasará al estado ready");
+		int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+		t_programa* programaBuscado; //= malloc(sizeof(t_programa));
+		programaBuscado = list_get(lista_programas,index);
+		t_hilo* hiloADesbloquear; //= malloc(sizeof(t_hilo));
+		if(list_is_empty(semAUsar->hilosEnEspera))
+			return 0;
+		hiloADesbloquear = list_remove(semAUsar->hilosEnEspera,0);
+		int index2 = list_get_index(cola_blocked,hiloADesbloquear,(void*)comparadorDeHilos);
+		hiloADesbloquear = list_remove(cola_blocked,index2);
+		list_add(programaBuscado->cola_ready,hiloADesbloquear);
+		//hiloADesbloquear->tiempoEsperaInicial = gettimeofday();
+		//free(programaBuscado);
+		//free(hiloADesbloquear);
+		//free(semAUsar);
+		return 0;
+
+	}
+	log_error(suse_logger, "El semaforo no fue encontrado");
+	return -1;
 }
 
 int hacer_suse_join(int pid, int tid){
