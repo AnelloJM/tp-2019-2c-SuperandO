@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <stdint.h>
 #include <readline/readline.h>
 #include <Conexiones/Conexiones.h>
 #include <commons/log.h>
@@ -14,7 +15,7 @@
 #include <commons/collections/queue.h>
 #include <pthread.h>
 #include <Lista/lista.h>
-#include <time.h>
+#include <sys/time.h>
 #include <semaphore.h>
 #include <SerializacionSUSE/SerializacionSUSE.h>
 
@@ -95,7 +96,7 @@ bool comparadorPrograma(t_programa* unPrograma, int unPid);
 t_hilo* calcularEstimacion(t_hilo *unHilo);
 bool comparadorDeRafagas(t_hilo *unHilo, t_hilo *otroHilo);
 bool comparadorDeHilos(t_hilo* unHilo, t_hilo* otroHilo);
-uint64_t gettimeofday();
+uint64_t timestamp();
 int buscadorSemaforo (char* semaforoID);
 bool comparadorDeSemaforos(t_semaforo *unSem, t_semaforo *otroSem);
 bool buscadorDeHilos(int tid, t_hilo* hilo);

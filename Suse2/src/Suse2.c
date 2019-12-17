@@ -116,12 +116,12 @@ void liberarDoblePuntero(char **puntero){
 	free(puntero);
 }
 
-uint64_t gettimeofday(){
+uint64_t timestamp(){
 	struct timeval tv;
 	gettimeofday(&tv, NULL);
 	long long result = (((long long)tv.tv_sec)*1000 + ((long)tv.tv_usec)/1000);
-	uint64_t a = result;
-	return a;
+	uint64_t timefinal = result;
+	return timefinal;
 }
 
 bool comparadorPrograma(t_programa* unPrograma, int unPid){
@@ -199,7 +199,7 @@ void tomarMetricas(){
 }
 
 void calcularTiempoEjecucion(t_hilo* hilo){
-	int tiempoFinal = gettimeofday();
+	int tiempoFinal = timestamp();
 	hilo->tiempoEjecucion = (tiempoFinal - hilo->tiempoEjecucionInicial);
 }
 
