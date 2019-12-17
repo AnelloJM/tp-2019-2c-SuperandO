@@ -3,14 +3,14 @@
 //CONEXION CON SUSE
 
 void crearLogger(){
-	char* logPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/hilolay/hilolay.log";
+	char* logPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Hilolay/hilolay/hilolay.log";
 	char* nombreArch = "hilolay";
 	hilolay_logger = log_create(logPath, nombreArch, 1, LOG_LEVEL_INFO);
 	log_info(hilolay_logger, "El logger se creo con exito");
 }
 
 void leerArchivoDeConfiguracion(){
-	char* configPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/hilolay/hilolay.cfg";
+	char* configPath = "/home/utnso/workspace/tp-2019-2c-SuperandO/Hilolay/hilolay/hilolay.cfg";
 	archivoConfig = config_create(configPath);
 	if (archivoConfig == NULL){
 		log_error(hilolay_logger,"ERROR: Archivo de configuracion no encontrado");

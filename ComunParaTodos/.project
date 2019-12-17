@@ -3,7 +3,6 @@
 	<name>ComunParaTodos</name>
 	<comment></comment>
 	<projects>
-		<project>SerializacionSuse</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
