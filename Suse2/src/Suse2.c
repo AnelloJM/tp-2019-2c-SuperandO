@@ -520,6 +520,7 @@ void atenderCliente(void* socket_cliente_void){
 
 		case S_SCHEDULE_NEXT:;
 			void* paqueteSchedule = Suse_ReceiveAndUnpack(socket_cliente,tam);
+			free(paqueteSchedule);
 			log_info(suse_logger, "Se recibió un pedido de Suse_Schedule_Next");
 			int respuestaNext = hacer_suse_schedule_next(programaNuevo->pid);
 			if (respuestaNext != -1){ //Si devuelvo cualquier TID entra aca
