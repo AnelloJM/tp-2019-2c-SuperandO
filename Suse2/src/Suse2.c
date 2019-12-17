@@ -130,6 +130,7 @@ bool comparadorPrograma(t_programa* unPrograma, int unPid){
 
 t_hilo* calcularEstimacion(t_hilo *unHilo){
 	unHilo->rafagasEstimadas = (alpha_sjf * unHilo->estimacionAnterior + ((1 - alpha_sjf)*unHilo->rafagasEjecutadas));
+	unHilo->estimacionAnterior = unHilo->rafagasEstimadas;
 	return unHilo;
 }
 
@@ -260,6 +261,8 @@ t_hilo* crearHiloNuevo(int pid, int tid){
 	hiloNuevo->porcentajeTiempoEjecucion = 0;
 	hiloNuevo->finalizado = false;
 	hiloNuevo->rafagasEjecutadas = 0;
+	hiloNuevo->entradaAExec = 0;
+	hiloNuevo->salidaDeExec = 0;
 	hiloNuevo->rafagasEstimadas = 0;
 	hiloNuevo->razon_bloqueado = "NULL";
 	hiloNuevo->tiempoEjecucion = 0;
@@ -301,6 +304,8 @@ int hacer_suse_schedule_next(int pid){
 	if(!list_is_empty(programaBuscado->cola_exec)){
 		t_hilo* hiloAux1;
 		hiloAux1 = list_remove(programaBuscado->cola_exec,0);
+		hiloAux1->salidaDeExec = timestamp();
+		hiloAux1->rafagasEjecutadas = (hiloAux1->salidaDeExec - hiloAux1->entradaAExec);
 		list_add(programaBuscado->cola_ready, hiloAux1);
 		free(hiloAux1);
 	}
@@ -316,6 +321,8 @@ int hacer_suse_schedule_next(int pid){
 		//hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
 		//hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaFinal - hiloAEjecutar->tiempoEsperaInicial);
 		list_add(programaBuscado->cola_exec,hiloAEjecutar);
+		hiloAEjecutar->rafagasEjecutadas = 0;   //Lo reseteo cuando vuelve a entrar a exec
+		hiloAEjecutar->entradaAExec = timestamp();
 		//hiloAEjecutar->tiempoUsoCPUInicial = gettimeofday();
 		//Tomo el tiempo final de espera
 		//hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
@@ -351,6 +358,8 @@ int hacer_suse_wait(int pid, int tid, char* semaforoID){
 				return 0;
 			t_hilo* hiloBuscado; //= malloc(sizeof(t_hilo));
 			hiloBuscado = list_remove(programaBuscado->cola_exec,0);
+			hiloBuscado->salidaDeExec = timestamp();
+			hiloBuscado->rafagasEjecutadas = (hiloBuscado->salidaDeExec - hiloBuscado->entradaAExec);
 			//hiloBuscado->tiempoUsoCPUFinal = gettimeofday();
 			//hiloBuscado->tiempoUsoCPU += (hiloBuscado->tiempoUsoCPUFinal - hiloBuscado->tiempoUsoCPUInicial);
 			list_add(cola_blocked,hiloBuscado);
@@ -418,6 +427,8 @@ int hacer_suse_join(int pid, int tid){
 		programaBuscado = list_get(lista_programas,index2);
 		t_hilo* hiloABloquear; //= malloc(sizeof(t_hilo));
 		hiloABloquear = list_remove(programaBuscado->cola_exec,0);
+		hiloABloquear->salidaDeExec = timestamp();
+		hiloABloquear->rafagasEjecutadas = (hiloABloquear->salidaDeExec - hiloABloquear->entradaAExec);
 		list_add(cola_blocked,hiloABloquear);
 		//log_info(suse_logger, "Se va a enviar a bloqueado al hilo TID: %d", hiloABloquear->tid); //Esto me rompe por alguna razon
 		int bloqueados = list_size(cola_blocked);
@@ -443,6 +454,8 @@ int hacer_suse_close(int pid, int tid){
 		return 0; //Este caso realmente no creo que ocurra, pero por las dudas lo atajo
 	}
 	hiloATerminar = list_remove(programaBuscado->cola_exec, 0);
+	hiloATerminar->salidaDeExec = timestamp();
+	hiloATerminar->rafagasEjecutadas = (hiloATerminar->salidaDeExec - hiloATerminar->entradaAExec);
 	//hiloATerminar->tiempoUsoCPUFinal = gettimeofday();
 	//hiloATerminar->tiempoUsoCPU += (hiloATerminar->tiempoUsoCPUFinal - hiloATerminar->tiempoUsoCPUInicial);
 	list_add(cola_exit,hiloATerminar);

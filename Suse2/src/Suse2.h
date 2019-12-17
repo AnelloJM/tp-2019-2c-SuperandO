@@ -32,10 +32,16 @@ typedef struct {
 	int pid;
 	int tid;
 	int estimacionAnterior;
-	float rafagasEjecutadas;
+	uint64_t rafagasEjecutadas;
 	float rafagasEstimadas;
 	char * razon_bloqueado;
 	bool finalizado;
+	uint64_t entradaAExec;
+	uint64_t salidaDeExec;
+
+
+	//EXCLUSIVAS DE METRICAS
+
 	//Tiempo entre la creacion y la toma de la metrica
 	int tiempoEjecucionInicial;
 	int tiempoEjecucion;
