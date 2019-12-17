@@ -328,7 +328,7 @@ int hacer_suse_schedule_next(int pid){
 		//Y aca ya me queda guardado el tiempo de espera
 		//hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaInicial - hiloAEjecutar->tiempoEsperaFinal);
 		//free(programaBuscado); //creo que esto tambien le haria free al elemento de la lista
-		list_clean_and_destroy_elements(aux,(void*)free);
+		//list_clean_and_destroy_elements(aux,(void*)free);
 		list_destroy(aux);
 //		free(hiloAux);
 		return hiloAEjecutar->tid;
