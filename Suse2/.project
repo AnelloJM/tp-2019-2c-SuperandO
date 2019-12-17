@@ -8,6 +8,7 @@
 		<project>FileSystem</project>
 		<project>Serializacion-FileSystem</project>
 		<project>SerializacionSuse</project>
+		<project>Hilolay</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
