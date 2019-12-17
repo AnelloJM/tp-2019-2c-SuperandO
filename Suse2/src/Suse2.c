@@ -426,6 +426,10 @@ int hacer_suse_join(int pid, int tid){
 		t_programa* programaBuscado; //= malloc(sizeof(t_programa));
 		programaBuscado = list_get(lista_programas,index2);
 		t_hilo* hiloABloquear; //= malloc(sizeof(t_hilo));
+		if(list_is_empty(programaBuscado->cola_exec)){
+			log_info(suse_logger, "La cola de exec está vacia");
+			return 0;
+		}
 		hiloABloquear = list_remove(programaBuscado->cola_exec,0);
 		hiloABloquear->salidaDeExec = timestamp();
 		hiloABloquear->rafagasEjecutadas = (hiloABloquear->salidaDeExec - hiloABloquear->entradaAExec);
