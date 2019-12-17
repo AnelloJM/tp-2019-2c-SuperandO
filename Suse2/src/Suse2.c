@@ -116,11 +116,11 @@ void liberarDoblePuntero(char **puntero){
 	free(puntero);
 }
 
-int gettimeofday(){
+uint64_t gettimeofday(){
 	struct timeval tv;
 	gettimeofday(&tv, NULL);
 	unsigned long long result = (((unsigned long long)tv.tv_sec)*1000 + ((unsigned long long)tv.tv_usec)/1000);
-	int a = result;
+	uint64_t a = result;
 	return a;
 }
 

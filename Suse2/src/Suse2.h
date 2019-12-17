@@ -95,7 +95,7 @@ bool comparadorPrograma(t_programa* unPrograma, int unPid);
 t_hilo* calcularEstimacion(t_hilo *unHilo);
 bool comparadorDeRafagas(t_hilo *unHilo, t_hilo *otroHilo);
 bool comparadorDeHilos(t_hilo* unHilo, t_hilo* otroHilo);
-int gettimeofday();
+uint64_t gettimeofday();
 int buscadorSemaforo (char* semaforoID);
 bool comparadorDeSemaforos(t_semaforo *unSem, t_semaforo *otroSem);
 bool buscadorDeHilos(int tid, t_hilo* hilo);
