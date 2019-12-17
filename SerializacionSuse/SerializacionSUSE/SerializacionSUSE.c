@@ -95,24 +95,20 @@ bool Suse_PackAndSend_Signal(int socketCLiente, uint32_t pid, char* semaforoID){
 	return resultado;
 }
 //orden  1°pid    2°tid
-bool Suse_PackAnd_Send_Join(int socketCliente, uint32_t pid, uint32_t tid){
-	uint32_t tamMensaje = sizeof(pid) + sizeof(tid);
+bool Suse_PackAnd_Send_Join(int socketCliente, uint32_t tid){
+	uint32_t tamMensaje = sizeof(tid);
 	void* buffer = malloc (tamMensaje);
 	int desplazamiento = 0;
-	memcpy(buffer, &pid, sizeof(uint32_t));
-	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer + desplazamiento, &tid, sizeof(uint32_t));
 	int resultado = Suse_PackAndSend(socketCliente, buffer, tamMensaje, S_JOIN);
 	free(buffer);
 	return resultado;
 }
 
-bool Suse_PackAnd_Send_Close(int socketCliente, uint32_t pid, uint32_t tid){
-	uint32_t tamMensaje = sizeof(pid) + sizeof(tid);
+bool Suse_PackAnd_Send_Close(int socketCliente, uint32_t tid){
+	uint32_t tamMensaje = sizeof(tid);
 	void* buffer = malloc (tamMensaje);
 	int desplazamiento = 0;
-	memcpy(buffer, &pid, sizeof(uint32_t));
-	desplazamiento += sizeof(uint32_t);
 	memcpy(buffer + desplazamiento, &tid, sizeof(uint32_t));
 	int resultado = Suse_PackAndSend(socketCliente, buffer, tamMensaje, S_CLOSE);
 	free(buffer);

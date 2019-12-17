@@ -45,7 +45,7 @@ int suse_create(uint32_t pid);
 int suse_schedule_next(uint32_t pid);
 int suse_wait(uint32_t pid, char* semID);
 int suse_signal(uint32_t pid, char* semID);
-int suse_join(uint32_t pid, uint32_t tid);
-int suse_close(uint32_t pid, uint32_t tid);
+int suse_join(uint32_t tid);
+int suse_close(uint32_t tid);
 
 #endif // hilolay_alumnos_h__

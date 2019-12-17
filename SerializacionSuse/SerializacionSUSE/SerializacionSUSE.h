@@ -43,8 +43,8 @@ bool Suse_PackAndSend_Wait(int socketCLiente, uint32_t pid, char* semaforoID); /
 bool Suse_PackAndSend_Signal(int socketCLiente, uint32_t pid, char* semaforoID); //Empaqueta un pid y un semID para signal y lo envia
 char* Suse_Unpack_Char(void *pack); //Desempaqueta un char* despues de recibir un PID
 
-bool Suse_PackAnd_Send_Join(int socketCliente, uint32_t pid, uint32_t tid); //Empaqueta un pid y un tid para join y lo envia
-bool Suse_PackAnd_Send_Close(int socketCliente, uint32_t pid, uint32_t tid); //Empaqueta un pid y un tid para close y lo envia
+bool Suse_PackAnd_Send_Join(int socketCliente, uint32_t tid); //Empaqueta un pid y un tid para join y lo envia
+bool Suse_PackAnd_Send_Close(int socketCliente, uint32_t tid); //Empaqueta un pid y un tid para close y lo envia
 uint32_t Suse_Unpack_Uint32_tid(void *pack); //Desempaqueta un TID, despues de recibir un PID
 
 bool Suse_PackAndSend_Respuesta(int socketCliente, uint32_t respuesta); //envia un uint_32 a hilolay

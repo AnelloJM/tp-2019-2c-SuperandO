@@ -307,7 +307,6 @@ int hacer_suse_schedule_next(int pid){
 		hiloAux1->salidaDeExec = timestamp();
 		hiloAux1->rafagasEjecutadas = (hiloAux1->salidaDeExec - hiloAux1->entradaAExec);
 		list_add(programaBuscado->cola_ready, hiloAux1);
-		free(hiloAux1);
 	}
 	if (!list_is_empty(programaBuscado->cola_ready)){
 		log_info(suse_logger, "Se comenzará a planificar");

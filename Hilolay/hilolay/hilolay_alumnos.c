@@ -54,6 +54,7 @@ int suse_create(uint32_t pid){
 }
 
 int suse_schedule_next(uint32_t pid){
+	pid = 0;
 	if(Suse_PackAndSend_Schedule_Next(socket_suse2, pid)){
 		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
 		int respuesta = RecibirRespuesta(socket_suse2);
@@ -83,8 +84,8 @@ int suse_signal(uint32_t pid, char* semID){
 	return -1;
 }
 
-int suse_join(uint32_t pid, uint32_t tid){
-	if(Suse_PackAnd_Send_Join(socket_suse2, pid, tid)){
+int suse_join(uint32_t tid){
+	if(Suse_PackAnd_Send_Join(socket_suse2, tid)){
 		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
 		int respuesta = RecibirRespuesta(socket_suse2);
 		return respuesta;
@@ -93,8 +94,8 @@ int suse_join(uint32_t pid, uint32_t tid){
 	return -1;
 }
 
-int suse_close(uint32_t pid, uint32_t tid){
-	if(Suse_PackAnd_Send_Close(socket_suse2, pid, tid)){
+int suse_close(uint32_t tid){
+	if(Suse_PackAnd_Send_Close(socket_suse2, tid)){
 		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
 		int respuesta = RecibirRespuesta(socket_suse2);
 		return respuesta;
