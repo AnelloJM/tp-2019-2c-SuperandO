@@ -3,7 +3,7 @@
 #include <hilolay/hilolay.h>
 #include <unistd.h>
 
-#define CANT_ITERACIONES 2
+#define CANT_ITERACIONES 10000
 
 void *tocar_solo()
 {
