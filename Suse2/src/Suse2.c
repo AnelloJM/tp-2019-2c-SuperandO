@@ -298,7 +298,13 @@ int hacer_suse_schedule_next(int pid){
 	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
 	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
 	programaBuscado = list_get(lista_programas,index);
-	if (!list_is_empty(programaBuscado->cola_ready)&& list_is_empty(programaBuscado->cola_exec)){
+	if(!list_is_empty(programaBuscado->cola_exec)){
+		t_hilo* hiloAux1;
+		hiloAux1 = list_remove(programaBuscado->cola_exec,0);
+		list_add(programaBuscado->cola_ready, hiloAux1);
+		free(hiloAux1);
+	}
+	if (!list_is_empty(programaBuscado->cola_ready)){
 		log_info(suse_logger, "Se comenzará a planificar");
 		t_list* aux;
 		aux = list_map(programaBuscado->cola_ready,(void*)calcularEstimacion);
@@ -322,7 +328,7 @@ int hacer_suse_schedule_next(int pid){
 		return hiloAEjecutar->tid;
 	}
 	//free(programaBuscado); //esto ya no es necesario porque la variable no se mallocea
-	log_error(suse_logger, "La cola de ready del programa está vacia o ya tiene un hilo ejecutando");
+	log_error(suse_logger, "La cola de ready del programa está vacia");
 	return -1;
 }
 
@@ -506,12 +512,14 @@ void atenderCliente(void* socket_cliente_void){
 			if (respuestaNext != -1){ //Si devuelvo cualquier TID entra aca
 				log_info(suse_logger, "La operacion Suse_Schedule_Next se realizó con exito");
 				log_info(suse_logger, "El proximo hilo a ejecutar es el tid=%d",respuestaNext);
-			}//Si falla, devuelve 0
-			else
+				Suse_PackAndSend_Respuesta(socket_cliente,respuestaNext);
+				log_info(suse_logger, "Se ha enviado una respuesta de suse_schedule_next");
+				break;
+			}//Si falla, devuelve -1
+			else{
 				log_error(suse_logger, "La operacion Suse_Schedule_Next ha fallado");
-			Suse_PackAndSend_Respuesta(socket_cliente,respuestaNext);
-			log_info(suse_logger, "Se ha enviado una respuesta de suse_schedule_next");
-			break;
+				break;
+			}
 
 		case S_WAIT:;
 			void* paqueteWait = Suse_ReceiveAndUnpack(socket_cliente,tam);
