@@ -289,7 +289,8 @@ bool tieneHiloEnBlocked(t_programa* unPrograma) {
 
 bool estaEnExit(int tid) {
 	if (!list_is_empty(cola_exit)) {
-		for (int i = 0; i <= list_size(cola_exit); i++) {
+		int size = list_size(cola_exit);
+		for (int i = 0; i < size; i++) {
 			t_hilo* unHilo;
 			unHilo = list_get(cola_exit, i);
 			int tidHilo = unHilo->tid;
