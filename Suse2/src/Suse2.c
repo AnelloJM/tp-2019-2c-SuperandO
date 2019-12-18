@@ -287,6 +287,21 @@ bool tieneHiloEnBlocked(t_programa* unPrograma) {
 	return false;
 }
 
+bool estaEnExit(int tid) {
+	if (!list_is_empty(cola_exit)) {
+		for (int i = 0; i <= list_size(cola_exit); i++) {
+			t_hilo* unHilo;
+			unHilo = list_get(cola_exit, i);
+			int tidHilo = unHilo->tid;
+			if (tidHilo == tid) {
+				return true;
+			}
+		}
+		return false;
+	}
+	return false;
+}
+
 //FUNCIONES DE SUSE
 
 
@@ -428,9 +443,7 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 }
 
 int hacer_suse_join(int pid, int tid){
-	int index = list_get_index(cola_exit,tid,(void*)buscadorDeHilos);
-	//Si el tid pasado no está en exit entonces procedo normalmente
-	if(index == list_size(cola_exit)){
+	if(!estaEnExit(tid)){
 		int index2 = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
 		t_programa* programaBuscado; //= malloc(sizeof(t_programa));
 		programaBuscado = list_get(lista_programas,index2);

@@ -115,6 +115,7 @@ t_list* obtenerColaReady(t_programa* programa);
 int sumatoria(int acumulador, int unValor);
 t_hilo* crearHiloNuevo(int pid, int tid);
 bool tieneHiloEnBlocked(t_programa* unPrograma);
+bool estaEnExit(int tid);
 
 //FUNCIONES DE SUSE
 int hacer_suse_create(int pid, int tid);
