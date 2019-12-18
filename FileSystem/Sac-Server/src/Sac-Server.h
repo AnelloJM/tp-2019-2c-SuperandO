@@ -188,12 +188,12 @@ char *Hacer_ReadDir(char *path);
 uint32_t Hacer_Open(char *path);
 char *Hacer_Read(char *path, size_t size, off_t offset);
 uint32_t Hacer_Release(char *path);
-uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer);
+uint32_t Hacer_Write(char *path, char *buffer, off_t ya_escrito_del_buffer);
 uint32_t Hacer_MKNod(char *path);
 uint32_t Hacer_Unlink(char *path);
 uint32_t Hacer_MKDir(char *path);
 uint32_t Hacer_RMDir(char *path);
 uint32_t Hacer_Rename(char *path, char *buffer);
-uint32_t Hacer_Truncate(char *path, uint32_t nuevo_tamanio);
+uint32_t Hacer_Truncate(char *path, off_t nuevo_tamanio);
 
 #endif /* SAC_SERVER_H_ */

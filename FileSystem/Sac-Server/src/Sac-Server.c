@@ -227,7 +227,19 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 
 uint32_t Hacer_Release(char *path){ return 0; }
 
-uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
+uint64_t cantida_de_veces_que_escribi = 0;
+
+uint32_t Hacer_Write(char *path, char *buffer, off_t ya_escrito_del_buffer){
+	cantida_de_veces_que_escribi = cantida_de_veces_que_escribi + 1;
+	sem_wait(&mutex_bitmap);
+	uint32_t verificacion = buscar_espacio_en_bitmap();
+	if(verificacion == -1)
+	{
+		log_error(logger, "Espacio Insuficiente");
+		sem_post(&mutex_bitmap);
+		return -ENOSPC;
+	}
+	sem_post(&mutex_bitmap);
 	uint32_t tamanio_a_escribir = strlen(buffer) - ya_escrito_del_buffer;
 	uint32_t nodo = exite_path_retornando_nodo(path);
 	if(nodo == -1)
@@ -263,7 +275,11 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 	Bloque_de_puntero *punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
 	ptrGBloque numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto];
 	Bloque *bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
-
+	if(bloque_a_escribir == inicio_de_disco){
+				log_error(logger, "BOOM 0");
+				log_error(logger,"%llu", cantida_de_veces_que_escribi);
+				sleep(6969);
+			}
 
 	int espacio_que_tengo_libre_en_bloque = sizeof(Bloque) - desplazamiento;
 
@@ -280,13 +296,21 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 	ya_escrito = ya_escrito + espacio_que_tengo_libre_en_bloque;
 	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + espacio_que_tengo_libre_en_bloque;
 
-	int lo_que_me_queda_despues_de_los_punteros = 0;
+	int lo_que_me_queda_despues_de_los_punteros;
 
 	if(puntero_indirecto < 1023){
-//		uint32_t bloque_libre = buscar_espacio_en_bitmap();
-//		bitarray_set_bit(tBitarray,bloque_libre);
-//		punteros_indirectos->bloques_de_datos[puntero_indirecto+1]=bloque_libre;
+		sem_wait(&mutex_bitmap);
+		uint32_t bloque_libre = buscar_espacio_en_bitmap();
+		if(bloque_libre == -1)
+		{
+			log_error(logger, "Espacio Insuficiente");
+			sem_post(&mutex_bitmap);
+			return -ENOSPC;
+		}
+		bitarray_set_bit(tBitarray,bloque_libre);
+		punteros_indirectos->bloques_de_datos[puntero_indirecto+1]=bloque_libre;
 		puntero_indirecto = puntero_indirecto + 1;
+		sem_post(&mutex_bitmap);
 		lo_que_me_queda_despues_de_los_punteros = 1024 - puntero_indirecto;
 	}else{
 		if(poscion_en_array < 999){
@@ -301,7 +325,7 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 			bitarray_set_bit(tBitarray,bloque_libre);
 			sem_post(&mutex_bitmap);
 			tabla_de_nodos->nodos[nodo].array_de_punteros[poscion_en_array+1] = bloque_libre;
-			punteros_indirectos = inicio_de_disco+bloque_libre;
+			punteros_indirectos = inicio_de_disco + bloque_libre;
 			sem_wait(&mutex_bitmap);
 			uint32_t bloque_libre_dos = buscar_espacio_en_bitmap();
 			if(bloque_libre_dos == -1)
@@ -320,7 +344,8 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 			return -EFBIG;
 		}
 	}
-	uint32_t bloque_libre=0;
+
+	uint32_t bloque_libre = 0;
 
 	/*
 	 * Los bloques que me faltan leer,
@@ -338,6 +363,11 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 
 	if(lo_que_me_queda_despues_de_los_punteros <= cantidad_bloques_a_escribir_que_me_faltan){
 		for(int i = 0; i < lo_que_me_queda_despues_de_los_punteros;i = i+1){
+			memcpy(bloque_a_escribir, buffer  + ya_escrito_del_buffer,sizeof(Bloque));
+			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
+			tamanio_a_escribir = tamanio_a_escribir - sizeof(Bloque);
+			ya_escrito = ya_escrito + sizeof(Bloque);
+			tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + sizeof(Bloque);
 			sem_wait(&mutex_bitmap);
 			bloque_libre = buscar_espacio_en_bitmap();
 			if(bloque_libre == -1)
@@ -348,20 +378,26 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 			}
 			bitarray_set_bit(tBitarray,bloque_libre);
 			sem_post(&mutex_bitmap);
-			punteros_indirectos->bloques_de_datos[puntero_indirecto + i]=bloque_libre;
+			punteros_indirectos->bloques_de_datos[puntero_indirecto + i +1]=bloque_libre;
 
-			numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
+			numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto + i +1];
 			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
-			memcpy(bloque_a_escribir, buffer  + ya_escrito_del_buffer,sizeof(Bloque));
-			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
-			tamanio_a_escribir = tamanio_a_escribir - sizeof(Bloque);
-			ya_escrito = ya_escrito + sizeof(Bloque);
-			tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + sizeof(Bloque);
+
+			if(bloque_a_escribir == inicio_de_disco){
+				log_error(logger, "BOOM 1");
+				log_error(logger,"%llu", cantida_de_veces_que_escribi);
+				sleep(6969);
+			}
 		}
 	}else{
-		for(int i = 0; i < cantidad_bloques_a_escribir_que_me_faltan - 1;i = i+1){
+		for(int i = 0; i < cantidad_bloques_a_escribir_que_me_faltan;i = i+1){
 			numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
 			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
+			if(bloque_a_escribir == inicio_de_disco){
+				log_error(logger, "BOOM 3");
+				log_error(logger,"%llu", cantida_de_veces_que_escribi);
+				sleep(6969);
+			}
 			memcpy(bloque_a_escribir, buffer  + ya_escrito_del_buffer,sizeof(Bloque));
 			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
 			tamanio_a_escribir = tamanio_a_escribir + sizeof(Bloque);
@@ -379,8 +415,22 @@ uint32_t Hacer_Write(char *path, char *buffer, uint32_t ya_escrito_del_buffer){
 			sem_post(&mutex_bitmap);
 			punteros_indirectos->bloques_de_datos[puntero_indirecto+i+1]=bloque_libre;
 		}
-		numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto + 1];
+		puntero_indirecto = puntero_indirecto + cantidad_bloques_a_escribir_que_me_faltan;
+//		if(punteros_indirectos->bloques_de_datos[puntero_indirecto + 1] == 0){
+//			sem_wait(&mutex_bitmap);
+//			uint32_t bloque_libre = buscar_espacio_en_bitmap();
+//			bitarray_set_bit(tBitarray,bloque_libre);
+//			punteros_indirectos->bloques_de_datos[puntero_indirecto+1]=bloque_libre;
+//			sem_post(&mutex_bitmap);
+//		}
+		numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto];
 		bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
+		if(bloque_a_escribir == inicio_de_disco){
+			log_error(logger, "BOOM 2");
+			log_error(logger,"%llu", cantida_de_veces_que_escribi);
+			sleep(6969);
+		}
+		log_error(logger,"%llu", cantida_de_veces_que_escribi);
 		memcpy(&(bloque_a_escribir->bytes[0]), buffer  + ya_escrito_del_buffer, cantidad_dentro_que_falta_escribir);
 		ya_escrito_del_buffer = ya_escrito_del_buffer + cantidad_dentro_que_falta_escribir;
 		tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + cantidad_dentro_que_falta_escribir;
@@ -592,12 +642,28 @@ uint32_t Hacer_Rename(char *path, char *buffer){
 void argrandar_tamanio_de_path_a(char *path, uint32_t nuevo_tamanio){
 	uint32_t nodo = exite_path_retornando_nodo(path);
 	uint32_t tamanio_a_agregar = nuevo_tamanio - tabla_de_nodos->nodos[nodo].tamanio_del_archivo;
-	char *buffer = malloc(tamanio_a_agregar+1);
-	for(int i = 0; i < tamanio_a_agregar; i = i+1){
+	uint32_t tamAux = tamanio_a_agregar;
+	char *buffer;
+	int error;
+	while (tamAux > 100){
+		buffer = malloc(100+1);
+		for(int i = 0; i < 100; i = i+1){
+			memcpy(buffer+i,"@",1);
+		}
+		memcpy(buffer+100,"\0",1);
+		error = Hacer_Write(path, buffer, 0);
+		free(buffer);
+		tamAux = tamAux-100;
+		if(error == -ENOSPC){
+			return;
+		}
+	}
+	buffer = malloc(tamAux+1);
+	for(int i = 0; i < tamAux; i = i+1){
 		memcpy(buffer+i,"@",1);
 	}
-	memcpy(buffer+tamanio_a_agregar,"\0",1);
-	Hacer_Write(path, buffer, 0);
+	memcpy(buffer+tamAux,"\0",1);
+	error = Hacer_Write(path, buffer, 0);
 	free(buffer);
 }
 
@@ -684,7 +750,7 @@ void achicar_tamanio_de_path_a(char *path, uint32_t nuevo_tamanio){
 	tabla_de_nodos->nodos[nodo].tamanio_del_archivo = nuevo_tamanio;
 }
 
-uint32_t Hacer_Truncate(char *path, uint32_t nuevo_tamanio) {
+uint32_t Hacer_Truncate(char *path, off_t nuevo_tamanio) {
 	uint32_t nodo = exite_path_retornando_nodo(path);
 	if(nodo == -1)
 		return -ENOENT;
@@ -692,8 +758,16 @@ uint32_t Hacer_Truncate(char *path, uint32_t nuevo_tamanio) {
 		return -EISDIR;
 	uint32_t tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo;
 
-	if(tamanio_del_archivo < nuevo_tamanio)
-		argrandar_tamanio_de_path_a(path, nuevo_tamanio);
+	if(tamanio_del_archivo < nuevo_tamanio){
+		uint64_t tamanioAux= nuevo_tamanio;
+		while(tamanioAux > INT32_MAX){
+			argrandar_tamanio_de_path_a(path, INT32_MAX);
+			tamanioAux = tamanioAux - INT32_MAX;
+		}
+		if(tamanioAux > 0){
+			argrandar_tamanio_de_path_a(path, tamanioAux);
+		}
+	}
 	if(nuevo_tamanio < tamanio_del_archivo)
 		achicar_tamanio_de_path_a(path, nuevo_tamanio);
 
@@ -856,7 +930,7 @@ void* funcionMagica(int cliente){
 			case f_TRUNCATE: ;
 				void *packTruncate = Fuse_ReceiveAndUnpack(cliente,tam);
 				char *pathTruncate = Fuse_Unpack_Path(packTruncate);
-				uint32_t nuevo_tamanio = Fuse_Unpack_Truncate_offset(packTruncate);
+				off_t nuevo_tamanio = Fuse_Unpack_Truncate_offset(packTruncate);
 				free(packTruncate);
 				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathTruncate)+1);
 				log_error(logger, pathTruncate);
