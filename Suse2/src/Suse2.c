@@ -276,6 +276,17 @@ t_hilo* crearHiloNuevo(int pid, int tid){
 	return hiloNuevo;
 }
 
+bool tieneHiloEnBlocked(t_programa* unPrograma) {
+	for (int i = 0; i <= list_size(cola_blocked); i++) {
+		t_programa * unElemento;
+		unElemento = list_get(cola_blocked,i);
+		if(unElemento->pid == unPrograma->pid){
+			return true;
+		}
+	}
+	return false;
+}
+
 //FUNCIONES DE SUSE
 
 
@@ -533,6 +544,14 @@ void atenderCliente(void* socket_cliente_void){
 				break;
 			}//Si falla, devuelve -1
 			else{
+				int hilosReady = list_size(programaNuevo->cola_ready);
+				int hilosExec = list_size(programaNuevo->cola_exec);
+				int bloqueados = list_size(cola_blocked);
+				int hilosRestantes = hilosReady + hilosExec;
+				if(hilosRestantes == 0 && !tieneHiloEnBlocked(programaNuevo)){
+					log_error(suse_logger, "No quedan mas hilos para planificar, se devolvera un NULL");
+					Suse_PackAndSend_Respuesta(socket_cliente,NULL);
+				}
 				log_error(suse_logger, "La operacion Suse_Schedule_Next ha fallado");
 				break;
 			}

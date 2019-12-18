@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <hilolay/hilolay.h>
 
-#define CANT_NOTAS 100
+#define CANT_NOTAS 420
 
 struct hilolay_sem_t *solo_hiper_mega_piola;
 struct hilolay_sem_t *afinado;
