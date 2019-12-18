@@ -343,7 +343,7 @@ int hacer_suse_wait(int pid, int tid, char* semaforoID){
 		t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
 		semAUsar->semID = semaforoID;
 		int indice = list_get_index(semaforos,semAUsar,(void*)comparadorDeSemaforos);
-		free(semAUsar);
+		free(semAUsar); //falta verificacion
 		semAUsar = list_get(semaforos,indice);
 		if (semAUsar->semActual <= 0){
 			semAUsar->semActual--;
@@ -372,7 +372,6 @@ int hacer_suse_wait(int pid, int tid, char* semaforoID){
 		log_info(suse_logger,"Contador inicial: %d", semAUsar->semInit);
 		log_info(suse_logger,"Contador maximo: %d", semAUsar->semMax);
 		log_info(suse_logger, "Contador actual: %d", semAUsar->semActual);
-		free(semAUsar);
 		return 0;
 	}
 	log_error(suse_logger,"El semaforo no fue encontrado");
