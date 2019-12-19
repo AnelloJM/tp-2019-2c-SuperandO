@@ -40,6 +40,7 @@ typedef enum f_operaciones {
 	f_RENAME,
 	f_RESPONSE,
 	f_TRUNCATE,
+	f_UTIME,
 	f_HANDSHAKE
 } f_operacion;
 
@@ -100,7 +101,13 @@ bool Fuse_PackAndSend_Truncate(int socketCliente, const void *path, off_t offset
 * ESTA FUNCION ENVIA UN PAQUETE DEL TIPO RESPONSE A UN GETATTR POR EL SOCKET ESPECIFICADO
 */
 
-bool Fuse_PackAndSend_Response_GetAttr(int socketCliente, uint32_t isDirectory, uint32_t size);
+bool Fuse_PackAndSend_Response_GetAttr(int socketCliente, uint32_t isDirectory, uint32_t size, uint64_t timestamp);
+
+/**
+* ESTA FUNCION ENVIA UN PAQUETE DEL TIPO RESPONSE A UN UTIME POR EL SOCKET ESPECIFICADO
+*/
+
+bool Fuse_PackAndSend_Response_Utime(int socketCliente, uint64_t timestamp);
 
 ////////////////////////////
 // FUNCIONES PARA RECIBIR //
@@ -221,4 +228,19 @@ uint32_t Fuse_Unpack_Response_Getattr_isDirectory(void *buffer);
 
 uint32_t Fuse_Unpack_Response_Getattr_Size(void *buffer);
 
+/**
+* ESTA FUNCION RETORNA EL TIMESTAMP DEL PATH
+* CONSULTADO EN CASO DE QUE SE HAYA RECIBIDO UN
+* PAQUETE DEL TIPO f_RESPONSE A UN GETATTR
+*/
+
+uint64_t Fuse_Unpack_Response_Getattr_Timestamp(void *buffer);
+
+/**
+* ESTA FUNCION RETORNA EL TIMESTAMP DEL PATH
+* CONSULTADO EN CASO DE QUE SE HAYA RECIBIDO UN
+* PAQUETE DEL TIPO f_RESPONSE A UN UTIME
+*/
+
+uint64_t Fuse_Unpack_Response_Utime_Timestamp(void *buffer);
 #endif /* SERIALIZACION_FELISYSTEM_SERIALIZACION_FELISYSTEM_H_ */

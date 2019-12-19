@@ -111,11 +111,21 @@ bool Fuse_PackAndSend_Truncate(int socketCliente, const void *path, off_t offset
 	return resultado;
 }
 
-bool Fuse_PackAndSend_Response_GetAttr(int socketCliente, uint32_t isDirectory, uint32_t size){
-	uint32_t tamMessage = (2*(sizeof(uint32_t)));
+bool Fuse_PackAndSend_Response_GetAttr(int socketCliente, uint32_t isDirectory, uint32_t size, uint64_t timestamp){
+	uint32_t tamMessage = (2*(sizeof(uint32_t))) + sizeof(uint64_t);
 	void *buffer = malloc( tamMessage );
 	memcpy(buffer, &isDirectory, sizeof(uint32_t));
 	memcpy(buffer+sizeof(uint32_t), &size, sizeof(uint32_t));
+	memcpy(buffer+(2*sizeof(uint32_t)), &timestamp, sizeof(uint64_t));
+	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_RESPONSE);
+	free(buffer);
+	return resultado;
+}
+
+bool Fuse_PackAndSend_Response_Utime(int socketCliente, uint64_t timestamp){
+	uint32_t tamMessage = sizeof(uint64_t);
+	void *buffer = malloc( tamMessage );
+	memcpy(buffer, &timestamp, sizeof(uint64_t));
 	int resultado = Fuse_PackAndSend(socketCliente, buffer, tamMessage, f_RESPONSE);
 	free(buffer);
 	return resultado;
@@ -252,4 +262,16 @@ uint32_t Fuse_Unpack_Response_Getattr_Size(void *buffer) {
 	uint32_t size;
 	memcpy(&size, buffer+sizeof(uint32_t), sizeof(uint32_t));
 	return size;
+}
+
+uint64_t Fuse_Unpack_Response_Getattr_Timestamp(void *buffer) {
+	uint64_t timestamp;
+	memcpy(&timestamp, buffer+(2*sizeof(uint32_t)), sizeof(uint64_t));
+	return timestamp;
+}
+
+uint64_t Fuse_Unpack_Response_Utime_Timestamp(void *buffer) {
+	uint64_t timestamp;
+	memcpy(&timestamp, buffer, sizeof(uint64_t));
+	return timestamp;
 }

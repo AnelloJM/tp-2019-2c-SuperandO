@@ -24,24 +24,6 @@
 #include <Manejos-Comunes/Manejos-Comunes.h>
 #include <semaphore.h>
 
-/* Este es el contenido por defecto que va a contener
- * el unico archivo que se encuentre presente en el FS.
- * Si se modifica la cadena se podra ver reflejado cuando
- * se lea el contenido del archivo
- */
-#define DEFAULT_FILE_CONTENT "Contenido del archivito\n"
-
-/*
- * Este es el nombre del archivo que se va a encontrar dentro de nuestro FS
- */
-#define DEFAULT_FILE_NAME "ElArchivito"
-
-/*
- * Este es el path de nuestro, relativo al punto de montaje, archivo dentro del FS
- */
-#define DEFAULT_FILE_PATH "/" DEFAULT_FILE_NAME
-
-
 t_log *logger;
 int conexion;
 sem_t mutex_buffer;
@@ -86,6 +68,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	void *packResponse = enviarMiPathYRecibirResponseVoid(logger, path, conexion, f_GETATTR);
 	uint32_t response = Fuse_Unpack_Response_Getattr_isDirectory(packResponse);
 	uint32_t size = Fuse_Unpack_Response_Getattr_Size(packResponse);
+	uint64_t timestamp = Fuse_Unpack_Response_Getattr_Timestamp(packResponse);
 	free(packResponse);
 	log_info(logger, "Me respondio: %i", response);
 	switch(response) {
@@ -104,6 +87,7 @@ static int fusesito_getattr(const char *path, struct stat *stbuf) {
 	}
 	stbuf->st_size = size;
 	stbuf->st_nlink = 1;
+	stbuf->st_mtim.tv_sec = timestamp;
 	return res;
 }
 
@@ -236,6 +220,15 @@ static int fusesito_truncate(const char *path, off_t offset){
 
 }
 
+static int fusesito_utime(const char *path, struct utimbuf *timbuf){
+	log_info(logger, "Se llamo a fusesito_utime\n");
+	void *packResponse = enviarMiPathYRecibirResponseVoid(logger, path, conexion, f_UTIME);
+	uint64_t timestamp = Fuse_Unpack_Response_Utime_Timestamp(packResponse);
+	free(packResponse);
+	timbuf->modtime = timestamp;
+	return 0;
+}
+
 static struct fuse_operations fusesito_oper = {
 		.getattr = fusesito_getattr,
 		.readdir = fusesito_readdir,
@@ -249,6 +242,7 @@ static struct fuse_operations fusesito_oper = {
 		.rmdir = fusesito_rmdir,
 		.rename = fusesito_rename,
 		.truncate = fusesito_truncate,
+		.utime = fusesito_utime,
 };
 
 

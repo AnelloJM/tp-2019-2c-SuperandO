@@ -184,6 +184,7 @@ t_list *hijos_de_nodo(uint32_t nodo_padre);
 
 uint32_t Hacer_Getattr(char *path);
 uint32_t Hacer_Getattr_Size(char *path);
+uint64_t Hacer_Getattr_Timestamp(char *path);
 char *Hacer_ReadDir(char *path);
 uint32_t Hacer_Open(char *path);
 char *Hacer_Read(char *path, size_t size, off_t offset);

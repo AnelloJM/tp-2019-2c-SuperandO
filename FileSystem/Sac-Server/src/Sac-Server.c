@@ -48,6 +48,21 @@ uint32_t Hacer_Getattr_Size(char *path){
 	return tabla_de_nodos->nodos[getattr].tamanio_del_archivo;
 }
 
+uint64_t Hacer_Getattr_Timestamp(char *path){
+	uint32_t getattr = exite_path_retornando_nodo(path);
+	if(getattr == -1)
+		return 0;
+	return tabla_de_nodos->nodos[getattr].modificado;
+}
+
+uint64_t Hacer_Utime(char *path){
+	uint32_t getattr = exite_path_retornando_nodo(path);
+	if(getattr == -1)
+		return 0;
+	tabla_de_nodos->nodos[getattr].modificado = timestamp();
+	return tabla_de_nodos->nodos[getattr].modificado;
+}
+
 char *Hacer_ReadDir(char *path){
 	uint32_t nodo = 0;
 	if( !(strcmp(path,"/") == 0) )
@@ -795,9 +810,10 @@ void* funcionMagica(int cliente){
 				log_error(logger, pathGetAttr);
 				uint32_t getattr = Hacer_Getattr(pathGetAttr);
 				uint32_t getattr_size = Hacer_Getattr_Size(pathGetAttr);
+				uint64_t getattr_timestamp = Hacer_Getattr_Timestamp(pathGetAttr);
 				log_info(logger, "LE VOY A MANDAR: %i", getattr);
 				log_info(logger, "LE VOY A MANDAR: %i", getattr_size);
-				Fuse_PackAndSend_Response_GetAttr(cliente, getattr, getattr_size);
+				Fuse_PackAndSend_Response_GetAttr(cliente, getattr, getattr_size,getattr_timestamp);
 				free(pathGetAttr);
 				break;
 
@@ -938,6 +954,15 @@ void* funcionMagica(int cliente){
 				log_info(logger, "LE VOY A MANDAR: %i", resultadoDeTruncar);
 				Fuse_PackAndSend_Uint32_Response(cliente, resultadoDeTruncar);
 				free(pathTruncate);
+				break;
+
+			case f_UTIME: ;
+				char *pathUtime = Fuse_ReceiveAndUnpack(cliente,tam);
+				log_error(logger,"tamanio del path que recive: %i \0", strlen(pathUtime)+1);
+				log_error(logger, pathUtime);
+				uint64_t timestamp = Hacer_Utime(pathUtime);
+				free(pathUtime);
+				Fuse_PackAndSend_Response_Utime(cliente,timestamp);
 				break;
 
 			case f_HANDSHAKE: ;
