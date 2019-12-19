@@ -314,6 +314,10 @@ int hacer_suse_create(int pid, int tid){
 	int index = list_get_index(lista_programas,hiloNuevo,(void*)comparadorMismoPrograma);
 	programaBuscado = list_get(lista_programas,index);
 	list_add(programaBuscado->hilos,hiloNuevo);
+	if(hiloNuevo->tid == 0){
+		list_add(programaBuscado->cola_exec,hiloNuevo);
+		return 0;
+	}
 	list_add(cola_new, hiloNuevo);
 	log_info(suse_logger,"Se ha agregado un hilo nuevo a la cola de new.\n");
 	int hilosEnNew = list_size(cola_new);
