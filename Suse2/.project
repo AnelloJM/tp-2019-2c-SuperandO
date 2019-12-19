@@ -3,12 +3,9 @@
 	<name>Suse2</name>
 	<comment></comment>
 	<projects>
-		<project>Comun-FileSystem</project>
 		<project>ComunParaTodos</project>
-		<project>FileSystem</project>
-		<project>Serializacion-FileSystem</project>
-		<project>SerializacionSuse</project>
 		<project>Hilolay</project>
+		<project>SerializacionSuse</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

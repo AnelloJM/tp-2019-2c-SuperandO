@@ -27,7 +27,7 @@ endif
 all: libComun-FileSystem.so
 
 dependents:
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/FileSystem/Comun-FileSystem/Release && $(MAKE) all
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/FileSystem/Comun-FileSystem/Release && $(MAKE) clean all
 	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) all
 
 # Tool invocations

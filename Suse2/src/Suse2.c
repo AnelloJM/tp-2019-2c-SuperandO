@@ -277,14 +277,16 @@ t_hilo* crearHiloNuevo(int pid, int tid){
 }
 
 bool tieneHiloEnBlocked(t_programa* unPrograma) {
-	for (int i = 0; i <= list_size(cola_blocked); i++) {
-		t_programa * unElemento;
-		unElemento = list_get(cola_blocked,i);
-		if(unElemento->pid == unPrograma->pid){
-			return true;
+	if (!list_is_empty(cola_blocked)) {
+		for (int i = 0; i < list_size(cola_blocked); i++) {
+			t_programa * unElemento;
+			unElemento = list_get(cola_blocked,i);
+			if(unElemento->pid == unPrograma->pid){
+				return true;
+			}
 		}
+		return false;
 	}
-	return false;
 }
 
 bool estaEnExit(int tid) {
@@ -388,6 +390,7 @@ int hacer_suse_wait(int pid, int tid, char* semaforoID){
 		//hiloBuscado->tiempoUsoCPUFinal = gettimeofday();
 		//hiloBuscado->tiempoUsoCPU += (hiloBuscado->tiempoUsoCPUFinal - hiloBuscado->tiempoUsoCPUInicial);
 		list_add(cola_blocked,hiloBuscado);
+		log_error(suse_logger, "\n \n \n EL HILO BLOQUEADO ES EL HILO: %i \n \n \n", tid);
 		list_add(semAUsar->hilosEnEspera,hiloBuscado);
 		//free(programaBuscado);
 		//free(hiloBuscado); Los comento porque creo que los liberaria tambien de las listas
@@ -405,6 +408,7 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 	t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
 	semAUsar->semID = semaforoID;
 	int indice = list_get_index(semaforos,semAUsar,(void*)comparadorDeSemaforos);
+	free(semAUsar);
 	semAUsar = list_get(semaforos,indice);
 	if (semAUsar->semActual == semAUsar->semMax){
 		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
@@ -416,7 +420,6 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 	log_info(suse_logger,"Contador inicial: %d", semAUsar->semInit);
 	log_info(suse_logger,"Contador maximo: %d", semAUsar->semMax);
 	log_info(suse_logger,"Contador actual: %d", semAUsar->semActual);
-	log_info(suse_logger,"Se pasará a desbloquear el primer hilo en la cola de espera del semaforo, este hilo pasará al estado ready");
 	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
 	t_programa* programaBuscado; //= malloc(sizeof(t_programa));
 	programaBuscado = list_get(lista_programas,index);
@@ -425,6 +428,7 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 		return 0;
 	hiloADesbloquear = list_remove(semAUsar->hilosEnEspera,0);
 	int index2 = list_get_index(cola_blocked,hiloADesbloquear,(void*)comparadorDeHilos);
+	log_info(suse_logger,"\n \n \n Se va a liberar al TID: %i \n \n \n", hiloADesbloquear->tid);
 	hiloADesbloquear = list_remove(cola_blocked,index2);
 	list_add(programaBuscado->cola_ready,hiloADesbloquear);
 	//hiloADesbloquear->tiempoEsperaInicial = gettimeofday();
@@ -441,12 +445,13 @@ int hacer_suse_join(int pid, int tid){
 		programaBuscado = list_get(lista_programas,index2);
 		t_hilo* hiloABloquear; //= malloc(sizeof(t_hilo));
 		if(list_is_empty(programaBuscado->cola_exec)){
-			//log_info(suse_logger, "La cola de exec está vacia");
+			log_info(suse_logger, "La cola de exec está vacia");
 			return 0;
 		}
 		hiloABloquear = list_remove(programaBuscado->cola_exec,0);
 		hiloABloquear->salidaDeExec = timestamp();
 		hiloABloquear->rafagasEjecutadas = (hiloABloquear->salidaDeExec - hiloABloquear->entradaAExec);
+		log_error(suse_logger, "\n \n \n VOY A BLOQUEAR AL HILO: %i \n \n \n", hiloABloquear->tid);
 		list_add(cola_blocked,hiloABloquear);
 		//log_info(suse_logger, "Se va a enviar a bloqueado al hilo TID: %d", hiloABloquear->tid); //Esto me rompe por alguna razon
 		int bloqueados = list_size(cola_blocked);

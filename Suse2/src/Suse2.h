@@ -39,6 +39,7 @@ typedef struct {
 	uint64_t entradaAExec;
 	uint64_t salidaDeExec;
 
+	t_list * hilos_join;
 
 	//EXCLUSIVAS DE METRICAS
 
