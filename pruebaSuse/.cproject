@@ -29,6 +29,7 @@
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1897418579" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1680709995" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SerializacionSuse}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Hilolay}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ComunParaTodos}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1380688945" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
@@ -36,11 +37,13 @@
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.535449351" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug">
 								<option id="gnu.c.link.option.paths.19208165" name="Library search path (-L)" superClass="gnu.c.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ComunParaTodos/Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/utnso/workspace/tp-2019-2c-SuperandO/SerializacionSuse/Debug"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SerializacionSuse/Debug}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Hilolay/Debug}&quot;"/>
 								</option>
 								<option id="gnu.c.link.option.libs.766796399" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" value="commons"/>
 									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="Hilolay"/>
 									<listOptionValue builtIn="false" value="SerializacionSuse"/>
 									<listOptionValue builtIn="false" value="ComunParaTodos"/>
 								</option>
@@ -51,8 +54,9 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.1100411541" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.424984367" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
-								<option id="gnu.both.asm.option.include.paths.1137656287" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+								<option id="gnu.both.asm.option.include.paths.1137656287" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SerializacionSuse}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Hilolay}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ComunParaTodos}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1051034702" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
