@@ -43,15 +43,15 @@ char* obtener_IP(int sock_cliente){
 
 void proceso_nuevo(char* id_del_proceso){
 	log_info(logger,"::::ID a cargar: %s::::", id_del_proceso);
-	Proceso nuevo_proceso;
+	Proceso* nuevo_proceso = malloc(sizeof(Proceso));
 	int tam = strlen(id_del_proceso)+1;
-	nuevo_proceso.Id_del_proceso = malloc(tam);
-	memcpy(nuevo_proceso.Id_del_proceso,id_del_proceso,tam);
-	log_info(logger,"::::ID cargado: %s::::", nuevo_proceso.Id_del_proceso);
-	nuevo_proceso.segmentos_del_proceso = list_create();
-	nuevo_proceso.tabla_de_segmentos = list_create();
-	nuevo_proceso.tabla_de_pagina_por_segmento = list_create();
-	list_add(procesos_conectados,&nuevo_proceso);
+	nuevo_proceso->Id_del_proceso = malloc(tam);
+	memcpy(nuevo_proceso->Id_del_proceso,id_del_proceso,tam);
+	log_info(logger,"::::ID cargado: %s::::", nuevo_proceso->Id_del_proceso);
+	nuevo_proceso->segmentos_del_proceso = list_create();
+	nuevo_proceso->tabla_de_segmentos = list_create();
+	nuevo_proceso->tabla_de_pagina_por_segmento = list_create();
+	list_add(procesos_conectados,nuevo_proceso);
 }
 
 void *funcionMagica(int cliente){
@@ -67,7 +67,7 @@ void *funcionMagica(int cliente){
 		uint32_t tam = headerRecibido.tamanioMensaje;
 		switch(headerRecibido.operaciones){
 			case m_INIT:;
-				log_info(logger,"Me llego un: INIT");
+				log_info(logger,"Me llego un: %i",m_INIT);
 				char* pid = Muse_ReceiveAndUnpack(cliente,tam);
 				log_info(logger,"::::ID local recivido: %s", pid);
 				char* ip_del_proceso = obtener_IP(cliente);
