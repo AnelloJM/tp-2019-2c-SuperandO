@@ -18,20 +18,13 @@ void iniciar_logger(){
 	log_info(logger, "::::::Se ha creado un nuevo logger::::::");
 }
 
-char* obtener_id_proceso(int id, char* ip){
-	char* id_en_char = string_itoa(id);
-	char* id_del_proceso = string_duplicate(ip);
-	string_append_with_format(&id_del_proceso,"-%s",id_en_char);
-	return id_del_proceso;
-}
-
 int muse_init(int id, char* ip, int puerto){
 
 	iniciar_logger();
-	char* id_del_proceso = obtener_id_proceso(id, ip);
-	log_info(logger,"id_del_proceso: %s", id_del_proceso);
+	char* id_en_char = string_itoa(id);
 	char* puerto_en_char = string_itoa(puerto);
 	conexion = conectarse_a_un_servidor(ip,puerto_en_char,logger);
+	Muse_PackAndSend(conexion,id_en_char,strlen(id_en_char)+1,m_INIT);
 	if(conexion == -1){
 		return -1;
 	}

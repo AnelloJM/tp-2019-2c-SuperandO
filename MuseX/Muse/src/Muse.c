@@ -14,6 +14,46 @@ void iniciar_logger(){
 	log_info(logger, "::::::Se ha creado un nuevo logger::::::");
 }
 
+void iniciar_config(){
+	config = config_create("Muse.config");
+	log_info(logger, "::::::Se ha levantado el \"Muse.config\"::::::");
+
+	puerto = strdup(config_get_string_value(config,"LISTEN_PORT"));
+	log_info(logger, ":::Puerto: %s:::",puerto);
+
+	memory_size = config_get_int_value(config,"MEMORY_SIZE");
+	log_info(logger, ":::memory_size: %i:::",memory_size);
+
+	page_size =	config_get_int_value(config,"PAGE_SIZE");
+	log_info(logger, ":::page_size: %i:::",page_size);
+
+	swap_size = config_get_int_value(config,"SWAP_SIZE");
+	log_info(logger, ":::swap_size: %i:::",swap_size);
+}
+
+
+char* obtener_IP(int sock_cliente){
+	struct sockaddr_in sock_addr;
+	uint32_t longitud = sizeof(sock_addr);
+	getpeername(sock_cliente, (struct sockaddr*)&sock_addr, &longitud);
+	char* ip = inet_ntoa(sock_addr.sin_addr);
+	log_info(logger, ":::Ip del proceso: %s", ip);
+	return ip;
+}
+
+void proceso_nuevo(char* id_del_proceso){
+	log_info(logger,"::::ID a cargar: %s::::", id_del_proceso);
+	Proceso nuevo_proceso;
+	int tam = strlen(id_del_proceso)+1;
+	nuevo_proceso.Id_del_proceso = malloc(tam);
+	memcpy(nuevo_proceso.Id_del_proceso,id_del_proceso,tam);
+	log_info(logger,"::::ID cargado: %s::::", nuevo_proceso.Id_del_proceso);
+	nuevo_proceso.segmentos_del_proceso = list_create();
+	nuevo_proceso.tabla_de_segmentos = list_create();
+	nuevo_proceso.tabla_de_pagina_por_segmento = list_create();
+	list_add(procesos_conectados,&nuevo_proceso);
+}
+
 void *funcionMagica(int cliente){
 	while(1){
 		HeaderMuse headerRecibido;
@@ -27,7 +67,14 @@ void *funcionMagica(int cliente){
 		uint32_t tam = headerRecibido.tamanioMensaje;
 		switch(headerRecibido.operaciones){
 			case m_INIT:;
-				log_error(logger,"Me llego un: %i",m_INIT);
+				log_info(logger,"Me llego un: INIT");
+				char* pid = Muse_ReceiveAndUnpack(cliente,tam);
+				log_info(logger,"::::ID local recivido: %s", pid);
+				char* ip_del_proceso = obtener_IP(cliente);
+				char* id_del_proceso = string_duplicate(ip_del_proceso);
+				string_append_with_format(&id_del_proceso,"-%s",pid);
+				log_info(logger,"::::ID global del proceso: %s", id_del_proceso);
+				proceso_nuevo(id_del_proceso);
 				break;
 			case m_CLOSE:;
 				log_info(logger,"Me llego un: %i",m_CLOSE);
@@ -90,10 +137,34 @@ void *funcionMagica(int cliente){
 	}
 }
 
-int main(void) {
+void iniciar_bitmap_de_frames(){
+	int cantidad_de_frames = memory_size/page_size;
+	log_info(logger, ":::Cantidad de Frames: %i:::", cantidad_de_frames);
+	char *bitarray = malloc(cantidad_de_frames);
+	bitmap_para_frames = bitarray_create_with_mode(bitarray, cantidad_de_frames, MSB_FIRST);
+	log_info(logger, ":::Bitmap de Frames Creado:::");
+}
+
+void iniciar_bitmap_de_swap(){
+	char *bitarray = malloc(swap_size);
+	bitmap_para_swap = bitarray_create_with_mode(bitarray, swap_size, MSB_FIRST);
+	log_info(logger, ":::Bitmap de Swap Creado:::");
+}
+
+void iniciar_muse(){
 	iniciar_logger();
+	iniciar_config();
+	procesos_conectados = list_create();
+	log_info(logger, ":::Se creo la lista de procesos:::");
+	iniciar_bitmap_de_frames();
+	iniciar_bitmap_de_swap();
+}
+
+
+int main(void) {
+	iniciar_muse();
 	int conexion, cliente;
-	conexion = iniciar_servidor("127.0.0.1","6969",logger);
+	conexion = iniciar_servidor("127.0.0.1",puerto,logger);
 
 	while(1){
 		cliente = esperar_cliente_con_accept(conexion, logger);

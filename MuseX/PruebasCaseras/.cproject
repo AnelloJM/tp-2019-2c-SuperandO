@@ -28,7 +28,6 @@
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.1695117348" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.1112387094" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.196353812" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SerializacionSuse}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libmuse}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SerializacionMuse}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ComunParaTodos}&quot;"/>
@@ -37,13 +36,11 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.792129792" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug">
 								<option id="gnu.c.link.option.paths.549393565" name="Library search path (-L)" superClass="gnu.c.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SerializacionSuse/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libmuse/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SerializacionMuse/Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ComunParaTodos/Debug}&quot;"/>
 								</option>
 								<option id="gnu.c.link.option.libs.933114906" name="Libraries (-l)" superClass="gnu.c.link.option.libs" useByScannerDiscovery="false" valueType="libs">
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SerializacionSuse"/>
 									<listOptionValue builtIn="false" value="libmuse"/>
 									<listOptionValue builtIn="false" value="commons"/>
 									<listOptionValue builtIn="false" value="SerializacionMuse"/>
@@ -57,7 +54,6 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.867991291" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.1106361804" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
 								<option id="gnu.both.asm.option.include.paths.860338096" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SerializacionSuse}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libmuse}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SerializacionMuse}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ComunParaTodos}&quot;"/>
@@ -91,13 +87,6 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/libmuse"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/libmuse/Debug"/>
 						<entry flags="RESOLVED" kind="libraryFile" name="libmuse" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="SerializacionSuse;" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SerializacionSuse"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SerializacionSuse/Debug"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="SerializacionSuse" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
 			</storageModule>

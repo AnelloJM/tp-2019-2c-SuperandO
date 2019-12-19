@@ -6,7 +6,6 @@
 		<project>ComunParaTodos</project>
 		<project>SerializacionMuse</project>
 		<project>libmuse</project>
-		<project>SerializacionSuse</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
