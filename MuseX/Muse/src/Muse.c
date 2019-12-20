@@ -81,7 +81,7 @@ int buscar_espacio_en_bitmap(t_bitarray* bitmap){
 
 t_list* buscar_segmentos_de_heap(t_list* segmentos){
 	bool es_heap(Segmento* segmento) {
-		return segmento->tipo_de_segmento == 0;
+		return segmento->tipo_de_segmento == HEAP;
 	}
 	t_list* filtered = list_filter(segmentos, (void*) es_heap);
 	return filtered;
@@ -105,51 +105,116 @@ t_list *buscar_en_tabla_de_segmentos(t_list* tabla_de_segmentos, uint32_t numero
 	bool es_de_mi_segmento(Elemento_de_mi_tabla_de_segmentos* elemento_de_mi_tabla) {
 		return elemento_de_mi_tabla->numero_de_segmento == numero_de_segmento;
 	}
-	t_list* filtered = list_filter(tabla_de_segmentos, (void*) es_de_mi_segmento);
+	t_list* filtered = list_find(tabla_de_segmentos, (void*) es_de_mi_segmento);
 	return filtered;
 }
 
-void ordenar_por_paginas(t_list * elementos_de_tabla){
-	bool paginas_ascendentes(Elemento_de_mi_tabla_de_segmentos *con_pagina_mayor, Elemento_de_mi_tabla_de_segmentos *con_pagina_menor) {
-	    return con_pagina_mayor->puntero_a_tabla_de_paginas_del_segmento < con_pagina_mayor->puntero_a_tabla_de_paginas_del_segmento;
+void ordenar_por_numero_de_paginas(t_list * elementos_de_tabla){
+	bool paginas_ascendentes(Elemento_de_mi_tabla_de_pagina_por_segmento *con_pagina_mayor, Elemento_de_mi_tabla_de_pagina_por_segmento *con_pagina_menor) {
+	    return con_pagina_mayor->numero_de_pagina < con_pagina_mayor->numero_de_pagina;
 	}
     list_sort(elementos_de_tabla, (void*) paginas_ascendentes);
 }
 
-Elemento_de_mi_tabla_de_pagina_por_segmento * buscar_elemento_de_tabla_de_pagina_por_numero_de_pagina(t_list* tabla_de_paginas, uint32_t numero){
+t_list* tabla_de_dicho_segmento(t_list* tabla_de_paginas, uint32_t numero){
 	int es_esta_pagina(Elemento_de_mi_tabla_de_pagina_por_segmento *pagina) {
 		return pagina->numero_de_pagina == numero;
 	}
-	return list_find(tabla_de_paginas, (void*) es_esta_pagina);
+	t_list* filtered = list_find(tabla_de_paginas, (void*) es_esta_pagina);
+	return filtered;
 }
 
-uint32_t ver_si_tengo_espacio_y_reservar_en_pagina(Elemento_de_mi_tabla_de_pagina_por_segmento* elemento_de_tabla_de_pagina, uint32_t tamanio){
-	if(elemento_de_tabla_de_pagina->prencia){
-		//void* pagina = buscar_pagina_en_frame(elemento_de_tabla_de_pagina->numero_de_frame);
-		//ver_espacio
+bool es_extensible_a_comparacion_del_otro(Elemento_de_mi_tabla_de_segmentos *a_extender,Elemento_de_mi_tabla_de_segmentos *el_siguiente, uint32_t tam){
+	uint32_t limite_a_extender = a_extender->base_logica + a_extender->tamanio_del_segmento;
+	uint32_t cantidad_a_extender = (tam/page_size)+sizeof(Heap_de_metadata_de_segmento);//No tiene sentido que pueda agregar una pagina pero no 2 y necesite 3. Por defecto siempre el segmento tiene un
+	return(limite_a_extender + cantidad_a_extender > el_siguiente->base_logica);//para ver si no caigo uh ocupo espacio del segmento siguiente queriendo crecer
+}
+
+Elemento_de_mi_tabla_de_pagina_por_segmento * crear_pagina(uint32_t num){
+	Elemento_de_mi_tabla_de_pagina_por_segmento *nuevaPagina;
+	nuevaPagina->modificado = false;
+	nuevaPagina->numero_de_frame = asignar_frame();
+	nuevaPagina->numero_de_pagina = num + 1;
+	nuevaPagina->prencia = true;
+	return nuevaPagina;
+}
+
+uint32_t ver_si_entra_y_poner(Elemento_de_mi_tabla_de_pagina_por_segmento *unaPagina, uint32_t tamanio, bool es_extensible){
+	if(unaPagina->prencia){
+		int frame = unaPagina->numero_de_frame;
+		void* seg = UPCM + page_size*frame;
+		Heap_de_metadata_de_segmento * metadata;
+		int magic = 0;
+		while(magic<page_size){
+			memcpy(metadata,seg,sizeof(Heap_de_metadata_de_segmento));
+			if(metadata->esta_libre && metadata->tamanio < tamanio + sizeof(Heap_de_metadata_de_segmento)){
+				if(magic + tamanio + sizeof(Heap_de_metadata_de_segmento)<=page_size){
+					Heap_de_metadata_de_segmento * metadata_nueva;
+					metadata_nueva->esta_libre = true;
+					metadata_nueva->tamanio = metadata->tamanio - tamanio - sizeof(Heap_de_metadata_de_segmento);
+
+					metadata->esta_libre = false;
+					metadata->tamanio = tamanio;
+
+					memcpy(seg + sizeof(Heap_de_metadata_de_segmento) + tamanio,metadata_nueva,sizeof(Heap_de_metadata_de_segmento));
+					return tamanio;
+				}else{
+					if(es_extensible){
+						int resta = page_size - magic;
+						Heap_de_metadata_de_segmento * metadata_nueva;
+						metadata_nueva->esta_libre = true;
+						metadata_nueva->tamanio = metadata->tamanio - tamanio - sizeof(Heap_de_metadata_de_segmento);
+
+						metadata->esta_libre = false;
+						metadata->tamanio = tamanio;
+
+						memcpy(seg + sizeof(Heap_de_metadata_de_segmento) + tamanio,metadata_nueva,resta);
+						Elemento_de_mi_tabla_de_pagina_por_segmento *nuevaPagina = crear_pagina(unaPagina->numero_de_pagina);
+						//buscar_nueva_pagina para el segmento y asignarle (tamanio-resta)
+						return tamanio;
+					}
+				}
+			}
+			if(magic + sizeof(Heap_de_metadata_de_segmento) + metadata->tamanio <= page_size){
+				seg = seg + sizeof(Heap_de_metadata_de_segmento) + metadata->tamanio;
+				magic = sizeof(Heap_de_metadata_de_segmento) + metadata->tamanio;
+			}else{
+				break;
+			}
+		}
 	}
-	return 0;
 }
 
 uint32_t hacer_alloc(char* id,uint32_t tamanio){
 	Proceso *unproceso = buscar_proceso(id);
-	t_list* segmentos_de_heap = buscar_segmentos_de_heap(unproceso->segmentos_del_proceso);
-	if(list_is_empty(segmentos_de_heap)){
+	t_list* segmentos = unproceso->segmentos_del_proceso;
+	if(list_is_empty(segmentos)){
 		//dar segmento
 	}
-	for(int i = 0; i < list_size(segmentos_de_heap); i= i+1){
-		Segmento* unSegmento = list_get(segmentos_de_heap,i);
-		t_list* elementos_en_mi_tabla_que_son_de_ese_segmento = buscar_en_tabla_de_segmentos(unproceso->segmentos_del_proceso,unSegmento->numero_de_segmento);
-		ordenar_por_paginas(elementos_en_mi_tabla_que_son_de_ese_segmento);
-		for(int j = 0; j < list_size(elementos_en_mi_tabla_que_son_de_ese_segmento);j =j+1){
-			Elemento_de_mi_tabla_de_segmentos *elemento_de_tabla_de_segmentos = list_get(elementos_en_mi_tabla_que_son_de_ese_segmento,i);
+	for(int i = 0; i < list_size(segmentos); i= i+1){
+		Segmento* unSegmento = list_get(segmentos,i);
+		if(unSegmento->tipo_de_segmento == HEAP){
+			Elemento_de_mi_tabla_de_segmentos *tabla_que_son_de_un_segmento = buscar_en_tabla_de_segmentos(segmentos,unSegmento->numero_de_segmento);
+			bool es_extensible = true;
+
+			//bucle?
+			if(i==list_size(segmentos)-1){
+				Segmento* otroSegmento = list_get(segmentos,i+1);
+				Elemento_de_mi_tabla_de_segmentos *tabla_que_son_de_otro_segmento = buscar_en_tabla_de_segmentos(segmentos,otroSegmento->numero_de_segmento);
+				es_extensible = es_extensible_a_comparacion_del_otro(tabla_que_son_de_un_segmento,tabla_que_son_de_otro_segmento,tamanio);
+			}
 			uint32_t retorno = 0;
-			while(retorno < tamanio){
-				Elemento_de_mi_tabla_de_pagina_por_segmento *elemento_de_tabla_de_pagina = buscar_elemento_de_tabla_de_pagina_por_numero_de_pagina(unproceso->tabla_de_pagina_por_segmento,elemento_de_tabla_de_segmentos->puntero_a_tabla_de_paginas_del_segmento);
-				uint32_t retorno = ver_si_tengo_espacio_y_reservar_en_pagina(elemento_de_tabla_de_pagina,tamanio);
+			t_list *tabla_de_paginas_para_ese_segmento = tabla_de_dicho_segmento(unproceso->tabla_de_pagina_por_segmento,tabla_que_son_de_un_segmento->puntero_a_tabla_de_paginas_del_segmento);
+			ordenar_por_numero_de_paginas(tabla_de_paginas_para_ese_segmento);
+			for(int j = 0; j < list_size(tabla_de_paginas_para_ese_segmento); j = j+1){
+//				uint32_t retorno = ver_si_tengo_espacio_y_reservar_en_pagina(tabla_de_paginas_para_ese_segmento,tamanio);
+				Elemento_de_mi_tabla_de_pagina_por_segmento* unaPagina = list_get(tabla_de_paginas_para_ese_segmento,j);
+				retorno = ver_si_entra_y_poner(unaPagina,tamanio,es_extensible);
+
 			}
 		}
 	}
+	//Si no entra en ninguno es que justo todos los previos de heap no se extienden tanto y el ultimo es map, asi que hay que crear un nuevo heap :)
 	return -ENOMEM;
 
 
@@ -161,8 +226,6 @@ uint32_t hacer_alloc(char* id,uint32_t tamanio){
 	}
 	bitarray_set_bit(bitmap_para_frames,frame_libre);
 	sem_post(&mutex_bitmap_frame);
-
-
 
 }
 

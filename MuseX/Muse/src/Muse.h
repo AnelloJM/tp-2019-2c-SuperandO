@@ -58,6 +58,9 @@ typedef struct {
 	uint32_t tamanio;
 }Heap_de_metadata_de_segmento;
 
+#define HEAP 0
+#define MAP 1
+
 typedef struct {
 	bool tipo_de_segmento;//0:heap,1:map
 	uint32_t numero_de_segmento;
@@ -67,7 +70,7 @@ typedef struct {
 	uint32_t numero_de_segmento;
 	uint32_t base_logica;
 	uint32_t tamanio_del_segmento;
-	uint32_t puntero_a_tabla_de_paginas_del_segmento;//seria el numero de pagina, ya que un programa tiene un solo contador de paginas
+	uint32_t puntero_a_tabla_de_paginas_del_segmento;//inidice (pagina 0 la cargo primero en el indice 0 y asi
 }Elemento_de_mi_tabla_de_segmentos;
 
 typedef struct {
