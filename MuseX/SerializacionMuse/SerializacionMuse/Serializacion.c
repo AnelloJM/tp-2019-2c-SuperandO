@@ -29,6 +29,24 @@ bool Muse_PackAndSend(int socketCliente, const void *path, uint32_t tamPath, m_o
 	return resultado;
 }
 
+void* Muse_PackAndSend_Alloc(int socketCliente, const void *path, uint32_t tamPath, uint32_t tamAlloc, m_operacion operacion) {
+
+	uint32_t tamMessage = tamPath + sizeof(m_operacion) + sizeof(uint32_t) + sizeof(uint32_t);
+	void* buffer = malloc( tamMessage );
+	int desplazamiento = 0;
+	memcpy(buffer, &operacion ,sizeof(m_operacion));
+	desplazamiento += sizeof(m_operacion);
+	memcpy(buffer+desplazamiento, &tamPath , sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+	memcpy(buffer+desplazamiento, path, tamPath);
+	desplazamiento += tamPath;
+	memcpy(buffer+desplazamiento, &tamAlloc ,sizeof(uint32_t));
+	desplazamiento += sizeof(uint32_t);
+		if(desplazamiento != tamMessage){ return (-1); }
+	int resultado = send(socketCliente, buffer, tamMessage, 0);
+	free(buffer);
+	return resultado;
+}
 ////////////////////////////
 // FUNCIONES PARA RECIBIR //
 ////////////////////////////
@@ -58,4 +76,6 @@ void* Muse_ReceiveAndUnpack(int socketCliente, uint32_t tamanio) {
 	recv(socketCliente, retorno, tamanio, MSG_WAITALL);
 	return retorno;
 }
+
+
 

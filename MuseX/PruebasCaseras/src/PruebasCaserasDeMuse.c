@@ -13,9 +13,8 @@
 #include <libmuse/libmuse.h>
 
 int main(void) {
-	muse_init(6,"127.0.0.1",6521);
-	sleep(30);
+	muse_init(1412,"127.0.0.1",6521);
+	muse_alloc(10);
 	muse_close();
-	sleep(25);
 	return EXIT_SUCCESS;
 }

@@ -12,31 +12,35 @@
 
 t_log* logger;
 int conexion;
+char* id;
 
 void iniciar_logger(){
 	logger = log_create("libmuse.log", "libmuse", 1, LOG_LEVEL_INFO);
 	log_info(logger, "::::::Se ha creado un nuevo logger::::::");
 }
 
-int muse_init(int id, char* ip, int puerto){
+int muse_init(int id_dada, char* ip, int puerto){
 
 	iniciar_logger();
-	char* id_en_char = string_itoa(id);
+	char* id_dada_en_char = string_itoa(id_dada);
+	id = string_duplicate(id_dada_en_char);
 	char* puerto_en_char = string_itoa(puerto);
 	conexion = conectarse_a_un_servidor(ip,puerto_en_char,logger);
-	Muse_PackAndSend(conexion,id_en_char,strlen(id_en_char)+1,m_INIT);
 	if(conexion == -1){
 		return -1;
 	}
+	Muse_PackAndSend(conexion,id_dada_en_char,strlen(id_dada_en_char)+1,m_INIT);
 	return 0;
 }
 void muse_close(){
+	Muse_PackAndSend(conexion,"close",strlen("close")+1,m_CLOSE);
     close(conexion);
     log_info(logger, ":::Cerrado el socket:::");
     log_info(logger, ":::Cerrando el log:::");
     log_destroy(logger);
 }
 uint32_t muse_alloc(uint32_t tam){
+	Muse_PackAndSend_Alloc(conexion,id,strlen(id)+1,tam,m_ALLOC);
     return 0;
 }
 void muse_free(uint32_t dir){

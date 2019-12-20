@@ -32,13 +32,15 @@ void iniciar_config(){
 }
 
 
-char* obtener_IP(int sock_cliente){
+char* obtener_Id_real(int sock_cliente, char* id){
 	struct sockaddr_in sock_addr;
 	uint32_t longitud = sizeof(sock_addr);
 	getpeername(sock_cliente, (struct sockaddr*)&sock_addr, &longitud);
 	char* ip = inet_ntoa(sock_addr.sin_addr);
 	log_info(logger, ":::Ip del proceso: %s", ip);
-	return ip;
+	char* id_del_proceso_alloc = string_duplicate(ip);
+	string_append_with_format(&id_del_proceso_alloc,"-%s",id);
+	return id_del_proceso_alloc;
 }
 
 void proceso_nuevo(char* id_del_proceso){
@@ -52,6 +54,116 @@ void proceso_nuevo(char* id_del_proceso){
 	nuevo_proceso->tabla_de_segmentos = list_create();
 	nuevo_proceso->tabla_de_pagina_por_segmento = list_create();
 	list_add(procesos_conectados,nuevo_proceso);
+}
+
+
+
+Proceso* buscar_proceso(char* id){
+	int es_este(Proceso *proceso) {
+		return string_equals_ignore_case(proceso->Id_del_proceso, id);
+	}
+	return list_find(procesos_conectados,(void*)es_este);
+}
+
+int buscar_espacio_en_bitmap(t_bitarray* bitmap){
+	int total = bitarray_get_max_bit(bitmap);
+	int indice = 0;
+	while(total){
+		if(!bitarray_test_bit(bitmap,indice)){
+			return indice;
+		}
+		total=total-1;
+		indice=indice+1;
+	}
+	log_error(logger, "No hay bits dentro del bitmap libres");
+	return -1;
+}
+
+t_list* buscar_segmentos_de_heap(t_list* segmentos){
+	bool es_heap(Segmento* segmento) {
+		return segmento->tipo_de_segmento == 0;
+	}
+	t_list* filtered = list_filter(segmentos, (void*) es_heap);
+	return filtered;
+}
+t_list* buscar_segmentos_de_map(t_list* segmentos){
+	bool es_map(Segmento* segmento) {
+		return segmento->tipo_de_segmento == 1;
+	}
+	t_list* filtered = list_filter(segmentos, (void*) es_map);
+	return filtered;
+}
+
+//Segmento *buscar_segmento_para(segmentos_de_heap, tamanio){
+//	int es_este_segmento(Segmento *s) {
+//		return s->numero_de_segmento;
+//	}
+//	return list_find(segmentos_de_heap,(void*)es_este_segmento);
+//}
+
+t_list *buscar_en_tabla_de_segmentos(t_list* tabla_de_segmentos, uint32_t numero_de_segmento){
+	bool es_de_mi_segmento(Elemento_de_mi_tabla_de_segmentos* elemento_de_mi_tabla) {
+		return elemento_de_mi_tabla->numero_de_segmento == numero_de_segmento;
+	}
+	t_list* filtered = list_filter(tabla_de_segmentos, (void*) es_de_mi_segmento);
+	return filtered;
+}
+
+void ordenar_por_paginas(t_list * elementos_de_tabla){
+	bool paginas_ascendentes(Elemento_de_mi_tabla_de_segmentos *con_pagina_mayor, Elemento_de_mi_tabla_de_segmentos *con_pagina_menor) {
+	    return con_pagina_mayor->puntero_a_tabla_de_paginas_del_segmento < con_pagina_mayor->puntero_a_tabla_de_paginas_del_segmento;
+	}
+    list_sort(elementos_de_tabla, (void*) paginas_ascendentes);
+}
+
+Elemento_de_mi_tabla_de_pagina_por_segmento * buscar_elemento_de_tabla_de_pagina_por_numero_de_pagina(t_list* tabla_de_paginas, uint32_t numero){
+	int es_esta_pagina(Elemento_de_mi_tabla_de_pagina_por_segmento *pagina) {
+		return pagina->numero_de_pagina == numero;
+	}
+	return list_find(tabla_de_paginas, (void*) es_esta_pagina);
+}
+
+uint32_t ver_si_tengo_espacio_y_reservar_en_pagina(Elemento_de_mi_tabla_de_pagina_por_segmento* elemento_de_tabla_de_pagina, uint32_t tamanio){
+	if(elemento_de_tabla_de_pagina->prencia){
+		//void* pagina = buscar_pagina_en_frame(elemento_de_tabla_de_pagina->numero_de_frame);
+		//ver_espacio
+	}
+	return 0;
+}
+
+uint32_t hacer_alloc(char* id,uint32_t tamanio){
+	Proceso *unproceso = buscar_proceso(id);
+	t_list* segmentos_de_heap = buscar_segmentos_de_heap(unproceso->segmentos_del_proceso);
+	if(list_is_empty(segmentos_de_heap)){
+		//dar segmento
+	}
+	for(int i = 0; i < list_size(segmentos_de_heap); i= i+1){
+		Segmento* unSegmento = list_get(segmentos_de_heap,i);
+		t_list* elementos_en_mi_tabla_que_son_de_ese_segmento = buscar_en_tabla_de_segmentos(unproceso->segmentos_del_proceso,unSegmento->numero_de_segmento);
+		ordenar_por_paginas(elementos_en_mi_tabla_que_son_de_ese_segmento);
+		for(int j = 0; j < list_size(elementos_en_mi_tabla_que_son_de_ese_segmento);j =j+1){
+			Elemento_de_mi_tabla_de_segmentos *elemento_de_tabla_de_segmentos = list_get(elementos_en_mi_tabla_que_son_de_ese_segmento,i);
+			uint32_t retorno = 0;
+			while(retorno < tamanio){
+				Elemento_de_mi_tabla_de_pagina_por_segmento *elemento_de_tabla_de_pagina = buscar_elemento_de_tabla_de_pagina_por_numero_de_pagina(unproceso->tabla_de_pagina_por_segmento,elemento_de_tabla_de_segmentos->puntero_a_tabla_de_paginas_del_segmento);
+				uint32_t retorno = ver_si_tengo_espacio_y_reservar_en_pagina(elemento_de_tabla_de_pagina,tamanio);
+			}
+		}
+	}
+	return -ENOMEM;
+
+
+	sem_wait(&mutex_bitmap_frame);
+	uint32_t frame_libre = buscar_espacio_en_bitmap(bitmap_para_frames);
+	if(frame_libre == -1)
+	{
+		//swap
+	}
+	bitarray_set_bit(bitmap_para_frames,frame_libre);
+	sem_post(&mutex_bitmap_frame);
+
+
+
 }
 
 void *funcionMagica(int cliente){
@@ -68,13 +180,11 @@ void *funcionMagica(int cliente){
 		switch(headerRecibido.operaciones){
 			case m_INIT:;
 				log_info(logger,"Me llego un: %i",m_INIT);
-				char* pid = Muse_ReceiveAndUnpack(cliente,tam);
-				log_info(logger,"::::ID local recivido: %s", pid);
-				char* ip_del_proceso = obtener_IP(cliente);
-				char* id_del_proceso = string_duplicate(ip_del_proceso);
-				string_append_with_format(&id_del_proceso,"-%s",pid);
-				log_info(logger,"::::ID global del proceso: %s", id_del_proceso);
-				proceso_nuevo(id_del_proceso);
+				char* pid_init = Muse_ReceiveAndUnpack(cliente,tam);
+				log_info(logger,"::::ID local recivido: %s", pid_init);
+				char* ip_del_proceso = obtener_Id_real(cliente, pid_init);
+				log_info(logger,"::::ID global del proceso: %s", ip_del_proceso);
+				proceso_nuevo(ip_del_proceso);
 				break;
 			case m_CLOSE:;
 				log_info(logger,"Me llego un: %i",m_CLOSE);
@@ -84,9 +194,14 @@ void *funcionMagica(int cliente){
 				break;
 			case m_ALLOC:;
 				log_info(logger,"Me llego un: %i",m_ALLOC);
-				char* resivido_alloc = Muse_ReceiveAndUnpack(cliente,tam);
-				log_info(logger,"resivi: %s",resivido_alloc);
-				free(resivido_alloc);
+				char* pid_alloc = Muse_ReceiveAndUnpack(cliente,tam);
+				char* id_del_proceso_alloc = obtener_Id_real(cliente, pid_alloc);
+				log_info(logger,"::::ID global del proceso Alloc: %s", id_del_proceso_alloc);
+				uint32_t tamanio_a_allocar;
+				memcpy(&tamanio_a_allocar, Muse_ReceiveAndUnpack(cliente,sizeof(uint32_t)),sizeof(uint32_t));
+				log_info(logger,"resivi tamanio: %i",tamanio_a_allocar);
+				hacer_alloc(id_del_proceso_alloc,tamanio_a_allocar);
+				free(pid_alloc);
 				break;
 			case m_FREE:;
 				log_info(logger,"Me llego un: %i",m_FREE);
@@ -154,10 +269,14 @@ void iniciar_bitmap_de_swap(){
 void iniciar_muse(){
 	iniciar_logger();
 	iniciar_config();
+	UPCM = malloc(memory_size);
 	procesos_conectados = list_create();
+	tabla_de_swap = list_create();
 	log_info(logger, ":::Se creo la lista de procesos:::");
 	iniciar_bitmap_de_frames();
 	iniciar_bitmap_de_swap();
+	sem_init(&mutex_bitmap_frame,0,1);
+	sem_init(&mutex_bitmap_swap,0,1);
 }
 
 

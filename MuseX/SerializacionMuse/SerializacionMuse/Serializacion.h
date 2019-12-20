@@ -62,6 +62,11 @@ typedef struct {
 
 bool Muse_PackAndSend(int socketCliente, const void*path, uint32_t tamPath, m_operacion operacion);
 
+/**
+* ESTA FUNCION ENVIA UN PAQUETE ALLOC A TRAVES DEL SOCKET ESPECIFICADO
+*/
+
+void* Muse_PackAndSend_Alloc(int socketCliente, const void *path, uint32_t tamPath, uint32_t tamAlloc, m_operacion operacion);
 
 ////////////////////////////
 // FUNCIONES PARA RECIBIR //
