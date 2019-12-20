@@ -273,6 +273,7 @@ t_hilo* crearHiloNuevo(int pid, int tid){
 	hiloNuevo->tiempoUsoCPUFinal = 0;
 	hiloNuevo->tiempoUsoCPUInicial = 0;
 	hiloNuevo->tiempo_espera = 0;
+	hiloNuevo->hilos_join = list_create();
 	return hiloNuevo;
 }
 
@@ -452,7 +453,13 @@ int hacer_suse_join(int pid, int tid){
 			log_info(suse_logger, "La cola de exec está vacia");
 			return 0;
 		}
+		t_hilo* hiloAux = malloc(sizeof(t_hilo));
+		hiloAux->tid = tid;
+		int indice_hiloJoin = list_get_index(programaBuscado->hilos,hiloAux,(void*)comparadorDeHilos);
+		free(hiloAux);
+		hiloAux = list_get(programaBuscado->hilos,indice_hiloJoin);
 		hiloABloquear = list_remove(programaBuscado->cola_exec,0);
+		list_add(hiloAux->hilos_join, hiloABloquear);//
 		hiloABloquear->salidaDeExec = timestamp();
 		hiloABloquear->rafagasEjecutadas = (hiloABloquear->salidaDeExec - hiloABloquear->entradaAExec);
 		log_error(suse_logger, "\n \n \n VOY A BLOQUEAR AL HILO: %i \n \n \n", hiloABloquear->tid);
@@ -486,6 +493,15 @@ int hacer_suse_close(int pid, int tid){
 	//hiloATerminar->tiempoUsoCPUFinal = gettimeofday();
 	//hiloATerminar->tiempoUsoCPU += (hiloATerminar->tiempoUsoCPUFinal - hiloATerminar->tiempoUsoCPUInicial);
 	list_add(cola_exit,hiloATerminar);
+	t_hilo *hiloAux;
+	int indiceAux;
+	for(int i=0; i < list_size(hiloATerminar->hilos_join); i=i+1){
+		hiloAux = list_get(hiloATerminar->hilos_join, i);
+		indiceAux = list_get_index(cola_blocked, hiloAux, (void*)comparadorDeHilos);
+		list_remove(cola_blocked, indiceAux);
+		list_add(programaBuscado->cola_ready,hiloAux);
+		log_error(suse_logger, "VOY A PONER EN READY A %i", hiloAux->tid);
+	}
 	hiloATerminar->finalizado = true;
 	int finalizados = list_size(cola_exit);
 	log_info(suse_logger, "Se va a enviar a exit al hilo TID: %d", hiloATerminar->tid);

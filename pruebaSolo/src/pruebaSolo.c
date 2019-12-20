@@ -6,10 +6,11 @@
 
 struct hilolay_sem_t *solo_hiper_mega_piola;
 struct hilolay_sem_t *afinado;
+int cont;
 
 void *tocar_solo(void* num)
 {
-	int cont = 0;
+
 
 	for(int i = 0; i < CANT_NOTAS/4; i++)
 	{
@@ -26,6 +27,7 @@ void *tocar_solo(void* num)
 
 int main(void)
 {
+	cont = 0;
 	struct hilolay_t guitarrista[4];
 
 	hilolay_init();
