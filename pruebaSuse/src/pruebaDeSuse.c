@@ -29,7 +29,6 @@ int main(void) {
 	hilolay_sem_t* semaforoPrueba;
 	semaforoPrueba = hilolay_sem_open(strdup("solo_hiper_mega_piola"));
 	hilolay_wait(semaforoPrueba);
-	sleep(60);
 	hilolay_signal(semaforoPrueba);
 	log_info(hilolay_logger, "LISTO, TERMINE");
 	return EXIT_SUCCESS;

@@ -351,6 +351,8 @@ int hacer_suse_schedule_next(int pid){
 		hiloAux = (t_hilo*) list_remove(aux,0);
 		int indice = list_get_index(programaBuscado->cola_ready,hiloAux,(void*)comparadorDeHilos);
 		t_hilo* hiloAEjecutar = list_remove(programaBuscado->cola_ready,indice);
+		if(pid == 0 && hiloAEjecutar->tid ==2)
+			log_error(suse_logger, "ACA");
 		//hiloAEjecutar->tiempoEsperaFinal = gettimeofday();
 		//hiloAEjecutar->tiempo_espera += (hiloAEjecutar->tiempoEsperaFinal - hiloAEjecutar->tiempoEsperaInicial);
 		list_add(programaBuscado->cola_exec,hiloAEjecutar);
@@ -425,14 +427,17 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 	log_info(suse_logger,"Contador inicial: %d", semAUsar->semInit);
 	log_info(suse_logger,"Contador maximo: %d", semAUsar->semMax);
 	log_info(suse_logger,"Contador actual: %d", semAUsar->semActual);
-	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
-	t_programa* programaBuscado; //= malloc(sizeof(t_programa));
-	programaBuscado = list_get(lista_programas,index);
+//	int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
+//	t_programa* programaBuscado; //= malloc(sizeof(t_programa));
+//	programaBuscado = list_get(lista_programas,index);
 	t_hilo* hiloADesbloquear; //= malloc(sizeof(t_hilo));
 	if(list_is_empty(semAUsar->hilosEnEspera))
 		return 0;
 	hiloADesbloquear = list_remove(semAUsar->hilosEnEspera,0);
 	int index2 = list_get_index(cola_blocked,hiloADesbloquear,(void*)comparadorDeHilos);
+	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
+	int index = list_get_index(lista_programas,hiloADesbloquear->pid,(void*)comparadorPrograma);
+	programaBuscado = list_get(lista_programas,index);
 	log_info(suse_logger,"\n \n \n Se va a liberar al TID: %i \n \n \n", hiloADesbloquear->tid);
 	hiloADesbloquear = list_remove(cola_blocked,index2);
 	list_add(programaBuscado->cola_ready,hiloADesbloquear);
@@ -566,7 +571,7 @@ void atenderCliente(void* socket_cliente_void){
 			free(paqueteSchedule);
 			log_info(suse_logger, "Se recibió un pedido de Suse_Schedule_Next");
 			int respuestaNext = hacer_suse_schedule_next(programaNuevo->pid);
-			if (respuestaNext != -1){ //Si devuelvo cualquier TID entra aca
+			if (respuestaNext != -1){ //Si4 devuelvo cualquier TID entra aca
 				log_info(suse_logger, "La operacion Suse_Schedule_Next se realizó con exito");
 				log_info(suse_logger, "El proximo hilo a ejecutar es el tid=%d",respuestaNext);
 				Suse_PackAndSend_Respuesta(socket_cliente,respuestaNext);
