@@ -588,6 +588,15 @@ void atenderCliente(void* socket_cliente_void){
 					Suse_PackAndSend_Respuesta(socket_cliente,NULL);
 				}
 				log_error(suse_logger, "La operacion Suse_Schedule_Next ha fallado");
+				while(respuestaNext == -1)
+				{
+					respuestaNext = hacer_suse_schedule_next(programaNuevo->pid);
+					sleep(5);
+				}
+				log_info(suse_logger, "La operacion Suse_Schedule_Next se realizó con exito");
+				log_info(suse_logger, "El proximo hilo a ejecutar es el tid=%d",respuestaNext);
+				Suse_PackAndSend_Respuesta(socket_cliente,respuestaNext);
+				log_info(suse_logger, "Se ha enviado una respuesta de suse_schedule_next");
 				break;
 			}
 
