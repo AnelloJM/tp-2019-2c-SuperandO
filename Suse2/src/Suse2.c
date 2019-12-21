@@ -96,6 +96,7 @@ void inicializarSemaforos(){
 //	liberarDoblePuntero(sems_ids_suse);
 //	liberarDoblePuntero(sem_init_suse);
 //	liberarDoblePuntero(sem_max_suse);
+	sem_init(&mutexWaitSignal,0,1);
 	log_info(suse_logger,"Se han inicializado todos los semaforos con exito");
 }
 
@@ -375,21 +376,24 @@ int hacer_suse_schedule_next(int pid){
 }
 
 int hacer_suse_wait(int pid, int tid, char* semaforoID){
+	sem_wait(&mutexWaitSignal);
 	t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
 	semAUsar->semID = semaforoID;
 	int indice = list_get_index(semaforos,semAUsar,(void*)comparadorDeSemaforos);
 	free(semAUsar); //falta verificacion
 	semAUsar = list_get(semaforos,indice);
-	if (semAUsar->semActual <= 0){
-		semAUsar->semActual--;
+	semAUsar->semActual--;
+	if (semAUsar->semActual < 0){
 		log_info(suse_logger,"Contador inicial: %d", semAUsar->semInit);
 		log_info(suse_logger,"Contador maximo: %d", semAUsar->semMax);
 		log_info(suse_logger,"El semaforo se ha bloqueado, contador actual: %d",semAUsar->semActual);
 		int index = list_get_index(lista_programas,pid,(void*)comparadorPrograma);
 		t_programa* programaBuscado; //= malloc(sizeof(t_programa));
 		programaBuscado = list_get(lista_programas,index);
-		if(list_is_empty(programaBuscado->cola_exec))
+		if(list_is_empty(programaBuscado->cola_exec)){
+			sem_post(&mutexWaitSignal);
 			return 0;
+		}
 		t_hilo* hiloBuscado; //= malloc(sizeof(t_hilo));
 		hiloBuscado = list_remove(programaBuscado->cola_exec,0);
 		hiloBuscado->salidaDeExec = timestamp();
@@ -402,16 +406,18 @@ int hacer_suse_wait(int pid, int tid, char* semaforoID){
 		//free(programaBuscado);
 		//free(hiloBuscado); Los comento porque creo que los liberaria tambien de las listas
 		//free(semAUsar);
+		sem_post(&mutexWaitSignal);
 		return 0;
 	}
-	semAUsar->semActual--;
 	log_info(suse_logger,"Contador inicial: %d", semAUsar->semInit);
 	log_info(suse_logger,"Contador maximo: %d", semAUsar->semMax);
 	log_info(suse_logger, "Contador actual: %d", semAUsar->semActual);
+	sem_post(&mutexWaitSignal);
 	return 0;
 }
 
 int hacer_suse_signal(int pid, int tid, char* semaforoID){
+	sem_wait(&mutexWaitSignal);
 	t_semaforo* semAUsar = malloc(sizeof(t_semaforo));
 	semAUsar->semID = semaforoID;
 	int indice = list_get_index(semaforos,semAUsar,(void*)comparadorDeSemaforos);
@@ -421,6 +427,7 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 		log_info(suse_logger,"%d","Contador maximo:", semAUsar->semMax);
 		log_error(suse_logger,"El semaforo ya ha alcanzado su contador maximo, no se puede realizar el signal");
 		//free(semAUsar);
+		sem_post(&mutexWaitSignal);
 		return 0;
 	}
 	semAUsar->semActual++;
@@ -432,10 +439,13 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 //	programaBuscado = list_get(lista_programas,index);
 	t_hilo* hiloADesbloquear; //= malloc(sizeof(t_hilo));
 	if (semAUsar->semActual < 0){
+		sem_post(&mutexWaitSignal);
 		return 0;
 	}
-	if(list_is_empty(semAUsar->hilosEnEspera))
+	if(list_is_empty(semAUsar->hilosEnEspera)){
+		sem_post(&mutexWaitSignal);
 		return 0;
+	}
 	hiloADesbloquear = list_remove(semAUsar->hilosEnEspera,0);
 	int index2 = list_get_index(cola_blocked,hiloADesbloquear,(void*)comparadorDeHilos);
 	t_programa * programaBuscado; //= malloc(sizeof(t_programa));
@@ -448,6 +458,7 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 	//free(programaBuscado);
 	//free(hiloADesbloquear);
 	//free(semAUsar);
+	sem_post(&mutexWaitSignal);
 	return 0;
 }
 

@@ -27,6 +27,7 @@ t_list * cola_blocked;
 t_list * cola_exit;
 t_list * semaforos;
 t_list * lista_programas;
+sem_t mutexWaitSignal;
 
 typedef struct {
 	int pid;
