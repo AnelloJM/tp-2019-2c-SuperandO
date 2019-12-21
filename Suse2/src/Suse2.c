@@ -96,7 +96,7 @@ void inicializarSemaforos(){
 //	liberarDoblePuntero(sems_ids_suse);
 //	liberarDoblePuntero(sem_init_suse);
 //	liberarDoblePuntero(sem_max_suse);
-	sem_init(&mutexWaitSignal,0,1);
+	sem_init(&mutexWaitSignal,max_multiprog,1);
 	log_info(suse_logger,"Se han inicializado todos los semaforos con exito");
 }
 
