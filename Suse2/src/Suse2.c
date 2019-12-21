@@ -235,6 +235,11 @@ void planificador_NEW_READY() {
 			hiloASacar = list_remove(cola_new,0);
 			log_info(suse_logger, "Se agrego un hilo a la cola de ready, TID:%d", unHilo->tid);
 			//unHilo->tiempoEsperaInicial = gettimeofday();
+
+
+			//SI AGREGO UN HILO A READY, DEBERIA LLAMAR AL SJF????????
+
+
 			}
 	}
 	else
@@ -454,6 +459,13 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 	log_info(suse_logger,"\n \n \n Se va a liberar al TID: %i \n \n \n", hiloADesbloquear->tid);
 	hiloADesbloquear = list_remove(cola_blocked,index2);
 	list_add(programaBuscado->cola_ready,hiloADesbloquear);
+	int index3 = list_get_index(lista_programas, &pid, (void*)comparadorPrograma);
+	t_programa* programaQueEjecuta;
+	programaQueEjecuta = list_get(lista_programas,index3);
+	t_hilo* hiloQueEjecuta;
+	hiloQueEjecuta = list_get(programaQueEjecuta->cola_exec,0);
+	hiloQueEjecuta->salidaDeExec = timestamp();
+	hiloQueEjecuta->rafagasEjecutadas = (hiloQueEjecuta->salidaDeExec - hiloQueEjecuta->entradaAExec);
 	//hiloADesbloquear->tiempoEsperaInicial = gettimeofday();
 	//free(programaBuscado);
 	//free(hiloADesbloquear);
