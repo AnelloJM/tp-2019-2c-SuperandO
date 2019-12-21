@@ -431,7 +431,7 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 //	t_programa* programaBuscado; //= malloc(sizeof(t_programa));
 //	programaBuscado = list_get(lista_programas,index);
 	t_hilo* hiloADesbloquear; //= malloc(sizeof(t_hilo));
-	if (semAUsar->semActual <= 0){
+	if (semAUsar->semActual < 0){
 		return 0;
 	}
 	if(list_is_empty(semAUsar->hilosEnEspera))

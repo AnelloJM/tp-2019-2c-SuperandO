@@ -45,7 +45,7 @@ int RecibirRespuesta(int socket) {
 
 int suse_create(uint32_t pid){
 	if(Suse_PackAndSend_Create(socket_suse2, pid)){
-		log_info(hilolay_logger,"Se pudo enviar el paquete create suse");
+		log_info(hilolay_logger,"Se pudo enviar el paquete CREATE suse");
 		int respuesta = RecibirRespuesta(socket_suse2);
 		return respuesta;
 	}
@@ -56,7 +56,7 @@ int suse_create(uint32_t pid){
 int suse_schedule_next(uint32_t pid){
 	pid = 0;
 	if(Suse_PackAndSend_Schedule_Next(socket_suse2, pid)){
-		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
+		log_info(hilolay_logger,"Se pudo enviar el paquete SCHEDULE NEXT a suse");
 		int respuesta = RecibirRespuesta(socket_suse2);
 		return respuesta;
 	}
@@ -65,8 +65,9 @@ int suse_schedule_next(uint32_t pid){
 }
 
 int suse_wait(uint32_t pid, char* semID){
+	log_info(hilolay_logger, "Voy a intentar hacer wait en el semaforo: %s", semID);
 	if(Suse_PackAndSend_Wait(socket_suse2, pid, semID)){
-		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
+		log_info(hilolay_logger,"Se pudo enviar el paquete WAIT a suse");
 		int respuesta = RecibirRespuesta(socket_suse2);
 		return respuesta;
 	}
@@ -75,8 +76,9 @@ int suse_wait(uint32_t pid, char* semID){
 }
 
 int suse_signal(uint32_t pid, char* semID){
+	log_info(hilolay_logger, "Voy a intentar hacer signal en el semaforo: %s", semID);
 	if(Suse_PackAndSend_Signal(socket_suse2, pid, semID)){
-		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
+		log_info(hilolay_logger,"Se pudo enviar el paquete SIGNAL a suse");
 		int respuesta = RecibirRespuesta(socket_suse2);
 		return respuesta;
 	}
@@ -86,7 +88,7 @@ int suse_signal(uint32_t pid, char* semID){
 
 int suse_join(uint32_t tid){
 	if(Suse_PackAnd_Send_Join(socket_suse2, tid)){
-		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
+		log_info(hilolay_logger,"Se pudo enviar el paquete JOIN a suse");
 		int respuesta = RecibirRespuesta(socket_suse2);
 		return respuesta;
 	}
@@ -96,7 +98,7 @@ int suse_join(uint32_t tid){
 
 int suse_close(uint32_t tid){
 	if(Suse_PackAnd_Send_Close(socket_suse2, tid)){
-		log_info(hilolay_logger,"Se pudo enviar el paquete a suse");
+		log_info(hilolay_logger,"Se pudo enviar el paquete CLOSE a suse");
 		int respuesta = RecibirRespuesta(socket_suse2);
 		return respuesta;
 	}

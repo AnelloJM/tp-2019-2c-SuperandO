@@ -26,9 +26,9 @@ endif
 all: pruebaAudiencia
 
 dependents:
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/Hilolay/Debug && $(MAKE) all
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) all
-	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/SerializacionSuse/Debug && $(MAKE) all
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/Hilolay/Debug && $(MAKE) clean all
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug && $(MAKE) clean all
+	-cd /home/utnso/workspace/tp-2019-2c-SuperandO/SerializacionSuse/Debug && $(MAKE) clean all
 
 # Tool invocations
 pruebaAudiencia: $(OBJS) $(USER_OBJS) /home/utnso/workspace/tp-2019-2c-SuperandO/Hilolay/Debug/libHilolay.so /home/utnso/workspace/tp-2019-2c-SuperandO/ComunParaTodos/Debug/libComunParaTodos.so /home/utnso/workspace/tp-2019-2c-SuperandO/SerializacionSuse/Debug/libSerializacionSuse.so
