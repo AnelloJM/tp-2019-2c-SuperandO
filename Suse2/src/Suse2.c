@@ -431,6 +431,9 @@ int hacer_suse_signal(int pid, int tid, char* semaforoID){
 //	t_programa* programaBuscado; //= malloc(sizeof(t_programa));
 //	programaBuscado = list_get(lista_programas,index);
 	t_hilo* hiloADesbloquear; //= malloc(sizeof(t_hilo));
+	if (semAUsar->semActual <= 0){
+		return 0;
+	}
 	if(list_is_empty(semAUsar->hilosEnEspera))
 		return 0;
 	hiloADesbloquear = list_remove(semAUsar->hilosEnEspera,0);
@@ -591,7 +594,7 @@ void atenderCliente(void* socket_cliente_void){
 				while(respuestaNext == -1)
 				{
 					respuestaNext = hacer_suse_schedule_next(programaNuevo->pid);
-					sleep(5);
+					sleep(1);
 				}
 				log_info(suse_logger, "La operacion Suse_Schedule_Next se realizó con exito");
 				log_info(suse_logger, "El proximo hilo a ejecutar es el tid=%d",respuestaNext);
