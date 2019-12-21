@@ -14,7 +14,8 @@
 
 int main(void) {
 	muse_init(1412,"127.0.0.1",6521);
-	muse_alloc(10);
+	muse_alloc(1);
+	muse_alloc(4);
 	muse_close();
 	return EXIT_SUCCESS;
 }

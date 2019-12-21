@@ -242,10 +242,8 @@ char *Hacer_Read(char *path, size_t size, off_t offset){
 
 uint32_t Hacer_Release(char *path){ return 0; }
 
-uint64_t cantida_de_veces_que_escribi = 0;
 
-uint32_t Hacer_Write(char *path, char *buffer, off_t ya_escrito_del_buffer){
-	cantida_de_veces_que_escribi = cantida_de_veces_que_escribi + 1;
+uint32_t Hacer_Write(char *path, char *buffer, off_t ya_escrito_del_buffer,uint32_t size){
 	sem_wait(&mutex_bitmap);
 	uint32_t verificacion = buscar_espacio_en_bitmap();
 	if(verificacion == -1)
@@ -255,7 +253,7 @@ uint32_t Hacer_Write(char *path, char *buffer, off_t ya_escrito_del_buffer){
 		return -ENOSPC;
 	}
 	sem_post(&mutex_bitmap);
-	uint32_t tamanio_a_escribir = strlen(buffer) - ya_escrito_del_buffer;
+	uint32_t tamanio_a_escribir = size - ya_escrito_del_buffer;
 	uint32_t nodo = exite_path_retornando_nodo(path);
 	if(nodo == -1)
 		return -1;
@@ -290,11 +288,6 @@ uint32_t Hacer_Write(char *path, char *buffer, off_t ya_escrito_del_buffer){
 	Bloque_de_puntero *punteros_indirectos = inicio_de_disco + numero_de_bloque_de_puntero;
 	ptrGBloque numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto];
 	Bloque *bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
-	if(bloque_a_escribir == inicio_de_disco){
-				log_error(logger, "BOOM 0");
-				log_error(logger,"%llu", cantida_de_veces_que_escribi);
-				sleep(6969);
-			}
 
 	int espacio_que_tengo_libre_en_bloque = sizeof(Bloque) - desplazamiento;
 
@@ -302,7 +295,7 @@ uint32_t Hacer_Write(char *path, char *buffer, off_t ya_escrito_del_buffer){
 		memcpy(&(bloque_a_escribir->bytes[desplazamiento]), buffer + ya_escrito_del_buffer, tamanio_a_escribir);
 		ya_escrito_del_buffer = ya_escrito_del_buffer + tamanio_a_escribir;
 		tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + tamanio_a_escribir;
-		return strlen(buffer)+1;
+		return size+1;
 	}
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	memcpy(&(bloque_a_escribir->bytes[desplazamiento]), buffer  + ya_escrito_del_buffer , espacio_que_tengo_libre_en_bloque);
@@ -398,21 +391,11 @@ uint32_t Hacer_Write(char *path, char *buffer, off_t ya_escrito_del_buffer){
 			numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto + i +1];
 			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
 
-			if(bloque_a_escribir == inicio_de_disco){
-				log_error(logger, "BOOM 1");
-				log_error(logger,"%llu", cantida_de_veces_que_escribi);
-				sleep(6969);
-			}
 		}
 	}else{
 		for(int i = 0; i < cantidad_bloques_a_escribir_que_me_faltan;i = i+1){
 			numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto + i];
 			bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
-			if(bloque_a_escribir == inicio_de_disco){
-				log_error(logger, "BOOM 3");
-				log_error(logger,"%llu", cantida_de_veces_que_escribi);
-				sleep(6969);
-			}
 			memcpy(bloque_a_escribir, buffer  + ya_escrito_del_buffer,sizeof(Bloque));
 			ya_escrito_del_buffer = ya_escrito_del_buffer + sizeof(Bloque);
 			tamanio_a_escribir = tamanio_a_escribir + sizeof(Bloque);
@@ -440,16 +423,10 @@ uint32_t Hacer_Write(char *path, char *buffer, off_t ya_escrito_del_buffer){
 //		}
 		numero_de_bloque_a_escribir = punteros_indirectos->bloques_de_datos[puntero_indirecto];
 		bloque_a_escribir = inicio_de_disco + numero_de_bloque_a_escribir;
-		if(bloque_a_escribir == inicio_de_disco){
-			log_error(logger, "BOOM 2");
-			log_error(logger,"%llu", cantida_de_veces_que_escribi);
-			sleep(6969);
-		}
-		log_error(logger,"%llu", cantida_de_veces_que_escribi);
 		memcpy(&(bloque_a_escribir->bytes[0]), buffer  + ya_escrito_del_buffer, cantidad_dentro_que_falta_escribir);
 		ya_escrito_del_buffer = ya_escrito_del_buffer + cantidad_dentro_que_falta_escribir;
 		tabla_de_nodos->nodos[nodo].tamanio_del_archivo = tabla_de_nodos->nodos[nodo].tamanio_del_archivo + cantidad_dentro_que_falta_escribir;
-		return strlen(buffer)+1;
+		return size+1;
 	}
 
 	sem_wait(&mutex_bitmap);
@@ -477,7 +454,7 @@ uint32_t Hacer_Write(char *path, char *buffer, off_t ya_escrito_del_buffer){
 	puntero_indirecto = 0;
 	punteros_indirectos->bloques_de_datos[puntero_indirecto] = proximo_del_puntero;
 
-	return Hacer_Write(path, buffer, ya_escrito_del_buffer);
+	return Hacer_Write(path, buffer, ya_escrito_del_buffer, size-ya_escrito_del_buffer);
 }
 
 uint32_t Hacer_MKNod(char *path){
@@ -666,7 +643,7 @@ void argrandar_tamanio_de_path_a(char *path, uint32_t nuevo_tamanio){
 			memcpy(buffer+i,"@",1);
 		}
 		memcpy(buffer+100,"\0",1);
-		error = Hacer_Write(path, buffer, 0);
+		error = Hacer_Write(path, buffer, 0, strlen(buffer));
 		free(buffer);
 		tamAux = tamAux-100;
 		if(error == -ENOSPC){
@@ -678,7 +655,7 @@ void argrandar_tamanio_de_path_a(char *path, uint32_t nuevo_tamanio){
 		memcpy(buffer+i,"@",1);
 	}
 	memcpy(buffer+tamAux,"\0",1);
-	error = Hacer_Write(path, buffer, 0);
+	error = Hacer_Write(path, buffer, 0,strlen(buffer));
 	free(buffer);
 }
 
@@ -737,6 +714,9 @@ void achicar_tamanio_de_path_a(char *path, uint32_t nuevo_tamanio){
 	for(int j = 0; j < (1024 - puntero_indirecto) ; j = j+1){
 		numero_de_bloque_a_leer = punteros_indirectos->bloques_de_datos[puntero_indirecto+1+j];
 		bloque_a_leer = inicio_de_disco + numero_de_bloque_a_leer;
+		if(j==1024 - puntero_indirecto-1){
+			log_info(logger,"ACA");
+		}
 		for(int i = 0; i<4096; i = i+1){
 			bloque_a_leer->bytes[i] = '\0';
 		}
@@ -872,7 +852,7 @@ void* funcionMagica(int cliente){
 				log_error(logger, pathWrite);
 				log_info(logger, "me pidieron escribir: %s", bufWrite);
 				log_info(logger, "de tamanio: %i", sizeWrite);
-				uint32_t responseWrite = Hacer_Write(pathWrite, bufWrite, 0);
+				uint32_t responseWrite = Hacer_Write(pathWrite, bufWrite, 0,sizeWrite);
 				log_info(logger,"LE VOY A MANDAR %i", responseWrite);
 //				char *respuestaRead2 = Hacer_Read("/archivo",6, 0);
 //				log_error(logger, "lo que habia adentro es: %s", respuestaRead2);
@@ -1316,7 +1296,7 @@ int main(int argc, char *argv[]) {
 	log_info(logger, "sizeof(Tabla_de_nodos): %i", sizeof(Tabla_de_nodos));
 
 	t_config *archivo_de_configuracion = config_create("../../Sac.config");
-	char *puerto = config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
+	char *puerto = "9191";//config_get_string_value(archivo_de_configuracion, "LISTEN_PORT ");
 	log_info(logger, "p: %s",puerto);
 
 	//Inicializacion de semaforos

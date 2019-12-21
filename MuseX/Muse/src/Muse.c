@@ -355,15 +355,17 @@ uint32_t me_entro_en_mi_segmento(t_list *tabla_de_paginas_para_ese_segmento, boo
 				if(metadata->esta_libre && (metadata->tamanio > tamanio + sizeof(Heap_de_metadata_de_segmento))){
 					log_info(logger, "\n En if \n");
 					if(magic + tamanio + sizeof(Heap_de_metadata_de_segmento) <= page_size){
+						log_error(logger, ":::::::::::::::::ACA  4:::::::::::::::::::");
 						Heap_de_metadata_de_segmento * metadata_nueva = malloc(sizeof(Heap_de_metadata_de_segmento));
 						metadata_nueva->esta_libre = true;
+						uint32_t tamAnterior = metadata->tamanio;
 						metadata_nueva->tamanio = metadata->tamanio - tamanio - sizeof(Heap_de_metadata_de_segmento);
 
 						metadata->esta_libre = false;
 						metadata->tamanio = tamanio;
-
 						memcpy(seg + sizeof(Heap_de_metadata_de_segmento) + tamanio,metadata_nueva,sizeof(Heap_de_metadata_de_segmento));
-						return magic + sizeof(Heap_de_metadata_de_segmento);
+
+						return magic + sizeof(Heap_de_metadata_de_segmento) + tamAnterior + sizeof(Heap_de_metadata_de_segmento);
 					}else{
 						if(es_extensible_la_pagina){
 							int resta = page_size - magic;
@@ -452,11 +454,16 @@ uint32_t hacer_alloc(char* id,uint32_t tamanio){
 	}
 
 	for(int i = 0; i < list_size(segmentos); i= i+1){
+		log_error(logger, ":::::::::::::::::ACA:::::::::::::::::::");
 		Segmento* unSegmento = list_get(segmentos,i);
+
 		if(unSegmento->tipo_de_segmento == HEAP){
+
+			log_error(logger, ":::::::::::::::::ACA   2:::::::::::::::::::");
 			Elemento_de_mi_tabla_de_segmentos *tabla_que_son_de_un_segmento = buscar_en_tabla_de_segmentos_por_numeroSegmento(unproceso->tabla_de_segmentos,unSegmento->numero_de_segmento);
 			bool es_extensible = true;
 			if(i!=list_size(segmentos)-1){
+				log_error(logger, ":::::::::::::::::ACA   3:::::::::::::::::::");
 				Segmento* otroSegmento = list_get(segmentos,i+1);
 				Elemento_de_mi_tabla_de_segmentos *tabla_que_son_de_otro_segmento = buscar_en_tabla_de_segmentos_por_numeroSegmento(unproceso->tabla_de_segmentos,otroSegmento->numero_de_segmento);
 				es_extensible = es_extensible_a_comparacion_del_otro(tabla_que_son_de_un_segmento,tabla_que_son_de_otro_segmento,tamanio);

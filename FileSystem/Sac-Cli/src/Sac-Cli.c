@@ -163,7 +163,7 @@ static int fusesito_write(const char *path, const char *buf, size_t size, off_t 
 	sem_post(&mutex_buffer);
 	uint32_t response = Fuse_Unpack_Response_Uint32(pathRecibido);
 	free(pathRecibido);
-	return response;
+	return (response-1);
 }
 static int fusesito_mknod(const char *path, mode_t mode, dev_t dev){
 	log_info(logger, "Se llamo a fusesito_mknod\n");
