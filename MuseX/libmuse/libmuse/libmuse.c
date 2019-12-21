@@ -41,7 +41,20 @@ void muse_close(){
 }
 uint32_t muse_alloc(uint32_t tam){
 	Muse_PackAndSend_Alloc(conexion,id,strlen(id)+1,tam,m_ALLOC);
-    return 0;
+	HeaderMuse headerRecibido;
+	//sem_wait(&mutex_buffer);
+	headerRecibido = Muse_RecieveHeader(conexion);
+	log_info(logger, "Codigo de operacion: %i", headerRecibido.operaciones);
+	log_info(logger, "Tamanio: %i", headerRecibido.tamanioMensaje);
+	uint32_t tamPack = headerRecibido.tamanioMensaje;
+	void *packRecibido= Muse_ReceiveAndUnpack(conexion, tamPack);
+	//sem_post(&mutex_buffer);
+	uint32_t response = Muse_Unpack_Response_Uint32(packRecibido);
+
+	log_info(logger, "Alloc: %i", response);
+
+	free(packRecibido);
+	return response;
 }
 void muse_free(uint32_t dir){
 

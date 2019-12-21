@@ -47,6 +47,15 @@ void* Muse_PackAndSend_Alloc(int socketCliente, const void *path, uint32_t tamPa
 	free(buffer);
 	return resultado;
 }
+
+bool Muse_PackAndSend_Uint32_Response(int socketCliente, uint32_t response){
+	void* pack = malloc(sizeof(uint32_t));
+	memcpy(pack, &response, sizeof(uint32_t));
+	int resultado = Muse_PackAndSend(socketCliente, pack, sizeof(uint32_t), m_RESPONSE);
+	free(pack);
+	return resultado;
+}
+
 ////////////////////////////
 // FUNCIONES PARA RECIBIR //
 ////////////////////////////
@@ -77,5 +86,10 @@ void* Muse_ReceiveAndUnpack(int socketCliente, uint32_t tamanio) {
 	return retorno;
 }
 
+uint32_t Muse_Unpack_Response_Uint32(void *pack) {
+	uint32_t response = 0;
+	memcpy(&response, pack, sizeof(uint32_t));
+	return response;
+}
 
 

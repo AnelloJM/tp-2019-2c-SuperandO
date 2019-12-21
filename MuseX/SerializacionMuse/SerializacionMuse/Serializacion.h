@@ -36,6 +36,7 @@ typedef enum m_operaciones {
 	m_MAP,
 	m_SYNC,
 	m_UNMAP,
+	m_RESPONSE,
 	m_HANDSHAKE,
 } m_operacion;
 
